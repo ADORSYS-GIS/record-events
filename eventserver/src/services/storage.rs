@@ -428,7 +428,7 @@ mod tests {
         let result = service.store_event(&event_package, hash).await;
 
         assert!(result.is_ok());
-        println!("{:?}", result);
+        println!("{result:?}");
         let location = result.unwrap();
         assert!(location.contains("s3"));
         assert!(location.contains("test-bucket"));
