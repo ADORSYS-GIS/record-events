@@ -84,38 +84,3 @@ jobs:
           cargo install cargo-audit --locked
           cargo audit
 
-  prettier-check:
-    name: Prettier Check (No Backend)
-    needs: detect
-    if: ${{ needs.detect.outputs.has_backend == 'false' }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22.x
-          cache: 'npm'
-
-      - name: Install dependencies if lockfile exists
-        shell: bash
-        run: |
-          if [[ -f package-lock.json ]]; then
-            npm ci
-          elif [[ -f package.json ]]; then
-            npm i
-          else
-            npm i --no-save prettier@3.6.2
-          fi
-
-      - name: Ensure Prettier is available
-        shell: bash
-        run: |
-          if ! npx --yes --package prettier@3.6.2 -- prettier --version >/dev/null 2>&1; then
-            npm i --no-save prettier@3.6.2
-          fi
-
-      - name: Prettier format check
-        run: npx --yes prettier@3.6.2 . --check
