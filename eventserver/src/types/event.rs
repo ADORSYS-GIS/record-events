@@ -1,5 +1,5 @@
-use serde::{Deserialize, Serialize};
 use chrono::{DateTime, Utc};
+use serde::{Deserialize, Serialize};
 use uuid::Uuid;
 
 /// Supported field value types - matches TypeScript FieldValue
@@ -125,7 +125,7 @@ impl EventPackage {
         // Validate annotations
         for (index, annotation) in self.annotations.iter().enumerate() {
             if annotation.label_id.is_empty() {
-                errors.push(format!("Annotation {} must have a label_id", index));
+                errors.push(format!("Annotation {index} must have a label_id"));
             }
         }
 
@@ -195,7 +195,7 @@ mod tests {
         let event_package = EventPackage {
             id: Uuid::new_v4(),
             version: "".to_string(), // Invalid: empty version
-            annotations: vec![], // Invalid: no annotations
+            annotations: vec![],     // Invalid: no annotations
             media: None,
             metadata: EventMetadata {
                 created_at: Utc::now(),
@@ -213,10 +213,14 @@ mod tests {
     fn test_event_payload_deserialization() {
         // Test with the sample payload from the issue description
         let json_payload = r#"{"filename":"event-6d3eb395-496a-453a-a15d-f35798925baa.zip","contentType":"application/zip"}"#;
-        
-        let payload: EventPayload = serde_json::from_str(json_payload).expect("Failed to deserialize EventPayload");
-        
-        assert_eq!(payload.filename, "event-6d3eb395-496a-453a-a15d-f35798925baa.zip");
+
+        let payload: EventPayload =
+            serde_json::from_str(json_payload).expect("Failed to deserialize EventPayload");
+
+        assert_eq!(
+            payload.filename,
+            "event-6d3eb395-496a-453a-a15d-f35798925baa.zip"
+        );
         assert_eq!(payload.content_type, "application/zip");
     }
 
@@ -226,10 +230,10 @@ mod tests {
             filename: "test-file.zip".to_string(),
             content_type: "application/zip".to_string(),
         };
-        
+
         let json = serde_json::to_string(&payload).expect("Failed to serialize EventPayload");
         let expected = r#"{"filename":"test-file.zip","contentType":"application/zip"}"#;
-        
+
         assert_eq!(json, expected);
     }
 }

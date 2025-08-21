@@ -1,9 +1,10 @@
-use serde::{Deserialize, Serialize};
 use chrono::{DateTime, Utc};
+use serde::{Deserialize, Serialize};
 use uuid::Uuid;
 
 /// Standard API response wrapper
 #[derive(Debug, Serialize)]
+#[allow(dead_code)]
 pub struct ApiResponse<T> {
     pub success: bool,
     pub data: Option<T>,
@@ -11,6 +12,7 @@ pub struct ApiResponse<T> {
     pub timestamp: DateTime<Utc>,
 }
 
+#[allow(dead_code)]
 impl<T> ApiResponse<T> {
     pub fn success(data: T) -> Self {
         Self {
@@ -33,6 +35,7 @@ impl<T> ApiResponse<T> {
 
 /// Response for successful event processing
 #[derive(Debug, Serialize)]
+#[allow(dead_code)]
 #[serde(rename_all = "camelCase")]
 pub struct EventResponse {
     pub event_id: Uuid,
@@ -91,6 +94,7 @@ pub struct ValidationErrorResponse {
 
 /// Pagination parameters for list endpoints
 #[derive(Debug, Deserialize)]
+#[allow(dead_code)]
 pub struct PaginationParams {
     pub page: Option<u32>,
     pub limit: Option<u32>,
@@ -140,6 +144,7 @@ pub struct AuthChallenge {
 
 /// PoW solution submission
 #[derive(Debug, Deserialize)]
+#[allow(dead_code)]
 pub struct PowSolution {
     pub challenge: String,
     pub nonce: u64,
@@ -173,6 +178,7 @@ impl HealthResponse {
     }
 }
 
+#[allow(dead_code)]
 impl PaginationInfo {
     pub fn new(page: u32, limit: u32, total: u64) -> Self {
         let pages = ((total as f64) / (limit as f64)).ceil() as u32;

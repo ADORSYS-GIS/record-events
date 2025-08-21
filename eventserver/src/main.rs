@@ -1,20 +1,17 @@
-use axum::{
-    routing::get,
-    Router,
-};
+use axum::{routing::get, Router};
 use tower_http::{cors::CorsLayer, trace::TraceLayer};
 use tracing_subscriber::{layer::SubscriberExt, util::SubscriberInitExt};
 
-mod controllers;
-mod services;
-mod types;
 mod config;
+mod controllers;
 mod error;
+mod services;
 mod state;
+mod types;
 
 use crate::config::AppConfig;
+use crate::services::{EventService, StorageService};
 use crate::state::AppState;
-use crate::services::{EventService, StorageService, RelayService};
 
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
@@ -34,10 +31,9 @@ async fn main() -> anyhow::Result<()> {
     // Initialize services
     let storage_service = StorageService::new(config.storage.clone()).await?;
     let event_service = EventService::new(storage_service.clone());
-    let relay_service = RelayService::new(config.clone());
-    
+
     // Create application state
-    let app_state = AppState::new(event_service, relay_service, storage_service);
+    let app_state = AppState::new(event_service, storage_service);
 
     // Build application router
     let app = Router::new()
@@ -50,17 +46,18 @@ async fn main() -> anyhow::Result<()> {
     // Start server
     let bind_address = format!("{}:{}", config.server.host, config.server.port);
     let listener = tokio::net::TcpListener::bind(&bind_address).await?;
-    
+
     tracing::info!("EventServer listening on {}", listener.local_addr()?);
-    tracing::info!("Server started successfully - Stateless EventServer v{}", env!("CARGO_PKG_VERSION"));
-    
+    tracing::info!(
+        "Server started successfully - Stateless EventServer v{}",
+        env!("CARGO_PKG_VERSION")
+    );
+
     axum::serve(listener, app).await?;
 
     Ok(())
 }
 
 fn api_routes() -> Router<AppState> {
-    Router::new()
-        .merge(controllers::event::routes())
-        .merge(controllers::relay::routes())
+    Router::new().merge(controllers::event::routes())
 }

@@ -3,15 +3,15 @@ use serde::{Deserialize, Serialize};
 /// S3-compatible storage configuration
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct StorageConfig {
-    pub endpoint: Option<String>,     // Custom S3 endpoint (for MinIO, etc.)
+    pub endpoint: Option<String>, // Custom S3 endpoint (for MinIO, etc.)
     pub region: String,
     pub bucket: String,
     pub access_key_id: String,
     pub secret_access_key: String,
-    pub use_path_style: bool,         // For MinIO compatibility
+    pub use_path_style: bool, // For MinIO compatibility
     pub enable_ssl: bool,
-    pub upload_timeout: u64,          // seconds
-    pub max_file_size: u64,           // bytes
+    pub upload_timeout: u64, // seconds
+    pub max_file_size: u64,  // bytes
     pub allowed_mime_types: Vec<String>,
 }
 
@@ -25,7 +25,7 @@ impl Default for StorageConfig {
             secret_access_key: String::new(), // Must be set via environment
             use_path_style: false,
             enable_ssl: true,
-            upload_timeout: 300, // 5 minutes
+            upload_timeout: 300,              // 5 minutes
             max_file_size: 100 * 1024 * 1024, // 100MB
             allowed_mime_types: vec![
                 "image/jpeg".to_string(),
@@ -39,7 +39,7 @@ impl Default for StorageConfig {
 
 impl StorageConfig {
     /// Validate storage configuration
-    pub fn validate(&self) -> Result<(), String> {
+    pub fn _validate(&self) -> Result<(), String> {
         if self.bucket.is_empty() {
             return Err("Storage bucket name is required".to_string());
         }
@@ -68,17 +68,17 @@ impl StorageConfig {
     }
 
     /// Get the effective endpoint URL
-    pub fn effective_endpoint(&self) -> Option<String> {
+    pub fn _effective_endpoint(&self) -> Option<String> {
         self.endpoint.clone()
     }
 
     /// Check if a MIME type is allowed
-    pub fn is_mime_type_allowed(&self, mime_type: &str) -> bool {
+    pub fn _is_mime_type_allowed(&self, mime_type: &str) -> bool {
         self.allowed_mime_types.contains(&mime_type.to_string())
     }
 
     /// Get the maximum file size in a human-readable format
-    pub fn max_file_size_human(&self) -> String {
+    pub fn _max_file_size_human(&self) -> String {
         let size = self.max_file_size as f64;
         if size >= 1024.0 * 1024.0 * 1024.0 {
             format!("{:.1} GB", size / (1024.0 * 1024.0 * 1024.0))
@@ -87,7 +87,7 @@ impl StorageConfig {
         } else if size >= 1024.0 {
             format!("{:.1} KB", size / 1024.0)
         } else {
-            format!("{} bytes", size)
+            format!("{size} bytes")
         }
     }
 
@@ -104,7 +104,12 @@ impl StorageConfig {
     }
 
     /// Generate object key for media storage
-    pub fn generate_media_key(&self, event_hash: &str, media_hash: &str, file_extension: &str) -> String {
+    pub fn _generate_media_key(
+        &self,
+        event_hash: &str,
+        media_hash: &str,
+        file_extension: &str,
+    ) -> String {
         let now = chrono::Utc::now();
         format!(
             "media/{}/{}/{}/{}.{}",

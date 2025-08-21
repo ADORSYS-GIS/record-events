@@ -1,11 +1,11 @@
-use std::io::{Cursor, Write};
-use zip::{ZipWriter, write::FileOptions, CompressionMethod};
-use base64::{Engine as _, engine::general_purpose};
+use base64::{engine::general_purpose, Engine as _};
 use chrono::Utc;
-use tracing::{info, warn, error};
+use std::io::{Cursor, Write};
+use tracing::{info, warn};
+use zip::{write::FileOptions, CompressionMethod, ZipWriter};
 
-use crate::types::event::{EventPackage, EventMedia};
 use crate::error::EventServerError;
+use crate::types::event::{EventMedia, EventPackage};
 
 /// Service for creating ZIP packages from EventPackage objects
 pub struct ZipPackager;
@@ -39,28 +39,46 @@ impl ZipPackager {
                 "hasMedia": event_package.media.is_some()
             });
 
-            zip.start_file("metadata.json", file_options)
-                .map_err(|e| EventServerError::Storage(format!("Failed to create metadata.json: {}", e)))?;
-            
-            zip.write_all(serde_json::to_string_pretty(&metadata)
-                .map_err(|e| EventServerError::Storage(format!("Failed to serialize metadata: {}", e)))?
-                .as_bytes())
-                .map_err(|e| EventServerError::Storage(format!("Failed to write metadata: {}", e)))?;
+            zip.start_file("metadata.json", file_options).map_err(|e| {
+                EventServerError::Storage(format!("Failed to create metadata.json: {e}"))
+            })?;
+
+            zip.write_all(
+                serde_json::to_string_pretty(&metadata)
+                    .map_err(|e| {
+                        EventServerError::Storage(format!("Failed to serialize metadata: {e}"))
+                    })?
+                    .as_bytes(),
+            )
+            .map_err(|e| EventServerError::Storage(format!("Failed to write metadata: {e}")))?;
         }
 
         // Add annotations as JSON file
         zip.start_file("annotations.json", file_options)
-            .map_err(|e| EventServerError::Storage(format!("Failed to create annotations.json: {}", e)))?;
-        
-        zip.write_all(serde_json::to_string_pretty(&event_package.annotations)
-            .map_err(|e| EventServerError::Storage(format!("Failed to serialize annotations: {}", e)))?
-            .as_bytes())
-            .map_err(|e| EventServerError::Storage(format!("Failed to write annotations: {}", e)))?;
+            .map_err(|e| {
+                EventServerError::Storage(format!("Failed to create annotations.json: {e}"))
+            })?;
+
+        zip.write_all(
+            serde_json::to_string_pretty(&event_package.annotations)
+                .map_err(|e| {
+                    EventServerError::Storage(format!("Failed to serialize annotations: {e}"))
+                })?
+                .as_bytes(),
+        )
+        .map_err(|e| EventServerError::Storage(format!("Failed to write annotations: {e}")))?;
 
         // Add media file if available and requested
         if options.include_media {
             if let Some(media) = &event_package.media {
-                match Self::add_media_to_zip(&mut zip, media, file_options, options.include_metadata).await {
+                match Self::add_media_to_zip(
+                    &mut zip,
+                    media,
+                    file_options,
+                    options.include_metadata,
+                )
+                .await
+                {
                     Ok(_) => info!("Successfully added media to ZIP"),
                     Err(e) => {
                         warn!("Failed to add media to ZIP: {}", e);
@@ -71,12 +89,13 @@ impl ZipPackager {
         }
 
         // Finalize the ZIP file and get the buffer back
-        let cursor = zip.finish()
-            .map_err(|e| EventServerError::Storage(format!("Failed to finalize ZIP: {}", e)))?;
-        
+        let cursor = zip
+            .finish()
+            .map_err(|e| EventServerError::Storage(format!("Failed to finalize ZIP: {e}")))?;
+
         let zip_buffer = cursor.into_inner().clone();
         let zip_size = zip_buffer.len();
-        
+
         info!(
             event_id = %event_package.id,
             zip_size = zip_size,
@@ -95,17 +114,17 @@ impl ZipPackager {
     ) -> Result<(), EventServerError> {
         // Decode base64 media data
         let media_data = Self::decode_base64_media(&media.data)?;
-        
+
         // Get file extension from media type
-        let extension = Self::get_file_extension(&media.media_type.as_str());
-        let filename = format!("media.{}", extension);
+        let extension = Self::get_file_extension(media.media_type.as_str());
+        let filename = format!("media.{extension}");
 
         // Add the media file
         zip.start_file(&filename, file_options)
-            .map_err(|e| EventServerError::Storage(format!("Failed to create media file: {}", e)))?;
-        
+            .map_err(|e| EventServerError::Storage(format!("Failed to create media file: {e}")))?;
+
         zip.write_all(&media_data)
-            .map_err(|e| EventServerError::Storage(format!("Failed to write media data: {}", e)))?;
+            .map_err(|e| EventServerError::Storage(format!("Failed to write media data: {e}")))?;
 
         // Add media metadata if requested
         if include_metadata {
@@ -114,17 +133,27 @@ impl ZipPackager {
                 "type": media.media_type.as_str(),
                 "size": media.size,
                 "lastModified": chrono::DateTime::from_timestamp_millis(media.last_modified as i64)
-                    .unwrap_or_else(|| Utc::now())
+                    .unwrap_or_else(Utc::now)
                     .to_rfc3339()
             });
 
             zip.start_file("media_metadata.json", file_options)
-                .map_err(|e| EventServerError::Storage(format!("Failed to create media_metadata.json: {}", e)))?;
-            
-            zip.write_all(serde_json::to_string_pretty(&media_metadata)
-                .map_err(|e| EventServerError::Storage(format!("Failed to serialize media metadata: {}", e)))?
-                .as_bytes())
-                .map_err(|e| EventServerError::Storage(format!("Failed to write media metadata: {}", e)))?;
+                .map_err(|e| {
+                    EventServerError::Storage(format!("Failed to create media_metadata.json: {e}"))
+                })?;
+
+            zip.write_all(
+                serde_json::to_string_pretty(&media_metadata)
+                    .map_err(|e| {
+                        EventServerError::Storage(format!(
+                            "Failed to serialize media metadata: {e}"
+                        ))
+                    })?
+                    .as_bytes(),
+            )
+            .map_err(|e| {
+                EventServerError::Storage(format!("Failed to write media metadata: {e}"))
+            })?;
         }
 
         Ok(())
@@ -141,7 +170,7 @@ impl ZipPackager {
 
         general_purpose::STANDARD
             .decode(clean_base64)
-            .map_err(|e| EventServerError::Storage(format!("Failed to decode base64 media: {}", e)))
+            .map_err(|e| EventServerError::Storage(format!("Failed to decode base64 media: {e}")))
     }
 
     /// Extract file extension from MIME type
@@ -180,7 +209,7 @@ impl Default for ZipPackageOptions {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::types::event::{EventAnnotation, EventMetadata, EventSource, FieldValue, MediaType};
+    use crate::types::event::{EventAnnotation, EventMetadata, EventSource, FieldValue};
     use uuid::Uuid;
 
     #[tokio::test]
@@ -203,7 +232,7 @@ mod tests {
 
         let options = ZipPackageOptions::default();
         let zip_data = ZipPackager::create_zip_from_event_package(&event_package, options).await;
-        
+
         assert!(zip_data.is_ok());
         let zip_bytes = zip_data.unwrap();
         assert!(!zip_bytes.is_empty());

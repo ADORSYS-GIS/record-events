@@ -1,5 +1,5 @@
-use serde::{Deserialize, Serialize};
 use chrono::{DateTime, Utc};
+use serde::{Deserialize, Serialize};
 
 /// Legacy relay authentication information (kept for compatibility)
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -13,6 +13,7 @@ pub struct RelayAuthInfo {
 }
 
 /// Configuration for provisioning new relays
+#[allow(dead_code)]
 #[derive(Debug, Deserialize)]
 pub struct RelayConfig {
     pub region: String,
@@ -22,6 +23,7 @@ pub struct RelayConfig {
 
 /// Network configuration for relay instances
 #[derive(Debug, Deserialize)]
+#[allow(dead_code)]
 pub struct NetworkConfig {
     pub vpc_id: Option<String>,
     pub subnet_id: Option<String>,
@@ -40,6 +42,7 @@ pub struct RelayProvisionResult {
 
 /// Relay registration request from EventAdminApp
 #[derive(Debug, Deserialize)]
+#[allow(dead_code)]
 #[serde(rename_all = "camelCase")]
 pub struct RelayRegistrationRequest {
     pub network_address: String,
@@ -78,6 +81,7 @@ pub enum RelayStatus {
 
 /// Request for provisioning a new relay instance
 #[derive(Debug, Deserialize)]
+#[allow(dead_code)]
 #[serde(rename_all = "camelCase")]
 pub struct ProvisionRequest {
     pub region: String,
@@ -111,12 +115,12 @@ pub struct RelayInfo {
 
 impl RelayInfo {
     /// Check if the relay is currently active
-    pub fn is_active(&self) -> bool {
+    pub fn _is_active(&self) -> bool {
         matches!(self.status, RelayStatus::Active)
     }
 
     /// Check if the relay needs a health check
-    pub fn needs_health_check(&self) -> bool {
+    pub fn _needs_health_check(&self) -> bool {
         match self.last_health_check {
             Some(last_check) => {
                 let now = Utc::now();

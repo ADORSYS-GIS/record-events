@@ -1,7 +1,7 @@
 pub mod storage;
 
-use serde::{Deserialize, Serialize};
 use config::{Config, ConfigError, Environment, File};
+use serde::{Deserialize, Serialize};
 use std::env;
 
 /// Main application configuration
@@ -22,7 +22,6 @@ pub struct ServerConfig {
     pub max_connections: Option<u32>,
     pub request_timeout: Option<u64>, // seconds
 }
-
 
 /// Security configuration
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -54,26 +53,21 @@ impl AppConfig {
             .set_default("server.workers", 4)?
             .set_default("server.max_connections", 1000)?
             .set_default("server.request_timeout", 30)?
-            
             // Security defaults
             .set_default("security.certificate_validity_hours", 24)?
             .set_default("security.rate_limit_per_minute", 100)?
             .set_default("security.pow_difficulty", 4)?
             .set_default("security.allowed_origins", vec!["*"])?
-            
             // Logging defaults
             .set_default("logging.level", "info")?
             .set_default("logging.format", "pretty")?
-            
             // Storage defaults
             .set_default("storage.region", "us-east-1")?
             .set_default("storage.bucket", "eventserver-storage")?
-            
             // Load from config file if it exists
             .add_source(File::with_name("config/default").required(false))
-            .add_source(File::with_name(&format!("config/{}", run_mode)).required(false))
+            .add_source(File::with_name(&format!("config/{run_mode}")).required(false))
             .add_source(File::with_name("config/local").required(false))
-            
             // Override with environment variables
             .add_source(Environment::with_prefix("EVENTSERVER").separator("__"))
             .build()?;
@@ -112,22 +106,21 @@ impl AppConfig {
             }
         }
 
-
         Ok(())
     }
 
     /// Get the bind address for the server
-    pub fn bind_address(&self) -> String {
+    pub fn _bind_address(&self) -> String {
         format!("{}:{}", self.server.host, self.server.port)
     }
 
     /// Check if running in development mode
-    pub fn is_development(&self) -> bool {
+    pub fn _is_development(&self) -> bool {
         env::var("RUN_MODE").unwrap_or_else(|_| "development".into()) == "development"
     }
 
     /// Check if running in production mode
-    pub fn is_production(&self) -> bool {
+    pub fn _is_production(&self) -> bool {
         env::var("RUN_MODE").unwrap_or_else(|_| "development".into()) == "production"
     }
 }

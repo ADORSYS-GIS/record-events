@@ -5,14 +5,12 @@ use axum::{
     routing::{get, post},
     Router,
 };
-use tracing::{info, warn, error};
+use tracing::{error, info, warn};
 
-use crate::services::{EventService, StorageService};
-use crate::services::zip_packager::{ZipPackager, ZipPackageOptions};
-use crate::types::event::{EventPackage, EventPayload, ProcessingResult};
-use crate::config::AppConfig;
 use crate::error::EventServerError;
+use crate::services::zip_packager::{ZipPackageOptions, ZipPackager};
 use crate::state::AppState;
+use crate::types::event::{EventPackage, EventPayload, ProcessingResult};
 
 /// Create event-related routes
 pub fn routes() -> Router<AppState> {
@@ -38,7 +36,11 @@ async fn receive_event(
     // For now, using a placeholder
     let relay_id = "authenticated_relay_id".to_string();
 
-    match state.event_service.process_event(event_package, relay_id).await {
+    match state
+        .event_service
+        .process_event(event_package, relay_id)
+        .await
+    {
         Ok(result) => {
             info!(
                 event_id = %result.event_id,
@@ -53,18 +55,24 @@ async fn receive_event(
         }
         Err(EventServerError::Storage(msg)) => {
             error!(error = %msg, "Storage error during event processing");
-            Err((StatusCode::INTERNAL_SERVER_ERROR, "Storage error".to_string()))
+            Err((
+                StatusCode::INTERNAL_SERVER_ERROR,
+                "Storage error".to_string(),
+            ))
         }
         Err(e) => {
             error!(error = %e, "Unexpected error during event processing");
-            Err((StatusCode::INTERNAL_SERVER_ERROR, "Internal server error".to_string()))
+            Err((
+                StatusCode::INTERNAL_SERVER_ERROR,
+                "Internal server error".to_string(),
+            ))
         }
     }
 }
 
 /// Receive and process a simple event upload notification from frontend
 async fn receive_event_upload(
-    State(state): State<AppState>,
+    State(_state): State<AppState>,
     Json(event_payload): Json<EventPayload>,
 ) -> Result<Json<serde_json::Value>, (StatusCode, String)> {
     info!(
@@ -76,12 +84,18 @@ async fn receive_event_upload(
     // Basic validation
     if event_payload.filename.is_empty() {
         warn!("Empty filename in event payload");
-        return Err((StatusCode::BAD_REQUEST, "Filename cannot be empty".to_string()));
+        return Err((
+            StatusCode::BAD_REQUEST,
+            "Filename cannot be empty".to_string(),
+        ));
     }
 
     if event_payload.content_type.is_empty() {
         warn!("Empty content type in event payload");
-        return Err((StatusCode::BAD_REQUEST, "Content type cannot be empty".to_string()));
+        return Err((
+            StatusCode::BAD_REQUEST,
+            "Content type cannot be empty".to_string(),
+        ));
     }
 
     // For now, just acknowledge receipt and return success
@@ -125,29 +139,34 @@ async fn receive_event_package(
         );
         return Err((
             StatusCode::BAD_REQUEST,
-            format!("Invalid event package: {}", validation.errors.join(", "))
+            format!("Invalid event package: {}", validation.errors.join(", ")),
         ));
     }
 
     // Create ZIP file from EventPackage
     let zip_options = ZipPackageOptions::default();
-    let zip_data = match ZipPackager::create_zip_from_event_package(&event_package, zip_options).await {
-        Ok(data) => data,
-        Err(e) => {
-            error!(
-                event_id = %event_package.id,
-                error = %e,
-                "Failed to create ZIP package"
-            );
-            return Err((
-                StatusCode::INTERNAL_SERVER_ERROR,
-                "Failed to create ZIP package".to_string()
-            ));
-        }
-    };
+    let zip_data =
+        match ZipPackager::create_zip_from_event_package(&event_package, zip_options).await {
+            Ok(data) => data,
+            Err(e) => {
+                error!(
+                    event_id = %event_package.id,
+                    error = %e,
+                    "Failed to create ZIP package"
+                );
+                return Err((
+                    StatusCode::INTERNAL_SERVER_ERROR,
+                    "Failed to create ZIP package".to_string(),
+                ));
+            }
+        };
 
     // Upload ZIP file to S3
-    let storage_location = match state.storage_service.upload_zip_file(&event_package, &zip_data).await {
+    let storage_location = match state
+        .storage_service
+        .upload_zip_file(&event_package, &zip_data)
+        .await
+    {
         Ok(location) => location,
         Err(e) => {
             error!(
@@ -157,7 +176,7 @@ async fn receive_event_package(
             );
             return Err((
                 StatusCode::INTERNAL_SERVER_ERROR,
-                "Failed to upload to storage".to_string()
+                "Failed to upload to storage".to_string(),
             ));
         }
     };
@@ -217,7 +236,10 @@ async fn verify_event_hash(
         }
         Err(e) => {
             error!(hash = %hash, error = %e, "Unexpected error during verification");
-            Err((StatusCode::INTERNAL_SERVER_ERROR, "Internal server error".to_string()))
+            Err((
+                StatusCode::INTERNAL_SERVER_ERROR,
+                "Internal server error".to_string(),
+            ))
         }
     }
 }

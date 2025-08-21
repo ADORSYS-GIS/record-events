@@ -5,12 +5,11 @@ use axum::{
     routing::{get, post},
     Router,
 };
-use tracing::{info, warn, error};
+use tracing::{error, info, warn};
 
-use crate::services::RelayService;
-use crate::types::relay::{ProvisionRequest, ProvisionResult, RelayInfo};
 use crate::error::EventServerError;
 use crate::state::AppState;
+use crate::types::relay::{ProvisionRequest, ProvisionResult, RelayInfo};
 
 /// Create relay-related routes
 pub fn routes() -> Router<AppState> {
@@ -48,11 +47,17 @@ async fn provision_relay(
         }
         Err(EventServerError::Config(msg)) => {
             error!(error = %msg, "Configuration error during relay provisioning");
-            Err((StatusCode::INTERNAL_SERVER_ERROR, "Configuration error".to_string()))
+            Err((
+                StatusCode::INTERNAL_SERVER_ERROR,
+                "Configuration error".to_string(),
+            ))
         }
         Err(e) => {
             error!(error = %e, "Unexpected error during relay provisioning");
-            Err((StatusCode::INTERNAL_SERVER_ERROR, "Internal server error".to_string()))
+            Err((
+                StatusCode::INTERNAL_SERVER_ERROR,
+                "Internal server error".to_string(),
+            ))
         }
     }
 }
@@ -74,7 +79,10 @@ async fn list_relays(
         }
         Err(e) => {
             error!(error = %e, "Error retrieving relay list");
-            Err((StatusCode::INTERNAL_SERVER_ERROR, "Failed to retrieve relay list".to_string()))
+            Err((
+                StatusCode::INTERNAL_SERVER_ERROR,
+                "Failed to retrieve relay list".to_string(),
+            ))
         }
     }
 }
@@ -110,7 +118,10 @@ async fn check_relay_health(
         }
         Err(e) => {
             error!(relay_id = %relay_id, error = %e, "Error checking relay health");
-            Err((StatusCode::INTERNAL_SERVER_ERROR, "Health check failed".to_string()))
+            Err((
+                StatusCode::INTERNAL_SERVER_ERROR,
+                "Health check failed".to_string(),
+            ))
         }
     }
 }
@@ -135,7 +146,10 @@ async fn get_network_stats(
         }
         Err(e) => {
             error!(error = %e, "Error retrieving network statistics");
-            Err((StatusCode::INTERNAL_SERVER_ERROR, "Failed to retrieve statistics".to_string()))
+            Err((
+                StatusCode::INTERNAL_SERVER_ERROR,
+                "Failed to retrieve statistics".to_string(),
+            ))
         }
     }
 }

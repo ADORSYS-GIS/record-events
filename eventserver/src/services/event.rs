@@ -1,12 +1,10 @@
-use std::collections::HashMap;
 use chrono::Utc;
 use sha2::{Digest, Sha256};
-use uuid::Uuid;
-use tracing::{info, warn, error};
+use tracing::{info, warn};
 
-use crate::types::event::{EventPackage, ProcessingResult, ValidationResult};
-use crate::services::StorageService;
 use crate::error::EventServerError;
+use crate::services::StorageService;
+use crate::types::event::{EventPackage, ProcessingResult};
 
 /// Stateless event processing service
 /// Each request is processed independently without maintaining any state
@@ -18,9 +16,7 @@ pub struct EventService {
 impl EventService {
     /// Create a new EventService instance
     pub fn new(storage: StorageService) -> Self {
-        Self {
-            storage,
-        }
+        Self { storage }
     }
 
     /// Process an event package from a relay
@@ -56,7 +52,10 @@ impl EventService {
         );
 
         // Step 3: Store event in S3-compatible storage
-        let storage_location = self.storage.store_event(&event_package, &event_hash).await?;
+        let storage_location = self
+            .storage
+            .store_event(&event_package, &event_hash)
+            .await?;
         info!(
             event_id = %event_package.id,
             location = %storage_location,
@@ -85,7 +84,7 @@ impl EventService {
         info!(hash = %hash, "Verifying event hash in storage");
 
         let exists = self.storage.event_exists(hash).await?;
-        
+
         if exists {
             info!(hash = %hash, "Hash verified successfully in storage");
         } else {
@@ -97,21 +96,25 @@ impl EventService {
 
     /// Generate a cryptographic hash for the event
     /// Uses SHA-256 for consistency and security
-    fn generate_event_hash(&self, event_package: &EventPackage) -> Result<String, EventServerError> {
+    fn generate_event_hash(
+        &self,
+        event_package: &EventPackage,
+    ) -> Result<String, EventServerError> {
         let hash_input = event_package.create_hash_input();
-        let hash_string = serde_json::to_string(&hash_input)
-            .map_err(|e| EventServerError::EventProcessing(format!("Failed to serialize event for hashing: {}", e)))?;
+        let hash_string = serde_json::to_string(&hash_input).map_err(|e| {
+            EventServerError::EventProcessing(format!("Failed to serialize event for hashing: {e}"))
+        })?;
 
         let mut hasher = Sha256::new();
         hasher.update(hash_string.as_bytes());
         let result = hasher.finalize();
 
-        Ok(format!("{:x}", result))
+        Ok(format!("{result:x}"))
     }
 
     /// Get event statistics (for monitoring purposes)
     /// This is stateless - queries external systems for current state
-    pub async fn get_event_stats(&self) -> Result<EventStats, EventServerError> {
+    pub async fn _get_event_stats(&self) -> Result<EventStats, EventServerError> {
         // This would typically query storage for current stats
         // For now, return basic stats structure
         Ok(EventStats {
@@ -132,6 +135,7 @@ pub struct EventStats {
 mod tests {
     use super::*;
     use crate::types::event::{EventAnnotation, EventMetadata, EventSource, FieldValue};
+    use uuid::Uuid;
 
     #[tokio::test]
     async fn test_generate_event_hash() {
@@ -171,11 +175,15 @@ mod tests {
             annotations: vec![EventAnnotation {
                 label_id: "test_label".to_string(),
                 value: FieldValue::String("test_value".to_string()),
-                timestamp: chrono::DateTime::parse_from_rfc3339("2023-01-01T00:00:00Z").unwrap().with_timezone(&Utc),
+                timestamp: chrono::DateTime::parse_from_rfc3339("2023-01-01T00:00:00Z")
+                    .unwrap()
+                    .with_timezone(&Utc),
             }],
             media: None,
             metadata: EventMetadata {
-                created_at: chrono::DateTime::parse_from_rfc3339("2023-01-01T00:00:00Z").unwrap().with_timezone(&Utc),
+                created_at: chrono::DateTime::parse_from_rfc3339("2023-01-01T00:00:00Z")
+                    .unwrap()
+                    .with_timezone(&Utc),
                 created_by: Some("test_user".to_string()),
                 source: EventSource::Web,
             },
@@ -183,7 +191,7 @@ mod tests {
 
         let hash1 = service.generate_event_hash(&event_package).unwrap();
         let hash2 = service.generate_event_hash(&event_package).unwrap();
-        
+
         // Same input should produce same hash (deterministic)
         assert_eq!(hash1, hash2);
     }

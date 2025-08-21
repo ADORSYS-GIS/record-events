@@ -51,6 +51,7 @@ jsonwebtoken = "9.0"
 mime = "0.3"
 bytes = "1.0"
 zip = "0.6"
+async-trait = "0.1.89"
 
 [dev-dependencies]
 tokio-test = "0.4"

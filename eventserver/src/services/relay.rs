@@ -1,21 +1,21 @@
-use std::collections::HashMap;
 use chrono::{DateTime, Utc};
-use tracing::{info, warn, error};
+use tracing::info;
 use uuid::Uuid;
 
-use crate::types::relay::{RelayInfo, RelayStatus, ProvisionRequest, ProvisionResult};
 use crate::config::AppConfig;
 use crate::error::EventServerError;
+use crate::types::relay::{ProvisionRequest, ProvisionResult, RelayInfo, RelayStatus};
 
 /// Stateless relay management service
 /// Handles relay provisioning and management without maintaining local state
 #[derive(Clone)]
+#[allow(dead_code)]
 pub struct RelayService {
     config: AppConfig,
     // In a real implementation, this would include cloud provider clients
     // (AWS EC2, Google Compute, Azure, etc.)
 }
-
+#[allow(dead_code)]
 impl RelayService {
     /// Create a new RelayService instance
     pub fn new(config: AppConfig) -> Self {
@@ -78,7 +78,7 @@ impl RelayService {
     }
 
     /// Get relay information by ID
-    pub async fn get_relay(&self, relay_id: &str) -> Result<RelayInfo, EventServerError> {
+    pub async fn _get_relay(&self, relay_id: &str) -> Result<RelayInfo, EventServerError> {
         info!(relay_id = %relay_id, "Getting relay information");
 
         // In a real implementation, this would query the relay registry
@@ -88,7 +88,10 @@ impl RelayService {
     }
 
     /// Check relay health status
-    pub async fn check_relay_health(&self, relay_id: &str) -> Result<RelayHealthStatus, EventServerError> {
+    pub async fn check_relay_health(
+        &self,
+        relay_id: &str,
+    ) -> Result<RelayHealthStatus, EventServerError> {
         info!(relay_id = %relay_id, "Checking relay health");
 
         // In a real implementation, this would:
@@ -110,7 +113,7 @@ impl RelayService {
     }
 
     /// Decommission a relay instance
-    pub async fn decommission_relay(&self, relay_id: &str) -> Result<(), EventServerError> {
+    pub async fn _decommission_relay(&self, relay_id: &str) -> Result<(), EventServerError> {
         info!(relay_id = %relay_id, "Decommissioning relay");
 
         // In a real implementation, this would:
@@ -141,26 +144,29 @@ impl RelayService {
     }
 
     /// Validate provisioning request
-    fn validate_provision_request(&self, request: &ProvisionRequest) -> Result<(), EventServerError> {
+    fn validate_provision_request(
+        &self,
+        request: &ProvisionRequest,
+    ) -> Result<(), EventServerError> {
         if request.region.is_empty() {
             return Err(EventServerError::Validation(
-                "Region is required for relay provisioning".to_string()
+                "Region is required for relay provisioning".to_string(),
             ));
         }
 
         if request.instance_type.is_empty() {
             return Err(EventServerError::Validation(
-                "Instance type is required for relay provisioning".to_string()
+                "Instance type is required for relay provisioning".to_string(),
             ));
         }
 
         // Validate region is supported
         let supported_regions = vec!["us-east-1", "us-west-2", "eu-west-1", "ap-southeast-1"];
         if !supported_regions.contains(&request.region.as_str()) {
-            return Err(EventServerError::Validation(
-                format!("Unsupported region: {}. Supported regions: {:?}", 
-                    request.region, supported_regions)
-            ));
+            return Err(EventServerError::Validation(format!(
+                "Unsupported region: {}. Supported regions: {:?}",
+                request.region, supported_regions
+            )));
         }
 
         Ok(())
@@ -189,7 +195,10 @@ impl RelayService {
     }
 
     /// Generate SSL certificate for relay
-    async fn generate_ssl_certificate(&self, request: &ProvisionRequest) -> Result<String, EventServerError> {
+    async fn generate_ssl_certificate(
+        &self,
+        _request: &ProvisionRequest,
+    ) -> Result<String, EventServerError> {
         // Simulate certificate generation delay
         tokio::time::sleep(tokio::time::Duration::from_millis(500)).await;
 
@@ -198,7 +207,10 @@ impl RelayService {
         // 2. Sign it with the EventServer's CA certificate
         // 3. Return the signed certificate
 
-        Ok("-----BEGIN CERTIFICATE-----\nSimulated SSL Certificate\n-----END CERTIFICATE-----".to_string())
+        Ok(
+            "-----BEGIN CERTIFICATE-----\nSimulated SSL Certificate\n-----END CERTIFICATE-----"
+                .to_string(),
+        )
     }
 
     /// Simulate relay listing (for development/testing)
@@ -216,11 +228,16 @@ impl RelayService {
         tokio::time::sleep(tokio::time::Duration::from_millis(50)).await;
 
         // For simulation, return error (would be actual relay lookup)
-        Err(EventServerError::NotFound(format!("Relay not found: {}", relay_id)))
+        Err(EventServerError::NotFound(format!(
+            "Relay not found: {relay_id}"
+        )))
     }
 
     /// Simulate health check
-    async fn simulate_health_check(&self, relay_id: &str) -> Result<RelayHealthStatus, EventServerError> {
+    async fn simulate_health_check(
+        &self,
+        relay_id: &str,
+    ) -> Result<RelayHealthStatus, EventServerError> {
         // Simulate health check delay
         tokio::time::sleep(tokio::time::Duration::from_millis(200)).await;
 
@@ -248,7 +265,7 @@ impl RelayService {
     #[cfg(test)]
     pub fn new_mock() -> Self {
         use crate::config::*;
-        
+
         Self {
             config: AppConfig::default(),
         }
@@ -285,7 +302,7 @@ mod tests {
     #[tokio::test]
     async fn test_provision_relay() {
         let service = RelayService::new_mock();
-        
+
         let request = ProvisionRequest {
             region: "us-east-1".to_string(),
             instance_type: "t3.medium".to_string(),
@@ -304,7 +321,7 @@ mod tests {
     #[tokio::test]
     async fn test_invalid_region() {
         let service = RelayService::new_mock();
-        
+
         let request = ProvisionRequest {
             region: "invalid-region".to_string(),
             instance_type: "t3.medium".to_string(),
@@ -324,7 +341,7 @@ mod tests {
     #[tokio::test]
     async fn test_list_relays() {
         let service = RelayService::new_mock();
-        
+
         let result = service.list_relays().await;
         assert!(result.is_ok());
 
@@ -337,7 +354,7 @@ mod tests {
     async fn test_check_relay_health() {
         let service = RelayService::new_mock();
         let relay_id = "test-relay-123";
-        
+
         let result = service.check_relay_health(relay_id).await;
         assert!(result.is_ok());
 
@@ -349,7 +366,7 @@ mod tests {
     #[tokio::test]
     async fn test_get_network_stats() {
         let service = RelayService::new_mock();
-        
+
         let result = service.get_network_stats().await;
         assert!(result.is_ok());
 
@@ -360,7 +377,7 @@ mod tests {
     #[test]
     fn test_validate_provision_request() {
         let service = RelayService::new_mock();
-        
+
         let valid_request = ProvisionRequest {
             region: "us-east-1".to_string(),
             instance_type: "t3.medium".to_string(),

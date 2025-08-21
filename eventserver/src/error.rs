@@ -11,13 +11,8 @@ pub type EventServerError = AppError;
 
 /// Application-wide error types
 #[derive(Error, Debug)]
+#[allow(dead_code)]
 pub enum AppError {
-    #[error("Authentication failed: {0}")]
-    Authentication(String),
-
-    #[error("Authorization failed: {0}")]
-    Authorization(String),
-
     #[error("Validation error: {0}")]
     Validation(String),
 
@@ -26,9 +21,6 @@ pub enum AppError {
 
     #[error("Storage error: {0}")]
     Storage(String),
-
-    #[error("Cryptography error: {0}")]
-    Crypto(String),
 
     #[error("Configuration error: {0}")]
     Config(String),
@@ -52,18 +44,44 @@ pub enum AppError {
 impl IntoResponse for AppError {
     fn into_response(self) -> Response {
         let (status, error_message, error_code) = match &self {
-            AppError::Authentication(_) => (StatusCode::UNAUTHORIZED, self.to_string(), "AUTH_FAILED"),
-            AppError::Authorization(_) => (StatusCode::FORBIDDEN, self.to_string(), "FORBIDDEN"),
-            AppError::Validation(_) => (StatusCode::BAD_REQUEST, self.to_string(), "VALIDATION_ERROR"),
-            AppError::EventProcessing(_) => (StatusCode::UNPROCESSABLE_ENTITY, self.to_string(), "EVENT_PROCESSING_ERROR"),
-            AppError::Storage(_) => (StatusCode::INTERNAL_SERVER_ERROR, self.to_string(), "STORAGE_ERROR"),
-            AppError::Crypto(_) => (StatusCode::INTERNAL_SERVER_ERROR, self.to_string(), "CRYPTO_ERROR"),
-            AppError::Config(_) => (StatusCode::INTERNAL_SERVER_ERROR, self.to_string(), "CONFIG_ERROR"),
-            AppError::RateLimit => (StatusCode::TOO_MANY_REQUESTS, self.to_string(), "RATE_LIMIT_EXCEEDED"),
+            AppError::Validation(_) => (
+                StatusCode::BAD_REQUEST,
+                self.to_string(),
+                "VALIDATION_ERROR",
+            ),
+            AppError::EventProcessing(_) => (
+                StatusCode::UNPROCESSABLE_ENTITY,
+                self.to_string(),
+                "EVENT_PROCESSING_ERROR",
+            ),
+            AppError::Storage(_) => (
+                StatusCode::INTERNAL_SERVER_ERROR,
+                self.to_string(),
+                "STORAGE_ERROR",
+            ),
+
+            AppError::Config(_) => (
+                StatusCode::INTERNAL_SERVER_ERROR,
+                self.to_string(),
+                "CONFIG_ERROR",
+            ),
+            AppError::RateLimit => (
+                StatusCode::TOO_MANY_REQUESTS,
+                self.to_string(),
+                "RATE_LIMIT_EXCEEDED",
+            ),
             AppError::NotFound(_) => (StatusCode::NOT_FOUND, self.to_string(), "NOT_FOUND"),
-            AppError::Internal(_) => (StatusCode::INTERNAL_SERVER_ERROR, self.to_string(), "INTERNAL_ERROR"),
+            AppError::Internal(_) => (
+                StatusCode::INTERNAL_SERVER_ERROR,
+                self.to_string(),
+                "INTERNAL_ERROR",
+            ),
             AppError::BadRequest(_) => (StatusCode::BAD_REQUEST, self.to_string(), "BAD_REQUEST"),
-            AppError::ServiceUnavailable(_) => (StatusCode::SERVICE_UNAVAILABLE, self.to_string(), "SERVICE_UNAVAILABLE"),
+            AppError::ServiceUnavailable(_) => (
+                StatusCode::SERVICE_UNAVAILABLE,
+                self.to_string(),
+                "SERVICE_UNAVAILABLE",
+            ),
         };
 
         let body = Json(json!({
@@ -77,10 +95,9 @@ impl IntoResponse for AppError {
 }
 
 /// Result type alias for application operations
-pub type AppResult<T> = Result<T, AppError>;
+pub type _AppResult<T> = Result<T, AppError>;
 
 /// Convert various error types to AppError
-
 impl From<aws_sdk_s3::Error> for AppError {
     fn from(err: aws_sdk_s3::Error) -> Self {
         AppError::Storage(err.to_string())
@@ -89,19 +106,19 @@ impl From<aws_sdk_s3::Error> for AppError {
 
 impl From<serde_json::Error> for AppError {
     fn from(err: serde_json::Error) -> Self {
-        AppError::Validation(format!("JSON serialization error: {}", err))
+        AppError::Validation(format!("JSON serialization error: {err}"))
     }
 }
 
 impl From<base64::DecodeError> for AppError {
     fn from(err: base64::DecodeError) -> Self {
-        AppError::Validation(format!("Base64 decode error: {}", err))
+        AppError::Validation(format!("Base64 decode error: {err}"))
     }
 }
 
 impl From<reqwest::Error> for AppError {
     fn from(err: reqwest::Error) -> Self {
-        AppError::Internal(format!("HTTP client error: {}", err))
+        AppError::Internal(format!("HTTP client error: {err}"))
     }
 }
 
@@ -126,19 +143,14 @@ pub struct ValidationErrorDetails {
 
 impl AppError {
     /// Create a validation error with multiple field errors
-    pub fn validation_with_details(message: &str, details: Vec<ValidationErrorDetails>) -> Self {
+    pub fn _validation_with_details(message: &str, details: Vec<ValidationErrorDetails>) -> Self {
         let details_json = serde_json::to_value(details).unwrap_or_default();
-        AppError::Validation(format!("{}: {}", message, details_json))
-    }
-
-    /// Create an authentication error with context
-    pub fn auth_with_context(context: &str, reason: &str) -> Self {
-        AppError::Authentication(format!("{}: {}", context, reason))
+        AppError::Validation(format!("{message}: {details_json}"))
     }
 
     /// Create a storage error with operation context
-    pub fn storage_with_context(operation: &str, reason: &str) -> Self {
-        AppError::Storage(format!("Storage operation '{}' failed: {}", operation, reason))
+    pub fn _storage_with_context(operation: &str, reason: &str) -> Self {
+        AppError::Storage(format!("Storage operation '{operation}' failed: {reason}"))
     }
 }
 
@@ -161,25 +173,8 @@ mod tests {
     fn test_error_conversion() {
         let validation_error = AppError::Validation("Test validation error".to_string());
         let response = validation_error.into_response();
-        
+
         // Response should have BAD_REQUEST status
         assert_eq!(response.status(), StatusCode::BAD_REQUEST);
-    }
-
-    #[test]
-    fn test_validation_with_details() {
-        let details = vec![
-            ValidationErrorDetails {
-                field: "email".to_string(),
-                message: "Invalid email format".to_string(),
-            },
-            ValidationErrorDetails {
-                field: "age".to_string(),
-                message: "Must be greater than 0".to_string(),
-            },
-        ];
-
-        let error = AppError::validation_with_details("Multiple validation errors", details);
-        assert!(matches!(error, AppError::Validation(_)));
     }
 }
