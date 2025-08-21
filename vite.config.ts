@@ -4,6 +4,9 @@ import { VitePWA } from "vite-plugin-pwa";
 
 export default defineConfig({
   base: "./",
+  server: {
+    port: 5174,
+  },
   plugins: [
     react(),
     VitePWA({
