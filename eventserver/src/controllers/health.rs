@@ -2,6 +2,15 @@ use crate::types::api::{HealthResponse, ServiceHealthStatus};
 use axum::{http::StatusCode, response::Json};
 
 /// Health check endpoint
+#[utoipa::path(
+    get,
+    path = "/health",
+    responses(
+        (status = 200, description = "Service is healthy", body = HealthResponse),
+        (status = 503, description = "Service is unhealthy")
+    ),
+    tag = "health"
+)]
 pub async fn health_check() -> Result<Json<HealthResponse>, StatusCode> {
     // TODO: Implement actual health checks for services
     let services = ServiceHealthStatus {
