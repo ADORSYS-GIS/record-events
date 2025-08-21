@@ -27,6 +27,7 @@ export function solvePow(challenge: PowChallenge): number {
 
   console.log("Solving PoW challenge...");
 
+  // eslint-disable-next-line no-constant-condition
   while (true) {
     const data = `${challenge.prefix}:${nonce}`;
     const hash = sha256(data);
