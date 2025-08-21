@@ -15,10 +15,30 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  detect:
+    name: Detect project layout
+    runs-on: ubuntu-latest
+    outputs:
+      has_backend: ${{ steps.probe.outputs.has_backend }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - id: probe
+        name: Check for backend existence
+        shell: bash
+        run: |
+          if [[ -f "eventserver/Cargo.toml" ]]; then
+            echo "has_backend=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_backend=false" >> "$GITHUB_OUTPUT"
+          fi
+
   rust-backend:
     name: Format, Lint, Build, Test, Audit (Rust Backend)
+    needs: detect
+    if: ${{ needs.detect.outputs.has_backend == 'true' }}
     runs-on: ubuntu-latest
-    if: ${{ hashFiles('eventserver/Cargo.toml') != '' }}
     env:
       CARGO_TERM_COLOR: always
     defaults:
@@ -50,8 +70,11 @@ jobs:
         run: cargo build --workspace --all-targets --all-features
 
       - name: Generate lockfile if missing
-        if: ${{ hashFiles('eventserver/Cargo.lock') == '' }}
-        run: cargo generate-lockfile
+        shell: bash
+        run: |
+          if [[ ! -f Cargo.lock ]]; then
+            cargo generate-lockfile
+          fi
 
       - name: Test (all features)
         run: cargo test --workspace --all-features -- --nocapture
@@ -63,8 +86,9 @@ jobs:
 
   prettier-check:
     name: Prettier Check (No Backend)
+    needs: detect
+    if: ${{ needs.detect.outputs.has_backend == 'false' }}
     runs-on: ubuntu-latest
-    if: ${{ hashFiles('eventserver/Cargo.toml') == '' }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -75,13 +99,23 @@ jobs:
           node-version: 22.x
           cache: 'npm'
 
-      - name: Install dependencies (with lockfile)
-        if: ${{ hashFiles('package-lock.json') != '' }}
-        run: npm ci
+      - name: Install dependencies if lockfile exists
+        shell: bash
+        run: |
+          if [[ -f package-lock.json ]]; then
+            npm ci
+          elif [[ -f package.json ]]; then
+            npm i
+          else
+            npm i --no-save prettier@3.6.2
+          fi
 
-      - name: Install Prettier (no lockfile fallback)
-        if: ${{ hashFiles('package-lock.json') == '' }}
-        run: npm i --no-save prettier@3.6.2
+      - name: Ensure Prettier is available
+        shell: bash
+        run: |
+          if ! npx --yes --package prettier@3.6.2 -- prettier --version >/dev/null 2>&1; then
+            npm i --no-save prettier@3.6.2
+          fi
 
       - name: Prettier format check
-        run: npx prettier . --check
+        run: npx --yes prettier@3.6.2 . --check
