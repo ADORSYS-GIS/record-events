@@ -6,7 +6,6 @@ pub async fn health_check() -> Result<Json<HealthResponse>, StatusCode> {
     // TODO: Implement actual health checks for services
     let services = ServiceHealthStatus {
         storage: true,  // TODO: Check S3 connectivity
-        redis: true,    // TODO: Check Redis connectivity
     };
 
     let health_response = HealthResponse::new(services);

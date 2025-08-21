@@ -6,13 +6,13 @@ use axum::{
 };
 
 /// Rate limiting middleware
-/// TODO: Implement Redis-based rate limiting
+/// TODO: Implement rate limiting
 pub async fn rate_limit_middleware(
     request: Request,
     next: Next,
 ) -> Result<Response, StatusCode> {
     // TODO: Extract relay ID from request
-    // TODO: Check rate limit in Redis
+    // TODO: Check rate limit in storage/cache
     // TODO: Increment counter and set expiration
     // TODO: Return 429 Too Many Requests if limit exceeded
     

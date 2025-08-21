@@ -63,7 +63,6 @@ pub struct HealthResponse {
 #[derive(Debug, Serialize)]
 pub struct ServiceHealthStatus {
     pub storage: bool,
-    pub redis: bool,
 }
 
 /// Error response details
@@ -159,7 +158,7 @@ pub struct CertificateResponse {
 
 impl HealthResponse {
     pub fn new(services: ServiceHealthStatus) -> Self {
-        let status = if services.storage && services.redis {
+        let status = if services.storage {
             "healthy"
         } else {
             "degraded"

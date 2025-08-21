@@ -9,7 +9,6 @@ use std::env;
 pub struct AppConfig {
     pub server: ServerConfig,
     pub storage: storage::StorageConfig,
-    pub redis: RedisConfig,
     pub security: SecurityConfig,
     pub logging: LoggingConfig,
 }
@@ -24,13 +23,6 @@ pub struct ServerConfig {
     pub request_timeout: Option<u64>, // seconds
 }
 
-/// Redis configuration for rate limiting and caching
-#[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct RedisConfig {
-    pub url: String,
-    pub pool_size: Option<u32>,
-    pub connection_timeout: Option<u64>, // seconds
-}
 
 /// Security configuration
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -62,11 +54,6 @@ impl AppConfig {
             .set_default("server.workers", 4)?
             .set_default("server.max_connections", 1000)?
             .set_default("server.request_timeout", 30)?
-            
-            // Redis defaults
-            .set_default("redis.url", "redis://127.0.0.1:6379")?
-            .set_default("redis.pool_size", 10)?
-            .set_default("redis.connection_timeout", 5)?
             
             // Security defaults
             .set_default("security.certificate_validity_hours", 24)?
@@ -156,11 +143,6 @@ impl Default for AppConfig {
                 request_timeout: Some(30),
             },
             storage: storage::StorageConfig::default(),
-            redis: RedisConfig {
-                url: "redis://127.0.0.1:6379".to_string(),
-                pool_size: Some(10),
-                connection_timeout: Some(5),
-            },
             security: SecurityConfig {
                 jwt_secret: String::new(), // Must be set via environment
                 certificate_validity_hours: 24,

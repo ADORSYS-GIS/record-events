@@ -48,7 +48,7 @@ impl StorageService {
             "Storing event in S3-compatible storage"
         );
 
-        // Generate storage key based on hash and timestamp
+        // Generate a storage key based on hash and timestamp
         let storage_key = self.generate_storage_key(event_hash, &event_package.id);
         
         // Serialize event package for storage
@@ -124,7 +124,7 @@ impl StorageService {
         format!("events/{}/{}/{}.json", date, &event_hash[..8], event_id)
     }
 
-    /// Generate storage key from hash only (for retrieval)
+    /// Generate a storage key from hash only (for retrieval)
     fn generate_storage_key_from_hash(&self, event_hash: &str) -> String {
         // In a real implementation, we might need to search or maintain an index
         // For now, we'll use a simplified approach
@@ -157,7 +157,8 @@ impl StorageService {
 
         // Return S3 URL
         Ok(format!(
-            "https://{}.s3.{}.amazonaws.com/{}",
+            "{} {} {} {} {}", self.clone().config.endpoint.unwrap_or("https://s3.{}.amazonaws.com".to_string()),
+            self.config.region,
             self.config.bucket, self.config.region, key
         ))
     }
