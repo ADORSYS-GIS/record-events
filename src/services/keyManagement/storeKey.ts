@@ -1,29 +1,26 @@
 import storage from "./storageSetup"; // Import the initialized storage
 import generateKeyPair from "./generateKey"; // Import your existing key generation function
+import { encryptPrivateKey, decryptPrivateKey } from "./encrypt";
 
 // Function to store a key pair in IndexedDB
 export async function storeKeyPair() {
   console.log("Starting key pair generation...");
   const { publicKey, privateKey } = await generateKeyPair();
   console.log("Key pair generated successfully.");
+
+  console.log("Encrypting private key...");
+  const encryptedPriv = await encryptPrivateKey(privateKey);
+  console.log("Private key encrypted successfully.");
+
   console.log("Storing key pair in IndexedDB...");
-  try {
-    await storage.insert("keys", {
-      value: {
-        pub: publicKey,
-        priv: privateKey,
-        kid: 1,
-      },
-    });
-    console.log("Key pair stored successfully.");
-  } catch (err: unknown) {
-    // Ignore "Key already exists" error
-    if (err instanceof Error && err.message.includes("Key already exists")) {
-      console.warn("Key already exists, skipping insert.");
-    } else {
-      throw err;
-    }
-  }
+  await storage.insert("keys", {
+    value: {
+      pub: publicKey,
+      priv: encryptedPriv,
+      kid: 1,
+    },
+  });
+  console.log("Key pair stored successfully.");
 }
 
 // Function to retrieve the key pair from IndexedDB
@@ -34,7 +31,11 @@ export async function retrieveKeyPair(kid: number) {
   if (retrievedRecord) {
     console.log("Key pair retrieved successfully:", retrievedRecord);
 
-    const { pub: publicKey, priv: privateKey } = retrievedRecord.value;
+    const { pub: publicKey, priv: encryptedPriv } = retrievedRecord.value;
+
+    console.log("Decrypting private key...");
+    const privateKey = await decryptPrivateKey(encryptedPriv);
+    console.log("Private key decrypted successfully.");
 
     return { publicKey, privateKey };
   } else {
