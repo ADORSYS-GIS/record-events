@@ -72,7 +72,6 @@ pub struct EventMetadata {
 pub enum EventSource {
     Web,
     Mobile,
-    Api,
 }
 
 /// Complete event package - matches TypeScript EventPackage
@@ -201,7 +200,7 @@ mod tests {
             metadata: EventMetadata {
                 created_at: Utc::now(),
                 created_by: None,
-                source: EventSource::Api,
+                source: EventSource::Web,
             },
         };
 

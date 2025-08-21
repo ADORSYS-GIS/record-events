@@ -137,7 +137,7 @@ mod tests {
     async fn test_generate_event_hash() {
         // Create mock services (would use actual mocks in real tests)
         let storage = StorageService::new_mock();
-        let service = EventService::new(storage);
+        let service = EventService::new(storage.await);
 
         let event_package = EventPackage {
             id: Uuid::new_v4(),
@@ -160,9 +160,9 @@ mod tests {
         assert_eq!(hash.len(), 64); // SHA-256 produces 64 hex characters
     }
 
-    #[test]
-    fn test_hash_consistency() {
-        let storage = StorageService::new_mock();
+    #[tokio::test]
+    async fn test_hash_consistency() {
+        let storage = StorageService::new_mock().await;
         let service = EventService::new(storage);
 
         let event_package = EventPackage {
