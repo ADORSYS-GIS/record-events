@@ -52,7 +52,7 @@ async fn main() -> anyhow::Result<()> {
     let listener = tokio::net::TcpListener::bind(&bind_address).await?;
     
     tracing::info!("EventServer listening on {}", listener.local_addr()?);
-    tracing::info!("Server started successfully - Stateless EventServer v{}", env!("CARGO_PKG_VERSION"));
+    tracing::info!("Server started successfully - Stateless EventServer v1{}", env!("CARGO_PKG_VERSION"));
     
     axum::serve(listener, app).await?;
 
