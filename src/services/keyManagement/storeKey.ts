@@ -16,9 +16,9 @@ export async function storeKeyPair() {
       },
     });
     console.log("Key pair stored successfully.");
-  } catch (err: any) {
+  } catch (err: unknown) {
     // Ignore "Key already exists" error
-    if (err?.message?.includes("Key already exists")) {
+    if (err instanceof Error && err.message.includes("Key already exists")) {
       console.warn("Key already exists, skipping insert.");
     } else {
       throw err;

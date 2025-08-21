@@ -12,7 +12,7 @@ import type { KeyPair } from "../hooks/useKeyInitialization";
 
 type FieldValue = string | number | boolean | null;
 
-interface FormData extends Record<string, FieldValue> {}
+type FormData = Record<string, FieldValue>;
 
 // Helper to get localized text from a string or LocalizedText object
 const getLocalizedText = (text: string | LocalizedText | undefined): string => {
