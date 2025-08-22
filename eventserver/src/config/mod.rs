@@ -64,6 +64,16 @@ impl AppConfig {
             // Storage defaults
             .set_default("storage.region", "us-east-1")?
             .set_default("storage.bucket", "eventserver-storage")?
+            .set_default("storage.access_key_id", "")?
+            .set_default("storage.secret_access_key", "")?
+            .set_default("storage.use_path_style", false)?
+            .set_default("storage.enable_ssl", true)?
+            .set_default("storage.upload_timeout", 300)?
+            .set_default("storage.max_file_size", 104857600)?
+            .set_default(
+                "storage.allowed_mime_types",
+                vec!["image/jpeg", "image/png", "image/gif", "video/mp4"],
+            )?
             // Load from config file if it exists
             .add_source(File::with_name("config/default").required(false))
             .add_source(File::with_name(&format!("config/{run_mode}")).required(false))

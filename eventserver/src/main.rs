@@ -15,6 +15,9 @@ use crate::state::AppState;
 
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
+    // Load environment variables from .env file
+    dotenvy::dotenv().ok();
+
     // Initialize tracing
     tracing_subscriber::registry()
         .with(
@@ -39,6 +42,7 @@ async fn main() -> anyhow::Result<()> {
     let app = Router::new()
         .route("/health", get(controllers::health::health_check))
         .nest("/api/v1", api_routes())
+        .merge(controllers::openapi::routes())
         .layer(TraceLayer::new_for_http())
         .layer(CorsLayer::permissive())
         .with_state(app_state);
