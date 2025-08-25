@@ -103,7 +103,11 @@ const EventForm: React.FC<EventFormProps> = ({ labels, createdBy }) => {
             className="absolute top-2 right-2 bg-error-500 text-white rounded-full p-2 hover:bg-error-600 transition-colors duration-200 shadow-medium"
           >
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+              <path
+                fillRule="evenodd"
+                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                clipRule="evenodd"
+              />
             </svg>
           </button>
         </div>
@@ -120,10 +124,13 @@ const EventForm: React.FC<EventFormProps> = ({ labels, createdBy }) => {
             {t("eventForm.media.title", "Add Media to Your Report")}
           </h3>
           <p className="text-neutral-500 mb-6">
-            {t("eventForm.media.description", "Capture a photo or upload an image to provide visual context")}
+            {t(
+              "eventForm.media.description",
+              "Capture a photo or upload an image to provide visual context",
+            )}
           </p>
         </div>
-        
+
         <div className="flex flex-col sm:flex-row justify-center gap-4">
           <label className="cursor-pointer bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg shadow-sm transition-all duration-200 flex items-center justify-center space-x-2">
             <Upload className="w-5 h-5" />
@@ -343,8 +350,18 @@ const EventForm: React.FC<EventFormProps> = ({ labels, createdBy }) => {
                 onClick={() => window.history.back()}
                 className="p-2 text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-lg transition-colors duration-200"
               >
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 19l-7-7 7-7"
+                  />
                 </svg>
               </button>
               <div>
@@ -382,7 +399,9 @@ const EventForm: React.FC<EventFormProps> = ({ labels, createdBy }) => {
                       className="block text-sm font-medium text-neutral-700"
                     >
                       {labelName}{" "}
-                      {label.required && <span className="text-error-500">*</span>}
+                      {label.required && (
+                        <span className="text-error-500">*</span>
+                      )}
                     </label>
 
                     {/* Text Field */}
@@ -430,7 +449,10 @@ const EventForm: React.FC<EventFormProps> = ({ labels, createdBy }) => {
                           className="h-5 w-5 rounded border-blue-300 text-blue-600 focus:ring-blue-500 transition-colors duration-200"
                           disabled={isSubmitting}
                         />
-                        <label htmlFor={labelId} className="ml-3 text-sm text-blue-700">
+                        <label
+                          htmlFor={labelId}
+                          className="ml-3 text-sm text-blue-700"
+                        >
                           {labelName}
                         </label>
                       </div>
@@ -455,12 +477,17 @@ const EventForm: React.FC<EventFormProps> = ({ labels, createdBy }) => {
                       </select>
                     )}
 
-                    {error && <p className="mt-1 text-sm text-error-600">{error}</p>}
+                    {error && (
+                      <p className="mt-1 text-sm text-error-600">{error}</p>
+                    )}
                     {label.helpText && (
                       <p className="mt-1 text-xs text-neutral-500">
                         {typeof label.helpText === "string"
                           ? t(label.helpText)
-                          : t(label.helpText[i18n.language] || label.helpText.en)}
+                          : t(
+                              label.helpText[i18n.language] ||
+                                label.helpText.en,
+                            )}
                       </p>
                     )}
                   </div>
