@@ -11,7 +11,7 @@ use crate::error::EventServerError;
 use crate::middleware::crypto::extract_validated_relay_id;
 use crate::services::zip_packager::{ZipPackageOptions, ZipPackager};
 use crate::state::AppState;
-use crate::types::event::{EventPackage, SignedEventPackage, ProcessingResult};
+use crate::types::event::{EventPackage, ProcessingResult, SignedEventPackage};
 
 /// Create event-related routes
 pub fn routes() -> Router<AppState> {
@@ -34,11 +34,13 @@ async fn receive_event(
     );
 
     // Extract relay ID from validated headers (set by crypto middleware)
-    let relay_id = extract_validated_relay_id(&headers)
-        .ok_or_else(|| {
-            error!("No validated relay ID found in headers");
-            (StatusCode::UNAUTHORIZED, "Authentication required".to_string())
-        })?;
+    let relay_id = extract_validated_relay_id(&headers).ok_or_else(|| {
+        error!("No validated relay ID found in headers");
+        (
+            StatusCode::UNAUTHORIZED,
+            "Authentication required".to_string(),
+        )
+    })?;
 
     // Extract the event data from the signed package
     // Note: Cryptographic validation is handled by the middleware
@@ -86,16 +88,18 @@ async fn receive_event_package(
     Json(signed_package): Json<SignedEventPackage>,
 ) -> Result<Json<serde_json::Value>, (StatusCode, String)> {
     // Extract relay ID from validated headers (set by crypto middleware)
-    let relay_id = extract_validated_relay_id(&headers)
-        .ok_or_else(|| {
-            error!("No validated relay ID found in headers");
-            (StatusCode::UNAUTHORIZED, "Authentication required".to_string())
-        })?;
+    let relay_id = extract_validated_relay_id(&headers).ok_or_else(|| {
+        error!("No validated relay ID found in headers");
+        (
+            StatusCode::UNAUTHORIZED,
+            "Authentication required".to_string(),
+        )
+    })?;
 
     // Extract the event data from the signed package
     // Note: Cryptographic validation is handled by the middleware
     let event_package = signed_package.event_data;
-    
+
     info!(
         relay_id = %relay_id,
         event_id = %event_package.id,

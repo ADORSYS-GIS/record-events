@@ -13,8 +13,8 @@ mod types;
 
 use crate::config::AppConfig;
 use crate::crypto::PowService;
-use crate::middleware::crypto::crypto_validation_middleware;
 use crate::middleware::auth::authorization_middleware;
+use crate::middleware::crypto::crypto_validation_middleware;
 use crate::services::{EventService, StorageService};
 use crate::state::AppState;
 
@@ -87,11 +87,8 @@ fn api_routes() -> Router<AppState> {
 
 /// PoW challenge routes for authentication
 fn pow_routes() -> Router<AppState> {
-    Router::new()
-        .route("/pow/challenge", axum::routing::post(request_pow_challenge))
+    Router::new().route("/pow/challenge", axum::routing::post(request_pow_challenge))
 }
-
-
 
 /// Request a new PoW challenge (public endpoint)
 async fn request_pow_challenge(
@@ -104,7 +101,7 @@ async fn request_pow_challenge(
                 difficulty = challenge.difficulty,
                 "PoW challenge generated"
             );
-            
+
             Ok(axum::Json(serde_json::json!({
                 "challenge_id": challenge.challenge_id,
                 "challenge_data": challenge.challenge_data,
@@ -118,4 +115,3 @@ async fn request_pow_challenge(
         }
     }
 }
-

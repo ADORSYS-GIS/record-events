@@ -89,10 +89,10 @@ pub struct EventPackage {
 #[serde(rename_all = "camelCase")]
 pub struct SignedEventPackage {
     pub event_data: EventPackage,
-    pub signature: String,        // Base64 encoded signature
-    pub public_key: String,       // Base64 encoded Ed25519 public key
-    pub pow_solution: crate::crypto::PowSolution,  // PoW solution for authentication
-    pub relay_id: String,         // Relay identifier
+    pub signature: String,                        // Base64 encoded signature
+    pub public_key: String,                       // Base64 encoded Ed25519 public key
+    pub pow_solution: crate::crypto::PowSolution, // PoW solution for authentication
+    pub relay_id: String,                         // Relay identifier
 }
 
 /// Simple event payload from frontend - file upload notification

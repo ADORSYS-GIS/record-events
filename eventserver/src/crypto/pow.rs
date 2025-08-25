@@ -12,8 +12,8 @@ use crate::error::EventServerError;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct PowChallenge {
     pub challenge_id: String,
-    pub challenge_data: String,  // Base64 encoded random data
-    pub difficulty: u32,         // Number of leading zeros required
+    pub challenge_data: String, // Base64 encoded random data
+    pub difficulty: u32,        // Number of leading zeros required
     pub expires_at: DateTime<Utc>,
     pub created_at: DateTime<Utc>,
 }
@@ -23,14 +23,14 @@ pub struct PowChallenge {
 pub struct PowSolution {
     pub challenge_id: String,
     pub nonce: u64,
-    pub hash: String,  // Base64 encoded hash result
+    pub hash: String, // Base64 encoded hash result
 }
 
 /// Proof of Work request for certificate issuance
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct PowCertificateRequest {
     pub solution: PowSolution,
-    pub public_key: String,  // Base64 encoded Ed25519 public key
+    pub public_key: String, // Base64 encoded Ed25519 public key
     pub relay_id: String,
 }
 
@@ -67,7 +67,7 @@ impl PowService {
         let challenge_id = self.generate_challenge_id();
         let challenge_data = self.generate_challenge_data();
         let now = Utc::now();
-        
+
         let challenge = PowChallenge {
             challenge_id: challenge_id.clone(),
             challenge_data,
@@ -93,35 +93,40 @@ impl PowService {
         // Get the challenge
         let challenge = {
             let challenges = self.challenges.lock().unwrap();
-            challenges.get(&solution.challenge_id)
+            challenges
+                .get(&solution.challenge_id)
                 .cloned()
-                .ok_or_else(|| EventServerError::Validation(
-                    format!("Challenge not found: {}", solution.challenge_id)
-                ))?
+                .ok_or_else(|| {
+                    EventServerError::Validation(format!(
+                        "Challenge not found: {}",
+                        solution.challenge_id
+                    ))
+                })?
         };
 
         // Check if challenge is expired
         if Utc::now() > challenge.expires_at {
             return Err(EventServerError::Validation(
-                "Challenge has expired".to_string()
+                "Challenge has expired".to_string(),
             ));
         }
 
         // Verify the solution
         let computed_hash = self.compute_hash(&challenge.challenge_data, solution.nonce)?;
-        
+
         // Check if the computed hash matches the provided hash
         if computed_hash != solution.hash {
             return Err(EventServerError::Validation(
-                "Invalid hash in solution".to_string()
+                "Invalid hash in solution".to_string(),
             ));
         }
 
         // Check if the hash meets the difficulty requirement
         if !self.meets_difficulty(&computed_hash, challenge.difficulty)? {
-            return Err(EventServerError::Validation(
-                format!("Hash does not meet difficulty requirement of {} leading zeros", challenge.difficulty)
-            ));
+            return Err(EventServerError::Validation(format!(
+                "Hash does not meet difficulty requirement of {} leading zeros",
+                challenge.difficulty
+            )));
         }
 
         // Remove the used challenge to prevent reuse
@@ -158,10 +163,9 @@ impl PowService {
 
     /// Check if hash meets difficulty requirement (number of leading zeros)
     fn meets_difficulty(&self, hash: &str, difficulty: u32) -> Result<bool, EventServerError> {
-        let hash_bytes = base64::engine::general_purpose::STANDARD.decode(hash)
-            .map_err(|e| EventServerError::Validation(
-                format!("Invalid base64 hash: {}", e)
-            ))?;
+        let hash_bytes = base64::engine::general_purpose::STANDARD
+            .decode(hash)
+            .map_err(|e| EventServerError::Validation(format!("Invalid base64 hash: {}", e)))?;
 
         let required_zeros = difficulty as usize;
         let mut zero_count = 0;
@@ -223,7 +227,7 @@ mod tests {
     fn test_challenge_generation() {
         let service = PowService::new();
         let challenge = service.generate_challenge().unwrap();
-        
+
         assert!(!challenge.challenge_id.is_empty());
         assert!(!challenge.challenge_data.is_empty());
         assert_eq!(challenge.difficulty, 4);
@@ -236,13 +240,13 @@ mod tests {
         let service = PowService::new();
         let challenge_data = "test_data";
         let nonce = 12345u64;
-        
+
         let hash1 = service.compute_hash(challenge_data, nonce).unwrap();
         let hash2 = service.compute_hash(challenge_data, nonce).unwrap();
-        
+
         // Same input should produce same hash
         assert_eq!(hash1, hash2);
-        
+
         // Different nonce should produce different hash
         let hash3 = service.compute_hash(challenge_data, nonce + 1).unwrap();
         assert_ne!(hash1, hash3);
@@ -251,11 +255,11 @@ mod tests {
     #[test]
     fn test_difficulty_checking() {
         let service = PowService::new();
-        
+
         // Create a hash with known leading zeros
         let zero_hash = base64::engine::general_purpose::STANDARD.encode([0u8; 32]);
         assert!(service.meets_difficulty(&zero_hash, 64).unwrap()); // All zeros
-        
+
         // Create a hash with some leading zeros
         let mut partial_zero = [0u8; 32];
         partial_zero[0] = 0;
@@ -270,11 +274,11 @@ mod tests {
     fn test_solution_verification() {
         let service = PowService::with_params(1, 10); // Easy difficulty for testing
         let challenge = service.generate_challenge().unwrap();
-        
+
         // Find a valid nonce (brute force for testing)
         let mut nonce = 0u64;
         let mut valid_hash = String::new();
-        
+
         for i in 0..10000 {
             let hash = service.compute_hash(&challenge.challenge_data, i).unwrap();
             if service.meets_difficulty(&hash, 1).unwrap() {
@@ -283,18 +287,18 @@ mod tests {
                 break;
             }
         }
-        
+
         assert!(!valid_hash.is_empty(), "Should find a valid solution");
-        
+
         let solution = PowSolution {
             challenge_id: challenge.challenge_id.clone(),
             nonce,
             hash: valid_hash,
         };
-        
+
         // Valid solution should pass
         assert!(service.verify_solution(&solution).is_ok());
-        
+
         // Challenge should be removed after successful verification
         assert!(service.get_challenge(&challenge.challenge_id).is_none());
     }
@@ -303,13 +307,13 @@ mod tests {
     fn test_invalid_solution() {
         let service = PowService::new();
         let challenge = service.generate_challenge().unwrap();
-        
+
         let invalid_solution = PowSolution {
             challenge_id: challenge.challenge_id,
             nonce: 0,
             hash: "invalid_hash".to_string(),
         };
-        
+
         // Invalid solution should fail
         assert!(service.verify_solution(&invalid_solution).is_err());
     }
@@ -318,16 +322,16 @@ mod tests {
     fn test_expired_challenge() {
         let service = PowService::with_params(1, 0); // Expire immediately
         let challenge = service.generate_challenge().unwrap();
-        
+
         // Wait a bit to ensure expiration
         std::thread::sleep(std::time::Duration::from_millis(10));
-        
+
         let solution = PowSolution {
             challenge_id: challenge.challenge_id,
             nonce: 0,
             hash: "any_hash".to_string(),
         };
-        
+
         let result = service.verify_solution(&solution);
         assert!(result.is_err());
         assert!(result.unwrap_err().to_string().contains("expired"));
