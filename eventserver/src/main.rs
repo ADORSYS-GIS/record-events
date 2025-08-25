@@ -1,4 +1,5 @@
 use axum::{routing::get, Router};
+use dotenvy::dotenv;
 use tower_http::{cors::CorsLayer, trace::TraceLayer};
 use tracing_subscriber::{layer::SubscriberExt, util::SubscriberInitExt};
 
@@ -15,6 +16,7 @@ use crate::state::AppState;
 
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
+    dotenv().ok();
     // Initialize tracing
     tracing_subscriber::registry()
         .with(
