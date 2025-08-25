@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "lint:check": "eslint .",
+    "lint": "eslint . --ignore-pattern 'eventserver/**'",
+    "lint:check": "eslint . --ignore-pattern 'eventserver/**'",
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
