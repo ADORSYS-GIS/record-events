@@ -1,6 +1,14 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Camera, History, Settings, Plus, Clock, CheckCircle, AlertCircle } from "lucide-react";
+import {
+  Camera,
+  History,
+  Settings,
+  Plus,
+  Clock,
+  CheckCircle,
+  AlertCircle,
+} from "lucide-react";
 import type { Label, KeyPair } from "../hooks/useKeyInitialization";
 import { useTheme } from "../hooks/useTheme";
 
@@ -24,9 +32,24 @@ const Dashboard: React.FC<DashboardProps> = ({
 
   // Mock data for demonstration - in real app this would come from state/props
   const recentEvents = [
-    { id: 1, title: "Traffic Incident", status: "submitted", timestamp: "2 hours ago" },
-    { id: 2, title: "Infrastructure Issue", status: "pending", timestamp: "1 day ago" },
-    { id: 3, title: "Safety Concern", status: "submitted", timestamp: "3 days ago" },
+    {
+      id: 1,
+      title: "Traffic Incident",
+      status: "submitted",
+      timestamp: "2 hours ago",
+    },
+    {
+      id: 2,
+      title: "Infrastructure Issue",
+      status: "pending",
+      timestamp: "1 day ago",
+    },
+    {
+      id: 3,
+      title: "Safety Concern",
+      status: "submitted",
+      timestamp: "3 days ago",
+    },
   ];
 
   const quickActions = [
@@ -78,17 +101,13 @@ const Dashboard: React.FC<DashboardProps> = ({
                 <h1 className="text-xl font-semibold text-blue-900">
                   EventApp
                 </h1>
-                <p className="text-sm text-blue-600">
-                  Secure event reporting
-                </p>
+                <p className="text-sm text-blue-600">Secure event reporting</p>
               </div>
             </div>
             <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                <span className="text-sm text-blue-700">
-                  Connected
-                </span>
+                <span className="text-sm text-blue-700">Connected</span>
               </div>
               <button
                 onClick={onOpenSettings}
@@ -108,9 +127,7 @@ const Dashboard: React.FC<DashboardProps> = ({
           <h2 className="text-2xl font-semibold text-blue-900 mb-1">
             Welcome back
           </h2>
-          <p className="text-blue-700">
-            Ready to report an event?
-          </p>
+          <p className="text-blue-700">Ready to report an event?</p>
         </div>
 
         {/* Main Action Card */}
@@ -143,23 +160,17 @@ const Dashboard: React.FC<DashboardProps> = ({
               className="bg-white rounded-lg p-6 shadow-sm border border-blue-200 hover:shadow-md hover:border-blue-300 transition-all duration-200 group"
             >
               <div className="flex items-center space-x-4">
-                <div className="p-3 bg-blue-100 rounded-lg">
-                  {action.icon}
-                </div>
+                <div className="p-3 bg-blue-100 rounded-lg">{action.icon}</div>
                 <div className="text-left">
                   <h4 className="font-medium text-blue-900 group-hover:text-blue-700 transition-colors duration-200">
                     {action.title}
                   </h4>
-                  <p className="text-sm text-blue-600">
-                    Report now
-                  </p>
+                  <p className="text-sm text-blue-600">Report now</p>
                 </div>
               </div>
             </button>
           ))}
         </div>
-
-
 
         {/* Recent Events */}
         <div className="bg-white rounded-xl p-6 shadow-sm border border-blue-200">
@@ -179,17 +190,19 @@ const Dashboard: React.FC<DashboardProps> = ({
                       <h4 className="font-medium text-blue-900">
                         {event.title}
                       </h4>
-                      <p className="text-sm text-blue-600">
-                        {event.timestamp}
-                      </p>
+                      <p className="text-sm text-blue-600">{event.timestamp}</p>
                     </div>
                   </div>
                   <div className="text-right">
-                    <span className={`text-sm font-medium ${
-                      event.status === 'submitted' ? 'text-green-600' :
-                      event.status === 'pending' ? 'text-orange-600' :
-                      'text-blue-600'
-                    }`}>
+                    <span
+                      className={`text-sm font-medium ${
+                        event.status === "submitted"
+                          ? "text-green-600"
+                          : event.status === "pending"
+                            ? "text-orange-600"
+                            : "text-blue-600"
+                      }`}
+                    >
                       {event.status}
                     </span>
                   </div>
@@ -198,8 +211,6 @@ const Dashboard: React.FC<DashboardProps> = ({
             ))}
           </div>
         </div>
-
-
       </main>
     </div>
   );

@@ -55,8 +55,10 @@ const App = memo(() => {
 
   // Check if user has completed onboarding
   useEffect(() => {
-    const onboardingCompleted = localStorage.getItem('eventApp_onboarding_completed');
-    if (onboardingCompleted === 'true') {
+    const onboardingCompleted = localStorage.getItem(
+      "eventApp_onboarding_completed",
+    );
+    if (onboardingCompleted === "true") {
       setShowWelcome(false);
       setShowDashboard(true);
     }
@@ -67,7 +69,7 @@ const App = memo(() => {
     setShowWelcome(false);
     setShowOnboarding(true);
   }, []);
-  
+
   const handleOnboardingComplete = useCallback(() => {
     setShowOnboarding(false);
     setShowDashboard(true);
@@ -80,12 +82,12 @@ const App = memo(() => {
 
   const handleViewHistory = useCallback(() => {
     // TODO: Implement history view
-    console.log('View history clicked');
+    console.log("View history clicked");
   }, []);
 
   const handleOpenSettings = useCallback(() => {
     // TODO: Implement settings
-    console.log('Open settings clicked');
+    console.log("Open settings clicked");
   }, []);
 
   const handleBackToDashboard = useCallback(() => {
@@ -109,7 +111,14 @@ const App = memo(() => {
     }
 
     if (showOnboarding) {
-      return <OnboardingFlow onComplete={handleOnboardingComplete} i18n={i18n} keyStatus={keyStatus} isKeyGenerating={isLoading} />;
+      return (
+        <OnboardingFlow
+          onComplete={handleOnboardingComplete}
+          i18n={i18n}
+          keyStatus={keyStatus}
+          isKeyGenerating={isLoading}
+        />
+      );
     }
 
     if (showDashboard) {

@@ -9,19 +9,27 @@ export class PasswordManager {
   private static isAuthenticating = false;
 
   static async initializeDOMElements() {
-    if (!document.querySelector("#messageInput")) {
-      const input = document.createElement("input");
-      input.type = "hidden";
-      input.id = "messageInput";
-      document.body.appendChild(input);
+    // Remove existing elements first to avoid duplicates
+    const existingInput = document.querySelector("#messageInput");
+    if (existingInput) {
+      existingInput.remove();
     }
 
-    if (!document.querySelector("#messageList")) {
-      const list = document.createElement("ul");
-      list.id = "messageList";
-      list.style.display = "none";
-      document.body.appendChild(list);
+    const existingList = document.querySelector("#messageList");
+    if (existingList) {
+      existingList.remove();
     }
+
+    // Create new elements
+    const input = document.createElement("input");
+    input.type = "hidden";
+    input.id = "messageInput";
+    document.body.appendChild(input);
+
+    const list = document.createElement("ul");
+    list.id = "messageList";
+    list.style.display = "none";
+    document.body.appendChild(list);
   }
 
   static async getPassword(): Promise<string | undefined> {
@@ -36,19 +44,31 @@ export class PasswordManager {
     try {
       const messages = JSON.parse(localStorage.getItem("messages") ?? "[]");
       let password: string | undefined;
+      
       if (messages.length > 0) {
         password = await this.attemptAuthentication();
       } else {
         password = await this.handleNewUserRegistration();
       }
-      // Store password in sessionStorage if retrieved or generated
-      if (password) {
+      
+      // If WebAuthn fails, fall back to generating a password
+      if (!password) {
+        console.warn("WebAuthn failed, using fallback password generation");
+        password = this.generateSecurePassword();
+        // Store the fallback password in sessionStorage
+        sessionStorage.setItem("password", password);
+      } else {
+        // Store password in sessionStorage if retrieved or generated
         sessionStorage.setItem("password", password);
       }
+      
       return password;
     } catch (error) {
       console.error("Password retrieval error:", error);
-      return undefined;
+      // Fallback to generating a password
+      const fallbackPassword = this.generateSecurePassword();
+      sessionStorage.setItem("password", fallbackPassword);
+      return fallbackPassword;
     }
   }
 
@@ -76,12 +96,24 @@ export class PasswordManager {
 
     try {
       await this.cancelPendingRequests();
-      await handleRegister();
+      
+      // Add a timeout to prevent hanging
+      const registrationPromise = handleRegister();
+      const timeoutPromise = new Promise((_, reject) => {
+        setTimeout(() => reject(new Error("Registration timeout")), 10000);
+      });
+      
+      await Promise.race([registrationPromise, timeoutPromise]);
 
       const newPassword = this.generateSecurePassword();
-      const input = document.querySelector<HTMLInputElement>("#messageInput")!;
-      input.value = newPassword;
-      await saveMessage();
+      const input = document.querySelector<HTMLInputElement>("#messageInput");
+      
+      if (input) {
+        input.value = newPassword;
+        await saveMessage();
+      } else {
+        console.warn("Message input element not found, skipping save");
+      }
 
       return newPassword;
     } catch (error) {
