@@ -1,10 +1,12 @@
-import { memo, useCallback, useState } from "react";
+import { memo, useCallback, useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Toaster } from "sonner";
 import { useLabelManagement } from "./hooks/useLabelManagement";
 import useKeyInitialization from "./hooks/useKeyInitialization";
 import EventForm from "./components/EventForm";
 import WelcomeScreen from "./components/WelcomeScreen";
+import OnboardingFlow from "./components/OnboardingFlow";
+import Dashboard from "./components/Dashboard";
 import i18n from "./i18n";
 
 // Loading spinner component
@@ -47,9 +49,49 @@ const App = memo(() => {
   const { keyPair, keyStatus, error, isLoading } = useKeyInitialization();
   const { labels } = useLabelManagement();
   const [showWelcome, setShowWelcome] = useState(true);
+  const [showOnboarding, setShowOnboarding] = useState(false);
+  const [showDashboard, setShowDashboard] = useState(false);
+  const [showEventForm, setShowEventForm] = useState(false);
+
+  // Check if user has completed onboarding
+  useEffect(() => {
+    const onboardingCompleted = localStorage.getItem('eventApp_onboarding_completed');
+    if (onboardingCompleted === 'true') {
+      setShowWelcome(false);
+      setShowDashboard(true);
+    }
+  }, []);
 
   const handleRetry = useCallback(() => window.location.reload(), []);
-  const handleGetStarted = useCallback(() => setShowWelcome(false), []);
+  const handleGetStarted = useCallback(() => {
+    setShowWelcome(false);
+    setShowOnboarding(true);
+  }, []);
+  
+  const handleOnboardingComplete = useCallback(() => {
+    setShowOnboarding(false);
+    setShowDashboard(true);
+  }, []);
+
+  const handleCreateEvent = useCallback(() => {
+    setShowDashboard(false);
+    setShowEventForm(true);
+  }, []);
+
+  const handleViewHistory = useCallback(() => {
+    // TODO: Implement history view
+    console.log('View history clicked');
+  }, []);
+
+  const handleOpenSettings = useCallback(() => {
+    // TODO: Implement settings
+    console.log('Open settings clicked');
+  }, []);
+
+  const handleBackToDashboard = useCallback(() => {
+    setShowEventForm(false);
+    setShowDashboard(true);
+  }, []);
 
   // Show loading state
   if (isLoading) {
@@ -66,30 +108,53 @@ const App = memo(() => {
       return <WelcomeScreen onGetStarted={handleGetStarted} i18n={i18n} />;
     }
 
-    if (!keyPair || labels.length === 0) {
+    if (showOnboarding) {
+      return <OnboardingFlow onComplete={handleOnboardingComplete} i18n={i18n} keyStatus={keyStatus} isKeyGenerating={isLoading} />;
+    }
+
+    if (showDashboard) {
+      if (!keyPair || labels.length === 0) {
+        return (
+          <div className="min-h-screen bg-gradient-to-br from-neutral-50 to-primary-50 flex items-center justify-center">
+            <div className="text-center">
+              <div className="w-12 h-12 border-4 border-primary-200 border-t-primary-500 rounded-full animate-spin mx-auto mb-4" />
+              <p className="text-neutral-600">Loading application data...</p>
+            </div>
+          </div>
+        );
+      }
       return (
-        <div className="text-center py-8">
-          <div className="w-10 h-10 border-4 border-primary-200 border-t-primary-500 rounded-full animate-spin mx-auto mb-4" />
-          <p className="text-gray-600">Loading application data...</p>
-        </div>
+        <Dashboard
+          labels={labels}
+          keyPair={keyPair}
+          onCreateEvent={handleCreateEvent}
+          onViewHistory={handleViewHistory}
+          onOpenSettings={handleOpenSettings}
+        />
       );
     }
 
-    return <EventForm labels={labels} keyPair={keyPair} />;
+    if (showEventForm) {
+      if (!keyPair || labels.length === 0) {
+        return (
+          <div className="min-h-screen bg-gradient-to-br from-neutral-50 to-primary-50 flex items-center justify-center">
+            <div className="text-center">
+              <div className="w-12 h-12 border-4 border-primary-200 border-t-primary-500 rounded-full animate-spin mx-auto mb-4" />
+              <p className="text-neutral-600">Loading application data...</p>
+            </div>
+          </div>
+        );
+      }
+      return <EventForm labels={labels} keyPair={keyPair} />;
+    }
+
+    return null;
   };
 
   return (
-    <div className="min-h-screen bg-primary-100 flex items-center justify-center font-[Inter] antialiased">
+    <div className="font-sans antialiased">
       <Toaster position="top-center" />
-      <div className="backdrop-blur-md bg-white/30 border border-white/20 shadow-lg rounded-2xl px-6 py-10 max-w-md w-full">
-        <header className="text-center mb-6">
-          <h1 className="text-xl font-semibold text-gray-800">
-            {t("appTitle")}
-          </h1>
-          <p className="text-sm text-gray-500">{t("appSubtitle")}</p>
-        </header>
-        <main>{renderContent()}</main>
-      </div>
+      {renderContent()}
     </div>
   );
 });
