@@ -10,13 +10,12 @@ use tracing::{error, info, warn};
 use crate::error::EventServerError;
 use crate::services::zip_packager::{ZipPackageOptions, ZipPackager};
 use crate::state::AppState;
-use crate::types::event::{EventPackage, EventPayload, ProcessingResult};
+use crate::types::event::{EventPackage, ProcessingResult};
 
 /// Create event-related routes
 pub fn routes() -> Router<AppState> {
     Router::new()
         .route("/events", post(receive_event))
-        .route("/events/upload", post(receive_event_upload))
         .route("/events/package", post(receive_event_package))
         .route("/events/:hash/verify", get(verify_event_hash))
 }
@@ -68,51 +67,6 @@ async fn receive_event(
             ))
         }
     }
-}
-
-/// Receive and process a simple event upload notification from frontend
-async fn receive_event_upload(
-    State(_state): State<AppState>,
-    Json(event_payload): Json<EventPayload>,
-) -> Result<Json<serde_json::Value>, (StatusCode, String)> {
-    info!(
-        filename = %event_payload.filename,
-        content_type = %event_payload.content_type,
-        "Received event upload notification"
-    );
-
-    // Basic validation
-    if event_payload.filename.is_empty() {
-        warn!("Empty filename in event payload");
-        return Err((
-            StatusCode::BAD_REQUEST,
-            "Filename cannot be empty".to_string(),
-        ));
-    }
-
-    if event_payload.content_type.is_empty() {
-        warn!("Empty content type in event payload");
-        return Err((
-            StatusCode::BAD_REQUEST,
-            "Content type cannot be empty".to_string(),
-        ));
-    }
-
-    // For now, just acknowledge receipt and return success
-    // In the future, this could trigger file processing, validation, etc.
-    let response = serde_json::json!({
-        "status": "received",
-        "filename": event_payload.filename,
-        "contentType": event_payload.content_type,
-        "receivedAt": chrono::Utc::now()
-    });
-
-    info!(
-        filename = %event_payload.filename,
-        "Event upload notification processed successfully"
-    );
-
-    Ok(Json(response))
 }
 
 /// Receive and process an EventPackage from frontend
