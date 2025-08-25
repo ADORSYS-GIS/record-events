@@ -7,6 +7,22 @@ export default defineConfig({
   server: {
     port: 5174,
   },
+  optimizeDeps: {
+    exclude: [
+      "@adorsys-gis/web-auth-prf",
+      "@adorsys-gis/web-auth-storage",
+      "@adorsys-gis/storage"
+    ]
+  },
+  build: {
+    rollupOptions: {
+      external: [
+        "@adorsys-gis/web-auth-prf",
+        "@adorsys-gis/web-auth-storage",
+        "@adorsys-gis/storage"
+      ]
+    }
+  },
   plugins: [
     react(),
     VitePWA({

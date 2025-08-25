@@ -10,7 +10,8 @@ use tracing::{error, info, warn};
 use crate::error::EventServerError;
 use crate::services::zip_packager::{ZipPackageOptions, ZipPackager};
 use crate::state::AppState;
-use crate::types::event::{EventPackage, ProcessingResult};
+use crate::types::api::HashVerificationResponse;
+use crate::types::event::{EventPackage, EventPayload, ProcessingResult};
 
 /// Create event-related routes
 pub fn routes() -> Router<AppState> {
@@ -22,6 +23,17 @@ pub fn routes() -> Router<AppState> {
 
 /// Receive and process an event from a relay
 /// This is completely stateless - each request is processed independently
+#[utoipa::path(
+    post,
+    path = "/api/v1/events",
+    request_body = EventPackage,
+    responses(
+        (status = 200, description = "Event processed successfully", body = ProcessingResult),
+        (status = 400, description = "Bad request - validation failed"),
+        (status = 500, description = "Internal server error")
+    ),
+    tag = "events"
+)]
 async fn receive_event(
     State(state): State<AppState>,
     Json(event_package): Json<EventPackage>,
@@ -69,8 +81,74 @@ async fn receive_event(
     }
 }
 
+/// Receive and process a simple event upload notification from frontend
+#[utoipa::path(
+    post,
+    path = "/api/v1/events/upload",
+    request_body = EventPayload,
+    responses(
+        (status = 200, description = "Upload notification received successfully"),
+        (status = 400, description = "Bad request - validation failed")
+    ),
+    tag = "events"
+)]
+async fn receive_event_upload(
+    State(_state): State<AppState>,
+    Json(event_payload): Json<EventPayload>,
+) -> Result<Json<serde_json::Value>, (StatusCode, String)> {
+    info!(
+        filename = %event_payload.filename,
+        content_type = %event_payload.content_type,
+        "Received event upload notification"
+    );
+
+    // Basic validation
+    if event_payload.filename.is_empty() {
+        warn!("Empty filename in event payload");
+        return Err((
+            StatusCode::BAD_REQUEST,
+            "Filename cannot be empty".to_string(),
+        ));
+    }
+
+    if event_payload.content_type.is_empty() {
+        warn!("Empty content type in event payload");
+        return Err((
+            StatusCode::BAD_REQUEST,
+            "Content type cannot be empty".to_string(),
+        ));
+    }
+
+    // For now, just acknowledge receipt and return success
+    // In the future, this could trigger file processing, validation, etc.
+    let response = serde_json::json!({
+        "status": "received",
+        "filename": event_payload.filename,
+        "contentType": event_payload.content_type,
+        "receivedAt": chrono::Utc::now()
+    });
+
+    info!(
+        filename = %event_payload.filename,
+        "Event upload notification processed successfully"
+    );
+
+    Ok(Json(response))
+}
+
 /// Receive and process an EventPackage from frontend
 /// Creates ZIP file and uploads to S3
+#[utoipa::path(
+    post,
+    path = "/api/v1/events/package",
+    request_body = EventPackage,
+    responses(
+        (status = 200, description = "Event package processed and stored successfully"),
+        (status = 400, description = "Bad request - validation failed"),
+        (status = 500, description = "Internal server error")
+    ),
+    tag = "events"
+)]
 async fn receive_event_package(
     State(state): State<AppState>,
     Json(event_package): Json<EventPackage>,
@@ -156,6 +234,19 @@ async fn receive_event_package(
 
 /// Verify if an event hash exists in storage
 /// Stateless verification - no local state required
+#[utoipa::path(
+    get,
+    path = "/api/v1/events/{hash}/verify",
+    params(
+        ("hash" = String, Path, description = "SHA-256 hash of the event to verify")
+    ),
+    responses(
+        (status = 200, description = "Hash verification completed", body = HashVerificationResponse),
+        (status = 400, description = "Bad request - invalid hash format"),
+        (status = 500, description = "Internal server error")
+    ),
+    tag = "events"
+)]
 async fn verify_event_hash(
     State(state): State<AppState>,
     Path(hash): Path<String>,
@@ -181,7 +272,8 @@ async fn verify_event_hash(
             Ok(Json(HashVerificationResponse {
                 hash: hash.clone(),
                 exists,
-                verified_at: chrono::Utc::now(),
+                block_number: None, // TODO: Implement blockchain integration
+                timestamp: Some(chrono::Utc::now()),
             }))
         }
         Err(EventServerError::Validation(msg)) => {
@@ -196,13 +288,4 @@ async fn verify_event_hash(
             ))
         }
     }
-}
-
-/// Response for hash verification
-#[derive(serde::Serialize)]
-#[serde(rename_all = "camelCase")]
-pub struct HashVerificationResponse {
-    pub hash: String,
-    pub exists: bool,
-    pub verified_at: chrono::DateTime<chrono::Utc>,
 }
