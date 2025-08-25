@@ -84,6 +84,17 @@ pub struct EventPackage {
     pub metadata: EventMetadata,
 }
 
+/// Signed event package with PoW-based authentication
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct SignedEventPackage {
+    pub event_data: EventPackage,
+    pub signature: String,                        // Base64 encoded signature
+    pub public_key: String,                       // Base64 encoded Ed25519 public key
+    pub pow_solution: crate::crypto::PowSolution, // PoW solution for authentication
+    pub relay_id: String,                         // Relay identifier
+}
+
 /// Simple event payload from frontend - file upload notification
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
