@@ -1,16 +1,8 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import {
-  Camera,
-  History,
-  Settings,
-  Plus,
-  Clock,
-  CheckCircle,
-  AlertCircle,
-} from "lucide-react";
-import type { Label, KeyPair } from "../hooks/useKeyInitialization";
-import { useTheme } from "../hooks/useTheme";
+import { Settings, Plus, Clock, CheckCircle, AlertCircle } from "lucide-react";
+import type { KeyPair } from "../hooks/useKeyInitialization";
+import type { Label } from "../labels/label-manager";
 
 interface DashboardProps {
   labels: Label[];
@@ -21,14 +13,10 @@ interface DashboardProps {
 }
 
 const Dashboard: React.FC<DashboardProps> = ({
-  labels,
-  keyPair,
   onCreateEvent,
-  onViewHistory,
   onOpenSettings,
 }) => {
   const { t } = useTranslation();
-  const { isDark } = useTheme();
 
   // Mock data for demonstration - in real app this would come from state/props
   const recentEvents = [

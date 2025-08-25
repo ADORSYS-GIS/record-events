@@ -1,5 +1,5 @@
 import { memo, useCallback, useState, useEffect } from "react";
-import { useTranslation } from "react-i18next";
+
 import { Toaster } from "sonner";
 import { useLabelManagement } from "./hooks/useLabelManagement";
 import useKeyInitialization from "./hooks/useKeyInitialization";
@@ -45,7 +45,6 @@ const ErrorDisplay = ({
 
 // Main App component
 const App = memo(() => {
-  const { t } = useTranslation();
   const { keyPair, keyStatus, error, isLoading } = useKeyInitialization();
   const { labels } = useLabelManagement();
   const [showWelcome, setShowWelcome] = useState(true);
@@ -88,11 +87,6 @@ const App = memo(() => {
   const handleOpenSettings = useCallback(() => {
     // TODO: Implement settings
     console.log("Open settings clicked");
-  }, []);
-
-  const handleBackToDashboard = useCallback(() => {
-    setShowEventForm(false);
-    setShowDashboard(true);
   }, []);
 
   // Show loading state

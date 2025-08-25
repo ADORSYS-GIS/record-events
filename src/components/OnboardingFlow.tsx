@@ -10,9 +10,7 @@ import {
   Sun,
   Moon,
   Monitor,
-  Smartphone,
   Lock,
-  Zap,
 } from "lucide-react";
 import type { i18n as I18nInstance } from "i18next";
 import { useTheme } from "../hooks/useTheme";
@@ -36,7 +34,6 @@ interface OnboardingStep {
 
 const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
   onComplete,
-  i18n,
   keyStatus,
   isKeyGenerating,
 }) => {
