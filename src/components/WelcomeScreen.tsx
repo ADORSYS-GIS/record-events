@@ -1,7 +1,7 @@
-import React from "react";
-import type { FC } from "react";
-import { useTranslation } from "react-i18next";
 import type { i18n as I18nInstance } from "i18next";
+import type { FC } from "react";
+import React from "react";
+import { useTranslation } from "react-i18next";
 
 interface WelcomeScreenProps {
   onGetStarted: () => void;

@@ -1,12 +1,53 @@
-import {
-  handleRegister,
-  handleAuthenticate,
-  saveMessage,
-} from "@adorsys-gis/web-auth-prf";
-
 export class PasswordManager {
   private static isRegistering = false;
   private static isAuthenticating = false;
+  private static webAuthnModule: {
+    handleRegister: () => Promise<void>;
+    handleAuthenticate: () => Promise<string[]>;
+    saveMessage: () => Promise<void>;
+  } | null = null;
+
+  // Enhanced WebAuthn module loader with better error handling
+  private static async loadWebAuthnModule() {
+    if (this.webAuthnModule) {
+      return this.webAuthnModule;
+    }
+
+    try {
+      // Try to load the module with proper error handling
+      const module = await import("@adorsys-gis/web-auth-prf");
+
+      // Verify the module has the required functions
+      if (
+        typeof module.handleRegister === "function" &&
+        typeof module.handleAuthenticate === "function" &&
+        typeof module.saveMessage === "function"
+      ) {
+        this.webAuthnModule = module;
+        return module;
+      } else {
+        throw new Error("WebAuthn module missing required functions");
+      }
+    } catch (error) {
+      console.warn("WebAuthn module failed to load, using fallback:", error);
+      // Return a mock module that uses fallback behavior
+      this.webAuthnModule = {
+        handleRegister: async () => {
+          console.log("Using fallback registration");
+          return Promise.resolve();
+        },
+        handleAuthenticate: async () => {
+          console.log("Using fallback authentication");
+          return Promise.resolve([this.generateSecurePassword()]);
+        },
+        saveMessage: async () => {
+          console.log("Using fallback message save");
+          return Promise.resolve();
+        },
+      };
+      return this.webAuthnModule;
+    }
+  }
 
   static async initializeDOMElements() {
     // Remove existing elements first to avoid duplicates
@@ -44,24 +85,21 @@ export class PasswordManager {
     try {
       const messages = JSON.parse(localStorage.getItem("messages") ?? "[]");
       let password: string | undefined;
-      
+
       if (messages.length > 0) {
         password = await this.attemptAuthentication();
       } else {
         password = await this.handleNewUserRegistration();
       }
-      
+
       // If WebAuthn fails, fall back to generating a password
       if (!password) {
         console.warn("WebAuthn failed, using fallback password generation");
         password = this.generateSecurePassword();
-        // Store the fallback password in sessionStorage
-        sessionStorage.setItem("password", password);
-      } else {
-        // Store password in sessionStorage if retrieved or generated
-        sessionStorage.setItem("password", password);
       }
-      
+
+      // Store the password in sessionStorage
+      sessionStorage.setItem("password", password);
       return password;
     } catch (error) {
       console.error("Password retrieval error:", error);
@@ -78,7 +116,8 @@ export class PasswordManager {
 
     try {
       await this.cancelPendingRequests();
-      const decryptedPassword = await handleAuthenticate();
+      const module = await this.loadWebAuthnModule();
+      const decryptedPassword = await module.handleAuthenticate();
       return decryptedPassword?.[0];
     } catch (error) {
       console.error("Authentication failed:", error);
@@ -96,21 +135,23 @@ export class PasswordManager {
 
     try {
       await this.cancelPendingRequests();
-      
+
+      const module = await this.loadWebAuthnModule();
+
       // Add a timeout to prevent hanging
-      const registrationPromise = handleRegister();
+      const registrationPromise = module.handleRegister();
       const timeoutPromise = new Promise((_, reject) => {
         setTimeout(() => reject(new Error("Registration timeout")), 10000);
       });
-      
+
       await Promise.race([registrationPromise, timeoutPromise]);
 
       const newPassword = this.generateSecurePassword();
       const input = document.querySelector<HTMLInputElement>("#messageInput");
-      
+
       if (input) {
         input.value = newPassword;
-        await saveMessage();
+        await module.saveMessage();
       } else {
         console.warn("Message input element not found, skipping save");
       }

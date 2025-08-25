@@ -22,7 +22,7 @@
  * - Displays a preview and allows resetting/removing the selected image.
  * - Handles cleanup of media streams and object URLs.
  */
-import React, { useRef, useState, useCallback, useEffect } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 interface CameraCaptureProps {

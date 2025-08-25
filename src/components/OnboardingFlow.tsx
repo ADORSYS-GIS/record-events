@@ -1,20 +1,18 @@
-import React, { useState, useCallback, useEffect } from "react";
-import { useTranslation } from "react-i18next";
+import type { i18n as I18nInstance } from "i18next";
 import {
-  Shield,
-  Camera,
-  Key,
-  CheckCircle,
   ArrowRight,
+  Camera,
+  CheckCircle,
+  Key,
+  Lock,
+  Monitor,
+  Moon,
+  Shield,
   Sparkles,
   Sun,
-  Moon,
-  Monitor,
-  Smartphone,
-  Lock,
-  Zap,
 } from "lucide-react";
-import type { i18n as I18nInstance } from "i18next";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useTheme } from "../hooks/useTheme";
 
 interface OnboardingFlowProps {
@@ -47,117 +45,101 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
   const [securityStepCompleted, setSecurityStepCompleted] = useState(false);
 
   // Monitor key generation status
-  useEffect(() => {
-    if (
-      currentStep === 3 &&
-      !isKeyGenerating &&
-      keyStatus &&
-      keyStatus.includes("successfully")
-    ) {
-      setSecurityStepCompleted(true);
-      setTimeout(() => {
-        completeStep(4); // Complete the key generation step (new ID 4)
-      }, 1500);
-    } else if (currentStep === 4 && securityStepCompleted) {
-      // After key generation is completed
-      setTimeout(() => {
-        completeStep(5); // Complete the "You're Ready!" step (new ID 5)
-      }, 1500);
-    }
-  }, [currentStep, isKeyGenerating, keyStatus]);
-
-  const steps: OnboardingStep[] = [
-    {
-      id: 1,
-      title: t("onboarding.welcome.title", "Welcome to EventApp"),
-      description: t(
-        "onboarding.welcome.description",
-        "Your secure platform for reporting events with blockchain verification",
-      ),
-      icon: <Sparkles className="w-20 h-20 text-primary-500" />,
-      type: "welcome",
-      status:
-        currentStep === 0
-          ? "active"
-          : completedSteps.includes(1)
-            ? "completed"
-            : "pending",
-    },
-    {
-      id: 2,
-      title: t("onboarding.features.secure.title", "Secure & Private"),
-      description: t(
-        "onboarding.features.secure.description",
-        "Your data is encrypted and verified on the blockchain for maximum security",
-      ),
-      icon: <Lock className="w-20 h-20 text-primary-500" />,
-      type: "feature",
-      status:
-        currentStep === 1
-          ? "active"
-          : completedSteps.includes(2)
-            ? "completed"
-            : "pending",
-    },
-    {
-      id: 3,
-      title: t("onboarding.permissions.title", "Camera Access"),
-      description: t(
-        "onboarding.permissions.description",
-        "Allow camera access to capture event photos",
-      ),
-      icon: <Camera className="w-20 h-20 text-primary-500" />,
-      type: "permission",
-      action: () => {
-        navigator.mediaDevices
-          .getUserMedia({ video: true })
-          .then(() => {
-            completeStep(3);
-          })
-          .catch(() => {
-            completeStep(3);
-          });
+  const steps: OnboardingStep[] = useMemo(
+    () => [
+      {
+        id: 1,
+        title: t("onboarding.welcome.title", "Welcome to EventApp"),
+        description: t(
+          "onboarding.welcome.description",
+          "Your secure platform for reporting events with blockchain verification",
+        ),
+        icon: <Sparkles className="w-20 h-20 text-primary-500" />,
+        type: "welcome",
+        status:
+          currentStep === 0
+            ? "active"
+            : completedSteps.includes(1)
+              ? "completed"
+              : "pending",
       },
-      status:
-        currentStep === 2
-          ? "active"
-          : completedSteps.includes(3)
-            ? "completed"
-            : "pending",
-    },
-    {
-      id: 4,
-      title: t("onboarding.security.title", "Generating Secure Keys"),
-      description: t(
-        "onboarding.security.description",
-        "Creating your unique cryptographic key pair for secure event reporting. This may take a moment.",
-      ),
-      icon: <Key className="w-20 h-20 text-primary-500" />,
-      type: "security",
-      status:
-        currentStep === 3
-          ? "active"
-          : completedSteps.includes(4)
-            ? "completed"
-            : "pending",
-    },
-    {
-      id: 5,
-      title: t("onboarding.ready.title", "You're Ready!"),
-      description: t(
-        "onboarding.ready.description",
-        "Start reporting events securely",
-      ),
-      icon: <CheckCircle className="w-20 h-20 text-success-500" />,
-      type: "ready",
-      status:
-        currentStep === 4
-          ? "active"
-          : completedSteps.includes(5)
-            ? "completed"
-            : "pending",
-    },
-  ];
+      {
+        id: 2,
+        title: t("onboarding.features.secure.title", "Secure & Private"),
+        description: t(
+          "onboarding.features.secure.description",
+          "Your data is encrypted and verified on the blockchain for maximum security",
+        ),
+        icon: <Lock className="w-20 h-20 text-primary-500" />,
+        type: "feature",
+        status:
+          currentStep === 1
+            ? "active"
+            : completedSteps.includes(2)
+              ? "completed"
+              : "pending",
+      },
+      {
+        id: 3,
+        title: t("onboarding.permissions.title", "Camera Access"),
+        description: t(
+          "onboarding.permissions.description",
+          "Allow camera access to capture event photos",
+        ),
+        icon: <Camera className="w-20 h-20 text-primary-500" />,
+        type: "permission",
+        action: () => {
+          navigator.mediaDevices
+            .getUserMedia({ video: true })
+            .then(() => {
+              completeStep(3);
+            })
+            .catch(() => {
+              completeStep(3);
+            });
+        },
+        status:
+          currentStep === 2
+            ? "active"
+            : completedSteps.includes(3)
+              ? "completed"
+              : "pending",
+      },
+      {
+        id: 4,
+        title: t("onboarding.security.title", "Generating Secure Keys"),
+        description: t(
+          "onboarding.security.description",
+          "Creating your unique cryptographic key pair for secure event reporting. This may take a moment.",
+        ),
+        icon: <Key className="w-20 h-20 text-primary-500" />,
+        type: "security",
+        status:
+          currentStep === 3
+            ? "active"
+            : completedSteps.includes(4)
+              ? "completed"
+              : "pending",
+      },
+      {
+        id: 5,
+        title: t("onboarding.ready.title", "You're Ready!"),
+        description: t(
+          "onboarding.ready.description",
+          "Start reporting events securely",
+        ),
+        icon: <CheckCircle className="w-20 h-20 text-success-500" />,
+        type: "ready",
+        status:
+          currentStep === 4
+            ? "active"
+            : completedSteps.includes(5)
+              ? "completed"
+              : "pending",
+      },
+    ],
+    [t, currentStep, completedSteps],
+  );
 
   const completeStep = useCallback(
     (stepId: number) => {
@@ -170,11 +152,36 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
           onComplete();
         }, 1000);
       } else {
-        setCurrentStep((prev) => prev + 1);
+        setCurrentStep((prev) => Math.min(prev + 1, steps.length - 1));
       }
     },
-    [onComplete],
+    [onComplete, steps.length],
   );
+
+  // Monitor key generation status
+  useEffect(() => {
+    if (
+      currentStep === 3 &&
+      !isKeyGenerating &&
+      keyStatus &&
+      keyStatus.includes("successfully")
+    ) {
+      setSecurityStepCompleted(true);
+      setTimeout(() => {
+        completeStep(4);
+      }, 1500);
+    } else if (currentStep === 4 && securityStepCompleted) {
+      setTimeout(() => {
+        completeStep(5);
+      }, 1500);
+    }
+  }, [
+    currentStep,
+    isKeyGenerating,
+    keyStatus,
+    securityStepCompleted,
+    completeStep,
+  ]);
 
   const handleNext = useCallback(() => {
     const currentStepData = steps[currentStep];
@@ -195,7 +202,14 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
     }
   }, [currentStep, steps, completeStep]);
 
-  const currentStepData = steps[currentStep];
+  const currentStepData = steps[currentStep] || steps[steps.length - 1];
+
+  // Ensure currentStep never goes beyond the steps array
+  useEffect(() => {
+    if (currentStep >= steps.length) {
+      setCurrentStep(steps.length - 1);
+    }
+  }, [currentStep, steps.length]);
 
   return (
     <div

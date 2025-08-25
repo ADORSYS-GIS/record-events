@@ -8,20 +8,35 @@ export default defineConfig({
     port: 5174,
   },
   optimizeDeps: {
-    exclude: [
+    include: [
       "@adorsys-gis/web-auth-prf",
       "@adorsys-gis/web-auth-storage",
-      "@adorsys-gis/storage"
-    ]
+      "@adorsys-gis/storage",
+    ],
+    esbuildOptions: {
+      define: {
+        global: "globalThis",
+      },
+    },
   },
   build: {
     rollupOptions: {
-      external: [
-        "@adorsys-gis/web-auth-prf",
-        "@adorsys-gis/web-auth-storage",
-        "@adorsys-gis/storage"
-      ]
-    }
+      external: [],
+      output: {
+        globals: {
+          "@adorsys-gis/web-auth-prf": "AdorsysWebAuthPrf",
+          "@adorsys-gis/web-auth-storage": "AdorsysWebAuthStorage",
+          "@adorsys-gis/storage": "AdorsysStorage",
+        },
+      },
+    },
+    commonjsOptions: {
+      include: [/node_modules/],
+      transformMixedEsModules: true,
+    },
+  },
+  define: {
+    global: "globalThis",
   },
   plugins: [
     react(),

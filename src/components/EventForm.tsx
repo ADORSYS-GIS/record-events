@@ -1,14 +1,14 @@
-import { useState, useCallback } from "react";
+import { Camera, Save, Send, Upload } from "lucide-react";
+import { useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Camera, Upload, Send, Save } from "lucide-react";
 import { toast } from "sonner";
+import type { KeyPair } from "../hooks/useKeyInitialization";
 import type { Label, LocalizedText } from "../labels/label-manager";
 import { createEventPackage, validateFormData } from "../utils/event-packer";
 import {
-  exportEventPackageAsZip,
   downloadEventPackage,
+  exportEventPackageAsZip,
 } from "../utils/zip-exporter";
-import type { KeyPair } from "../hooks/useKeyInitialization";
 
 type FieldValue = string | number | boolean | null;
 

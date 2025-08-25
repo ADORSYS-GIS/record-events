@@ -1,7 +1,7 @@
 // encrypt.ts
 import * as jose from "jose";
-import { PasswordManager } from "./passwordManager";
 import { toast } from "sonner";
+import { PasswordManager } from "./passwordManager";
 
 export async function encryptPrivateKey(privateJwk: JsonWebKey) {
   const password = await PasswordManager.getPassword();

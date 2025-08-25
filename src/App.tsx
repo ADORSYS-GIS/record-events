@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Toaster } from "sonner";
 import { useLabelManagement } from "./hooks/useLabelManagement";
 import useKeyInitialization from "./hooks/useKeyInitialization";
+import { useBackendHealth } from "./hooks/useBackendHealth";
 import EventForm from "./components/EventForm";
 import WelcomeScreen from "./components/WelcomeScreen";
 import OnboardingFlow from "./components/OnboardingFlow";
@@ -43,11 +44,33 @@ const ErrorDisplay = ({
   </div>
 );
 
+// Backend error display component
+const BackendErrorDisplay = () => (
+  <div className="min-h-screen bg-primary-100 flex items-center justify-center font-[Inter] antialiased">
+    <div className="backdrop-blur-md bg-white/30 border border-white/20 shadow-lg rounded-2xl px-6 py-8 max-w-md w-full">
+      <h2 className="text-lg font-medium text-gray-900 mb-2">
+        Backend Connection Error
+      </h2>
+      <p className="text-red-600 mb-4">
+        Unable to connect to the backend server. Please check if the server is
+        running.
+      </p>
+      <button
+        onClick={() => window.location.reload()}
+        className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded transition-colors duration-200"
+      >
+        Retry Connection
+      </button>
+    </div>
+  </div>
+);
+
 // Main App component
 const App = memo(() => {
   const { t } = useTranslation();
   const { keyPair, keyStatus, error, isLoading } = useKeyInitialization();
   const { labels } = useLabelManagement();
+  const { isHealthy, isLoading: healthLoading } = useBackendHealth();
   const [showWelcome, setShowWelcome] = useState(true);
   const [showOnboarding, setShowOnboarding] = useState(false);
   const [showDashboard, setShowDashboard] = useState(false);
@@ -96,13 +119,20 @@ const App = memo(() => {
   }, []);
 
   // Show loading state
-  if (isLoading) {
-    return <LoadingSpinner message={keyStatus} />;
+  if (isLoading || healthLoading) {
+    return (
+      <LoadingSpinner message={keyStatus || "Checking backend health..."} />
+    );
   }
 
   // Show error state
   if (error) {
     return <ErrorDisplay error={error} onRetry={handleRetry} />;
+  }
+
+  // Show backend error state
+  if (!isHealthy && !healthLoading) {
+    return <BackendErrorDisplay />;
   }
 
   const renderContent = () => {

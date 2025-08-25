@@ -1,1 +1,396 @@
-{"openapi":"3.0.3","info":{"title":"EventServer API","description":"Stateless EventServer backend for the EventApp ecosystem","contact":{"name":"EventApp Team","email":"support@eventapp.com"},"license":{"name":""},"version":"1.0.0"},"servers":[{"url":"/","description":"Local server"}],"paths":{"/api/v1/events":{"post":{"tags":["events"],"summary":"Receive and process an event from a relay","description":"This is completely stateless - each request is processed independently","operationId":"receive_event","requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/EventPackage"}}},"required":true},"responses":{"200":{"description":"Event processed successfully","content":{"application/json":{"schema":{"$ref":"#/components/schemas/ProcessingResult"}}}},"400":{"description":"Bad request - validation failed"},"500":{"description":"Internal server error"}}}},"/api/v1/events/package":{"post":{"tags":["events"],"summary":"Receive and process an EventPackage from frontend","description":"Creates ZIP file and uploads to S3","operationId":"receive_event_package","requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/EventPackage"}}},"required":true},"responses":{"200":{"description":"Event package processed and stored successfully"},"400":{"description":"Bad request - validation failed"},"500":{"description":"Internal server error"}}}},"/api/v1/events/upload":{"post":{"tags":["events"],"summary":"Receive and process a simple event upload notification from frontend","operationId":"receive_event_upload","requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/EventPayload"}}},"required":true},"responses":{"200":{"description":"Upload notification received successfully"},"400":{"description":"Bad request - validation failed"}}}},"/api/v1/events/{hash}/verify":{"get":{"tags":["events"],"summary":"Verify if an event hash exists in storage","description":"Stateless verification - no local state required","operationId":"verify_event_hash","parameters":[{"name":"hash","in":"path","description":"SHA-256 hash of the event to verify","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"Hash verification completed","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HashVerificationResponse"}}}},"400":{"description":"Bad request - invalid hash format"},"500":{"description":"Internal server error"}}}},"/health":{"get":{"tags":["health"],"summary":"Health check endpoint","operationId":"health_check","responses":{"200":{"description":"Service is healthy","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HealthResponse"}}}},"503":{"description":"Service is unhealthy"}}}}},"components":{"schemas":{"EventAnnotation":{"type":"object","description":"Event annotation with strict typing - matches TypeScript EventAnnotation","required":["labelId","value","timestamp"],"properties":{"labelId":{"type":"string"},"timestamp":{"type":"string","format":"date-time"},"value":{"$ref":"#/components/schemas/FieldValue"}}},"EventMedia":{"type":"object","description":"Media data with proper typing - matches TypeScript EventMedia","required":["type","data","name","size","lastModified"],"properties":{"data":{"type":"string"},"lastModified":{"type":"integer","format":"int64","minimum":0},"name":{"type":"string"},"size":{"type":"integer","format":"int64","minimum":0},"type":{"$ref":"#/components/schemas/MediaType"}}},"EventMetadata":{"type":"object","description":"Event metadata - matches TypeScript structure","required":["createdAt","source"],"properties":{"createdAt":{"type":"string","format":"date-time"},"createdBy":{"type":"string","nullable":true},"source":{"$ref":"#/components/schemas/EventSource"}}},"EventPackage":{"type":"object","description":"Complete event package - matches TypeScript EventPackage","required":["id","version","annotations","metadata"],"properties":{"annotations":{"type":"array","items":{"$ref":"#/components/schemas/EventAnnotation"}},"id":{"type":"string","format":"uuid"},"media":{"allOf":[{"$ref":"#/components/schemas/EventMedia"}],"nullable":true},"metadata":{"$ref":"#/components/schemas/EventMetadata"},"version":{"type":"string"}}},"EventPayload":{"type":"object","description":"Simple event payload from frontend - file upload notification","required":["filename","contentType"],"properties":{"contentType":{"type":"string"},"filename":{"type":"string"}}},"EventSource":{"type":"string","description":"Event source types - matches TypeScript","enum":["web","mobile"]},"FieldValue":{"oneOf":[{"type":"string"},{"type":"number","format":"double"},{"type":"boolean"},{"type":"object","default":null,"nullable":true}],"description":"Supported field value types - matches TypeScript FieldValue"},"HashVerificationResponse":{"type":"object","description":"Response for event hash verification","required":["hash","exists"],"properties":{"blockNumber":{"type":"integer","format":"int64","nullable":true,"minimum":0},"exists":{"type":"boolean"},"hash":{"type":"string"},"timestamp":{"type":"string","format":"date-time","nullable":true}}},"HealthResponse":{"type":"object","description":"Health check response","required":["status","timestamp","services","version"],"properties":{"services":{"$ref":"#/components/schemas/ServiceHealthStatus"},"status":{"type":"string"},"timestamp":{"type":"string","format":"date-time"},"version":{"type":"string"}}},"MediaType":{"type":"string","description":"Supported media types - matches TypeScript MediaType","enum":["image/jpeg","image/png","image/gif","video/mp4"]},"ProcessingResult":{"type":"object","description":"Processing result returned after event processing","required":["eventId","hash","storageLocation","processedAt"],"properties":{"eventId":{"type":"string","format":"uuid"},"hash":{"type":"string"},"processedAt":{"type":"string","format":"date-time"},"storageLocation":{"type":"string"}}},"ServiceHealthStatus":{"type":"object","description":"Service health status breakdown","required":["storage"],"properties":{"storage":{"type":"boolean"}}}}},"tags":[{"name":"health","description":"Health check endpoints"},{"name":"events","description":"Event processing endpoints"}]}
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "EventServer API",
+    "description": "Stateless EventServer backend for the EventApp ecosystem",
+    "contact": {
+      "name": "EventApp Team",
+      "email": "support@eventapp.com"
+    },
+    "license": {
+      "name": ""
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "description": "development server"
+    }
+  ],
+  "paths": {
+    "/api/v1/events": {
+      "post": {
+        "tags": ["events"],
+        "summary": "Receive and process an event from a relay",
+        "description": "This is completely stateless - each request is processed independently",
+        "operationId": "receive_event",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EventPackage"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Event processed successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProcessingResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - validation failed"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/v1/events/package": {
+      "post": {
+        "tags": ["events"],
+        "summary": "Receive and process an EventPackage from frontend",
+        "description": "Creates ZIP file and uploads to S3",
+        "operationId": "receive_event_package",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EventPackage"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Event package processed and stored successfully"
+          },
+          "400": {
+            "description": "Bad request - validation failed"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/v1/events/upload": {
+      "post": {
+        "tags": ["events"],
+        "summary": "Receive and process a simple event upload notification from frontend",
+        "operationId": "receive_event_upload",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EventPayload"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Upload notification received successfully"
+          },
+          "400": {
+            "description": "Bad request - validation failed"
+          }
+        }
+      }
+    },
+    "/api/v1/events/{hash}/verify": {
+      "get": {
+        "tags": ["events"],
+        "summary": "Verify if an event hash exists in storage",
+        "description": "Stateless verification - no local state required",
+        "operationId": "verify_event_hash",
+        "parameters": [
+          {
+            "name": "hash",
+            "in": "path",
+            "description": "SHA-256 hash of the event to verify",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Hash verification completed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HashVerificationResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid hash format"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/health": {
+      "get": {
+        "tags": ["health"],
+        "summary": "Health check endpoint",
+        "operationId": "health_check",
+        "responses": {
+          "200": {
+            "description": "Service is healthy",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service is unhealthy"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "EventAnnotation": {
+        "type": "object",
+        "description": "Event annotation with strict typing - matches TypeScript EventAnnotation",
+        "required": ["labelId", "value", "timestamp"],
+        "properties": {
+          "labelId": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "value": {
+            "$ref": "#/components/schemas/FieldValue"
+          }
+        }
+      },
+      "EventMedia": {
+        "type": "object",
+        "description": "Media data with proper typing - matches TypeScript EventMedia",
+        "required": ["type", "data", "name", "size", "lastModified"],
+        "properties": {
+          "data": {
+            "type": "string"
+          },
+          "lastModified": {
+            "type": "integer",
+            "format": "int64",
+            "minimum": 0
+          },
+          "name": {
+            "type": "string"
+          },
+          "size": {
+            "type": "integer",
+            "format": "int64",
+            "minimum": 0
+          },
+          "type": {
+            "$ref": "#/components/schemas/MediaType"
+          }
+        }
+      },
+      "EventMetadata": {
+        "type": "object",
+        "description": "Event metadata - matches TypeScript structure",
+        "required": ["createdAt", "source"],
+        "properties": {
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "createdBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "source": {
+            "$ref": "#/components/schemas/EventSource"
+          }
+        }
+      },
+      "EventPackage": {
+        "type": "object",
+        "description": "Complete event package - matches TypeScript EventPackage",
+        "required": ["id", "version", "annotations", "metadata"],
+        "properties": {
+          "annotations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EventAnnotation"
+            }
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "media": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/EventMedia"
+              }
+            ],
+            "nullable": true
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/EventMetadata"
+          },
+          "version": {
+            "type": "string"
+          }
+        }
+      },
+      "EventPayload": {
+        "type": "object",
+        "description": "Simple event payload from frontend - file upload notification",
+        "required": ["filename", "contentType"],
+        "properties": {
+          "contentType": {
+            "type": "string"
+          },
+          "filename": {
+            "type": "string"
+          }
+        }
+      },
+      "EventSource": {
+        "type": "string",
+        "description": "Event source types - matches TypeScript",
+        "enum": ["web", "mobile"]
+      },
+      "FieldValue": {
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "object",
+            "default": null,
+            "nullable": true
+          }
+        ],
+        "description": "Supported field value types - matches TypeScript FieldValue"
+      },
+      "HashVerificationResponse": {
+        "type": "object",
+        "description": "Response for event hash verification",
+        "required": ["hash", "exists"],
+        "properties": {
+          "blockNumber": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true,
+            "minimum": 0
+          },
+          "exists": {
+            "type": "boolean"
+          },
+          "hash": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        }
+      },
+      "HealthResponse": {
+        "type": "object",
+        "description": "Health check response",
+        "required": ["status", "timestamp", "services", "version"],
+        "properties": {
+          "services": {
+            "$ref": "#/components/schemas/ServiceHealthStatus"
+          },
+          "status": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "version": {
+            "type": "string"
+          }
+        }
+      },
+      "MediaType": {
+        "type": "string",
+        "description": "Supported media types - matches TypeScript MediaType",
+        "enum": ["image/jpeg", "image/png", "image/gif", "video/mp4"]
+      },
+      "ProcessingResult": {
+        "type": "object",
+        "description": "Processing result returned after event processing",
+        "required": ["eventId", "hash", "storageLocation", "processedAt"],
+        "properties": {
+          "eventId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "hash": {
+            "type": "string"
+          },
+          "processedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "storageLocation": {
+            "type": "string"
+          }
+        }
+      },
+      "ServiceHealthStatus": {
+        "type": "object",
+        "description": "Service health status breakdown",
+        "required": ["storage"],
+        "properties": {
+          "storage": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "health",
+      "description": "Health check endpoints"
+    },
+    {
+      "name": "events",
+      "description": "Event processing endpoints"
+    }
+  ]
+}

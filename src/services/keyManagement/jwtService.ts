@@ -1,5 +1,5 @@
-import * as jose from "jose";
 import * as CryptoJS from "crypto-js";
+import * as jose from "jose";
 
 function hashPayload(payload: string): string {
   return CryptoJS.SHA256(payload).toString(CryptoJS.enc.Hex);
