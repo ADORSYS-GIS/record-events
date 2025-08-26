@@ -169,11 +169,8 @@ impl PowService {
             .decode(hash)
             .map_err(|e| EventServerError::Validation(format!("Invalid base64 hash: {e}")))?;
 
-        println!("{:?}", hash_bytes);
-
         let required_zeros = difficulty as usize;
         let mut zero_count = 0;
-
 
         for byte in hash_bytes.iter() {
             if *byte == 0 {
@@ -188,7 +185,6 @@ impl PowService {
 
         Ok(zero_count >= required_zeros)
     }
-
 
     /// Get the number of active challenges (for testing/monitoring)
     #[cfg(test)]
