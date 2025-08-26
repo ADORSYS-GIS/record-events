@@ -113,7 +113,7 @@ fn validate_event_signature(signed_package: &SignedEventPackage) -> Result<(), E
     // Decode the public key from base64
     let public_key_bytes = base64::engine::general_purpose::STANDARD
         .decode(&signed_package.public_key)
-        .map_err(|e| EventServerError::Validation(format!("Invalid base64 public key: {}", e)))?;
+        .map_err(|e| EventServerError::Validation(format!("Invalid base64 public key: {e}")))?;
 
     // Validate public key length for Ed25519
     if public_key_bytes.len() != 32 {
@@ -128,27 +128,25 @@ fn validate_event_signature(signed_package: &SignedEventPackage) -> Result<(), E
         EventServerError::Validation("Failed to convert key bytes to array".to_string())
     })?;
     let public_key = ed25519_dalek::VerifyingKey::from_bytes(&key_array)
-        .map_err(|e| EventServerError::Validation(format!("Invalid Ed25519 public key: {}", e)))?;
+        .map_err(|e| EventServerError::Validation(format!("Invalid Ed25519 public key: {e}")))?;
 
     // Serialize the event data for signature verification
     let event_data_json = serde_json::to_vec(&signed_package.event_data).map_err(|e| {
-        EventServerError::Validation(format!("Failed to serialize event data: {}", e))
+        EventServerError::Validation(format!("Failed to serialize event data: {e}"))
     })?;
 
     // Decode the signature
     let signature_bytes = base64::engine::general_purpose::STANDARD
         .decode(&signed_package.signature)
-        .map_err(|e| EventServerError::Validation(format!("Invalid base64 signature: {}", e)))?;
+        .map_err(|e| EventServerError::Validation(format!("Invalid base64 signature: {e}")))?;
 
     let signature = ed25519_dalek::Signature::try_from(&signature_bytes[..])
-        .map_err(|e| EventServerError::Validation(format!("Invalid signature format: {}", e)))?;
+        .map_err(|e| EventServerError::Validation(format!("Invalid signature format: {e}")))?;
 
     // Verify the signature
     public_key
         .verify_strict(&event_data_json, &signature)
-        .map_err(|e| {
-            EventServerError::Validation(format!("Signature verification failed: {}", e))
-        })?;
+        .map_err(|e| EventServerError::Validation(format!("Signature verification failed: {e}")))?;
 
     Ok(())
 }
@@ -167,7 +165,7 @@ fn should_skip_validation(path: &str) -> bool {
 
     public_paths
         .iter()
-        .any(|&public_path| path == public_path || path.starts_with(&format!("{}/", public_path)))
+        .any(|&public_path| path == public_path || path.starts_with(&format!("{public_path}/")))
 }
 
 /// Extract relay ID from validated request headers

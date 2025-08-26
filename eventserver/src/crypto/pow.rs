@@ -165,7 +165,7 @@ impl PowService {
     fn meets_difficulty(&self, hash: &str, difficulty: u32) -> Result<bool, EventServerError> {
         let hash_bytes = base64::engine::general_purpose::STANDARD
             .decode(hash)
-            .map_err(|e| EventServerError::Validation(format!("Invalid base64 hash: {}", e)))?;
+            .map_err(|e| EventServerError::Validation(format!("Invalid base64 hash: {e}")))?;
 
         let required_zeros = difficulty as usize;
         let mut zero_count = 0;

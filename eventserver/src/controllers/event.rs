@@ -11,7 +11,7 @@ use crate::error::EventServerError;
 use crate::middleware::crypto::extract_validated_relay_id;
 use crate::services::zip_packager::{ZipPackageOptions, ZipPackager};
 use crate::state::AppState;
-use crate::types::event::{EventPackage, ProcessingResult, SignedEventPackage};
+use crate::types::event::{ProcessingResult, SignedEventPackage};
 
 /// Create event-related routes
 pub fn routes() -> Router<AppState> {
