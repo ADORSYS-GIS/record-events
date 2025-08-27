@@ -1,9 +1,10 @@
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
+use utoipa::ToSchema;
 use uuid::Uuid;
 
 /// Supported field value types - matches TypeScript FieldValue
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
 #[serde(untagged)]
 pub enum FieldValue {
     String(String),
@@ -13,7 +14,7 @@ pub enum FieldValue {
 }
 
 /// Supported media types - matches TypeScript MediaType
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
 pub enum MediaType {
     #[serde(rename = "image/jpeg")]
     ImageJpeg,
@@ -37,7 +38,7 @@ impl MediaType {
 }
 
 /// Event annotation with strict typing - matches TypeScript EventAnnotation
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
 #[serde(rename_all = "camelCase")]
 pub struct EventAnnotation {
     pub label_id: String,
@@ -46,7 +47,7 @@ pub struct EventAnnotation {
 }
 
 /// Media data with proper typing - matches TypeScript EventMedia
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
 #[serde(rename_all = "camelCase")]
 pub struct EventMedia {
     #[serde(rename = "type")]
@@ -58,7 +59,7 @@ pub struct EventMedia {
 }
 
 /// Event metadata - matches TypeScript structure
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
 #[serde(rename_all = "camelCase")]
 pub struct EventMetadata {
     pub created_at: DateTime<Utc>,
@@ -67,7 +68,7 @@ pub struct EventMetadata {
 }
 
 /// Event source types - matches TypeScript
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
 #[serde(rename_all = "lowercase")]
 pub enum EventSource {
     Web,
@@ -75,7 +76,7 @@ pub enum EventSource {
 }
 
 /// Complete event package - matches TypeScript EventPackage
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
 pub struct EventPackage {
     pub id: Uuid,
     pub version: String,
@@ -96,7 +97,7 @@ pub struct SignedEventPackage {
 }
 
 /// Simple event payload from frontend - file upload notification
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
 #[serde(rename_all = "camelCase")]
 pub struct EventPayload {
     pub filename: String,
@@ -104,7 +105,7 @@ pub struct EventPayload {
 }
 
 /// Processing result returned after event processing
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, ToSchema)]
 #[serde(rename_all = "camelCase")]
 pub struct ProcessingResult {
     pub event_id: Uuid,

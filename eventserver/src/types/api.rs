@@ -1,5 +1,6 @@
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
+use utoipa::ToSchema;
 use uuid::Uuid;
 
 /// Standard API response wrapper
@@ -44,7 +45,7 @@ pub struct EventResponse {
 }
 
 /// Response for event hash verification
-#[derive(Debug, Serialize)]
+#[derive(Debug, Serialize, ToSchema)]
 #[serde(rename_all = "camelCase")]
 pub struct HashVerificationResponse {
     pub hash: String,
@@ -54,7 +55,7 @@ pub struct HashVerificationResponse {
 }
 
 /// Health check response
-#[derive(Debug, Serialize)]
+#[derive(Debug, Serialize, ToSchema)]
 pub struct HealthResponse {
     pub status: String,
     pub timestamp: DateTime<Utc>,
@@ -63,7 +64,7 @@ pub struct HealthResponse {
 }
 
 /// Service health status breakdown
-#[derive(Debug, Serialize)]
+#[derive(Debug, Serialize, ToSchema)]
 pub struct ServiceHealthStatus {
     pub storage: bool,
 }
