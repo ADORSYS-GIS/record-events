@@ -184,8 +184,8 @@ mod tests {
     fn test_should_skip_validation() {
         assert!(should_skip_validation("/health"));
         assert!(should_skip_validation("/docs"));
-        assert!(should_skip_validation("/openapi.json"));
-        assert!(should_skip_validation("/openapi.yaml"));
+        assert!(should_skip_validation("/openapi-json"));
+        assert!(should_skip_validation("/openapi-yaml"));
         assert!(should_skip_validation("/api/v1/pow/challenge"));
 
         assert!(!should_skip_validation("/api/v1/events"));
