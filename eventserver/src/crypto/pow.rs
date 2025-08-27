@@ -261,7 +261,6 @@ mod tests {
         partial_zero[1] = 0;
         partial_zero[2] = 15; // 0x0F
         let partial_hash = base64::engine::general_purpose::STANDARD.encode(partial_zero);
-        println!("{}", partial_hash);
         assert!(service.meets_difficulty(&partial_hash, 5).unwrap()); // 5 leading zeros
         assert!(!service.meets_difficulty(&partial_hash, 6).unwrap()); // Not 6 leading zeros
     }
@@ -329,7 +328,6 @@ mod tests {
         };
 
         let result = service.verify_solution(&solution);
-        println!("{:?}", result);
         assert!(result.is_err());
         assert!(result.unwrap_err().to_string().contains("expired"));
     }
