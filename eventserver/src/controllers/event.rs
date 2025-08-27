@@ -1,6 +1,6 @@
 use axum::{
     extract::{Path, State},
-    http::StatusCode,
+    http::{HeaderMap, StatusCode},
     response::Json,
     routing::{get, post},
     Router,
@@ -8,9 +8,10 @@ use axum::{
 use tracing::{error, info, warn};
 
 use crate::error::EventServerError;
+use crate::middleware::crypto::extract_validated_relay_id;
 use crate::services::zip_packager::{ZipPackageOptions, ZipPackager};
 use crate::state::AppState;
-use crate::types::event::{EventPackage, ProcessingResult};
+use crate::types::event::{ProcessingResult, SignedEventPackage};
 
 /// Create event-related routes
 pub fn routes() -> Router<AppState> {
@@ -24,16 +25,26 @@ pub fn routes() -> Router<AppState> {
 /// This is completely stateless - each request is processed independently
 async fn receive_event(
     State(state): State<AppState>,
-    Json(event_package): Json<EventPackage>,
+    headers: HeaderMap,
+    Json(signed_package): Json<SignedEventPackage>,
 ) -> Result<Json<ProcessingResult>, (StatusCode, String)> {
     info!(
-        event_id = %event_package.id,
-        "Received event processing request"
+        event_id = %signed_package.event_data.id,
+        "Received signed event processing request"
     );
 
-    // Extract relay ID from authentication context (would be set by auth middleware)
-    // For now, using a placeholder
-    let relay_id = "authenticated_relay_id".to_string();
+    // Extract relay ID from validated headers (set by crypto middleware)
+    let relay_id = extract_validated_relay_id(&headers).ok_or_else(|| {
+        error!("No validated relay ID found in headers");
+        (
+            StatusCode::UNAUTHORIZED,
+            "Authentication required".to_string(),
+        )
+    })?;
+
+    // Extract the event data from the signed package
+    // Note: Cryptographic validation is handled by the middleware
+    let event_package = signed_package.event_data;
 
     match state
         .event_service
@@ -69,18 +80,33 @@ async fn receive_event(
     }
 }
 
-/// Receive and process an EventPackage from frontend
+/// Receive and process a SignedEventPackage from frontend
 /// Creates ZIP file and uploads to S3
 async fn receive_event_package(
     State(state): State<AppState>,
-    Json(event_package): Json<EventPackage>,
+    headers: HeaderMap,
+    Json(signed_package): Json<SignedEventPackage>,
 ) -> Result<Json<serde_json::Value>, (StatusCode, String)> {
+    // Extract relay ID from validated headers (set by crypto middleware)
+    let relay_id = extract_validated_relay_id(&headers).ok_or_else(|| {
+        error!("No validated relay ID found in headers");
+        (
+            StatusCode::UNAUTHORIZED,
+            "Authentication required".to_string(),
+        )
+    })?;
+
+    // Extract the event data from the signed package
+    // Note: Cryptographic validation is handled by the middleware
+    let event_package = signed_package.event_data;
+
     info!(
+        relay_id = %relay_id,
         event_id = %event_package.id,
         version = %event_package.version,
         annotations_count = event_package.annotations.len(),
         has_media = event_package.media.is_some(),
-        "Received EventPackage for processing"
+        "Received SignedEventPackage for processing"
     );
 
     // Validate the event package

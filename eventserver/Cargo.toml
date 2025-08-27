@@ -25,6 +25,7 @@ ed25519-dalek = "2.0"
 x509-parser = "0.15"
 base64 = "0.21"
 hex = "0.4"
+pem = "3.0"
 
 # Storage (S3)
 aws-sdk-s3 = "1.0"
@@ -52,6 +53,14 @@ mime = "0.3"
 bytes = "1.0"
 zip = "0.6"
 async-trait = "0.1.89"
+rand = "0.8"
+rcgen = "0.14.3"
+time = "0.3.41"
 
 [dev-dependencies]
 tokio-test = "0.4"
+# PEM parsing for certificates
+pem = "3.0"
+
+# Random number generation for testing
+rand = "0.8"
