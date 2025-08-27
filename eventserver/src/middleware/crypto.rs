@@ -13,7 +13,9 @@ use crate::types::event::SignedEventPackage;
 
 /// Cryptographic validation middleware
 /// This middleware ensures all incoming requests are cryptographically signed
-/// and authenticated before processing
+/// and authenticated before processing. It supports two authentication methods:
+/// 1. Certificate-based authentication (preferred for subsequent requests)
+/// 2. PoW-based authentication with SignedEventPackage (for initial requests)
 pub async fn crypto_validation_middleware(
     State(state): State<AppState>,
     request: Request,
@@ -29,8 +31,50 @@ pub async fn crypto_validation_middleware(
 
     info!(path = %path, "Applying cryptographic validation");
 
-    // Extract headers and body for validation
-    let _headers = request.headers().clone();
+    // Extract headers for certificate token check
+    let headers = request.headers().clone();
+
+    // First, try certificate-based authentication
+    if let Some(certificate_token) = extract_certificate_token(&headers) {
+        info!(path = %path, "Detected certificate token, validating certificate");
+
+        match state
+            .certificate_service
+            .validate_certificate(&certificate_token)
+        {
+            Ok(validation) => {
+                info!(
+                    relay_id = %validation.relay_id,
+                    expires_at = %validation.expires_at,
+                    path = %path,
+                    "Certificate validated successfully"
+                );
+
+                // Add validated relay ID to request headers for downstream use
+                let (parts, body) = request.into_parts();
+                let mut request = Request::from_parts(parts, body);
+                request.headers_mut().insert(
+                    "X-Validated-Relay-ID",
+                    validation
+                        .relay_id
+                        .parse()
+                        .unwrap_or_else(|_| "unknown".parse().unwrap()),
+                );
+
+                return Ok(next.run(request).await);
+            }
+            Err(e) => {
+                warn!(
+                    error = %e,
+                    path = %path,
+                    "Certificate validation failed, falling back to PoW validation"
+                );
+                // Continue to PoW validation as fallback
+            }
+        }
+    }
+
+    // Fallback to PoW-based authentication with SignedEventPackage
     let (parts, body) = request.into_parts();
     let body_bytes = match axum::body::to_bytes(body, usize::MAX).await {
         Ok(bytes) => bytes.to_vec(),
@@ -40,7 +84,7 @@ pub async fn crypto_validation_middleware(
         }
     };
 
-    // Try to parse body as SignedEventPackage first
+    // Try to parse body as SignedEventPackage
     if let Ok(signed_package) = serde_json::from_slice::<SignedEventPackage>(&body_bytes) {
         info!(path = %path, "Detected SignedEventPackage, validating with PoW solution");
 
@@ -99,12 +143,12 @@ pub async fn crypto_validation_middleware(
             }
         }
     } else {
-        // All authenticated requests must use SignedEventPackage format with PoW
+        // No valid authentication method found
         warn!(
             path = %path,
-            "Request does not contain SignedEventPackage - PoW-based authentication required"
+            "Request contains neither valid certificate token nor SignedEventPackage - authentication required"
         );
-        Err(StatusCode::BAD_REQUEST)
+        Err(StatusCode::UNAUTHORIZED)
     }
 }
 
@@ -152,7 +196,7 @@ fn validate_event_signature(signed_package: &SignedEventPackage) -> Result<(), E
 }
 
 /// Determine if cryptographic validation should be skipped for a given path
-fn should_skip_validation(path: &str) -> bool {
+pub fn should_skip_validation(path: &str) -> bool {
     // Public endpoints that don't require authentication
     let public_paths = [
         "/health",
@@ -161,11 +205,26 @@ fn should_skip_validation(path: &str) -> bool {
         "/openapi-yaml",
         // PoW challenge endpoint for obtaining challenges
         "/api/v1/pow/challenge",
+        // PoW verification endpoint for obtaining certificates
+        "/api/v1/pow/verify",
     ];
 
     public_paths
         .iter()
         .any(|&public_path| path == public_path || path.starts_with(&format!("{public_path}/")))
+}
+
+/// Extract certificate token from Authorization header
+/// Expected format: "Bearer <certificate_token>"
+fn extract_certificate_token(headers: &HeaderMap) -> Option<String> {
+    headers
+        .get("Authorization")
+        .and_then(|h| h.to_str().ok())
+        .and_then(|auth_header| {
+            auth_header
+                .strip_prefix("Bearer ")
+                .map(|token| token.to_string())
+        })
 }
 
 /// Extract relay ID from validated request headers

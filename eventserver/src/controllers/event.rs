@@ -6,6 +6,7 @@ use axum::{
     Router,
 };
 use tracing::{error, info, warn};
+use utoipa;
 
 use crate::error::EventServerError;
 use crate::middleware::crypto::extract_validated_relay_id;
@@ -23,6 +24,18 @@ pub fn routes() -> Router<AppState> {
 
 /// Receive and process an event from a relay
 /// This is completely stateless - each request is processed independently
+#[utoipa::path(
+    post,
+    path = "/api/v1/events",
+    request_body = SignedEventPackage,
+    responses(
+        (status = 200, description = "Event processed successfully", body = ProcessingResult),
+        (status = 400, description = "Invalid event data or validation failed"),
+        (status = 401, description = "Authentication required - no validated relay ID"),
+        (status = 500, description = "Internal server error during processing")
+    ),
+    tag = "events"
+)]
 async fn receive_event(
     State(state): State<AppState>,
     headers: HeaderMap,
@@ -82,6 +95,18 @@ async fn receive_event(
 
 /// Receive and process a SignedEventPackage from frontend
 /// Creates ZIP file and uploads to S3
+#[utoipa::path(
+    post,
+    path = "/api/v1/events/package",
+    request_body = SignedEventPackage,
+    responses(
+        (status = 200, description = "Event package processed and uploaded successfully", body = serde_json::Value),
+        (status = 400, description = "Invalid event package or validation failed"),
+        (status = 401, description = "Authentication required - no validated relay ID"),
+        (status = 500, description = "Internal server error during processing or storage")
+    ),
+    tag = "events"
+)]
 async fn receive_event_package(
     State(state): State<AppState>,
     headers: HeaderMap,
@@ -182,6 +207,19 @@ async fn receive_event_package(
 
 /// Verify if an event hash exists in storage
 /// Stateless verification - no local state required
+#[utoipa::path(
+    get,
+    path = "/api/v1/events/{hash}/verify",
+    params(
+        ("hash" = String, Path, description = "SHA-256 hash of the event to verify (64 characters)")
+    ),
+    responses(
+        (status = 200, description = "Hash verification completed", body = HashVerificationResponse),
+        (status = 400, description = "Invalid hash format - must be 64 characters"),
+        (status = 500, description = "Internal server error during verification")
+    ),
+    tag = "events"
+)]
 async fn verify_event_hash(
     State(state): State<AppState>,
     Path(hash): Path<String>,
@@ -225,7 +263,7 @@ async fn verify_event_hash(
 }
 
 /// Response for hash verification
-#[derive(serde::Serialize)]
+#[derive(serde::Serialize, utoipa::ToSchema)]
 #[serde(rename_all = "camelCase")]
 pub struct HashVerificationResponse {
     pub hash: String,
