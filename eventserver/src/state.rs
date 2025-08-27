@@ -1,3 +1,4 @@
+use crate::crypto::{CertificateService, PowService};
 use crate::services::{EventService, StorageService};
 
 /// Unified application state containing all services
@@ -6,14 +7,23 @@ use crate::services::{EventService, StorageService};
 pub struct AppState {
     pub event_service: EventService,
     pub storage_service: StorageService,
+    pub pow_service: PowService,
+    pub certificate_service: CertificateService,
 }
 
 impl AppState {
     /// Create a new AppState with initialized services
-    pub fn new(event_service: EventService, storage_service: StorageService) -> Self {
+    pub fn new(
+        event_service: EventService,
+        storage_service: StorageService,
+        pow_service: PowService,
+        certificate_service: CertificateService,
+    ) -> Self {
         Self {
             event_service,
             storage_service,
+            pow_service,
+            certificate_service,
         }
     }
 }

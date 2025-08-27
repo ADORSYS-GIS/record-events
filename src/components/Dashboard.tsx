@@ -1,10 +1,4 @@
-import {
-  AlertCircle,
-  CheckCircle,
-  Clock,
-  Plus,
-  Settings
-} from "lucide-react";
+import { AlertCircle, CheckCircle, Clock, Plus, Settings } from "lucide-react";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { useEventHistory } from "../hooks/useEventHistory";

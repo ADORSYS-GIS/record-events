@@ -11,7 +11,7 @@ use utoipa_swagger_ui::SwaggerUi;
 use crate::controllers::{event, health};
 use crate::state::AppState;
 use crate::types::{
-    api::{HashVerificationResponse, HealthResponse, ServiceHealthStatus},
+    api::{HealthResponse, ServiceHealthStatus},
     event::{
         EventAnnotation, EventMedia, EventMetadata, EventPackage, EventPayload, EventSource,
         FieldValue, MediaType, ProcessingResult,
@@ -24,15 +24,16 @@ use crate::types::{
     paths(
         health::health_check,
         event::receive_event,
-        event::receive_event_upload,
         event::receive_event_package,
         event::verify_event_hash,
+        crate::request_pow_challenge,
+        crate::verify_pow_and_issue_certificate,
     ),
     components(
         schemas(
             HealthResponse,
             ServiceHealthStatus,
-            HashVerificationResponse,
+            event::HashVerificationResponse,
             EventPackage,
             EventPayload,
             ProcessingResult,
@@ -46,7 +47,8 @@ use crate::types::{
     ),
     tags(
         (name = "health", description = "Health check endpoints"),
-        (name = "events", description = "Event processing endpoints")
+        (name = "events", description = "Event processing endpoints"),
+        (name = "authentication", description = "Authentication and PoW challenge endpoints")
     ),
     info(
         title = "EventServer API",
