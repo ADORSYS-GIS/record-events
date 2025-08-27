@@ -1,6 +1,6 @@
 import { toast } from "sonner";
 import { useEventsServicePostApiV1EventsPackage } from "../openapi-rq/queries/queries";
-import { EventPackage } from "../openapi-rq/requests/types.gen";
+import { SignedEventPackage } from "../openapi-rq/requests/types.gen";
 
 export const useEventSubmission = () => {
   const mutation = useEventsServicePostApiV1EventsPackage({
@@ -14,8 +14,8 @@ export const useEventSubmission = () => {
     },
   });
 
-  const submitEvent = (eventPackage: EventPackage) => {
-    mutation.mutate({ requestBody: eventPackage });
+  const submitEvent = (signedEventPackage: SignedEventPackage) => {
+    mutation.mutate({ requestBody: signedEventPackage });
   };
 
   return {

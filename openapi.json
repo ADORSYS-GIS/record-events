@@ -475,23 +475,13 @@
           },
           "SignedEventPackage": {
               "type": "object",
-              "description": "Signed event package for secure transmission",
+              "description": "Event package for secure transmission (authentication via Bearer token)",
               "required": [
-                  "event",
-                  "signature",
-                  "publicKey"
+                  "event"
               ],
               "properties": {
                   "event": {
                       "$ref": "#/components/schemas/EventPackage"
-                  },
-                  "signature": {
-                      "type": "string",
-                      "description": "Base64 encoded Ed25519 signature"
-                  },
-                  "publicKey": {
-                      "type": "string",
-                      "description": "Base64 encoded Ed25519 public key"
                   }
               }
           },

@@ -1,6 +1,6 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { useCallback, useState } from "react";
+import { useCallback, useState, useEffect } from "react";
 import {
   Route,
   BrowserRouter as Router,
@@ -50,6 +50,17 @@ function App() {
   const [showOnboarding, setShowOnboarding] = useState(false);
   const [showDashboard, setShowDashboard] = useState(false);
   const [showEventForm, setShowEventForm] = useState(false);
+
+  // Check if onboarding has been completed
+  useEffect(() => {
+    const onboardingCompleted = localStorage.getItem("eventApp_onboarding_completed");
+    if (onboardingCompleted === "true") {
+      // User has completed onboarding, go directly to dashboard
+      setShowWelcome(false);
+      setShowOnboarding(false);
+      setShowDashboard(true);
+    }
+  }, []);
 
   const handleGetStarted = useCallback(() => {
     setShowWelcome(false);
@@ -119,7 +130,7 @@ function App() {
 
     if (showOnboarding) {
       return (
-        <OnboardingFlow onComplete={handleOnboardingComplete} i18n={i18n} />
+        <OnboardingFlow onComplete={handleOnboardingComplete} />
       );
     }
 
@@ -155,7 +166,19 @@ function App() {
           </div>
         );
       }
-      return <EventForm labels={labels} />;
+      
+      if (!keyPair) {
+        return (
+          <div className="min-h-screen bg-gradient-to-br from-neutral-50 to-primary-50 flex items-center justify-center">
+            <div className="text-center">
+              <div className="w-12 h-12 border-4 border-primary-200 border-t-primary-500 rounded-full animate-spin mx-auto mb-4" />
+              <p className="text-neutral-600">Initializing security keys...</p>
+            </div>
+          </div>
+        );
+      }
+      
+      return <EventForm labels={labels} keyPair={keyPair} />;
     }
 
     return null;

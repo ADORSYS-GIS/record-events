@@ -54,6 +54,9 @@ async fn main() -> anyhow::Result<()> {
         // Public routes (no authentication required)
         .route("/health", get(controllers::health::health_check))
         .merge(controllers::openapi::routes())
+        // PoW routes (public endpoints for authentication)
+        .route("/api/v1/pow/challenge", axum::routing::post(request_pow_challenge))
+        .route("/api/v1/pow/verify", axum::routing::post(verify_pow_and_issue_certificate))
         // Protected routes (require authentication)
         .nest(
             "/api/v1",
@@ -86,17 +89,6 @@ async fn main() -> anyhow::Result<()> {
 fn api_routes() -> Router<AppState> {
     Router::new()
         .merge(controllers::event::routes())
-        .merge(pow_routes())
-}
-
-/// PoW challenge routes for authentication
-fn pow_routes() -> Router<AppState> {
-    Router::new()
-        .route("/pow/challenge", axum::routing::post(request_pow_challenge))
-        .route(
-            "/pow/verify",
-            axum::routing::post(verify_pow_and_issue_certificate),
-        )
 }
 
 /// Request a new PoW challenge (public endpoint)

@@ -30,9 +30,24 @@ export async function performProofOfWork(
   // eslint-disable-next-line no-constant-condition
   while (true) {
     // Create hash from challenge_data + nonce (as per backend implementation)
-    const input = challenge_data + nonce.toString();
-    const hashBytes = CryptoJS.SHA256(input);
-    hash = CryptoJS.enc.Base64.stringify(hashBytes);
+    // Backend uses: hasher.update(challenge_data.as_bytes());
+    //               hasher.update(nonce.to_le_bytes());
+    
+    // Convert nonce to little-endian bytes
+    const nonceBytes = new Uint8Array(8);
+    const view = new DataView(nonceBytes.buffer);
+    view.setBigUint64(0, BigInt(nonce), true); // true = little-endian
+    
+    // Create WordArray from challenge_data
+    const challengeWordArray = CryptoJS.enc.Utf8.parse(challenge_data);
+    
+    // Create WordArray from nonce bytes
+    const nonceWordArray = CryptoJS.lib.WordArray.create(nonceBytes);
+    
+    // Combine them and hash
+    const combined = challengeWordArray.concat(nonceWordArray);
+    const finalHash = CryptoJS.SHA256(combined);
+    hash = CryptoJS.enc.Base64.stringify(finalHash);
 
     // Check if hash meets the difficulty requirement
     if (meetsDifficulty(hash, difficulty)) {
@@ -98,8 +113,20 @@ export function validateProofOfWork(
   hash: string,
   difficulty: number,
 ): boolean {
-  const input = challenge_data + nonce.toString();
-  const computedHash = CryptoJS.enc.Base64.stringify(CryptoJS.SHA256(input));
+  // Convert nonce to little-endian bytes
+  const nonceBytes = new Uint8Array(8);
+  const view = new DataView(nonceBytes.buffer);
+  view.setBigUint64(0, BigInt(nonce), true); // true = little-endian
+  
+  // Create WordArray from challenge_data
+  const challengeWordArray = CryptoJS.enc.Utf8.parse(challenge_data);
+  
+  // Create WordArray from nonce bytes
+  const nonceWordArray = CryptoJS.lib.WordArray.create(nonceBytes);
+  
+  // Combine them and hash
+  const combined = challengeWordArray.concat(nonceWordArray);
+  const computedHash = CryptoJS.enc.Base64.stringify(CryptoJS.SHA256(combined));
 
   return computedHash === hash && meetsDifficulty(computedHash, difficulty);
 }
