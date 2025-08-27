@@ -54,5 +54,96 @@
   "describeEventPlaceholder": "Décrivez votre événement ici...",
   "describeEventHelpText": "Veuillez fournir une description exhaustive de l'événement.",
   "selectPriorityDescription": "Sélectionnez la priorité de l'événement que vous souhaitez signaler.",
-  "eventSaved": "Événement enregistré avec succès."
+  "eventSaved": "Événement enregistré avec succès.",
+  "onboarding": {
+    "welcome": {
+      "title": "Bienvenue sur EventApp",
+      "description": "Votre plateforme sécurisée pour signaler les événements avec vérification blockchain"
+    },
+    "features": {
+      "secure": {
+        "title": "Sécurisé et privé",
+        "description": "Vos données sont chiffrées et vérifiées sur la blockchain pour une sécurité maximale"
+      },
+      "security": "Sécurisé et privé",
+      "securityDesc": "Vos données sont chiffrées et vérifiées sur la blockchain",
+      "camera": "Capture photo facile",
+      "cameraDesc": "Capturez et annotez les événements avec l'appareil photo de votre appareil"
+    },
+    "permissions": {
+      "title": "Accès à l'appareil photo",
+      "description": "Autoriser l'accès à l'appareil photo pour capturer des photos d'événements"
+    },
+    "security": {
+      "title": "Configuration de sécurité",
+      "description": "Création de votre identité numérique sécurisée",
+      "completed": "Configuration de sécurité terminée !"
+    },
+    "ready": {
+      "title": "Vous êtes prêt !",
+      "description": "Commencez à signaler les événements en toute sécurité"
+    },
+    "generating": "Génération de vos clés sécurisées...",
+    "generatingDesc": "Cela peut prendre quelques instants",
+    "getStarted": "Commencer",
+    "settingUp": "Configuration...",
+    "continue": "Continuer",
+    "skip": "Passer pour l'instant"
+  },
+  "dashboard": {
+    "subtitle": "Signalement d'événements sécurisé",
+    "welcome": "Bon retour !",
+    "welcomeDesc": "Prêt à signaler un événement ?",
+    "status": {
+      "connected": "Connecté",
+      "submitted": "Soumis",
+      "pending": "En attente"
+    },
+    "quickActions": {
+      "title": "Actions rapides",
+      "traffic": "Incident de circulation",
+      "infrastructure": "Infrastructure",
+      "safety": "Problème de sécurité",
+      "report": "Signaler maintenant"
+    },
+    "createEvent": {
+      "title": "Créer un nouveau rapport d'événement",
+      "description": "Capturez des photos, ajoutez des détails et soumettez en toute sécurité",
+      "button": "Commencer un nouveau rapport"
+    },
+    "recentEvents": {
+      "title": "Événements récents",
+      "viewAll": "Voir tout",
+      "empty": {
+        "title": "Aucun événement pour l'instant",
+        "description": "Créez votre premier rapport d'événement pour commencer",
+        "button": "Créer le premier événement"
+      }
+    },
+    "stats": {
+      "totalEvents": "Total des événements",
+      "thisWeek": "Cette semaine",
+      "pending": "En attente"
+    }
+  },
+  "eventForm": {
+    "title": "Nouveau rapport d'événement",
+    "subtitle": "Capturez et soumettez votre événement",
+    "fields": {
+      "title": "Détails de l'événement"
+    },
+    "media": {
+      "title": "Ajouter des médias à votre rapport",
+      "description": "Capturez une photo ou téléchargez une image pour fournir un contexte visuel"
+    }
+  },
+  "welcome": {
+    "selectLanguage": "Sélectionnez votre langue",
+    "features": {
+      "secure": "Sécurisé et privé",
+      "secureDesc": "Vos données sont chiffrées et vérifiées sur la blockchain",
+      "easy": "Facile à utiliser",
+      "easyDesc": "Interface simple pour un signalement rapide d'événements"
+    }
+  }
 }

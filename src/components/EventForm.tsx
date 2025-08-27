@@ -12,7 +12,7 @@ import type { KeyPair } from "../hooks/useKeyInitialization";
 
 type FieldValue = string | number | boolean | null;
 
-interface FormData extends Record<string, FieldValue> {}
+type FormData = Record<string, FieldValue>;
 
 // Helper to get localized text from a string or LocalizedText object
 const getLocalizedText = (text: string | LocalizedText | undefined): string => {
@@ -95,25 +95,46 @@ const EventForm: React.FC<EventFormProps> = ({ labels, createdBy }) => {
           <img
             src={URL.createObjectURL(mediaFile)}
             alt="Preview"
-            className="max-h-64 mx-auto mb-4 rounded"
+            className="max-h-64 mx-auto mb-4 rounded-lg shadow-medium"
           />
           <button
             type="button"
             onClick={() => setMediaFile(null)}
-            className="absolute top-2 right-2 bg-red-500 text-white rounded-full p-1 hover:bg-red-600"
+            className="absolute top-2 right-2 bg-error-500 text-white rounded-full p-2 hover:bg-error-600 transition-colors duration-200 shadow-medium"
           >
-            &times;
+            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+              <path
+                fillRule="evenodd"
+                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                clipRule="evenodd"
+              />
+            </svg>
           </button>
         </div>
       );
     }
 
     return (
-      <div>
-        <div className="flex justify-center space-x-4 mb-4">
-          <label className="cursor-pointer bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-            <Upload className="inline mr-2" size={16} />
-            {t("uploadImage")}
+      <div className="space-y-6">
+        <div className="text-center">
+          <div className="w-16 h-16 bg-neutral-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <Camera className="w-8 h-8 text-neutral-400" />
+          </div>
+          <h3 className="text-lg font-medium text-neutral-900 mb-2">
+            {t("eventForm.media.title", "Add Media to Your Report")}
+          </h3>
+          <p className="text-neutral-500 mb-6">
+            {t(
+              "eventForm.media.description",
+              "Capture a photo or upload an image to provide visual context",
+            )}
+          </p>
+        </div>
+
+        <div className="flex flex-col sm:flex-row justify-center gap-4">
+          <label className="cursor-pointer bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg shadow-sm transition-all duration-200 flex items-center justify-center space-x-2">
+            <Upload className="w-5 h-5" />
+            <span>Upload Image</span>
             <input
               type="file"
               accept="image/*,video/*"
@@ -124,10 +145,10 @@ const EventForm: React.FC<EventFormProps> = ({ labels, createdBy }) => {
           <button
             type="button"
             onClick={handleTakePhoto}
-            className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 flex items-center"
+            className="bg-blue-100 hover:bg-blue-200 text-blue-900 px-6 py-3 rounded-lg shadow-sm transition-all duration-200 flex items-center justify-center space-x-2 border border-blue-300"
           >
-            <Camera className="mr-2" size={16} />
-            {t("takePhoto")}
+            <Camera className="w-5 h-5" />
+            <span>Take Photo</span>
           </button>
         </div>
       </div>
@@ -319,166 +340,223 @@ const EventForm: React.FC<EventFormProps> = ({ labels, createdBy }) => {
   }, [formData, mediaFile, labels, createdBy, t]);
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="space-y-6 p-6 bg-white rounded-lg shadow-lg max-w-3xl mx-auto"
-    >
-      {/* Dynamic Form Fields from Labels */}
-      <div className="space-y-4">
-        {labels.map((label) => {
-          const labelName =
-            i18n.language === "fr" ? label.name_fr : label.name_en;
-          const labelId = `field-${label.labelId}`;
-          const error = errors[label.labelId];
-
-          return (
-            <div key={label.labelId} className="space-y-2">
-              <label
-                htmlFor={labelId}
-                className="block text-sm font-medium text-gray-700"
+    <div className="min-h-screen bg-blue-50">
+      {/* Header */}
+      <header className="bg-white shadow-sm border-b border-blue-200">
+        <div className="max-w-4xl mx-auto px-6 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-4">
+              <button
+                onClick={() => window.history.back()}
+                className="p-2 text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-lg transition-colors duration-200"
               >
-                {labelName}{" "}
-                {label.required && <span className="text-red-500">*</span>}
-              </label>
-
-              {/* Text Field */}
-              {label.type === "text" && (
-                <input
-                  type="text"
-                  id={labelId}
-                  name={label.labelId}
-                  value={String(formData[label.labelId] || "")}
-                  onChange={handleChange}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-2 border"
-                  disabled={isSubmitting}
-                  required={label.required}
-                  placeholder={t("describeEventPlaceholder")}
-                />
-              )}
-
-              {/* Number Field */}
-              {label.type === "number" && (
-                <input
-                  type="number"
-                  id={labelId}
-                  name={label.labelId}
-                  value={Number(formData[label.labelId] || 0)}
-                  onChange={handleChange}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-2 border"
-                  min={label.constraints?.min}
-                  max={label.constraints?.max}
-                  step={label.constraints?.step}
-                  disabled={isSubmitting}
-                  required={label.required}
-                  placeholder={getLocalizedText(label.placeholder)}
-                />
-              )}
-
-              {/* Boolean Field */}
-              {label.type === "boolean" && (
-                <div className="flex items-center">
-                  <input
-                    type="checkbox"
-                    id={labelId}
-                    name={label.labelId}
-                    checked={!!formData[label.labelId]}
-                    onChange={handleChange}
-                    className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
-                    disabled={isSubmitting}
-                  />
-                </div>
-              )}
-
-              {/* Enum Field */}
-              {label.type === "enum" && label.options && (
-                <select
-                  id={labelId}
-                  name={label.labelId}
-                  value={(formData[label.labelId] as string) || ""}
-                  onChange={handleChange}
-                  className="mt-1 block w-full pl-3 pr-10 py-2 text-base border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md"
-                  disabled={isSubmitting}
-                >
-                  <option value="">{t("selectAnOption")}</option>
-                  {label.options?.map((option) => (
-                    <option key={option} value={option}>
-                      {option}
-                    </option>
-                  ))}
-                </select>
-              )}
-
-              {error && <p className="mt-1 text-sm text-red-600">{error}</p>}
-              {label.helpText && (
-                <p className="mt-1 text-xs text-gray-500">
-                  {typeof label.helpText === "string"
-                    ? t(label.helpText)
-                    : t(label.helpText[i18n.language] || label.helpText.en)}
-                </p>
-              )}
-            </div>
-          );
-        })}
-      </div>
-
-      {/* Media Upload Section */}
-      <div className="space-y-2">
-        <label className="block text-sm font-medium text-gray-700">
-          {t("addMedia")}
-        </label>
-        <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
-          {renderMediaSection()}
-        </div>
-      </div>
-
-      <div className="flex justify-end space-x-4 mt-8">
-        <button
-          type="button"
-          onClick={handleSaveDraft}
-          disabled={isSubmitting}
-          className="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-          <Save className="h-4 w-4 mr-2" />
-          {t("save")}
-        </button>
-        <button
-          type="submit"
-          disabled={isSubmitting}
-          className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-          {isSubmitting ? (
-            <>
-              <svg
-                className="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <circle
-                  className="opacity-25"
-                  cx="12"
-                  cy="12"
-                  r="10"
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
                   stroke="currentColor"
-                  strokeWidth="4"
-                ></circle>
-                <path
-                  className="opacity-75"
-                  fill="currentColor"
-                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                ></path>
-              </svg>
-              {t("saving")}
-            </>
-          ) : (
-            <>
-              <Send className="h-4 w-4 mr-2" />
-              {t("submit")}
-            </>
-          )}
-        </button>
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 19l-7-7 7-7"
+                  />
+                </svg>
+              </button>
+              <div>
+                <h1 className="text-xl font-semibold text-blue-900">
+                  New Event Report
+                </h1>
+                <p className="text-sm text-blue-600">
+                  Capture and submit your event
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Form Content */}
+      <div className="max-w-4xl mx-auto px-6 py-8">
+        <form onSubmit={handleSubmit} className="space-y-6">
+          {/* Form Fields Section */}
+          <div className="bg-white rounded-xl shadow-sm border border-blue-200 p-8">
+            <h2 className="text-lg font-semibold text-blue-900 mb-6">
+              Event Details
+            </h2>
+            <div className="space-y-6">
+              {labels.map((label) => {
+                const labelName =
+                  i18n.language === "fr" ? label.name_fr : label.name_en;
+                const labelId = `field-${label.labelId}`;
+                const error = errors[label.labelId];
+
+                return (
+                  <div key={label.labelId} className="space-y-2">
+                    <label
+                      htmlFor={labelId}
+                      className="block text-sm font-medium text-neutral-700"
+                    >
+                      {labelName}{" "}
+                      {label.required && (
+                        <span className="text-error-500">*</span>
+                      )}
+                    </label>
+
+                    {/* Text Field */}
+                    {label.type === "text" && (
+                      <input
+                        type="text"
+                        id={labelId}
+                        name={label.labelId}
+                        value={String(formData[label.labelId] || "")}
+                        onChange={handleChange}
+                        className="mt-1 block w-full rounded-lg border-blue-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-3 border transition-colors duration-200"
+                        disabled={isSubmitting}
+                        required={label.required}
+                        placeholder={t("describeEventPlaceholder")}
+                      />
+                    )}
+
+                    {/* Number Field */}
+                    {label.type === "number" && (
+                      <input
+                        type="number"
+                        id={labelId}
+                        name={label.labelId}
+                        value={Number(formData[label.labelId] || 0)}
+                        onChange={handleChange}
+                        className="mt-1 block w-full rounded-lg border-blue-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-3 border transition-colors duration-200"
+                        min={label.constraints?.min}
+                        max={label.constraints?.max}
+                        step={label.constraints?.step}
+                        disabled={isSubmitting}
+                        required={label.required}
+                        placeholder={getLocalizedText(label.placeholder)}
+                      />
+                    )}
+
+                    {/* Boolean Field */}
+                    {label.type === "boolean" && (
+                      <div className="flex items-center">
+                        <input
+                          type="checkbox"
+                          id={labelId}
+                          name={label.labelId}
+                          checked={!!formData[label.labelId]}
+                          onChange={handleChange}
+                          className="h-5 w-5 rounded border-blue-300 text-blue-600 focus:ring-blue-500 transition-colors duration-200"
+                          disabled={isSubmitting}
+                        />
+                        <label
+                          htmlFor={labelId}
+                          className="ml-3 text-sm text-blue-700"
+                        >
+                          {labelName}
+                        </label>
+                      </div>
+                    )}
+
+                    {/* Enum Field */}
+                    {label.type === "enum" && label.options && (
+                      <select
+                        id={labelId}
+                        name={label.labelId}
+                        value={(formData[label.labelId] as string) || ""}
+                        onChange={handleChange}
+                        className="mt-1 block w-full pl-3 pr-10 py-3 text-base border border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-lg transition-colors duration-200"
+                        disabled={isSubmitting}
+                      >
+                        <option value="">Select an option</option>
+                        {label.options?.map((option) => (
+                          <option key={option} value={option}>
+                            {option}
+                          </option>
+                        ))}
+                      </select>
+                    )}
+
+                    {error && (
+                      <p className="mt-1 text-sm text-error-600">{error}</p>
+                    )}
+                    {label.helpText && (
+                      <p className="mt-1 text-xs text-neutral-500">
+                        {typeof label.helpText === "string"
+                          ? t(label.helpText)
+                          : t(
+                              label.helpText[i18n.language] ||
+                                label.helpText.en,
+                            )}
+                      </p>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Media Upload Section */}
+          <div className="bg-white rounded-xl shadow-sm border border-blue-200 p-8">
+            <h2 className="text-lg font-semibold text-blue-900 mb-6">
+              Add Media
+            </h2>
+            <div className="border-2 border-dashed border-blue-300 rounded-xl p-8 text-center hover:border-blue-400 transition-colors duration-200">
+              {renderMediaSection()}
+            </div>
+          </div>
+
+          {/* Action Buttons */}
+          <div className="flex justify-end space-x-4 pt-6">
+            <button
+              type="button"
+              onClick={handleSaveDraft}
+              disabled={isSubmitting}
+              className="inline-flex items-center px-6 py-3 border border-blue-300 shadow-sm text-sm font-medium rounded-lg text-blue-700 bg-white hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
+            >
+              <Save className="h-4 w-4 mr-2" />
+              Save
+            </button>
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-lg shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
+            >
+              {isSubmitting ? (
+                <>
+                  <svg
+                    className="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                    ></path>
+                  </svg>
+                  Saving...
+                </>
+              ) : (
+                <>
+                  <Send className="h-4 w-4 mr-2" />
+                  Submit
+                </>
+              )}
+            </button>
+          </div>
+        </form>
       </div>
-    </form>
+    </div>
   );
 };
 

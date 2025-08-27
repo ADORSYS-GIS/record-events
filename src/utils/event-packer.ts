@@ -4,6 +4,7 @@ import type {
   EventAnnotation,
   EventMedia,
   FieldValue,
+  MediaType,
 } from "../types/event";
 import { isEventPackage } from "../types/event";
 import type { Label } from "../labels/label-manager";
@@ -79,7 +80,7 @@ export async function createEventPackage(
       const base64Data = await fileToBase64(mediaFile);
 
       media = {
-        type: mediaFile.type as any, // Will be validated by isEventPackage
+        type: mediaFile.type as MediaType, // Will be validated by isEventPackage
         data: base64Data,
         name: mediaFile.name,
         size: mediaFile.size,

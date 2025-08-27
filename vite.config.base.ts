@@ -1,12 +1,9 @@
-import { defineConfig } from "vite";
+import type { UserConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import { VitePWA } from "vite-plugin-pwa";
 
-export default defineConfig({
+const baseConfig: UserConfig = {
   base: "./",
-  server: {
-    port: 5174,
-  },
   plugins: [
     react(),
     VitePWA({
@@ -34,4 +31,6 @@ export default defineConfig({
       },
     }),
   ],
-});
+};
+
+export default baseConfig;

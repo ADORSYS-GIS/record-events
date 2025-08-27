@@ -53,5 +53,96 @@
   "describeEventPlaceholder": "Describe your event here...",
   "describeEventHelpText": "Please provide a detailed description of the event.",
   "selectPriorityDescription": "Select the priority of the event you wish to report.",
-  "eventSaved": "Event saved successfully."
+  "eventSaved": "Event saved successfully.",
+  "onboarding": {
+    "welcome": {
+      "title": "Welcome to EventApp",
+      "description": "Your secure platform for reporting events with blockchain verification"
+    },
+    "features": {
+      "secure": {
+        "title": "Secure & Private",
+        "description": "Your data is encrypted and verified on the blockchain for maximum security"
+      },
+      "security": "Secure & Private",
+      "securityDesc": "Your data is encrypted and verified on the blockchain",
+      "camera": "Easy Photo Capture",
+      "cameraDesc": "Capture and annotate events with your device camera"
+    },
+    "permissions": {
+      "title": "Camera Access",
+      "description": "Allow camera access to capture event photos"
+    },
+    "security": {
+      "title": "Security Setup",
+      "description": "Creating your secure digital identity",
+      "completed": "Security setup completed!"
+    },
+    "ready": {
+      "title": "You're Ready!",
+      "description": "Start reporting events securely"
+    },
+    "generating": "Generating your secure keys...",
+    "generatingDesc": "This may take a few moments",
+    "getStarted": "Get Started",
+    "settingUp": "Setting up...",
+    "continue": "Continue",
+    "skip": "Skip for now"
+  },
+  "dashboard": {
+    "subtitle": "Secure event reporting",
+    "welcome": "Welcome back!",
+    "welcomeDesc": "Ready to report an event?",
+    "status": {
+      "connected": "Connected",
+      "submitted": "Submitted",
+      "pending": "Pending"
+    },
+    "quickActions": {
+      "title": "Quick Actions",
+      "traffic": "Traffic Incident",
+      "infrastructure": "Infrastructure",
+      "safety": "Safety Issue",
+      "report": "Report now"
+    },
+    "createEvent": {
+      "title": "Create New Event Report",
+      "description": "Capture photos, add details, and submit securely",
+      "button": "Start New Report"
+    },
+    "recentEvents": {
+      "title": "Recent Events",
+      "viewAll": "View all",
+      "empty": {
+        "title": "No events yet",
+        "description": "Create your first event report to get started",
+        "button": "Create First Event"
+      }
+    },
+    "stats": {
+      "totalEvents": "Total Events",
+      "thisWeek": "This Week",
+      "pending": "Pending"
+    }
+  },
+  "eventForm": {
+    "title": "New Event Report",
+    "subtitle": "Capture and submit your event",
+    "fields": {
+      "title": "Event Details"
+    },
+    "media": {
+      "title": "Add Media to Your Report",
+      "description": "Capture a photo or upload an image to provide visual context"
+    }
+  },
+  "welcome": {
+    "selectLanguage": "Select your language",
+    "features": {
+      "secure": "Secure & Private",
+      "secureDesc": "Your data is encrypted and blockchain verified",
+      "easy": "Easy to Use",
+      "easyDesc": "Simple interface for quick event reporting"
+    }
+  }
 }

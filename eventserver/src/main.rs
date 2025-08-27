@@ -35,7 +35,7 @@ async fn main() -> anyhow::Result<()> {
     let storage_service = StorageService::new(config.storage.clone()).await?;
     let event_service = EventService::new(storage_service.clone());
 
-    // Create application state
+    // Create an application state
     let app_state = AppState::new(event_service, storage_service);
 
     // Build application router
