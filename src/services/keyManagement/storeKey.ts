@@ -1,6 +1,6 @@
-import storage from "./storageSetup"; // Import the initialized storage
+import { decryptPrivateKey, encryptPrivateKey } from "./encrypt";
 import generateKeyPair from "./generateKey"; // Import your existing key generation function
-import { encryptPrivateKey, decryptPrivateKey } from "./encrypt";
+import storage from "./storageSetup"; // Import the initialized storage
 
 // Function to store a key pair in IndexedDB
 export async function storeKeyPair() {
@@ -14,11 +14,9 @@ export async function storeKeyPair() {
 
   console.log("Storing key pair in IndexedDB...");
   await storage.insert("keys", {
-    value: {
-      pub: publicKey,
-      priv: encryptedPriv,
-      kid: 1,
-    },
+    pub: publicKey,
+    priv: encryptedPriv,
+    kid: 1,
   });
   console.log("Key pair stored successfully.");
 }
@@ -31,7 +29,13 @@ export async function retrieveKeyPair(kid: number) {
   if (retrievedRecord) {
     console.log("Key pair retrieved successfully:", retrievedRecord);
 
-    const { pub: publicKey, priv: encryptedPriv } = retrievedRecord.value;
+    // Handle both old and new data structures
+    const data = retrievedRecord.value || retrievedRecord;
+    const { pub: publicKey, priv: encryptedPriv } = data as {
+      pub: JsonWebKey;
+      priv: { jwe: string; salt: number[] };
+      kid: number;
+    };
 
     console.log("Decrypting private key...");
     const privateKey = await decryptPrivateKey(encryptedPriv);

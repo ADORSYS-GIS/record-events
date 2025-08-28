@@ -1,69 +1,69 @@
-import { memo, useCallback, useState, useEffect } from "react";
-
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { useCallback, useState, useEffect } from "react";
+import {
+  Route,
+  BrowserRouter as Router,
+  Routes,
+  useNavigate,
+} from "react-router-dom";
 import { Toaster } from "sonner";
-import { useLabelManagement } from "./hooks/useLabelManagement";
-import useKeyInitialization from "./hooks/useKeyInitialization";
-import EventForm from "./components/EventForm";
-import WelcomeScreen from "./components/WelcomeScreen";
-import OnboardingFlow from "./components/OnboardingFlow";
-import Dashboard from "./components/Dashboard";
 import i18n from "./i18n";
 
-// Loading spinner component
-const LoadingSpinner = ({ message }: { message: string }) => (
-  <div className="min-h-screen bg-primary-100 flex items-center justify-center font-[Inter] antialiased">
-    <div className="backdrop-blur-md bg-white/30 border border-white/20 shadow-lg rounded-2xl px-6 py-8 max-w-md w-full text-center">
-      <div className="w-12 h-12 border-4 border-primary-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-      <p className="text-gray-700">{message}</p>
-    </div>
-  </div>
-);
+import useInitialization from "./hooks/useInitialization";
+import useKeyManagement from "./hooks/useKeyManagement";
+import { useLabelManagement } from "./hooks/useLabelManagement";
+import "./i18n";
 
-// Error display component
-const ErrorDisplay = ({
-  error,
-  onRetry,
-}: {
-  error: Error;
-  onRetry: () => void;
-}) => (
-  <div className="min-h-screen bg-primary-100 flex items-center justify-center font-[Inter] antialiased">
-    <div className="backdrop-blur-md bg-white/30 border border-white/20 shadow-lg rounded-2xl px-6 py-8 max-w-md w-full">
-      <h2 className="text-lg font-medium text-gray-900 mb-2">
-        Error Initializing Application
-      </h2>
-      <p className="text-red-600 mb-4">{error.message}</p>
-      <button
-        onClick={onRetry}
-        className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded transition-colors duration-200"
-      >
-        Refresh Page
-      </button>
-    </div>
-  </div>
-);
+import Dashboard from "./components/Dashboard";
+import EventForm from "./components/EventForm";
+import LoadingSpinner from "./components/LoadingSpinner";
+import OnboardingFlow from "./components/OnboardingFlow";
+import WelcomeScreen from "./components/WelcomeScreen";
 
-// Main App component
-const App = memo(() => {
-  const { keyPair, keyStatus, error, isLoading } = useKeyInitialization();
+// Create a client
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 1000 * 60 * 5, // 5 minutes
+    },
+  },
+});
+
+function App() {
+  const {
+    keyPair,
+    error: keyError,
+    isLoading: isKeyLoading,
+  } = useKeyManagement();
+  const {
+    devCert,
+    error: powError,
+    isLoading: isPowLoading,
+  } = useInitialization({
+    publicKey: keyPair?.publicKey || null,
+  });
   const { labels } = useLabelManagement();
+  const navigate = useNavigate();
+
   const [showWelcome, setShowWelcome] = useState(true);
   const [showOnboarding, setShowOnboarding] = useState(false);
   const [showDashboard, setShowDashboard] = useState(false);
   const [showEventForm, setShowEventForm] = useState(false);
 
-  // Check if user has completed onboarding
+  // Check if onboarding has been completed
   useEffect(() => {
     const onboardingCompleted = localStorage.getItem(
       "eventApp_onboarding_completed",
     );
     if (onboardingCompleted === "true") {
+      // User has completed onboarding, go directly to dashboard
       setShowWelcome(false);
+      setShowOnboarding(false);
       setShowDashboard(true);
     }
   }, []);
 
-  const handleRetry = useCallback(() => window.location.reload(), []);
   const handleGetStarted = useCallback(() => {
     setShowWelcome(false);
     setShowOnboarding(true);
@@ -89,14 +89,40 @@ const App = memo(() => {
     console.log("Open settings clicked");
   }, []);
 
-  // Show loading state
-  if (isLoading) {
-    return <LoadingSpinner message={keyStatus} />;
+  const handleBackToDashboard = useCallback(() => {
+    setShowEventForm(false);
+    setShowDashboard(true);
+  }, []);
+
+  // Show loading state during device security (key management + Proof of Work)
+  if (isKeyLoading || isPowLoading) {
+    return (
+      <LoadingSpinner message="Please wait while we secure your device..." />
+    );
   }
 
-  // Show error state
-  if (error) {
-    return <ErrorDisplay error={error} onRetry={handleRetry} />;
+  // Show error if either key management or Proof of Work failed
+  if (keyError || powError) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="max-w-md w-full space-y-8">
+          <div className="text-center">
+            <h2 className="mt-6 text-3xl font-extrabold text-gray-900">
+              Initialization Failed
+            </h2>
+            <p className="mt-2 text-sm text-gray-600">{keyError || powError}</p>
+          </div>
+          <div className="mt-8 space-y-6">
+            <button
+              onClick={() => window.location.reload()}
+              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            >
+              Retry
+            </button>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   const renderContent = () => {
@@ -105,18 +131,11 @@ const App = memo(() => {
     }
 
     if (showOnboarding) {
-      return (
-        <OnboardingFlow
-          onComplete={handleOnboardingComplete}
-          i18n={i18n}
-          keyStatus={keyStatus}
-          isKeyGenerating={isLoading}
-        />
-      );
+      return <OnboardingFlow onComplete={handleOnboardingComplete} />;
     }
 
     if (showDashboard) {
-      if (!keyPair || labels.length === 0) {
+      if (labels.length === 0) {
         return (
           <div className="min-h-screen bg-gradient-to-br from-neutral-50 to-primary-50 flex items-center justify-center">
             <div className="text-center">
@@ -129,7 +148,6 @@ const App = memo(() => {
       return (
         <Dashboard
           labels={labels}
-          keyPair={keyPair}
           onCreateEvent={handleCreateEvent}
           onViewHistory={handleViewHistory}
           onOpenSettings={handleOpenSettings}
@@ -138,7 +156,7 @@ const App = memo(() => {
     }
 
     if (showEventForm) {
-      if (!keyPair || labels.length === 0) {
+      if (labels.length === 0) {
         return (
           <div className="min-h-screen bg-gradient-to-br from-neutral-50 to-primary-50 flex items-center justify-center">
             <div className="text-center">
@@ -148,6 +166,18 @@ const App = memo(() => {
           </div>
         );
       }
+
+      if (!keyPair) {
+        return (
+          <div className="min-h-screen bg-gradient-to-br from-neutral-50 to-primary-50 flex items-center justify-center">
+            <div className="text-center">
+              <div className="w-12 h-12 border-4 border-primary-200 border-t-primary-500 rounded-full animate-spin mx-auto mb-4" />
+              <p className="text-neutral-600">Initializing security keys...</p>
+            </div>
+          </div>
+        );
+      }
+
       return <EventForm labels={labels} keyPair={keyPair} />;
     }
 
@@ -155,13 +185,24 @@ const App = memo(() => {
   };
 
   return (
-    <div className="font-sans antialiased">
-      <Toaster position="top-center" />
+    <div className="App">
+      <Toaster position="top-right" />
       {renderContent()}
     </div>
   );
-});
+}
 
-App.displayName = "App";
+function AppWithRouter() {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Router>
+        <Routes>
+          <Route path="/" element={<App />} />
+        </Routes>
+      </Router>
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
+  );
+}
 
-export default App;
+export default AppWithRouter;

@@ -1,7 +1,9 @@
+import { AlertCircle, CheckCircle, Clock, Plus, Settings } from "lucide-react";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Settings, Plus, Clock, CheckCircle, AlertCircle } from "lucide-react";
+import { useEventHistory } from "../hooks/useEventHistory";
 import type { KeyPair } from "../hooks/useKeyInitialization";
+import { useTheme } from "../hooks/useTheme";
 import type { Label } from "../labels/label-manager";
 
 interface DashboardProps {
@@ -13,32 +15,23 @@ interface DashboardProps {
 }
 
 const Dashboard: React.FC<DashboardProps> = ({
+  labels: _labels,
+  keyPair: _keyPair,
   onCreateEvent,
+  onViewHistory: _onViewHistory,
   onOpenSettings,
 }) => {
   const { t } = useTranslation();
+  const { isDark } = useTheme();
+  const { events } = useEventHistory();
 
-  // Mock data for demonstration - in real app this would come from state/props
-  const recentEvents = [
-    {
-      id: 1,
-      title: "Traffic Incident",
-      status: "submitted",
-      timestamp: "2 hours ago",
-    },
-    {
-      id: 2,
-      title: "Infrastructure Issue",
-      status: "pending",
-      timestamp: "1 day ago",
-    },
-    {
-      id: 3,
-      title: "Safety Concern",
-      status: "submitted",
-      timestamp: "3 days ago",
-    },
-  ];
+  // Use real event data instead of mock data
+  const recentEvents = events.slice(0, 5).map((event) => ({
+    id: event.id,
+    title: event.title,
+    status: event.status,
+    timestamp: new Date(event.timestamp).toLocaleString(),
+  }));
 
   const quickActions = [
     {

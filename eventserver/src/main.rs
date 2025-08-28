@@ -54,7 +54,15 @@ async fn main() -> anyhow::Result<()> {
         // Public routes (no authentication required)
         .route("/health", get(controllers::health::health_check))
         .merge(controllers::openapi::routes())
-        .nest("/api/vi", pow_routes())
+        // PoW routes (public endpoints for authentication)
+        .route(
+            "/api/v1/pow/challenge",
+            axum::routing::post(request_pow_challenge),
+        )
+        .route(
+            "/api/v1/pow/verify",
+            axum::routing::post(verify_pow_and_issue_certificate),
+        )
         // Protected routes (require authentication)
         .nest(
             "/api/v1",
@@ -88,20 +96,10 @@ fn api_routes() -> Router<AppState> {
     Router::new().merge(controllers::event::routes())
 }
 
-/// PoW challenge routes for authentication
-fn pow_routes() -> Router<AppState> {
-    Router::new()
-        .route("/pow/challenge", axum::routing::post(request_pow_challenge))
-        .route(
-            "/pow/verify",
-            axum::routing::post(verify_pow_and_issue_certificate),
-        )
-}
-
 /// Request a new PoW challenge (public endpoint)
 #[utoipa::path(
     post,
-    path = "/api/vi/pow/challenge",
+    path = "/api/v1/pow/challenge",
     responses(
         (status = 200, description = "PoW challenge generated successfully", body = PowChallengeResponse),
         (status = 500, description = "Failed to generate PoW challenge")
@@ -136,7 +134,7 @@ async fn request_pow_challenge(
 /// Verify PoW solution and issue device certificate (public endpoint)
 #[utoipa::path(
     post,
-    path = "/api/vi/pow/verify",
+    path = "/api/v1/pow/verify",
     request_body = PowCertificateRequest,
     responses(
         (status = 200, description = "PoW verified and certificate issued successfully", body = TokenResponse),
@@ -176,6 +174,15 @@ async fn verify_pow_and_issue_certificate(
                     );
 
                     Ok(axum::Json(serde_json::json!({
+                        "success": true,
+                        "certificate": {
+                            "certificate_id": certificate_response.certificate.certificate_id,
+                            "relay_id": certificate_response.certificate.relay_id,
+                            "public_key": certificate_response.certificate.public_key,
+                            "issued_at": certificate_response.certificate.issued_at,
+                            "expires_at": certificate_response.certificate.expires_at,
+                            "signature": certificate_response.certificate.signature
+                        },
                         "token": certificate_response.token
                     })))
                 }
