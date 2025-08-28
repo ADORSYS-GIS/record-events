@@ -25,6 +25,11 @@
         "summary": "Receive and process an event from a relay",
         "description": "This is completely stateless - each request is processed independently",
         "operationId": "receive_event",
+        "security": [
+          {
+            "bearer_auth": []
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -50,7 +55,7 @@
             "description": "Invalid event data or validation failed"
           },
           "401": {
-            "description": "Authentication required - no validated relay ID"
+            "description": "Authentication required - Bearer token missing or invalid"
           },
           "500": {
             "description": "Internal server error during processing"
@@ -64,6 +69,11 @@
         "summary": "Receive and process a SignedEventPackage from frontend",
         "description": "Creates ZIP file and uploads to S3",
         "operationId": "receive_event_package",
+        "security": [
+          {
+            "bearer_auth": []
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -87,7 +97,7 @@
             "description": "Invalid event package or validation failed"
           },
           "401": {
-            "description": "Authentication required - no validated relay ID"
+            "description": "Authentication required - Bearer token missing or invalid"
           },
           "500": {
             "description": "Internal server error during processing or storage"
@@ -212,6 +222,14 @@
     }
   },
   "components": {
+    "securitySchemes": {
+      "bearer_auth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Certificate token obtained from PoW verification endpoint"
+      }
+    },
     "schemas": {
       "EventAnnotation": {
         "type": "object",
@@ -418,27 +436,12 @@
       },
       "SignedEventPackage": {
         "type": "object",
-        "description": "Event package for secure transmission (authentication via Bearer token)",
-        "required": ["eventData"],
+        "description": "Event package with JWT-signed event data for secure transmission",
+        "required": ["jwtEventData"],
         "properties": {
-          "eventData": {
-            "$ref": "#/components/schemas/EventPackage"
-          },
-          "signature": {
+          "jwtEventData": {
             "type": "string",
-            "description": "Base64 encoded signature (optional when using Bearer token)"
-          },
-          "publicKey": {
-            "type": "string",
-            "description": "Base64 encoded Ed25519 public key (optional when using Bearer token)"
-          },
-          "powSolution": {
-            "$ref": "#/components/schemas/PowSolution",
-            "description": "PoW solution for authentication (optional when using Bearer token)"
-          },
-          "relayId": {
-            "type": "string",
-            "description": "Relay identifier (optional when using Bearer token)"
+            "description": "JWT token containing the event package payload, signed with device private key"
           }
         }
       },
@@ -511,7 +514,7 @@
       "CertificateResponse": {
         "type": "object",
         "description": "Response containing the issued certificate",
-        "required": ["success", "certificate", "token"],
+        "required": ["success", "certificate", "cert_token"],
         "properties": {
           "success": {
             "type": "boolean",
@@ -520,9 +523,9 @@
           "certificate": {
             "$ref": "#/components/schemas/DeviceCertificate"
           },
-          "token": {
+          "cert_token": {
             "type": "string",
-            "description": "JWT token for authentication"
+            "description": "Certificate token for Bearer authentication"
           }
         }
       },

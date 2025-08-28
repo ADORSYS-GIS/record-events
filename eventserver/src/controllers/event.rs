@@ -1,6 +1,6 @@
 use axum::{
-    extract::{Path, State},
-    http::{HeaderMap, StatusCode},
+    extract::{Path, State, Request},
+    http::StatusCode,
     response::Json,
     routing::{get, post},
     Router,
@@ -12,7 +12,12 @@ use crate::error::EventServerError;
 use crate::middleware::crypto::extract_validated_relay_id;
 use crate::services::zip_packager::{ZipPackageOptions, ZipPackager};
 use crate::state::AppState;
-use crate::types::event::{ProcessingResult, SignedEventPackage};
+use crate::types::event::{ProcessingResult, EventPackage};
+
+/// Extract verified event package from request extensions (set by crypto middleware)
+fn extract_verified_event_package(request: &Request) -> Option<EventPackage> {
+    request.extensions().get::<EventPackage>().cloned()
+}
 
 /// Create event-related routes
 pub fn routes() -> Router<AppState> {
@@ -41,26 +46,31 @@ pub fn routes() -> Router<AppState> {
 )]
 async fn receive_event(
     State(state): State<AppState>,
-    headers: HeaderMap,
-    Json(signed_package): Json<SignedEventPackage>,
+    request: Request,
 ) -> Result<Json<ProcessingResult>, (StatusCode, String)> {
+    // Extract verified event package from request extensions (set by crypto middleware)
+    let event_package = extract_verified_event_package(&request).ok_or_else(|| {
+        error!("No verified event package found in request extensions");
+        (
+            StatusCode::INTERNAL_SERVER_ERROR,
+            "Event data verification failed".to_string(),
+        )
+    })?;
+
     info!(
-        event_id = %signed_package.event_data.id,
+        event_id = %event_package.id,
         "Received signed event processing request"
     );
 
     // Extract relay ID from validated headers (set by crypto middleware)
-    let relay_id = extract_validated_relay_id(&headers).ok_or_else(|| {
+    let headers = request.headers();
+    let relay_id = extract_validated_relay_id(headers).ok_or_else(|| {
         error!("No validated relay ID found in headers");
         (
             StatusCode::UNAUTHORIZED,
             "Authentication required".to_string(),
         )
     })?;
-
-    // Extract the event data from the signed package
-    // Note: Cryptographic validation is handled by the middleware
-    let event_package = signed_package.event_data;
 
     match state
         .event_service
@@ -115,30 +125,16 @@ async fn receive_event(
 )]
 async fn receive_event_package(
     State(state): State<AppState>,
-    headers: HeaderMap,
-    Json(signed_package): Json<SignedEventPackage>,
+    request: Request,
 ) -> Result<Json<serde_json::Value>, (StatusCode, String)> {
-    // Extract relay ID from validated headers (set by crypto middleware)
-    let relay_id = extract_validated_relay_id(&headers).ok_or_else(|| {
-        error!("No validated relay ID found in headers");
+    // Extract verified event package from request extensions (set by crypto middleware)
+    let event_package = extract_verified_event_package(&request).ok_or_else(|| {
+        error!("No verified event package found in request extensions");
         (
-            StatusCode::UNAUTHORIZED,
-            "Authentication required".to_string(),
+            StatusCode::INTERNAL_SERVER_ERROR,
+            "Event data verification failed".to_string(),
         )
     })?;
-
-    // Extract the event data from the signed package
-    // Note: Cryptographic validation is handled by the middleware
-    let event_package = signed_package.event_data;
-
-    info!(
-        relay_id = %relay_id,
-        event_id = %event_package.id,
-        version = %event_package.version,
-        annotations_count = event_package.annotations.len(),
-        has_media = event_package.media.is_some(),
-        "Received SignedEventPackage for processing"
-    );
 
     // Validate the event package
     let validation = event_package.validate();
