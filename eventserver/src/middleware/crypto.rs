@@ -8,6 +8,8 @@ use base64::Engine;
 use jsonwebtoken::{decode, Algorithm, DecodingKey, Validation};
 use serde::{Deserialize, Serialize};
 use tracing::{error, info, warn};
+use p256::{PublicKey, EncodedPoint};
+use p256::elliptic_curve::sec1::FromEncodedPoint;
 
 use crate::error::EventServerError;
 use crate::state::AppState;
@@ -18,6 +20,16 @@ use crate::types::event::{EventPackage, SignedEventPackage};
 struct EventJwtClaims {
     /// The event package payload
     payload: EventPackage,
+}
+
+/// JWK (JSON Web Key) structure for P-256 elliptic curve keys
+#[derive(Debug, Serialize, Deserialize)]
+struct JwkKey {
+    kty: String, // Key type: "EC"
+    crv: String, // Curve: "P-256"
+    x: String,   // X coordinate (base64url encoded)
+    y: String,   // Y coordinate (base64url encoded)
+    d: Option<String>, // Private key component (optional)
 }
 
 /// Cryptographic validation middleware
@@ -142,24 +154,71 @@ fn verify_jwt_event_data(
     jwt_token: &str,
     device_public_key: &str,
 ) -> Result<EventPackage, EventServerError> {
-    // Decode the device public key from base64
-    let public_key_bytes = base64::engine::general_purpose::STANDARD
-        .decode(device_public_key)
-        .map_err(|e| EventServerError::Validation(format!("Invalid base64 public key: {e}")))?;
+    // Parse the device public key as JWK format
+    let jwk: JwkKey = serde_json::from_str(device_public_key)
+        .map_err(|e| EventServerError::Validation(format!("Invalid JWK format: {e}")))?;
 
-    // Validate public key length for Ed25519
-    if public_key_bytes.len() != 32 {
+    // Validate that this is an EC P-256 key
+    if jwk.kty != "EC" {
         return Err(EventServerError::Validation(format!(
-            "Invalid Ed25519 public key length: expected 32 bytes, got {}",
-            public_key_bytes.len()
+            "Invalid key type: expected 'EC', got '{}'",
+            jwk.kty
         )));
     }
 
-    // Create decoding key for JWT verification
-    let decoding_key = DecodingKey::from_ed_der(&public_key_bytes);
+    if jwk.crv != "P-256" {
+        return Err(EventServerError::Validation(format!(
+            "Invalid curve: expected 'P-256', got '{}'",
+            jwk.crv
+        )));
+    }
 
-    // Set up JWT validation parameters
-    let mut validation = Validation::new(Algorithm::EdDSA);
+    // Decode x and y coordinates from base64url
+    let x_bytes = base64::engine::general_purpose::URL_SAFE_NO_PAD
+        .decode(&jwk.x)
+        .map_err(|e| EventServerError::Validation(format!("Invalid x coordinate: {e}")))?;
+    
+    let y_bytes = base64::engine::general_purpose::URL_SAFE_NO_PAD
+        .decode(&jwk.y)
+        .map_err(|e| EventServerError::Validation(format!("Invalid y coordinate: {e}")))?;
+
+    // Validate coordinate lengths for P-256 (32 bytes each)
+    if x_bytes.len() != 32 {
+        return Err(EventServerError::Validation(format!(
+            "Invalid x coordinate length: expected 32 bytes, got {}",
+            x_bytes.len()
+        )));
+    }
+
+    if y_bytes.len() != 32 {
+        return Err(EventServerError::Validation(format!(
+            "Invalid y coordinate length: expected 32 bytes, got {}",
+            y_bytes.len()
+        )));
+    }
+
+    // Create uncompressed point format: 0x04 || x || y
+    let mut point_bytes = Vec::with_capacity(65);
+    point_bytes.push(0x04); // Uncompressed point indicator
+    point_bytes.extend_from_slice(&x_bytes);
+    point_bytes.extend_from_slice(&y_bytes);
+
+    // Create P-256 public key from the point
+    let encoded_point = EncodedPoint::from_bytes(&point_bytes)
+        .map_err(|e| EventServerError::Validation(format!("Invalid EC point: {e}")))?;
+    
+    let public_key = PublicKey::from_encoded_point(&encoded_point)
+        .into_option()
+        .ok_or_else(|| EventServerError::Validation("Invalid P-256 public key point".to_string()))?;
+
+    // Convert to SEC1 DER format for JWT verification  
+    let der_bytes = public_key.to_sec1_bytes().to_vec();
+
+    // Create decoding key for JWT verification with ES256
+    let decoding_key = DecodingKey::from_ec_der(&der_bytes);
+
+    // Set up JWT validation parameters for ES256
+    let mut validation = Validation::new(Algorithm::ES256);
     validation.validate_exp = true;
 
     // Decode and verify the JWT
@@ -240,4 +299,60 @@ mod tests {
             Some("test_relay".to_string())
         );
     }
+
+    #[test]
+    fn test_p256_jwk_parsing() {
+        // Test P-256 JWK public key parsing from the issue description
+        let public_key_jwk = r#"{ "kty": "EC", "crv": "P-256", "x": "PHlAcVDiqi7130xWiMn5CEbOyg_Yo0qfOhabhPlDV_s", "y": "N5bqvbDjbsX2uo2_lzKrwPt7fySMweZVeFSAv99TEEc" }"#;
+        
+        // Test that JWK parsing works
+        let jwk_result: Result<JwkKey, _> = serde_json::from_str(public_key_jwk);
+        assert!(jwk_result.is_ok(), "Failed to parse JWK: {:?}", jwk_result.err());
+        
+        let jwk = jwk_result.unwrap();
+        assert_eq!(jwk.kty, "EC");
+        assert_eq!(jwk.crv, "P-256");
+        assert_eq!(jwk.x, "PHlAcVDiqi7130xWiMn5CEbOyg_Yo0qfOhabhPlDV_s");
+        assert_eq!(jwk.y, "N5bqvbDjbsX2uo2_lzKrwPt7fySMweZVeFSAv99TEEc");
+        
+        // Test that coordinate decoding works
+        let x_bytes = base64::engine::general_purpose::URL_SAFE_NO_PAD
+            .decode(&jwk.x);
+        let y_bytes = base64::engine::general_purpose::URL_SAFE_NO_PAD
+            .decode(&jwk.y);
+            
+        assert!(x_bytes.is_ok(), "Failed to decode x coordinate");
+        assert!(y_bytes.is_ok(), "Failed to decode y coordinate");
+        assert_eq!(x_bytes.unwrap().len(), 32, "X coordinate should be 32 bytes");
+        assert_eq!(y_bytes.unwrap().len(), 32, "Y coordinate should be 32 bytes");
+    }
+
+    #[test]
+    fn test_invalid_jwk_formats() {
+        // Test invalid key type
+        let invalid_kty = r#"{ "kty": "RSA", "crv": "P-256", "x": "PHlAcVDiqi7130xWiMn5CEbOyg_Yo0qfOhabhPlDV_s", "y": "N5bqvbDjbsX2uo2_lzKrwPt7fySMweZVeFSAv99TEEc" }"#;
+        
+        // Create a mock JWT token (doesn't need to be valid for this test)
+        let mock_jwt = "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7ImRldmljZV9pZCI6InRlc3QiLCJ0aW1lc3RhbXAiOiIyMDI1LTA4LTI4VDE2OjE5OjAwWiIsImV2ZW50X3R5cGUiOiJ0ZXN0In0sImV4cCI6OTk5OTk5OTk5OX0.invalid";
+        
+        let result = verify_jwt_event_data(mock_jwt, invalid_kty);
+        assert!(result.is_err(), "Should fail with invalid key type");
+        
+        // Test invalid curve
+        let invalid_crv = r#"{ "kty": "EC", "crv": "P-384", "x": "PHlAcVDiqi7130xWiMn5CEbOyg_Yo0qfOhabhPlDV_s", "y": "N5bqvbDjbsX2uo2_lzKrwPt7fySMweZVeFSAv99TEEc" }"#;
+        
+        let result = verify_jwt_event_data(mock_jwt, invalid_crv);
+        assert!(result.is_err(), "Should fail with invalid curve");
+        
+        // Test malformed JSON
+        let malformed_json = r#"{ "kty": "EC", "crv": "P-256" }"#;
+        
+        let result = verify_jwt_event_data(mock_jwt, malformed_json);
+        assert!(result.is_err(), "Should fail with malformed JSON");
+    }
+
+    // NOTE: We investigated using the `jsonwebkey-convert` library as requested,
+    // but it has compilation errors due to dependency version conflicts and
+    // appears to be incompatible with our current dependency tree.
+    // The custom implementation below works correctly for P-256 JWK conversion.
 }

@@ -29,7 +29,7 @@ struct DeviceClaims {
 pub struct DeviceCertificate {
     pub certificate_id: String,
     pub relay_id: String,
-    pub public_key: String, // Base64 encoded Ed25519 public key
+    pub public_key: String, // JWK format P-256 public key
     pub issued_at: DateTime<Utc>,
     pub expires_at: DateTime<Utc>,
     pub signature: String, // Server signature of the certificate
@@ -39,7 +39,7 @@ pub struct DeviceCertificate {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct CertificateRequest {
     pub relay_id: String,
-    pub public_key: String, // Base64 encoded Ed25519 public key
+    pub public_key: String, // JWK format P-256 public key
 }
 
 /// Certificate response returned to client
