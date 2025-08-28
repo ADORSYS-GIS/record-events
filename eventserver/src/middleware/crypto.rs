@@ -5,13 +5,13 @@ use axum::{
     response::Response,
 };
 use base64::Engine;
-use jsonwebtoken::{decode, DecodingKey, Validation, Algorithm};
+use jsonwebtoken::{decode, Algorithm, DecodingKey, Validation};
 use serde::{Deserialize, Serialize};
 use tracing::{error, info, warn};
 
 use crate::error::EventServerError;
 use crate::state::AppState;
-use crate::types::event::{SignedEventPackage, EventPackage};
+use crate::types::event::{EventPackage, SignedEventPackage};
 
 /// JWT Claims structure for event data
 #[derive(Debug, Serialize, Deserialize)]
@@ -69,13 +69,18 @@ pub async fn crypto_validation_middleware(
                 };
 
                 // Try to parse body as SignedEventPackage for JWT verification
-                if let Ok(signed_package) = serde_json::from_slice::<SignedEventPackage>(&body_bytes) {
+                if let Ok(signed_package) =
+                    serde_json::from_slice::<SignedEventPackage>(&body_bytes)
+                {
                     // Verify JWT event data using device public key from certificate
-                    match verify_jwt_event_data(&signed_package.jwt_event_data, &validation.public_key) {
+                    match verify_jwt_event_data(
+                        &signed_package.jwt_event_data,
+                        &validation.public_key,
+                    ) {
                         Ok(event_package) => {
-                            
                             // Add validated relay ID to request headers and event data to extensions
-                            let mut request = Request::from_parts(parts, axum::body::Body::from(body_bytes));
+                            let mut request =
+                                Request::from_parts(parts, axum::body::Body::from(body_bytes));
                             request.headers_mut().insert(
                                 "X-Validated-Relay-ID",
                                 validation
@@ -83,7 +88,7 @@ pub async fn crypto_validation_middleware(
                                     .parse()
                                     .unwrap_or_else(|_| "unknown".parse().unwrap()),
                             );
-                            
+
                             // Add the verified event package to request extensions for controllers to use
                             request.extensions_mut().insert(event_package);
 
@@ -100,7 +105,8 @@ pub async fn crypto_validation_middleware(
                     }
                 } else {
                     // For non-event endpoints, just validate the certificate
-                    let mut request = Request::from_parts(parts, axum::body::Body::from(body_bytes));
+                    let mut request =
+                        Request::from_parts(parts, axum::body::Body::from(body_bytes));
                     request.headers_mut().insert(
                         "X-Validated-Relay-ID",
                         validation

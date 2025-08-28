@@ -1,5 +1,5 @@
 use axum::{
-    extract::{Path, State, Request},
+    extract::{Path, Request, State},
     http::StatusCode,
     response::Json,
     routing::{get, post},
@@ -12,7 +12,7 @@ use crate::error::EventServerError;
 use crate::middleware::crypto::extract_validated_relay_id;
 use crate::services::zip_packager::{ZipPackageOptions, ZipPackager};
 use crate::state::AppState;
-use crate::types::event::{ProcessingResult, EventPackage};
+use crate::types::event::{EventPackage, ProcessingResult};
 
 /// Extract verified event package from request extensions (set by crypto middleware)
 fn extract_verified_event_package(request: &Request) -> Option<EventPackage> {

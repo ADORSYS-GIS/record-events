@@ -165,12 +165,10 @@ async fn verify_pow_and_issue_certificate(
 
             // Issue the certificate
             match state.certificate_service.issue_certificate(&cert_request) {
-                Ok(certificate_response) => {
-                    Ok(axum::Json(serde_json::json!({
+                Ok(certificate_response) => Ok(axum::Json(serde_json::json!({
 
-                        "token": certificate_response.cert_token
-                    })))
-                }
+                    "token": certificate_response.cert_token
+                }))),
                 Err(e) => {
                     tracing::error!(
                         error = %e,
