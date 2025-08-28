@@ -351,6 +351,63 @@ mod tests {
         assert!(result.is_err(), "Should fail with malformed JSON");
     }
 
+    #[test]
+    fn test_josekit_p256_support() {
+        // Test josekit library for P-256 JWK parsing and ES256 JWT operations
+        use josekit::jwk::Jwk;
+        use josekit::jws::{JwsHeader, ES256};
+        use josekit::jwt::{self, JwtPayload};
+        use std::time::{SystemTime, Duration};
+        
+        // Sample P-256 keypair from the original issue
+        let private_key_jwk = r#"{ "kty": "EC", "crv": "P-256", "d": "E-_KxQl0ow6_4Munq81OH_lg64R2vDpe3zq9XnI0AjE", "x": "PHlAcVDiqi7130xWiMn5CEbOyg_Yo0qfOhabhPlDV_s", "y": "N5bqvbDjbsX2uo2_lzKrwPt7fySMweZVeFSAv99TEEc" }"#;
+        let public_key_jwk = r#"{ "kty": "EC", "crv": "P-256", "x": "PHlAcVDiqi7130xWiMn5CEbOyg_Yo0qfOhabhPlDV_s", "y": "N5bqvbDjbsX2uo2_lzKrwPt7fySMweZVeFSAv99TEEc" }"#;
+        
+        // Test JWK parsing
+        let private_jwk = Jwk::from_bytes(private_key_jwk.as_bytes())
+            .expect("Failed to parse private JWK");
+        let public_jwk = Jwk::from_bytes(public_key_jwk.as_bytes())
+            .expect("Failed to parse public JWK");
+            
+        assert_eq!(private_jwk.key_type(), "EC");
+        assert_eq!(public_jwk.key_type(), "EC");
+        
+        // Test JWT operations
+        let mut payload = JwtPayload::new();
+        payload.set_claim(
+            "payload",
+            Some(serde_json::json!({
+                "device_id": "test-device",
+                "timestamp": "2025-08-28T16:19:00Z",
+                "event_type": "test"
+            })),
+        ).expect("Failed to set payload claim");
+        
+        // Set expiration using SystemTime instead of chrono::DateTime
+        let expires_at = SystemTime::now() + Duration::from_secs(3600); // 1 hour
+        payload.set_expires_at(&expires_at);
+        
+        // Create ES256 signer and create JWT
+        let signer = ES256.signer_from_jwk(&private_jwk)
+            .expect("Failed to create signer from JWK");
+        let jwt = jwt::encode_with_signer(&payload, &JwsHeader::new(), &signer)
+            .expect("Failed to create JWT");
+        
+        // Create ES256 verifier and verify JWT
+        let verifier = ES256.verifier_from_jwk(&public_jwk)
+            .expect("Failed to create verifier from JWK");
+        let (verified_payload, _) = jwt::decode_with_verifier(&jwt, &verifier)
+            .expect("Failed to verify JWT");
+            
+        // Verify payload content exists
+        let payload_claim = verified_payload.claim("payload");
+        assert!(payload_claim.is_some(), "Payload claim should exist");
+        
+        // Verify it's not null
+        let claim_value = payload_claim.unwrap();
+        assert!(!claim_value.is_null(), "Payload claim should not be null");
+    }
+
     // NOTE: We investigated using the `jsonwebkey-convert` library as requested,
     // but it has compilation errors due to dependency version conflicts and
     // appears to be incompatible with our current dependency tree.
