@@ -1,11 +1,46 @@
+// Define proper types for WebAuthn event details
+interface WebAuthnEventDetails {
+  type?: "authentication" | "registration" | "fallback";
+  reason?: string;
+  error?: string;
+}
+
 export class PasswordManager {
-  private static isRegistering = false;
   private static isAuthenticating = false;
+  private static isRegistering = false;
   private static webAuthnModule: {
     handleRegister: () => Promise<void>;
     handleAuthenticate: () => Promise<string[]>;
     saveMessage: () => Promise<void>;
   } | null = null;
+
+  // Add event emitter for WebAuthn state tracking
+  private static webAuthnEvents = new EventTarget();
+
+  static addWebAuthnListener(callback: (event: CustomEvent) => void) {
+    this.webAuthnEvents.addEventListener(
+      "webauthn-state",
+      callback as EventListener,
+    );
+  }
+
+  static removeWebAuthnListener(callback: (event: CustomEvent) => void) {
+    this.webAuthnEvents.removeEventListener(
+      "webauthn-state",
+      callback as EventListener,
+    );
+  }
+
+  private static emitWebAuthnEvent(
+    state: "started" | "completed" | "failed",
+    details?: WebAuthnEventDetails,
+  ) {
+    this.webAuthnEvents.dispatchEvent(
+      new CustomEvent("webauthn-state", {
+        detail: { state, details, timestamp: Date.now() },
+      }),
+    );
+  }
 
   // Enhanced WebAuthn module loader with better error handling
   private static async loadWebAuthnModule() {
@@ -73,8 +108,8 @@ export class PasswordManager {
     document.body.appendChild(list);
   }
 
-  static async getPassword(): Promise<string | undefined> {
-    // Check sessionStorage for password
+  static async getPassword(): Promise<string> {
+    // Check if we already have a password in sessionStorage
     const storedPassword = sessionStorage.getItem("password");
     if (storedPassword) {
       return storedPassword;
@@ -88,15 +123,27 @@ export class PasswordManager {
 
       if (messages.length > 0) {
         console.log("Attempting WebAuthn authentication...");
+        this.emitWebAuthnEvent("started", { type: "authentication" });
         password = await this.attemptAuthentication();
+        this.emitWebAuthnEvent(password ? "completed" : "failed", {
+          type: "authentication",
+        });
       } else {
         console.log("Starting WebAuthn registration...");
+        this.emitWebAuthnEvent("started", { type: "registration" });
         password = await this.handleNewUserRegistration();
+        this.emitWebAuthnEvent(password ? "completed" : "failed", {
+          type: "registration",
+        });
       }
 
       // If WebAuthn fails, fall back to generating a password
       if (!password) {
         console.warn("WebAuthn failed, using fallback password generation");
+        this.emitWebAuthnEvent("failed", {
+          type: "fallback",
+          reason: "WebAuthn returned no password",
+        });
         password = this.generateSecurePassword();
       }
 
@@ -105,6 +152,7 @@ export class PasswordManager {
       return password;
     } catch (error) {
       console.error("Password retrieval error:", error);
+      this.emitWebAuthnEvent("failed", { error: error.message });
       // Fallback to generating a password
       const fallbackPassword = this.generateSecurePassword();
       sessionStorage.setItem("password", fallbackPassword);
