@@ -15,10 +15,10 @@ interface DashboardProps {
 }
 
 const Dashboard: React.FC<DashboardProps> = ({
-  labels,
-  keyPair,
+  labels: _labels,
+  keyPair: _keyPair,
   onCreateEvent,
-  onViewHistory,
+  onViewHistory: _onViewHistory,
   onOpenSettings,
 }) => {
   const { t } = useTranslation();
