@@ -48,6 +48,41 @@ export class PasswordManager {
       return this.webAuthnModule;
     }
 
+    // Check if we're in a Docker container or development environment
+    const isDockerEnvironment = window.location.hostname !== 'localhost' && 
+                               window.location.hostname !== '127.0.0.1';
+    const isSecureContext = window.isSecureContext;
+    
+    console.log('Environment check:', {
+      hostname: window.location.hostname,
+      isDocker: isDockerEnvironment,
+      isSecureContext,
+      protocol: window.location.protocol,
+      origin: window.location.origin,
+      href: window.location.href
+    });
+
+    // If we're in a Docker environment or not in a secure context, use fallback immediately
+    if (isDockerEnvironment || !isSecureContext) {
+      console.warn("WebAuthn not available in this environment, using fallback");
+      console.warn("Reason:", isDockerEnvironment ? "Docker environment detected" : "Not a secure context");
+      this.webAuthnModule = {
+        handleRegister: async () => {
+          console.log("Using fallback registration (Docker/HTTP environment)");
+          return Promise.resolve();
+        },
+        handleAuthenticate: async () => {
+          console.log("Using fallback authentication (Docker/HTTP environment)");
+          return Promise.resolve([this.generateSecurePassword()]);
+        },
+        saveMessage: async () => {
+          console.log("Using fallback message save (Docker/HTTP environment)");
+          return Promise.resolve();
+        },
+      };
+      return this.webAuthnModule;
+    }
+
     try {
       // Try to load the module with proper error handling
       const module = await import("@adorsys-gis/web-auth-prf");
@@ -63,8 +98,9 @@ export class PasswordManager {
       } else {
         throw new Error("WebAuthn module missing required functions");
       }
-    } catch (error) {
-      console.warn("WebAuthn module failed to load, using fallback:", error);
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      console.warn("WebAuthn module failed to load, using fallback:", errorMessage);
       // Return a mock module that uses fallback behavior
       this.webAuthnModule = {
         handleRegister: async () => {
@@ -85,27 +121,35 @@ export class PasswordManager {
   }
 
   static async initializeDOMElements() {
-    // Remove existing elements first to avoid duplicates
-    const existingInput = document.querySelector("#messageInput");
-    if (existingInput) {
-      existingInput.remove();
+    try {
+      // Remove existing elements first to avoid duplicates
+      const existingInput = document.querySelector("#messageInput");
+      if (existingInput) {
+        existingInput.remove();
+      }
+
+      const existingList = document.querySelector("#messageList");
+      if (existingList) {
+        existingList.remove();
+      }
+
+      // Create new elements
+      const input = document.createElement("input");
+      input.type = "hidden";
+      input.id = "messageInput";
+      document.body.appendChild(input);
+
+      const list = document.createElement("ul");
+      list.id = "messageList";
+      list.style.display = "none";
+      document.body.appendChild(list);
+
+      console.log("DOM elements initialized successfully");
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      console.warn("Failed to initialize DOM elements:", errorMessage);
+      // Continue anyway - the fallback will handle this
     }
-
-    const existingList = document.querySelector("#messageList");
-    if (existingList) {
-      existingList.remove();
-    }
-
-    // Create new elements
-    const input = document.createElement("input");
-    input.type = "hidden";
-    input.id = "messageInput";
-    document.body.appendChild(input);
-
-    const list = document.createElement("ul");
-    list.id = "messageList";
-    list.style.display = "none";
-    document.body.appendChild(list);
   }
 
   static async getPassword(): Promise<string> {
@@ -150,9 +194,10 @@ export class PasswordManager {
       // Store the password in sessionStorage
       sessionStorage.setItem("password", password);
       return password;
-    } catch (error) {
-      console.error("Password retrieval error:", error);
-      this.emitWebAuthnEvent("failed", { error: error.message });
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      console.error("Password retrieval error:", errorMessage);
+      this.emitWebAuthnEvent("failed", { error: errorMessage });
       // Fallback to generating a password
       const fallbackPassword = this.generateSecurePassword();
       sessionStorage.setItem("password", fallbackPassword);
@@ -181,8 +226,9 @@ export class PasswordManager {
         console.warn("WebAuthn authentication returned no password");
         return undefined;
       }
-    } catch (error) {
-      console.error("WebAuthn authentication failed:", error);
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      console.error("WebAuthn authentication failed:", errorMessage);
       return undefined;
     } finally {
       this.isAuthenticating = false;
@@ -219,11 +265,13 @@ export class PasswordManager {
         console.log("Password message saved successfully");
       } else {
         console.warn("Message input element not found, skipping save");
+        // This is not a critical error - we can still return the password
       }
 
       return newPassword;
-    } catch (error) {
-      console.error("WebAuthn registration failed:", error);
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      console.error("WebAuthn registration failed:", errorMessage);
       return undefined;
     } finally {
       this.isRegistering = false;
@@ -241,7 +289,7 @@ export class PasswordManager {
         signal: abortController.signal,
         publicKey: { challenge, allowCredentials: [] },
       });
-    } catch (error) {
+    } catch (error: unknown) {
       // Expected abort error
     }
   }
