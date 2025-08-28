@@ -5,17 +5,25 @@ use axum::{
     response::Response,
 };
 use base64::Engine;
+use jsonwebtoken::{decode, Algorithm, DecodingKey, Validation};
+use serde::{Deserialize, Serialize};
 use tracing::{error, info, warn};
 
 use crate::error::EventServerError;
 use crate::state::AppState;
-use crate::types::event::SignedEventPackage;
+use crate::types::event::{EventPackage, SignedEventPackage};
+
+/// JWT Claims structure for event data
+#[derive(Debug, Serialize, Deserialize)]
+struct EventJwtClaims {
+    /// The event package payload
+    payload: EventPackage,
+}
 
 /// Cryptographic validation middleware
 /// This middleware ensures all incoming requests are cryptographically signed
-/// and authenticated before processing. It supports two authentication methods:
-/// 1. Certificate-based authentication (preferred for subsequent requests)
-/// 2. PoW-based authentication with SignedEventPackage (for initial requests)
+/// and authenticated before processing. It uses certificate-based authentication
+/// with JWT verification of event data using device public keys.
 pub async fn crypto_validation_middleware(
     State(state): State<AppState>,
     request: Request,
@@ -50,113 +58,93 @@ pub async fn crypto_validation_middleware(
                     "Certificate validated successfully"
                 );
 
-                // Add validated relay ID to request headers for downstream use
+                // Extract request body to verify JWT event data
                 let (parts, body) = request.into_parts();
-                let mut request = Request::from_parts(parts, body);
-                request.headers_mut().insert(
-                    "X-Validated-Relay-ID",
-                    validation
-                        .relay_id
-                        .parse()
-                        .unwrap_or_else(|_| "unknown".parse().unwrap()),
-                );
-
-                return Ok(next.run(request).await);
-            }
-            Err(e) => {
-                warn!(
-                    error = %e,
-                    path = %path,
-                    "Certificate validation failed, falling back to PoW validation"
-                );
-                // Continue to PoW validation as fallback
-            }
-        }
-    }
-
-    // Fallback to PoW-based authentication with SignedEventPackage
-    let (parts, body) = request.into_parts();
-    let body_bytes = match axum::body::to_bytes(body, usize::MAX).await {
-        Ok(bytes) => bytes.to_vec(),
-        Err(e) => {
-            error!(error = %e, "Failed to read request body for validation");
-            return Err(StatusCode::BAD_REQUEST);
-        }
-    };
-
-    // Try to parse body as SignedEventPackage
-    if let Ok(signed_package) = serde_json::from_slice::<SignedEventPackage>(&body_bytes) {
-        info!(path = %path, "Detected SignedEventPackage, validating with PoW solution");
-
-        // Validate PoW solution first
-        match state
-            .pow_service
-            .verify_solution(&signed_package.pow_solution)
-        {
-            Ok(()) => {
-                info!(
-                    relay_id = %signed_package.relay_id,
-                    challenge_id = %signed_package.pow_solution.challenge_id,
-                    "PoW solution verified successfully"
-                );
-
-                // Then validate the signature of the event data
-                match validate_event_signature(&signed_package) {
-                    Ok(()) => {
-                        info!(
-                            relay_id = %signed_package.relay_id,
-                            path = %path,
-                            "SignedEventPackage validated successfully with PoW"
-                        );
-
-                        // Add validated relay ID to request headers for downstream use
-                        let mut request =
-                            Request::from_parts(parts, axum::body::Body::from(body_bytes));
-                        request.headers_mut().insert(
-                            "X-Validated-Relay-ID",
-                            signed_package
-                                .relay_id
-                                .parse()
-                                .unwrap_or_else(|_| "unknown".parse().unwrap()),
-                        );
-
-                        Ok(next.run(request).await)
-                    }
+                let body_bytes = match axum::body::to_bytes(body, usize::MAX).await {
+                    Ok(bytes) => bytes.to_vec(),
                     Err(e) => {
-                        warn!(
-                            error = %e,
-                            relay_id = %signed_package.relay_id,
-                            "Event signature validation failed"
-                        );
-                        Err(StatusCode::UNAUTHORIZED)
+                        error!(error = %e, "Failed to read request body for JWT verification");
+                        return Err(StatusCode::BAD_REQUEST);
                     }
+                };
+
+                // Try to parse body as SignedEventPackage for JWT verification
+                if let Ok(signed_package) =
+                    serde_json::from_slice::<SignedEventPackage>(&body_bytes)
+                {
+                    // Verify JWT event data using device public key from certificate
+                    match verify_jwt_event_data(
+                        &signed_package.jwt_event_data,
+                        &validation.public_key,
+                    ) {
+                        Ok(event_package) => {
+                            // Add validated relay ID to request headers and event data to extensions
+                            let mut request =
+                                Request::from_parts(parts, axum::body::Body::from(body_bytes));
+                            request.headers_mut().insert(
+                                "X-Validated-Relay-ID",
+                                validation
+                                    .relay_id
+                                    .parse()
+                                    .unwrap_or_else(|_| "unknown".parse().unwrap()),
+                            );
+
+                            // Add the verified event package to request extensions for controllers to use
+                            request.extensions_mut().insert(event_package);
+
+                            return Ok(next.run(request).await);
+                        }
+                        Err(e) => {
+                            warn!(
+                                error = %e,
+                                relay_id = %validation.relay_id,
+                                "JWT event data verification failed"
+                            );
+                            return Err(StatusCode::UNAUTHORIZED);
+                        }
+                    }
+                } else {
+                    // For non-event endpoints, just validate the certificate
+                    let mut request =
+                        Request::from_parts(parts, axum::body::Body::from(body_bytes));
+                    request.headers_mut().insert(
+                        "X-Validated-Relay-ID",
+                        validation
+                            .relay_id
+                            .parse()
+                            .unwrap_or_else(|_| "unknown".parse().unwrap()),
+                    );
+
+                    return Ok(next.run(request).await);
                 }
             }
             Err(e) => {
                 warn!(
                     error = %e,
-                    relay_id = %signed_package.relay_id,
-                    challenge_id = %signed_package.pow_solution.challenge_id,
-                    "PoW solution verification failed"
+                    path = %path,
+                    "Certificate validation failed"
                 );
-                Err(StatusCode::UNAUTHORIZED)
+                return Err(StatusCode::UNAUTHORIZED);
             }
         }
-    } else {
-        // No valid authentication method found
-        warn!(
-            path = %path,
-            "Request contains neither valid certificate token nor SignedEventPackage - authentication required"
-        );
-        Err(StatusCode::UNAUTHORIZED)
     }
+
+    // No certificate token found - authentication required
+    warn!(
+        path = %path,
+        "Request missing certificate token in Authorization header - authentication required"
+    );
+    Err(StatusCode::UNAUTHORIZED)
 }
 
-/// Validate the Ed25519 signature of the event data
-fn validate_event_signature(signed_package: &SignedEventPackage) -> Result<(), EventServerError> {
-    // Decode the public key from base64
+/// Verify JWT event data using device public key from certificate
+fn verify_jwt_event_data(
+    jwt_token: &str,
+    device_public_key: &str,
+) -> Result<EventPackage, EventServerError> {
+    // Decode the device public key from base64
     let public_key_bytes = base64::engine::general_purpose::STANDARD
-        .decode(&signed_package.public_key)
+        .decode(device_public_key)
         .map_err(|e| EventServerError::Validation(format!("Invalid base64 public key: {e}")))?;
 
     // Validate public key length for Ed25519
@@ -167,32 +155,18 @@ fn validate_event_signature(signed_package: &SignedEventPackage) -> Result<(), E
         )));
     }
 
-    // Create Ed25519 public key
-    let key_array: [u8; 32] = public_key_bytes.try_into().map_err(|_| {
-        EventServerError::Validation("Failed to convert key bytes to array".to_string())
-    })?;
-    let public_key = ed25519_dalek::VerifyingKey::from_bytes(&key_array)
-        .map_err(|e| EventServerError::Validation(format!("Invalid Ed25519 public key: {e}")))?;
+    // Create decoding key for JWT verification
+    let decoding_key = DecodingKey::from_ed_der(&public_key_bytes);
 
-    // Serialize the event data for signature verification
-    let event_data_json = serde_json::to_vec(&signed_package.event_data).map_err(|e| {
-        EventServerError::Validation(format!("Failed to serialize event data: {e}"))
-    })?;
+    // Set up JWT validation parameters
+    let mut validation = Validation::new(Algorithm::EdDSA);
+    validation.validate_exp = true;
 
-    // Decode the signature
-    let signature_bytes = base64::engine::general_purpose::STANDARD
-        .decode(&signed_package.signature)
-        .map_err(|e| EventServerError::Validation(format!("Invalid base64 signature: {e}")))?;
+    // Decode and verify the JWT
+    let token_data = decode::<EventJwtClaims>(jwt_token, &decoding_key, &validation)
+        .map_err(|e| EventServerError::Validation(format!("JWT verification failed: {e}")))?;
 
-    let signature = ed25519_dalek::Signature::try_from(&signature_bytes[..])
-        .map_err(|e| EventServerError::Validation(format!("Invalid signature format: {e}")))?;
-
-    // Verify the signature
-    public_key
-        .verify_strict(&event_data_json, &signature)
-        .map_err(|e| EventServerError::Validation(format!("Signature verification failed: {e}")))?;
-
-    Ok(())
+    Ok(token_data.claims.payload)
 }
 
 /// Determine if cryptographic validation should be skipped for a given path
