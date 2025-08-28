@@ -55,8 +55,14 @@ async fn main() -> anyhow::Result<()> {
         .route("/health", get(controllers::health::health_check))
         .merge(controllers::openapi::routes())
         // PoW routes (public endpoints for authentication)
-        .route("/api/v1/pow/challenge", axum::routing::post(request_pow_challenge))
-        .route("/api/v1/pow/verify", axum::routing::post(verify_pow_and_issue_certificate))
+        .route(
+            "/api/v1/pow/challenge",
+            axum::routing::post(request_pow_challenge),
+        )
+        .route(
+            "/api/v1/pow/verify",
+            axum::routing::post(verify_pow_and_issue_certificate),
+        )
         // Protected routes (require authentication)
         .nest(
             "/api/v1",
