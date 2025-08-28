@@ -17,7 +17,7 @@ jobs:
       - name: Cache api generated files
         uses: actions/cache@v4
         with:
-          path: frontend/src/openapi-rq
+          path: src/openapi-rq
           key: ${{ github.sha }}
 
   frontend_install:
@@ -30,12 +30,12 @@ jobs:
       - name: Cache node modules
         uses: actions/cache@v4
         with:
-          path: frontend/node_modules
+          path: node_modules
           key: ${{ github.sha }}
       - name: Cached node modules
         uses: actions/cache@v4
         with:
-          path: frontend/node_modules
+          path: node_modules
           key: ${{ github.sha }}
 
   frontend_build:
@@ -47,12 +47,12 @@ jobs:
       - name: Cached node modules
         uses: actions/cache@v4
         with:
-          path: frontend/node_modules
+          path: node_modules
           key: ${{ github.sha }}
       - name: Restore api generated files
         uses: actions/cache@v4
         with:
-          path: frontend/src/openapi-rq
+          path: src/openapi-rq
           key: ${{ github.sha }}
       - name: Build
         run: npm run build
@@ -66,12 +66,12 @@ jobs:
       - name: Cached node modules
         uses: actions/cache@v4
         with:
-          path: frontend/node_modules
+          path: node_modules
           key: ${{ github.sha }}
       - name: Restore api generated files
         uses: actions/cache@v4
         with:
-          path: frontend/src/openapi-rq
+          path: src/openapi-rq
           key: ${{ github.sha }}
       - name: ESLint
         run: npm run lint:check
@@ -85,12 +85,12 @@ jobs:
       - name: Cached node modules
         uses: actions/cache@v4
         with:
-          path: frontend/node_modules
+          path: node_modules
           key: ${{ github.sha }}
       - name: Restore api generated files
         uses: actions/cache@v4
         with:
-          path: frontend/src/openapi-rq
+          path: src/openapi-rq
           key: ${{ github.sha }}
       - name: Prettier
         run: npm run prettier:check
@@ -104,12 +104,12 @@ jobs:
       - name: Cached node modules
         uses: actions/cache@v4
         with:
-          path: frontend/node_modules
+          path: node_modules
           key: ${{ github.sha }}
       - name: Restore api generated files
         uses: actions/cache@v4
         with:
-          path: frontend/src/openapi-rq
+          path: src/openapi-rq
           key: ${{ github.sha }}
       - name: TypeScript
         run: npm run ts:check
@@ -123,12 +123,12 @@ jobs:
       - name: Cached node modules
         uses: actions/cache@v4
         with:
-          path: frontend/node_modules
+          path: node_modules
           key: ${{ github.sha }}
       - name: Restore api generated files
         uses: actions/cache@v4
         with:
-          path: frontend/src/openapi-rq
+          path: src/openapi-rq
           key: ${{ github.sha }}
       - name: Unit tests
         run: npm run test:unit
@@ -138,7 +138,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: coverage-report
-          path: frontend/coverage
+          path: coverage
   # frontend_sonarqube:
   #   name: Frontend SonarQube Analysis
   #   needs: [ frontend_build, frontend_unit_tests ]
@@ -151,7 +151,7 @@ jobs:
   #     uses: actions/download-artifact@v4
   #     with:
   #       name: coverage-report
-  #       path: frontend/coverage
+  #       path: coverage
   #   - uses: sonarsource/sonarqube-scan-action@v3
   #     env:
   #       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
@@ -160,7 +160,7 @@ jobs:
   #       args: |
   #         -Dsonar.projectKey=DGAT-sustainability
   #         -Dsonar.source=src
-  #         -Dsonar.javascript.lcov.reportPaths=frontend/coverage/lcov.info
+  #         -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
   #         -Dsonar.qualitygate.wait=true
   #   - uses: sonarsource/sonarqube-quality-gate-action@master
   #     timeout-minutes: 5
