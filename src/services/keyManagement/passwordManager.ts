@@ -87,8 +87,10 @@ export class PasswordManager {
       let password: string | undefined;
 
       if (messages.length > 0) {
+        console.log("Attempting WebAuthn authentication...");
         password = await this.attemptAuthentication();
       } else {
+        console.log("Starting WebAuthn registration...");
         password = await this.handleNewUserRegistration();
       }
 
@@ -115,12 +117,24 @@ export class PasswordManager {
     this.isAuthenticating = true;
 
     try {
+      console.log("Canceling any pending WebAuthn requests...");
       await this.cancelPendingRequests();
+
+      console.log("Loading WebAuthn module...");
       const module = await this.loadWebAuthnModule();
+
+      console.log("Starting WebAuthn authentication...");
       const decryptedPassword = await module.handleAuthenticate();
-      return decryptedPassword?.[0];
+
+      if (decryptedPassword && decryptedPassword.length > 0) {
+        console.log("WebAuthn authentication successful");
+        return decryptedPassword[0];
+      } else {
+        console.warn("WebAuthn authentication returned no password");
+        return undefined;
+      }
     } catch (error) {
-      console.error("Authentication failed:", error);
+      console.error("WebAuthn authentication failed:", error);
       return undefined;
     } finally {
       this.isAuthenticating = false;
@@ -134,31 +148,34 @@ export class PasswordManager {
     this.isRegistering = true;
 
     try {
+      console.log("Canceling any pending WebAuthn requests...");
       await this.cancelPendingRequests();
 
+      console.log("Loading WebAuthn module...");
       const module = await this.loadWebAuthnModule();
 
-      // Add a timeout to prevent hanging
-      const registrationPromise = module.handleRegister();
-      const timeoutPromise = new Promise((_, reject) => {
-        setTimeout(() => reject(new Error("Registration timeout")), 10000);
-      });
-
-      await Promise.race([registrationPromise, timeoutPromise]);
+      console.log("Starting WebAuthn registration...");
+      // Remove timeout - let WebAuthn registration continue until completion or user cancellation
+      await module.handleRegister();
+      console.log("WebAuthn registration completed successfully");
 
       const newPassword = this.generateSecurePassword();
+      console.log("Generated new secure password");
+
       const input = document.querySelector<HTMLInputElement>("#messageInput");
 
       if (input) {
         input.value = newPassword;
+        console.log("Saving password message...");
         await module.saveMessage();
+        console.log("Password message saved successfully");
       } else {
         console.warn("Message input element not found, skipping save");
       }
 
       return newPassword;
     } catch (error) {
-      console.error("Registration failed:", error);
+      console.error("WebAuthn registration failed:", error);
       return undefined;
     } finally {
       this.isRegistering = false;

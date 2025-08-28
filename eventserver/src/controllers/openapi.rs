@@ -5,10 +5,16 @@ use axum::{
     Router,
 };
 pub use utoipa::Modify;
-use utoipa::OpenApi;
+use utoipa::{
+    openapi::security::{HttpAuthScheme, HttpBuilder, SecurityScheme},
+    OpenApi,
+};
 use utoipa_swagger_ui::SwaggerUi;
 
 use crate::controllers::{event, health};
+use crate::crypto::{
+    PowCertificateRequest, PowChallenge, PowChallengeResponse, PowSolution, TokenResponse,
+};
 use crate::state::AppState;
 use crate::types::{
     api::{HealthResponse, ServiceHealthStatus},
@@ -43,6 +49,11 @@ use crate::types::{
             EventSource,
             FieldValue,
             MediaType,
+            PowChallenge,
+            PowChallengeResponse,
+            PowSolution,
+            PowCertificateRequest,
+            TokenResponse,
         )
     ),
     tags(
@@ -61,9 +72,29 @@ use crate::types::{
     ),
     servers(
         (url = "/", description = "Local server")
-    )
+    ),
+    modifiers(&SecurityAddon)
 )]
 pub struct ApiDoc;
+
+/// Security addon to add bearer token authentication scheme
+struct SecurityAddon;
+
+impl Modify for SecurityAddon {
+    fn modify(&self, openapi: &mut utoipa::openapi::OpenApi) {
+        if let Some(components) = openapi.components.as_mut() {
+            components.security_schemes.insert(
+                "bearer_auth".to_string(),
+                SecurityScheme::Http(
+                    HttpBuilder::new()
+                        .scheme(HttpAuthScheme::Bearer)
+                        .bearer_format("JWT")
+                        .build(),
+                ),
+            );
+        }
+    }
+}
 
 /// Create OpenAPI documentation routes
 pub fn routes() -> Router<AppState> {

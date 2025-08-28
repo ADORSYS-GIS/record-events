@@ -146,7 +146,7 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
     (stepId: number) => {
       setIsTransitioning(true);
       setCompletedSteps((prev) => [...prev, stepId]);
-      
+
       setTimeout(() => {
         if (stepId === 5) {
           // This is the final "You're Ready!" step
@@ -191,7 +191,7 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
 
   const handleNext = useCallback(() => {
     if (isTransitioning) return;
-    
+
     const currentStepData = steps[currentStep];
     if (currentStepData.action) {
       currentStepData.action();
@@ -202,7 +202,7 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
 
   const handlePrevious = useCallback(() => {
     if (isTransitioning || currentStep === 0) return;
-    
+
     setIsTransitioning(true);
     setTimeout(() => {
       setCurrentStep(currentStep - 1);
@@ -220,17 +220,21 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
   }, [currentStep, steps.length]);
 
   return (
-    <div className={`min-h-screen flex items-center justify-center p-4 transition-all duration-300 ${
-      isDark
-        ? "bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
-        : "bg-gradient-to-br from-gray-50 via-white to-gray-50"
-    }`}>
+    <div
+      className={`min-h-screen flex items-center justify-center p-4 transition-all duration-300 ${
+        isDark
+          ? "bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
+          : "bg-gradient-to-br from-gray-50 via-white to-gray-50"
+      }`}
+    >
       <div className="w-full max-w-lg">
         {/* Theme Toggle */}
         <div className="absolute top-4 right-4">
-          <div className={`flex items-center space-x-1 rounded-xl p-1 shadow-lg ${
-            isDark ? "bg-gray-800" : "bg-white"
-          }`}>
+          <div
+            className={`flex items-center space-x-1 rounded-xl p-1 shadow-lg ${
+              isDark ? "bg-gray-800" : "bg-white"
+            }`}
+          >
             <button
               onClick={() => changeTheme("light")}
               className={`p-2 rounded-lg transition-all duration-200 ${
@@ -273,7 +277,9 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
                 className={`w-4 h-4 rounded-full transition-all duration-300 ease-in-out ${
                   step.status === "completed" || step.status === "active"
                     ? "bg-blue-600 scale-110"
-                    : isDark ? "bg-gray-600" : "bg-gray-300"
+                    : isDark
+                      ? "bg-gray-600"
+                      : "bg-gray-300"
                 }`}
               />
             ))}
@@ -281,48 +287,62 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
         </div>
 
         {/* Main Content Card */}
-        <div className={`rounded-2xl shadow-xl p-10 transition-all duration-300 ease-in-out ${
-          isDark ? "bg-gray-800 border border-gray-700" : "bg-white"
-        } ${isTransitioning ? "opacity-50 scale-95" : "opacity-100 scale-100"}`}>
+        <div
+          className={`rounded-2xl shadow-xl p-10 transition-all duration-300 ease-in-out ${
+            isDark ? "bg-gray-800 border border-gray-700" : "bg-white"
+          } ${isTransitioning ? "opacity-50 scale-95" : "opacity-100 scale-100"}`}
+        >
           {/* Icon */}
           <div className="flex justify-center mb-8">
-            <div className={`p-6 rounded-2xl w-24 h-24 flex items-center justify-center ${
-              isDark ? "bg-blue-900/20" : "bg-blue-50"
-            }`}>
+            <div
+              className={`p-6 rounded-2xl w-24 h-24 flex items-center justify-center ${
+                isDark ? "bg-blue-900/20" : "bg-blue-50"
+              }`}
+            >
               {currentStepData.icon}
             </div>
           </div>
 
           {/* Title */}
-          <h2 className={`text-3xl font-bold text-center mb-6 leading-tight ${
-            isDark ? "text-white" : "text-gray-900"
-          }`}>
+          <h2
+            className={`text-3xl font-bold text-center mb-6 leading-tight ${
+              isDark ? "text-white" : "text-gray-900"
+            }`}
+          >
             {currentStepData.title}
           </h2>
 
           {/* Description */}
-          <p className={`text-center mb-10 leading-relaxed text-lg max-w-md mx-auto ${
-            isDark ? "text-gray-300" : "text-gray-600"
-          }`}>
+          <p
+            className={`text-center mb-10 leading-relaxed text-lg max-w-md mx-auto ${
+              isDark ? "text-gray-300" : "text-gray-600"
+            }`}
+          >
             {currentStepData.description}
           </p>
 
           {/* Step-specific content */}
           {currentStepData.type === "welcome" && (
-            <div className={`rounded-xl p-6 mb-8 max-w-md mx-auto ${
-              isDark ? "bg-blue-900/20 border border-blue-800" : "bg-blue-50"
-            }`}>
+            <div
+              className={`rounded-xl p-6 mb-8 max-w-md mx-auto ${
+                isDark ? "bg-blue-900/20 border border-blue-800" : "bg-blue-50"
+              }`}
+            >
               <div className="flex items-start space-x-4">
                 <Lock className="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
                 <div>
-                  <h3 className={`font-semibold mb-2 ${
-                    isDark ? "text-blue-200" : "text-blue-900"
-                  }`}>
+                  <h3
+                    className={`font-semibold mb-2 ${
+                      isDark ? "text-blue-200" : "text-blue-900"
+                    }`}
+                  >
                     {t("onboarding.features.security", "Secure & Private")}
                   </h3>
-                  <p className={`text-sm leading-relaxed ${
-                    isDark ? "text-blue-300" : "text-blue-700"
-                  }`}>
+                  <p
+                    className={`text-sm leading-relaxed ${
+                      isDark ? "text-blue-300" : "text-blue-700"
+                    }`}
+                  >
                     {t(
                       "onboarding.features.securityDesc",
                       "Your data is encrypted and verified on the blockchain",
@@ -341,7 +361,7 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
               className={`flex items-center space-x-2 px-6 py-3 rounded-xl font-medium transition-all duration-200 ${
                 currentStep === 0 || isTransitioning
                   ? "text-gray-400 cursor-not-allowed"
-                  : isDark 
+                  : isDark
                     ? "text-gray-300 hover:text-white hover:bg-gray-700"
                     : "text-gray-700 hover:text-gray-900 hover:bg-gray-100"
               }`}
@@ -370,7 +390,9 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
               onClick={() => completeStep(currentStepData.id)}
               disabled={isTransitioning}
               className={`w-full text-center mt-6 text-sm transition-colors duration-200 disabled:opacity-50 ${
-                isDark ? "text-gray-400 hover:text-gray-200" : "text-gray-500 hover:text-gray-700"
+                isDark
+                  ? "text-gray-400 hover:text-gray-200"
+                  : "text-gray-500 hover:text-gray-700"
               }`}
             >
               {t("onboarding.skip", "Skip for now")}

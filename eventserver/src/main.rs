@@ -39,7 +39,7 @@ async fn main() -> anyhow::Result<()> {
     let storage_service = StorageService::new(config.storage.clone()).await?;
     let event_service = EventService::new(storage_service.clone());
     let pow_service = PowService::new();
-    let certificate_service = CertificateService::new();
+    let certificate_service = CertificateService::new(config.security.jwt_secret.clone());
 
     // Create an application state
     let app_state = AppState::new(
@@ -87,8 +87,7 @@ async fn main() -> anyhow::Result<()> {
 }
 
 fn api_routes() -> Router<AppState> {
-    Router::new()
-        .merge(controllers::event::routes())
+    Router::new().merge(controllers::event::routes())
 }
 
 /// Request a new PoW challenge (public endpoint)
@@ -96,7 +95,7 @@ fn api_routes() -> Router<AppState> {
     post,
     path = "/api/v1/pow/challenge",
     responses(
-        (status = 200, description = "PoW challenge generated successfully", body = serde_json::Value),
+        (status = 200, description = "PoW challenge generated successfully", body = PowChallengeResponse),
         (status = 500, description = "Failed to generate PoW challenge")
     ),
     tag = "authentication"
@@ -132,7 +131,7 @@ async fn request_pow_challenge(
     path = "/api/v1/pow/verify",
     request_body = PowCertificateRequest,
     responses(
-        (status = 200, description = "PoW verified and certificate issued successfully", body = serde_json::Value),
+        (status = 200, description = "PoW verified and certificate issued successfully", body = TokenResponse),
         (status = 400, description = "Invalid PoW solution or request data"),
         (status = 401, description = "PoW verification failed"),
         (status = 500, description = "Failed to issue certificate")

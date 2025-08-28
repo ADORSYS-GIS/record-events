@@ -4,7 +4,11 @@ import {
   useAuthenticationServicePostApiV1PowVerify,
 } from "../openapi-rq/queries/queries";
 import { performProofOfWork } from "../services/computation/proofOfWork";
-import type { PowChallengeResponse, CertificateResponse } from "../openapi-rq/requests/types.gen";
+import { apiAuthService } from "../services/keyManagement/apiAuthService";
+import type {
+  PowChallengeResponse,
+  CertificateResponse,
+} from "../openapi-rq/requests/types.gen";
 
 interface UseInitializationProps {
   publicKey: JsonWebKey | null;
@@ -34,15 +38,19 @@ const useInitialization = ({ publicKey }: UseInitializationProps) => {
 
         // Step 1: Request PoW challenge from backend
         console.log("Requesting PoW challenge from backend");
-        const challengeRes = await challengeMutation.mutateAsync() as PowChallengeResponse;
+        const challengeRes =
+          (await challengeMutation.mutateAsync()) as PowChallengeResponse;
         console.log("Received PoW challenge:", challengeRes);
-        
+
         if (!challengeRes) {
           throw new Error("Failed to receive PoW challenge from the server.");
         }
 
         // Step 2: Perform Proof of Work
-        console.log("Starting Proof of Work with challenge:", challengeRes.challenge_id);
+        console.log(
+          "Starting Proof of Work with challenge:",
+          challengeRes.challenge_id,
+        );
         const result = await performProofOfWork(
           challengeRes.challenge_data,
           challengeRes.difficulty,
@@ -51,7 +59,7 @@ const useInitialization = ({ publicKey }: UseInitializationProps) => {
 
         // Step 3: Verify PoW solution and get certificate
         console.log("Submitting PoW solution for verification");
-        const verifyRes = await verifyMutation.mutateAsync({
+        const verifyRes = (await verifyMutation.mutateAsync({
           requestBody: {
             solution: {
               challenge_id: challengeRes.challenge_id,
@@ -61,21 +69,26 @@ const useInitialization = ({ publicKey }: UseInitializationProps) => {
             public_key: btoa(JSON.stringify(publicKey)), // Base64 encode the public key
             relay_id: `device_${Date.now()}`, // Generate a unique device ID
           },
-        }) as CertificateResponse;
-        
+        })) as CertificateResponse;
+
         console.log("PoW verification response:", verifyRes);
-        
+
         if (!verifyRes || !verifyRes.success) {
-          throw new Error("Failed to verify PoW solution and receive certificate.");
+          throw new Error(
+            "Failed to verify PoW solution and receive certificate.",
+          );
         }
 
         // Store the certificate and token
         const certificate = JSON.stringify(verifyRes.certificate);
         const token = verifyRes.token;
-        
+
+        // Set the token received from PoW verification as the Bearer token for API requests
+        apiAuthService.setBearerToken(token);
+
         localStorage.setItem("devCert", certificate);
         localStorage.setItem("authToken", token);
-        
+
         if (!cancelled) {
           setDevCert(certificate);
           setIsLoading(false);

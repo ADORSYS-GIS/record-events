@@ -1,4 +1,12 @@
-import { Camera, Save, Send, Upload, X, ChevronDown, Check } from "lucide-react";
+import {
+  Camera,
+  Save,
+  Send,
+  Upload,
+  X,
+  ChevronDown,
+  Check,
+} from "lucide-react";
 import { useCallback, useState, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
@@ -8,7 +16,7 @@ import { createEventPackage, validateFormData } from "../utils/event-packer";
 import { useEventSubmission } from "../hooks/useEventSubmission";
 import { useEventHistory } from "../hooks/useEventHistory";
 import type { EventPackage as LocalEventPackage } from "../types/event";
-import type { EventPackage, SignedEventPackage } from "../openapi-rq/requests/types.gen";
+import type { EventPackage } from "../openapi-rq/requests/types.gen";
 import { apiAuthService } from "../services/keyManagement/apiAuthService";
 
 type FieldValue = string | number | boolean | null;
@@ -45,7 +53,10 @@ const Dropdown: React.FC<DropdownProps> = ({
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setIsOpen(false);
       }
     };
@@ -54,7 +65,7 @@ const Dropdown: React.FC<DropdownProps> = ({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const selectedOption = options.find(option => option === value);
+  const selectedOption = options.find((option) => option === value);
 
   return (
     <div className="relative" ref={dropdownRef}>
@@ -62,19 +73,21 @@ const Dropdown: React.FC<DropdownProps> = ({
         type="button"
         onClick={() => !disabled && setIsOpen(!isOpen)}
         className={`w-full px-4 py-3 text-left bg-white border rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
-          error 
-            ? "border-red-300 focus:border-red-500 focus:ring-red-500" 
+          error
+            ? "border-red-300 focus:border-red-500 focus:ring-red-500"
             : "border-gray-200 hover:border-gray-300"
         } ${disabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}`}
       >
         <div className="flex items-center justify-between">
-          <span className={`${selectedOption ? "text-gray-900" : "text-gray-500"}`}>
+          <span
+            className={`${selectedOption ? "text-gray-900" : "text-gray-500"}`}
+          >
             {selectedOption || placeholder}
           </span>
-          <ChevronDown 
+          <ChevronDown
             className={`w-5 h-5 text-gray-400 transition-transform duration-200 ${
               isOpen ? "rotate-180" : ""
-            }`} 
+            }`}
           />
         </div>
       </button>
@@ -109,7 +122,11 @@ interface EventFormProps {
   createdBy?: string;
 }
 
-const EventForm: React.FC<EventFormProps> = ({ labels, keyPair, createdBy }) => {
+const EventForm: React.FC<EventFormProps> = ({
+  labels,
+  keyPair,
+  createdBy,
+}) => {
   const { t, i18n } = useTranslation();
   const [formData, setFormData] = useState<FormData>({});
   const [mediaFile, setMediaFile] = useState<File | null>(null);
@@ -225,7 +242,7 @@ const EventForm: React.FC<EventFormProps> = ({ labels, keyPair, createdBy }) => 
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validate()) {
       toast.error(t("validationError"));
       return;
@@ -247,17 +264,20 @@ const EventForm: React.FC<EventFormProps> = ({ labels, keyPair, createdBy }) => 
         { createdBy, source: "web" },
       );
 
-      // Generate Bearer token for authorization
-      const eventDataString = JSON.stringify(eventPackage);
-      await apiAuthService.generateAndSetEventToken(
-        keyPair.privateKey,
-        keyPair.publicKey,
-        eventDataString
-      );
+      // Get the token from PoW verification
+      const token = localStorage.getItem("authToken");
+      if (!token) {
+        throw new Error(
+          "Authentication token not found. Please complete initialization first.",
+        );
+      }
 
-      // Create a SignedEventPackage for submission (now just contains the event)
-      const signedEventPackage: SignedEventPackage = {
-        event: {
+      // Set the token as Bearer token for API requests
+      apiAuthService.setBearerToken(token);
+
+      // Create a SignedEventPackage for submission with required fields
+      const signedEventPackage = {
+        eventData: {
           id: eventPackage.id,
           version: eventPackage.version,
           annotations: eventPackage.annotations,
@@ -268,11 +288,19 @@ const EventForm: React.FC<EventFormProps> = ({ labels, keyPair, createdBy }) => 
             source: eventPackage.metadata.source as "web" | "mobile",
           },
         },
+        signature: "dummy_signature_for_bearer_auth", // Dummy value since we use Bearer token
+        publicKey: "dummy_public_key_for_bearer_auth", // Dummy value since we use Bearer token
+        powSolution: {
+          challenge_id: "dummy_challenge_id",
+          nonce: 0,
+          hash: "dummy_hash",
+        },
+        relayId: "dummy_relay_id", // Dummy value since we use Bearer token
       };
 
       // Submit to backend using the generated API (with Bearer token in header)
       await submitEvent(signedEventPackage);
-      
+
       // Add to local history using the generated EventPackage type
       const historyEventPackage: EventPackage = {
         id: eventPackage.id,
@@ -287,9 +315,9 @@ const EventForm: React.FC<EventFormProps> = ({ labels, keyPair, createdBy }) => 
       };
       addEvent(historyEventPackage);
 
-        setFormData({});
-        setMediaFile(null);
-        toast.success(t("eventSaved"));
+      setFormData({});
+      setMediaFile(null);
+      toast.success(t("eventSaved"));
     } catch (error) {
       console.error("Error saving event:", error);
       toast.error(
@@ -465,14 +493,24 @@ const EventForm: React.FC<EventFormProps> = ({ labels, keyPair, createdBy }) => 
           <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-200/50 p-8">
             <div className="flex items-center space-x-3 mb-8">
               <div className="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center">
-                <svg className="w-5 h-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                <svg
+                  className="w-5 h-5 text-blue-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                  />
                 </svg>
               </div>
               <div>
                 <h2 className="text-xl font-semibold text-gray-900">
-                Event Details
-              </h2>
+                  Event Details
+                </h2>
                 <p className="text-sm text-gray-600">
                   Provide comprehensive information about the event
                 </p>
@@ -507,8 +545,8 @@ const EventForm: React.FC<EventFormProps> = ({ labels, keyPair, createdBy }) => 
                         value={String(formData[label.labelId] || "")}
                         onChange={handleChange}
                         className={`w-full px-4 py-3 rounded-xl border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
-                          error 
-                            ? "border-red-300 focus:border-red-500 focus:ring-red-500" 
+                          error
+                            ? "border-red-300 focus:border-red-500 focus:ring-red-500"
                             : "border-gray-200 hover:border-gray-300"
                         } ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`}
                         disabled={isSubmitting}
@@ -526,8 +564,8 @@ const EventForm: React.FC<EventFormProps> = ({ labels, keyPair, createdBy }) => 
                         value={Number(formData[label.labelId] || 0)}
                         onChange={handleChange}
                         className={`w-full px-4 py-3 rounded-xl border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
-                          error 
-                            ? "border-red-300 focus:border-red-500 focus:ring-red-500" 
+                          error
+                            ? "border-red-300 focus:border-red-500 focus:ring-red-500"
                             : "border-gray-200 hover:border-gray-300"
                         } ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`}
                         min={label.constraints?.min}
@@ -564,7 +602,9 @@ const EventForm: React.FC<EventFormProps> = ({ labels, keyPair, createdBy }) => 
                     {label.type === "enum" && label.options && (
                       <Dropdown
                         value={(formData[label.labelId] as string) || ""}
-                        onChange={(value) => handleDropdownChange(label.labelId, value)}
+                        onChange={(value) =>
+                          handleDropdownChange(label.labelId, value)
+                        }
                         options={label.options}
                         placeholder="Select an option"
                         disabled={isSubmitting}
@@ -574,17 +614,33 @@ const EventForm: React.FC<EventFormProps> = ({ labels, keyPair, createdBy }) => 
 
                     {error && (
                       <p className="text-sm text-red-600 flex items-center space-x-1">
-                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                        <svg
+                          className="w-4 h-4"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                            clipRule="evenodd"
+                          />
                         </svg>
                         <span>{error}</span>
                       </p>
                     )}
-                    
+
                     {label.helpText && (
                       <p className="text-xs text-gray-500 flex items-start space-x-1">
-                        <svg className="w-3 h-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
+                        <svg
+                          className="w-3 h-3 mt-0.5 flex-shrink-0"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
+                            clipRule="evenodd"
+                          />
                         </svg>
                         <span>
                           {typeof label.helpText === "string"
@@ -610,63 +666,63 @@ const EventForm: React.FC<EventFormProps> = ({ labels, keyPair, createdBy }) => 
               </div>
               <div>
                 <h2 className="text-xl font-semibold text-gray-900">
-                Add Media
-              </h2>
+                  Add Media
+                </h2>
                 <p className="text-sm text-gray-600">
                   Include photos or videos to provide visual context
                 </p>
               </div>
             </div>
             {renderMediaSection()}
-            </div>
+          </div>
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row justify-end space-y-3 sm:space-y-0 sm:space-x-4 pt-6">
-              <button
-                type="button"
-                onClick={handleSaveDraft}
+            <button
+              type="button"
+              onClick={handleSaveDraft}
               disabled={isSubmitting || isApiSubmitting}
               className="inline-flex items-center justify-center px-6 py-3 border border-gray-300 shadow-sm text-sm font-medium rounded-xl text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
-              >
-                <Save className="h-4 w-4 mr-2" />
-                Save Draft
-              </button>
-                <button
-                  type="submit"
+            >
+              <Save className="h-4 w-4 mr-2" />
+              Save Draft
+            </button>
+            <button
+              type="submit"
               disabled={isSubmitting || isApiSubmitting}
               className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-sm font-medium rounded-xl shadow-lg text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
-                >
+            >
               {isSubmitting || isApiSubmitting ? (
-                    <>
-                      <svg
-                        className="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                      >
-                        <circle
-                          className="opacity-25"
-                          cx="12"
-                          cy="12"
-                          r="10"
-                          stroke="currentColor"
-                          strokeWidth="4"
-                        ></circle>
-                        <path
-                          className="opacity-75"
-                          fill="currentColor"
-                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                        ></path>
-                      </svg>
-                      Submitting...
-                    </>
-                  ) : (
-                    <>
-                      <Send className="h-4 w-4 mr-2" />
-                      Submit Report
-                    </>
-                  )}
-                </button>
+                <>
+                  <svg
+                    className="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                    ></path>
+                  </svg>
+                  Submitting...
+                </>
+              ) : (
+                <>
+                  <Send className="h-4 w-4 mr-2" />
+                  Submit Report
+                </>
+              )}
+            </button>
           </div>
         </form>
       </div>

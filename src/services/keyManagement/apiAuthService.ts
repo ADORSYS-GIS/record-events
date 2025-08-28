@@ -1,6 +1,4 @@
 import { OpenAPI } from "../../openapi-rq/requests/core/OpenAPI";
-import { generateBearerToken } from "./jwtService";
-import type { JWK } from "jose";
 
 export class ApiAuthService {
   private static instance: ApiAuthService;
@@ -16,7 +14,7 @@ export class ApiAuthService {
   }
 
   /**
-   * Set the Bearer token for API requests
+   * Set the Bearer token for API requests (token received from PoW verification)
    */
   public setBearerToken(token: string): void {
     this.currentToken = token;
@@ -36,24 +34,6 @@ export class ApiAuthService {
    */
   public getCurrentToken(): string | null {
     return this.currentToken;
-  }
-
-  /**
-   * Generate and set a Bearer token for event submission
-   */
-  public async generateAndSetEventToken(
-    privateKey: JWK,
-    publicKey: JWK,
-    eventData: string
-  ): Promise<string> {
-    try {
-      const token = await generateBearerToken(privateKey, publicKey, eventData);
-      this.setBearerToken(token);
-      return token;
-    } catch (error) {
-      console.error("Failed to generate Bearer token:", error);
-      throw error;
-    }
   }
 
   /**

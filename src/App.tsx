@@ -53,7 +53,9 @@ function App() {
 
   // Check if onboarding has been completed
   useEffect(() => {
-    const onboardingCompleted = localStorage.getItem("eventApp_onboarding_completed");
+    const onboardingCompleted = localStorage.getItem(
+      "eventApp_onboarding_completed",
+    );
     if (onboardingCompleted === "true") {
       // User has completed onboarding, go directly to dashboard
       setShowWelcome(false);
@@ -129,9 +131,7 @@ function App() {
     }
 
     if (showOnboarding) {
-      return (
-        <OnboardingFlow onComplete={handleOnboardingComplete} />
-      );
+      return <OnboardingFlow onComplete={handleOnboardingComplete} />;
     }
 
     if (showDashboard) {
@@ -166,7 +166,7 @@ function App() {
           </div>
         );
       }
-      
+
       if (!keyPair) {
         return (
           <div className="min-h-screen bg-gradient-to-br from-neutral-50 to-primary-50 flex items-center justify-center">
@@ -177,7 +177,7 @@ function App() {
           </div>
         );
       }
-      
+
       return <EventForm labels={labels} keyPair={keyPair} />;
     }
 
