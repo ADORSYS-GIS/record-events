@@ -35,6 +35,9 @@ function App() {
     keyPair,
     error: keyError,
     isLoading: isKeyLoading,
+    keyStatus,
+    webAuthnStatus,
+    isInitialized: isKeyManagementComplete,
   } = useKeyManagement();
   const {
     devCert,
@@ -42,6 +45,7 @@ function App() {
     isLoading: isPowLoading,
   } = useInitialization({
     publicKey: keyPair?.publicKey || null,
+    isKeyManagementComplete,
   });
   const { labels } = useLabelManagement();
   const navigate = useNavigate();
@@ -96,9 +100,18 @@ function App() {
 
   // Show loading state during device security (key management + Proof of Work)
   if (isKeyLoading || isPowLoading) {
-    return (
-      <LoadingSpinner message="Please wait while we secure your device..." />
-    );
+    let loadingMessage = "Please wait while we secure your device...";
+
+    if (isKeyLoading) {
+      loadingMessage =
+        webAuthnStatus ||
+        keyStatus ||
+        "Please wait while we secure your device...";
+    } else if (isPowLoading) {
+      loadingMessage = "Please wait while we verify your device...";
+    }
+
+    return <LoadingSpinner message={loadingMessage} />;
   }
 
   // Show error if either key management or Proof of Work failed

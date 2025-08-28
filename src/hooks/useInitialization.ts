@@ -12,9 +12,13 @@ import type {
 
 interface UseInitializationProps {
   publicKey: JsonWebKey | null;
+  isKeyManagementComplete: boolean;
 }
 
-const useInitialization = ({ publicKey }: UseInitializationProps) => {
+const useInitialization = ({
+  publicKey,
+  isKeyManagementComplete,
+}: UseInitializationProps) => {
   const [devCert, setDevCert] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -26,10 +30,14 @@ const useInitialization = ({ publicKey }: UseInitializationProps) => {
   // I intentionally do NOT add challengeMutation/verifyMutation to the dependency array
   // because they are stable (from TanStack Query) and adding them would cause infinite loops.
   useEffect(() => {
-    // Only run initialization if we have a public key and haven't already completed
-    if (!publicKey || devCert) {
+    // Only run initialization if we have a public key, haven't already completed, and key management is complete
+    if (!publicKey || devCert || !isKeyManagementComplete) {
       return;
     }
+
+    console.log(
+      "Starting Proof of Work initialization - key management is complete",
+    );
 
     let cancelled = false;
     const performInitialization = async () => {
@@ -107,7 +115,7 @@ const useInitialization = ({ publicKey }: UseInitializationProps) => {
       cancelled = true;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [publicKey]);
+  }, [publicKey, isKeyManagementComplete]);
 
   return { devCert, error, isLoading };
 };
