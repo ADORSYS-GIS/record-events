@@ -31,8 +31,11 @@ pub fn routes() -> Router<AppState> {
     responses(
         (status = 200, description = "Event processed successfully", body = ProcessingResult),
         (status = 400, description = "Invalid event data or validation failed"),
-        (status = 401, description = "Authentication required - no validated relay ID"),
+        (status = 401, description = "Authentication required - Bearer token missing or invalid"),
         (status = 500, description = "Internal server error during processing")
+    ),
+    security(
+        ("bearer_auth" = [])
     ),
     tag = "events"
 )]
@@ -102,8 +105,11 @@ async fn receive_event(
     responses(
         (status = 200, description = "Event package processed and uploaded successfully", body = serde_json::Value),
         (status = 400, description = "Invalid event package or validation failed"),
-        (status = 401, description = "Authentication required - no validated relay ID"),
+        (status = 401, description = "Authentication required - Bearer token missing or invalid"),
         (status = 500, description = "Internal server error during processing or storage")
+    ),
+    security(
+        ("bearer_auth" = [])
     ),
     tag = "events"
 )]
@@ -216,7 +222,11 @@ async fn receive_event_package(
     responses(
         (status = 200, description = "Hash verification completed", body = HashVerificationResponse),
         (status = 400, description = "Invalid hash format - must be 64 characters"),
+        (status = 401, description = "Authentication required - Bearer token missing or invalid"),
         (status = 500, description = "Internal server error during verification")
+    ),
+    security(
+        ("bearer_auth" = [])
     ),
     tag = "events"
 )]

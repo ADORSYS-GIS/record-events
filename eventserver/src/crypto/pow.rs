@@ -5,11 +5,12 @@ use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
 use std::collections::HashMap;
 use std::sync::{Arc, Mutex};
+use utoipa::ToSchema;
 
 use crate::error::EventServerError;
 
 /// Proof of Work challenge
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
 pub struct PowChallenge {
     pub challenge_id: String,
     pub challenge_data: String, // Base64 encoded random data
@@ -19,7 +20,7 @@ pub struct PowChallenge {
 }
 
 /// Proof of Work solution
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
 pub struct PowSolution {
     pub challenge_id: String,
     pub nonce: u64,
@@ -27,11 +28,26 @@ pub struct PowSolution {
 }
 
 /// Proof of Work request for certificate issuance
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
 pub struct PowCertificateRequest {
     pub solution: PowSolution,
     pub public_key: String, // Base64 encoded Ed25519 public key
     pub relay_id: String,
+}
+
+/// Response for PoW challenge request
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct PowChallengeResponse {
+    pub challenge_id: String,
+    pub challenge_data: String,
+    pub difficulty: u32,
+    pub expires_at: DateTime<Utc>,
+}
+
+/// Response for PoW verification (token only)
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct TokenResponse {
+    pub token: String,
 }
 
 /// Proof of Work service for managing challenges and verification

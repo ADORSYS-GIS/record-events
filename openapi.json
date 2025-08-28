@@ -1,0 +1,585 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "EventServer API",
+    "description": "Stateless EventServer backend for the EventApp ecosystem",
+    "contact": {
+      "name": "EventApp Team",
+      "email": "support@eventapp.com"
+    },
+    "license": {
+      "name": ""
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "description": "Local server"
+    }
+  ],
+  "paths": {
+    "/api/v1/events": {
+      "post": {
+        "tags": ["events"],
+        "summary": "Receive and process an event from a relay",
+        "description": "This is completely stateless - each request is processed independently",
+        "operationId": "receive_event",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignedEventPackage"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Event processed successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProcessingResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid event data or validation failed"
+          },
+          "401": {
+            "description": "Authentication required - no validated relay ID"
+          },
+          "500": {
+            "description": "Internal server error during processing"
+          }
+        }
+      }
+    },
+    "/api/v1/events/package": {
+      "post": {
+        "tags": ["events"],
+        "summary": "Receive and process a SignedEventPackage from frontend",
+        "description": "Creates ZIP file and uploads to S3",
+        "operationId": "receive_event_package",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignedEventPackage"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Event package processed and uploaded successfully",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid event package or validation failed"
+          },
+          "401": {
+            "description": "Authentication required - no validated relay ID"
+          },
+          "500": {
+            "description": "Internal server error during processing or storage"
+          }
+        }
+      }
+    },
+    "/api/v1/events/{hash}/verify": {
+      "get": {
+        "tags": ["events"],
+        "summary": "Verify if an event hash exists in storage",
+        "description": "Stateless verification - no local state required",
+        "operationId": "verify_event_hash",
+        "parameters": [
+          {
+            "name": "hash",
+            "in": "path",
+            "description": "SHA-256 hash of the event to verify (64 characters)",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Hash verification completed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HashVerificationResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid hash format - must be 64 characters"
+          },
+          "500": {
+            "description": "Internal server error during verification"
+          }
+        }
+      }
+    },
+    "/api/v1/pow/challenge": {
+      "post": {
+        "tags": ["authentication"],
+        "summary": "Request a new PoW challenge (public endpoint)",
+        "operationId": "request_pow_challenge",
+        "responses": {
+          "200": {
+            "description": "PoW challenge generated successfully",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "500": {
+            "description": "Failed to generate PoW challenge"
+          }
+        }
+      }
+    },
+    "/api/v1/pow/verify": {
+      "post": {
+        "tags": ["authentication"],
+        "summary": "Verify PoW solution and issue device certificate (public endpoint)",
+        "operationId": "verify_pow_and_issue_certificate",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PowCertificateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "PoW verified and certificate issued successfully",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid PoW solution or request data"
+          },
+          "401": {
+            "description": "PoW verification failed"
+          },
+          "500": {
+            "description": "Failed to issue certificate"
+          }
+        }
+      }
+    },
+    "/health": {
+      "get": {
+        "tags": ["health"],
+        "summary": "Health check endpoint",
+        "operationId": "health_check",
+        "responses": {
+          "200": {
+            "description": "Service is healthy",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service is unhealthy"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "EventAnnotation": {
+        "type": "object",
+        "description": "Event annotation with strict typing - matches TypeScript EventAnnotation",
+        "required": ["labelId", "value", "timestamp"],
+        "properties": {
+          "labelId": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "value": {
+            "$ref": "#/components/schemas/FieldValue"
+          }
+        }
+      },
+      "EventMedia": {
+        "type": "object",
+        "description": "Media data with proper typing - matches TypeScript EventMedia",
+        "required": ["type", "data", "name", "size", "lastModified"],
+        "properties": {
+          "data": {
+            "type": "string"
+          },
+          "lastModified": {
+            "type": "integer",
+            "format": "int64",
+            "minimum": 0
+          },
+          "name": {
+            "type": "string"
+          },
+          "size": {
+            "type": "integer",
+            "format": "int64",
+            "minimum": 0
+          },
+          "type": {
+            "$ref": "#/components/schemas/MediaType"
+          }
+        }
+      },
+      "EventMetadata": {
+        "type": "object",
+        "description": "Event metadata - matches TypeScript structure",
+        "required": ["createdAt", "source"],
+        "properties": {
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "createdBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "source": {
+            "$ref": "#/components/schemas/EventSource"
+          }
+        }
+      },
+      "EventPackage": {
+        "type": "object",
+        "description": "Complete event package - matches TypeScript EventPackage",
+        "required": ["id", "version", "annotations", "metadata"],
+        "properties": {
+          "annotations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EventAnnotation"
+            }
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "media": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/EventMedia"
+              }
+            ],
+            "nullable": true
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/EventMetadata"
+          },
+          "version": {
+            "type": "string"
+          }
+        }
+      },
+      "EventPayload": {
+        "type": "object",
+        "description": "Simple event payload from frontend - file upload notification",
+        "required": ["filename", "contentType"],
+        "properties": {
+          "contentType": {
+            "type": "string"
+          },
+          "filename": {
+            "type": "string"
+          }
+        }
+      },
+      "EventSource": {
+        "type": "string",
+        "description": "Event source types - matches TypeScript",
+        "enum": ["web", "mobile"]
+      },
+      "FieldValue": {
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "object",
+            "default": null,
+            "nullable": true
+          }
+        ],
+        "description": "Supported field value types - matches TypeScript FieldValue"
+      },
+      "HashVerificationResponse": {
+        "type": "object",
+        "description": "Response for hash verification",
+        "required": ["hash", "exists", "verifiedAt"],
+        "properties": {
+          "exists": {
+            "type": "boolean"
+          },
+          "hash": {
+            "type": "string"
+          },
+          "verifiedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "HealthResponse": {
+        "type": "object",
+        "description": "Health check response",
+        "required": ["status", "timestamp", "services", "version"],
+        "properties": {
+          "services": {
+            "$ref": "#/components/schemas/ServiceHealthStatus"
+          },
+          "status": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "version": {
+            "type": "string"
+          }
+        }
+      },
+      "MediaType": {
+        "type": "string",
+        "description": "Supported media types - matches TypeScript MediaType",
+        "enum": ["image/jpeg", "image/png", "image/gif", "video/mp4"]
+      },
+      "ProcessingResult": {
+        "type": "object",
+        "description": "Processing result returned after event processing",
+        "required": ["eventId", "hash", "storageLocation", "processedAt"],
+        "properties": {
+          "eventId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "hash": {
+            "type": "string"
+          },
+          "processedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "storageLocation": {
+            "type": "string"
+          }
+        }
+      },
+      "ServiceHealthStatus": {
+        "type": "object",
+        "description": "Service health status breakdown",
+        "required": ["storage"],
+        "properties": {
+          "storage": {
+            "type": "boolean"
+          }
+        }
+      },
+      "SignedEventPackage": {
+        "type": "object",
+        "description": "Event package for secure transmission (authentication via Bearer token)",
+        "required": ["eventData"],
+        "properties": {
+          "eventData": {
+            "$ref": "#/components/schemas/EventPackage"
+          },
+          "signature": {
+            "type": "string",
+            "description": "Base64 encoded signature (optional when using Bearer token)"
+          },
+          "publicKey": {
+            "type": "string",
+            "description": "Base64 encoded Ed25519 public key (optional when using Bearer token)"
+          },
+          "powSolution": {
+            "$ref": "#/components/schemas/PowSolution",
+            "description": "PoW solution for authentication (optional when using Bearer token)"
+          },
+          "relayId": {
+            "type": "string",
+            "description": "Relay identifier (optional when using Bearer token)"
+          }
+        }
+      },
+      "PowCertificateRequest": {
+        "type": "object",
+        "description": "Request to verify PoW and issue certificate",
+        "required": ["solution", "public_key", "relay_id"],
+        "properties": {
+          "solution": {
+            "$ref": "#/components/schemas/PowSolution"
+          },
+          "public_key": {
+            "type": "string",
+            "description": "Base64 encoded Ed25519 public key"
+          },
+          "relay_id": {
+            "type": "string",
+            "description": "Unique identifier for the relay/device"
+          }
+        }
+      },
+      "PowChallengeResponse": {
+        "type": "object",
+        "description": "Response for PoW challenge request",
+        "required": [
+          "challenge_id",
+          "challenge_data",
+          "difficulty",
+          "expires_at"
+        ],
+        "properties": {
+          "challenge_id": {
+            "type": "string",
+            "description": "Unique identifier for the challenge"
+          },
+          "challenge_data": {
+            "type": "string",
+            "description": "Base64 encoded random data to hash"
+          },
+          "difficulty": {
+            "type": "integer",
+            "description": "Number of leading zeros required in the hash"
+          },
+          "expires_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "When the challenge expires"
+          }
+        }
+      },
+      "PowSolution": {
+        "type": "object",
+        "description": "PoW solution submitted for verification",
+        "required": ["challenge_id", "nonce", "hash"],
+        "properties": {
+          "challenge_id": {
+            "type": "string",
+            "description": "The challenge ID this solution is for"
+          },
+          "nonce": {
+            "type": "integer",
+            "description": "The nonce that produced the valid hash"
+          },
+          "hash": {
+            "type": "string",
+            "description": "Base64 encoded hash result"
+          }
+        }
+      },
+      "CertificateResponse": {
+        "type": "object",
+        "description": "Response containing the issued certificate",
+        "required": ["success", "certificate", "token"],
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": "Whether the operation was successful"
+          },
+          "certificate": {
+            "$ref": "#/components/schemas/DeviceCertificate"
+          },
+          "token": {
+            "type": "string",
+            "description": "JWT token for authentication"
+          }
+        }
+      },
+      "DeviceCertificate": {
+        "type": "object",
+        "description": "Device certificate details",
+        "required": [
+          "certificate_id",
+          "relay_id",
+          "public_key",
+          "issued_at",
+          "expires_at",
+          "signature"
+        ],
+        "properties": {
+          "certificate_id": {
+            "type": "string",
+            "description": "Unique identifier for the certificate"
+          },
+          "relay_id": {
+            "type": "string",
+            "description": "The relay/device ID this certificate is for"
+          },
+          "public_key": {
+            "type": "string",
+            "description": "The public key associated with this certificate"
+          },
+          "issued_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "When the certificate was issued"
+          },
+          "expires_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "When the certificate expires"
+          },
+          "signature": {
+            "type": "string",
+            "description": "Digital signature of the certificate"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "health",
+      "description": "Health check endpoints"
+    },
+    {
+      "name": "events",
+      "description": "Event processing endpoints"
+    },
+    {
+      "name": "authentication",
+      "description": "Authentication and PoW challenge endpoints"
+    }
+  ]
+}

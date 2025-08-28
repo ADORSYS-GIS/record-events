@@ -26,7 +26,7 @@ async fn main() -> anyhow::Result<()> {
     tracing_subscriber::registry()
         .with(
             tracing_subscriber::EnvFilter::try_from_default_env()
-                .unwrap_or_else(|_| "event server=debug,tower_http=debug".into()),
+                .unwrap_or_else(|_| "eventserver=debug,tower_http=debug".into()),
         )
         .with(tracing_subscriber::fmt::layer())
         .init();
@@ -39,7 +39,7 @@ async fn main() -> anyhow::Result<()> {
     let storage_service = StorageService::new(config.storage.clone()).await?;
     let event_service = EventService::new(storage_service.clone());
     let pow_service = PowService::new();
-    let certificate_service = CertificateService::new();
+    let certificate_service = CertificateService::new(config.security.jwt_secret.clone());
 
     // Create an application state
     let app_state = AppState::new(
@@ -54,6 +54,15 @@ async fn main() -> anyhow::Result<()> {
         // Public routes (no authentication required)
         .route("/health", get(controllers::health::health_check))
         .merge(controllers::openapi::routes())
+        // PoW routes (public endpoints for authentication)
+        .route(
+            "/api/v1/pow/challenge",
+            axum::routing::post(request_pow_challenge),
+        )
+        .route(
+            "/api/v1/pow/verify",
+            axum::routing::post(verify_pow_and_issue_certificate),
+        )
         // Protected routes (require authentication)
         .nest(
             "/api/v1",
@@ -84,19 +93,7 @@ async fn main() -> anyhow::Result<()> {
 }
 
 fn api_routes() -> Router<AppState> {
-    Router::new()
-        .merge(controllers::event::routes())
-        .merge(pow_routes())
-}
-
-/// PoW challenge routes for authentication
-fn pow_routes() -> Router<AppState> {
-    Router::new()
-        .route("/pow/challenge", axum::routing::post(request_pow_challenge))
-        .route(
-            "/pow/verify",
-            axum::routing::post(verify_pow_and_issue_certificate),
-        )
+    Router::new().merge(controllers::event::routes())
 }
 
 /// Request a new PoW challenge (public endpoint)
@@ -104,7 +101,7 @@ fn pow_routes() -> Router<AppState> {
     post,
     path = "/api/v1/pow/challenge",
     responses(
-        (status = 200, description = "PoW challenge generated successfully", body = serde_json::Value),
+        (status = 200, description = "PoW challenge generated successfully", body = PowChallengeResponse),
         (status = 500, description = "Failed to generate PoW challenge")
     ),
     tag = "authentication"
@@ -140,7 +137,7 @@ async fn request_pow_challenge(
     path = "/api/v1/pow/verify",
     request_body = PowCertificateRequest,
     responses(
-        (status = 200, description = "PoW verified and certificate issued successfully", body = serde_json::Value),
+        (status = 200, description = "PoW verified and certificate issued successfully", body = TokenResponse),
         (status = 400, description = "Invalid PoW solution or request data"),
         (status = 401, description = "PoW verification failed"),
         (status = 500, description = "Failed to issue certificate")

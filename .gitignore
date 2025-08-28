@@ -19,6 +19,9 @@ dev-dist
 .sonar
 *.sonar
 
+# Generated OpenAPI client
+src/openapi-rq/
+
 # Rust backend build artifacts
 target/
 **/*.rs.bk
