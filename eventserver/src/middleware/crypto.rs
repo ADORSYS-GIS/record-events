@@ -69,15 +69,30 @@ pub async fn crypto_validation_middleware(
                 };
 
                 // Try to parse body as SignedEventPackage for JWT verification
+                info!("Attempting to parse request body as SignedEventPackage");
+                info!("Request body: {}", String::from_utf8_lossy(&body_bytes));
                 if let Ok(signed_package) =
                     serde_json::from_slice::<SignedEventPackage>(&body_bytes)
                 {
+                    info!("Successfully parsed SignedEventPackage, JWT data length: {}", signed_package.jwtEventData.len());
+                    
                     // Verify JWT event data using device public key from certificate
-                    match verify_jwt_event_data(
-                        &signed_package.jwt_event_data,
+                    info!("Starting JWT verification with device public key");
+                    match verify_jwtEventData(
+                        &signed_package.jwtEventData,
                         &validation.public_key,
                     ) {
                         Ok(event_package) => {
+                            // Print the event package for debugging
+                            info!(
+                                event_id = %event_package.id,
+                                event_version = %event_package.version,
+                                annotations_count = %event_package.annotations.len(),
+                                has_media = %event_package.media.is_some(),
+                                "Received and verified event package: {:?}",
+                                event_package
+                            );
+
                             // Add validated relay ID to request headers and event data to extensions
                             let mut request =
                                 Request::from_parts(parts, axum::body::Body::from(body_bytes));
@@ -95,7 +110,7 @@ pub async fn crypto_validation_middleware(
                             return Ok(next.run(request).await);
                         }
                         Err(e) => {
-                            warn!(
+                            error!(
                                 error = %e,
                                 relay_id = %validation.relay_id,
                                 "JWT event data verification failed"
@@ -105,6 +120,10 @@ pub async fn crypto_validation_middleware(
                     }
                 } else {
                     // For non-event endpoints, just validate the certificate
+                    info!("Failed to parse as SignedEventPackage, treating as non-event endpoint");
+                    if let Err(e) = serde_json::from_slice::<SignedEventPackage>(&body_bytes) {
+                        error!("SignedEventPackage parsing error: {}", e);
+                    }
                     let mut request =
                         Request::from_parts(parts, axum::body::Body::from(body_bytes));
                     request.headers_mut().insert(
@@ -138,10 +157,12 @@ pub async fn crypto_validation_middleware(
 }
 
 /// Verify JWT event data using device public key from certificate
-fn verify_jwt_event_data(
+fn verify_jwtEventData(
     jwt_token: &str,
     device_public_key: &str,
 ) -> Result<EventPackage, EventServerError> {
+    info!("JWT verification: token length = {}, public key length = {}", jwt_token.len(), device_public_key.len());
+    
     // Decode the device public key from base64
     let public_key_bytes = base64::engine::general_purpose::STANDARD
         .decode(device_public_key)
