@@ -49,30 +49,40 @@ export class PasswordManager {
     }
 
     // Check if we're in a Docker container or development environment
-    const isDockerEnvironment = window.location.hostname !== 'localhost' && 
-                               window.location.hostname !== '127.0.0.1';
+    const isDockerEnvironment =
+      window.location.hostname !== "localhost" &&
+      window.location.hostname !== "127.0.0.1";
     const isSecureContext = window.isSecureContext;
-    
-    console.log('Environment check:', {
+
+    console.log("Environment check:", {
       hostname: window.location.hostname,
       isDocker: isDockerEnvironment,
       isSecureContext,
       protocol: window.location.protocol,
       origin: window.location.origin,
-      href: window.location.href
+      href: window.location.href,
     });
 
     // If we're in a Docker environment or not in a secure context, use fallback immediately
     if (isDockerEnvironment || !isSecureContext) {
-      console.warn("WebAuthn not available in this environment, using fallback");
-      console.warn("Reason:", isDockerEnvironment ? "Docker environment detected" : "Not a secure context");
+      console.warn(
+        "WebAuthn not available in this environment, using fallback",
+      );
+      console.warn(
+        "Reason:",
+        isDockerEnvironment
+          ? "Docker environment detected"
+          : "Not a secure context",
+      );
       this.webAuthnModule = {
         handleRegister: async () => {
           console.log("Using fallback registration (Docker/HTTP environment)");
           return Promise.resolve();
         },
         handleAuthenticate: async () => {
-          console.log("Using fallback authentication (Docker/HTTP environment)");
+          console.log(
+            "Using fallback authentication (Docker/HTTP environment)",
+          );
           return Promise.resolve([this.generateSecurePassword()]);
         },
         saveMessage: async () => {
@@ -99,8 +109,12 @@ export class PasswordManager {
         throw new Error("WebAuthn module missing required functions");
       }
     } catch (error: unknown) {
-      const errorMessage = error instanceof Error ? error.message : String(error);
-      console.warn("WebAuthn module failed to load, using fallback:", errorMessage);
+      const errorMessage =
+        error instanceof Error ? error.message : String(error);
+      console.warn(
+        "WebAuthn module failed to load, using fallback:",
+        errorMessage,
+      );
       // Return a mock module that uses fallback behavior
       this.webAuthnModule = {
         handleRegister: async () => {
@@ -146,7 +160,8 @@ export class PasswordManager {
 
       console.log("DOM elements initialized successfully");
     } catch (error: unknown) {
-      const errorMessage = error instanceof Error ? error.message : String(error);
+      const errorMessage =
+        error instanceof Error ? error.message : String(error);
       console.warn("Failed to initialize DOM elements:", errorMessage);
       // Continue anyway - the fallback will handle this
     }
@@ -195,7 +210,8 @@ export class PasswordManager {
       sessionStorage.setItem("password", password);
       return password;
     } catch (error: unknown) {
-      const errorMessage = error instanceof Error ? error.message : String(error);
+      const errorMessage =
+        error instanceof Error ? error.message : String(error);
       console.error("Password retrieval error:", errorMessage);
       this.emitWebAuthnEvent("failed", { error: errorMessage });
       // Fallback to generating a password
@@ -227,7 +243,8 @@ export class PasswordManager {
         return undefined;
       }
     } catch (error: unknown) {
-      const errorMessage = error instanceof Error ? error.message : String(error);
+      const errorMessage =
+        error instanceof Error ? error.message : String(error);
       console.error("WebAuthn authentication failed:", errorMessage);
       return undefined;
     } finally {
@@ -270,7 +287,8 @@ export class PasswordManager {
 
       return newPassword;
     } catch (error: unknown) {
-      const errorMessage = error instanceof Error ? error.message : String(error);
+      const errorMessage =
+        error instanceof Error ? error.message : String(error);
       console.error("WebAuthn registration failed:", errorMessage);
       return undefined;
     } finally {
