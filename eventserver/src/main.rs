@@ -165,27 +165,10 @@ async fn verify_pow_and_issue_certificate(
 
             // Issue the certificate
             match state.certificate_service.issue_certificate(&cert_request) {
-                Ok(certificate_response) => {
-                    tracing::info!(
-                        relay_id = %request.relay_id,
-                        certificate_id = %certificate_response.certificate.certificate_id,
-                        expires_at = %certificate_response.certificate.expires_at,
-                        "Device certificate issued successfully"
-                    );
+                Ok(certificate_response) => Ok(axum::Json(serde_json::json!({
 
-                    Ok(axum::Json(serde_json::json!({
-                        "success": true,
-                        "certificate": {
-                            "certificate_id": certificate_response.certificate.certificate_id,
-                            "relay_id": certificate_response.certificate.relay_id,
-                            "public_key": certificate_response.certificate.public_key,
-                            "issued_at": certificate_response.certificate.issued_at,
-                            "expires_at": certificate_response.certificate.expires_at,
-                            "signature": certificate_response.certificate.signature
-                        },
-                        "token": certificate_response.token
-                    })))
-                }
+                    "token": certificate_response.cert_token
+                }))),
                 Err(e) => {
                     tracing::error!(
                         error = %e,
