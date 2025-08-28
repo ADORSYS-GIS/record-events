@@ -7,11 +7,11 @@ WORKDIR /app
 # Copy package files for dependency caching
 COPY package*.json ./
 
-# Install dependencies
-RUN npm install
-
 # Copy source code
 COPY . .
+
+# Install dependencies
+RUN npm install
 
 # Build the application
 RUN npm run build
