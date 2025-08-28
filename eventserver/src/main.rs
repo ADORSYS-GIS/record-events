@@ -26,7 +26,7 @@ async fn main() -> anyhow::Result<()> {
     tracing_subscriber::registry()
         .with(
             tracing_subscriber::EnvFilter::try_from_default_env()
-                .unwrap_or_else(|_| "event server=debug,tower_http=debug".into()),
+                .unwrap_or_else(|_| "eventserver=debug,tower_http=debug".into()),
         )
         .with(tracing_subscriber::fmt::layer())
         .init();
@@ -39,7 +39,7 @@ async fn main() -> anyhow::Result<()> {
     let storage_service = StorageService::new(config.storage.clone()).await?;
     let event_service = EventService::new(storage_service.clone());
     let pow_service = PowService::new();
-    let certificate_service = CertificateService::new();
+    let certificate_service = CertificateService::new(config.security.jwt_secret.clone());
 
     // Create an application state
     let app_state = AppState::new(
@@ -54,6 +54,7 @@ async fn main() -> anyhow::Result<()> {
         // Public routes (no authentication required)
         .route("/health", get(controllers::health::health_check))
         .merge(controllers::openapi::routes())
+        .nest("/api/vi", pow_routes())
         // Protected routes (require authentication)
         .nest(
             "/api/v1",
@@ -84,9 +85,7 @@ async fn main() -> anyhow::Result<()> {
 }
 
 fn api_routes() -> Router<AppState> {
-    Router::new()
-        .merge(controllers::event::routes())
-        .merge(pow_routes())
+    Router::new().merge(controllers::event::routes())
 }
 
 /// PoW challenge routes for authentication
@@ -102,9 +101,9 @@ fn pow_routes() -> Router<AppState> {
 /// Request a new PoW challenge (public endpoint)
 #[utoipa::path(
     post,
-    path = "/api/v1/pow/challenge",
+    path = "/api/vi/pow/challenge",
     responses(
-        (status = 200, description = "PoW challenge generated successfully", body = serde_json::Value),
+        (status = 200, description = "PoW challenge generated successfully", body = PowChallengeResponse),
         (status = 500, description = "Failed to generate PoW challenge")
     ),
     tag = "authentication"
@@ -137,10 +136,10 @@ async fn request_pow_challenge(
 /// Verify PoW solution and issue device certificate (public endpoint)
 #[utoipa::path(
     post,
-    path = "/api/v1/pow/verify",
+    path = "/api/vi/pow/verify",
     request_body = PowCertificateRequest,
     responses(
-        (status = 200, description = "PoW verified and certificate issued successfully", body = serde_json::Value),
+        (status = 200, description = "PoW verified and certificate issued successfully", body = TokenResponse),
         (status = 400, description = "Invalid PoW solution or request data"),
         (status = 401, description = "PoW verification failed"),
         (status = 500, description = "Failed to issue certificate")
@@ -177,15 +176,6 @@ async fn verify_pow_and_issue_certificate(
                     );
 
                     Ok(axum::Json(serde_json::json!({
-                        "success": true,
-                        "certificate": {
-                            "certificate_id": certificate_response.certificate.certificate_id,
-                            "relay_id": certificate_response.certificate.relay_id,
-                            "public_key": certificate_response.certificate.public_key,
-                            "issued_at": certificate_response.certificate.issued_at,
-                            "expires_at": certificate_response.certificate.expires_at,
-                            "signature": certificate_response.certificate.signature
-                        },
                         "token": certificate_response.token
                     })))
                 }

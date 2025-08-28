@@ -1,5 +1,6 @@
 use base64::Engine;
 use chrono::{DateTime, Duration, Utc};
+use jsonwebtoken::{decode, encode, Algorithm, DecodingKey, EncodingKey, Header, Validation};
 use rand::Rng;
 use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
@@ -7,6 +8,21 @@ use std::collections::HashMap;
 use std::sync::{Arc, Mutex};
 
 use crate::error::EventServerError;
+
+/// JWT claims for device certificates
+#[derive(Debug, Serialize, Deserialize)]
+struct DeviceClaims {
+    /// Certificate ID
+    certificate_id: String,
+    /// Device/Relay ID
+    relay_id: String,
+    /// Device public key
+    public_key: String,
+    /// Issued at timestamp
+    iat: i64,
+    /// Expiration timestamp
+    exp: i64,
+}
 
 /// Device certificate issued after successful PoW verification
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -47,30 +63,26 @@ pub struct CertificateValidation {
 pub struct CertificateService {
     certificates: Arc<Mutex<HashMap<String, DeviceCertificate>>>,
     certificate_lifetime: Duration,
-    server_private_key: [u8; 32], // Server's private key for signing certificates
+    jwt_secret: String, // JWT secret for signing tokens
 }
 
 impl CertificateService {
-    /// Create a new certificate service
-    pub fn new() -> Self {
-        // In production, this should be loaded from secure configuration
-        let mut rng = rand::thread_rng();
-        let server_private_key: [u8; 32] = rng.gen();
-
+    /// Create a new certificate service with JWT secret
+    pub fn new(jwt_secret: String) -> Self {
         Self {
             certificates: Arc::new(Mutex::new(HashMap::new())),
             certificate_lifetime: Duration::hours(24), // Certificates valid for 24 hours
-            server_private_key,
+            jwt_secret,
         }
     }
 
     /// Create a new certificate service with custom parameters
     #[cfg(test)]
-    pub fn with_params(lifetime_hours: i64, server_key: [u8; 32]) -> Self {
+    pub fn with_params(lifetime_hours: i64, jwt_secret: String) -> Self {
         Self {
             certificates: Arc::new(Mutex::new(HashMap::new())),
             certificate_lifetime: Duration::hours(lifetime_hours),
-            server_private_key: server_key,
+            jwt_secret,
         }
     }
 
@@ -183,11 +195,11 @@ impl CertificateService {
         base64::engine::general_purpose::STANDARD.encode(random_bytes)
     }
 
-    /// Sign certificate data with server's private key
+    /// Sign certificate data with JWT secret
     fn sign_certificate_data(&self, data: &str) -> Result<String, EventServerError> {
         let mut hasher = Sha256::new();
         hasher.update(data.as_bytes());
-        hasher.update(self.server_private_key);
+        hasher.update(self.jwt_secret.as_bytes());
         let hash = hasher.finalize();
         Ok(base64::engine::general_purpose::STANDARD.encode(hash))
     }
@@ -202,38 +214,35 @@ impl CertificateService {
         Ok(expected_signature == signature)
     }
 
-    /// Generate a JWT-like token for the certificate
+    /// Generate a JWT token for the certificate
     fn generate_certificate_token(
         &self,
         certificate: &DeviceCertificate,
     ) -> Result<String, EventServerError> {
-        // Simple token format: base64(certificate_id:expires_at:signature_hash)
-        let token_data = format!(
-            "{}:{}:{}",
-            certificate.certificate_id,
-            certificate.expires_at.timestamp(),
-            &certificate.signature[..16] // First 16 chars of signature as verification
-        );
-        Ok(base64::engine::general_purpose::STANDARD.encode(token_data))
+        let claims = DeviceClaims {
+            certificate_id: certificate.certificate_id.clone(),
+            relay_id: certificate.relay_id.clone(),
+            public_key: certificate.public_key.clone(),
+            iat: certificate.issued_at.timestamp(),
+            exp: certificate.expires_at.timestamp(),
+        };
+
+        let header = Header::new(Algorithm::HS256);
+        let encoding_key = EncodingKey::from_secret(self.jwt_secret.as_bytes());
+
+        encode(&header, &claims, &encoding_key)
+            .map_err(|e| EventServerError::Validation(format!("Failed to generate JWT token: {e}")))
     }
 
-    /// Extract certificate ID from token
+    /// Extract certificate ID from JWT token
     fn extract_certificate_id_from_token(&self, token: &str) -> Result<String, EventServerError> {
-        let decoded = base64::engine::general_purpose::STANDARD
-            .decode(token)
-            .map_err(|e| EventServerError::Validation(format!("Invalid token format: {e}")))?;
+        let decoding_key = DecodingKey::from_secret(self.jwt_secret.as_bytes());
+        let validation = Validation::new(Algorithm::HS256);
 
-        let token_str = String::from_utf8(decoded)
-            .map_err(|e| EventServerError::Validation(format!("Invalid token encoding: {e}")))?;
+        let token_data = decode::<DeviceClaims>(token, &decoding_key, &validation)
+            .map_err(|e| EventServerError::Validation(format!("Invalid JWT token: {e}")))?;
 
-        let parts: Vec<&str> = token_str.split(':').collect();
-        if parts.len() != 3 {
-            return Err(EventServerError::Validation(
-                "Invalid token structure".to_string(),
-            ));
-        }
-
-        Ok(parts[0].to_string())
+        Ok(token_data.claims.certificate_id)
     }
 
     /// Clean up expired certificates from memory
@@ -253,7 +262,7 @@ impl CertificateService {
 
 impl Default for CertificateService {
     fn default() -> Self {
-        Self::new()
+        Self::new("test_jwt_secret".to_string())
     }
 }
 
@@ -263,13 +272,13 @@ mod tests {
 
     #[test]
     fn test_certificate_service_creation() {
-        let service = CertificateService::new();
+        let service = CertificateService::new("test_secret".to_string());
         assert_eq!(service.active_certificate_count(), 0);
     }
 
     #[test]
     fn test_certificate_issuance() {
-        let service = CertificateService::new();
+        let service = CertificateService::new("test_secret".to_string());
         let request = CertificateRequest {
             relay_id: "test_relay".to_string(),
             public_key: "test_public_key".to_string(),
@@ -283,7 +292,7 @@ mod tests {
 
     #[test]
     fn test_certificate_validation() {
-        let service = CertificateService::new();
+        let service = CertificateService::new("test_secret".to_string());
         let request = CertificateRequest {
             relay_id: "test_relay".to_string(),
             public_key: "test_public_key".to_string(),
@@ -298,8 +307,7 @@ mod tests {
 
     #[test]
     fn test_expired_certificate() {
-        let server_key: [u8; 32] = [0; 32];
-        let service = CertificateService::with_params(-1, server_key); // Expired 1 hour ago
+        let service = CertificateService::with_params(-1, "test_secret".to_string()); // Expired 1 hour ago
         let request = CertificateRequest {
             relay_id: "test_relay".to_string(),
             public_key: "test_public_key".to_string(),
