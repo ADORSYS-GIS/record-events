@@ -418,27 +418,12 @@
       },
       "SignedEventPackage": {
         "type": "object",
-        "description": "Event package for secure transmission (authentication via Bearer token)",
-        "required": ["eventData"],
+        "description": "Event package for secure transmission with JWT authentication",
+        "required": ["jwtEventData"],
         "properties": {
-          "eventData": {
-            "$ref": "#/components/schemas/EventPackage"
-          },
-          "signature": {
+          "jwtEventData": {
             "type": "string",
-            "description": "Base64 encoded signature (optional when using Bearer token)"
-          },
-          "publicKey": {
-            "type": "string",
-            "description": "Base64 encoded Ed25519 public key (optional when using Bearer token)"
-          },
-          "powSolution": {
-            "$ref": "#/components/schemas/PowSolution",
-            "description": "PoW solution for authentication (optional when using Bearer token)"
-          },
-          "relayId": {
-            "type": "string",
-            "description": "Relay identifier (optional when using Bearer token)"
+            "description": "JWT token containing the event data and authentication information"
           }
         }
       },

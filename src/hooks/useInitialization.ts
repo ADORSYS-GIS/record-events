@@ -5,10 +5,7 @@ import {
 } from "../openapi-rq/queries/queries";
 import { performProofOfWork } from "../services/computation/proofOfWork";
 import { apiAuthService } from "../services/keyManagement/apiAuthService";
-import type {
-  PowChallengeResponse,
-  CertificateResponse,
-} from "../openapi-rq/requests/types.gen";
+import type { PowChallengeResponse } from "../openapi-rq/requests/types.gen";
 
 interface UseInitializationProps {
   publicKey: JsonWebKey | null;
@@ -57,7 +54,7 @@ const useInitialization = ({ publicKey }: UseInitializationProps) => {
         );
         console.log("Proof of Work completed with result:", result);
 
-        // Step 3: Verify PoW solution and get certificate
+        // Step 3: Verify PoW solution and get token
         console.log("Submitting PoW solution for verification");
         const verifyRes = (await verifyMutation.mutateAsync({
           requestBody: {
@@ -69,28 +66,24 @@ const useInitialization = ({ publicKey }: UseInitializationProps) => {
             public_key: btoa(JSON.stringify(publicKey)), // Base64 encode the public key
             relay_id: `device_${Date.now()}`, // Generate a unique device ID
           },
-        })) as CertificateResponse;
+        })) as { token: string };
 
         console.log("PoW verification response:", verifyRes);
 
-        if (!verifyRes || !verifyRes.success) {
-          throw new Error(
-            "Failed to verify PoW solution and receive certificate.",
-          );
+        if (!verifyRes || !verifyRes.token) {
+          throw new Error("Failed to verify PoW solution and receive token.");
         }
 
-        // Store the certificate and token
-        const certificate = JSON.stringify(verifyRes.certificate);
+        // Store the token
         const token = verifyRes.token;
 
         // Set the token received from PoW verification as the Bearer token for API requests
         apiAuthService.setBearerToken(token);
 
-        localStorage.setItem("devCert", certificate);
         localStorage.setItem("authToken", token);
 
         if (!cancelled) {
-          setDevCert(certificate);
+          setDevCert("token_received"); // Set a flag to indicate successful initialization
           setIsLoading(false);
         }
       } catch (err) {
