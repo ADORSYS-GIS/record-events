@@ -100,13 +100,13 @@ pub async fn crypto_validation_middleware(
                 {
                     info!(
                         "Successfully parsed SignedEventPackage, JWT data length: {}",
-                        signed_package.jwtEventData.len()
+                        signed_package.jwt_event_data.len()
                     );
 
                     // Verify JWT event data using device public key from certificate
                     info!("Starting JWT verification with device public key");
                     match verify_jwt_event_data(
-                        &signed_package.jwtEventData,
+                        &signed_package.jwt_event_data,
                         &validation.public_key,
                     ) {
                         Ok(event_package) => {

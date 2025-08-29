@@ -89,7 +89,7 @@ pub struct EventPackage {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct SignedEventPackage {
-    pub jwtEventData: String,
+    pub jwt_event_data: String,
 }
 
 /// Simple event payload from frontend - file upload notification
