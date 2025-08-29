@@ -21,10 +21,10 @@ export async function generateEventJWT(
     iss: "event_client", // Issuer
     iat: Math.floor(Date.now() / 1000), // Issued at
     exp: Math.floor(Date.now() / 1000) + 60 * 60, // Expires in 1 hour
-    
+
     // Event package payload (matches backend EventJwtClaims structure)
     payload: eventPackage,
-    
+
     // Hash of the event data for integrity verification
     event_hash: hashPayload(JSON.stringify(eventPackage)),
   };

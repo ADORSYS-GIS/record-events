@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
   # Backend service (Rust EventServer)
@@ -17,7 +17,7 @@ services:
       - RUST_LOG=info
       - EVENTSERVER__SERVER__HOST=0.0.0.0
       - EVENTSERVER__SERVER__PORT=8080
-      
+
       # Storage configuration (MinIO S3-compatible storage)
       - EVENTSERVER__STORAGE__ENDPOINT=${EVENTSERVER__STORAGE__ENDPOINT:-http://minio:9000}
       - EVENTSERVER__STORAGE__ACCESS_KEY_ID=${MINIO_ROOT_USER:-minioadmin}
@@ -28,10 +28,10 @@ services:
       - EVENTSERVER__STORAGE__ENABLE_SSL=${EVENTSERVER__STORAGE__ENABLE_SSL:-false}
       - EVENTSERVER__STORAGE__UPLOAD_TIMEOUT=${EVENTSERVER__STORAGE__UPLOAD_TIMEOUT:-300}
       - EVENTSERVER__STORAGE__MAX_FILE_SIZE=${EVENTSERVER__STORAGE__MAX_FILE_SIZE:-104857600}
-      
+
       # Security configuration
       - EVENTSERVER__SECURITY__JWT_SECRET=${EVENTSERVER__SECURITY__JWT_SECRET:-dummy_jwt_secret_for_development_only}
-      
+
       # AWS credentials (MinIO compatibility)
       - AWS_ACCESS_KEY_ID=${MINIO_ROOT_USER:-minioadmin}
       - AWS_SECRET_ACCESS_KEY=${MINIO_ROOT_PASSWORD:-minioadmin}
@@ -55,8 +55,8 @@ services:
     image: minio/minio:latest
     container_name: eventserver-minio
     ports:
-      - "9000:9000"  # MinIO API
-      - "9001:9001"  # MinIO Console
+      - "9000:9000" # MinIO API
+      - "9001:9001" # MinIO Console
     environment:
       - MINIO_ROOT_USER=${MINIO_ROOT_USER:-minioadmin}
       - MINIO_ROOT_PASSWORD=${MINIO_ROOT_PASSWORD:-minioadmin}
@@ -139,7 +139,7 @@ services:
       - RUST_LOG=debug
       - EVENTSERVER__SERVER__HOST=0.0.0.0
       - EVENTSERVER__SERVER__PORT=8080
-      
+
       # Storage configuration (MinIO S3-compatible storage)
       - EVENTSERVER__STORAGE__ENDPOINT=${EVENTSERVER__STORAGE__ENDPOINT:-http://minio:9000}
       - EVENTSERVER__STORAGE__ACCESS_KEY_ID=${MINIO_ROOT_USER:-minioadmin}
@@ -150,17 +150,17 @@ services:
       - EVENTSERVER__STORAGE__ENABLE_SSL=${EVENTSERVER__STORAGE__ENABLE_SSL:-false}
       - EVENTSERVER__STORAGE__UPLOAD_TIMEOUT=${EVENTSERVER__STORAGE__UPLOAD_TIMEOUT:-300}
       - EVENTSERVER__STORAGE__MAX_FILE_SIZE=${EVENTSERVER__STORAGE__MAX_FILE_SIZE:-104857600}
-      
+
       # Security configuration
       - EVENTSERVER__SECURITY__JWT_SECRET=${EVENTSERVER__SECURITY__JWT_SECRET:-dummy_jwt_secret_for_development_only}
-      
+
       # AWS credentials (MinIO compatibility)
       - AWS_ACCESS_KEY_ID=${MINIO_ROOT_USER:-minioadmin}
       - AWS_SECRET_ACCESS_KEY=${MINIO_ROOT_PASSWORD:-minioadmin}
     volumes:
       # Mount entire source for hot reloading in development
       - ./eventserver:/app
-      - /app/target  # Anonymous volume for target directory
+      - /app/target # Anonymous volume for target directory
     networks:
       - app-network
     profiles:
@@ -181,8 +181,8 @@ services:
     volumes:
       # Mount source code for hot reloading
       - .:/app
-      - /app/node_modules  # Anonymous volume for node_modules
-      - /app/eventserver   # Exclude eventserver directory
+      - /app/node_modules # Anonymous volume for node_modules
+      - /app/eventserver # Exclude eventserver directory
     networks:
       - app-network
     profiles:

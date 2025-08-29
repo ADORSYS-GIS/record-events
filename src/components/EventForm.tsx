@@ -281,7 +281,7 @@ const EventForm: React.FC<EventFormProps> = ({
         _keyPair.privateKey,
         _keyPair.publicKey,
         eventPackage,
-        token
+        token,
       );
 
       // Create SignedEventPackage with JWT data

@@ -5,9 +5,7 @@ import {
 } from "../openapi-rq/queries/queries";
 import { performProofOfWork } from "../services/computation/proofOfWork";
 import { apiAuthService } from "../services/keyManagement/apiAuthService";
-import type {
-  PowChallengeResponse,
-} from "../openapi-rq/requests/types.gen";
+import type { PowChallengeResponse } from "../openapi-rq/requests/types.gen";
 
 interface UseInitializationProps {
   publicKey: JsonWebKey | null;
@@ -73,9 +71,7 @@ const useInitialization = ({ publicKey }: UseInitializationProps) => {
         console.log("PoW verification response:", verifyRes);
 
         if (!verifyRes || !verifyRes.token) {
-          throw new Error(
-            "Failed to verify PoW solution and receive token.",
-          );
+          throw new Error("Failed to verify PoW solution and receive token.");
         }
 
         // Store the token
