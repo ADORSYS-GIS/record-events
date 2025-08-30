@@ -14,7 +14,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost",
+      "url": "https://localhost",
       "description": "Local server"
     }
   ],
