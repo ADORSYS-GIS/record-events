@@ -1,15 +1,95 @@
+// Define proper types for WebAuthn event details
+interface WebAuthnEventDetails {
+  type?: "authentication" | "registration" | "fallback";
+  reason?: string;
+  error?: string;
+}
+
 export class PasswordManager {
-  private static isRegistering = false;
   private static isAuthenticating = false;
+  private static isRegistering = false;
   private static webAuthnModule: {
     handleRegister: () => Promise<void>;
     handleAuthenticate: () => Promise<string[]>;
     saveMessage: () => Promise<void>;
   } | null = null;
 
+  // Add event emitter for WebAuthn state tracking
+  private static webAuthnEvents = new EventTarget();
+
+  static addWebAuthnListener(callback: (event: CustomEvent) => void) {
+    this.webAuthnEvents.addEventListener(
+      "webauthn-state",
+      callback as EventListener,
+    );
+  }
+
+  static removeWebAuthnListener(callback: (event: CustomEvent) => void) {
+    this.webAuthnEvents.removeEventListener(
+      "webauthn-state",
+      callback as EventListener,
+    );
+  }
+
+  private static emitWebAuthnEvent(
+    state: "started" | "completed" | "failed",
+    details?: WebAuthnEventDetails,
+  ) {
+    this.webAuthnEvents.dispatchEvent(
+      new CustomEvent("webauthn-state", {
+        detail: { state, details, timestamp: Date.now() },
+      }),
+    );
+  }
+
   // Enhanced WebAuthn module loader with better error handling
   private static async loadWebAuthnModule() {
     if (this.webAuthnModule) {
+      return this.webAuthnModule;
+    }
+
+    // Check if we're in a Docker container or development environment
+    const isDockerEnvironment =
+      window.location.hostname !== "localhost" &&
+      window.location.hostname !== "127.0.0.1";
+    const isSecureContext = window.isSecureContext;
+
+    console.log("Environment check:", {
+      hostname: window.location.hostname,
+      isDocker: isDockerEnvironment,
+      isSecureContext,
+      protocol: window.location.protocol,
+      origin: window.location.origin,
+      href: window.location.href,
+    });
+
+    // If we're in a Docker environment or not in a secure context, use fallback immediately
+    if (isDockerEnvironment || !isSecureContext) {
+      console.warn(
+        "WebAuthn not available in this environment, using fallback",
+      );
+      console.warn(
+        "Reason:",
+        isDockerEnvironment
+          ? "Docker environment detected"
+          : "Not a secure context",
+      );
+      this.webAuthnModule = {
+        handleRegister: async () => {
+          console.log("Using fallback registration (Docker/HTTP environment)");
+          return Promise.resolve();
+        },
+        handleAuthenticate: async () => {
+          console.log(
+            "Using fallback authentication (Docker/HTTP environment)",
+          );
+          return Promise.resolve([this.generateSecurePassword()]);
+        },
+        saveMessage: async () => {
+          console.log("Using fallback message save (Docker/HTTP environment)");
+          return Promise.resolve();
+        },
+      };
       return this.webAuthnModule;
     }
 
@@ -28,8 +108,13 @@ export class PasswordManager {
       } else {
         throw new Error("WebAuthn module missing required functions");
       }
-    } catch (error) {
-      console.warn("WebAuthn module failed to load, using fallback:", error);
+    } catch (error: unknown) {
+      const errorMessage =
+        error instanceof Error ? error.message : String(error);
+      console.warn(
+        "WebAuthn module failed to load, using fallback:",
+        errorMessage,
+      );
       // Return a mock module that uses fallback behavior
       this.webAuthnModule = {
         handleRegister: async () => {
@@ -50,31 +135,40 @@ export class PasswordManager {
   }
 
   static async initializeDOMElements() {
-    // Remove existing elements first to avoid duplicates
-    const existingInput = document.querySelector("#messageInput");
-    if (existingInput) {
-      existingInput.remove();
+    try {
+      // Remove existing elements first to avoid duplicates
+      const existingInput = document.querySelector("#messageInput");
+      if (existingInput) {
+        existingInput.remove();
+      }
+
+      const existingList = document.querySelector("#messageList");
+      if (existingList) {
+        existingList.remove();
+      }
+
+      // Create new elements
+      const input = document.createElement("input");
+      input.type = "hidden";
+      input.id = "messageInput";
+      document.body.appendChild(input);
+
+      const list = document.createElement("ul");
+      list.id = "messageList";
+      list.style.display = "none";
+      document.body.appendChild(list);
+
+      console.log("DOM elements initialized successfully");
+    } catch (error: unknown) {
+      const errorMessage =
+        error instanceof Error ? error.message : String(error);
+      console.warn("Failed to initialize DOM elements:", errorMessage);
+      // Continue anyway - the fallback will handle this
     }
-
-    const existingList = document.querySelector("#messageList");
-    if (existingList) {
-      existingList.remove();
-    }
-
-    // Create new elements
-    const input = document.createElement("input");
-    input.type = "hidden";
-    input.id = "messageInput";
-    document.body.appendChild(input);
-
-    const list = document.createElement("ul");
-    list.id = "messageList";
-    list.style.display = "none";
-    document.body.appendChild(list);
   }
 
-  static async getPassword(): Promise<string | undefined> {
-    // Check sessionStorage for password
+  static async getPassword(): Promise<string> {
+    // Check if we already have a password in sessionStorage
     const storedPassword = sessionStorage.getItem("password");
     if (storedPassword) {
       return storedPassword;
@@ -88,23 +182,38 @@ export class PasswordManager {
 
       if (messages.length > 0) {
         console.log("Attempting WebAuthn authentication...");
+        this.emitWebAuthnEvent("started", { type: "authentication" });
         password = await this.attemptAuthentication();
+        this.emitWebAuthnEvent(password ? "completed" : "failed", {
+          type: "authentication",
+        });
       } else {
         console.log("Starting WebAuthn registration...");
+        this.emitWebAuthnEvent("started", { type: "registration" });
         password = await this.handleNewUserRegistration();
+        this.emitWebAuthnEvent(password ? "completed" : "failed", {
+          type: "registration",
+        });
       }
 
       // If WebAuthn fails, fall back to generating a password
       if (!password) {
         console.warn("WebAuthn failed, using fallback password generation");
+        this.emitWebAuthnEvent("failed", {
+          type: "fallback",
+          reason: "WebAuthn returned no password",
+        });
         password = this.generateSecurePassword();
       }
 
       // Store the password in sessionStorage
       sessionStorage.setItem("password", password);
       return password;
-    } catch (error) {
-      console.error("Password retrieval error:", error);
+    } catch (error: unknown) {
+      const errorMessage =
+        error instanceof Error ? error.message : String(error);
+      console.error("Password retrieval error:", errorMessage);
+      this.emitWebAuthnEvent("failed", { error: errorMessage });
       // Fallback to generating a password
       const fallbackPassword = this.generateSecurePassword();
       sessionStorage.setItem("password", fallbackPassword);
@@ -133,8 +242,10 @@ export class PasswordManager {
         console.warn("WebAuthn authentication returned no password");
         return undefined;
       }
-    } catch (error) {
-      console.error("WebAuthn authentication failed:", error);
+    } catch (error: unknown) {
+      const errorMessage =
+        error instanceof Error ? error.message : String(error);
+      console.error("WebAuthn authentication failed:", errorMessage);
       return undefined;
     } finally {
       this.isAuthenticating = false;
@@ -171,11 +282,14 @@ export class PasswordManager {
         console.log("Password message saved successfully");
       } else {
         console.warn("Message input element not found, skipping save");
+        // This is not a critical error - we can still return the password
       }
 
       return newPassword;
-    } catch (error) {
-      console.error("WebAuthn registration failed:", error);
+    } catch (error: unknown) {
+      const errorMessage =
+        error instanceof Error ? error.message : String(error);
+      console.error("WebAuthn registration failed:", errorMessage);
       return undefined;
     } finally {
       this.isRegistering = false;
@@ -193,7 +307,7 @@ export class PasswordManager {
         signal: abortController.signal,
         publicKey: { challenge, allowCredentials: [] },
       });
-    } catch (error) {
+    } catch (error: unknown) {
       // Expected abort error
     }
   }
