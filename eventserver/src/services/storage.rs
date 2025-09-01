@@ -142,8 +142,6 @@ impl StorageService {
             aws_config = aws_config.to_builder().endpoint_url(endpoint).build();
         }
 
-        let s3_client = S3Client::new(&aws_config);
-
         // Configure path style for MinIO compatibility
         let s3_config = aws_sdk_s3::config::Builder::from(&aws_config)
             .force_path_style(config.use_path_style)

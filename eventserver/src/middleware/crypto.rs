@@ -88,12 +88,12 @@ pub async fn crypto_validation_middleware(
                 {
                     info!(
                         "Successfully parsed SignedEventPackage, JWT data length: {}",
-                        signed_package.jwtEventData.len()
+                        signed_package.jwt_event_data.len()
                     );
 
                     // Verify JWT event data using device public key from certificate
                     info!("Starting JWT verification with device public key");
-                    match verify_jwtEventData(&signed_package.jwtEventData, &validation.public_key)
+                    match verify_jwt_event_data(&signed_package.jwt_event_data, &validation.public_key)
                     {
                         Ok(event_package) => {
                             // Print the event package for debugging
@@ -170,7 +170,7 @@ pub async fn crypto_validation_middleware(
 }
 
 /// Verify JWT event data using device public key from certificate
-fn verify_jwtEventData(
+fn verify_jwt_event_data(
     jwt_token: &str,
     device_public_key: &str,
 ) -> Result<EventPackage, EventServerError> {
