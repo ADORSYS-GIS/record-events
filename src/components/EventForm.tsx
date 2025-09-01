@@ -7,12 +7,13 @@ import {
   Upload,
   X,
 } from "lucide-react";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
 import type { KeyPair } from "../hooks/useAuthenticationFlow";
 import { useEventHistory } from "../hooks/useEventHistory";
 import { useEventSubmission } from "../hooks/useEventSubmission";
+import ConnectionStatus from "./ConnectionStatus";
 import type { Label, LocalizedText } from "../labels/label-manager";
 import type { EventPackage } from "../openapi-rq/requests/types.gen";
 import { apiAuthService } from "../services/keyManagement/apiAuthService";
@@ -143,6 +144,23 @@ const EventForm: React.FC<EventFormProps> = ({
   const { submitEvent, isSubmitting: isApiSubmitting } = useEventSubmission();
   const { addEvent } = useEventHistory();
 
+  // Memoize the blob URL to prevent infinite requests
+  const mediaPreviewUrl = useMemo(() => {
+    if (mediaFile) {
+      return URL.createObjectURL(mediaFile);
+    }
+    return null;
+  }, [mediaFile]);
+
+  // Cleanup blob URL when component unmounts or mediaFile changes
+  useEffect(() => {
+    return () => {
+      if (mediaPreviewUrl) {
+        URL.revokeObjectURL(mediaPreviewUrl);
+      }
+    };
+  }, [mediaPreviewUrl]);
+
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
@@ -187,10 +205,23 @@ const EventForm: React.FC<EventFormProps> = ({
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files?.[0]) {
-      setMediaFile(e.target.files[0]);
+    const file = e.target.files?.[0];
+    if (file) {
+      // Prevent processing the same file multiple times
+      if (
+        mediaFile &&
+        mediaFile.name === file.name &&
+        mediaFile.size === file.size
+      ) {
+        e.target.value = "";
+        return;
+      }
+
+      setMediaFile(file);
       setErrors((prev) => ({ ...prev, media: "" }));
     }
+    // Reset the input value to prevent repeated onChange events
+    e.target.value = "";
   };
 
   const handleTakePhoto = async () => {
@@ -228,6 +259,8 @@ const EventForm: React.FC<EventFormProps> = ({
         if (file) {
           setMediaFile(file);
         }
+        // Reset input value to prevent repeated events
+        (e.target as HTMLInputElement).value = "";
       };
 
       input.click();
@@ -276,6 +309,11 @@ const EventForm: React.FC<EventFormProps> = ({
     setShowCamera(false);
   };
 
+  const clearMediaFile = () => {
+    setMediaFile(null);
+    setErrors((prev) => ({ ...prev, media: "" }));
+  };
+
   const handleDrag = (e: React.DragEvent) => {
     e.preventDefault();
     e.stopPropagation();
@@ -295,9 +333,11 @@ const EventForm: React.FC<EventFormProps> = ({
       setMediaFile(e.dataTransfer.files[0]);
       setErrors((prev) => ({ ...prev, media: "" }));
     }
+    // Clear the data transfer to prevent repeated events
+    e.dataTransfer.clearData();
   };
 
-  const validate = (): boolean => {
+  const validate = useCallback((): boolean => {
     const newErrors: Record<string, string> = {};
 
     labels.forEach((label) => {
@@ -313,102 +353,129 @@ const EventForm: React.FC<EventFormProps> = ({
       }
     });
 
-    if (!mediaFile) {
-      newErrors.media = t(
-        "validation.mediaRequired",
-        "Please add a photo or video",
-      );
-    }
+    // Media file is optional - remove this validation
+    // if (!mediaFile) {
+    //   newErrors.media = t(
+    //     "validation.mediaRequired",
+    //     "Please add a photo or video",
+    //   );
+    // }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
-  };
+  }, [labels, formData, t]);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = useCallback(
+    async (e: React.FormEvent) => {
+      e.preventDefault();
 
-    if (!validate()) {
-      toast.error(t("validationError"));
-      return;
-    }
-
-    // Validate keyPair before proceeding
-    if (!_keyPair || !_keyPair.privateKey || !_keyPair.publicKey) {
-      toast.error(
-        "Authentication error: Keys not available. Please try again.",
-      );
-      return;
-    }
-
-    setIsSubmitting(true);
-
-    try {
-      const cleanData: Record<string, FieldValue> = {};
-      labels.forEach((label) => {
-        if (formData[label.labelId] !== undefined) {
-          cleanData[label.labelId] = formData[label.labelId];
-        }
-      });
-
-      const eventPackage = await createEventPackage(
-        cleanData,
-        labels,
-        mediaFile,
-        { createdBy, source: "web" },
-      );
-
-      // Get the token from PoW verification
-      const token = localStorage.getItem("authToken");
-      if (!token) {
-        throw new Error(
-          "Authentication token not found. Please complete initialization first.",
-        );
+      if (!validate()) {
+        toast.error(t("validationError"));
+        return;
       }
 
-      // Set the token as Bearer token for API requests
-      apiAuthService.setBearerToken(token);
+      // Validate keyPair before proceeding
+      if (!_keyPair || !_keyPair.privateKey || !_keyPair.publicKey) {
+        toast.error(
+          "Authentication error: Keys not available. Please try again.",
+        );
+        return;
+      }
 
-      // Generate JWT with event data
-      const jwtEventData = await generateEventJWT(
-        _keyPair.privateKey,
-        _keyPair.publicKey,
-        eventPackage,
-        token,
-      );
+      // Prevent multiple submissions
+      if (isSubmitting || isApiSubmitting) {
+        return;
+      }
 
-      // Create SignedEventPackage with JWT data
-      const signedEventPackage = {
-        jwtEventData: jwtEventData,
-      };
+      setIsSubmitting(true);
 
-      // Submit to backend using the generated API (with Bearer token in header)
-      await submitEvent(signedEventPackage);
+      try {
+        const cleanData: Record<string, FieldValue> = {};
+        labels.forEach((label) => {
+          if (formData[label.labelId] !== undefined) {
+            cleanData[label.labelId] = formData[label.labelId];
+          }
+        });
 
-      // Add to local history using the generated EventPackage type
-      const historyEventPackage: EventPackage = {
-        id: eventPackage.id,
-        version: eventPackage.version,
-        annotations: eventPackage.annotations,
-        media: eventPackage.media,
-        metadata: {
-          createdAt: eventPackage.metadata.createdAt,
-          createdBy: eventPackage.metadata.createdBy,
-          source: eventPackage.metadata.source as "web" | "mobile",
-        },
-      };
-      addEvent(historyEventPackage);
+        // Only create event package if we have data or media
+        if (Object.keys(cleanData).length === 0 && !mediaFile) {
+          toast.error("Please fill in at least one field or add media");
+          return;
+        }
 
-      setFormData({});
-      setMediaFile(null);
-      toast.success(t("eventSaved"));
-    } catch (error) {
-      toast.error(
-        error instanceof Error ? error.message : String(t("saveError")),
-      );
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+        const eventPackage = await createEventPackage(
+          cleanData,
+          labels,
+          mediaFile,
+          { createdBy, source: "web" },
+        );
+
+        // Get the token from PoW verification
+        const token = localStorage.getItem("authToken");
+        if (!token) {
+          throw new Error(
+            "Authentication token not found. Please complete initialization first.",
+          );
+        }
+
+        // Set the token as Bearer token for API requests
+        apiAuthService.setBearerToken(token);
+
+        // Generate JWT with event data
+        const jwtEventData = await generateEventJWT(
+          _keyPair.privateKey,
+          _keyPair.publicKey,
+          eventPackage,
+          token,
+        );
+
+        // Create SignedEventPackage with JWT data
+        const signedEventPackage = {
+          jwtEventData: jwtEventData,
+        };
+
+        // Submit to backend using the generated API (with Bearer token in header)
+        await submitEvent(signedEventPackage);
+
+        // Add to local history using the generated EventPackage type
+        const historyEventPackage: EventPackage = {
+          id: eventPackage.id,
+          version: eventPackage.version,
+          annotations: eventPackage.annotations,
+          media: eventPackage.media,
+          metadata: {
+            createdAt: eventPackage.metadata.createdAt,
+            createdBy: eventPackage.metadata.createdBy,
+            source: eventPackage.metadata.source as "web" | "mobile",
+          },
+        };
+        addEvent(historyEventPackage);
+
+        setFormData({});
+        setMediaFile(null);
+        toast.success(t("eventSaved"));
+      } catch (error) {
+        toast.error(
+          error instanceof Error ? error.message : String(t("saveError")),
+        );
+      } finally {
+        setIsSubmitting(false);
+      }
+    },
+    [
+      validate,
+      _keyPair,
+      isSubmitting,
+      isApiSubmitting,
+      formData,
+      labels,
+      mediaFile,
+      createdBy,
+      submitEvent,
+      addEvent,
+      t,
+    ],
+  );
 
   const handleSaveDraft = useCallback(async () => {
     try {
@@ -418,6 +485,12 @@ const EventForm: React.FC<EventFormProps> = ({
           cleanData[label.labelId] = formData[label.labelId];
         }
       });
+
+      // Only create event package if we have data or media
+      if (Object.keys(cleanData).length === 0 && !mediaFile) {
+        toast.error("Please fill in at least one field or add media");
+        return;
+      }
 
       const eventPackage = await createEventPackage(
         cleanData,
@@ -509,11 +582,13 @@ const EventForm: React.FC<EventFormProps> = ({
       return (
         <div className="relative group">
           <div className="relative overflow-hidden rounded-xl">
-            <img
-              src={URL.createObjectURL(mediaFile)}
-              alt="Preview"
-              className="w-full h-64 object-cover"
-            />
+            {mediaPreviewUrl && (
+              <img
+                src={mediaPreviewUrl as string}
+                alt="Preview"
+                className="w-full h-64 object-cover"
+              />
+            )}
             <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-200 flex items-center justify-center">
               <button
                 type="button"
@@ -615,11 +690,63 @@ const EventForm: React.FC<EventFormProps> = ({
             </p>
           </div>
 
+          {mediaFile && (
+            <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-4">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+                    <svg
+                      className="w-5 h-5 text-green-600"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium text-green-800">
+                      {(mediaFile as File).name}
+                    </p>
+                    <p className="text-xs text-green-600">
+                      {((mediaFile as File).size / 1024 / 1024).toFixed(2)} MB
+                    </p>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  onClick={clearMediaFile}
+                  className="text-green-600 hover:text-green-800 p-1 rounded-full hover:bg-green-100 transition-colors"
+                >
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          )}
+
           <div className="flex flex-col sm:flex-row justify-center gap-3">
             <label className="cursor-pointer bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg shadow-sm transition-all duration-200 flex items-center justify-center space-x-2 font-medium">
               <Upload className="w-5 h-5" />
               <span>Browse Files</span>
               <input
+                key="file-input"
                 type="file"
                 accept="image/*,video/*"
                 className="hidden"
@@ -673,6 +800,9 @@ const EventForm: React.FC<EventFormProps> = ({
                   Capture and submit your event securely
                 </p>
               </div>
+            </div>
+            <div className="flex items-center space-x-4">
+              <ConnectionStatus className="text-gray-600" />
             </div>
           </div>
         </div>
@@ -858,10 +988,16 @@ const EventForm: React.FC<EventFormProps> = ({
               </div>
               <div>
                 <h2 className="text-xl font-semibold text-gray-900">
-                  Add Media
+                  {t(
+                    "eventForm.media.title",
+                    "Add Media to Your Report (Optional)",
+                  )}
                 </h2>
                 <p className="text-sm text-gray-600">
-                  Include photos or videos to provide visual context
+                  {t(
+                    "eventForm.media.description",
+                    "Include photos or videos to provide visual context (optional)",
+                  )}
                 </p>
               </div>
             </div>

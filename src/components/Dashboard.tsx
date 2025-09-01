@@ -12,6 +12,7 @@ import { useTranslation } from "react-i18next";
 import type { KeyPair } from "../hooks/useAuthenticationFlow";
 import { useEventHistory } from "../hooks/useEventHistory";
 import { useTheme } from "../hooks/useTheme";
+import ConnectionStatus from "./ConnectionStatus";
 import type { Label } from "../labels/label-manager";
 
 interface DashboardProps {
@@ -92,16 +93,11 @@ const Dashboard: React.FC<DashboardProps> = ({
               </div>
             </div>
             <div className="flex items-center space-x-4">
-              <div className="flex items-center space-x-2">
-                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                <span
-                  className={`text-sm transition-colors duration-300 ${
-                    isDark ? "text-gray-300" : "text-gray-700"
-                  }`}
-                >
-                  Connected
-                </span>
-              </div>
+              <ConnectionStatus
+                className={`transition-colors duration-300 ${
+                  isDark ? "text-gray-300" : "text-gray-700"
+                }`}
+              />
 
               {/* Theme Toggle */}
               <div
