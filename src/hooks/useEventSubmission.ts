@@ -6,7 +6,6 @@ export const useEventSubmission = () => {
   const mutation = useEventsServicePostApiV1EventsPackage({
     onSuccess: (data) => {
       toast.success("Event submitted successfully!");
-      console.log("Event processed:", data);
     },
     onError: (error) => {
       toast.error("Failed to submit event");

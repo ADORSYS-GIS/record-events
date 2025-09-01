@@ -39,7 +39,6 @@ export async function encryptPrivateKey(privateJwk: JsonWebKey) {
 
   // Ensure JWE is a string
   const jwe = await encryptor.encrypt(derivedKey);
-  console.log("Generated JWE:", jwe); // Verify output
 
   return { jwe, salt: Array.from(salt) };
 }
@@ -77,19 +76,14 @@ export async function decryptPrivateKey(encryptedPriv: {
     ["decrypt"],
   );
 
-  try {
-    // Validate JWE format
-    if (typeof encryptedPriv.jwe !== "string") {
-      throw new Error("Invalid JWE format");
-    }
-
-    const { plaintext } = await jose.compactDecrypt(
-      encryptedPriv.jwe,
-      derivedKey,
-    );
-    return JSON.parse(new TextDecoder().decode(plaintext));
-  } catch (e) {
-    console.error("Decryption failed:", e);
-    throw e;
+  // Validate JWE format
+  if (typeof encryptedPriv.jwe !== "string") {
+    throw new Error("Invalid JWE format");
   }
+
+  const { plaintext } = await jose.compactDecrypt(
+    encryptedPriv.jwe,
+    derivedKey,
+  );
+  return JSON.parse(new TextDecoder().decode(plaintext));
 }

@@ -1,8 +1,17 @@
-import { AlertCircle, CheckCircle, Clock, Plus, Settings } from "lucide-react";
+import {
+  AlertCircle,
+  CheckCircle,
+  Clock,
+  Monitor,
+  Moon,
+  Plus,
+  Sun,
+} from "lucide-react";
 import React from "react";
 import { useTranslation } from "react-i18next";
+import type { KeyPair } from "../hooks/useAuthenticationFlow";
 import { useEventHistory } from "../hooks/useEventHistory";
-import type { KeyPair } from "../hooks/useKeyInitialization";
+import { useTheme } from "../hooks/useTheme";
 import type { Label } from "../labels/label-manager";
 
 interface DashboardProps {
@@ -22,6 +31,7 @@ const Dashboard: React.FC<DashboardProps> = ({
 }) => {
   const { t } = useTranslation();
   const { events } = useEventHistory();
+  const { theme, changeTheme, isDark } = useTheme();
 
   // Use real event data instead of mock data
   const recentEvents = events.slice(0, 5).map((event) => ({
@@ -30,30 +40,6 @@ const Dashboard: React.FC<DashboardProps> = ({
     status: event.status,
     timestamp: new Date(event.timestamp).toLocaleString(),
   }));
-
-  const quickActions = [
-    {
-      id: "traffic",
-      title: t("dashboard.quickActions.traffic", "Traffic Incident"),
-      icon: <AlertCircle className="w-6 h-6" />,
-      color: "bg-warning-500",
-      onClick: () => onCreateEvent(),
-    },
-    {
-      id: "infrastructure",
-      title: t("dashboard.quickActions.infrastructure", "Infrastructure"),
-      icon: <AlertCircle className="w-6 h-6" />,
-      color: "bg-error-500",
-      onClick: () => onCreateEvent(),
-    },
-    {
-      id: "safety",
-      title: t("dashboard.quickActions.safety", "Safety Issue"),
-      icon: <AlertCircle className="w-6 h-6" />,
-      color: "bg-primary-500",
-      onClick: () => onCreateEvent(),
-    },
-  ];
 
   const getStatusIcon = (status: string) => {
     switch (status) {
@@ -67,33 +53,99 @@ const Dashboard: React.FC<DashboardProps> = ({
   };
 
   return (
-    <div className="min-h-screen bg-blue-50">
+    <div
+      className={`min-h-screen transition-all duration-300 ${
+        isDark
+          ? "bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
+          : "bg-gradient-to-br from-blue-50 via-white to-indigo-50"
+      }`}
+    >
       {/* Header */}
-      <header className="bg-white shadow-sm border-b border-blue-200">
+      <header
+        className={`transition-all duration-300 ${
+          isDark
+            ? "bg-gray-800/80 backdrop-blur-sm shadow-sm border-b border-gray-700"
+            : "bg-white/80 backdrop-blur-sm shadow-sm border-b border-gray-200"
+        } sticky top-0 z-40`}
+      >
         <div className="max-w-6xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
-              <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center">
                 <span className="text-white font-bold text-lg">E</span>
               </div>
               <div>
-                <h1 className="text-xl font-semibold text-blue-900">
+                <h1
+                  className={`text-xl font-semibold transition-colors duration-300 ${
+                    isDark ? "text-white" : "text-gray-900"
+                  }`}
+                >
                   EventApp
                 </h1>
-                <p className="text-sm text-blue-600">Secure event reporting</p>
+                <p
+                  className={`text-sm transition-colors duration-300 ${
+                    isDark ? "text-gray-300" : "text-gray-600"
+                  }`}
+                >
+                  Secure event reporting
+                </p>
               </div>
             </div>
             <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                <span className="text-sm text-blue-700">Connected</span>
+                <span
+                  className={`text-sm transition-colors duration-300 ${
+                    isDark ? "text-gray-300" : "text-gray-700"
+                  }`}
+                >
+                  Connected
+                </span>
               </div>
-              <button
-                onClick={onOpenSettings}
-                className="p-2 text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-lg transition-colors duration-200"
+
+              {/* Theme Toggle */}
+              <div
+                className={`flex items-center space-x-1 rounded-xl p-1 shadow-lg transition-all duration-300 ${
+                  isDark ? "bg-gray-700" : "bg-white"
+                }`}
               >
-                <Settings className="w-5 h-5" />
-              </button>
+                <button
+                  onClick={() => changeTheme("light")}
+                  className={`p-2 rounded-lg transition-all duration-200 ${
+                    theme === "light"
+                      ? "bg-blue-600 text-white shadow-md"
+                      : isDark
+                        ? "text-gray-400 hover:text-gray-200"
+                        : "text-gray-500 hover:text-gray-700"
+                  }`}
+                >
+                  <Sun className="w-4 h-4" />
+                </button>
+                <button
+                  onClick={() => changeTheme("system")}
+                  className={`p-2 rounded-lg transition-all duration-200 ${
+                    theme === "system"
+                      ? "bg-blue-600 text-white shadow-md"
+                      : isDark
+                        ? "text-gray-400 hover:text-gray-200"
+                        : "text-gray-500 hover:text-gray-700"
+                  }`}
+                >
+                  <Monitor className="w-4 h-4" />
+                </button>
+                <button
+                  onClick={() => changeTheme("dark")}
+                  className={`p-2 rounded-lg transition-all duration-200 ${
+                    theme === "dark"
+                      ? "bg-blue-600 text-white shadow-md"
+                      : isDark
+                        ? "text-gray-400 hover:text-gray-200"
+                        : "text-gray-500 hover:text-gray-700"
+                  }`}
+                >
+                  <Moon className="w-4 h-4" />
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -103,85 +155,124 @@ const Dashboard: React.FC<DashboardProps> = ({
       <main className="max-w-6xl mx-auto px-6 py-8">
         {/* Welcome Section */}
         <div className="mb-8">
-          <h2 className="text-2xl font-semibold text-blue-900 mb-1">
+          <h2
+            className={`text-2xl font-semibold transition-colors duration-300 ${
+              isDark ? "text-white" : "text-gray-900"
+            } mb-1`}
+          >
             Welcome back
           </h2>
-          <p className="text-blue-700">Ready to report an event?</p>
+          <p
+            className={`transition-colors duration-300 ${
+              isDark ? "text-gray-300" : "text-gray-600"
+            }`}
+          >
+            Ready to report an event?
+          </p>
         </div>
 
         {/* Main Action Card */}
-        <div className="bg-white rounded-xl p-8 shadow-sm border border-blue-200 mb-8">
+        <div
+          className={`transition-all duration-300 rounded-2xl shadow-xl border p-8 mb-8 ${
+            isDark
+              ? "bg-gray-800/80 backdrop-blur-sm border-gray-700"
+              : "bg-white/80 backdrop-blur-sm border-gray-200/50"
+          }`}
+        >
           <div className="text-center mb-6">
-            <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="w-16 h-16 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <Plus className="w-8 h-8 text-blue-600" />
             </div>
-            <h3 className="text-xl font-semibold text-blue-900 mb-2">
+            <h3
+              className={`text-xl font-semibold transition-colors duration-300 ${
+                isDark ? "text-white" : "text-gray-900"
+              } mb-2`}
+            >
               Create New Event Report
             </h3>
-            <p className="text-blue-700">
+            <p
+              className={`transition-colors duration-300 ${
+                isDark ? "text-gray-300" : "text-gray-600"
+              }`}
+            >
               Start a new secure event report with photo capture
             </p>
           </div>
           <button
             onClick={onCreateEvent}
-            className="w-full bg-blue-600 text-white font-semibold py-4 px-6 rounded-lg shadow-sm transition-all duration-200 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+            className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-4 px-6 rounded-xl shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transform hover:scale-[1.02]"
           >
             Start New Report
           </button>
         </div>
 
-        {/* Quick Actions */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-          {quickActions.map((action) => (
-            <button
-              key={action.id}
-              onClick={action.onClick}
-              className="bg-white rounded-lg p-6 shadow-sm border border-blue-200 hover:shadow-md hover:border-blue-300 transition-all duration-200 group"
-            >
-              <div className="flex items-center space-x-4">
-                <div className="p-3 bg-blue-100 rounded-lg">{action.icon}</div>
-                <div className="text-left">
-                  <h4 className="font-medium text-blue-900 group-hover:text-blue-700 transition-colors duration-200">
-                    {action.title}
-                  </h4>
-                  <p className="text-sm text-blue-600">Report now</p>
-                </div>
-              </div>
-            </button>
-          ))}
-        </div>
-
         {/* Recent Events */}
-        <div className="bg-white rounded-xl p-6 shadow-sm border border-blue-200">
-          <h3 className="text-lg font-semibold text-blue-900 mb-4">
+        <div
+          className={`transition-all duration-300 rounded-2xl shadow-xl border p-6 ${
+            isDark
+              ? "bg-gray-800/80 backdrop-blur-sm border-gray-700"
+              : "bg-white/80 backdrop-blur-sm border-gray-200/50"
+          }`}
+        >
+          <h3
+            className={`text-lg font-semibold transition-colors duration-300 ${
+              isDark ? "text-white" : "text-gray-900"
+            } mb-4`}
+          >
             Recent Events
           </h3>
           {recentEvents.length === 0 ? (
             <div className="text-center py-8">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <AlertCircle className="w-8 h-8 text-blue-600" />
               </div>
-              <p className="text-blue-600">No events submitted yet</p>
-              <p className="text-sm text-blue-500 mt-1">Your submitted events will appear here</p>
+              <p
+                className={`transition-colors duration-300 ${
+                  isDark ? "text-gray-300" : "text-gray-600"
+                }`}
+              >
+                No events submitted yet
+              </p>
+              <p
+                className={`text-sm transition-colors duration-300 ${
+                  isDark ? "text-gray-400" : "text-gray-500"
+                } mt-1`}
+              >
+                Your submitted events will appear here
+              </p>
             </div>
           ) : (
-            <div className="space-y-2">
+            <div className="space-y-3">
               {recentEvents.map((event) => (
                 <div
                   key={event.id}
-                  className="flex items-center justify-between p-3 rounded-lg border border-blue-200 hover:bg-blue-50 transition-colors duration-200"
+                  className={`flex items-center justify-between p-4 rounded-xl border transition-all duration-200 hover:shadow-sm ${
+                    isDark
+                      ? "border-gray-700 hover:bg-gray-700/50"
+                      : "border-gray-200/50 hover:bg-white/50"
+                  }`}
                 >
                   <div className="flex items-center space-x-3">
                     {getStatusIcon(event.status)}
                     <div>
-                      <h4 className="font-medium text-blue-900 text-sm">
+                      <h4
+                        className={`font-medium text-sm transition-colors duration-300 ${
+                          isDark ? "text-white" : "text-gray-900"
+                        }`}
+                      >
                         {event.title}
                       </h4>
-                      <p className="text-xs text-blue-600">{event.timestamp}</p>
+                      <p
+                        className={`text-xs transition-colors duration-300 ${
+                          isDark ? "text-gray-400" : "text-gray-600"
+                        }`}
+                      >
+                        {event.timestamp}
+                      </p>
                     </div>
                   </div>
                   <span
-                    className={`text-xs font-medium px-2 py-1 rounded-full ${
+                    className={`text-xs font-medium px-3 py-1 rounded-full ${
                       event.status === "submitted"
                         ? "bg-green-100 text-green-700"
                         : event.status === "pending"

@@ -11,4 +11,3 @@ const WelcomePage: React.FC<WelcomePageProps> = ({ onGetStarted }) => {
 };
 
 export default WelcomePage;
-

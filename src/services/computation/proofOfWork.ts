@@ -51,21 +51,12 @@ export async function performProofOfWork(
 
     // Check if hash meets the difficulty requirement
     if (meetsDifficulty(hash, difficulty)) {
-      console.log(`Proof of Work completed in ${(Date.now() - start) / 1000}s`);
       break;
     }
 
     nonce++;
-
-    // Optional: Log progress every 1M attempts
-    if (nonce % 1_000_000 === 0) {
-      console.log(`Attempts: ${nonce}`);
-    }
   }
 
-  console.log("Challenge data:", challenge_data);
-  console.log("Final nonce:", nonce);
-  console.log("Final hash:", hash);
   return { hash, nonce };
 }
 
@@ -101,7 +92,6 @@ function meetsDifficulty(hash: string, difficulty: number): boolean {
 
     return zeroCount >= difficulty;
   } catch (error) {
-    console.error("Error checking difficulty:", error);
     return false;
   }
 }

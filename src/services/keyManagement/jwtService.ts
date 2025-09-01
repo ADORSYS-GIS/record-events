@@ -21,10 +21,10 @@ export async function generateEventJWT(
     iss: "event_client", // Issuer
     iat: Math.floor(Date.now() / 1000), // Issued at
     exp: Math.floor(Date.now() / 1000) + 60 * 60, // Expires in 1 hour
-    
+
     // Event package payload (matches backend EventJwtClaims structure)
     payload: eventPackage,
-    
+
     // Hash of the event data for integrity verification
     event_hash: hashPayload(JSON.stringify(eventPackage)),
   };
@@ -52,7 +52,6 @@ export async function generateEventJWT(
 
     return jwt;
   } catch (error) {
-    console.error("Error generating Event JWT:", error);
     throw new Error("Failed to generate Event JWT.");
   }
 }
@@ -100,7 +99,6 @@ export async function generateBearerToken(
 
     return jwt;
   } catch (error) {
-    console.error("Error generating Bearer token:", error);
     throw new Error("Failed to generate Bearer token.");
   }
 }
@@ -143,7 +141,6 @@ export async function generateJWT(
 
     return jwt;
   } catch (error) {
-    console.error("Error generating JWT:", error);
     throw new Error("Failed to generate JWT.");
   }
 }

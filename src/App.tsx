@@ -1,10 +1,9 @@
 import React, { useCallback, useState, useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, useNavigate } from "react-router-dom";
 
-import useInitialization from "./hooks/useInitialization";
-import useKeyManagement from "./hooks/useKeyManagement";
+import useAuthenticationFlow from "./hooks/useAuthenticationFlow";
 import { useLabelManagement } from "./hooks/useLabelManagement";
 import { AppRoutes } from "./routes";
 
@@ -18,20 +17,11 @@ const queryClient = new QueryClient({
 });
 
 function App() {
-  const {
-    keyPair,
-    error: keyError,
-    isLoading: isKeyLoading,
-  } = useKeyManagement();
-  
-  const {
-    devCert,
-    error: powError,
-    isLoading: isPowLoading,
-  } = useInitialization({
-    publicKey: keyPair?.publicKey || null,
-  });
-  
+  const navigate = useNavigate();
+
+  // Use the comprehensive authentication flow
+  const authStatus = useAuthenticationFlow();
+
   const { labels } = useLabelManagement();
 
   // App state management
@@ -39,51 +29,73 @@ function App() {
   const [showOnboarding, setShowOnboarding] = useState(false);
   const [showDashboard, setShowDashboard] = useState(false);
   const [showEventForm, setShowEventForm] = useState(false);
+  const [hasInitialized, setHasInitialized] = useState(false);
 
-  // Check if onboarding has been completed
+  // Check if onboarding has been completed (only once on mount)
   useEffect(() => {
-    const onboardingCompleted = localStorage.getItem("eventApp_onboarding_completed");
-    if (onboardingCompleted === "true") {
-      setShowWelcome(false);
-      setShowOnboarding(false);
-      setShowDashboard(true);
+    if (!hasInitialized && !showEventForm) {
+      const onboardingCompleted = localStorage.getItem(
+        "eventApp_onboarding_completed",
+      );
+      if (onboardingCompleted === "true") {
+        setShowWelcome(false);
+        setShowOnboarding(false);
+        setShowDashboard(true);
+        setShowEventForm(false);
+        navigate("/dashboard");
+      }
+      setHasInitialized(true);
     }
-  }, []);
+  }, [navigate, hasInitialized, showEventForm]);
 
   // Event handlers
   const handleGetStarted = useCallback(() => {
     setShowWelcome(false);
     setShowOnboarding(true);
-  }, []);
+    setShowDashboard(false);
+    setShowEventForm(false);
+    navigate("/onboarding");
+  }, [navigate]);
 
   const handleOnboardingComplete = useCallback(() => {
     setShowOnboarding(false);
     setShowDashboard(true);
-  }, []);
+    setShowEventForm(false);
+    navigate("/dashboard");
+  }, [navigate]);
 
   const handleCreateEvent = useCallback(() => {
+    setShowWelcome(false);
+    setShowOnboarding(false);
     setShowDashboard(false);
     setShowEventForm(true);
-  }, []);
+    navigate("/event/new");
+  }, [navigate]);
 
   const handleViewHistory = useCallback(() => {
     // TODO: Implement history view
-    console.log("View history clicked");
   }, []);
 
   const handleOpenSettings = useCallback(() => {
     // TODO: Implement settings
-    console.log("Open settings clicked");
   }, []);
 
   const handleRetry = useCallback(() => {
     window.location.reload();
   }, []);
 
-  // Loading and error states
-  const isLoading = isKeyLoading || isPowLoading;
-  const hasError = !!(keyError || powError);
-  const errorMessage = keyError || powError || undefined;
+  const handleGoBackToDashboard = useCallback(() => {
+    setShowWelcome(false);
+    setShowOnboarding(false);
+    setShowDashboard(true);
+    setShowEventForm(false);
+    navigate("/dashboard");
+  }, [navigate]);
+
+  // Loading and error states - show loading until full authentication is complete
+  const isLoading = authStatus.isLoading;
+  const hasError = !!authStatus.error;
+  const errorMessage = authStatus.error || undefined;
 
   return (
     <AppRoutes
@@ -95,13 +107,18 @@ function App() {
       hasError={hasError}
       errorMessage={errorMessage}
       labels={labels}
-      keyPair={keyPair}
+      keyPair={authStatus.keyPair || undefined}
+      keyStatus={authStatus.keyStatus}
+      webAuthnStatus={authStatus.webAuthnStatus}
+      powStatus={authStatus.powStatus}
+      authStatus={authStatus}
       onGetStarted={handleGetStarted}
       onOnboardingComplete={handleOnboardingComplete}
       onCreateEvent={handleCreateEvent}
       onViewHistory={handleViewHistory}
       onOpenSettings={handleOpenSettings}
       onRetry={handleRetry}
+      onGoBackToDashboard={handleGoBackToDashboard}
     />
   );
 }

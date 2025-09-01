@@ -27,7 +27,6 @@ const LABELS_STORAGE_KEY = "event-app-labels";
 
 // Mock function to fetch labels from a relay
 export async function fetchLabels(): Promise<Label[]> {
-  console.log("Fetching labels...");
   // In a real implementation, this would be a network request to a relay.
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -63,7 +62,6 @@ export async function fetchLabels(): Promise<Label[]> {
           options: ["low", "medium", "high"],
         },
       ];
-      console.log("Labels received:", labels);
       resolve(labels);
     }, 1000);
   });

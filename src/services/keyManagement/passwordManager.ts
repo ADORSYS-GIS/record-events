@@ -29,19 +29,15 @@ export class PasswordManager {
         throw new Error("WebAuthn module missing required functions");
       }
     } catch (error) {
-      console.warn("WebAuthn module failed to load, using fallback:", error);
       // Return a mock module that uses fallback behavior
       this.webAuthnModule = {
         handleRegister: async () => {
-          console.log("Using fallback registration");
           return Promise.resolve();
         },
         handleAuthenticate: async () => {
-          console.log("Using fallback authentication");
           return Promise.resolve([this.generateSecurePassword()]);
         },
         saveMessage: async () => {
-          console.log("Using fallback message save");
           return Promise.resolve();
         },
       };
@@ -87,16 +83,13 @@ export class PasswordManager {
       let password: string | undefined;
 
       if (messages.length > 0) {
-        console.log("Attempting WebAuthn authentication...");
         password = await this.attemptAuthentication();
       } else {
-        console.log("Starting WebAuthn registration...");
         password = await this.handleNewUserRegistration();
       }
 
       // If WebAuthn fails, fall back to generating a password
       if (!password) {
-        console.warn("WebAuthn failed, using fallback password generation");
         password = this.generateSecurePassword();
       }
 
@@ -104,7 +97,6 @@ export class PasswordManager {
       sessionStorage.setItem("password", password);
       return password;
     } catch (error) {
-      console.error("Password retrieval error:", error);
       // Fallback to generating a password
       const fallbackPassword = this.generateSecurePassword();
       sessionStorage.setItem("password", fallbackPassword);
@@ -117,24 +109,18 @@ export class PasswordManager {
     this.isAuthenticating = true;
 
     try {
-      console.log("Canceling any pending WebAuthn requests...");
       await this.cancelPendingRequests();
 
-      console.log("Loading WebAuthn module...");
       const module = await this.loadWebAuthnModule();
 
-      console.log("Starting WebAuthn authentication...");
       const decryptedPassword = await module.handleAuthenticate();
 
       if (decryptedPassword && decryptedPassword.length > 0) {
-        console.log("WebAuthn authentication successful");
         return decryptedPassword[0];
       } else {
-        console.warn("WebAuthn authentication returned no password");
         return undefined;
       }
     } catch (error) {
-      console.error("WebAuthn authentication failed:", error);
       return undefined;
     } finally {
       this.isAuthenticating = false;
@@ -148,34 +134,24 @@ export class PasswordManager {
     this.isRegistering = true;
 
     try {
-      console.log("Canceling any pending WebAuthn requests...");
       await this.cancelPendingRequests();
 
-      console.log("Loading WebAuthn module...");
       const module = await this.loadWebAuthnModule();
 
-      console.log("Starting WebAuthn registration...");
       // Remove timeout - let WebAuthn registration continue until completion or user cancellation
       await module.handleRegister();
-      console.log("WebAuthn registration completed successfully");
 
       const newPassword = this.generateSecurePassword();
-      console.log("Generated new secure password");
 
       const input = document.querySelector<HTMLInputElement>("#messageInput");
 
       if (input) {
         input.value = newPassword;
-        console.log("Saving password message...");
         await module.saveMessage();
-        console.log("Password message saved successfully");
-      } else {
-        console.warn("Message input element not found, skipping save");
       }
 
       return newPassword;
     } catch (error) {
-      console.error("WebAuthn registration failed:", error);
       return undefined;
     } finally {
       this.isRegistering = false;

@@ -1,24 +1,23 @@
 import {
   Camera,
+  Check,
+  ChevronDown,
   Save,
   Send,
   Upload,
   X,
-  ChevronDown,
-  Check,
 } from "lucide-react";
-import { useCallback, useState, useRef, useEffect } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
-import type { KeyPair } from "../hooks/useKeyInitialization";
-import type { Label, LocalizedText } from "../labels/label-manager";
-import { createEventPackage, validateFormData } from "../utils/event-packer";
-import { useEventSubmission } from "../hooks/useEventSubmission";
+import type { KeyPair } from "../hooks/useAuthenticationFlow";
 import { useEventHistory } from "../hooks/useEventHistory";
-import type { EventPackage as LocalEventPackage } from "../types/event";
+import { useEventSubmission } from "../hooks/useEventSubmission";
+import type { Label, LocalizedText } from "../labels/label-manager";
 import type { EventPackage } from "../openapi-rq/requests/types.gen";
 import { apiAuthService } from "../services/keyManagement/apiAuthService";
 import { generateEventJWT } from "../services/keyManagement/jwtService";
+import { createEventPackage } from "../utils/event-packer";
 
 type FieldValue = string | number | boolean | null;
 
@@ -121,12 +120,14 @@ interface EventFormProps {
   labels: Label[];
   keyPair: KeyPair; // Make keyPair required for authorization
   createdBy?: string;
+  onGoBack?: () => void; // Add this prop
 }
 
 const EventForm: React.FC<EventFormProps> = ({
   labels,
   keyPair: _keyPair,
   createdBy,
+  onGoBack,
 }) => {
   const { t, i18n } = useTranslation();
   const [formData, setFormData] = useState<FormData>({});
@@ -134,11 +135,13 @@ const EventForm: React.FC<EventFormProps> = ({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [dragActive, setDragActive] = useState(false);
+  const [showCamera, setShowCamera] = useState(false);
+  const [cameraStream, setCameraStream] = useState<MediaStream | null>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   const { submitEvent, isSubmitting: isApiSubmitting } = useEventSubmission();
   const { addEvent } = useEventHistory();
-  
-
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -190,20 +193,87 @@ const EventForm: React.FC<EventFormProps> = ({
     }
   };
 
-  const handleTakePhoto = () => {
-    const input = document.createElement("input");
-    input.type = "file";
-    input.accept = "image/*";
-    input.capture = "environment";
+  const handleTakePhoto = async () => {
+    try {
+      // Request camera access
+      const stream = await navigator.mediaDevices.getUserMedia({
+        video: {
+          facingMode: "environment", // Use back camera on mobile
+          width: { ideal: 1920 },
+          height: { ideal: 1080 },
+        },
+      });
 
-    input.onchange = (e) => {
-      const file = (e.target as HTMLInputElement).files?.[0];
-      if (file) {
-        setMediaFile(file);
+      setCameraStream(stream);
+      setShowCamera(true);
+
+      // Set video source and play
+      if (videoRef.current) {
+        videoRef.current.srcObject = stream;
+        videoRef.current.play();
       }
-    };
+    } catch (error) {
+      toast.error(
+        t("camera.error", "Unable to access camera. Please check permissions."),
+      );
 
-    input.click();
+      // Fallback to file input if camera fails
+      const input = document.createElement("input");
+      input.type = "file";
+      input.accept = "image/*";
+      input.capture = "environment";
+
+      input.onchange = (e) => {
+        const file = (e.target as HTMLInputElement).files?.[0];
+        if (file) {
+          setMediaFile(file);
+        }
+      };
+
+      input.click();
+    }
+  };
+
+  const capturePhoto = () => {
+    if (!videoRef.current || !canvasRef.current || !cameraStream) return;
+
+    const video = videoRef.current;
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext("2d");
+
+    if (ctx) {
+      // Set canvas dimensions to match video
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+
+      // Draw the current video frame to canvas
+      ctx.drawImage(video, 0, 0);
+
+      // Convert canvas to blob and create file
+      canvas.toBlob(
+        (blob) => {
+          if (blob) {
+            const file = new File([blob], `photo_${Date.now()}.jpg`, {
+              type: "image/jpeg",
+            });
+            setMediaFile(file);
+          }
+        },
+        "image/jpeg",
+        0.9,
+      );
+    }
+
+    // Stop camera and hide camera view
+    stopCamera();
+  };
+
+  const stopCamera = () => {
+    if (cameraStream) {
+      cameraStream.getTracks().forEach((track) => track.stop());
+      setCameraStream(null);
+    }
+    setShowCamera(false);
   };
 
   const handleDrag = (e: React.DragEvent) => {
@@ -227,21 +297,32 @@ const EventForm: React.FC<EventFormProps> = ({
     }
   };
 
-  const validate = useCallback((): boolean => {
-    const cleanData: Record<string, FieldValue> = {};
+  const validate = (): boolean => {
+    const newErrors: Record<string, string> = {};
+
     labels.forEach((label) => {
-      if (formData[label.labelId] !== undefined) {
-        cleanData[label.labelId] = formData[label.labelId];
+      const value = formData[label.labelId];
+      if (
+        label.required &&
+        (value === undefined || value === null || value === "")
+      ) {
+        newErrors[label.labelId] = t(
+          "validation.required",
+          "This field is required",
+        );
       }
     });
-    const { isValid: isFormDataValid, errors: formErrors } = validateFormData(
-      cleanData,
-      labels,
-    );
-    const newErrors: Record<string, string> = { ...formErrors };
+
+    if (!mediaFile) {
+      newErrors.media = t(
+        "validation.mediaRequired",
+        "Please add a photo or video",
+      );
+    }
+
     setErrors(newErrors);
-    return isFormDataValid && Object.keys(newErrors).length === 0;
-  }, [formData, labels]);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -250,6 +331,15 @@ const EventForm: React.FC<EventFormProps> = ({
       toast.error(t("validationError"));
       return;
     }
+
+    // Validate keyPair before proceeding
+    if (!_keyPair || !_keyPair.privateKey || !_keyPair.publicKey) {
+      toast.error(
+        "Authentication error: Keys not available. Please try again.",
+      );
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
@@ -283,7 +373,7 @@ const EventForm: React.FC<EventFormProps> = ({
         _keyPair.privateKey,
         _keyPair.publicKey,
         eventPackage,
-        token
+        token,
       );
 
       // Create SignedEventPackage with JWT data
@@ -312,7 +402,6 @@ const EventForm: React.FC<EventFormProps> = ({
       setMediaFile(null);
       toast.success(t("eventSaved"));
     } catch (error) {
-      console.error("Error saving event:", error);
       toast.error(
         error instanceof Error ? error.message : String(t("saveError")),
       );
@@ -353,10 +442,67 @@ const EventForm: React.FC<EventFormProps> = ({
       addEvent(historyEventPackage);
       toast.success(t("draftSaved"));
     } catch (error) {
-      console.error("Error saving draft:", error);
       toast.error(t("saveError"));
     }
   }, [formData, mediaFile, labels, createdBy, t, addEvent]);
+
+  // Early return if keyPair is missing or invalid
+  if (!_keyPair || !_keyPair.privateKey || !_keyPair.publicKey) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 flex items-center justify-center p-6">
+        <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 text-center">
+          <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg
+              className="w-8 h-8 text-red-600"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"
+              />
+            </svg>
+          </div>
+          <h2 className="text-xl font-semibold text-gray-900 mb-2">
+            Authentication Required
+          </h2>
+          <p className="text-gray-600 mb-6">
+            Your security keys are not available. This usually happens when you
+            navigate back to the app after being away.
+          </p>
+          <div className="space-y-3">
+            <button
+              onClick={() => window.location.reload()}
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-xl transition-colors duration-200"
+            >
+              Reload and Authenticate
+            </button>
+            <button
+              onClick={onGoBack || (() => window.history.back())}
+              className="w-full bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium py-3 px-4 rounded-xl transition-colors duration-200"
+            >
+              Go Back
+            </button>
+          </div>
+          <div className="mt-4 text-xs text-gray-500">
+            <p>
+              Debug info: keyPair is{" "}
+              {_keyPair ? "present but invalid" : "missing"}
+            </p>
+            {_keyPair && (
+              <p>
+                Has privateKey: {!!_keyPair.privateKey}, Has publicKey:{" "}
+                {!!_keyPair.publicKey}
+              </p>
+            )}
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   const renderMediaSection = () => {
     if (mediaFile) {
@@ -384,6 +530,59 @@ const EventForm: React.FC<EventFormProps> = ({
               {(mediaFile.size / 1024 / 1024).toFixed(2)} MB
             </p>
           </div>
+        </div>
+      );
+    }
+
+    // Camera view when taking photo
+    if (showCamera) {
+      return (
+        <div className="relative border-2 border-gray-300 rounded-xl p-6 bg-gray-900">
+          <div className="text-center mb-4">
+            <h3 className="text-lg font-medium text-white mb-2">
+              {t("eventForm.camera.title", "Take a Photo")}
+            </h3>
+            <p className="text-gray-300 text-sm">
+              {t(
+                "eventForm.camera.description",
+                "Position your camera and click capture when ready",
+              )}
+            </p>
+          </div>
+
+          {/* Camera preview */}
+          <div className="relative mb-4">
+            <video
+              ref={videoRef}
+              autoPlay
+              playsInline
+              muted
+              className="w-full h-64 object-cover rounded-lg"
+            />
+            <div className="absolute inset-0 border-4 border-white/20 rounded-lg pointer-events-none"></div>
+          </div>
+
+          {/* Camera controls */}
+          <div className="flex justify-center space-x-4">
+            <button
+              type="button"
+              onClick={capturePhoto}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full shadow-lg transition-all duration-200 flex items-center space-x-2 font-medium"
+            >
+              <Camera className="w-5 h-5" />
+              <span>Capture Photo</span>
+            </button>
+            <button
+              type="button"
+              onClick={stopCamera}
+              className="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg shadow-sm transition-all duration-200 font-medium"
+            >
+              Cancel
+            </button>
+          </div>
+
+          {/* Hidden canvas for photo capture */}
+          <canvas ref={canvasRef} className="hidden" />
         </div>
       );
     }
@@ -449,7 +648,7 @@ const EventForm: React.FC<EventFormProps> = ({
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
               <button
-                onClick={() => window.history.back()}
+                onClick={onGoBack || (() => window.history.back())}
                 className="p-2 text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg transition-all duration-200"
               >
                 <svg

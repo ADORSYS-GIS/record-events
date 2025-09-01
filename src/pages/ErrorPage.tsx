@@ -6,10 +6,10 @@ interface ErrorPageProps {
   onRetry?: () => void;
 }
 
-const ErrorPage: React.FC<ErrorPageProps> = ({ 
+const ErrorPage: React.FC<ErrorPageProps> = ({
   title = "Initialization Failed",
   message = "An error occurred during initialization",
-  onRetry 
+  onRetry,
 }) => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-neutral-50 to-primary-50 flex items-center justify-center">
@@ -45,4 +45,3 @@ const ErrorPage: React.FC<ErrorPageProps> = ({
 };
 
 export default ErrorPage;
-

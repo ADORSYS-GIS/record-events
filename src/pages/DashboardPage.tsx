@@ -1,7 +1,7 @@
 import React from "react";
 import Dashboard from "../components/Dashboard";
+import type { KeyPair } from "../hooks/useAuthenticationFlow";
 import type { Label } from "../labels/label-manager";
-import type { KeyPair } from "../hooks/useKeyInitialization";
 
 interface DashboardPageProps {
   labels: Label[];
@@ -30,4 +30,3 @@ const DashboardPage: React.FC<DashboardPageProps> = ({
 };
 
 export default DashboardPage;
-

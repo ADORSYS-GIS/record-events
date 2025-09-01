@@ -35,21 +35,25 @@ src/
 ## 🏗️ Architecture Overview
 
 ### **Pages** (`src/pages/`)
+
 - **Purpose**: Page-level components that compose other components
 - **Responsibility**: Handle page-specific logic and data flow
 - **Example**: `DashboardPage` uses `Dashboard` component with proper props
 
 ### **Components** (`src/components/`)
+
 - **Purpose**: Reusable UI components
 - **Responsibility**: Pure presentation and user interaction
 - **Example**: `Dashboard` component handles UI rendering and user events
 
 ### **Layouts** (`src/layouts/`)
+
 - **Purpose**: Layout wrappers for pages
 - **Responsibility**: Common UI elements (navigation, footer, etc.)
 - **Example**: `MainLayout` provides consistent page structure
 
 ### **Routes** (`src/routes/`)
+
 - **Purpose**: Route configuration and navigation logic
 - **Responsibility**: Define application routing and page transitions
 - **Example**: `AppRoutes` manages all application routes
@@ -77,11 +81,13 @@ Components (UI Rendering)
 ## 🚀 Usage
 
 ### Adding a New Page
+
 1. Create page component in `src/pages/`
 2. Add route in `src/routes/AppRoutes.tsx`
 3. Export from `src/pages/index.ts`
 
 ### Adding a New Component
+
 1. Create component in `src/components/`
 2. Use in appropriate page
 3. Ensure proper TypeScript interfaces
@@ -93,4 +99,3 @@ Components (UI Rendering)
 - **Hooks**: Extract reusable logic
 - **Types**: Define clear interfaces for all components
 - **Imports**: Use index files for cleaner imports
-
