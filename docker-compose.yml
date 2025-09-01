@@ -45,11 +45,10 @@ services:
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
       interval: 30s
-      timeout: 10s
+      timeout: 20s
       retries: 3
-      start_period: 40s
+      start_period: 10s
     restart: unless-stopped
-
   # MinIO service (S3-compatible storage)
   minio:
     image: minio/minio:latest
@@ -105,7 +104,8 @@ services:
       target: production
     container_name: eventserver-frontend
     ports:
-      - "3000:80"
+      - "80:80"
+      - "443:443"
     depends_on:
       backend:
         condition: service_healthy
@@ -115,6 +115,8 @@ services:
       - VITE_APP_TITLE=EventServer
     networks:
       - app-network
+    volumes:
+      - ./certs:/etc/nginx/certs:ro
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:80"]
       interval: 30s
