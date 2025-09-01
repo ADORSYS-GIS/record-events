@@ -1,20 +1,25 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   useAuthenticationServicePostApiV1PowChallenge,
   useAuthenticationServicePostApiV1PowVerify,
 } from "../openapi-rq/queries/queries";
+import type { PowChallengeResponse } from "../openapi-rq/requests/types.gen";
 import { performProofOfWork } from "../services/computation/proofOfWork";
 import { apiAuthService } from "../services/keyManagement/apiAuthService";
-import type { PowChallengeResponse } from "../openapi-rq/requests/types.gen";
 
 interface UseInitializationProps {
   publicKey: JsonWebKey | null;
+  isKeyGenerating?: boolean;
 }
 
-const useInitialization = ({ publicKey }: UseInitializationProps) => {
+const useInitialization = ({
+  publicKey,
+  isKeyGenerating,
+}: UseInitializationProps) => {
   const [devCert, setDevCert] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [powStatus, setPowStatus] = useState("Waiting for key generation...");
 
   // Use TanStack Query mutations for Proof of Work
   const challengeMutation = useAuthenticationServicePostApiV1PowChallenge();
@@ -23,8 +28,11 @@ const useInitialization = ({ publicKey }: UseInitializationProps) => {
   // I intentionally do NOT add challengeMutation/verifyMutation to the dependency array
   // because they are stable (from TanStack Query) and adding them would cause infinite loops.
   useEffect(() => {
-    // Only run initialization if we have a public key and haven't already completed
-    if (!publicKey || devCert) {
+    // Only run initialization if we have a public key, haven't already completed, and key generation is finished
+    if (!publicKey || devCert || isKeyGenerating) {
+      if (isKeyGenerating) {
+        setPowStatus("Waiting for key generation to complete...");
+      }
       return;
     }
 
@@ -32,30 +40,26 @@ const useInitialization = ({ publicKey }: UseInitializationProps) => {
     const performInitialization = async () => {
       try {
         setIsLoading(true);
+        setPowStatus("Starting Proof of Work initialization...");
 
         // Step 1: Request PoW challenge from backend
-        console.log("Requesting PoW challenge from backend");
+        setPowStatus("Requesting challenge from server...");
         const challengeRes =
           (await challengeMutation.mutateAsync()) as PowChallengeResponse;
-        console.log("Received PoW challenge:", challengeRes);
 
         if (!challengeRes) {
           throw new Error("Failed to receive PoW challenge from the server.");
         }
 
         // Step 2: Perform Proof of Work
-        console.log(
-          "Starting Proof of Work with challenge:",
-          challengeRes.challenge_id,
-        );
+        setPowStatus("Computing Proof of Work...");
         const result = await performProofOfWork(
           challengeRes.challenge_data,
           challengeRes.difficulty,
         );
-        console.log("Proof of Work completed with result:", result);
 
         // Step 3: Verify PoW solution and get token
-        console.log("Submitting PoW solution for verification");
+        setPowStatus("Verifying solution...");
         const verifyRes = (await verifyMutation.mutateAsync({
           requestBody: {
             solution: {
@@ -67,8 +71,6 @@ const useInitialization = ({ publicKey }: UseInitializationProps) => {
             relay_id: `device_${Date.now()}`, // Generate a unique device ID
           },
         })) as { token: string };
-
-        console.log("PoW verification response:", verifyRes);
 
         if (!verifyRes || !verifyRes.token) {
           throw new Error("Failed to verify PoW solution and receive token.");
@@ -84,11 +86,13 @@ const useInitialization = ({ publicKey }: UseInitializationProps) => {
 
         if (!cancelled) {
           setDevCert("token_received"); // Set a flag to indicate successful initialization
+          setPowStatus("Proof of Work completed successfully");
           setIsLoading(false);
         }
       } catch (err) {
         if (!cancelled) {
           setError((err as Error).message || "Unknown error occurred.");
+          setPowStatus("Proof of Work failed");
           setIsLoading(false);
         }
       }
@@ -100,9 +104,9 @@ const useInitialization = ({ publicKey }: UseInitializationProps) => {
       cancelled = true;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [publicKey]);
+  }, [publicKey, isKeyGenerating]);
 
-  return { devCert, error, isLoading };
+  return { devCert, error, isLoading, powStatus };
 };
 
 export default useInitialization;

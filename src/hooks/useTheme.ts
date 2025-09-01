@@ -3,13 +3,13 @@ import { useState, useEffect } from "react";
 type Theme = "light" | "dark" | "system";
 
 export const useTheme = () => {
-  const [theme, setTheme] = useState<Theme>("system");
+  const [theme, setTheme] = useState<Theme>("light");
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
-    // Get theme from localStorage or default to system
+    // Get theme from localStorage or default to light
     const savedTheme =
-      (localStorage.getItem("eventApp_theme") as Theme) || "system";
+      (localStorage.getItem("eventApp_theme") as Theme) || "light";
     setTheme(savedTheme);
   }, []);
 

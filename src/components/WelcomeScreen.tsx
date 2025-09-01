@@ -1,8 +1,8 @@
 import type { i18n as I18nInstance } from "i18next";
+import { ArrowRight, Monitor, Moon, Shield, Sun, Users } from "lucide-react";
 import type { FC } from "react";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Shield, Users, ArrowRight, Monitor, Moon, Sun } from "lucide-react";
 import { useTheme } from "../hooks/useTheme";
 
 interface WelcomeScreenProps {

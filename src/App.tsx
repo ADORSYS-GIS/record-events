@@ -1,25 +1,11 @@
+import React, { useCallback, useState, useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { useCallback, useState, useEffect } from "react";
-import {
-  Route,
-  BrowserRouter as Router,
-  Routes,
-  useNavigate,
-} from "react-router-dom";
-import { Toaster } from "sonner";
-import i18n from "./i18n";
+import { BrowserRouter as Router, useNavigate } from "react-router-dom";
 
-import useInitialization from "./hooks/useInitialization";
-import useKeyManagement from "./hooks/useKeyManagement";
+import useAuthenticationFlow from "./hooks/useAuthenticationFlow";
 import { useLabelManagement } from "./hooks/useLabelManagement";
-import "./i18n";
-
-import Dashboard from "./components/Dashboard";
-import EventForm from "./components/EventForm";
-import LoadingSpinner from "./components/LoadingSpinner";
-import OnboardingFlow from "./components/OnboardingFlow";
-import WelcomeScreen from "./components/WelcomeScreen";
+import { AppRoutes } from "./routes";
 
 // Create a client
 const queryClient = new QueryClient({
@@ -31,164 +17,109 @@ const queryClient = new QueryClient({
 });
 
 function App() {
-  const {
-    keyPair,
-    error: keyError,
-    isLoading: isKeyLoading,
-  } = useKeyManagement();
-  const {
-    devCert,
-    error: powError,
-    isLoading: isPowLoading,
-  } = useInitialization({
-    publicKey: keyPair?.publicKey || null,
-  });
-  const { labels } = useLabelManagement();
   const navigate = useNavigate();
 
+  // Use the comprehensive authentication flow
+  const authStatus = useAuthenticationFlow();
+
+  const { labels } = useLabelManagement();
+
+  // App state management
   const [showWelcome, setShowWelcome] = useState(true);
   const [showOnboarding, setShowOnboarding] = useState(false);
   const [showDashboard, setShowDashboard] = useState(false);
   const [showEventForm, setShowEventForm] = useState(false);
+  const [hasInitialized, setHasInitialized] = useState(false);
 
-  // Check if onboarding has been completed
+  // Check if onboarding has been completed (only once on mount)
   useEffect(() => {
-    const onboardingCompleted = localStorage.getItem(
-      "eventApp_onboarding_completed",
-    );
-    if (onboardingCompleted === "true") {
-      // User has completed onboarding, go directly to dashboard
-      setShowWelcome(false);
-      setShowOnboarding(false);
-      setShowDashboard(true);
+    if (!hasInitialized && !showEventForm) {
+      const onboardingCompleted = localStorage.getItem(
+        "eventApp_onboarding_completed",
+      );
+      if (onboardingCompleted === "true") {
+        setShowWelcome(false);
+        setShowOnboarding(false);
+        setShowDashboard(true);
+        setShowEventForm(false);
+        navigate("/dashboard");
+      }
+      setHasInitialized(true);
     }
-  }, []);
+  }, [navigate, hasInitialized, showEventForm]);
 
+  // Event handlers
   const handleGetStarted = useCallback(() => {
     setShowWelcome(false);
     setShowOnboarding(true);
-  }, []);
+    setShowDashboard(false);
+    setShowEventForm(false);
+    navigate("/onboarding");
+  }, [navigate]);
 
   const handleOnboardingComplete = useCallback(() => {
     setShowOnboarding(false);
     setShowDashboard(true);
-  }, []);
+    setShowEventForm(false);
+    navigate("/dashboard");
+  }, [navigate]);
 
   const handleCreateEvent = useCallback(() => {
+    setShowWelcome(false);
+    setShowOnboarding(false);
     setShowDashboard(false);
     setShowEventForm(true);
-  }, []);
+    navigate("/event/new");
+  }, [navigate]);
 
   const handleViewHistory = useCallback(() => {
     // TODO: Implement history view
-    console.log("View history clicked");
   }, []);
 
   const handleOpenSettings = useCallback(() => {
     // TODO: Implement settings
-    console.log("Open settings clicked");
   }, []);
 
-  const handleBackToDashboard = useCallback(() => {
-    setShowEventForm(false);
+  const handleRetry = useCallback(() => {
+    window.location.reload();
+  }, []);
+
+  const handleGoBackToDashboard = useCallback(() => {
+    setShowWelcome(false);
+    setShowOnboarding(false);
     setShowDashboard(true);
-  }, []);
+    setShowEventForm(false);
+    navigate("/dashboard");
+  }, [navigate]);
 
-  // Show loading state during device security (key management + Proof of Work)
-  if (isKeyLoading || isPowLoading) {
-    return (
-      <LoadingSpinner message="Please wait while we secure your device..." />
-    );
-  }
-
-  // Show error if either key management or Proof of Work failed
-  if (keyError || powError) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
-        <div className="max-w-md w-full space-y-8">
-          <div className="text-center">
-            <h2 className="mt-6 text-3xl font-extrabold text-gray-900">
-              Initialization Failed
-            </h2>
-            <p className="mt-2 text-sm text-gray-600">{keyError || powError}</p>
-          </div>
-          <div className="mt-8 space-y-6">
-            <button
-              onClick={() => window.location.reload()}
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            >
-              Retry
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  const renderContent = () => {
-    if (showWelcome) {
-      return <WelcomeScreen onGetStarted={handleGetStarted} i18n={i18n} />;
-    }
-
-    if (showOnboarding) {
-      return <OnboardingFlow onComplete={handleOnboardingComplete} />;
-    }
-
-    if (showDashboard) {
-      if (labels.length === 0) {
-        return (
-          <div className="min-h-screen bg-gradient-to-br from-neutral-50 to-primary-50 flex items-center justify-center">
-            <div className="text-center">
-              <div className="w-12 h-12 border-4 border-primary-200 border-t-primary-500 rounded-full animate-spin mx-auto mb-4" />
-              <p className="text-neutral-600">Loading application data...</p>
-            </div>
-          </div>
-        );
-      }
-      return (
-        <Dashboard
-          labels={labels}
-          onCreateEvent={handleCreateEvent}
-          onViewHistory={handleViewHistory}
-          onOpenSettings={handleOpenSettings}
-        />
-      );
-    }
-
-    if (showEventForm) {
-      if (labels.length === 0) {
-        return (
-          <div className="min-h-screen bg-gradient-to-br from-neutral-50 to-primary-50 flex items-center justify-center">
-            <div className="text-center">
-              <div className="w-12 h-12 border-4 border-primary-200 border-t-primary-500 rounded-full animate-spin mx-auto mb-4" />
-              <p className="text-neutral-600">Loading application data...</p>
-            </div>
-          </div>
-        );
-      }
-
-      if (!keyPair) {
-        return (
-          <div className="min-h-screen bg-gradient-to-br from-neutral-50 to-primary-50 flex items-center justify-center">
-            <div className="text-center">
-              <div className="w-12 h-12 border-4 border-primary-200 border-t-primary-500 rounded-full animate-spin mx-auto mb-4" />
-              <p className="text-neutral-600">Initializing security keys...</p>
-            </div>
-          </div>
-        );
-      }
-
-      return <EventForm labels={labels} keyPair={keyPair} />;
-    }
-
-    return null;
-  };
+  // Loading and error states - show loading until full authentication is complete
+  const isLoading = authStatus.isLoading;
+  const hasError = !!authStatus.error;
+  const errorMessage = authStatus.error || undefined;
 
   return (
-    <div className="App">
-      <Toaster position="top-right" />
-      {renderContent()}
-    </div>
+    <AppRoutes
+      showWelcome={showWelcome}
+      showOnboarding={showOnboarding}
+      showDashboard={showDashboard}
+      showEventForm={showEventForm}
+      isLoading={isLoading}
+      hasError={hasError}
+      errorMessage={errorMessage}
+      labels={labels}
+      keyPair={authStatus.keyPair || undefined}
+      keyStatus={authStatus.keyStatus}
+      webAuthnStatus={authStatus.webAuthnStatus}
+      powStatus={authStatus.powStatus}
+      authStatus={authStatus}
+      onGetStarted={handleGetStarted}
+      onOnboardingComplete={handleOnboardingComplete}
+      onCreateEvent={handleCreateEvent}
+      onViewHistory={handleViewHistory}
+      onOpenSettings={handleOpenSettings}
+      onRetry={handleRetry}
+      onGoBackToDashboard={handleGoBackToDashboard}
+    />
   );
 }
 
@@ -196,9 +127,7 @@ function AppWithRouter() {
   return (
     <QueryClientProvider client={queryClient}>
       <Router>
-        <Routes>
-          <Route path="/" element={<App />} />
-        </Routes>
+        <App />
       </Router>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>

@@ -1,10 +1,9 @@
 import type { i18n as I18nInstance } from "i18next";
 import {
-  ArrowRight,
   ArrowLeft,
+  ArrowRight,
   Camera,
   CheckCircle,
-  Key,
   Lock,
   Monitor,
   Moon,
@@ -14,13 +13,16 @@ import {
 } from "lucide-react";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
+import type { AuthenticationStatus } from "../hooks/useAuthenticationFlow";
 import { useTheme } from "../hooks/useTheme";
 
 interface OnboardingFlowProps {
   onComplete: () => void;
   i18n?: I18nInstance;
   keyStatus?: string;
-  isKeyGenerating?: boolean;
+  webAuthnStatus?: string;
+  powStatus?: string;
+  authStatus: AuthenticationStatus;
 }
 
 interface OnboardingStep {
@@ -30,22 +32,46 @@ interface OnboardingStep {
   icon: React.ReactNode;
   action?: () => void;
   status: "pending" | "active" | "completed";
-  type: "welcome" | "feature" | "permission" | "security" | "ready";
+  type: "welcome" | "feature" | "permission" | "ready";
 }
 
 const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
   onComplete,
-  keyStatus,
-  isKeyGenerating,
+  // keyStatus, // TODO: Use for step validation
+  // webAuthnStatus, // TODO: Use for step validation
+  // powStatus, // TODO: Use for step validation
+  // authStatus, // TODO: Use for step validation
 }) => {
   const { t } = useTranslation();
   const { theme, changeTheme, isDark } = useTheme();
   const [currentStep, setCurrentStep] = useState(0);
   const [completedSteps, setCompletedSteps] = useState<number[]>([]);
-  const [securityStepCompleted, setSecurityStepCompleted] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
-  // Monitor key generation status
+  // Define completeStep function first
+  const completeStep = useCallback(
+    (stepId: number) => {
+      setIsTransitioning(true);
+      setCompletedSteps((prev) => [...prev, stepId]);
+
+      setTimeout(() => {
+        if (stepId === 4) {
+          // This is the final "You're Ready!" step
+          // Store onboarding completion in localStorage
+          localStorage.setItem("eventApp_onboarding_completed", "true");
+          setTimeout(() => {
+            onComplete();
+          }, 300);
+        } else {
+          setCurrentStep((prev) => Math.min(prev + 1, 3)); // steps.length - 1, but steps not defined yet
+          setIsTransitioning(false);
+        }
+      }, 200);
+    },
+    [onComplete],
+  );
+
+  // Simplified onboarding steps
   const steps: OnboardingStep[] = useMemo(
     () => [
       {
@@ -108,22 +134,6 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
       },
       {
         id: 4,
-        title: t("onboarding.security.title", "Generating Secure Keys"),
-        description: t(
-          "onboarding.security.description",
-          "Creating your unique cryptographic key pair for secure event reporting. This may take a moment.",
-        ),
-        icon: <Key className="w-12 h-12 text-blue-600" />,
-        type: "security",
-        status:
-          currentStep === 3
-            ? "active"
-            : completedSteps.includes(4)
-              ? "completed"
-              : "pending",
-      },
-      {
-        id: 5,
         title: t("onboarding.ready.title", "You're Ready!"),
         description: t(
           "onboarding.ready.description",
@@ -132,62 +142,15 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
         icon: <CheckCircle className="w-12 h-12 text-green-600" />,
         type: "ready",
         status:
-          currentStep === 4
+          currentStep === 3
             ? "active"
-            : completedSteps.includes(5)
+            : completedSteps.includes(4)
               ? "completed"
               : "pending",
       },
     ],
-    [t, currentStep, completedSteps],
+    [t, currentStep, completedSteps, completeStep],
   );
-
-  const completeStep = useCallback(
-    (stepId: number) => {
-      setIsTransitioning(true);
-      setCompletedSteps((prev) => [...prev, stepId]);
-
-      setTimeout(() => {
-        if (stepId === 5) {
-          // This is the final "You're Ready!" step
-          // Store onboarding completion in localStorage
-          localStorage.setItem("eventApp_onboarding_completed", "true");
-          setTimeout(() => {
-            onComplete();
-          }, 300);
-        } else {
-          setCurrentStep((prev) => Math.min(prev + 1, steps.length - 1));
-          setIsTransitioning(false);
-        }
-      }, 200);
-    },
-    [onComplete, steps.length],
-  );
-
-  // Monitor key generation status
-  useEffect(() => {
-    if (
-      currentStep === 3 &&
-      !isKeyGenerating &&
-      keyStatus &&
-      keyStatus.includes("successfully")
-    ) {
-      setSecurityStepCompleted(true);
-      setTimeout(() => {
-        completeStep(4);
-      }, 800);
-    } else if (currentStep === 4 && securityStepCompleted) {
-      setTimeout(() => {
-        completeStep(5);
-      }, 800);
-    }
-  }, [
-    currentStep,
-    isKeyGenerating,
-    keyStatus,
-    securityStepCompleted,
-    completeStep,
-  ]);
 
   const handleNext = useCallback(() => {
     if (isTransitioning) return;

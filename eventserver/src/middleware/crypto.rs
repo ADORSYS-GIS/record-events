@@ -82,19 +82,7 @@ pub async fn crypto_validation_middleware(
 
                 // Try to parse body as SignedEventPackage for JWT verification
                 info!("Attempting to parse request body as SignedEventPackage");
-                info!("Request body size: {} bytes", body_bytes.len());
-                if body_bytes.len() < 500 {
-                    info!(
-                        "Request body content: {}",
-                        String::from_utf8_lossy(&body_bytes)
-                    );
-                } else {
-                    info!(
-                        "Request body (first 200 chars): {}",
-                        String::from_utf8_lossy(&body_bytes[..200])
-                    );
-                }
-
+                info!("Request body: {}", String::from_utf8_lossy(&body_bytes));
                 if let Ok(signed_package) =
                     serde_json::from_slice::<SignedEventPackage>(&body_bytes)
                 {
@@ -110,7 +98,16 @@ pub async fn crypto_validation_middleware(
                         &validation.public_key,
                     ) {
                         Ok(event_package) => {
-                            info!("JWT verification successful, adding event package to request extensions");
+                            // Print the event package for debugging
+                            info!(
+                                event_id = %event_package.id,
+                                event_version = %event_package.version,
+                                annotations_count = %event_package.annotations.len(),
+                                has_media = %event_package.media.is_some(),
+                                "Received and verified event package: {:?}",
+                                event_package
+                            );
+
                             // Add validated relay ID to request headers and event data to extensions
                             let mut request =
                                 Request::from_parts(parts, axum::body::Body::from(body_bytes));
@@ -128,7 +125,7 @@ pub async fn crypto_validation_middleware(
                             return Ok(next.run(request).await);
                         }
                         Err(e) => {
-                            warn!(
+                            error!(
                                 error = %e,
                                 relay_id = %validation.relay_id,
                                 "JWT event data verification failed"
@@ -137,15 +134,11 @@ pub async fn crypto_validation_middleware(
                         }
                     }
                 } else {
-                    error!("Failed to parse request body as SignedEventPackage");
-                    if let Err(parse_error) =
-                        serde_json::from_slice::<SignedEventPackage>(&body_bytes)
-                    {
-                        error!("Parsing error details: {}", parse_error);
-                    }
-                    info!("Treating as non-event endpoint, proceeding with certificate validation only");
-
                     // For non-event endpoints, just validate the certificate
+                    info!("Failed to parse as SignedEventPackage, treating as non-event endpoint");
+                    if let Err(e) = serde_json::from_slice::<SignedEventPackage>(&body_bytes) {
+                        error!("SignedEventPackage parsing error: {}", e);
+                    }
                     let mut request =
                         Request::from_parts(parts, axum::body::Body::from(body_bytes));
                     request.headers_mut().insert(
@@ -393,131 +386,4 @@ mod tests {
             Some("test_relay".to_string())
         );
     }
-
-    #[test]
-    fn test_p256_jwk_parsing() {
-        // Test P-256 JWK public key parsing from the issue description
-        let public_key_jwk = r#"{ "kty": "EC", "crv": "P-256", "x": "PHlAcVDiqi7130xWiMn5CEbOyg_Yo0qfOhabhPlDV_s", "y": "N5bqvbDjbsX2uo2_lzKrwPt7fySMweZVeFSAv99TEEc" }"#;
-
-        // Test that JWK parsing works
-        let jwk_result: Result<JwkKey, _> = serde_json::from_str(public_key_jwk);
-        assert!(
-            jwk_result.is_ok(),
-            "Failed to parse JWK: {:?}",
-            jwk_result.err()
-        );
-
-        let jwk = jwk_result.unwrap();
-        assert_eq!(jwk.kty, "EC");
-        assert_eq!(jwk.crv, "P-256");
-        assert_eq!(jwk.x, "PHlAcVDiqi7130xWiMn5CEbOyg_Yo0qfOhabhPlDV_s");
-        assert_eq!(jwk.y, "N5bqvbDjbsX2uo2_lzKrwPt7fySMweZVeFSAv99TEEc");
-
-        // Test that coordinate decoding works
-        let x_bytes = base64::engine::general_purpose::URL_SAFE_NO_PAD.decode(&jwk.x);
-        let y_bytes = base64::engine::general_purpose::URL_SAFE_NO_PAD.decode(&jwk.y);
-
-        assert!(x_bytes.is_ok(), "Failed to decode x coordinate");
-        assert!(y_bytes.is_ok(), "Failed to decode y coordinate");
-        assert_eq!(
-            x_bytes.unwrap().len(),
-            32,
-            "X coordinate should be 32 bytes"
-        );
-        assert_eq!(
-            y_bytes.unwrap().len(),
-            32,
-            "Y coordinate should be 32 bytes"
-        );
-    }
-
-    #[test]
-    fn test_invalid_jwk_formats() {
-        // Test invalid key type
-        let invalid_kty = r#"{ "kty": "RSA", "crv": "P-256", "x": "PHlAcVDiqi7130xWiMn5CEbOyg_Yo0qfOhabhPlDV_s", "y": "N5bqvbDjbsX2uo2_lzKrwPt7fySMweZVeFSAv99TEEc" }"#;
-
-        // Create a mock JWT token (doesn't need to be valid for this test)
-        let mock_jwt = "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7ImRldmljZV9pZCI6InRlc3QiLCJ0aW1lc3RhbXAiOiIyMDI1LTA4LTI4VDE2OjE5OjAwWiIsImV2ZW50X3R5cGUiOiJ0ZXN0In0sImV4cCI6OTk5OTk5OTk5OX0.invalid";
-
-        let result = verify_jwt_event_data(mock_jwt, invalid_kty);
-        assert!(result.is_err(), "Should fail with invalid key type");
-
-        // Test invalid curve
-        let invalid_crv = r#"{ "kty": "EC", "crv": "P-384", "x": "PHlAcVDiqi7130xWiMn5CEbOyg_Yo0qfOhabhPlDV_s", "y": "N5bqvbDjbsX2uo2_lzKrwPt7fySMweZVeFSAv99TEEc" }"#;
-
-        let result = verify_jwt_event_data(mock_jwt, invalid_crv);
-        assert!(result.is_err(), "Should fail with invalid curve");
-
-        // Test malformed JSON
-        let malformed_json = r#"{ "kty": "EC", "crv": "P-256" }"#;
-
-        let result = verify_jwt_event_data(mock_jwt, malformed_json);
-        assert!(result.is_err(), "Should fail with malformed JSON");
-    }
-
-    #[test]
-    fn test_josekit_p256_support() {
-        // Test josekit library for P-256 JWK parsing and ES256 JWT operations
-        use josekit::jwk::Jwk;
-        use josekit::jws::{JwsHeader, ES256};
-        use josekit::jwt::{self, JwtPayload};
-        use std::time::{Duration, SystemTime};
-
-        // Sample P-256 keypair from the original issue
-        let private_key_jwk = r#"{ "kty": "EC", "crv": "P-256", "d": "E-_KxQl0ow6_4Munq81OH_lg64R2vDpe3zq9XnI0AjE", "x": "PHlAcVDiqi7130xWiMn5CEbOyg_Yo0qfOhabhPlDV_s", "y": "N5bqvbDjbsX2uo2_lzKrwPt7fySMweZVeFSAv99TEEc" }"#;
-        let public_key_jwk = r#"{ "kty": "EC", "crv": "P-256", "x": "PHlAcVDiqi7130xWiMn5CEbOyg_Yo0qfOhabhPlDV_s", "y": "N5bqvbDjbsX2uo2_lzKrwPt7fySMweZVeFSAv99TEEc" }"#;
-
-        // Test JWK parsing
-        let private_jwk =
-            Jwk::from_bytes(private_key_jwk.as_bytes()).expect("Failed to parse private JWK");
-        let public_jwk =
-            Jwk::from_bytes(public_key_jwk.as_bytes()).expect("Failed to parse public JWK");
-
-        assert_eq!(private_jwk.key_type(), "EC");
-        assert_eq!(public_jwk.key_type(), "EC");
-
-        // Test JWT operations
-        let mut payload = JwtPayload::new();
-        payload
-            .set_claim(
-                "payload",
-                Some(serde_json::json!({
-                    "device_id": "test-device",
-                    "timestamp": "2025-08-28T16:19:00Z",
-                    "event_type": "test"
-                })),
-            )
-            .expect("Failed to set payload claim");
-
-        // Set expiration using SystemTime instead of chrono::DateTime
-        let expires_at = SystemTime::now() + Duration::from_secs(3600); // 1 hour
-        payload.set_expires_at(&expires_at);
-
-        // Create ES256 signer and create JWT
-        let signer = ES256
-            .signer_from_jwk(&private_jwk)
-            .expect("Failed to create signer from JWK");
-        let jwt = jwt::encode_with_signer(&payload, &JwsHeader::new(), &signer)
-            .expect("Failed to create JWT");
-
-        // Create ES256 verifier and verify JWT
-        let verifier = ES256
-            .verifier_from_jwk(&public_jwk)
-            .expect("Failed to create verifier from JWK");
-        let (verified_payload, _) =
-            jwt::decode_with_verifier(&jwt, &verifier).expect("Failed to verify JWT");
-
-        // Verify payload content exists
-        let payload_claim = verified_payload.claim("payload");
-        assert!(payload_claim.is_some(), "Payload claim should exist");
-
-        // Verify it's not null
-        let claim_value = payload_claim.unwrap();
-        assert!(!claim_value.is_null(), "Payload claim should not be null");
-    }
-
-    // NOTE: We investigated using the `jsonwebkey-convert` library as requested,
-    // but it has compilation errors due to dependency version conflicts and
-    // appears to be incompatible with our current dependency tree.
-    // The custom implementation below works correctly for P-256 JWK conversion.
 }

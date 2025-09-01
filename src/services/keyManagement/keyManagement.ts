@@ -14,17 +14,11 @@ export async function KeyManagement() {
     }
     return { publicKey, privateKey };
   } catch (error) {
-    console.warn(
-      "Key retrieval failed, clearing stored keys and generating new ones:",
-      error,
-    );
-
     // Clear all stored data
     try {
       await clearAllStoredData();
-      console.log("Cleared all stored data");
     } catch (clearError) {
-      console.warn("Failed to clear stored data:", clearError);
+      // Silently handle clear error
     }
 
     // Generate new key pair

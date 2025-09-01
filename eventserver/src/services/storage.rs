@@ -128,12 +128,26 @@ pub struct StorageService {
 impl StorageService {
     /// Create a new StorageService instance
     pub async fn new(config: StorageConfig) -> Result<Self, EventServerError> {
-        let aws_config = aws_config::defaults(BehaviorVersion::latest())
+        // Configure AWS SDK for MinIO
+        let mut aws_config = aws_config::defaults(BehaviorVersion::latest())
             .region(Region::new(config.region.clone()))
             .load()
             .await;
 
-        let s3_client = S3Client::new(&aws_config);
+        // If we have a custom endpoint (MinIO), configure it
+        if let Some(endpoint) = &config.endpoint {
+            info!("Configuring S3 client for custom endpoint: {}", endpoint);
+
+            // Override the endpoint configuration
+            aws_config = aws_config.to_builder().endpoint_url(endpoint).build();
+        }
+
+        // Configure path style for MinIO compatibility
+        let s3_config = aws_sdk_s3::config::Builder::from(&aws_config)
+            .force_path_style(config.use_path_style)
+            .build();
+
+        let s3_client = S3Client::from_conf(s3_config);
         let s3_operations = Arc::new(RealS3Client { client: s3_client });
 
         Ok(Self {

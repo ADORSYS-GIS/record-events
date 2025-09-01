@@ -127,20 +127,16 @@ class SimpleStorage {
 const storage = new SimpleStorage("EventKeyStorage", 1);
 
 // Initialize storage on module load
-storage.init().catch(console.error);
+storage.init().catch(() => {
+  // Silently handle storage initialization error
+});
 
 // Add a function to clear all stored data
 export async function clearAllStoredData() {
-  try {
-    await storage.clear("keys");
-    // Clear other storage if needed
-    localStorage.removeItem("messages");
-    sessionStorage.removeItem("password");
-    console.log("All stored data cleared successfully");
-  } catch (error) {
-    console.error("Failed to clear stored data:", error);
-    throw error;
-  }
+  await storage.clear("keys");
+  // Clear other storage if needed
+  localStorage.removeItem("messages");
+  sessionStorage.removeItem("password");
 }
 
 export default storage;
