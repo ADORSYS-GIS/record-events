@@ -3,7 +3,6 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { useEventHistory } from "../hooks/useEventHistory";
 import type { KeyPair } from "../hooks/useKeyInitialization";
-import { useTheme } from "../hooks/useTheme";
 import type { Label } from "../labels/label-manager";
 
 interface DashboardProps {
@@ -22,13 +21,12 @@ const Dashboard: React.FC<DashboardProps> = ({
   onOpenSettings,
 }) => {
   const { t } = useTranslation();
-  const { isDark } = useTheme();
   const { events } = useEventHistory();
 
   // Use real event data instead of mock data
   const recentEvents = events.slice(0, 5).map((event) => ({
     id: event.id,
-    title: event.title,
+    title: event.title || `Event ${event.id.slice(0, 8)}`,
     status: event.status,
     timestamp: new Date(event.timestamp).toLocaleString(),
   }));
@@ -158,39 +156,45 @@ const Dashboard: React.FC<DashboardProps> = ({
           <h3 className="text-lg font-semibold text-blue-900 mb-4">
             Recent Events
           </h3>
-          <div className="space-y-3">
-            {recentEvents.map((event) => (
-              <div
-                key={event.id}
-                className="rounded-lg p-4 border border-blue-200 hover:bg-blue-50 transition-colors duration-200"
-              >
-                <div className="flex items-center justify-between">
+          {recentEvents.length === 0 ? (
+            <div className="text-center py-8">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <AlertCircle className="w-8 h-8 text-blue-600" />
+              </div>
+              <p className="text-blue-600">No events submitted yet</p>
+              <p className="text-sm text-blue-500 mt-1">Your submitted events will appear here</p>
+            </div>
+          ) : (
+            <div className="space-y-2">
+              {recentEvents.map((event) => (
+                <div
+                  key={event.id}
+                  className="flex items-center justify-between p-3 rounded-lg border border-blue-200 hover:bg-blue-50 transition-colors duration-200"
+                >
                   <div className="flex items-center space-x-3">
                     {getStatusIcon(event.status)}
                     <div>
-                      <h4 className="font-medium text-blue-900">
+                      <h4 className="font-medium text-blue-900 text-sm">
                         {event.title}
                       </h4>
-                      <p className="text-sm text-blue-600">{event.timestamp}</p>
+                      <p className="text-xs text-blue-600">{event.timestamp}</p>
                     </div>
                   </div>
-                  <div className="text-right">
-                    <span
-                      className={`text-sm font-medium ${
-                        event.status === "submitted"
-                          ? "text-green-600"
-                          : event.status === "pending"
-                            ? "text-orange-600"
-                            : "text-blue-600"
-                      }`}
-                    >
-                      {event.status}
-                    </span>
-                  </div>
+                  <span
+                    className={`text-xs font-medium px-2 py-1 rounded-full ${
+                      event.status === "submitted"
+                        ? "bg-green-100 text-green-700"
+                        : event.status === "pending"
+                          ? "bg-orange-100 text-orange-700"
+                          : "bg-blue-100 text-blue-700"
+                    }`}
+                  >
+                    {event.status}
+                  </span>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </main>
     </div>

@@ -137,6 +137,8 @@ const EventForm: React.FC<EventFormProps> = ({
 
   const { submitEvent, isSubmitting: isApiSubmitting } = useEventSubmission();
   const { addEvent } = useEventHistory();
+  
+
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -281,7 +283,7 @@ const EventForm: React.FC<EventFormProps> = ({
         _keyPair.privateKey,
         _keyPair.publicKey,
         eventPackage,
-        token,
+        token
       );
 
       // Create SignedEventPackage with JWT data
