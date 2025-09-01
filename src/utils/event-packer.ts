@@ -24,6 +24,8 @@ async function fileToBase64(file: File): Promise<string> {
     };
     reader.onerror = () =>
       reject(new Error(reader.error?.message || "Failed to read file"));
+
+    // Use readAsDataURL to get base64 data
     reader.readAsDataURL(file);
   });
 }

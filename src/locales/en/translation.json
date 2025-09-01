@@ -34,7 +34,7 @@
   "selectedFile": "Selected file",
   "required": "required",
   "selectAnOption": "Select an option",
-  "addMedia": "Add Image",
+  "addMedia": "Add Image (Optional)",
   "submit": "Submit Event",
   "sendEvent": "Submit Event",
   "save": "Save",
@@ -43,6 +43,7 @@
   "failedToSendEvent": "Failed to send event.",
   "eventPackagePrepared": "Event package prepared for sharing (downloaded as .zip).",
   "pleaseCorrectErrors": "Please correct the errors in the form.",
+  "validationError": "Please correct the errors in the form.",
   "labelRequired": "{{labelName}} is required.",
   "labelMaxLengthExceeded": "{{labelName}} exceeds maximum length of {{maxLength}}.",
   "welcomeTitle": "Welcome to EventApp!",
@@ -132,8 +133,8 @@
       "title": "Event Details"
     },
     "media": {
-      "title": "Add Media to Your Report",
-      "description": "Capture a photo or upload an image to provide visual context"
+      "title": "Add Media to Your Report (Optional)",
+      "description": "Capture a photo or upload an image to provide visual context (optional)"
     }
   },
   "welcome": {
