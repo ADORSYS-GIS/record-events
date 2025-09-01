@@ -18,6 +18,7 @@ import { useEventHistory } from "../hooks/useEventHistory";
 import type { EventPackage as LocalEventPackage } from "../types/event";
 import type { EventPackage } from "../openapi-rq/requests/types.gen";
 import { apiAuthService } from "../services/keyManagement/apiAuthService";
+import { generateEventJWT } from "../services/keyManagement/jwtService";
 
 type FieldValue = string | number | boolean | null;
 
@@ -275,27 +276,17 @@ const EventForm: React.FC<EventFormProps> = ({
       // Set the token as Bearer token for API requests
       apiAuthService.setBearerToken(token);
 
-      // Create a SignedEventPackage for submission with required fields
+      // Generate JWT with event data
+      const jwtEventData = await generateEventJWT(
+        _keyPair.privateKey,
+        _keyPair.publicKey,
+        eventPackage,
+        token,
+      );
+
+      // Create SignedEventPackage with JWT data
       const signedEventPackage = {
-        eventData: {
-          id: eventPackage.id,
-          version: eventPackage.version,
-          annotations: eventPackage.annotations,
-          media: eventPackage.media,
-          metadata: {
-            createdAt: eventPackage.metadata.createdAt,
-            createdBy: eventPackage.metadata.createdBy,
-            source: eventPackage.metadata.source as "web" | "mobile",
-          },
-        },
-        signature: "dummy_signature_for_bearer_auth", // Dummy value since we use Bearer token
-        publicKey: "dummy_public_key_for_bearer_auth", // Dummy value since we use Bearer token
-        powSolution: {
-          challenge_id: "dummy_challenge_id",
-          nonce: 0,
-          hash: "dummy_hash",
-        },
-        relayId: "dummy_relay_id", // Dummy value since we use Bearer token
+        jwtEventData: jwtEventData,
       };
 
       // Submit to backend using the generated API (with Bearer token in header)

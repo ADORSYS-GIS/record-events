@@ -23,6 +23,7 @@ reqwest = { version = "0.11", features = ["json"] }
 # Cryptography
 sha2 = "0.10"
 ed25519-dalek = "2.0"
+p256 = "0.13"
 x509-parser = "0.15"
 base64 = "0.21"
 hex = "0.4"
@@ -48,6 +49,7 @@ dotenvy = "0.15"
 
 # JSON Web Tokens for certificates
 jsonwebtoken = "9.0"
+josekit = "0.10.3"
 
 # Additional utilities
 mime = "0.3"

@@ -29,7 +29,7 @@ struct DeviceClaims {
 pub struct DeviceCertificate {
     pub certificate_id: String,
     pub relay_id: String,
-    pub public_key: String, // Base64 encoded Ed25519 public key
+    pub public_key: String, // JWK format P-256 public key
     pub issued_at: DateTime<Utc>,
     pub expires_at: DateTime<Utc>,
     pub signature: String, // Server signature of the certificate
@@ -39,14 +39,13 @@ pub struct DeviceCertificate {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct CertificateRequest {
     pub relay_id: String,
-    pub public_key: String, // Base64 encoded Ed25519 public key
+    pub public_key: String, // JWK format P-256 public key
 }
 
 /// Certificate response returned to client
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct CertificateResponse {
-    pub certificate: DeviceCertificate,
-    pub token: String, // JWT-like token for easy validation
+    pub cert_token: String, // JWT-like token for easy validation
 }
 
 /// Certificate validation result
@@ -120,7 +119,7 @@ impl CertificateService {
         };
 
         // Generate JWT-like token for easy validation
-        let token = self.generate_certificate_token(&certificate)?;
+        let cert_token = self.generate_certificate_token(&certificate)?;
 
         // Store the certificate
         {
@@ -131,7 +130,7 @@ impl CertificateService {
         // Note: Cleanup of expired certificates is handled during both issuance and validation
         // to ensure optimal memory management and remove stale certificates proactively
 
-        Ok(CertificateResponse { certificate, token })
+        Ok(CertificateResponse { cert_token })
     }
 
     /// Validate a certificate token
@@ -277,20 +276,6 @@ mod tests {
     }
 
     #[test]
-    fn test_certificate_issuance() {
-        let service = CertificateService::new("test_secret".to_string());
-        let request = CertificateRequest {
-            relay_id: "test_relay".to_string(),
-            public_key: "test_public_key".to_string(),
-        };
-
-        let response = service.issue_certificate(&request).unwrap();
-        assert_eq!(response.certificate.relay_id, "test_relay");
-        assert_eq!(response.certificate.public_key, "test_public_key");
-        assert_eq!(service.active_certificate_count(), 1);
-    }
-
-    #[test]
     fn test_certificate_validation() {
         let service = CertificateService::new("test_secret".to_string());
         let request = CertificateRequest {
@@ -299,7 +284,7 @@ mod tests {
         };
 
         let response = service.issue_certificate(&request).unwrap();
-        let validation = service.validate_certificate(&response.token).unwrap();
+        let validation = service.validate_certificate(&response.cert_token).unwrap();
 
         assert_eq!(validation.relay_id, "test_relay");
         assert_eq!(validation.public_key, "test_public_key");
@@ -316,7 +301,7 @@ mod tests {
         let response = service.issue_certificate(&request).unwrap();
 
         // Certificate should be expired immediately
-        let result = service.validate_certificate(&response.token);
+        let result = service.validate_certificate(&response.cert_token);
         assert!(result.is_err());
     }
 }
