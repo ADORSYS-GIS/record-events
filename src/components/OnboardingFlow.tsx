@@ -38,7 +38,7 @@ interface OnboardingStep {
 const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
   onComplete,
   // keyStatus, // TODO: Use for step validation
-  // webAuthnStatus, // TODO: Use for step validation  
+  // webAuthnStatus, // TODO: Use for step validation
   // powStatus, // TODO: Use for step validation
   // authStatus, // TODO: Use for step validation
 }) => {
