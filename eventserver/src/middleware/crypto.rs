@@ -93,8 +93,10 @@ pub async fn crypto_validation_middleware(
 
                     // Verify JWT event data using device public key from certificate
                     info!("Starting JWT verification with device public key");
-                    match verify_jwt_event_data(&signed_package.jwt_event_data, &validation.public_key)
-                    {
+                    match verify_jwt_event_data(
+                        &signed_package.jwt_event_data,
+                        &validation.public_key,
+                    ) {
                         Ok(event_package) => {
                             // Print the event package for debugging
                             info!(
