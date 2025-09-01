@@ -137,21 +137,18 @@ impl StorageService {
         // If we have a custom endpoint (MinIO), configure it
         if let Some(endpoint) = &config.endpoint {
             info!("Configuring S3 client for custom endpoint: {}", endpoint);
-            
+
             // Override the endpoint configuration
-            aws_config = aws_config
-                .to_builder()
-                .endpoint_url(endpoint)
-                .build();
+            aws_config = aws_config.to_builder().endpoint_url(endpoint).build();
         }
 
         let s3_client = S3Client::new(&aws_config);
-        
+
         // Configure path style for MinIO compatibility
         let s3_config = aws_sdk_s3::config::Builder::from(&aws_config)
             .force_path_style(config.use_path_style)
             .build();
-        
+
         let s3_client = S3Client::from_conf(s3_config);
         let s3_operations = Arc::new(RealS3Client { client: s3_client });
 

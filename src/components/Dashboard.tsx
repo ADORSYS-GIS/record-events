@@ -27,7 +27,7 @@ const Dashboard: React.FC<DashboardProps> = ({
   keyPair: _keyPair,
   onCreateEvent,
   onViewHistory: _onViewHistory,
-  onOpenSettings,
+  // onOpenSettings, // TODO: Implement settings functionality
 }) => {
   const { t } = useTranslation();
   const { events } = useEventHistory();

@@ -4,7 +4,7 @@ import { SignedEventPackage } from "../openapi-rq/requests/types.gen";
 
 export const useEventSubmission = () => {
   const mutation = useEventsServicePostApiV1EventsPackage({
-    onSuccess: (data) => {
+    onSuccess: () => {
       toast.success("Event submitted successfully!");
     },
     onError: (error) => {

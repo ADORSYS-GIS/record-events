@@ -6,8 +6,8 @@ use axum::{
 };
 use base64::Engine;
 use jsonwebtoken::{decode, Algorithm, DecodingKey, Validation};
-use p256::{PublicKey, EncodedPoint};
 use p256::elliptic_curve::sec1::FromEncodedPoint;
+use p256::{EncodedPoint, PublicKey};
 use serde::{Deserialize, Serialize};
 use tracing::{error, info, warn};
 
@@ -86,14 +86,15 @@ pub async fn crypto_validation_middleware(
                 if let Ok(signed_package) =
                     serde_json::from_slice::<SignedEventPackage>(&body_bytes)
                 {
-                    info!("Successfully parsed SignedEventPackage, JWT data length: {}", signed_package.jwtEventData.len());
-                    
+                    info!(
+                        "Successfully parsed SignedEventPackage, JWT data length: {}",
+                        signed_package.jwtEventData.len()
+                    );
+
                     // Verify JWT event data using device public key from certificate
                     info!("Starting JWT verification with device public key");
-                    match verify_jwtEventData(
-                        &signed_package.jwtEventData,
-                        &validation.public_key,
-                    ) {
+                    match verify_jwtEventData(&signed_package.jwtEventData, &validation.public_key)
+                    {
                         Ok(event_package) => {
                             // Print the event package for debugging
                             info!(
@@ -176,7 +177,7 @@ fn verify_jwtEventData(
     info!("Starting JWT verification process");
     info!("JWT token length: {}", jwt_token.len());
     info!("Device public key: {}", device_public_key);
-    
+
     // Decode the base64 encoded public key first
     let decoded_key = base64::engine::general_purpose::STANDARD
         .decode(device_public_key)
@@ -184,21 +185,21 @@ fn verify_jwtEventData(
             error!("Failed to decode base64 public key: {}", e);
             EventServerError::Validation(format!("Invalid base64 encoding: {e}"))
         })?;
-    
+
     let decoded_key_str = String::from_utf8(decoded_key).map_err(|e| {
         error!("Failed to convert decoded key to UTF-8: {}", e);
         EventServerError::Validation(format!("Invalid UTF-8 in decoded key: {e}"))
     })?;
-    
+
     info!("Decoded public key: {}", decoded_key_str);
-    
+
     // Parse the decoded device public key as JWK format
     let jwk: JwkKey = serde_json::from_str(&decoded_key_str).map_err(|e| {
         error!("Failed to parse decoded public key as JWK: {}", e);
         error!("Decoded key content: '{}'", decoded_key_str);
         EventServerError::Validation(format!("Invalid JWK format: {e}"))
     })?;
-    
+
     info!(
         "Successfully parsed JWK - kty: {}, crv: {}",
         jwk.kty, jwk.crv
@@ -227,14 +228,14 @@ fn verify_jwtEventData(
             error!("Failed to decode x coordinate '{}': {}", jwk.x, e);
             EventServerError::Validation(format!("Invalid x coordinate: {e}"))
         })?;
-    
+
     let y_bytes = base64::engine::general_purpose::URL_SAFE_NO_PAD
         .decode(&jwk.y)
         .map_err(|e| {
             error!("Failed to decode y coordinate '{}': {}", jwk.y, e);
             EventServerError::Validation(format!("Invalid y coordinate: {e}"))
         })?;
-    
+
     info!(
         "Successfully decoded coordinates - x: {} bytes, y: {} bytes",
         x_bytes.len(),
@@ -305,7 +306,7 @@ fn verify_jwtEventData(
             );
             EventServerError::Validation(format!("JWT verification failed: {e}"))
         })?;
-    
+
     info!("Successfully verified JWT token");
     info!("Event package payload: {:?}", token_data.claims.payload);
 

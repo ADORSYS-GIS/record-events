@@ -37,10 +37,10 @@ interface OnboardingStep {
 
 const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
   onComplete,
-  keyStatus,
-  webAuthnStatus,
-  powStatus,
-  authStatus,
+  // keyStatus, // TODO: Use for step validation
+  // webAuthnStatus, // TODO: Use for step validation  
+  // powStatus, // TODO: Use for step validation
+  // authStatus, // TODO: Use for step validation
 }) => {
   const { t } = useTranslation();
   const { theme, changeTheme, isDark } = useTheme();
