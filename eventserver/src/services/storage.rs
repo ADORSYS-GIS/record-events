@@ -9,7 +9,7 @@ use minio::s3::segmented_bytes::SegmentedBytes;
 use minio::s3::types::S3Api;
 use sha2::Digest;
 use std::sync::Arc;
-use tracing::{error, info};
+use tracing::{error, info, warn};
 use uuid::Uuid;
 
 use crate::config::storage::StorageConfig;
@@ -53,10 +53,39 @@ impl StorageService {
         let minio_client = MinioClient::new(base_url, Some(Box::new(provider)), None, None)
             .map_err(|e| EventServerError::Storage(format!("Failed to create MinIO client: {e}")))?;
 
-        Ok(Self {
+        let service = Self {
             config,
             minio_client: Arc::new(minio_client),
-        })
+        };
+
+        if let Err(e) = service.ensure_bucket_exists().await {
+            warn!(error = %e, bucket = %service.config.bucket, "Proceeding despite bucket initialization error");
+        }
+
+        Ok(service)
+    }
+
+    /// Ensure the configured bucket exists (create if missing)
+    async fn ensure_bucket_exists(&self) -> Result<(), EventServerError> {
+        use minio::s3::types::S3Api;
+        match self
+            .minio_client
+            .create_bucket(self.config.bucket.clone())
+            .send()
+            .await
+        {
+            Ok(_) => {
+                info!(bucket = %self.config.bucket, "Created S3 bucket");
+                Ok(())
+            }
+            Err(MinioError::S3Error(err)) if err.code == ErrorCode::BucketAlreadyOwnedByYou => {
+                info!(bucket = %self.config.bucket, "S3 bucket already exists or owned by you");
+                Ok(())
+            }
+            Err(e) => Err(EventServerError::Storage(format!(
+                "Failed to ensure bucket exists: {e}"
+            ))),
+        }
     }
 
     /// Store an event package in S3-compatible storage
@@ -100,15 +129,48 @@ impl StorageService {
         headers.add("content-type", content_type.to_string());
 
         use minio::s3::types::S3Api;
-        self.minio_client
+        let first_attempt = self
+            .minio_client
             .put_object(self.config.bucket.clone(), key.to_string(), sb)
             .extra_headers(Some(headers))
             .send()
-            .await
-            .map_err(|e| {
+            .await;
+
+        match first_attempt {
+            Ok(_) => {}
+            Err(MinioError::S3Error(err)) if err.code == ErrorCode::NoSuchBucket => {
+                warn!(bucket = %self.config.bucket, "Bucket does not exist. Creating and retrying upload");
+                // Try to create the bucket, then retry once
+                if let Err(e) = self.ensure_bucket_exists().await {
+                    error!(error = %e, "Failed to create bucket before retrying upload");
+                    return Err(e);
+                }
+
+                // Recreate headers for retry
+                let mut headers2 = Multimap::new();
+                headers2.add("content-type", content_type.to_string());
+
+                let retry = self
+                    .minio_client
+                    .put_object(self.config.bucket.clone(), key.to_string(), SegmentedBytes::from(bytes::Bytes::copy_from_slice(data)))
+                    .extra_headers(Some(headers2))
+                    .send()
+                    .await;
+
+                if let Err(e) = retry {
+                    error!("Failed to upload to MinIO after creating bucket: {:?}", e);
+                    return Err(EventServerError::Storage(format!(
+                        "Failed to upload to MinIO after creating bucket: {e}"
+                    )));
+                }
+            }
+            Err(e) => {
                 error!("Failed to upload to MinIO: {:?}", e);
-                EventServerError::Storage(format!("Failed to upload to MinIO: {e}"))
-            })?;
+                return Err(EventServerError::Storage(format!(
+                    "Failed to upload to MinIO: {e}"
+                )));
+            }
+        }
 
         info!(
             bucket = %self.config.bucket,
