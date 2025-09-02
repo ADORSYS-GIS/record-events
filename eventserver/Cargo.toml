@@ -44,8 +44,10 @@ tracing = "0.1"
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 
 # Configuration management
-config = "0.13"
+
 dotenvy = "0.15"
+minio = "0.2"
+envconfig = "0.10"
 
 # JSON Web Tokens for certificates
 jsonwebtoken = "9.0"

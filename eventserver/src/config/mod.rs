@@ -1,163 +1,72 @@
 pub mod storage;
 
-use config::{Config, ConfigError, Environment, File};
+use envconfig::Envconfig;
 use serde::{Deserialize, Serialize};
-use std::env;
 
-/// Main application configuration
-#[derive(Debug, Clone, Serialize, Deserialize)]
+/// Main application configuration loaded from environment variables
+#[derive(Debug, Clone, Serialize, Deserialize, Envconfig)]
 pub struct AppConfig {
+    #[envconfig(nested = true)]
     pub server: ServerConfig,
+
+    #[envconfig(nested = true)]
     pub storage: storage::StorageConfig,
+
+    #[envconfig(nested = true)]
     pub security: SecurityConfig,
+
+    #[envconfig(nested = true)]
     pub logging: LoggingConfig,
 }
 
 /// Server configuration
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize, Envconfig)]
 pub struct ServerConfig {
+    #[envconfig(from = "SERVER_HOST", default = "0.0.0.0")]
     pub host: String,
+
+    #[envconfig(from = "SERVER_PORT", default = "3000")]
     pub port: u16,
+
+    #[envconfig(from = "SERVER_WORKERS")]
     pub workers: Option<usize>,
+
+    #[envconfig(from = "SERVER_MAX_CONNECTIONS")]
     pub max_connections: Option<u32>,
+
+    #[envconfig(from = "SERVER_REQUEST_TIMEOUT")]
     pub request_timeout: Option<u64>, // seconds
 }
 
 /// Security configuration
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize, Envconfig)]
 pub struct SecurityConfig {
+    #[envconfig(from = "JWT_SECRET")]
     pub jwt_secret: String,
+
+    #[envconfig(from = "CERTIFICATE_VALIDITY_HOURS", default = "24")]
     pub certificate_validity_hours: u64,
+
+    #[envconfig(from = "RATE_LIMIT_PER_MINUTE", default = "100")]
     pub rate_limit_per_minute: u32,
+
+    #[envconfig(from = "POW_DIFFICULTY", default = "4")]
     pub pow_difficulty: u32,
-    pub allowed_origins: Vec<String>,
+
+    /// Comma-separated list of allowed origins
+    #[envconfig(from = "ALLOWED_ORIGINS", default = "*")]
+    pub allowed_origins: String,
 }
 
 /// Logging configuration
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize, Envconfig)]
 pub struct LoggingConfig {
+    #[envconfig(from = "LOG_LEVEL", default = "info")]
     pub level: String,
+
+    #[envconfig(from = "LOG_FORMAT", default = "pretty")]
     pub format: String, // "json" or "pretty"
+
+    #[envconfig(from = "LOG_FILE_PATH")]
     pub file_path: Option<String>,
-}
-
-impl AppConfig {
-    /// Load configuration from environment variables and config files
-    pub fn load() -> Result<Self, ConfigError> {
-        let run_mode = env::var("RUN_MODE").unwrap_or_else(|_| "development".into());
-
-        let config = Config::builder()
-            // Start with default values
-            .set_default("server.host", "0.0.0.0")?
-            .set_default("server.port", 3000)?
-            .set_default("server.workers", 4)?
-            .set_default("server.max_connections", 1000)?
-            .set_default("server.request_timeout", 30)?
-            // Security defaults
-            .set_default("security.certificate_validity_hours", 24)?
-            .set_default("security.rate_limit_per_minute", 100)?
-            .set_default("security.pow_difficulty", 4)?
-            .set_default("security.allowed_origins", vec!["*"])?
-            // Logging defaults
-            .set_default("logging.level", "info")?
-            .set_default("logging.format", "pretty")?
-            // Storage defaults
-            .set_default("storage.region", "us-east-1")?
-            .set_default("storage.bucket", "eventserver-storage")?
-            .set_default("storage.access_key_id", "")?
-            .set_default("storage.secret_access_key", "")?
-            .set_default("storage.use_path_style", false)?
-            .set_default("storage.enable_ssl", true)?
-            .set_default("storage.upload_timeout", 300)?
-            .set_default("storage.max_file_size", 104857600)?
-            .set_default(
-                "storage.allowed_mime_types",
-                vec!["image/jpeg", "image/png", "image/gif", "video/mp4"],
-            )?
-            // Load from config file if it exists
-            .add_source(File::with_name("config/default").required(false))
-            .add_source(File::with_name(&format!("config/{run_mode}")).required(false))
-            .add_source(File::with_name("config/local").required(false))
-            // Override with environment variables
-            .add_source(Environment::with_prefix("EVENTSERVER").separator("__"))
-            .build()?;
-
-        let mut app_config: AppConfig = config.try_deserialize()?;
-
-        // Validate required environment variables
-        app_config.validate_required_env()?;
-
-        Ok(app_config)
-    }
-
-    /// Validate that required environment variables are set
-    fn validate_required_env(&mut self) -> Result<(), ConfigError> {
-        // JWT secret is required
-        if self.security.jwt_secret.is_empty() {
-            if let Ok(secret) = env::var("JWT_SECRET") {
-                self.security.jwt_secret = secret;
-            } else {
-                return Err(ConfigError::Message(
-                    "JWT_SECRET environment variable is required".to_string(),
-                ));
-            }
-        }
-
-        // Storage credentials
-        if self.storage.access_key_id.is_empty() {
-            if let Ok(key) = env::var("AWS_ACCESS_KEY_ID") {
-                self.storage.access_key_id = key;
-            }
-        }
-
-        if self.storage.secret_access_key.is_empty() {
-            if let Ok(secret) = env::var("AWS_SECRET_ACCESS_KEY") {
-                self.storage.secret_access_key = secret;
-            }
-        }
-
-        Ok(())
-    }
-
-    /// Get the bind address for the server
-    pub fn _bind_address(&self) -> String {
-        format!("{}:{}", self.server.host, self.server.port)
-    }
-
-    /// Check if running in development mode
-    pub fn _is_development(&self) -> bool {
-        env::var("RUN_MODE").unwrap_or_else(|_| "development".into()) == "development"
-    }
-
-    /// Check if running in production mode
-    pub fn _is_production(&self) -> bool {
-        env::var("RUN_MODE").unwrap_or_else(|_| "development".into()) == "production"
-    }
-}
-
-impl Default for AppConfig {
-    fn default() -> Self {
-        Self {
-            server: ServerConfig {
-                host: "0.0.0.0".to_string(),
-                port: 3000,
-                workers: Some(4),
-                max_connections: Some(1000),
-                request_timeout: Some(30),
-            },
-            storage: storage::StorageConfig::default(),
-            security: SecurityConfig {
-                jwt_secret: String::new(), // Must be set via environment
-                certificate_validity_hours: 24,
-                rate_limit_per_minute: 100,
-                pow_difficulty: 4,
-                allowed_origins: vec!["*".to_string()],
-            },
-            logging: LoggingConfig {
-                level: "info".to_string(),
-                format: "pretty".to_string(),
-                file_path: None,
-            },
-        }
-    }
 }

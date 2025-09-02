@@ -15,24 +15,25 @@ services:
     environment:
       # Server configuration
       - RUST_LOG=info
-      - EVENTSERVER__SERVER__HOST=0.0.0.0
-      - EVENTSERVER__SERVER__PORT=8080
+      - SERVER_HOST=0.0.0.0
+      - SERVER_PORT=8080
 
-      # Storage configuration (MinIO S3-compatible storage)
-      - EVENTSERVER__STORAGE__ENDPOINT=${EVENTSERVER__STORAGE__ENDPOINT:-http://minio:9000}
-      - EVENTSERVER__STORAGE__ACCESS_KEY_ID=${MINIO_ROOT_USER:-minioadmin}
-      - EVENTSERVER__STORAGE__SECRET_ACCESS_KEY=${MINIO_ROOT_PASSWORD:-minioadmin}
-      - EVENTSERVER__STORAGE__REGION=${EVENTSERVER__STORAGE__REGION:-us-east-1}
-      - EVENTSERVER__STORAGE__BUCKET=${EVENTSERVER__STORAGE__BUCKET:-eventserver-storage}
-      - EVENTSERVER__STORAGE__USE_PATH_STYLE=${EVENTSERVER__STORAGE__USE_PATH_STYLE:-true}
-      - EVENTSERVER__STORAGE__ENABLE_SSL=${EVENTSERVER__STORAGE__ENABLE_SSL:-false}
-      - EVENTSERVER__STORAGE__UPLOAD_TIMEOUT=${EVENTSERVER__STORAGE__UPLOAD_TIMEOUT:-300}
-      - EVENTSERVER__STORAGE__MAX_FILE_SIZE=${EVENTSERVER__STORAGE__MAX_FILE_SIZE:-104857600}
+      # Storage configuration (MinIO S3-compatible storage, envconfig style)
+      - S3_ENDPOINT=${S3_ENDPOINT:-http://minio:9000}
+      - S3_ACCESS_KEY_ID=${MINIO_ROOT_USER:-minioadmin}
+      - S3_SECRET_ACCESS_KEY=${MINIO_ROOT_PASSWORD:-minioadmin}
+      - S3_REGION=${S3_REGION:-us-east-1}
+      - S3_BUCKET=${S3_BUCKET:-eventserver-storage}
+      - S3_USE_PATH_STYLE=${S3_USE_PATH_STYLE:-true}
+      - S3_ENABLE_SSL=${S3_ENABLE_SSL:-false}
+      - S3_UPLOAD_TIMEOUT=${S3_UPLOAD_TIMEOUT:-300}
+      - S3_MAX_FILE_SIZE=${S3_MAX_FILE_SIZE:-104857600}
+      - S3_ALLOWED_MIME_TYPES=${S3_ALLOWED_MIME_TYPES:-image/jpeg,image/png,image/gif,video/mp4}
 
       # Security configuration
-      - EVENTSERVER__SECURITY__JWT_SECRET=${EVENTSERVER__SECURITY__JWT_SECRET:-dummy_jwt_secret_for_development_only}
+      - JWT_SECRET=${JWT_SECRET:-dummy_jwt_secret_for_development_only}
 
-      # AWS credentials (MinIO compatibility)
+      # AWS credentials (MinIO compatibility, for legacy tools)
       - AWS_ACCESS_KEY_ID=${MINIO_ROOT_USER:-minioadmin}
       - AWS_SECRET_ACCESS_KEY=${MINIO_ROOT_PASSWORD:-minioadmin}
     volumes:
@@ -49,6 +50,7 @@ services:
       retries: 3
       start_period: 10s
     restart: unless-stopped
+
   # MinIO service (S3-compatible storage)
   minio:
     image: minio/minio:latest
@@ -59,7 +61,7 @@ services:
     environment:
       - MINIO_ROOT_USER=${MINIO_ROOT_USER:-minioadmin}
       - MINIO_ROOT_PASSWORD=${MINIO_ROOT_PASSWORD:-minioadmin}
-      - MINIO_DEFAULT_BUCKETS=${EVENTSERVER__STORAGE__BUCKET:-eventserver-storage}
+      - MINIO_DEFAULT_BUCKETS=${S3_BUCKET:-eventserver-storage}
     command: server /data --console-address ":9001"
     volumes:
       - minio-data:/data
@@ -83,7 +85,7 @@ services:
     environment:
       - MINIO_ROOT_USER=${MINIO_ROOT_USER:-minioadmin}
       - MINIO_ROOT_PASSWORD=${MINIO_ROOT_PASSWORD:-minioadmin}
-      - MINIO_BUCKET=${EVENTSERVER__STORAGE__BUCKET:-eventserver-storage}
+      - MINIO_BUCKET=${S3_BUCKET:-eventserver-storage}
     entrypoint: >
       /bin/sh -c "
       mc alias set minio http://minio:9000 $$MINIO_ROOT_USER $$MINIO_ROOT_PASSWORD;
@@ -139,24 +141,25 @@ services:
         condition: service_healthy
     environment:
       - RUST_LOG=debug
-      - EVENTSERVER__SERVER__HOST=0.0.0.0
-      - EVENTSERVER__SERVER__PORT=8080
+      - SERVER_HOST=0.0.0.0
+      - SERVER_PORT=8080
 
-      # Storage configuration (MinIO S3-compatible storage)
-      - EVENTSERVER__STORAGE__ENDPOINT=${EVENTSERVER__STORAGE__ENDPOINT:-http://minio:9000}
-      - EVENTSERVER__STORAGE__ACCESS_KEY_ID=${MINIO_ROOT_USER:-minioadmin}
-      - EVENTSERVER__STORAGE__SECRET_ACCESS_KEY=${MINIO_ROOT_PASSWORD:-minioadmin}
-      - EVENTSERVER__STORAGE__REGION=${EVENTSERVER__STORAGE__REGION:-us-east-1}
-      - EVENTSERVER__STORAGE__BUCKET=${EVENTSERVER__STORAGE__BUCKET:-eventserver-storage}
-      - EVENTSERVER__STORAGE__USE_PATH_STYLE=${EVENTSERVER__STORAGE__USE_PATH_STYLE:-true}
-      - EVENTSERVER__STORAGE__ENABLE_SSL=${EVENTSERVER__STORAGE__ENABLE_SSL:-false}
-      - EVENTSERVER__STORAGE__UPLOAD_TIMEOUT=${EVENTSERVER__STORAGE__UPLOAD_TIMEOUT:-300}
-      - EVENTSERVER__STORAGE__MAX_FILE_SIZE=${EVENTSERVER__STORAGE__MAX_FILE_SIZE:-104857600}
+      # Storage configuration (MinIO S3-compatible storage, envconfig style)
+      - S3_ENDPOINT=${S3_ENDPOINT:-http://minio:9000}
+      - S3_ACCESS_KEY_ID=${MINIO_ROOT_USER:-minioadmin}
+      - S3_SECRET_ACCESS_KEY=${MINIO_ROOT_PASSWORD:-minioadmin}
+      - S3_REGION=${S3_REGION:-us-east-1}
+      - S3_BUCKET=${S3_BUCKET:-eventserver-storage}
+      - S3_USE_PATH_STYLE=${S3_USE_PATH_STYLE:-true}
+      - S3_ENABLE_SSL=${S3_ENABLE_SSL:-false}
+      - S3_UPLOAD_TIMEOUT=${S3_UPLOAD_TIMEOUT:-300}
+      - S3_MAX_FILE_SIZE=${S3_MAX_FILE_SIZE:-104857600}
+      - S3_ALLOWED_MIME_TYPES=${S3_ALLOWED_MIME_TYPES:-image/jpeg,image/png,image/gif,video/mp4}
 
       # Security configuration
-      - EVENTSERVER__SECURITY__JWT_SECRET=${EVENTSERVER__SECURITY__JWT_SECRET:-dummy_jwt_secret_for_development_only}
+      - JWT_SECRET=${JWT_SECRET:-dummy_jwt_secret_for_development_only}
 
-      # AWS credentials (MinIO compatibility)
+      # AWS credentials (MinIO compatibility, for legacy tools)
       - AWS_ACCESS_KEY_ID=${MINIO_ROOT_USER:-minioadmin}
       - AWS_SECRET_ACCESS_KEY=${MINIO_ROOT_PASSWORD:-minioadmin}
     volumes:

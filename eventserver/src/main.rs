@@ -32,7 +32,7 @@ async fn main() -> anyhow::Result<()> {
         .init();
 
     // Load configuration
-    let config = AppConfig::load()?;
+    let config = AppConfig::init_from_env().expect("Failed to load configuration from environment");
     tracing::info!("Configuration loaded successfully");
 
     // Initialize services
