@@ -77,3 +77,21 @@ impl StorageConfig {
         )
     }
 }
+
+impl Default for StorageConfig {
+    fn default() -> Self {
+        StorageConfig {
+            endpoint: Some("http://localhost:9000".to_string()),
+            region: "us-east-1".to_string(),
+            bucket: "eventserver-storage".to_string(),
+            access_key_id: "minioadmin".to_string(),
+            secret_access_key: "minioadmin".to_string(),
+            use_path_style: true,
+            enable_ssl: false,
+            upload_timeout: 300,
+            max_file_size: 104857600,
+            allowed_mime_types:
+                "image/jpeg,image/png,image/gif,video/mp4".to_string(),
+        }
+    }
+}

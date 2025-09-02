@@ -2,16 +2,20 @@
 
 use chrono::Utc;
 use minio::s3::client::Client as MinioClient;
-use minio::s3::args::{PutObjectArgs, StatObjectArgs};
-use minio::s3::error::Error as MinioError;
+use minio::s3::creds::StaticProvider;
+use minio::s3::error::{Error as MinioError, ErrorCode};
+use minio::s3::http::BaseUrl;
+use minio::s3::segmented_bytes::SegmentedBytes;
+use minio::s3::types::S3Api;
 use sha2::Digest;
 use std::sync::Arc;
-use tracing::{info, error};
+use tracing::{error, info};
 use uuid::Uuid;
 
 use crate::config::storage::StorageConfig;
 use crate::error::EventServerError;
 use crate::types::event::EventPackage;
+use minio::s3::multimap::{Multimap, MultimapExt};
 
 /// StorageService: handles event storage in S3-compatible backends using MinIO
 #[derive(Clone)]
@@ -27,12 +31,27 @@ impl StorageService {
             EventServerError::Config("S3_ENDPOINT must be set for MinIO storage".to_string())
         })?;
 
-        let minio_client = MinioClient::new(
-            &endpoint,
+        // Ensure endpoint string is acceptable for BaseUrl parser
+        let endpoint_str = if endpoint.starts_with("http://") || endpoint.starts_with("https://") {
+            endpoint
+        } else if config.enable_ssl {
+            format!("https://{endpoint}")
+        } else {
+            format!("http://{endpoint}")
+        };
+
+        let base_url: BaseUrl = endpoint_str
+            .parse()
+            .map_err(|e| EventServerError::Config(format!("Invalid S3 endpoint: {e}")))?;
+
+        let provider = StaticProvider::new(
             &config.access_key_id,
             &config.secret_access_key,
-            config.enable_ssl,
+            None,
         );
+
+        let minio_client = MinioClient::new(base_url, Some(Box::new(provider)), None, None)
+            .map_err(|e| EventServerError::Storage(format!("Failed to create MinIO client: {e}")))?;
 
         Ok(Self {
             config,
@@ -73,16 +92,18 @@ impl StorageService {
         data: &[u8],
         content_type: &str,
     ) -> Result<String, EventServerError> {
-        let args = PutObjectArgs::new(
-            &self.config.bucket,
-            key,
-            data,
-            Some(content_type),
-        )
-        .map_err(|e| EventServerError::Storage(format!("Failed to build PutObjectArgs: {e}")))?;
+        // Prepare segmented bytes for upload
+        let sb = SegmentedBytes::from(bytes::Bytes::copy_from_slice(data));
 
+        // Minio 0.2: Set content-type using extra_headers (Multimap)
+        let mut headers = Multimap::new();
+        headers.add("content-type", content_type.to_string());
+
+        use minio::s3::types::S3Api;
         self.minio_client
-            .put_object(&args)
+            .put_object(self.config.bucket.clone(), key.to_string(), sb)
+            .extra_headers(Some(headers))
+            .send()
             .await
             .map_err(|e| {
                 error!("Failed to upload to MinIO: {:?}", e);
@@ -96,12 +117,14 @@ impl StorageService {
             "Successfully uploaded to MinIO"
         );
 
-        // Return MinIO URL
-        let url = format!(
-            "{}/{}",
-            self.config.endpoint.as_ref().unwrap_or(&"".to_string()),
-            key
-        );
+        // Return object URL (path-style): <endpoint>/<bucket>/<key>
+        let endpoint = self
+            .config
+            .endpoint
+            .as_ref()
+            .map(|s| s.trim_end_matches('/').to_string())
+            .unwrap_or_default();
+        let url = format!("{}/{}/{}", endpoint, self.config.bucket, key);
         Ok(url)
     }
 
@@ -109,12 +132,16 @@ impl StorageService {
     pub async fn event_exists(&self, event_hash: &str) -> Result<bool, EventServerError> {
         let storage_key = self.generate_storage_key_from_hash(event_hash);
 
-        let args = StatObjectArgs::new(&self.config.bucket, &storage_key)
-            .map_err(|e| EventServerError::Storage(format!("Failed to build StatObjectArgs: {e}")))?;
-
-        match self.minio_client.stat_object(&args).await {
+        // Minio 0.2: stat_object builder with .send().await
+        use minio::s3::types::S3Api;
+        match self
+            .minio_client
+            .stat_object(self.config.bucket.clone(), storage_key.clone())
+            .send()
+            .await
+        {
             Ok(_) => Ok(true),
-            Err(MinioError::ObjectNotFound { .. }) => Ok(false),
+            Err(MinioError::S3Error(err_resp)) if err_resp.code == ErrorCode::NoSuchKey => Ok(false),
             Err(e) => {
                 error!("Error checking object existence: {:?}", e);
                 Err(EventServerError::Storage(format!("Failed to check object existence: {e}")))
@@ -152,5 +179,39 @@ impl StorageService {
         // Upload ZIP file to S3/MinIO
         self.upload_to_s3(&storage_key, zip_data, "application/zip")
             .await
+    }
+}
+
+#[cfg(test)]
+impl StorageService {
+    pub async fn new_mock() -> Self {
+        // Minimal mock pointing to local MinIO/dev endpoint; client creation is lazy and does not connect
+        let cfg = StorageConfig {
+            endpoint: Some("http://localhost:9000".to_string()),
+            region: "us-east-1".to_string(),
+            bucket: "test-bucket".to_string(),
+            access_key_id: "minioadmin".to_string(),
+            secret_access_key: "minioadmin".to_string(),
+            use_path_style: true,
+            enable_ssl: false,
+            upload_timeout: 300,
+            max_file_size: 104857600,
+            allowed_mime_types: "image/jpeg,image/png,image/gif,video/mp4".to_string(),
+        };
+
+        let base_url: BaseUrl = cfg
+            .endpoint
+            .clone()
+            .unwrap_or_else(|| "http://localhost:9000".to_string())
+            .parse()
+            .expect("valid base url for mock");
+        let provider = StaticProvider::new(&cfg.access_key_id, &cfg.secret_access_key, None);
+        let client = MinioClient::new(base_url, Some(Box::new(provider)), None, None)
+            .expect("minio client for mock");
+
+        Self {
+            config: cfg,
+            minio_client: Arc::new(client),
+        }
     }
 }

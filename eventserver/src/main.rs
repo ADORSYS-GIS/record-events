@@ -1,6 +1,7 @@
 use axum::{middleware as axum_middleware, routing::get, Router};
 use tower_http::{cors::CorsLayer, trace::TraceLayer};
 use tracing_subscriber::{layer::SubscriberExt, util::SubscriberInitExt};
+use envconfig::Envconfig;
 
 mod config;
 mod controllers;
