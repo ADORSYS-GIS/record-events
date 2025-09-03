@@ -144,6 +144,13 @@ impl StorageService {
             .map(|s| s.trim_end_matches('/').to_string())
             .unwrap_or_default();
         let url = format!("{}/{}/{}", endpoint, self.config.bucket, key);
+        info!(
+            "Upload complete. Region: {}, Protocol: {}, Full URL: {}, enable_ssl: {}",
+            self.config.region,
+            if endpoint.starts_with("https://") { "https" } else { "http" },
+            url,
+            self.config.enable_ssl
+        );
         Ok(url)
     }
 
