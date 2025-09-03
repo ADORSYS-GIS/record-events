@@ -16,7 +16,6 @@ use multimap::MultiMap;
 use crate::config::storage::StorageConfig;
 use crate::error::EventServerError;
 use crate::types::event::EventPackage;
-use multimap::MultiMap;
 
 /// StorageService: handles event storage in S3-compatible backends using MinIO
 #[derive(Clone)]
@@ -159,7 +158,11 @@ impl StorageService {
         let storage_key = self.generate_storage_key_from_hash(event_hash);
 
         // Minio 0.2: stat_object returns Result<StatObject, MinioError>
-        let result = self.minio_client.stat_object(self.config.bucket.clone(), storage_key.clone());
+        let result = self
+            .minio_client
+            .stat_object(self.config.bucket.clone(), storage_key.clone())
+            .send()
+            .await;
         match result {
             Ok(_) => Ok(true),
             Err(MinioError::S3Error(err_resp)) if err_resp.code == ErrorCode::NoSuchKey => Ok(false),

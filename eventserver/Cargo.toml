@@ -53,6 +53,7 @@ josekit = "0.10.3"
 # Additional utilities
 mime = "0.3"
 bytes = "1.0"
+multimap = "0.10"
 zip = "0.6"
 async-trait = "0.1.89"
 rand = "0.8"
