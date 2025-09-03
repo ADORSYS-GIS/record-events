@@ -9,13 +9,14 @@ use minio::s3::segmented_bytes::SegmentedBytes;
 use minio::s3::types::S3Api;
 use sha2::Digest;
 use std::sync::Arc;
-use tracing::{error, info, warn};
+use tracing::{error, info};
 use uuid::Uuid;
+use multimap::MultiMap;
 
 use crate::config::storage::StorageConfig;
 use crate::error::EventServerError;
 use crate::types::event::EventPackage;
-use minio::s3::multimap::{Multimap, MultimapExt};
+use multimap::MultiMap;
 
 /// StorageService: handles event storage in S3-compatible backends using MinIO
 #[derive(Clone)]
@@ -27,6 +28,15 @@ pub struct StorageService {
 impl StorageService {
     /// Create a new StorageService instance using MinIO client
     pub async fn new(config: StorageConfig) -> Result<Self, EventServerError> {
+        info!(
+            "Initializing StorageService with S3 config: endpoint={:?}, region={}, bucket={}, access_key_id={}, use_path_style={}, enable_ssl={}",
+            config.endpoint,
+            config.region,
+            config.bucket,
+            config.access_key_id,
+            config.use_path_style,
+            config.enable_ssl
+        );
         let endpoint = config.endpoint.clone().ok_or_else(|| {
             EventServerError::Config("S3_ENDPOINT must be set for MinIO storage".to_string())
         })?;
@@ -53,39 +63,10 @@ impl StorageService {
         let minio_client = MinioClient::new(base_url, Some(Box::new(provider)), None, None)
             .map_err(|e| EventServerError::Storage(format!("Failed to create MinIO client: {e}")))?;
 
-        let service = Self {
+        Ok(Self {
             config,
             minio_client: Arc::new(minio_client),
-        };
-
-        if let Err(e) = service.ensure_bucket_exists().await {
-            warn!(error = %e, bucket = %service.config.bucket, "Proceeding despite bucket initialization error");
-        }
-
-        Ok(service)
-    }
-
-    /// Ensure the configured bucket exists (create if missing)
-    async fn ensure_bucket_exists(&self) -> Result<(), EventServerError> {
-        use minio::s3::types::S3Api;
-        match self
-            .minio_client
-            .create_bucket(self.config.bucket.clone())
-            .send()
-            .await
-        {
-            Ok(_) => {
-                info!(bucket = %self.config.bucket, "Created S3 bucket");
-                Ok(())
-            }
-            Err(MinioError::S3Error(err)) if err.code == ErrorCode::BucketAlreadyOwnedByYou => {
-                info!(bucket = %self.config.bucket, "S3 bucket already exists or owned by you");
-                Ok(())
-            }
-            Err(e) => Err(EventServerError::Storage(format!(
-                "Failed to ensure bucket exists: {e}"
-            ))),
-        }
+        })
     }
 
     /// Store an event package in S3-compatible storage
@@ -121,56 +102,32 @@ impl StorageService {
         data: &[u8],
         content_type: &str,
     ) -> Result<String, EventServerError> {
+        info!(
+            "Uploading to S3: bucket={}, key={}, content_type={}, endpoint={:?}, access_key_id={}, use_path_style={}, enable_ssl={}",
+            self.config.bucket,
+            key,
+            content_type,
+            self.config.endpoint,
+            self.config.access_key_id,
+            self.config.use_path_style,
+            self.config.enable_ssl
+        );
         // Prepare segmented bytes for upload
         let sb = SegmentedBytes::from(bytes::Bytes::copy_from_slice(data));
 
-        // Minio 0.2: Set content-type using extra_headers (Multimap)
-        let mut headers = Multimap::new();
-        headers.add("content-type", content_type.to_string());
+        // Minio 0.2: Set content-type using extra_headers (MultiMap)
+        let mut headers = MultiMap::new();
+        headers.insert("content-type".to_string(), content_type.to_string());
 
-        use minio::s3::types::S3Api;
-        let first_attempt = self
-            .minio_client
+        self.minio_client
             .put_object(self.config.bucket.clone(), key.to_string(), sb)
             .extra_headers(Some(headers))
             .send()
-            .await;
-
-        match first_attempt {
-            Ok(_) => {}
-            Err(MinioError::S3Error(err)) if err.code == ErrorCode::NoSuchBucket => {
-                warn!(bucket = %self.config.bucket, "Bucket does not exist. Creating and retrying upload");
-                // Try to create the bucket, then retry once
-                if let Err(e) = self.ensure_bucket_exists().await {
-                    error!(error = %e, "Failed to create bucket before retrying upload");
-                    return Err(e);
-                }
-
-                // Recreate headers for retry
-                let mut headers2 = Multimap::new();
-                headers2.add("content-type", content_type.to_string());
-
-                let retry = self
-                    .minio_client
-                    .put_object(self.config.bucket.clone(), key.to_string(), SegmentedBytes::from(bytes::Bytes::copy_from_slice(data)))
-                    .extra_headers(Some(headers2))
-                    .send()
-                    .await;
-
-                if let Err(e) = retry {
-                    error!("Failed to upload to MinIO after creating bucket: {:?}", e);
-                    return Err(EventServerError::Storage(format!(
-                        "Failed to upload to MinIO after creating bucket: {e}"
-                    )));
-                }
-            }
-            Err(e) => {
+            .await
+            .map_err(|e| {
                 error!("Failed to upload to MinIO: {:?}", e);
-                return Err(EventServerError::Storage(format!(
-                    "Failed to upload to MinIO: {e}"
-                )));
-            }
-        }
+                EventServerError::Storage(format!("Failed to upload to MinIO: {e}"))
+            })?;
 
         info!(
             bucket = %self.config.bucket,
@@ -194,14 +151,9 @@ impl StorageService {
     pub async fn event_exists(&self, event_hash: &str) -> Result<bool, EventServerError> {
         let storage_key = self.generate_storage_key_from_hash(event_hash);
 
-        // Minio 0.2: stat_object builder with .send().await
-        use minio::s3::types::S3Api;
-        match self
-            .minio_client
-            .stat_object(self.config.bucket.clone(), storage_key.clone())
-            .send()
-            .await
-        {
+        // Minio 0.2: stat_object returns Result<StatObject, MinioError>
+        let result = self.minio_client.stat_object(self.config.bucket.clone(), storage_key.clone());
+        match result {
             Ok(_) => Ok(true),
             Err(MinioError::S3Error(err_resp)) if err_resp.code == ErrorCode::NoSuchKey => Ok(false),
             Err(e) => {
@@ -241,39 +193,5 @@ impl StorageService {
         // Upload ZIP file to S3/MinIO
         self.upload_to_s3(&storage_key, zip_data, "application/zip")
             .await
-    }
-}
-
-#[cfg(test)]
-impl StorageService {
-    pub async fn new_mock() -> Self {
-        // Minimal mock pointing to local MinIO/dev endpoint; client creation is lazy and does not connect
-        let cfg = StorageConfig {
-            endpoint: Some("http://localhost:9000".to_string()),
-            region: "us-east-1".to_string(),
-            bucket: "test-bucket".to_string(),
-            access_key_id: "minioadmin".to_string(),
-            secret_access_key: "minioadmin".to_string(),
-            use_path_style: true,
-            enable_ssl: false,
-            upload_timeout: 300,
-            max_file_size: 104857600,
-            allowed_mime_types: "image/jpeg,image/png,image/gif,video/mp4".to_string(),
-        };
-
-        let base_url: BaseUrl = cfg
-            .endpoint
-            .clone()
-            .unwrap_or_else(|| "http://localhost:9000".to_string())
-            .parse()
-            .expect("valid base url for mock");
-        let provider = StaticProvider::new(&cfg.access_key_id, &cfg.secret_access_key, None);
-        let client = MinioClient::new(base_url, Some(Box::new(provider)), None, None)
-            .expect("minio client for mock");
-
-        Self {
-            config: cfg,
-            minio_client: Arc::new(client),
-        }
     }
 }
