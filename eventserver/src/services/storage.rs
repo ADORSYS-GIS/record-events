@@ -59,7 +59,6 @@ impl StorageService {
             None,
         );
 
-        let region = config.region.clone();
         let minio_client = MinioClient::new(base_url, Some(Box::new(provider)), None, Some(true))
             .map_err(|e| EventServerError::Storage(format!("Failed to create MinIO client: {e}")))?;
 
@@ -111,6 +110,19 @@ impl StorageService {
             self.config.access_key_id,
             self.config.use_path_style,
             self.config.enable_ssl
+        );
+        // Debug: Log partial secret key, region, and current UTC time for signature troubleshooting
+        let secret = &self.config.secret_access_key;
+        let secret_preview = if secret.len() > 8 {
+            format!("{}...{}", &secret[..4], &secret[secret.len()-4..])
+        } else {
+            "[too short]".to_string()
+        };
+        info!(
+            "S3 debug: region={}, secret_key_preview={}, system_utc_time={}",
+            self.config.region,
+            secret_preview,
+            chrono::Utc::now().to_rfc3339()
         );
         // Prepare segmented bytes for upload
         let sb = SegmentedBytes::from(bytes::Bytes::copy_from_slice(data));
