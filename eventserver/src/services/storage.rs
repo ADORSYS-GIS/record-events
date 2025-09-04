@@ -60,7 +60,7 @@ impl StorageService {
         );
 
         let region = config.region.clone();
-        let minio_client = MinioClient::new(base_url, Some(Box::new(provider)), region, None)
+        let minio_client = MinioClient::new(base_url, Some(Box::new(provider)), None, Some(true))
             .map_err(|e| EventServerError::Storage(format!("Failed to create MinIO client: {e}")))?;
 
         Ok(Self {
