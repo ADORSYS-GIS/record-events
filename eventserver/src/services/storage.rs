@@ -125,9 +125,9 @@ impl StorageService {
             .await
             .map_err(|e| {
                 error!("Failed to upload to MinIO: {:?}", e);
-                if let Some(minio_error) = e.as_s3error() {
+                if let MinioError::S3Error(err_resp) = &e {
                     error!("MinIO error details: code: {:?}, message: {:?}, resource: {:?}, request_id: {:?}, host_id: {:?}",
-                        minio_error.code, minio_error.message, minio_error.resource, minio_error.request_id, minio_error.host_id);
+                        err_resp.code, err_resp.message, err_resp.resource, err_resp.request_id, err_resp.host_id);
                 }
                 EventServerError::Storage(format!("Failed to upload to MinIO: {e}"))
             })?;

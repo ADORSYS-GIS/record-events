@@ -5,7 +5,6 @@ use axum::{
 };
 use serde_json::json;
 use thiserror::Error;
-use crate::config;
 
 /// Type alias for EventServer errors - uses the main AppError type
 pub type EventServerError = AppError;
