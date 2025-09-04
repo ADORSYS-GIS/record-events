@@ -1,17 +1,14 @@
 //! StorageService: S3-compatible storage using MinIO crate and envconfig-based configuration
 
 use chrono::Utc;
-use minio::s3::client::Client as MinioClient;
-use minio::s3::creds::StaticProvider;
-use minio::s3::error::{Error as MinioError, ErrorCode};
-use minio::s3::http::BaseUrl;
-use minio::s3::segmented_bytes::SegmentedBytes;
-use minio::s3::types::S3Api;
+use aws_sdk_s3::{Client as S3Client};
+use aws_sdk_s3::primitives::ByteStream;
+use aws_sdk_s3::config::{Region, Credentials};
+use aws_config::endpoint::Endpoint;
 use sha2::Digest;
 use std::sync::Arc;
 use tracing::{error, info};
 use uuid::Uuid;
-use multimap::MultiMap;
 
 use crate::config::storage::StorageConfig;
 use crate::error::EventServerError;
@@ -21,7 +18,7 @@ use crate::types::event::EventPackage;
 #[derive(Clone)]
 pub struct StorageService {
     config: StorageConfig,
-    minio_client: Arc<MinioClient>,
+    s3_client: Arc<S3Client>,
 }
 
 impl StorageService {
@@ -40,31 +37,28 @@ impl StorageService {
             EventServerError::Config("S3_ENDPOINT must be set for MinIO storage".to_string())
         })?;
 
-        // Ensure endpoint string is acceptable for BaseUrl parser
-        let endpoint_str = if endpoint.starts_with("http://") || endpoint.starts_with("https://") {
-            endpoint
-        } else if config.enable_ssl {
-            format!("https://{endpoint}")
-        } else {
-            format!("http://{endpoint}")
-        };
-
-        let base_url: BaseUrl = endpoint_str
-            .parse()
-            .map_err(|e| EventServerError::Config(format!("Invalid S3 endpoint: {e}")))?;
-
-        let provider = StaticProvider::new(
-            &config.access_key_id,
-            &config.secret_access_key,
+        let region = Region::new(config.region.clone());
+        let credentials = Credentials::new(
+            config.access_key_id.clone(),
+            config.secret_access_key.clone(),
             None,
+            None,
+            "static"
         );
+        let endpoint_url = endpoint.clone();
 
-        let minio_client = MinioClient::new(base_url, Some(Box::new(provider)), None, Some(true))
-            .map_err(|e| EventServerError::Storage(format!("Failed to create MinIO client: {e}")))?;
+        let s3_config = aws_sdk_s3::config::Builder::new()
+            .region(region)
+            .endpoint_url(&endpoint_url)
+            .credentials_provider(credentials)
+            .force_path_style(config.use_path_style)
+            .build();
+
+        let s3_client = S3Client::from_conf(s3_config);
 
         Ok(Self {
             config,
-            minio_client: Arc::new(minio_client),
+            s3_client: Arc::new(s3_client),
         })
     }
 
@@ -124,70 +118,58 @@ impl StorageService {
             secret_preview,
             chrono::Utc::now().to_rfc3339()
         );
-        // Prepare segmented bytes for upload
-        let sb = SegmentedBytes::from(bytes::Bytes::copy_from_slice(data));
+        info!(
+            "S3 debug: path_style={}, endpoint_url={:?}",
+            self.config.use_path_style,
+            self.config.endpoint
+        );
 
-        // Minio 0.2: Set content-type using extra_headers (MultiMap)
-        let mut headers = MultiMap::new();
-        headers.insert("content-type".to_string(), content_type.to_string());
-
-        self.minio_client
-            .put_object(self.config.bucket.clone(), key.to_string(), sb)
-            .extra_headers(Some(headers))
+        let body = ByteStream::from(data.to_vec());
+        let put_res = self.s3_client
+            .put_object()
+            .bucket(&self.config.bucket)
+            .key(key)
+            .body(body)
+            .content_type(content_type)
             .send()
-            .await
-            .map_err(|e| {
-                error!("Failed to upload to MinIO: {:?}", e);
-                if let MinioError::S3Error(err_resp) = &e {
-                    error!("MinIO error details: code: {:?}, message: {:?}, resource: {:?}, request_id: {:?}, host_id: {:?}",
-                        err_resp.code, err_resp.message, err_resp.resource, err_resp.request_id, err_resp.host_id);
-                }
-                EventServerError::Storage(format!("Failed to upload to MinIO: {e}"))
-            })?;
+            .await;
 
-        info!(
-            bucket = %self.config.bucket,
-            key = %key,
-            size = data.len(),
-            "Successfully uploaded to MinIO"
-        );
-
-        // Return object URL (path-style): <endpoint>/<bucket>/<key>
-        let endpoint = self
-            .config
-            .endpoint
-            .as_ref()
-            .map(|s| s.trim_end_matches('/').to_string())
-            .unwrap_or_default();
-        let url = format!("{}/{}/{}", endpoint, self.config.bucket, key);
-        info!(
-            "Upload complete. Region: {}, Protocol: {}, Full URL: {}, enable_ssl: {}",
-            self.config.region,
-            if endpoint.starts_with("https://") { "https" } else { "http" },
-            url,
-            self.config.enable_ssl
-        );
-        Ok(url)
+        match put_res {
+            Ok(_) => {
+                info!(
+                    bucket = %self.config.bucket,
+                    key = %key,
+                    size = data.len(),
+                    "Successfully uploaded to S3/MinIO"
+                );
+                // Return object URL (path-style): <endpoint>/<bucket>/<key>
+                let endpoint = self
+                    .config
+                    .endpoint
+                    .as_ref()
+                    .map(|s| s.trim_end_matches('/').to_string())
+                    .unwrap_or_default();
+                let url = format!("{}/{}/{}", endpoint, self.config.bucket, key);
+                info!(
+                    "Upload complete. Region: {}, Protocol: {}, Full URL: {}, enable_ssl: {}",
+                    self.config.region,
+                    if endpoint.starts_with("https://") { "https" } else { "http" },
+                    url,
+                    self.config.enable_ssl
+                );
+                Ok(url)
+            }
+            Err(e) => {
+                error!("Failed to upload to S3/MinIO: {:?}", e);
+                Err(EventServerError::Storage(format!("Failed to upload to S3/MinIO: {e}")))
+            }
+        }
     }
 
     /// Check if an event exists in storage
     pub async fn event_exists(&self, event_hash: &str) -> Result<bool, EventServerError> {
-        let storage_key = self.generate_storage_key_from_hash(event_hash);
-
-        // Minio 0.2: stat_object returns Result<StatObject, MinioError>
-        let result = self
-            .minio_client
-            .stat_object(self.config.bucket.clone(), storage_key.clone())
-            .send()
-            .await;
-        match result {
-            Ok(_) => Ok(true),
-            Err(MinioError::S3Error(err_resp)) if err_resp.code == ErrorCode::NoSuchKey => Ok(false),
-            Err(e) => {
-                error!("Error checking object existence: {:?}", e);
-                Err(EventServerError::Storage(format!("Failed to check object existence: {e}")))
-            }
-        }
+        // TODO: Implement event_exists using aws-sdk-s3 HeadObject API if needed
+        unimplemented!("event_exists is not implemented for aws-sdk-s3 backend yet");
     }
 
     /// Generate a storage key for an event

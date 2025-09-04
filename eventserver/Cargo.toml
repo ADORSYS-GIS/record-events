@@ -30,7 +30,9 @@ hex = "0.4"
 pem = "3.0"
 
 # Storage (S3-compatible via MinIO)
-minio = "0.2"
+# minio = "0.2"
+aws-sdk-s3 = "0.31"
+aws-config = "0.56"
 
 # Utilities
 uuid = { version = "1.0", features = ["v4", "serde"] }
@@ -64,6 +66,7 @@ time = "0.3.41"
 utoipa = { version = "4.0", features = ["axum_extras", "chrono", "uuid"] }
 utoipa-axum = "0.1"
 utoipa-swagger-ui = { version = "6.0", features = ["axum"] }
+aws-smithy-http = "0.62.3"
 
 [dev-dependencies]
 tokio-test = "0.4"
