@@ -97,12 +97,6 @@ impl IntoResponse for AppError {
 /// Result type alias for application operations
 pub type _AppResult<T> = Result<T, AppError>;
 
-/// Convert various error types to AppError
-impl From<aws_sdk_s3::Error> for AppError {
-    fn from(err: aws_sdk_s3::Error) -> Self {
-        AppError::Storage(err.to_string())
-    }
-}
 
 impl From<serde_json::Error> for AppError {
     fn from(err: serde_json::Error) -> Self {
@@ -119,12 +113,6 @@ impl From<base64::DecodeError> for AppError {
 impl From<reqwest::Error> for AppError {
     fn from(err: reqwest::Error) -> Self {
         AppError::Internal(format!("HTTP client error: {err}"))
-    }
-}
-
-impl From<config::ConfigError> for AppError {
-    fn from(err: config::ConfigError) -> Self {
-        AppError::Config(err.to_string())
     }
 }
 

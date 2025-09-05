@@ -9,18 +9,21 @@ This is a React-based event form application that allows users to create and sha
 ### Core Components
 
 1. **App (src/App.tsx)**
+
    - Root component that handles application state
    - Manages language switching
    - Handles error and loading states
    - Renders the main application UI
 
 2. **EventForm (src/components/EventForm.tsx)**
+
    - Main form component for event creation
    - Handles form submission and validation
    - Manages form state and user input
    - Integrates with media capture functionality
 
 3. **Key Management (src/hooks/useKeyInitialization.ts)**
+
    - Handles cryptographic key generation and management
    - Manages key storage and retrieval
    - Provides key status and error handling
@@ -33,16 +36,19 @@ This is a React-based event form application that allows users to create and sha
 ### Key Features
 
 - **Internationalization (i18n)**
+
   - Supports multiple languages (English and French)
   - Dynamic language switching
   - Translation files in `src/locales/`
 
 - **Form Handling**
+
   - Dynamic form generation based on label configuration
   - Client-side validation
   - Support for various input types (text, number, date, select, media)
 
 - **Security**
+
   - Secure key management using Web Crypto API
   - Secure storage of sensitive data
   - Data encryption for sensitive information
@@ -55,11 +61,13 @@ This is a React-based event form application that allows users to create and sha
 ## Data Flow
 
 1. **Initialization**
+
    - App loads and initializes keys and labels
    - Loading states are shown during initialization
    - Errors are caught and displayed if initialization fails
 
 2. **Form Interaction**
+
    - User fills out the form fields
    - Input validation occurs on blur and submit
    - Form state is updated with user input
@@ -73,11 +81,13 @@ This is a React-based event form application that allows users to create and sha
 ## Error Handling
 
 - **Initialization Errors**
+
   - Key generation failures
   - Network errors when loading labels
   - Storage access issues
 
 - **Form Errors**
+
   - Required field validation
   - Input format validation
   - File type and size validation
@@ -94,24 +104,29 @@ The application supports multiple languages through the `i18next` library. Trans
 ## Dependencies
 
 - **Core**
+
   - React 18
   - TypeScript
   - Vite
 
 - **UI**
+
   - Tailwind CSS
   - Headless UI
   - Hero Icons
 
 - **State Management**
+
   - React Hooks
   - React Context (for theme/language)
 
 - **Form Handling**
+
   - React Hook Form
   - Yup (validation)
 
 - **Internationalization**
+
   - i18next
   - react-i18next
 
@@ -122,6 +137,7 @@ The application supports multiple languages through the `i18next` library. Trans
 ## Development Setup
 
 1. **Prerequisites**
+
    - Node.js 16+
    - npm or yarn
    - Git

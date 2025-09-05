@@ -141,12 +141,14 @@ Form Data → Validation → EventPackage → ZIP Export → Download/Submit
 ### High Priority
 
 1. **Backend Integration**
+
    - Real relay implementation
    - S3 upload functionality
    - Blockchain integration
    - Certificate management
 
 2. **Testing**
+
    - Unit tests for components
    - Integration tests
    - E2E testing
@@ -159,12 +161,14 @@ Form Data → Validation → EventPackage → ZIP Export → Download/Submit
 ### Medium Priority
 
 1. **Enhanced Features**
+
    - Event history/management
    - Offline support
    - Push notifications
    - QR code sharing
 
 2. **Advanced UI/UX**
+
    - Map view for events
    - Advanced media handling
    - Real-time collaboration
@@ -179,6 +183,7 @@ Form Data → Validation → EventPackage → ZIP Export → Download/Submit
 ### Low Priority
 
 1. **Admin Features**
+
    - Admin dashboard
    - Analytics
    - User management

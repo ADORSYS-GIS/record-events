@@ -153,6 +153,7 @@ The EventServer ecosystem consists of four main components working together to p
 ### EventServer (Rust Backend)
 
 **Architecture Principles:**
+
 - **Stateless**: No session data between requests
 - **Horizontally Scalable**: Multiple identical instances
 - **Secure**: Certificate-based authentication
@@ -190,16 +191,19 @@ eventserver/
 ### Security Model
 
 **Authentication Chain:**
+
 1. **EventApp ↔ EventRelay**: PoW-based certificate authentication
 2. **EventRelay ↔ EventServer**: Relay certificate authentication
 3. **EventAdminApp ↔ EventServer**: Admin certificate authentication
 
 **Certificate Lifecycle:**
+
 - EventApp certificates: Short-lived (hours)
 - Relay certificates: Medium-lived (days)
 - Admin certificates: Long-lived (months)
 
 **Cryptographic Operations:**
+
 - Event hashing: SHA-256
 - Certificate signing: Ed25519
 - PoW algorithm: Configurable difficulty
@@ -207,17 +211,20 @@ eventserver/
 ### Scalability Features
 
 **Horizontal Scaling:**
+
 - Stateless design enables unlimited horizontal scaling
 - Load balancer distributes requests across instances
 - No shared state between server instances
 
 **Performance Optimizations:**
+
 - Async/await throughout the stack
 - Connection pooling for database and Redis
 - Efficient binary serialization
 - Streaming for large file uploads
 
 **Resource Management:**
+
 - Configurable connection limits
 - Request timeout handling
 - Memory-efficient event processing
@@ -226,17 +233,20 @@ eventserver/
 ### Monitoring & Observability
 
 **Health Checks:**
+
 - `/health` endpoint for load balancer
 - Service dependency health monitoring
 - Automatic failover capabilities
 
 **Logging:**
+
 - Structured JSON logging
 - Request tracing with correlation IDs
 - Performance metrics collection
 - Error aggregation and alerting
 
 **Metrics:**
+
 - Request throughput and latency
 - Event processing success rates
 - Storage and blockchain operation metrics
@@ -292,23 +302,23 @@ spec:
         app: eventserver
     spec:
       containers:
-      - name: eventserver
-        image: eventserver:latest
-        ports:
-        - containerPort: 3000
-        env:
-        - name: DATABASE_URL
-          valueFrom:
-            secretKeyRef:
-              name: eventserver-secrets
-              key: database-url
-        resources:
-          requests:
-            memory: "256Mi"
-            cpu: "250m"
-          limits:
-            memory: "512Mi"
-            cpu: "500m"
+        - name: eventserver
+          image: eventserver:latest
+          ports:
+            - containerPort: 3000
+          env:
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: eventserver-secrets
+                  key: database-url
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
 ```
 
 This architecture ensures high availability, scalability, and security while maintaining the stateless design principles required for the EventServer ecosystem.
