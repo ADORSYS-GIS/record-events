@@ -138,7 +138,6 @@ The EventServer is the central **stateless** backend. It interacts only with tru
 - After launching a relay, sign and return an SSL certificate based on the relay’s **public IP address**.
 - Provide a secure endpoint for EventAdminApp to manage the master list of approved relays.
 
-
 ---
 
 ## 5. Deployment and Verification (MinIO + Backend + Nginx)
@@ -162,21 +161,25 @@ MinIO Console: http://51.20.117.244:9001
 
 ### 5.2 Verifying communication
 
-1) Frontend to Backend
-- Health: curl -k https://51.20.117.244/health
-- API base: the frontend proxies /api/* to the backend.
+1. Frontend to Backend
 
-2) Backend to MinIO (server-side uploads)
-- Backend reads S3_* env from .env.aws.
+- Health: curl -k https://51.20.117.244/health
+- API base: the frontend proxies /api/\* to the backend.
+
+2. Backend to MinIO (server-side uploads)
+
+- Backend reads S3\_\* env from .env.aws.
 - On processing a signed event, the backend uploads JSON/ZIP to the bucket (eventserver-storage by default).
 - Confirm in the MinIO Console that objects appear under the bucket when events are posted by a valid relay.
 
-3) Frontend direct to MinIO (optional)
+3. Frontend direct to MinIO (optional)
+
 - Nginx proxies /minio/ to the MinIO API.
 - Example: curl -k https://51.20.117.244/minio/minio/health/live should return 200.
 - You can point any client-side S3 SDK to https://51.20.117.244/minio/ as the endpoint (path-style).
 
 Notes
+
 - SSL on Nginx expects certs in ./certs mounted into /etc/nginx/certs. For testing you can use self-signed certs.
 - The backend’s CORS is permissive by default.
 - Bucket initialization is done by the `minio-init` service.

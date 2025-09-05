@@ -168,8 +168,26 @@ impl StorageService {
 
     /// Check if an event exists in storage
     pub async fn event_exists(&self, event_hash: &str) -> Result<bool, EventServerError> {
-        // TODO: Implement event_exists using aws-sdk-s3 HeadObject API if needed
-        unimplemented!("event_exists is not implemented for aws-sdk-s3 backend yet");
+        let key = self.generate_storage_key_from_hash(event_hash);
+        let res = self.s3_client
+            .head_object()
+            .bucket(&self.config.bucket)
+            .key(&key)
+            .send()
+            .await;
+        match res {
+            Ok(_) => Ok(true),
+            Err(e) => {
+                // Check for NotFound error
+                if let aws_sdk_s3::types::SdkError::ServiceError { err, .. } = &e {
+                    if err.is_not_found() {
+                        return Ok(false);
+                    }
+                }
+                error!("Failed to check object existence: {:?}", e);
+                Err(EventServerError::Storage(format!("Failed to check object existence: {e}")))
+            }
+        }
     }
 
     /// Generate a storage key for an event
