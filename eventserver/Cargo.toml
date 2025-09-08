@@ -76,5 +76,3 @@ pem = "3.0"
 # Random number generation for testing
 rand = "0.8"
 
-[patch.crates-io]
-ring = "0.17.12"

@@ -1,6 +1,5 @@
 # Exclude problematic files from Prettier
 .github/workflows/backend-ci.yml
-docs/
 eventserver/README.md
 # Also exclude common files that don't need formatting
 package-lock.json
