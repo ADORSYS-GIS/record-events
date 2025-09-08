@@ -4,9 +4,10 @@ use chrono::Utc;
 use aws_sdk_s3::{Client as S3Client};
 use aws_sdk_s3::primitives::ByteStream;
 use aws_sdk_s3::config::{Region, Credentials};
-use aws_config::endpoint::Endpoint;
 use sha2::Digest;
+use aws_sdk_s3::operation::head_object::HeadObjectError;
 use std::sync::Arc;
+use aws_sdk_s3::error::SdkError;
 use tracing::{error, info};
 use uuid::Uuid;
 
@@ -61,6 +62,31 @@ impl StorageService {
             s3_client: Arc::new(s3_client),
         })
     }
+
+#[cfg(test)]
+    /// Create a mock StorageService for testing
+    pub async fn new_mock() -> Self {
+        use crate::config::storage::StorageConfig;
+        let config = StorageConfig {
+            endpoint: Some("http://localhost:9000".to_string()),
+            region: "us-east-1".to_string(),
+            bucket: "test-bucket".to_string(),
+            access_key_id: "test-access-key".to_string(),
+            secret_access_key: "test-secret-key".to_string(),
+            use_path_style: true,
+            enable_ssl: false,
+            upload_timeout: 300,
+            max_file_size: 104857600,
+            allowed_mime_types: "application/json".to_string(),
+        };
+        StorageService::new(config).await.expect("Failed to create mock StorageService")
+    }
+    // pub fn new_mock() -> Self {
+    //     Self {
+    //         config: StorageConfig::default(),
+    //         s3_client: S3Client::
+    //     }
+    // }
 
     /// Store an event package in S3-compatible storage
     /// Returns the storage location URL
@@ -179,8 +205,9 @@ impl StorageService {
             Ok(_) => Ok(true),
             Err(e) => {
                 // Check for NotFound error
-                if let aws_sdk_s3::types::SdkError::ServiceError { err, .. } = &e {
-                    if err.is_not_found() {
+                if let SdkError::ServiceError(inner) = &e {
+                    let head_err = inner.err();
+                    if matches!(head_err, HeadObjectError::NotFound(_)) {
                         return Ok(false);
                     }
                 }

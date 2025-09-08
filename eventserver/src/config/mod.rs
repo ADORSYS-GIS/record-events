@@ -5,6 +5,7 @@ use serde::{Deserialize, Serialize};
 
 /// Main application configuration loaded from environment variables
 #[derive(Debug, Clone, Serialize, Deserialize, Envconfig)]
+#[derive(Default)]
 pub struct AppConfig {
     #[envconfig(nested = true)]
     pub server: ServerConfig,
@@ -106,13 +107,3 @@ impl Default for LoggingConfig {
     }
 }
 
-impl Default for AppConfig {
-    fn default() -> Self {
-        AppConfig {
-            server: ServerConfig::default(),
-            storage: storage::StorageConfig::default(),
-            security: SecurityConfig::default(),
-            logging: LoggingConfig::default(),
-        }
-    }
-}

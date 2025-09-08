@@ -40,6 +40,7 @@ pub struct StorageConfig {
 
 impl StorageConfig {
     /// Parse allowed_mime_types as Vec<String>
+    #[cfg(test)]
     pub fn allowed_mime_types_vec(&self) -> Vec<String> {
         self.allowed_mime_types
             .split(',')
