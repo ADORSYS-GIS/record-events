@@ -97,7 +97,6 @@ impl IntoResponse for AppError {
 /// Result type alias for application operations
 pub type _AppResult<T> = Result<T, AppError>;
 
-
 impl From<serde_json::Error> for AppError {
     fn from(err: serde_json::Error) -> Self {
         AppError::Validation(format!("JSON serialization error: {err}"))

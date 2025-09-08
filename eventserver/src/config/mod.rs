@@ -4,8 +4,7 @@ use envconfig::Envconfig;
 use serde::{Deserialize, Serialize};
 
 /// Main application configuration loaded from environment variables
-#[derive(Debug, Clone, Serialize, Deserialize, Envconfig)]
-#[derive(Default)]
+#[derive(Debug, Clone, Serialize, Deserialize, Envconfig, Default)]
 pub struct AppConfig {
     #[envconfig(nested = true)]
     pub server: ServerConfig,
@@ -72,7 +71,6 @@ pub struct LoggingConfig {
     pub file_path: Option<String>,
 }
 
-
 impl Default for ServerConfig {
     fn default() -> Self {
         ServerConfig {
@@ -106,4 +104,3 @@ impl Default for LoggingConfig {
         }
     }
 }
-

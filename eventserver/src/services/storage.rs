@@ -1,13 +1,13 @@
 //! StorageService: S3-compatible storage using MinIO crate and envconfig-based configuration
 
-use chrono::Utc;
-use aws_sdk_s3::{Client as S3Client};
-use aws_sdk_s3::primitives::ByteStream;
-use aws_sdk_s3::config::{Region, Credentials};
-use sha2::Digest;
-use aws_sdk_s3::operation::head_object::HeadObjectError;
-use std::sync::Arc;
+use aws_sdk_s3::config::{Credentials, Region};
 use aws_sdk_s3::error::SdkError;
+use aws_sdk_s3::operation::head_object::HeadObjectError;
+use aws_sdk_s3::primitives::ByteStream;
+use aws_sdk_s3::Client as S3Client;
+use chrono::Utc;
+use sha2::Digest;
+use std::sync::Arc;
 use tracing::{error, info};
 use uuid::Uuid;
 
@@ -44,7 +44,7 @@ impl StorageService {
             config.secret_access_key.clone(),
             None,
             None,
-            "static"
+            "static",
         );
         let endpoint_url = endpoint.clone();
 
@@ -63,7 +63,7 @@ impl StorageService {
         })
     }
 
-#[cfg(test)]
+    #[cfg(test)]
     /// Create a mock StorageService for testing
     pub async fn new_mock() -> Self {
         use crate::config::storage::StorageConfig;
@@ -79,7 +79,9 @@ impl StorageService {
             max_file_size: 104857600,
             allowed_mime_types: "application/json".to_string(),
         };
-        StorageService::new(config).await.expect("Failed to create mock StorageService")
+        StorageService::new(config)
+            .await
+            .expect("Failed to create mock StorageService")
     }
     // pub fn new_mock() -> Self {
     //     Self {
@@ -134,7 +136,7 @@ impl StorageService {
         // Debug: Log partial secret key, region, and current UTC time for signature troubleshooting
         let secret = &self.config.secret_access_key;
         let secret_preview = if secret.len() > 8 {
-            format!("{}...{}", &secret[..4], &secret[secret.len()-4..])
+            format!("{}...{}", &secret[..4], &secret[secret.len() - 4..])
         } else {
             "[too short]".to_string()
         };
@@ -146,12 +148,12 @@ impl StorageService {
         );
         info!(
             "S3 debug: path_style={}, endpoint_url={:?}",
-            self.config.use_path_style,
-            self.config.endpoint
+            self.config.use_path_style, self.config.endpoint
         );
 
         let body = ByteStream::from(data.to_vec());
-        let put_res = self.s3_client
+        let put_res = self
+            .s3_client
             .put_object()
             .bucket(&self.config.bucket)
             .key(key)
@@ -179,7 +181,11 @@ impl StorageService {
                 info!(
                     "Upload complete. Region: {}, Protocol: {}, Full URL: {}, enable_ssl: {}",
                     self.config.region,
-                    if endpoint.starts_with("https://") { "https" } else { "http" },
+                    if endpoint.starts_with("https://") {
+                        "https"
+                    } else {
+                        "http"
+                    },
                     url,
                     self.config.enable_ssl
                 );
@@ -187,7 +193,9 @@ impl StorageService {
             }
             Err(e) => {
                 error!("Failed to upload to S3/MinIO: {:?}", e);
-                Err(EventServerError::Storage(format!("Failed to upload to S3/MinIO: {e}")))
+                Err(EventServerError::Storage(format!(
+                    "Failed to upload to S3/MinIO: {e}"
+                )))
             }
         }
     }
@@ -195,7 +203,8 @@ impl StorageService {
     /// Check if an event exists in storage
     pub async fn event_exists(&self, event_hash: &str) -> Result<bool, EventServerError> {
         let key = self.generate_storage_key_from_hash(event_hash);
-        let res = self.s3_client
+        let res = self
+            .s3_client
             .head_object()
             .bucket(&self.config.bucket)
             .key(&key)
@@ -212,7 +221,9 @@ impl StorageService {
                     }
                 }
                 error!("Failed to check object existence: {:?}", e);
-                Err(EventServerError::Storage(format!("Failed to check object existence: {e}")))
+                Err(EventServerError::Storage(format!(
+                    "Failed to check object existence: {e}"
+                )))
             }
         }
     }

@@ -31,23 +31,17 @@ pub struct StorageConfig {
     pub upload_timeout: u64, // seconds
 
     #[envconfig(from = "S3_MAX_FILE_SIZE", default = "104857600")]
-    pub max_file_size: u64,  // bytes
+    pub max_file_size: u64, // bytes
 
     /// Comma-separated list of allowed MIME types
-    #[envconfig(from = "S3_ALLOWED_MIME_TYPES", default = "image/jpeg,image/png,image/gif,video/mp4")]
+    #[envconfig(
+        from = "S3_ALLOWED_MIME_TYPES",
+        default = "image/jpeg,image/png,image/gif,video/mp4"
+    )]
     pub allowed_mime_types: String,
 }
 
 impl StorageConfig {
-    /// Parse allowed_mime_types as Vec<String>
-    #[cfg(test)]
-    pub fn allowed_mime_types_vec(&self) -> Vec<String> {
-        self.allowed_mime_types
-            .split(',')
-            .map(|s| s.trim().to_string())
-            .collect()
-    }
-
     /// Generate object key for event storage
     pub fn generate_event_key(&self, event_hash: &str, file_extension: &str) -> String {
         let now = chrono::Utc::now();
@@ -56,24 +50,6 @@ impl StorageConfig {
             now.format("%Y"),
             now.format("%m"),
             event_hash,
-            file_extension
-        )
-    }
-
-    /// Generate object key for media storage
-    pub fn generate_media_key(
-        &self,
-        event_hash: &str,
-        media_hash: &str,
-        file_extension: &str,
-    ) -> String {
-        let now = chrono::Utc::now();
-        format!(
-            "media/{}/{}/{}/{}.{}",
-            now.format("%Y"),
-            now.format("%m"),
-            event_hash,
-            media_hash,
             file_extension
         )
     }
@@ -91,8 +67,7 @@ impl Default for StorageConfig {
             enable_ssl: false,
             upload_timeout: 300,
             max_file_size: 104857600,
-            allowed_mime_types:
-                "image/jpeg,image/png,image/gif,video/mp4".to_string(),
+            allowed_mime_types: "image/jpeg,image/png,image/gif,video/mp4".to_string(),
         }
     }
 }
