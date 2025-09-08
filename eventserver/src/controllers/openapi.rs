@@ -70,9 +70,6 @@ use crate::types::{
             email = "support@eventapp.com"
         )
     ),
-    servers(
-        (url = "/", description = "Local server")
-    ),
     modifiers(&SecurityAddon)
 )]
 pub struct ApiDoc;
@@ -115,7 +112,18 @@ pub fn routes() -> Router<AppState> {
 )]
 
 async fn openapi_json() -> Response {
-    let spec = ApiDoc::openapi();
+    let mut spec = ApiDoc::openapi();
+
+    // Dynamically set the servers field from environment variable
+    let server_address =
+        std::env::var("SERVER_ADDRESS").unwrap_or_else(|_| "http://localhost:3000".to_string());
+
+    use utoipa::openapi::server::ServerBuilder;
+    spec.servers = Some(vec![ServerBuilder::new()
+        .url(server_address)
+        .description(Some("Dynamic server address from environment"))
+        .build()]);
+
     match serde_json::to_string_pretty(&spec) {
         Ok(json) => (StatusCode::OK, [("content-type", "application/json")], json).into_response(),
         Err(_) => StatusCode::INTERNAL_SERVER_ERROR.into_response(),
@@ -132,7 +140,19 @@ async fn openapi_json() -> Response {
     tag = "documentation"
 )]
 async fn openapi_yaml() -> Response {
-    let spec = ApiDoc::openapi();
+    let mut spec = ApiDoc::openapi();
+
+    // Dynamically set the servers field from environment variable
+    let host = std::env::var("SERVER_HOST").unwrap_or_else(|_| "127.0.0.1".to_string());
+    let port = std::env::var("SERVER_PORT").unwrap_or_else(|_| "8080".to_string());
+    let url = format!("http://{host}:{port}");
+
+    use utoipa::openapi::server::ServerBuilder;
+    spec.servers = Some(vec![ServerBuilder::new()
+        .url(url)
+        .description(Some("Dynamic server address from environment"))
+        .build()]);
+
     match serde_yaml::to_string(&spec) {
         Ok(yaml) => (StatusCode::OK, [("content-type", "application/yaml")], yaml).into_response(),
         Err(_) => StatusCode::INTERNAL_SERVER_ERROR.into_response(),
