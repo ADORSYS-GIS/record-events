@@ -9,7 +9,6 @@ authors = ["EventApp Team"]
 # Web framework
 axum = "0.7"
 tokio = { version = "1.0", features = ["full"] }
-tower = "0.4"
 tower-http = { version = "0.5", features = ["cors", "trace", "fs"] }
 
 # Serialization
@@ -22,17 +21,13 @@ reqwest = { version = "0.11", features = ["json"] }
 
 # Cryptography
 sha2 = "0.10"
-ed25519-dalek = "2.0"
 p256 = "0.13"
-x509-parser = "0.15"
 base64 = "0.21"
-hex = "0.4"
-pem = "3.0"
+
 
 # Storage (S3-compatible via MinIO)
 # minio = "0.2"
 aws-sdk-s3 = "0.31"
-aws-config = "0.56"
 
 # Utilities
 uuid = { version = "1.0", features = ["v4", "serde"] }
@@ -53,26 +48,12 @@ jsonwebtoken = "9.0"
 josekit = "0.10.3"
 
 # Additional utilities
-mime = "0.3"
-bytes = "1.0"
-multimap = "0.10"
-zip = "0.6"
-async-trait = "0.1.89"
 rand = "0.8"
-rcgen = "0.14.3"
-time = "0.3.41"
 
 # OpenAPI documentation
 utoipa = { version = "4.0", features = ["axum_extras", "chrono", "uuid"] }
-utoipa-axum = "0.1"
 utoipa-swagger-ui = { version = "6.0", features = ["axum"] }
-aws-smithy-http = "0.62.3"
 
 [dev-dependencies]
-tokio-test = "0.4"
-# PEM parsing for certificates
-pem = "3.0"
-
 # Random number generation for testing
 rand = "0.8"
-
