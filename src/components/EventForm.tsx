@@ -429,9 +429,24 @@ const EventForm: React.FC<EventFormProps> = ({
           token,
         );
 
-        // Create SignedEventPackage with JWT data
+        // Ensure eventData.metadata.source is only "web" or "mobile"
+        const safeEventPackage = {
+          ...eventPackage,
+          metadata: {
+            ...eventPackage.metadata,
+            source:
+              eventPackage.metadata.source === "web" ||
+              eventPackage.metadata.source === "mobile"
+                ? eventPackage.metadata.source
+                : "web", // fallback to "web" if "api" or any other value
+          },
+        };
+
+        // Create SignedEventPackage with eventData as required by the API
         const signedEventPackage = {
-          jwtEventData: jwtEventData,
+          eventData: safeEventPackage,
+          // If you need to send the JWT as a signature, uncomment the next line:
+          // signature: jwtEventData,
         };
 
         // Submit to backend using the generated API (with Bearer token in header)

@@ -26,7 +26,10 @@ async function initializeAndRenderApp() {
     // If fetch fails, fallback to default BASE in OpenAPI.ts
     // Optionally, you could show an error or warning here
     // eslint-disable-next-line no-console
-    console.warn("Could not fetch OpenAPI server URL, using default. Error:", err);
+    console.warn(
+      "Could not fetch OpenAPI server URL, using default. Error:",
+      err,
+    );
   } finally {
     createRoot(document.getElementById("root")!).render(
       <StrictMode>
