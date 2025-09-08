@@ -32,18 +32,21 @@ See [ARCHITECTURE.md](../docs/event-server.md) for detailed system architecture 
 ### Installation
 
 1. **Clone and build the project:**
+
    ```bash
    cd eventserver
    cargo build --release
    ```
 
 2. **Set up environment variables:**
+
    ```bash
    cp .env.example .env
    # Edit .env with your configuration
    ```
 
 3. **Run database migrations:**
+
    ```bash
    cargo install sqlx-cli
    sqlx migrate run
@@ -59,6 +62,7 @@ The server will start on `http://0.0.0.0:3000` by default.
 ## Configuration
 
 EventServer uses a hierarchical configuration system that supports:
+
 - Default values
 - Configuration files (TOML/YAML)
 - Environment variables (highest priority)
@@ -123,6 +127,7 @@ EVENTSERVER__LOGGING__FORMAT=pretty
 Create configuration files in the `config/` directory:
 
 **config/default.toml:**
+
 ```toml
 [server]
 host = "0.0.0.0"
@@ -145,6 +150,7 @@ certificate_validity_hours = 24
 ```
 
 **config/production.toml:**
+
 ```toml
 [server]
 workers = 8
@@ -160,12 +166,15 @@ rate_limit_per_minute = 1000
 ## API Endpoints
 
 ### Health Check
+
 ```
 GET /health
 ```
+
 Returns server health status and service dependencies.
 
 ### Event Processing
+
 ```
 POST /api/v1/events
 Authorization: Bearer <relay-certificate>
@@ -181,12 +190,15 @@ Content-Type: application/json
 ```
 
 ### Event Verification
+
 ```
 GET /api/v1/events/{hash}/verify
 ```
+
 Verify if an event hash exists on the blockchain.
 
 ### Relay Management
+
 ```
 POST /api/v1/relays/provision
 Authorization: Bearer <admin-certificate>
@@ -274,6 +286,7 @@ CMD ["eventserver"]
 ```
 
 Build and run:
+
 ```bash
 docker build -t eventserver .
 docker run -p 3000:3000 --env-file .env eventserver
@@ -297,35 +310,35 @@ spec:
         app: eventserver
     spec:
       containers:
-      - name: eventserver
-        image: eventserver:latest
-        ports:
-        - containerPort: 3000
-        env:
-        - name: DATABASE_URL
-          valueFrom:
-            secretKeyRef:
-              name: eventserver-secrets
-              key: database-url
-        resources:
-          requests:
-            memory: "256Mi"
-            cpu: "250m"
-          limits:
-            memory: "512Mi"
-            cpu: "500m"
-        livenessProbe:
-          httpGet:
-            path: /health
-            port: 3000
-          initialDelaySeconds: 30
-          periodSeconds: 10
-        readinessProbe:
-          httpGet:
-            path: /health
-            port: 3000
-          initialDelaySeconds: 5
-          periodSeconds: 5
+        - name: eventserver
+          image: eventserver:latest
+          ports:
+            - containerPort: 3000
+          env:
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: eventserver-secrets
+                  key: database-url
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 3000
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 5
 ---
 apiVersion: v1
 kind: Service
@@ -335,9 +348,9 @@ spec:
   selector:
     app: eventserver
   ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 3000
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
   type: LoadBalancer
 ```
 
@@ -431,6 +444,7 @@ EventServer uses certificate-based authentication:
 ### Common Issues
 
 **Server won't start:**
+
 ```bash
 # Check configuration
 cargo run -- --check-config
@@ -443,11 +457,13 @@ redis-cli -u $REDIS_URL ping
 ```
 
 **High memory usage:**
+
 - Reduce database connection pool size
 - Adjust file upload limits
 - Check for memory leaks in logs
 
 **Slow performance:**
+
 - Monitor database query performance
 - Check Redis latency
 - Verify S3 upload speeds
@@ -491,6 +507,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Support
 
 For support and questions:
+
 - Create an issue on GitHub
 - Check the [ARCHITECTURE.md](../docs/event-server.md) for system details
 - Review the configuration examples above

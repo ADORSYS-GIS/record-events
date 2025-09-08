@@ -32,15 +32,18 @@ To let users report events (images/videos + structured annotations) securely and
 ### Key Features:
 
 1. **Identity & Certificate Flow**
+
    - Generate public/private key pair on first launch.
    - Solve PoW and obtain a short-lived certificate from a relay.
 
 2. **Label Configuration**
+
    - On first launch, the app downloads all label configurations (field definitions) from a relay.
    - These labels define what data the user must fill when reporting an event.
    - App checks daily for updated or new label configurations.
 
 3. **Event Creation Flow**
+
    - Capture image or short video via device camera.
    - Fill out annotations via dynamically generated form (based on labels).
    - Labels can include:
@@ -51,7 +54,9 @@ To let users report events (images/videos + structured annotations) securely and
      - Optional image/video field
 
 4. **Data Submission**
+
    - Create two packages:
+
      - **Light package:** Annotations only (small payload)
      - **Full package:** Image/video + annotations (large)
 
@@ -74,6 +79,7 @@ To give authorized admins the ability to configure labels, manage relay addresse
 ### Key Features:
 
 1. **Key Management & SuperAdmin Flow**
+
    - On first launch, generates a key pair.
    - Admin functionality is locked until a certificate is imported.
    - A **SuperAdmin** (first admin) can authorize others by:
@@ -82,6 +88,7 @@ To give authorized admins the ability to configure labels, manage relay addresse
      - The new admin then imports the signed certificate
 
 2. **Label Management**
+
    - Admins define the **structure of events** by creating/modifying **labels**:
      - Each label has a name, data type (text, number, date, enum, media), and constraints
      - Labels support **bilingual definitions** (French + English)
@@ -101,11 +108,13 @@ To serve as a **middleware** between EventApps and the central EventServer, acti
 ### Key Features:
 
 1. **PoW Registration Server**
+
    - Exposes a PoW challenge endpoint
    - Validates submitted PoW solutions from new users
    - Issues **signed, short-lived client certificates** for authenticated event submission
 
 2. **Message Processing**
+
    - Receives **signed event packages** from users
    - Verifies the client certificate and package integrity
    - Forwards validated packages to the EventServer
@@ -125,15 +134,18 @@ To act as the **final destination** for validated event data, providing secure s
 ### Key Features:
 
 1. **Stateless Architecture**
+
    - Does not maintain sessions
    - Each request is **independently authenticated** based on the relay’s certificate and signature
 
 2. **Event Validation & Storage**
+
    - Validates that incoming events are from trusted relays
    - Extracts event metadata and media
    - Stores the full package (image + annotation) in **S3-compatible storage**
 
 3. **Blockchain Integration**
+
    - Calculates a **cryptographic hash** of each event package
    - Pushes the hash to a **public blockchain** (e.g., Ethereum, Polygon) to provide **proof-of-existence**
    - This allows users to later verify their event was not tampered with
@@ -165,6 +177,7 @@ Admins define these labels and push them to relays → EventApps pull them and r
 ## 🌐 **Offline & Sharing Features**
 
 - **Offline support** is built-in:
+
   - Cached label configurations
   - Locally stored event packages
 

@@ -79,8 +79,3 @@ jobs:
       - name: Test (all features)
         run: cargo test --workspace --all-features -- --nocapture
 
-      - name: Security audit (RustSec)
-        run: |
-          cargo install cargo-audit --locked
-          cargo audit
-

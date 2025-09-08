@@ -24,6 +24,7 @@ EventApp is a decentralized event reporting system with the following main compo
 ### Key Generation
 
 1. **Initialization**:
+
    - On first launch, the app generates an ECDSA key pair using the P-256 curve (ES256)
    - Keys are stored in the browser's localStorage for persistence
    - The key pair is used for authenticating event submissions
@@ -42,6 +43,7 @@ EventApp is a decentralized event reporting system with the following main compo
    ```
 
 3. **Key Management**:
+
    - `generateKeyPair()`: Creates a new ECDSA key pair
    - `storeKeyPair(keyPair: KeyPair)`: Saves keys to localStorage
    - `loadKeyPair()`: Retrieves keys from localStorage
@@ -55,6 +57,7 @@ EventApp is a decentralized event reporting system with the following main compo
 ## Event Creation & Submission Flow
 
 1. **Form Rendering**:
+
    - Dynamic form generation based on label configurations
    - Supports multiple input types (text, number, date, boolean, enum, media)
    - Client-side validation based on label constraints
@@ -80,11 +83,13 @@ EventApp is a decentralized event reporting system with the following main compo
 ## Relay Communication
 
 1. **Relay Discovery**:
+
    - Fetches a list of available relays
    - Supports failover to alternative relays
    - Caches relay information for offline use
 
 2. **Proof of Work (PoW)**:
+
    - Implements a simple PoW challenge to prevent spam
    - Solves computational puzzles to earn submission rights
    - Temporary certificates are issued upon successful PoW completion
@@ -97,11 +102,13 @@ EventApp is a decentralized event reporting system with the following main compo
 ## Data Storage & Security
 
 1. **Local Storage**:
+
    - Keys and configuration are stored in localStorage
    - Sensitive data is never stored in plaintext
    - Implements secure key handling practices
 
 2. **Event Data**:
+
    - Media files are stored as base64-encoded strings
    - Annotations are stored as JSON
    - All data is signed to ensure integrity
@@ -115,6 +122,7 @@ EventApp is a decentralized event reporting system with the following main compo
 ## Internationalization
 
 1. **Implementation**:
+
    - Uses i18next for internationalization
    - Supports English (en) and French (fr)
    - Dynamic language switching

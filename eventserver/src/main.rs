@@ -1,4 +1,5 @@
 use axum::{middleware as axum_middleware, routing::get, Router};
+use envconfig::Envconfig;
 use tower_http::{cors::CorsLayer, trace::TraceLayer};
 use tracing_subscriber::{layer::SubscriberExt, util::SubscriberInitExt};
 
@@ -32,7 +33,7 @@ async fn main() -> anyhow::Result<()> {
         .init();
 
     // Load configuration
-    let config = AppConfig::load()?;
+    let config = AppConfig::init_from_env().expect("Failed to load configuration from environment");
     tracing::info!("Configuration loaded successfully");
 
     // Initialize services
