@@ -23,7 +23,7 @@ impl ZipPackager {
             ZipWriter::new(cursor)
         };
 
-        let file_options = FileOptions::default()
+        let file_options = FileOptions::<'_, ()>::default()
             .compression_method(CompressionMethod::Deflated)
             .unix_permissions(0o644);
 
@@ -109,7 +109,7 @@ impl ZipPackager {
     async fn add_media_to_zip(
         zip: &mut ZipWriter<Cursor<&mut Vec<u8>>>,
         media: &EventMedia,
-        file_options: FileOptions,
+        file_options: FileOptions<'_, ()>,
         include_metadata: bool,
     ) -> Result<(), EventServerError> {
         // Decode base64 media data

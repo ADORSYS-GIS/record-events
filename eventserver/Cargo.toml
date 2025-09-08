@@ -53,6 +53,7 @@ rand = "0.8"
 # OpenAPI documentation
 utoipa = { version = "4.0", features = ["axum_extras", "chrono", "uuid"] }
 utoipa-swagger-ui = { version = "6.0", features = ["axum"] }
+zip = "5.0.0"
 
 [dev-dependencies]
 # Random number generation for testing
