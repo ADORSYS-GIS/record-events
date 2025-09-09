@@ -30,8 +30,8 @@ function fetchRemoteOpenApiJson(openapiUrl) {
         if (res.statusCode !== 200) {
           reject(
             new Error(
-              `Failed to fetch openapi.json: ${res.statusCode} ${res.statusMessage}`
-            )
+              `Failed to fetch openapi.json: ${res.statusCode} ${res.statusMessage}`,
+            ),
           );
           return;
         }
@@ -54,7 +54,7 @@ async function fetchAndSaveOpenApiJson() {
     console.log(`Fetched and saved openapi.json to ${OUTPUT_PATH}`);
   } catch (remoteErr) {
     console.warn(
-      `[WARN] Remote fetch failed: ${remoteErr.message}. Attempting to use local openapi.json...`
+      `[WARN] Remote fetch failed: ${remoteErr.message}. Attempting to use local openapi.json...`,
     );
     try {
       if (!fs.existsSync(LOCAL_PATH)) {
@@ -62,12 +62,10 @@ async function fetchAndSaveOpenApiJson() {
       }
       const localData = fs.readFileSync(LOCAL_PATH, "utf8");
       fs.writeFileSync(OUTPUT_PATH, localData, "utf8");
-      console.log(
-        `Used local openapi.json and saved to ${OUTPUT_PATH}`
-      );
+      console.log(`Used local openapi.json and saved to ${OUTPUT_PATH}`);
     } catch (localErr) {
       console.error(
-        `Failed to fetch openapi.json from both remote and local sources.\nRemote error: ${remoteErr.message}\nLocal error: ${localErr.message}`
+        `Failed to fetch openapi.json from both remote and local sources.\nRemote error: ${remoteErr.message}\nLocal error: ${localErr.message}`,
       );
       process.exit(1);
     }
