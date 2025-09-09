@@ -13,7 +13,7 @@ use tracing::{error, info, warn};
 
 use crate::error::EventServerError;
 use crate::state::AppState;
-use crate::types::event::{EventPackage, SignedEventPackage};
+use crate::types::event::EventPackage;
 
 /// JWT Claims structure for event data
 #[derive(Debug, Serialize, Deserialize)]
@@ -80,76 +80,54 @@ pub async fn crypto_validation_middleware(
                     }
                 };
 
-                // Try to parse body as SignedEventPackage for JWT verification
-                info!("Attempting to parse request body as SignedEventPackage");
-                info!("Request body: {}", String::from_utf8_lossy(&body_bytes));
-                if let Ok(signed_package) =
-                    serde_json::from_slice::<SignedEventPackage>(&body_bytes)
-                {
-                    info!(
-                        "Successfully parsed SignedEventPackage, JWT data length: {}",
-                        signed_package.jwt_event_data.len()
-                    );
+                // Parse body as a raw JWT string for verification
+                let jwt_token = String::from_utf8(body_bytes.clone()).map_err(|e| {
+                    error!("Failed to parse request body as UTF-8 string: {}", e);
+                    StatusCode::BAD_REQUEST
+                })?;
+                info!("Received JWT token for event verification (length: {})", jwt_token.len());
 
-                    // Verify JWT event data using device public key from certificate
-                    info!("Starting JWT verification with device public key");
-                    match verify_jwt_event_data(
-                        &signed_package.jwt_event_data,
-                        &validation.public_key,
-                    ) {
-                        Ok(event_package) => {
-                            // Print the event package for debugging
-                            info!(
-                                event_id = %event_package.id,
-                                event_version = %event_package.version,
-                                annotations_count = %event_package.annotations.len(),
-                                has_media = %event_package.media.is_some(),
-                                "Received and verified event package: {:?}",
-                                event_package
-                            );
+                // Verify JWT event data using device public key from certificate
+                info!("Starting JWT verification with device public key");
+                match verify_jwt_event_data(
+                    &jwt_token,
+                    &validation.public_key,
+                ) {
+                    Ok(event_package) => {
+                        // Print the event package for debugging
+                        info!(
+                            event_id = %event_package.id,
+                            event_version = %event_package.version,
+                            annotations_count = %event_package.annotations.len(),
+                            has_media = %event_package.media.is_some(),
+                            "Received and verified event package: {:?}",
+                            event_package
+                        );
 
-                            // Add validated relay ID to request headers and event data to extensions
-                            let mut request =
-                                Request::from_parts(parts, axum::body::Body::from(body_bytes));
-                            request.headers_mut().insert(
-                                "X-Validated-Relay-ID",
-                                validation
-                                    .relay_id
-                                    .parse()
-                                    .unwrap_or_else(|_| "unknown".parse().unwrap()),
-                            );
+                        // Add validated relay ID to request headers and event data to extensions
+                        let mut request =
+                            Request::from_parts(parts, axum::body::Body::from(body_bytes));
+                        request.headers_mut().insert(
+                            "X-Validated-Relay-ID",
+                            validation
+                                .relay_id
+                                .parse()
+                                .unwrap_or_else(|_| "unknown".parse().unwrap()),
+                        );
 
-                            // Add the verified event package to request extensions for controllers to use
-                            request.extensions_mut().insert(event_package);
+                        // Add the verified event package to request extensions for controllers to use
+                        request.extensions_mut().insert(event_package);
 
-                            return Ok(next.run(request).await);
-                        }
-                        Err(e) => {
-                            error!(
-                                error = %e,
-                                relay_id = %validation.relay_id,
-                                "JWT event data verification failed"
-                            );
-                            return Err(StatusCode::UNAUTHORIZED);
-                        }
+                        return Ok(next.run(request).await);
                     }
-                } else {
-                    // For non-event endpoints, just validate the certificate
-                    info!("Failed to parse as SignedEventPackage, treating as non-event endpoint");
-                    if let Err(e) = serde_json::from_slice::<SignedEventPackage>(&body_bytes) {
-                        error!("SignedEventPackage parsing error: {}", e);
+                    Err(e) => {
+                        error!(
+                            error = %e,
+                            relay_id = %validation.relay_id,
+                            "JWT event data verification failed"
+                        );
+                        return Err(StatusCode::UNAUTHORIZED);
                     }
-                    let mut request =
-                        Request::from_parts(parts, axum::body::Body::from(body_bytes));
-                    request.headers_mut().insert(
-                        "X-Validated-Relay-ID",
-                        validation
-                            .relay_id
-                            .parse()
-                            .unwrap_or_else(|_| "unknown".parse().unwrap()),
-                    );
-
-                    return Ok(next.run(request).await);
                 }
             }
             Err(e) => {

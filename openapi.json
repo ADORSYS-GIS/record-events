@@ -29,9 +29,9 @@
         "operationId": "receive_event",
         "requestBody": {
           "content": {
-            "application/json": {
+            "text/plain": {
               "schema": {
-                "$ref": "#/components/schemas/SignedEventPackage"
+                "type": "string"
               }
             }
           },
@@ -75,9 +75,9 @@
         "operationId": "receive_event_package",
         "requestBody": {
           "content": {
-            "application/json": {
+            "text/plain": {
               "schema": {
-                "$ref": "#/components/schemas/SignedEventPackage"
+                "type": "string"
               }
             }
           },

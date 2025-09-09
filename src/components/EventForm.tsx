@@ -442,15 +442,8 @@ const EventForm: React.FC<EventFormProps> = ({
           },
         };
 
-        // Create SignedEventPackage with eventData as required by the API
-        const signedEventPackage = {
-          eventData: safeEventPackage,
-          // If you need to send the JWT as a signature, uncomment the next line:
-          // signature: jwtEventData,
-        };
-
-        // Submit to backend using the generated API (with Bearer token in header)
-        await submitEvent(signedEventPackage);
+        // Submit the JWT string directly as the signed event package
+        await submitEvent(jwtEventData);
 
         // Add to local history using the generated EventPackage type
         const historyEventPackage: EventPackage = {
