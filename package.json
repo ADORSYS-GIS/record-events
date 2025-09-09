@@ -4,6 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "predev": "node scripts/fetch_openapi.js",
+    "prebuild": "node scripts/fetch_openapi.js",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint . --ignore-pattern 'src/openapi-rq/**' --ignore-pattern 'eventserver/**'",

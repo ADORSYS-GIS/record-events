@@ -32,7 +32,7 @@ pub fn routes() -> Router<AppState> {
 #[utoipa::path(
     post,
     path = "/api/v1/events",
-    request_body = SignedEventPackage,
+    request_body = String,
     responses(
         (status = 200, description = "Event processed successfully", body = ProcessingResult),
         (status = 400, description = "Invalid event data or validation failed"),
@@ -111,7 +111,7 @@ async fn receive_event(
 #[utoipa::path(
     post,
     path = "/api/v1/events/package",
-    request_body = SignedEventPackage,
+    request_body = String,
     responses(
         (status = 200, description = "Event package processed and uploaded successfully", body = serde_json::Value),
         (status = 400, description = "Invalid event package or validation failed"),

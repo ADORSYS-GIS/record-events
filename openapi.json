@@ -14,8 +14,8 @@
   },
   "servers": [
     {
-      "url": "https://localhost",
-      "description": "Local server"
+      "url": "http://localhost:3000",
+      "description": "Dynamic server address from environment"
     }
   ],
   "paths": {
@@ -27,9 +27,9 @@
         "operationId": "receive_event",
         "requestBody": {
           "content": {
-            "application/json": {
+            "text/plain": {
               "schema": {
-                "$ref": "#/components/schemas/SignedEventPackage"
+                "type": "string"
               }
             }
           },
@@ -50,12 +50,17 @@
             "description": "Invalid event data or validation failed"
           },
           "401": {
-            "description": "Authentication required - no validated relay ID"
+            "description": "Authentication required - Bearer token missing or invalid"
           },
           "500": {
             "description": "Internal server error during processing"
           }
-        }
+        },
+        "security": [
+          {
+            "bearer_auth": []
+          }
+        ]
       }
     },
     "/api/v1/events/package": {
@@ -66,9 +71,9 @@
         "operationId": "receive_event_package",
         "requestBody": {
           "content": {
-            "application/json": {
+            "text/plain": {
               "schema": {
-                "$ref": "#/components/schemas/SignedEventPackage"
+                "type": "string"
               }
             }
           },
@@ -87,12 +92,17 @@
             "description": "Invalid event package or validation failed"
           },
           "401": {
-            "description": "Authentication required - no validated relay ID"
+            "description": "Authentication required - Bearer token missing or invalid"
           },
           "500": {
             "description": "Internal server error during processing or storage"
           }
-        }
+        },
+        "security": [
+          {
+            "bearer_auth": []
+          }
+        ]
       }
     },
     "/api/v1/events/{hash}/verify": {
@@ -126,10 +136,18 @@
           "400": {
             "description": "Invalid hash format - must be 64 characters"
           },
+          "401": {
+            "description": "Authentication required - Bearer token missing or invalid"
+          },
           "500": {
             "description": "Internal server error during verification"
           }
-        }
+        },
+        "security": [
+          {
+            "bearer_auth": []
+          }
+        ]
       }
     },
     "/api/v1/pow/challenge": {
@@ -142,7 +160,9 @@
             "description": "PoW challenge generated successfully",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/PowChallengeResponse"
+                }
               }
             }
           },
@@ -172,7 +192,9 @@
             "description": "PoW verified and certificate issued successfully",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/TokenResponse"
+                }
               }
             }
           },
@@ -385,6 +407,99 @@
         "description": "Supported media types - matches TypeScript MediaType",
         "enum": ["image/jpeg", "image/png", "image/gif", "video/mp4"]
       },
+      "PowCertificateRequest": {
+        "type": "object",
+        "description": "Proof of Work request for certificate issuance",
+        "required": ["solution", "public_key", "relay_id"],
+        "properties": {
+          "public_key": {
+            "type": "string"
+          },
+          "relay_id": {
+            "type": "string"
+          },
+          "solution": {
+            "$ref": "#/components/schemas/PowSolution"
+          }
+        }
+      },
+      "PowChallenge": {
+        "type": "object",
+        "description": "Proof of Work challenge",
+        "required": [
+          "challenge_id",
+          "challenge_data",
+          "difficulty",
+          "expires_at",
+          "created_at"
+        ],
+        "properties": {
+          "challenge_data": {
+            "type": "string"
+          },
+          "challenge_id": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "difficulty": {
+            "type": "integer",
+            "format": "int32",
+            "minimum": 0
+          },
+          "expires_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "PowChallengeResponse": {
+        "type": "object",
+        "description": "Response for PoW challenge request",
+        "required": [
+          "challenge_id",
+          "challenge_data",
+          "difficulty",
+          "expires_at"
+        ],
+        "properties": {
+          "challenge_data": {
+            "type": "string"
+          },
+          "challenge_id": {
+            "type": "string"
+          },
+          "difficulty": {
+            "type": "integer",
+            "format": "int32",
+            "minimum": 0
+          },
+          "expires_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "PowSolution": {
+        "type": "object",
+        "description": "Proof of Work solution",
+        "required": ["challenge_id", "nonce", "hash"],
+        "properties": {
+          "challenge_id": {
+            "type": "string"
+          },
+          "hash": {
+            "type": "string"
+          },
+          "nonce": {
+            "type": "integer",
+            "format": "int64",
+            "minimum": 0
+          }
+        }
+      },
       "ProcessingResult": {
         "type": "object",
         "description": "Processing result returned after event processing",
@@ -416,140 +531,22 @@
           }
         }
       },
-      "SignedEventPackage": {
+      "TokenResponse": {
         "type": "object",
-        "description": "Event package for secure transmission with JWT authentication",
-        "required": ["jwtEventData"],
+        "description": "Response for PoW verification (token only)",
+        "required": ["token"],
         "properties": {
-          "jwtEventData": {
-            "type": "string",
-            "description": "JWT token containing the event data and authentication information"
-          }
-        }
-      },
-      "PowCertificateRequest": {
-        "type": "object",
-        "description": "Request to verify PoW and issue certificate",
-        "required": ["solution", "public_key", "relay_id"],
-        "properties": {
-          "solution": {
-            "$ref": "#/components/schemas/PowSolution"
-          },
-          "public_key": {
-            "type": "string",
-            "description": "Base64 encoded Ed25519 public key"
-          },
-          "relay_id": {
-            "type": "string",
-            "description": "Unique identifier for the relay/device"
-          }
-        }
-      },
-      "PowChallengeResponse": {
-        "type": "object",
-        "description": "Response for PoW challenge request",
-        "required": [
-          "challenge_id",
-          "challenge_data",
-          "difficulty",
-          "expires_at"
-        ],
-        "properties": {
-          "challenge_id": {
-            "type": "string",
-            "description": "Unique identifier for the challenge"
-          },
-          "challenge_data": {
-            "type": "string",
-            "description": "Base64 encoded random data to hash"
-          },
-          "difficulty": {
-            "type": "integer",
-            "description": "Number of leading zeros required in the hash"
-          },
-          "expires_at": {
-            "type": "string",
-            "format": "date-time",
-            "description": "When the challenge expires"
-          }
-        }
-      },
-      "PowSolution": {
-        "type": "object",
-        "description": "PoW solution submitted for verification",
-        "required": ["challenge_id", "nonce", "hash"],
-        "properties": {
-          "challenge_id": {
-            "type": "string",
-            "description": "The challenge ID this solution is for"
-          },
-          "nonce": {
-            "type": "integer",
-            "description": "The nonce that produced the valid hash"
-          },
-          "hash": {
-            "type": "string",
-            "description": "Base64 encoded hash result"
-          }
-        }
-      },
-      "CertificateResponse": {
-        "type": "object",
-        "description": "Response containing the issued certificate",
-        "required": ["success", "certificate", "token"],
-        "properties": {
-          "success": {
-            "type": "boolean",
-            "description": "Whether the operation was successful"
-          },
-          "certificate": {
-            "$ref": "#/components/schemas/DeviceCertificate"
-          },
           "token": {
-            "type": "string",
-            "description": "JWT token for authentication"
+            "type": "string"
           }
         }
-      },
-      "DeviceCertificate": {
-        "type": "object",
-        "description": "Device certificate details",
-        "required": [
-          "certificate_id",
-          "relay_id",
-          "public_key",
-          "issued_at",
-          "expires_at",
-          "signature"
-        ],
-        "properties": {
-          "certificate_id": {
-            "type": "string",
-            "description": "Unique identifier for the certificate"
-          },
-          "relay_id": {
-            "type": "string",
-            "description": "The relay/device ID this certificate is for"
-          },
-          "public_key": {
-            "type": "string",
-            "description": "The public key associated with this certificate"
-          },
-          "issued_at": {
-            "type": "string",
-            "format": "date-time",
-            "description": "When the certificate was issued"
-          },
-          "expires_at": {
-            "type": "string",
-            "format": "date-time",
-            "description": "When the certificate expires"
-          },
-          "signature": {
-            "type": "string",
-            "description": "Digital signature of the certificate"
-          }
-        }
+      }
+    },
+    "securitySchemes": {
+      "bearer_auth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
       }
     }
   },

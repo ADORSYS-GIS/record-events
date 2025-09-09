@@ -85,13 +85,6 @@ pub struct EventPackage {
     pub metadata: EventMetadata,
 }
 
-/// Signed event package with PoW-based authentication
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(rename_all = "camelCase")]
-pub struct SignedEventPackage {
-    pub jwt_event_data: String,
-}
-
 /// Simple event payload from frontend - file upload notification
 #[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
 #[serde(rename_all = "camelCase")]

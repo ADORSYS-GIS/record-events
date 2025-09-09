@@ -1,6 +1,5 @@
 import { toast } from "sonner";
 import { useEventsServicePostApiV1EventsPackage } from "../openapi-rq/queries/queries";
-import { SignedEventPackage } from "../openapi-rq/requests/types.gen";
 
 export const useEventSubmission = () => {
   const mutation = useEventsServicePostApiV1EventsPackage({
@@ -12,6 +11,7 @@ export const useEventSubmission = () => {
       console.error("Submission error:", error);
     },
   });
+  type SignedEventPackage = string;
 
   const submitEvent = (signedEventPackage: SignedEventPackage) => {
     mutation.mutate({ requestBody: signedEventPackage });
