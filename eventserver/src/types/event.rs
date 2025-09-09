@@ -85,7 +85,6 @@ pub struct EventPackage {
     pub metadata: EventMetadata,
 }
 
-
 /// Simple event payload from frontend - file upload notification
 #[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
 #[serde(rename_all = "camelCase")]

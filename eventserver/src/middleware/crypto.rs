@@ -85,14 +85,14 @@ pub async fn crypto_validation_middleware(
                     error!("Failed to parse request body as UTF-8 string: {}", e);
                     StatusCode::BAD_REQUEST
                 })?;
-                info!("Received JWT token for event verification (length: {})", jwt_token.len());
+                info!(
+                    "Received JWT token for event verification (length: {})",
+                    jwt_token.len()
+                );
 
                 // Verify JWT event data using device public key from certificate
                 info!("Starting JWT verification with device public key");
-                match verify_jwt_event_data(
-                    &jwt_token,
-                    &validation.public_key,
-                ) {
+                match verify_jwt_event_data(&jwt_token, &validation.public_key) {
                     Ok(event_package) => {
                         // Print the event package for debugging
                         info!(

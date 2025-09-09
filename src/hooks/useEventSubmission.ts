@@ -11,7 +11,7 @@ export const useEventSubmission = () => {
       console.error("Submission error:", error);
     },
   });
-  type SignedEventPackage = string; 
+  type SignedEventPackage = string;
 
   const submitEvent = (signedEventPackage: SignedEventPackage) => {
     mutation.mutate({ requestBody: signedEventPackage });
