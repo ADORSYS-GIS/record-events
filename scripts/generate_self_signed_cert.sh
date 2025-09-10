@@ -105,7 +105,11 @@ fi
 cat "${CRT_PATH}" "${KEY_PATH}" > "${PEM_PATH}"
 
 # Restrictive permissions on the private key
-chmod 600 "${KEY_PATH}"
+# Set permissions: group-readable so non-root Nginx user can access it inside the container
+# --- Docker-friendly permissions ---
+# Make key group-readable so Nginx (non-root user) inside container can access it.
+chmod 640 "${KEY_PATH}"
+chmod 644 "${CRT_PATH}" "${PEM_PATH}"
 
 echo "Done."
 echo "Certificate: ${CRT_PATH}"

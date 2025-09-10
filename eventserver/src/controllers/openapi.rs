@@ -116,7 +116,7 @@ async fn openapi_json() -> Response {
 
     // Dynamically set the servers field from environment variable
     let server_address =
-        std::env::var("SERVER_ADDRESS").unwrap_or_else(|_| "http://localhost:3000".to_string());
+        std::env::var("SERVER_ADDRESS").unwrap_or_else(|_| "https://localhost".to_string());
 
     use utoipa::openapi::server::ServerBuilder;
     spec.servers = Some(vec![ServerBuilder::new()

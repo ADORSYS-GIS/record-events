@@ -49,6 +49,24 @@ services:
       start_period: 10s
     restart: unless-stopped
 
+  # OpenAPI fetcher service
+  openapi-fetcher:
+    image: node:18
+    container_name: openapi-fetcher
+    working_dir: /app
+    command: ["node", "scripts/fetch_openapi.js"]
+    environment:
+      - EVENTSERVER_OPENAPI_URL=http://backend:8080/openapi-json
+    volumes:
+      - openapi-volume:/app
+      - ./scripts:/app/scripts:ro
+      - ./package.json:/app/package.json
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks:
+      - app-network
+
   # MinIO service (S3-compatible storage)
   minio:
     image: minio/minio:latest
@@ -102,21 +120,35 @@ services:
       context: .
       dockerfile: Dockerfile
       target: production
+      args:
+        OPENAPI_URL: http://host.docker.internal:8080/openapi-json
+      extra_hosts:
+        - "host.docker.internal:host-gateway"
     container_name: eventserver-frontend
     ports:
       - "80:80"
       - "443:443"
     depends_on:
-      backend:
-        condition: service_healthy
+      openapi-fetcher:
+        condition: service_started
     environment:
       # API endpoint configuration
       - VITE_API_BASE_URL=http://localhost:8080
       - VITE_APP_TITLE=EventServer
+      - EVENTSERVER_OPENAPI_URL=http://backend:8080/openapi-json
     networks:
       - app-network
     volumes:
       - ./certs:/etc/nginx/certs:ro
+      - openapi-volume:/usr/share/nginx/html
+    entrypoint: >
+      /bin/sh -c "
+        while [ ! -f /usr/share/nginx/html/openapi.json ]; do
+          echo 'Waiting for openapi.json...';
+          sleep 2;
+        done;
+        nginx -g 'daemon off;'
+      "
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:80"]
       interval: 30s
@@ -150,6 +182,7 @@ services:
       - S3_BUCKET=${S3_BUCKET:-eventserver-storage}
       - S3_USE_PATH_STYLE=${S3_USE_PATH_STYLE:-true}
       - S3_ENABLE_SSL=${S3_ENABLE_SSL:-false}
+      - SERVER_ADDRESS=${SERVER_ADDRESS:-https://localhost}
       - S3_UPLOAD_TIMEOUT=${S3_UPLOAD_TIMEOUT:-300}
       - S3_MAX_FILE_SIZE=${S3_MAX_FILE_SIZE:-104857600}
       - S3_ALLOWED_MIME_TYPES=${S3_ALLOWED_MIME_TYPES:-image/jpeg,image/png,image/gif,video/mp4}
@@ -180,12 +213,14 @@ services:
       - "3001:5173"
     environment:
       - VITE_API_BASE_URL=http://localhost:8081
+      - EVENTSERVER_OPENAPI_URL=http://backend:3000/openapi-json
       - VITE_APP_TITLE=EventServer (Dev)
     volumes:
       # Mount source code for hot reloading
       - .:/app
       - /app/node_modules # Anonymous volume for node_modules
       - /app/eventserver # Exclude eventserver directory
+      - ./openapi.json:/app/openapi.json
     networks:
       - app-network
     profiles:
@@ -205,3 +240,5 @@ volumes:
     name: eventserver-frontend-node-modules
   minio-data:
     name: eventserver-minio-data
+  openapi-volume:
+    name: eventserver-openapi-volume
