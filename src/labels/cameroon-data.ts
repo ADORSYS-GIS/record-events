@@ -1,0 +1,594 @@
+export const cameroonData = {
+  "Adamawa": {
+    "Djérem": {
+      "Ngaoundal": [],
+      "Tibati": []
+    },
+    "Faro-et-Déo": {
+      "Galim-Tignère": [],
+      "Kontcha": [],
+      "Mayo-Baléo": [],
+      "Tignère": []
+    },
+    "Mayo-Banyo": {
+      "Bankim": [],
+      "Banyo": [],
+      "Mayo-Darlé": []
+    },
+    "Mbéré": {
+      "Dir": [],
+      "Djohong": [],
+      "Meiganga": [],
+      "Ngaoui": []
+    },
+    "Vina": {
+      "Belel": [],
+      "Martap": [],
+      "Mbe": [],
+      "Nganha": [],
+      "Ngaoundéré I": [],
+      "Ngaoundéré II": [],
+      "Ngaoundéré III": [],
+      "Nyambaka": []
+    }
+  },
+  "Centre": {
+    "Haute-Sanaga": {
+      "Bibey": [],
+      "Lembe-Yezoum": [],
+      "Mbandjock": [],
+      "Minta": [],
+      "Nanga-Eboko": [],
+      "Nkoteng": [],
+      "Nsem": []
+    },
+    "Lekié": {
+      "Batchenga": [],
+      "Ebebda": [],
+      "Elig-Mfomo": [],
+      "Evodoula": [],
+      "Lobo": [],
+      "Monatélé": [],
+      "Obala": [],
+      "Okola": [],
+      "Sa'a": []
+    },
+    "Mbam-et-Inoubou": {
+      "Bafia": [],
+      "Bokito": [],
+      "Deuk": [],
+      "Kiiki": [],
+      "Kon-Yambetta": [],
+      "Makénéné": [],
+      "Ndikiniméki": [],
+      "Nitoukou": [],
+      "Ombessa": []
+    },
+    "Mbam-et-Kim": {
+      "Mbangassina": [],
+      "Ngambè-Tikar": [],
+      "Ngoro": [],
+      "Ntui": [],
+      "Yoko": []
+    },
+    "Méfou-et-Afamba": {
+      "Afanloum": [],
+      "Assamba": [],
+      "Awaé": [],
+      "Edzendouan": [],
+      "Esse": [],
+      "Mfou": [],
+      "Nkolafamba": [],
+      "Soa": []
+    },
+    "Méfou-et-Akono": {
+      "Akono": [],
+      "Bikok": [],
+      "Mbankomo": [],
+      "Ngoumou": []
+    },
+    "Mfoundi": {
+      "Yaoundé I": [],
+      "Yaoundé II": [],
+      "Yaoundé III": [],
+      "Yaoundé IV": [],
+      "Yaoundé V": [],
+      "Yaoundé VI": [],
+      "Yaoundé VII": []
+    },
+    "Nyong-et-Kéllé": {
+      "Biyouha": [],
+      "Bondjock": [],
+      "Bot-Makak": [],
+      "Dibang": [],
+      "Éséka": [],
+      "Makak": [],
+      "Matomb": [],
+      "Messondo": [],
+      "Ngog-Mapubi": [],
+      "Nguibassal": []
+    },
+    "Nyong-et-Mfoumou": {
+      "Akonolinga": [],
+      "Ayos": [],
+      "Endom": [],
+      "Mengang": [],
+      "Nyakokombo": []
+    },
+    "Nyong-et-So'o": {
+      "Akoeman": [],
+      "Dzeng": [],
+      "Mbalmayo": [],
+      "Mengueme": [],
+      "Ngomedzap": [],
+      "Nkolmetet": []
+    }
+  },
+  "East": {
+    "Boumba-et-Ngoko": {
+      "Gari-Gombo": [],
+      "Moloundou": [],
+      "Salapoumbé": [],
+      "Yokadouma": []
+    },
+    "Kadey": {
+      "Batouri": [],
+      "Bombé": [],
+      "Kette": [],
+      "Mbang": [],
+      "Mbotoro": [],
+      "Ndelele": [],
+      "Ndem-Nam": []
+    },
+    "Lom-et-Djérem": {
+      "Bélabo": [],
+      "Bertoua I": [],
+      "Bertoua II": [],
+      "Bétaré-Oya": [],
+      "Diang": [],
+      "Garoua-Boulaï": [],
+      "Mandjou": [],
+      "Ngoura": []
+    },
+    "Haut-Nyong": {
+      "Abong-Mbang": [],
+      "Bebend": [],
+      "Dimako": [],
+      "Dja": [],
+      "Doumaintang": [],
+      "Doumé": [],
+      "Lomié": [],
+      "Mboanz": [],
+      "Mboma": [],
+      "Messamena": [],
+      "Messok": [],
+      "Ngoyla": [],
+      "Nguelemendouka": [],
+      "Somalomo": []
+    }
+  },
+  "Far North": {
+    "Diamaré": {
+      "Bogo": [],
+      "Dargala": [],
+      "Gazawa": [],
+      "Maroua I": [],
+      "Maroua II": [],
+      "Maroua III": [],
+      "Meri": [],
+      "Ndoukoula": [],
+      "Petté": []
+    },
+    "Logone-et-Chari": {
+      "Blangoua": [],
+      "Darak": [],
+      "Fotokol": [],
+      "Goulfey": [],
+      "Hile-Alifa": [],
+      "Kousséri": [],
+      "Logone-Birni": [],
+      "Makary": [],
+      "Waza": [],
+      "Zina": []
+    },
+    "Mayo-Danay": {
+      "Datcheka": [],
+      "Gobo": [],
+      "Guéré": [],
+      "Kaï-Kaï": [],
+      "Kalfou": [],
+      "Kar-Hay": [],
+      "Maga": [],
+      "Tchati-Bali": [],
+      "Vele": [],
+      "Wina": [],
+      "Yagoua": []
+    },
+    "Mayo-Kani": {
+      "Guidiguis": [],
+      "Kaélé": [],
+      "Mindif": [],
+      "Moulvoudaye": [],
+      "Moutourwa": [],
+      "Porhi": [],
+      "Taibong": []
+    },
+    "Mayo-Sava": {
+      "Kolofata": [],
+      "Mora": [],
+      "Tokombéré": []
+    },
+    "Mayo-Tsanaga": {
+      "Bourrha": [],
+      "Hina": [],
+      "Koza": [],
+      "Mayo-Moskota": [],
+      "Mogode": [],
+      "Mokolo": [],
+      "Soulédé-Roua": []
+    }
+  },
+  "Littoral": {
+    "Moungo": {
+      "Abo Fiko": [],
+      "Baré-Bakem": [],
+      "Dibombari": [],
+      "Loum": [],
+      "Manjo": [],
+      "Mbanga": [],
+      "Melong": [],
+      "Mombo": [],
+      "Njombe-Penja": [],
+      "Nkongsamba I": [],
+      "Nkongsamba II": [],
+      "Nkongsamba III": [],
+      "Nlonako": []
+    },
+    "Nkam": {
+      "Nkondjock": [],
+      "Nord-Makombé": [],
+      "Yabassi": [],
+      "Yingui": []
+    },
+    "Sanaga-Maritime": {
+      "Dibamba": [],
+      "Dizangué": [],
+      "Édéa I": [],
+      "Édéa II": [],
+      "Massock-Songloulou": [],
+      "Mouanko": [],
+      "Ndom": [],
+      "Ngambe": [],
+      "Ngwei": [],
+      "Nyanon": [],
+      "Pouma": []
+    },
+    "Wouri": {
+      "Douala I": [],
+      "Douala II": [],
+      "Douala III": [],
+      "Douala IV": [],
+      "Douala V": [],
+      "Douala VI": []
+    }
+  },
+  "North": {
+    "Bénoué": {
+      "Baschéo": [],
+      "Bibemi": [],
+      "Dembo": [],
+      "Demsa": [],
+      "Garoua I": [],
+      "Garoua II": [],
+      "Garoua III": [],
+      "Lagdo": [],
+      "Mayo-Hourna": [],
+      "Pitoa": [],
+      "Tcheboa": [],
+      "Touroua": []
+    },
+    "Faro": {
+      "Beka": [],
+      "Poli": []
+    },
+    "Mayo-Louti": {
+      "Figuil": [],
+      "Guider": [],
+      "Mayo-Oulo": []
+    },
+    "Mayo-Rey": {
+      "Madingring": [],
+      "Rey-Bouba": [],
+      "Tcholliré": [],
+      "Touboro": []
+    }
+  },
+  "North-West": {
+    "Boyo": {
+      "Belo": [],
+      "Bum": [],
+      "Fundong": [],
+      "Njinikom": []
+    },
+    "Bui": {
+      "Jakiri": [],
+      "Kumbo": [],
+      "Mbven": [],
+      "Nkum": [],
+      "Noni": [],
+      "Oku": []
+    },
+    "Donga-Mantung": {
+      "Ako": [],
+      "Misaje": [],
+      "Ndu": [],
+      "Nkambé": [],
+      "Nwa": []
+    },
+    "Menchum": {
+      "Fungom": [],
+      "Furu-Awa": [],
+      "Menchum Valley": [],
+      "Wum": []
+    },
+    "Mezam": {
+      "Bafut": [],
+      "Bali": [],
+      "Bamenda I": [],
+      "Bamenda II": [],
+      "Bamenda III": [],
+      "Santa": [],
+      "Tubah": []
+    },
+    "Momo": {
+      "Batibo": [],
+      "Mbengwi": [],
+      "Ngie": [],
+      "Njikwa": [],
+      "Widikum-Menka": []
+    },
+    "Ngo-Ketunjia": {
+      "Babessi": [],
+      "Balikumbat": [],
+      "Ndop": []
+    }
+  },
+  "South": {
+    "Dja-et-Lobo": {
+      "Bengbis": [],
+      "Djoum": [],
+      "Meyomessala": [],
+      "Meyomessi": [],
+      "Mintom": [],
+      "Oveng": [],
+      "Sangmélima": [],
+      "Zoétélé": []
+    },
+    "Mvila": {
+      "Biwong-Bane": [],
+      "Biwong-Bulu": [],
+      "Ebolowa I": [],
+      "Ebolowa II": [],
+      "Efoulan": [],
+      "Mengong": [],
+      "Mvangan": [],
+      "Ngoulemakong": []
+    },
+    "Océan": {
+      "Akom II": [],
+      "Bipindi": [],
+      "Campo": [],
+      "Kribi I": [],
+      "Kribi II": [],
+      "Lokoundje": [],
+      "Lolodorf": [],
+      "Mvengue": [],
+      "Niete": []
+    },
+    "Vallée-du-Ntem": {
+      "Ambam": [],
+      "Kyé-Ossi": [],
+      "Ma'an": [],
+      "Olamze": []
+    }
+  },
+  "South-West": {
+    "Fako": {
+      "Buea": [],
+      "Limbé I": [],
+      "Limbé II": [],
+      "Limbé III": [],
+      "Muyuka": [],
+      "Tiko": [],
+      "West Coast": []
+    },
+    "Koupé-Manengouba": {
+      "Bangem": [],
+      "Nguti": [],
+      "Tombel": []
+    },
+    "Lebialem": {
+      "Alou": [],
+      "Fontem": [],
+      "Wabane": []
+    },
+    "Manyu": {
+      "Akwaya": [],
+      "Eyumodjock": [],
+      "Mamfé Central": [],
+      "Upper Banyang": []
+    },
+    "Meme": {
+      "Konye": [],
+      "Kumba I": [],
+      "Kumba II": [],
+      "Kumba III": [],
+      "Mbonge": []
+    },
+    "Ndian": {
+      "Bamusso": [],
+      "Dikome-Balue": [],
+      "Ekondo-Titi": [],
+      "Idabato": [],
+      "Isanguele": [],
+      "Kombo-Abedimo": [],
+      "Kombo-Itindi": [],
+      "Mundemba": [],
+      "Toko": []
+    }
+  },
+  "West": {
+    "Bamboutos": {
+      "Babadjou": [],
+      "Batcham": [],
+      "Galim": [],
+      "Mbouda": []
+    },
+    "Haut-Nkam": {
+      "Bafang": [],
+      "Bakou": [],
+      "Bana": [],
+      "Bandja": [],
+      "Banka": [],
+      "Banwa": [],
+      "Kékem": []
+    },
+    "Hauts-Plateaux": {
+      "Baham": [],
+      "Bamendjou": [],
+      "Bangou": [],
+      "Batié": []
+    },
+    "Koung-Khi": {
+      "Bayangam": [],
+      "Djebem": [],
+      "Poumougne": []
+    },
+    "Menoua": {
+      "Dschang": [],
+      "Fokoué": [],
+      "Fongo-Tongo": [],
+      "Nkong-Ni": [],
+      "Penka-Michel": [],
+      "Santchou": []
+    },
+    "Mifi": {
+      "Bafoussam I": [],
+      "Bafoussam II": [],
+      "Bafoussam III": []
+    },
+    "Ndé": {
+      "Bangangté": [],
+      "Bassamba": [],
+      "Bazou": [],
+      "Tonga": []
+    },
+    "Noun": {
+      "Bangourain": [],
+      "Foumban": [],
+      "Foumbot": [],
+      "Kouoptamo": [],
+      "Koutaba": [],
+      "Magba": [],
+      "Malentouen": [],
+      "Massangam": [],
+      "Njimom": []
+    }
+  }
+};
+
+export function getDivisions(region: string): string[] {
+  if (!region || !(cameroonData as any)[region]) return [];
+  return Object.keys((cameroonData as any)[region]);
+}
+
+export function getSubdivisions(region: string, division: string): string[] {
+  if (
+    !region ||
+    !division ||
+    !(cameroonData as any)[region] ||
+    !(cameroonData as any)[region][division]
+  )
+    return [];
+  return Object.keys((cameroonData as any)[region][division]);
+}
+
+export function getPollingStations(subdivision: string): string[] {
+  if (!subdivision) return [];
+  // Replace with actual data if available
+  return [
+    `${subdivision} Office 1`,
+    `${subdivision} Office 2`,
+    `${subdivision} Office 3`,
+    "Other",
+  ];
+}
+export const electionCandidates = {
+  "candidates": [
+    {
+      "political_party_french": "Rassemblement Démocratique du Peuple Camerounais (RDPC)",
+      "political_party_english": "Cameroon People's Democratic Movement (CPDM)",
+      "candidate": "Paul Biya"
+    },
+    {
+      "political_party_french": "Union Démocratique du Cameroun (UDC)",
+      "political_party_english": "Cameroon Democratic Union (UDC)",
+      "candidate": "Hermine Patricia Tomaïno Ndam Njoya"
+    },
+    {
+      "political_party_french": "Front pour le Salut National du Cameroun (FSNC)",
+      "political_party_english": "Front for the National Salvation of Cameroon (FSNC)",
+      "candidate": "Issa Tchiroma Bakary"
+    },
+    {
+      "political_party_french": "Union Nationale pour la Démocratie et le Progrès (UNDP)",
+      "political_party_english": "National Union for Democracy and Progress (UNDP)",
+      "candidate": "Bello Bouba Maigari"
+    },
+    {
+      "political_party_french": "Front Social Démocratique (SDF)",
+      "political_party_english": "Social Democratic Front (SDF)",
+      "candidate": "Joshua Osih"
+    },
+    {
+      "political_party_french": "Parti Camerounais pour la Réconciliation Nationale (PCRN)",
+      "political_party_english": "Cameroon Party for National Reconciliation (PCRN)",
+      "candidate": "Cabral Libii"
+    },
+    {
+      "political_party_french": "Univers",
+      "political_party_english": "Univers",
+      "candidate": "Akere Muna"
+    },
+    {
+      "political_party_french": "Peuple Uni pour la Rénovation Sociale (PURS)",
+      "political_party_english": "United People for Social Renovation (PURS)",
+      "candidate": "Serge Matomba"
+    },
+    {
+      "political_party_french": "Front Démocratique du Cameroun (FDC)",
+      "political_party_english": "Cameroon Democratic Front (FDC)",
+      "candidate": "Hiram Samuel Iyodi"
+    },
+    {
+      "political_party_french": "Mouvement Camerounais pour le Changement (MCMC)",
+      "political_party_english": "Cameroon Movement for Change (MCMC)",
+      "candidate": "Jacques Bouba Hagbe"
+    },
+    {
+      "political_party_french": "Alliance pour la Liberté (PAL)",
+      "political_party_english": "Alliance for Liberty (PAL)",
+      "candidate": "Ateki Parkston"
+    },
+    {
+      "political_party_french": "Union des Mouvements Socialistes (UMS)",
+      "political_party_english": "Union des Mouvements Socialistes (UMS)",
+      "candidate": "Pierre Kouemo"
+    },
+    {
+      "political_party_french": "Bulletin Null - Invalide",
+      "political_party_english": "Void Votes - Invalid",
+      "candidate": "Hilaire Macaire Nzipang"
+    }
+  ]
+};

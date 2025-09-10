@@ -1,24 +1,30 @@
 import {
   Camera,
-  Check,
-  ChevronDown,
   Save,
   Send,
   Upload,
   X,
+  ChevronDown,
+  Check,
 } from "lucide-react";
-import { useCallback, useEffect, useRef, useState, useMemo } from "react";
+import { useCallback, useState, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
-import type { KeyPair } from "../hooks/useAuthenticationFlow";
-import { useEventHistory } from "../hooks/useEventHistory";
-import { useEventSubmission } from "../hooks/useEventSubmission";
-import ConnectionStatus from "./ConnectionStatus";
+import type { KeyPair } from "../hooks/useKeyInitialization";
 import type { Label, LocalizedText } from "../labels/label-manager";
-import type { EventPackage } from "../openapi-rq/requests/types.gen";
-import { apiAuthService } from "../services/keyManagement/apiAuthService";
+import { createEventPackage, validateFormData } from "../utils/event-packer";
+import { useEventSubmission } from "../hooks/useEventSubmission";
 import { generateEventJWT } from "../services/keyManagement/jwtService";
-import { createEventPackage } from "../utils/event-packer";
+import { useEventHistory } from "../hooks/useEventHistory";
+import type { EventPackage as LocalEventPackage } from "../types/event";
+import type { EventPackage } from "../openapi-rq/requests/types.gen";
+import {
+  getDivisions,
+  getSubdivisions,
+  getPollingStations,
+  electionCandidates,
+} from "../labels/cameroon-data";
+import { apiAuthService } from "../services/keyManagement/apiAuthService";
 
 type FieldValue = string | number | boolean | null;
 
@@ -121,14 +127,14 @@ interface EventFormProps {
   labels: Label[];
   keyPair: KeyPair; // Make keyPair required for authorization
   createdBy?: string;
-  onGoBack?: () => void; // Add this prop
+  onGoBack?: () => void;
 }
 
 const EventForm: React.FC<EventFormProps> = ({
   labels,
   keyPair: _keyPair,
   createdBy,
-  onGoBack,
+  onGoBack = () => window.history.back(),
 }) => {
   const { t, i18n } = useTranslation();
   const [formData, setFormData] = useState<FormData>({});
@@ -136,30 +142,9 @@ const EventForm: React.FC<EventFormProps> = ({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [dragActive, setDragActive] = useState(false);
-  const [showCamera, setShowCamera] = useState(false);
-  const [cameraStream, setCameraStream] = useState<MediaStream | null>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   const { submitEvent, isSubmitting: isApiSubmitting } = useEventSubmission();
   const { addEvent } = useEventHistory();
-
-  // Memoize the blob URL to prevent infinite requests
-  const mediaPreviewUrl = useMemo(() => {
-    if (mediaFile) {
-      return URL.createObjectURL(mediaFile);
-    }
-    return null;
-  }, [mediaFile]);
-
-  // Cleanup blob URL when component unmounts or mediaFile changes
-  useEffect(() => {
-    return () => {
-      if (mediaPreviewUrl) {
-        URL.revokeObjectURL(mediaPreviewUrl);
-      }
-    };
-  }, [mediaPreviewUrl]);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -191,10 +176,22 @@ const EventForm: React.FC<EventFormProps> = ({
   };
 
   const handleDropdownChange = (name: string, value: string) => {
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData((prev) => {
+      const newFormData = { ...prev, [name]: value };
+
+      // Reset dependent fields
+      const resetDependentFields = (fieldName: string, data: any) => {
+        labels.forEach((label) => {
+          if (label.dependsOn === fieldName) {
+            data[label.labelId] = null;
+            resetDependentFields(label.labelId, data);
+          }
+        });
+      };
+      resetDependentFields(name, newFormData);
+
+      return newFormData;
+    });
 
     if (errors[name]) {
       setErrors((prev) => ({
@@ -205,113 +202,26 @@ const EventForm: React.FC<EventFormProps> = ({
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      // Prevent processing the same file multiple times
-      if (
-        mediaFile &&
-        mediaFile.name === file.name &&
-        mediaFile.size === file.size
-      ) {
-        e.target.value = "";
-        return;
-      }
-
-      setMediaFile(file);
+    if (e.target.files?.[0]) {
+      setMediaFile(e.target.files[0]);
       setErrors((prev) => ({ ...prev, media: "" }));
     }
-    // Reset the input value to prevent repeated onChange events
-    e.target.value = "";
   };
 
-  const handleTakePhoto = async () => {
-    try {
-      // Request camera access
-      const stream = await navigator.mediaDevices.getUserMedia({
-        video: {
-          facingMode: "environment", // Use back camera on mobile
-          width: { ideal: 1920 },
-          height: { ideal: 1080 },
-        },
-      });
+  const handleTakePhoto = () => {
+    const input = document.createElement("input");
+    input.type = "file";
+    input.accept = "image/*";
+    input.capture = "environment";
 
-      setCameraStream(stream);
-      setShowCamera(true);
-
-      // Set video source and play
-      if (videoRef.current) {
-        videoRef.current.srcObject = stream;
-        videoRef.current.play();
+    input.onchange = (e) => {
+      const file = (e.target as HTMLInputElement).files?.[0];
+      if (file) {
+        setMediaFile(file);
       }
-    } catch (error) {
-      toast.error(
-        t("camera.error", "Unable to access camera. Please check permissions."),
-      );
+    };
 
-      // Fallback to file input if camera fails
-      const input = document.createElement("input");
-      input.type = "file";
-      input.accept = "image/*";
-      input.capture = "environment";
-
-      input.onchange = (e) => {
-        const file = (e.target as HTMLInputElement).files?.[0];
-        if (file) {
-          setMediaFile(file);
-        }
-        // Reset input value to prevent repeated events
-        (e.target as HTMLInputElement).value = "";
-      };
-
-      input.click();
-    }
-  };
-
-  const capturePhoto = () => {
-    if (!videoRef.current || !canvasRef.current || !cameraStream) return;
-
-    const video = videoRef.current;
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
-
-    if (ctx) {
-      // Set canvas dimensions to match video
-      canvas.width = video.videoWidth;
-      canvas.height = video.videoHeight;
-
-      // Draw the current video frame to canvas
-      ctx.drawImage(video, 0, 0);
-
-      // Convert canvas to blob and create file
-      canvas.toBlob(
-        (blob) => {
-          if (blob) {
-            const file = new File([blob], `photo_${Date.now()}.jpg`, {
-              type: "image/jpeg",
-            });
-            setMediaFile(file);
-          }
-        },
-        "image/jpeg",
-        0.9,
-      );
-    }
-
-    // Stop camera and hide camera view
-    stopCamera();
-  };
-
-  const stopCamera = () => {
-    if (cameraStream) {
-      cameraStream.getTracks().forEach((track) => track.stop());
-      setCameraStream(null);
-    }
-    setShowCamera(false);
-  };
-
-  const clearMediaFile = () => {
-    setMediaFile(null);
-    setErrors((prev) => ({ ...prev, media: "" }));
+    input.click();
   };
 
   const handleDrag = (e: React.DragEvent) => {
@@ -333,157 +243,100 @@ const EventForm: React.FC<EventFormProps> = ({
       setMediaFile(e.dataTransfer.files[0]);
       setErrors((prev) => ({ ...prev, media: "" }));
     }
-    // Clear the data transfer to prevent repeated events
-    e.dataTransfer.clearData();
   };
 
   const validate = useCallback((): boolean => {
-    const newErrors: Record<string, string> = {};
-
+    const cleanData: Record<string, FieldValue> = {};
     labels.forEach((label) => {
-      const value = formData[label.labelId];
-      if (
-        label.required &&
-        (value === undefined || value === null || value === "")
-      ) {
-        newErrors[label.labelId] = t(
-          "validation.required",
-          "This field is required",
-        );
+      if (formData[label.labelId] !== undefined) {
+        cleanData[label.labelId] = formData[label.labelId];
       }
     });
-
-    // Media file is optional - remove this validation
-    // if (!mediaFile) {
-    //   newErrors.media = t(
-    //     "validation.mediaRequired",
-    //     "Please add a photo or video",
-    //   );
-    // }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  }, [labels, formData, t]);
-
-  const handleSubmit = useCallback(
-    async (e: React.FormEvent) => {
-      e.preventDefault();
-
-      if (!validate()) {
-        toast.error(t("validationError"));
-        return;
-      }
-
-      // Validate keyPair before proceeding
-      if (!_keyPair || !_keyPair.privateKey || !_keyPair.publicKey) {
-        toast.error(
-          "Authentication error: Keys not available. Please try again.",
-        );
-        return;
-      }
-
-      // Prevent multiple submissions
-      if (isSubmitting || isApiSubmitting) {
-        return;
-      }
-
-      setIsSubmitting(true);
-
-      try {
-        const cleanData: Record<string, FieldValue> = {};
-        labels.forEach((label) => {
-          if (formData[label.labelId] !== undefined) {
-            cleanData[label.labelId] = formData[label.labelId];
-          }
-        });
-
-        // Only create event package if we have data or media
-        if (Object.keys(cleanData).length === 0 && !mediaFile) {
-          toast.error("Please fill in at least one field or add media");
-          return;
-        }
-
-        const eventPackage = await createEventPackage(
-          cleanData,
-          labels,
-          mediaFile,
-          { createdBy, source: "web" },
-        );
-
-        // Get the token from PoW verification
-        const token = localStorage.getItem("authToken");
-        if (!token) {
-          throw new Error(
-            "Authentication token not found. Please complete initialization first.",
-          );
-        }
-
-        // Set the token as Bearer token for API requests
-        apiAuthService.setBearerToken(token);
-
-        // Generate JWT with event data
-        const jwtEventData = await generateEventJWT(
-          _keyPair.privateKey,
-          _keyPair.publicKey,
-          eventPackage,
-          token,
-        );
-
-        // Ensure eventData.metadata.source is only "web" or "mobile"
-        const safeEventPackage = {
-          ...eventPackage,
-          metadata: {
-            ...eventPackage.metadata,
-            source:
-              eventPackage.metadata.source === "web" ||
-              eventPackage.metadata.source === "mobile"
-                ? eventPackage.metadata.source
-                : "web", // fallback to "web" if "api" or any other value
-          },
-        };
-
-        // Submit the JWT string directly as the signed event package
-        await submitEvent(jwtEventData);
-
-        // Add to local history using the generated EventPackage type
-        const historyEventPackage: EventPackage = {
-          id: eventPackage.id,
-          version: eventPackage.version,
-          annotations: eventPackage.annotations,
-          media: eventPackage.media,
-          metadata: {
-            createdAt: eventPackage.metadata.createdAt,
-            createdBy: eventPackage.metadata.createdBy,
-            source: eventPackage.metadata.source as "web" | "mobile",
-          },
-        };
-        addEvent(historyEventPackage);
-
-        setFormData({});
-        setMediaFile(null);
-        toast.success(t("eventSaved"));
-      } catch (error) {
-        toast.error(
-          error instanceof Error ? error.message : String(t("saveError")),
-        );
-      } finally {
-        setIsSubmitting(false);
-      }
-    },
-    [
-      validate,
-      _keyPair,
-      isSubmitting,
-      isApiSubmitting,
-      formData,
+    const { isValid: isFormDataValid, errors: formErrors } = validateFormData(
+      cleanData,
       labels,
-      mediaFile,
-      createdBy,
-      submitEvent,
-      addEvent,
-      t,
-    ],
-  );
+    );
+    const newErrors: Record<string, string> = { ...formErrors };
+    setErrors(newErrors);
+    return isFormDataValid && Object.keys(newErrors).length === 0;
+  }, [formData, labels]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!validate()) {
+      toast.error(t("validationError"));
+      return;
+    }
+    setIsSubmitting(true);
+
+    try {
+      const cleanData: Record<string, FieldValue> = {};
+      labels.forEach((label) => {
+        if (formData[label.labelId] !== undefined) {
+          cleanData[label.labelId] = formData[label.labelId];
+        }
+      });
+
+      const eventPackage = await createEventPackage(
+        cleanData,
+        labels,
+        mediaFile,
+        { createdBy, source: "web" },
+      );
+
+      // Get the token from PoW verification
+      const token = localStorage.getItem("authToken");
+      if (!token) {
+        throw new Error(
+          "Authentication token not found. Please complete initialization first.",
+        );
+      }
+
+      // Set the token as Bearer token for API requests
+      apiAuthService.setBearerToken(token);
+
+      if (!_keyPair || !_keyPair.privateKey || !_keyPair.publicKey) {
+        throw new Error("Key pair is not available for signing the event.");
+      }
+
+      // Generate JWT with event data
+      const jwtEventData = await generateEventJWT(
+        _keyPair.privateKey,
+        _keyPair.publicKey,
+        eventPackage,
+        token,
+      );
+
+      // Submit to backend using the generated API (with Bearer token in header)
+      await submitEvent(jwtEventData);
+
+      // Add to local history using the generated EventPackage type
+      const historyEventPackage: EventPackage = {
+        id: eventPackage.id,
+        version: eventPackage.version,
+        annotations: eventPackage.annotations,
+        media: eventPackage.media,
+        metadata: {
+          createdAt: eventPackage.metadata.createdAt,
+          createdBy: eventPackage.metadata.createdBy,
+          source: eventPackage.metadata.source as "web" | "mobile",
+        },
+      };
+      addEvent(historyEventPackage);
+
+      setFormData({});
+      setMediaFile(null);
+      toast.success(t("eventSaved"));
+    } catch (error) {
+      console.error("Error saving event:", error);
+      toast.error(
+        error instanceof Error ? error.message : String(t("saveError")),
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const handleSaveDraft = useCallback(async () => {
     try {
@@ -493,12 +346,6 @@ const EventForm: React.FC<EventFormProps> = ({
           cleanData[label.labelId] = formData[label.labelId];
         }
       });
-
-      // Only create event package if we have data or media
-      if (Object.keys(cleanData).length === 0 && !mediaFile) {
-        toast.error("Please fill in at least one field or add media");
-        return;
-      }
 
       const eventPackage = await createEventPackage(
         cleanData,
@@ -523,80 +370,21 @@ const EventForm: React.FC<EventFormProps> = ({
       addEvent(historyEventPackage);
       toast.success(t("draftSaved"));
     } catch (error) {
+      console.error("Error saving draft:", error);
       toast.error(t("saveError"));
     }
   }, [formData, mediaFile, labels, createdBy, t, addEvent]);
-
-  // Early return if keyPair is missing or invalid
-  if (!_keyPair || !_keyPair.privateKey || !_keyPair.publicKey) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 flex items-center justify-center p-6">
-        <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 text-center">
-          <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg
-              className="w-8 h-8 text-red-600"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"
-              />
-            </svg>
-          </div>
-          <h2 className="text-xl font-semibold text-gray-900 mb-2">
-            Authentication Required
-          </h2>
-          <p className="text-gray-600 mb-6">
-            Your security keys are not available. This usually happens when you
-            navigate back to the app after being away.
-          </p>
-          <div className="space-y-3">
-            <button
-              onClick={() => window.location.reload()}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-xl transition-colors duration-200"
-            >
-              Reload and Authenticate
-            </button>
-            <button
-              onClick={onGoBack || (() => window.history.back())}
-              className="w-full bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium py-3 px-4 rounded-xl transition-colors duration-200"
-            >
-              Go Back
-            </button>
-          </div>
-          <div className="mt-4 text-xs text-gray-500">
-            <p>
-              Debug info: keyPair is{" "}
-              {_keyPair ? "present but invalid" : "missing"}
-            </p>
-            {_keyPair && (
-              <p>
-                Has privateKey: {!!_keyPair.privateKey}, Has publicKey:{" "}
-                {!!_keyPair.publicKey}
-              </p>
-            )}
-          </div>
-        </div>
-      </div>
-    );
-  }
 
   const renderMediaSection = () => {
     if (mediaFile) {
       return (
         <div className="relative group">
           <div className="relative overflow-hidden rounded-xl">
-            {mediaPreviewUrl && (
-              <img
-                src={mediaPreviewUrl as string}
-                alt="Preview"
-                className="w-full h-64 object-cover"
-              />
-            )}
+            <img
+              src={URL.createObjectURL(mediaFile)}
+              alt="Preview"
+              className="w-full h-64 object-cover"
+            />
             <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-200 flex items-center justify-center">
               <button
                 type="button"
@@ -613,59 +401,6 @@ const EventForm: React.FC<EventFormProps> = ({
               {(mediaFile.size / 1024 / 1024).toFixed(2)} MB
             </p>
           </div>
-        </div>
-      );
-    }
-
-    // Camera view when taking photo
-    if (showCamera) {
-      return (
-        <div className="relative border-2 border-gray-300 rounded-xl p-6 bg-gray-900">
-          <div className="text-center mb-4">
-            <h3 className="text-lg font-medium text-white mb-2">
-              {t("eventForm.camera.title", "Take a Photo")}
-            </h3>
-            <p className="text-gray-300 text-sm">
-              {t(
-                "eventForm.camera.description",
-                "Position your camera and click capture when ready",
-              )}
-            </p>
-          </div>
-
-          {/* Camera preview */}
-          <div className="relative mb-4">
-            <video
-              ref={videoRef}
-              autoPlay
-              playsInline
-              muted
-              className="w-full h-64 object-cover rounded-lg"
-            />
-            <div className="absolute inset-0 border-4 border-white/20 rounded-lg pointer-events-none"></div>
-          </div>
-
-          {/* Camera controls */}
-          <div className="flex justify-center space-x-4">
-            <button
-              type="button"
-              onClick={capturePhoto}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full shadow-lg transition-all duration-200 flex items-center space-x-2 font-medium"
-            >
-              <Camera className="w-5 h-5" />
-              <span>Capture Photo</span>
-            </button>
-            <button
-              type="button"
-              onClick={stopCamera}
-              className="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg shadow-sm transition-all duration-200 font-medium"
-            >
-              Cancel
-            </button>
-          </div>
-
-          {/* Hidden canvas for photo capture */}
-          <canvas ref={canvasRef} className="hidden" />
         </div>
       );
     }
@@ -698,63 +433,11 @@ const EventForm: React.FC<EventFormProps> = ({
             </p>
           </div>
 
-          {mediaFile && (
-            <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-4">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-                    <svg
-                      className="w-5 h-5 text-green-600"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="text-sm font-medium text-green-800">
-                      {(mediaFile as File).name}
-                    </p>
-                    <p className="text-xs text-green-600">
-                      {((mediaFile as File).size / 1024 / 1024).toFixed(2)} MB
-                    </p>
-                  </div>
-                </div>
-                <button
-                  type="button"
-                  onClick={clearMediaFile}
-                  className="text-green-600 hover:text-green-800 p-1 rounded-full hover:bg-green-100 transition-colors"
-                >
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                </button>
-              </div>
-            </div>
-          )}
-
           <div className="flex flex-col sm:flex-row justify-center gap-3">
             <label className="cursor-pointer bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg shadow-sm transition-all duration-200 flex items-center justify-center space-x-2 font-medium">
               <Upload className="w-5 h-5" />
               <span>Browse Files</span>
               <input
-                key="file-input"
                 type="file"
                 accept="image/*,video/*"
                 className="hidden"
@@ -783,7 +466,7 @@ const EventForm: React.FC<EventFormProps> = ({
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
               <button
-                onClick={onGoBack || (() => window.history.back())}
+                onClick={onGoBack}
                 className="p-2 text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg transition-all duration-200"
               >
                 <svg
@@ -809,18 +492,15 @@ const EventForm: React.FC<EventFormProps> = ({
                 </p>
               </div>
             </div>
-            <div className="flex items-center space-x-4">
-              <ConnectionStatus className="text-gray-600" />
-            </div>
           </div>
         </div>
       </header>
 
       {/* Form Content */}
-      <div className="max-w-4xl mx-auto px-6 py-8">
-        <form onSubmit={handleSubmit} className="space-y-8">
+      <div className="max-w-4xl mx-auto px-6 pt-8 pb-32">
+        <form id="event-form" onSubmit={handleSubmit} className="space-y-8">
           {/* Form Fields Section */}
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-200/50 p-8">
+          <div className="relative z-20 bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-200/50 p-8">
             <div className="flex items-center space-x-3 mb-8">
               <div className="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center">
                 <svg
@@ -848,140 +528,239 @@ const EventForm: React.FC<EventFormProps> = ({
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {labels.map((label) => {
-                const labelName =
-                  i18n.language === "fr" ? label.name_fr : label.name_en;
-                const labelId = `field-${label.labelId}`;
-                const error = errors[label.labelId];
+              {labels
+                .filter(
+                  (label) =>
+                    (label.category === "event_details" || !label.category) &&
+                    (!label.showIf || label.showIf(formData)),
+                )
+                .map((label) => {
+                  const labelName =
+                    i18n.language === "fr" ? label.name_fr : label.name_en;
+                  const labelId = `field-${label.labelId}`;
+                  const error = errors[label.labelId];
 
-                return (
-                  <div key={label.labelId} className="space-y-2">
-                    <label
-                      htmlFor={labelId}
-                      className="block text-sm font-medium text-gray-700"
-                    >
-                      {labelName}{" "}
-                      {label.required && (
-                        <span className="text-red-500">*</span>
-                      )}
-                    </label>
+                  let options = label.options || [];
+                  if (label.dependsOn === "1") {
+                    const region = formData["1"] as string;
+                    options = getDivisions(region);
+                  } else if (label.dependsOn === "2") {
+                    const region = formData["1"] as string;
+                    const division = formData["2"] as string;
+                    options = getSubdivisions(region, division);
+                  } else if (label.dependsOn === "3") {
+                    const subdivision = formData["3"] as string;
+                    options = getPollingStations(subdivision);
+                  }
 
-                    {/* Text Field */}
-                    {label.type === "text" && (
-                      <input
-                        type="text"
-                        id={labelId}
-                        name={label.labelId}
-                        value={String(formData[label.labelId] || "")}
-                        onChange={handleChange}
-                        className={`w-full px-4 py-3 rounded-xl border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
-                          error
-                            ? "border-red-300 focus:border-red-500 focus:ring-red-500"
-                            : "border-gray-200 hover:border-gray-300"
-                        } ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`}
-                        disabled={isSubmitting}
-                        required={label.required}
-                        placeholder={t("describeEventPlaceholder")}
-                      />
-                    )}
+                  return (
+                    <div key={label.labelId} className="space-y-2">
+                      <label
+                        htmlFor={labelId}
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        {labelName}{" "}
+                        {label.required && (
+                          <span className="text-red-500">*</span>
+                        )}
+                      </label>
 
-                    {/* Number Field */}
-                    {label.type === "number" && (
-                      <input
-                        type="number"
-                        id={labelId}
-                        name={label.labelId}
-                        value={Number(formData[label.labelId] || 0)}
-                        onChange={handleChange}
-                        className={`w-full px-4 py-3 rounded-xl border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
-                          error
-                            ? "border-red-300 focus:border-red-500 focus:ring-red-500"
-                            : "border-gray-200 hover:border-gray-300"
-                        } ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`}
-                        min={label.constraints?.min}
-                        max={label.constraints?.max}
-                        step={label.constraints?.step}
-                        disabled={isSubmitting}
-                        required={label.required}
-                        placeholder={getLocalizedText(label.placeholder)}
-                      />
-                    )}
-
-                    {/* Boolean Field */}
-                    {label.type === "boolean" && (
-                      <div className="flex items-center space-x-3 p-3 border border-gray-200 rounded-xl hover:border-gray-300 transition-colors duration-200">
+                      {/* Text Field */}
+                      {label.type === "text" && (
                         <input
-                          type="checkbox"
+                          type="text"
                           id={labelId}
                           name={label.labelId}
-                          checked={!!formData[label.labelId]}
+                          value={String(formData[label.labelId] || "")}
                           onChange={handleChange}
-                          className="h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500 transition-colors duration-200"
+                          className={`w-full px-4 py-3 rounded-xl border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
+                            error
+                              ? "border-red-300 focus:border-red-500 focus:ring-red-500"
+                              : "border-gray-200 hover:border-gray-300"
+                          } ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`}
                           disabled={isSubmitting}
+                          required={label.required}
+                          placeholder={
+                            label.placeholder
+                              ? t(label.placeholder as string)
+                              : ""
+                          }
                         />
-                        <label
-                          htmlFor={labelId}
-                          className="text-sm text-gray-700 font-medium"
-                        >
-                          {labelName}
-                        </label>
-                      </div>
-                    )}
+                      )}
 
-                    {/* Enum Field with Custom Dropdown */}
-                    {label.type === "enum" && label.options && (
-                      <Dropdown
-                        value={(formData[label.labelId] as string) || ""}
-                        onChange={(value) =>
-                          handleDropdownChange(label.labelId, value)
-                        }
-                        options={label.options}
-                        placeholder="Select an option"
-                        disabled={isSubmitting}
-                        error={error}
-                      />
-                    )}
+                      {/* Number Field */}
+                      {label.type === "number" && (
+                        <input
+                          type="number"
+                          id={labelId}
+                          name={label.labelId}
+                          value={Number(formData[label.labelId] || 0)}
+                          onChange={handleChange}
+                          className={`w-full px-4 py-3 rounded-xl border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
+                            error
+                              ? "border-red-300 focus:border-red-500 focus:ring-red-500"
+                              : "border-gray-200 hover:border-gray-300"
+                          } ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`}
+                          min={label.constraints?.min}
+                          max={label.constraints?.max}
+                          step={label.constraints?.step}
+                          disabled={isSubmitting}
+                          required={label.required}
+                          placeholder={getLocalizedText(label.placeholder)}
+                        />
+                      )}
 
-                    {error && (
-                      <p className="text-sm text-red-600 flex items-center space-x-1">
-                        <svg
-                          className="w-4 h-4"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
-                            clipRule="evenodd"
+                      {/* Boolean Field */}
+                      {label.type === "boolean" && (
+                        <div className="flex items-center space-x-3 p-3 border border-gray-200 rounded-xl hover:border-gray-300 transition-colors duration-200">
+                          <input
+                            type="checkbox"
+                            id={labelId}
+                            name={label.labelId}
+                            checked={!!formData[label.labelId]}
+                            onChange={handleChange}
+                            className="h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500 transition-colors duration-200"
+                            disabled={isSubmitting}
                           />
-                        </svg>
-                        <span>{error}</span>
-                      </p>
-                    )}
+                          <label
+                            htmlFor={labelId}
+                            className="text-sm text-gray-700 font-medium"
+                          >
+                            {labelName}
+                          </label>
+                        </div>
+                      )}
 
-                    {label.helpText && (
-                      <p className="text-xs text-gray-500 flex items-start space-x-1">
-                        <svg
-                          className="w-3 h-3 mt-0.5 flex-shrink-0"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                        <span>
-                          {typeof label.helpText === "string"
-                            ? t(label.helpText)
-                            : t(
-                                label.helpText[i18n.language] ||
-                                  label.helpText.en,
-                              )}
-                        </span>
-                      </p>
-                    )}
+                      {/* Enum Field with Custom Dropdown */}
+                      {label.type === "enum" && (
+                        <Dropdown
+                          value={(formData[label.labelId] as string) || ""}
+                          onChange={(value) =>
+                            handleDropdownChange(label.labelId, value)
+                          }
+                          options={options}
+                          placeholder={
+                            label.placeholder
+                              ? t(label.placeholder as string)
+                              : t("selectAnOption")
+                          }
+                          disabled={
+                            isSubmitting ||
+                            !!(label.dependsOn && !formData[label.dependsOn])
+                          }
+                          error={error}
+                        />
+                      )}
+
+                      {error && (
+                        <p className="text-sm text-red-600 flex items-center space-x-1">
+                          <svg
+                            className="w-4 h-4"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                          <span>{error}</span>
+                        </p>
+                      )}
+
+                      {label.helpText && (
+                        <p className="text-xs text-gray-500 flex items-start space-x-1">
+                          <svg
+                            className="w-3 h-3 mt-0.5 flex-shrink-0"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                          <span>
+                            {typeof label.helpText === "string"
+                              ? t(label.helpText)
+                              : t(
+                                  label.helpText[i18n.language] ||
+                                    label.helpText.en,
+                                )}
+                          </span>
+                        </p>
+                      )}
+                    </div>
+                  );
+                })}
+            </div>
+          </div>
+
+          {/* Election Results Section */}
+          <div className="relative z-10 bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-200/50 p-8">
+            <div className="flex items-center space-x-3 mb-8">
+              <div className="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center">
+                <svg
+                  className="w-5 h-5 text-purple-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                  />
+                </svg>
+              </div>
+              <div>
+                <h2 className="text-xl font-semibold text-gray-900">
+                  Election Results
+                </h2>
+                <p className="text-sm text-gray-600">
+                  Enter the vote count for each candidate
+                </p>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {electionCandidates.candidates.map((candidate) => {
+                const partyName =
+                  i18n.language === "fr"
+                    ? candidate.political_party_french
+                    : candidate.political_party_english;
+                const candidateId = `candidate_${candidate.candidate.replace(/\s+/g, "_")}`;
+                const error = errors[candidateId];
+
+                return (
+                  <div key={candidateId} className="space-y-2">
+                    <label
+                      htmlFor={candidateId}
+                      className="block text-sm font-medium text-gray-700"
+                    >
+                      {partyName}
+                    </label>
+                    <p className="text-xs text-gray-500">
+                      {candidate.candidate}
+                    </p>
+                    <input
+                      type="number"
+                      id={candidateId}
+                      name={candidateId}
+                      value={Number(formData[candidateId] || 0)}
+                      onChange={handleChange}
+                      className={`w-full px-4 py-3 rounded-xl border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
+                        error
+                          ? "border-red-300 focus:border-red-500 focus:ring-red-500"
+                          : "border-gray-200 hover:border-gray-300"
+                      } ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`}
+                      min={0}
+                      disabled={isSubmitting}
+                      placeholder="0"
+                    />
+                    {error && <p className="text-sm text-red-600">{error}</p>}
                   </div>
                 );
               })}
@@ -989,31 +768,29 @@ const EventForm: React.FC<EventFormProps> = ({
           </div>
 
           {/* Media Upload Section */}
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-200/50 p-8">
+          <div className="relative z-10 bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-200/50 p-8">
             <div className="flex items-center space-x-3 mb-8">
               <div className="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center">
                 <Camera className="w-5 h-5 text-green-600" />
               </div>
               <div>
                 <h2 className="text-xl font-semibold text-gray-900">
-                  {t(
-                    "eventForm.media.title",
-                    "Add Media to Your Report (Optional)",
-                  )}
+                  Add Media
                 </h2>
                 <p className="text-sm text-gray-600">
-                  {t(
-                    "eventForm.media.description",
-                    "Include photos or videos to provide visual context (optional)",
-                  )}
+                  Include photos or videos to provide visual context
                 </p>
               </div>
             </div>
             {renderMediaSection()}
           </div>
 
-          {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row justify-end space-y-3 sm:space-y-0 sm:space-x-4 pt-6">
+        </form>
+      </div>
+      {/* Sticky Action Bar */}
+      <div className="fixed bottom-0 left-0 right-0 bg-white/80 backdrop-blur-sm border-t border-gray-200 z-40">
+        <div className="max-w-4xl mx-auto px-6 py-4">
+          <div className="flex flex-col sm:flex-row justify-end space-y-3 sm:space-y-0 sm:space-x-4">
             <button
               type="button"
               onClick={handleSaveDraft}
@@ -1025,6 +802,7 @@ const EventForm: React.FC<EventFormProps> = ({
             </button>
             <button
               type="submit"
+              form="event-form"
               disabled={isSubmitting || isApiSubmitting}
               className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-sm font-medium rounded-xl shadow-lg text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
             >
@@ -1060,7 +838,7 @@ const EventForm: React.FC<EventFormProps> = ({
               )}
             </button>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   );
