@@ -586,9 +586,14 @@ export const electionCandidates = {
       "candidate": "Pierre Kouemo"
     },
     {
+      "political_party_french": "Mouvement Progressiste",
+      "political_party_english": "Mouvement Progressiste",
+      "candidate": "Hilaire Macaire Nzipang"
+    },
+    {
       "political_party_french": "Bulletin Null - Invalide",
       "political_party_english": "Void Votes - Invalid",
-      "candidate": "Hilaire Macaire Nzipang"
+      "candidate": "invalid"
     }
   ]
 };

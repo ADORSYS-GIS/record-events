@@ -21,8 +21,6 @@ import type { EventPackage } from "../openapi-rq/requests/types.gen";
 import {
   getDivisions,
   getSubdivisions,
-  getPollingStations,
-  electionCandidates,
 } from "../labels/cameroon-data";
 import { apiAuthService } from "../services/keyManagement/apiAuthService";
 
@@ -548,9 +546,6 @@ const EventForm: React.FC<EventFormProps> = ({
                     const region = formData["1"] as string;
                     const division = formData["2"] as string;
                     options = getSubdivisions(region, division);
-                  } else if (label.dependsOn === "3") {
-                    const subdivision = formData["3"] as string;
-                    options = getPollingStations(subdivision);
                   }
 
                   return (
@@ -726,44 +721,43 @@ const EventForm: React.FC<EventFormProps> = ({
               </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {electionCandidates.candidates.map((candidate) => {
-                const partyName =
-                  i18n.language === "fr"
-                    ? candidate.political_party_french
-                    : candidate.political_party_english;
-                const candidateId = `candidate_${candidate.candidate.replace(/\s+/g, "_")}`;
-                const error = errors[candidateId];
-
-                return (
-                  <div key={candidateId} className="space-y-2">
-                    <label
-                      htmlFor={candidateId}
-                      className="block text-sm font-medium text-gray-700"
-                    >
-                      {partyName}
-                    </label>
-                    <p className="text-xs text-gray-500">
-                      {candidate.candidate}
-                    </p>
-                    <input
-                      type="number"
-                      id={candidateId}
-                      name={candidateId}
-                      value={Number(formData[candidateId] || 0)}
-                      onChange={handleChange}
-                      className={`w-full px-4 py-3 rounded-xl border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
-                        error
-                          ? "border-red-300 focus:border-red-500 focus:ring-red-500"
-                          : "border-gray-200 hover:border-gray-300"
-                      } ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`}
-                      min={0}
-                      disabled={isSubmitting}
-                      placeholder="0"
-                    />
-                    {error && <p className="text-sm text-red-600">{error}</p>}
-                  </div>
-                );
-              })}
+              {labels
+                .filter((label) => label.category === "election_results")
+                .map((label) => {
+                  const labelName =
+                    i18n.language === "fr" ? label.name_fr : label.name_en;
+                  const labelId = `field-${label.labelId}`;
+                  const error = errors[label.labelId];
+                  return (
+                    <div key={label.labelId} className="space-y-2">
+                      <label
+                        htmlFor={labelId}
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        {labelName}
+                      </label>
+                      <p className="text-xs text-gray-500">
+                        {getLocalizedText(label.helpText)}
+                      </p>
+                      <input
+                        type="number"
+                        id={labelId}
+                        name={label.labelId}
+                        value={Number(formData[label.labelId] || 0)}
+                        onChange={handleChange}
+                        className={`w-full px-4 py-3 rounded-xl border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
+                          error
+                            ? "border-red-300 focus:border-red-500 focus:ring-red-500"
+                            : "border-gray-200 hover:border-gray-300"
+                        } ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`}
+                        min={0}
+                        disabled={isSubmitting}
+                        placeholder="0"
+                      />
+                      {error && <p className="text-sm text-red-600">{error}</p>}
+                    </div>
+                  );
+                })}
             </div>
           </div>
 
