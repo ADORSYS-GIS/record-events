@@ -1,6 +1,10 @@
 # Multi-stage build for React frontend
 FROM node:22-alpine as builder
 
+# NOTE: Network access to the OpenAPI endpoint is required during build.
+# The endpoint specified by EVENTSERVER_OPENAPI_URL must be reachable from inside the build container.
+ENV EVENTSERVER_OPENAPI_URL="http://host.docker.internal:8080/openapi-json"
+
 # Set working directory
 WORKDIR /app
 
@@ -9,6 +13,12 @@ COPY package*.json ./
 
 # Copy source code
 COPY . .
+
+# Copy openapi.json explicitly to ensure it's present in the image
+COPY openapi.json ./openapi.json
+
+# Copy startup script
+COPY start.sh ./start.sh
 
 # Install dependencies
 RUN npm install
@@ -37,6 +47,10 @@ RUN chown -R nginx-user:nginx-user /var/cache/nginx && \
     chown -R nginx-user:nginx-user /var/run/nginx.pid
 
 
+# Copy startup script to root and make it executable
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
+
 # Switch to non-root user
 USER nginx-user
 
@@ -47,5 +61,5 @@ EXPOSE 80
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
     CMD wget --no-verbose --tries=1 --spider http://localhost/ || exit 1
 
-# Start nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Use custom entrypoint to fetch OpenAPI at runtime, then start nginx
+ENTRYPOINT ["/start.sh"]
