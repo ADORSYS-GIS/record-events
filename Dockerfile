@@ -23,6 +23,9 @@ COPY start.sh ./start.sh
 # Install dependencies
 RUN npm install
 
+# Fetch OpenAPI spec during build (not runtime)
+RUN node scripts/fetch_openapi.js
+
 # Build the application
 RUN npm run build
 
