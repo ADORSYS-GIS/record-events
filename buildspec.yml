@@ -30,6 +30,11 @@ phases:
       - echo Pushing the Docker images...
       - docker push $FRONTEND_REPOSITORY_URI:latest
       - docker push $MIDDLEWARE_REPOSITORY_URI:latest
+      - echo Images pushed successfully
+      - echo Updating ECS services...
+      - aws ecs update-service --cluster $ECS_CLUSTER_NAME --service $ECS_UI_SERVICE_NAME --force-new-deployment
+      - aws ecs update-service --cluster $ECS_CLUSTER_NAME --service $ECS_SERVICE_SERVICE_NAME --force-new-deployment
+      - echo ECS services updated successfully
       - echo Build completed successfully
 
 # Updated at Sun Sep 14 14:54:35 EDT 2025
