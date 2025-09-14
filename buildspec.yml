@@ -10,7 +10,7 @@ phases:
       - apt-get install -y bc jq git
       - git config --global user.name "CI/CD Bot"
       - git config --global user.email "cicd@adorsys.com"
-  
+
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
@@ -20,7 +20,8 @@ phases:
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - echo Build started on `date`
       - echo Auto-incrementing version enabled...
-      - CURRENT_VERSION=$(aws ssm get-parameter --name "$VERSION_PARAMETER_NAME" --query 'Parameter.Value' --output text 2>/dev/null || echo "$IMAGE_TAG_VERSION")
+      - aws ssm get-parameter --name "$VERSION_PARAMETER_NAME" --query 'Parameter.Value' --output text > /tmp/current_version.txt 2>/dev/null || echo "$IMAGE_TAG_VERSION" > /tmp/current_version.txt
+      - CURRENT_VERSION=$(cat /tmp/current_version.txt)
       - echo "Current version: $CURRENT_VERSION"
       - NUMERIC_VERSION=${CURRENT_VERSION#v}
       - NEW_NUMERIC_VERSION=$(echo "$NUMERIC_VERSION" | awk '{printf "%.2f", $1 + 0.01}')
