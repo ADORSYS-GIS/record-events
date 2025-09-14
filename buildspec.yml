@@ -1,6 +1,3 @@
-# Enhanced buildspec.yml with automatic version incrementing, ECS deployment, and GitHub tagging
-# This file handles building Docker images, pushing to ECR, deploying to ECS, and creating Git tags
-
 version: 0.2
 
 phases:
@@ -11,8 +8,6 @@ phases:
       - echo Installing required packages...
       - apt-get update -y
       - apt-get install -y bc jq git
-      
-      # Configure git for tagging
       - git config --global user.name "CI/CD Bot"
       - git config --global user.email "cicd@adorsys.com"
   
@@ -24,52 +19,21 @@ phases:
       - MIDDLEWARE_REPOSITORY_URI=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$MIDDLEWARE_IMAGE_REPO_NAME
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - echo Build started on `date`
-      
-      # Handle version incrementing
-      - |
-        if [ "$AUTO_INCREMENT_VERSION" = "true" ]; then
-          echo "Auto-incrementing version enabled..."
-          
-          # Get current version from SSM Parameter Store
-          CURRENT_VERSION=$(aws ssm get-parameter --name "$VERSION_PARAMETER_NAME" --query 'Parameter.Value' --output text 2>/dev/null || echo "$IMAGE_TAG_VERSION")
-          echo "Current version: $CURRENT_VERSION"
-          
-          # Extract numeric part (remove 'v' prefix if present)
-          if [[ $CURRENT_VERSION == v* ]]; then
-            NUMERIC_VERSION=${CURRENT_VERSION#v}
-            VERSION_PREFIX="v"
-          else
-            NUMERIC_VERSION=$CURRENT_VERSION
-            VERSION_PREFIX=""
-          fi
-          
-          # Increment version by 0.01 using awk for better compatibility
-          NEW_NUMERIC_VERSION=$(echo "$NUMERIC_VERSION" | awk '{printf "%.2f", $1 + 0.01}')
-          
-          # Reconstruct version with prefix
-          NEW_VERSION="${VERSION_PREFIX}${NEW_NUMERIC_VERSION}"
-          
-          echo "New version: $NEW_VERSION"
-          
-          # Update SSM Parameter with new version
-          aws ssm put-parameter --name "$VERSION_PARAMETER_NAME" --value "$NEW_VERSION" --overwrite
-          
-          # Use new version for tagging
-          IMAGE_TAG="$NEW_VERSION"
-        else
-          echo "Using static version: $IMAGE_TAG_VERSION"
-          IMAGE_TAG="$IMAGE_TAG_VERSION"
-        fi
-      
-      # Also create a build-specific tag with timestamp and commit
+      - echo Auto-incrementing version enabled...
+      - CURRENT_VERSION=$(aws ssm get-parameter --name "$VERSION_PARAMETER_NAME" --query 'Parameter.Value' --output text 2>/dev/null || echo "$IMAGE_TAG_VERSION")
+      - echo "Current version: $CURRENT_VERSION"
+      - NUMERIC_VERSION=${CURRENT_VERSION#v}
+      - NEW_NUMERIC_VERSION=$(echo "$NUMERIC_VERSION" | awk '{printf "%.2f", $1 + 0.01}')
+      - NEW_VERSION="v${NEW_NUMERIC_VERSION}"
+      - echo "New version: $NEW_VERSION"
+      - aws ssm put-parameter --name "$VERSION_PARAMETER_NAME" --value "$NEW_VERSION" --overwrite
+      - IMAGE_TAG="$NEW_VERSION"
       - BUILD_TAG="build-$(date +%Y-%m-%d-%H-%M-%S)-${COMMIT_HASH}"
       - echo "Image tag: $IMAGE_TAG"
       - echo "Build tag: $BUILD_TAG"
-      - echo Building the Docker images...
 
   build:
     commands:
-      # Build Frontend Image
       - echo Building the frontend Docker image...
       - cd $FRONTEND_BUILD_CONTEXT
       - docker build -t $FRONTEND_IMAGE_REPO_NAME:latest -f $FRONTEND_DOCKERFILE_PATH .
@@ -77,8 +41,6 @@ phases:
       - docker tag $FRONTEND_IMAGE_REPO_NAME:latest $FRONTEND_REPOSITORY_URI:$IMAGE_TAG
       - docker tag $FRONTEND_IMAGE_REPO_NAME:latest $FRONTEND_REPOSITORY_URI:$BUILD_TAG
       - cd ..
-      
-      # Build Middleware Image  
       - echo Building the middleware Docker image...
       - cd $MIDDLEWARE_BUILD_CONTEXT
       - docker build -t $MIDDLEWARE_IMAGE_REPO_NAME:latest -f $MIDDLEWARE_DOCKERFILE_PATH .
@@ -91,116 +53,46 @@ phases:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker images...
-      
-      # Push Frontend Image
-      - echo Pushing the frontend image...
       - docker push $FRONTEND_REPOSITORY_URI:latest
       - docker push $FRONTEND_REPOSITORY_URI:$IMAGE_TAG
       - docker push $FRONTEND_REPOSITORY_URI:$BUILD_TAG
-      
-      # Push Middleware Image
-      - echo Pushing the middleware image...
       - docker push $MIDDLEWARE_REPOSITORY_URI:latest
       - docker push $MIDDLEWARE_REPOSITORY_URI:$IMAGE_TAG
       - docker push $MIDDLEWARE_REPOSITORY_URI:$BUILD_TAG
-      
-      # Output image URIs
       - echo Frontend image URI = $FRONTEND_REPOSITORY_URI:$IMAGE_TAG
       - echo Middleware image URI = $MIDDLEWARE_REPOSITORY_URI:$IMAGE_TAG
-      - echo Build-specific frontend URI = $FRONTEND_REPOSITORY_URI:$BUILD_TAG
-      - echo Build-specific middleware URI = $MIDDLEWARE_REPOSITORY_URI:$BUILD_TAG
-      
-      # Update ECS task definitions with new image tags
       - echo Updating ECS task definitions...
-      
-      # Get current task definitions
       - FRONTEND_TASK_DEF=$(aws ecs describe-task-definition --task-definition $ECS_UI_SERVICE_NAME-task --query 'taskDefinition')
       - MIDDLEWARE_TASK_DEF=$(aws ecs describe-task-definition --task-definition $ECS_SERVICE_SERVICE_NAME-task --query 'taskDefinition')
-      
-      # Create new task definition revisions with updated images
-      - |
-        echo "Updating frontend task definition..."
-        NEW_FRONTEND_TASK_DEF=$(echo $FRONTEND_TASK_DEF | jq --arg IMAGE "$FRONTEND_REPOSITORY_URI:$IMAGE_TAG" '.containerDefinitions[0].image = $IMAGE | del(.taskDefinitionArn) | del(.revision) | del(.status) | del(.requiresAttributes) | del(.registeredAt) | del(.registeredBy) | del(.compatibilities)')
-        aws ecs register-task-definition --cli-input-json "$NEW_FRONTEND_TASK_DEF"
-      
-      - |
-        echo "Updating middleware task definition..."
-        NEW_MIDDLEWARE_TASK_DEF=$(echo $MIDDLEWARE_TASK_DEF | jq --arg IMAGE "$MIDDLEWARE_REPOSITORY_URI:$IMAGE_TAG" '.containerDefinitions[0].image = $IMAGE | del(.taskDefinitionArn) | del(.revision) | del(.status) | del(.requiresAttributes) | del(.registeredAt) | del(.registeredBy) | del(.compatibilities)')
-        aws ecs register-task-definition --cli-input-json "$NEW_MIDDLEWARE_TASK_DEF"
-      
-      # Deploy to ECS Fargate
+      - echo "Updating frontend task definition..."
+      - NEW_FRONTEND_TASK_DEF=$(echo $FRONTEND_TASK_DEF | jq --arg IMAGE "$FRONTEND_REPOSITORY_URI:$IMAGE_TAG" '.containerDefinitions[0].image = $IMAGE | del(.taskDefinitionArn) | del(.revision) | del(.status) | del(.requiresAttributes) | del(.registeredAt) | del(.registeredBy) | del(.compatibilities)')
+      - aws ecs register-task-definition --cli-input-json "$NEW_FRONTEND_TASK_DEF"
+      - echo "Updating middleware task definition..."
+      - NEW_MIDDLEWARE_TASK_DEF=$(echo $MIDDLEWARE_TASK_DEF | jq --arg IMAGE "$MIDDLEWARE_REPOSITORY_URI:$IMAGE_TAG" '.containerDefinitions[0].image = $IMAGE | del(.taskDefinitionArn) | del(.revision) | del(.status) | del(.requiresAttributes) | del(.registeredAt) | del(.registeredBy) | del(.compatibilities)')
+      - aws ecs register-task-definition --cli-input-json "$NEW_MIDDLEWARE_TASK_DEF"
       - echo Deploying to ECS Fargate...
-      
-      # Update ECS UI Service with new task definition
-      - echo Updating UI service with new image...
       - aws ecs update-service --cluster $ECS_CLUSTER_NAME --service $ECS_UI_SERVICE_NAME --force-new-deployment
-      
-      # Update ECS Service (Middleware) with new task definition
-      - echo Updating middleware service with new image...
       - aws ecs update-service --cluster $ECS_CLUSTER_NAME --service $ECS_SERVICE_SERVICE_NAME --force-new-deployment
-      
-      # Wait for deployment to complete
       - echo Waiting for services to stabilize...
       - aws ecs wait services-stable --cluster $ECS_CLUSTER_NAME --services $ECS_UI_SERVICE_NAME $ECS_SERVICE_SERVICE_NAME
-      
-      # Verify deployment
       - echo Deployment completed successfully!
-      - echo "Deployed version: $IMAGE_TAG"
-      - echo Checking service status...
-      - aws ecs describe-services --cluster $ECS_CLUSTER_NAME --services $ECS_UI_SERVICE_NAME $ECS_SERVICE_SERVICE_NAME --query 'services[*].[serviceName,runningCount,desiredCount,deployments[0].status]' --output table
-      
-      # Create GitHub tag after successful deployment
       - echo Creating GitHub tag...
+      - echo "Creating Git tag: $IMAGE_TAG"
+      - COMMIT_SHA=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION)
+      - echo "Commit SHA: $COMMIT_SHA"
+      - TAG_MESSAGE="Release $IMAGE_TAG - Built and deployed on $(date)"
       - |
-        if [ -n "$GITHUB_TOKEN" ] && [ -n "$IMAGE_TAG" ]; then
-          echo "Creating Git tag: $IMAGE_TAG"
-          
-          # Get the current commit SHA
-          COMMIT_SHA=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION)
-          echo "Commit SHA: $COMMIT_SHA"
-          
-          # Create tag using GitHub API
-          TAG_MESSAGE="Release $IMAGE_TAG - Built and deployed on $(date)"
-          
-          # Create the tag object
-          curl -X POST \
-            -H "Authorization: token $GITHUB_TOKEN" \
-            -H "Accept: application/vnd.github.v3+json" \
-            "https://api.github.com/repos/ADORSYS-GIS/record-events/git/tags" \
-            -d "{
-              \"tag\": \"$IMAGE_TAG\",
-              \"message\": \"$TAG_MESSAGE\",
-              \"object\": \"$COMMIT_SHA\",
-              \"type\": \"commit\"
-            }"
-          
-          # Get the tag SHA
-          TAG_SHA=$(curl -s -H "Authorization: token $GITHUB_TOKEN" \
-            "https://api.github.com/repos/ADORSYS-GIS/record-events/git/tags" | \
-            jq -r ".sha // empty")
-          
-          # Create the reference
-          if [ -n "$TAG_SHA" ]; then
-            curl -X POST \
-              -H "Authorization: token $GITHUB_TOKEN" \
-              -H "Accept: application/vnd.github.v3+json" \
-              "https://api.github.com/repos/ADORSYS-GIS/record-events/git/refs" \
-              -d "{
-                \"ref\": \"refs/tags/$IMAGE_TAG\",
-                \"sha\": \"$COMMIT_SHA\"
-              }"
-            echo "Successfully created GitHub tag: $IMAGE_TAG"
-          else
-            echo "Warning: Could not create GitHub tag"
-          fi
-        else
-          echo "Skipping GitHub tagging - missing GITHUB_TOKEN or IMAGE_TAG"
-        fi
+        curl -X POST \
+          -H "Authorization: token $GITHUB_TOKEN" \
+          -H "Accept: application/vnd.github.v3+json" \
+          "https://api.github.com/repos/ADORSYS-GIS/record-events/git/refs" \
+          -d "{\"ref\":\"refs/tags/$IMAGE_TAG\",\"sha\":\"$COMMIT_SHA\"}"
+      - echo "Successfully created GitHub tag: $IMAGE_TAG"
 
 artifacts:
   files:
     - '**/*'
-  name: "build-artifacts-$(date +%Y-%m-%d)"
+  name: "build-artifacts"
 
 cache:
   paths:
