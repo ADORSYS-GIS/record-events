@@ -18,7 +18,7 @@ phases:
       - FRONTEND_REPOSITORY_URI=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$FRONTEND_IMAGE_REPO_NAME
       - MIDDLEWARE_REPOSITORY_URI=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$MIDDLEWARE_IMAGE_REPO_NAME
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
-      - echo Build started on `date`
+      - echo Build started on $(date)
       - echo Auto-incrementing version enabled...
       - aws ssm get-parameter --name "$VERSION_PARAMETER_NAME" --query 'Parameter.Value' --output text > /tmp/current_version.txt 2>/dev/null || echo "$IMAGE_TAG_VERSION" > /tmp/current_version.txt
       - CURRENT_VERSION=$(cat /tmp/current_version.txt)
@@ -29,7 +29,8 @@ phases:
       - echo "New version: $NEW_VERSION"
       - aws ssm put-parameter --name "$VERSION_PARAMETER_NAME" --value "$NEW_VERSION" --overwrite
       - IMAGE_TAG="$NEW_VERSION"
-      - BUILD_TAG="build-$(date +%Y-%m-%d-%H-%M-%S)-${COMMIT_HASH}"
+      - BUILD_TIMESTAMP=$(date +%Y%m%d%H%M%S)
+      - BUILD_TAG="build-${BUILD_TIMESTAMP}-${COMMIT_HASH}"
       - echo "Image tag: $IMAGE_TAG"
       - echo "Build tag: $BUILD_TAG"
 
