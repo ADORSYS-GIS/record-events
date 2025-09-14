@@ -82,13 +82,11 @@ phases:
       - echo "Creating Git tag: $IMAGE_TAG"
       - COMMIT_SHA=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION)
       - echo "Commit SHA: $COMMIT_SHA"
-      - TAG_MESSAGE="Release $IMAGE_TAG - Built and deployed on $(date)"
-      - |
-        curl -X POST \
-          -H "Authorization: token $GITHUB_TOKEN" \
-          -H "Accept: application/vnd.github.v3+json" \
-          "https://api.github.com/repos/ADORSYS-GIS/record-events/git/refs" \
-          -d "{\"ref\":\"refs/tags/$IMAGE_TAG\",\"sha\":\"$COMMIT_SHA\"}"
+      - DEPLOY_TIMESTAMP=$(date)
+      - TAG_MESSAGE="Release $IMAGE_TAG - Built and deployed on $DEPLOY_TIMESTAMP"
+      - TAG_REF="refs/tags/$IMAGE_TAG"
+      - echo "Creating tag $TAG_REF for commit $COMMIT_SHA"
+      - 'curl -X POST -H "Authorization: token $GITHUB_TOKEN" -H "Accept: application/vnd.github.v3+json" "https://api.github.com/repos/ADORSYS-GIS/record-events/git/refs" -d "{\"ref\":\"$TAG_REF\",\"sha\":\"$COMMIT_SHA\"}"'
       - echo "Successfully created GitHub tag: $IMAGE_TAG"
 
 artifacts:
