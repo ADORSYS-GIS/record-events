@@ -200,7 +200,7 @@ phases:
 artifacts:
   files:
     - '**/*'
-  name: $(date +%Y-%m-%d)
+  name: "build-artifacts-$(date +%Y-%m-%d)"
 
 cache:
   paths:
