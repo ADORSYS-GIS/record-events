@@ -3,99 +3,33 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      docker: 20
-    commands:
-      - echo Installing required packages...
-      - apt-get update -y
-      - apt-get install -y bc jq git
-      - git config --global user.name "CI/CD Bot"
-      - git config --global user.email "cicd@adorsys.com"
-
-  pre_build:
+      docker: 24
     commands:
       - echo Logging in to Amazon ECR...
       - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
+
+  pre_build:
+    commands:
+      - echo Build started on `date`
+      - echo Building the Docker images...
       - FRONTEND_REPOSITORY_URI=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$FRONTEND_IMAGE_REPO_NAME
       - MIDDLEWARE_REPOSITORY_URI=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$MIDDLEWARE_IMAGE_REPO_NAME
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
-      - echo Build started on $(date)
-      - echo Auto-incrementing version enabled...
-      - aws ssm get-parameter --name "$VERSION_PARAMETER_NAME" --query 'Parameter.Value' --output text > /tmp/current_version.txt 2>/dev/null || echo "$IMAGE_TAG_VERSION" > /tmp/current_version.txt
-      - CURRENT_VERSION=$(cat /tmp/current_version.txt)
-      - echo "Current version: $CURRENT_VERSION"
-      - NUMERIC_VERSION=${CURRENT_VERSION#v}
-      - NEW_NUMERIC_VERSION=$(echo "$NUMERIC_VERSION" | awk '{printf "%.2f", $1 + 0.01}')
-      - NEW_VERSION="v${NEW_NUMERIC_VERSION}"
-      - echo "New version: $NEW_VERSION"
-      - aws ssm put-parameter --name "$VERSION_PARAMETER_NAME" --value "$NEW_VERSION" --overwrite
-      - IMAGE_TAG="$NEW_VERSION"
-      - BUILD_TIMESTAMP=$(date +%Y%m%d%H%M%S)
-      - BUILD_TAG="build-${BUILD_TIMESTAMP}-${COMMIT_HASH}"
-      - echo "Image tag: $IMAGE_TAG"
-      - echo "Build tag: $BUILD_TAG"
+      - IMAGE_TAG="latest"
 
   build:
     commands:
-      - echo Building the frontend Docker image...
-      - cd $FRONTEND_BUILD_CONTEXT
-      - docker build -t $FRONTEND_IMAGE_REPO_NAME:latest -f $FRONTEND_DOCKERFILE_PATH .
+      - echo Build started on `date`
+      - echo Building the Docker images...
+      - docker build -t $FRONTEND_IMAGE_REPO_NAME:latest .
+      - docker build -f eventserver/Dockerfile -t $MIDDLEWARE_IMAGE_REPO_NAME:latest eventserver/
       - docker tag $FRONTEND_IMAGE_REPO_NAME:latest $FRONTEND_REPOSITORY_URI:latest
-      - docker tag $FRONTEND_IMAGE_REPO_NAME:latest $FRONTEND_REPOSITORY_URI:$IMAGE_TAG
-      - docker tag $FRONTEND_IMAGE_REPO_NAME:latest $FRONTEND_REPOSITORY_URI:$BUILD_TAG
-      - cd ..
-      - echo Building the middleware Docker image...
-      - cd $MIDDLEWARE_BUILD_CONTEXT
-      - docker build -t $MIDDLEWARE_IMAGE_REPO_NAME:latest -f $MIDDLEWARE_DOCKERFILE_PATH .
       - docker tag $MIDDLEWARE_IMAGE_REPO_NAME:latest $MIDDLEWARE_REPOSITORY_URI:latest
-      - docker tag $MIDDLEWARE_IMAGE_REPO_NAME:latest $MIDDLEWARE_REPOSITORY_URI:$IMAGE_TAG
-      - docker tag $MIDDLEWARE_IMAGE_REPO_NAME:latest $MIDDLEWARE_REPOSITORY_URI:$BUILD_TAG
-      - cd ..
 
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker images...
       - docker push $FRONTEND_REPOSITORY_URI:latest
-      - docker push $FRONTEND_REPOSITORY_URI:$IMAGE_TAG
-      - docker push $FRONTEND_REPOSITORY_URI:$BUILD_TAG
       - docker push $MIDDLEWARE_REPOSITORY_URI:latest
-      - docker push $MIDDLEWARE_REPOSITORY_URI:$IMAGE_TAG
-      - docker push $MIDDLEWARE_REPOSITORY_URI:$BUILD_TAG
-      - echo Frontend image URI = $FRONTEND_REPOSITORY_URI:$IMAGE_TAG
-      - echo Middleware image URI = $MIDDLEWARE_REPOSITORY_URI:$IMAGE_TAG
-      - echo Updating ECS task definitions...
-      - FRONTEND_TASK_DEF=$(aws ecs describe-task-definition --task-definition $ECS_UI_SERVICE_NAME-task --query 'taskDefinition')
-      - MIDDLEWARE_TASK_DEF=$(aws ecs describe-task-definition --task-definition $ECS_SERVICE_SERVICE_NAME-task --query 'taskDefinition')
-      - echo "Updating frontend task definition..."
-      - NEW_FRONTEND_TASK_DEF=$(echo $FRONTEND_TASK_DEF | jq --arg IMAGE "$FRONTEND_REPOSITORY_URI:$IMAGE_TAG" '.containerDefinitions[0].image = $IMAGE | del(.taskDefinitionArn) | del(.revision) | del(.status) | del(.requiresAttributes) | del(.registeredAt) | del(.registeredBy) | del(.compatibilities)')
-      - aws ecs register-task-definition --cli-input-json "$NEW_FRONTEND_TASK_DEF"
-      - echo "Updating middleware task definition..."
-      - NEW_MIDDLEWARE_TASK_DEF=$(echo $MIDDLEWARE_TASK_DEF | jq --arg IMAGE "$MIDDLEWARE_REPOSITORY_URI:$IMAGE_TAG" '.containerDefinitions[0].image = $IMAGE | del(.taskDefinitionArn) | del(.revision) | del(.status) | del(.requiresAttributes) | del(.registeredAt) | del(.registeredBy) | del(.compatibilities)')
-      - aws ecs register-task-definition --cli-input-json "$NEW_MIDDLEWARE_TASK_DEF"
-      - echo Deploying to ECS Fargate...
-      - aws ecs update-service --cluster $ECS_CLUSTER_NAME --service $ECS_UI_SERVICE_NAME --force-new-deployment
-      - aws ecs update-service --cluster $ECS_CLUSTER_NAME --service $ECS_SERVICE_SERVICE_NAME --force-new-deployment
-      - echo Waiting for services to stabilize...
-      - aws ecs wait services-stable --cluster $ECS_CLUSTER_NAME --services $ECS_UI_SERVICE_NAME $ECS_SERVICE_SERVICE_NAME
-      - echo Deployment completed successfully!
-      - echo Creating GitHub tag...
-      - echo "Creating Git tag: $IMAGE_TAG"
-      - COMMIT_SHA=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION)
-      - echo "Commit SHA: $COMMIT_SHA"
-      - DEPLOY_TIMESTAMP=$(date)
-      - TAG_MESSAGE="Release $IMAGE_TAG - Built and deployed on $DEPLOY_TIMESTAMP"
-      - TAG_REF="refs/tags/$IMAGE_TAG"
-      - echo "Creating tag $TAG_REF for commit $COMMIT_SHA"
-      - 'curl -X POST -H "Authorization: token $GITHUB_TOKEN" -H "Accept: application/vnd.github.v3+json" "https://api.github.com/repos/ADORSYS-GIS/record-events/git/refs" -d "{\"ref\":\"$TAG_REF\",\"sha\":\"$COMMIT_SHA\"}"'
-      - echo "Successfully created GitHub tag: $IMAGE_TAG"
-
-artifacts:
-  files:
-    - '**/*'
-  name: "build-artifacts"
-
-cache:
-  paths:
-    - '/root/.cache/pip/**/*'
-    - '/root/.npm/**/*'
-    - '/usr/local/lib/node_modules/**/*'
+      - echo Build completed successfully
