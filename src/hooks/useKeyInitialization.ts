@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { KeyManagement } from "../services/keyManagement/keyManagement";
+import { checkWebCryptoSupport, getWebCryptoErrorMessage } from "../utils/cryptoSupport";
 
 export interface KeyPair {
   publicKey: JsonWebKey;
@@ -14,6 +15,15 @@ export function useKeyInitialization() {
 
   const initializeKeys = useCallback(async () => {
     try {
+      setKeyStatus("Checking cryptographic support...");
+      
+      // Check if Web Crypto API is available before proceeding
+      const cryptoSupport = checkWebCryptoSupport();
+      if (!cryptoSupport.isAvailable) {
+        const errorMessage = getWebCryptoErrorMessage();
+        throw new Error(errorMessage);
+      }
+
       setKeyStatus("Initializing key management...");
 
       // This will get an existing key or create a new one if none exists
