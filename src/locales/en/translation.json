@@ -1,5 +1,5 @@
 {
-  "appTitle": "EventApp",
+  "appTitle": "",
   "appSubtitle": "The future of decentralized event reporting.",
   "applicationStatus": "Application Status",
   "keysInitialized": "Keys Initialized.",
@@ -112,11 +112,11 @@
       "button": "Start New Report"
     },
     "recentEvents": {
-      "title": "Recent Events",
+      "title": "Recent Reports",
       "viewAll": "View all",
       "empty": {
-        "title": "No events yet",
-        "description": "Create your first event report to get started",
+        "title": "No report submitted yet",
+        "description": "Your submitted reports will appear here",
         "button": "Create First Event"
       }
     },
