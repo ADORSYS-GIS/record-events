@@ -2,6 +2,7 @@ import type { i18n as I18nInstance } from "i18next";
 import { ArrowRight, Monitor, Moon, Shield, Sun, Users } from "lucide-react";
 import type { FC } from "react";
 import React from "react";
+import CameroonFlag from "./CameroonFlag";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "../hooks/useTheme";
 
@@ -77,11 +78,11 @@ const WelcomeScreen: FC<WelcomeScreenProps> = ({ onGetStarted, i18n }) => {
             {/* Logo/Icon */}
             <div className="flex justify-center mb-8">
               <div
-                className={`p-6 rounded-2xl w-24 h-24 flex items-center justify-center ${
+                className={`rounded-2xl flex items-center justify-center ${
                   isDark ? "bg-blue-900/20" : "bg-blue-50"
                 }`}
               >
-                <Shield className="w-12 h-12 text-blue-600" />
+                <CameroonFlag />
               </div>
             </div>
 
@@ -102,7 +103,7 @@ const WelcomeScreen: FC<WelcomeScreenProps> = ({ onGetStarted, i18n }) => {
             >
               {t(
                 "welcomeDescription",
-                "Your secure platform for reporting events with blockchain verification",
+                "Your secure platform for reporting events",
               )}
             </p>
           </div>
@@ -168,7 +169,7 @@ const WelcomeScreen: FC<WelcomeScreenProps> = ({ onGetStarted, i18n }) => {
                   >
                     {t(
                       "welcome.features.secureDesc",
-                      "Your data is encrypted and blockchain verified",
+                      "Your data is encrypted",
                     )}
                   </p>
                 </div>

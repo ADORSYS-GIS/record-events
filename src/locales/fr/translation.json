@@ -1,5 +1,5 @@
 {
-  "appTitle": "EventApp",
+  "appTitle": "",
   "appSubtitle": "L'avenir du système de rapport d'événements décentralisé.",
   "applicationStatus": "État de l'application",
   "keysInitialized": "Clés initialisées.",
@@ -45,10 +45,10 @@
   "pleaseCorrectErrors": "Veuillez corriger les erreurs dans le formulaire.",
   "labelRequired": "{{labelName}} est obligatoire.",
   "labelMaxLengthExceeded": "{{labelName}} dépasse la longueur maximale de {{maxLength}}.",
-  "welcomeTitle": "Bienvenue sur EventApp !",
-  "welcomeDescription": "Votre plateforme décentralisée pour signaler les événements de manière sécurisée et efficace.",
+  "welcomeTitle": "Élection présidentielle 2025",
+  "welcomeDescription": "Documentez les résultats électoraux de manière sécurisée et efficace.",
   "getStartedButton": "Commencer",
-  "welcomeMoreInfo": "Cliquez sur 'Commencer' pour commencer à signaler des événements.",
+  "welcomeMoreInfo": "Cliquez sur 'Commencer' pour saisir les résultats.",
   "selectCategoryTitle": "Choisissez une catégorie d'événement",
   "selectCategoryDescription": "Sélectionnez la catégorie qui décrit le mieux l'événement que vous souhaitez signaler.",
   "describeEventPlaceholder": "Décrivez votre événement ici...",
@@ -63,10 +63,10 @@
     "features": {
       "secure": {
         "title": "Sécurisé et privé",
-        "description": "Vos données sont chiffrées et vérifiées sur la blockchain pour une sécurité maximale"
+        "description": "Vos données sont chiffrées pour une sécurité maximale"
       },
       "security": "Sécurisé et privé",
-      "securityDesc": "Vos données sont chiffrées et vérifiées sur la blockchain",
+      "securityDesc": "Vos données sont chiffrées",
       "camera": "Capture photo facile",
       "cameraDesc": "Capturez et annotez les événements avec l'appareil photo de votre appareil"
     },
@@ -91,9 +91,9 @@
     "skip": "Passer pour l'instant"
   },
   "dashboard": {
-    "subtitle": "Signalement d'événements sécurisé",
+    "subtitle": "Rapporter les résultats électoraux",
     "welcome": "Bon retour !",
-    "welcomeDesc": "Prêt à signaler un événement ?",
+    "welcomeDesc": "Prêt à rapporter les résultats des élections ?",
     "status": {
       "connected": "Connecté",
       "submitted": "Soumis",
@@ -101,22 +101,22 @@
     },
     "quickActions": {
       "title": "Actions rapides",
-      "traffic": "Incident de circulation",
+      "traffic": "Incident de la circulation",
       "infrastructure": "Infrastructure",
       "safety": "Problème de sécurité",
       "report": "Signaler maintenant"
     },
     "createEvent": {
-      "title": "Créer un nouveau rapport d'événement",
-      "description": "Capturez des photos, ajoutez des détails et soumettez en toute sécurité",
-      "button": "Commencer un nouveau rapport"
+      "title": "Créer un nouveau rapport",
+      "description": "Prenez des photos, ajoutez des détails et soumettez en toute sécurité",
+      "button": "Démarrer un nouveau rapport"
     },
     "recentEvents": {
-      "title": "Événements récents",
+      "title": "Rapports récents",
       "viewAll": "Voir tout",
       "empty": {
-        "title": "Aucun événement pour l'instant",
-        "description": "Créez votre premier rapport d'événement pour commencer",
+        "title": "Aucun rapport soumis pour l'instant",
+        "description": "Vos rapports soumis apparaîtront ici",
         "button": "Créer le premier événement"
       }
     },
@@ -141,9 +141,9 @@
     "selectLanguage": "Sélectionnez votre langue",
     "features": {
       "secure": "Sécurisé et privé",
-      "secureDesc": "Vos données sont chiffrées et vérifiées sur la blockchain",
+      "secureDesc": "Vos données sont chiffrées",
       "easy": "Facile à utiliser",
-      "easyDesc": "Interface simple pour un signalement rapide d'événements"
+      "easyDesc": "Interface simple pour documentation rapide"
     }
   }
 }

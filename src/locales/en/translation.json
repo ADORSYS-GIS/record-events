@@ -1,5 +1,5 @@
 {
-  "appTitle": "EventApp",
+  "appTitle": "",
   "appSubtitle": "The future of decentralized event reporting.",
   "applicationStatus": "Application Status",
   "keysInitialized": "Keys Initialized.",
@@ -46,10 +46,10 @@
   "validationError": "Please correct the errors in the form.",
   "labelRequired": "{{labelName}} is required.",
   "labelMaxLengthExceeded": "{{labelName}} exceeds maximum length of {{maxLength}}.",
-  "welcomeTitle": "Welcome to EventApp!",
-  "welcomeDescription": "Your decentralized platform for reporting events securely and efficiently.",
+  "welcomeTitle": "Presidential Election 2025",
+  "welcomeDescription": "Easily document election results securely and efficiently.",
   "getStartedButton": "Get Started",
-  "welcomeMoreInfo": "Click 'Get Started' to begin reporting events.",
+  "welcomeMoreInfo": "Click 'Get Started' to enter the results.",
   "selectCategoryDescription": "Select the category that best describes the event you wish to report.",
   "describeEventPlaceholder": "Describe your event here...",
   "describeEventHelpText": "Please provide a detailed description of the event.",
@@ -91,9 +91,9 @@
     "skip": "Skip for now"
   },
   "dashboard": {
-    "subtitle": "Secure event reporting",
+    "subtitle": "Report election results",
     "welcome": "Welcome back!",
-    "welcomeDesc": "Ready to report an event?",
+    "welcomeDesc": "Ready to report election results?",
     "status": {
       "connected": "Connected",
       "submitted": "Submitted",
@@ -112,11 +112,11 @@
       "button": "Start New Report"
     },
     "recentEvents": {
-      "title": "Recent Events",
+      "title": "Recent Reports",
       "viewAll": "View all",
       "empty": {
-        "title": "No events yet",
-        "description": "Create your first event report to get started",
+        "title": "No report submitted yet",
+        "description": "Your submitted reports will appear here",
         "button": "Create First Event"
       }
     },
@@ -141,7 +141,7 @@
     "selectLanguage": "Select your language",
     "features": {
       "secure": "Secure & Private",
-      "secureDesc": "Your data is encrypted and blockchain verified",
+      "secureDesc": "Your data is encrypted",
       "easy": "Easy to Use",
       "easyDesc": "Simple interface for quick event reporting"
     }

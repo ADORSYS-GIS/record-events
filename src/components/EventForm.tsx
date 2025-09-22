@@ -77,7 +77,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       <button
         type="button"
         onClick={() => !disabled && setIsOpen(!isOpen)}
-        className={`w-full px-4 py-3 text-left bg-white border rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
+        className={`w-full px-4 py-3 text-left bg-white border rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 ${
           error
             ? "border-red-300 focus:border-red-500 focus:ring-red-500"
             : "border-gray-200 hover:border-gray-300"
@@ -107,11 +107,11 @@ const Dropdown: React.FC<DropdownProps> = ({
                 onChange(option);
                 setIsOpen(false);
               }}
-              className="w-full px-4 py-3 text-left hover:bg-blue-50 transition-colors duration-150 flex items-center justify-between"
+              className="w-full px-4 py-3 text-left hover:bg-primary-50 transition-colors duration-150 flex items-center justify-between"
             >
               <span className="text-gray-900">{option}</span>
               {selectedOption === option && (
-                <Check className="w-4 h-4 text-blue-600" />
+                <Check className="w-4 h-4 text-primary-600" />
               )}
             </button>
           ))}
@@ -407,7 +407,7 @@ const EventForm: React.FC<EventFormProps> = ({
       <div
         className={`relative border-2 border-dashed rounded-xl p-8 text-center transition-all duration-200 ${
           dragActive
-            ? "border-blue-400 bg-blue-50"
+            ? "border-primary-400 bg-primary-50"
             : "border-gray-300 hover:border-gray-400"
         }`}
         onDragEnter={handleDrag}
@@ -416,8 +416,8 @@ const EventForm: React.FC<EventFormProps> = ({
         onDrop={handleDrop}
       >
         <div className="space-y-4">
-          <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto">
-            <Camera className="w-8 h-8 text-blue-600" />
+          <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto">
+            <Camera className="w-8 h-8 text-primary-600" />
           </div>
           <div>
             <h3 className="text-lg font-medium text-gray-900 mb-2">
@@ -432,7 +432,7 @@ const EventForm: React.FC<EventFormProps> = ({
           </div>
 
           <div className="flex flex-col sm:flex-row justify-center gap-3">
-            <label className="cursor-pointer bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg shadow-sm transition-all duration-200 flex items-center justify-center space-x-2 font-medium">
+            <label className="cursor-pointer bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg shadow-sm transition-all duration-200 flex items-center justify-center space-x-2 font-medium">
               <Upload className="w-5 h-5" />
               <span>Browse Files</span>
               <input
@@ -457,7 +457,7 @@ const EventForm: React.FC<EventFormProps> = ({
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+    <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-green-50">
       {/* Header */}
       <header className="bg-white/80 backdrop-blur-sm shadow-sm border-b border-gray-200 sticky top-0 z-40">
         <div className="max-w-4xl mx-auto px-6 py-4">
@@ -500,9 +500,9 @@ const EventForm: React.FC<EventFormProps> = ({
           {/* Form Fields Section */}
           <div className="relative z-20 bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-200/50 p-8">
             <div className="flex items-center space-x-3 mb-8">
-              <div className="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center">
+              <div className="w-10 h-10 bg-primary-100 rounded-xl flex items-center justify-center">
                 <svg
-                  className="w-5 h-5 text-blue-600"
+                  className="w-5 h-5 text-primary-600"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -568,7 +568,7 @@ const EventForm: React.FC<EventFormProps> = ({
                           name={label.labelId}
                           value={String(formData[label.labelId] || "")}
                           onChange={handleChange}
-                          className={`w-full px-4 py-3 rounded-xl border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
+                          className={`w-full px-4 py-3 rounded-xl border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 ${
                             error
                               ? "border-red-300 focus:border-red-500 focus:ring-red-500"
                               : "border-gray-200 hover:border-gray-300"
@@ -589,9 +589,9 @@ const EventForm: React.FC<EventFormProps> = ({
                           type="number"
                           id={labelId}
                           name={label.labelId}
-                          value={Number(formData[label.labelId] || 0)}
+                          value={formData[label.labelId] != null && typeof formData[label.labelId] !== 'boolean' ? formData[label.labelId] : ''}
                           onChange={handleChange}
-                          className={`w-full px-4 py-3 rounded-xl border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
+                          className={`w-full px-4 py-3 rounded-xl border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 ${
                             error
                               ? "border-red-300 focus:border-red-500 focus:ring-red-500"
                               : "border-gray-200 hover:border-gray-300"
@@ -614,7 +614,7 @@ const EventForm: React.FC<EventFormProps> = ({
                             name={label.labelId}
                             checked={!!formData[label.labelId]}
                             onChange={handleChange}
-                            className="h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500 transition-colors duration-200"
+                            className="h-5 w-5 rounded border-gray-300 text-primary-600 focus:ring-primary-500 transition-colors duration-200"
                             disabled={isSubmitting}
                           />
                           <label
@@ -743,16 +743,16 @@ const EventForm: React.FC<EventFormProps> = ({
                         type="number"
                         id={labelId}
                         name={label.labelId}
-                        value={Number(formData[label.labelId] || 0)}
+                        value={formData[label.labelId] != null && typeof formData[label.labelId] !== 'boolean' ? formData[label.labelId] : ''}
                         onChange={handleChange}
-                        className={`w-full px-4 py-3 rounded-xl border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
+                        className={`w-full px-4 py-3 rounded-xl border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 ${
                           error
                             ? "border-red-300 focus:border-red-500 focus:ring-red-500"
                             : "border-gray-200 hover:border-gray-300"
                         } ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`}
                         min={0}
                         disabled={isSubmitting}
-                        placeholder="0"
+                        placeholder=""
                       />
                       {error && <p className="text-sm text-red-600">{error}</p>}
                     </div>
@@ -789,7 +789,7 @@ const EventForm: React.FC<EventFormProps> = ({
               type="button"
               onClick={handleSaveDraft}
               disabled={isSubmitting || isApiSubmitting}
-              className="inline-flex items-center justify-center px-6 py-3 border border-gray-300 shadow-sm text-sm font-medium rounded-xl text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
+              className="inline-flex items-center justify-center px-6 py-3 border border-gray-300 shadow-sm text-sm font-medium rounded-xl text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
             >
               <Save className="h-4 w-4 mr-2" />
               Save Draft
@@ -798,7 +798,7 @@ const EventForm: React.FC<EventFormProps> = ({
               type="submit"
               form="event-form"
               disabled={isSubmitting || isApiSubmitting}
-              className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-sm font-medium rounded-xl shadow-lg text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
+              className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-sm font-medium rounded-xl shadow-lg text-white bg-gradient-to-r from-primary-600 to-green-600 hover:from-primary-700 hover:to-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
             >
               {isSubmitting || isApiSubmitting ? (
                 <>

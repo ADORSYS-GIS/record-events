@@ -87,6 +87,10 @@ export default {
           "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
         xl: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
       },
+      backgroundImage: {
+        "cameroon-flag": "linear-gradient(to right, #007A5E, #CE1126, #FCD116)",
+        "cameroon-star": "url('/src/assets/star.svg')",
+      },
       animation: {
         "fade-in": "fadeIn 0.7s ease-in-out",
         "slide-up": "slideUp 0.5s ease-out",

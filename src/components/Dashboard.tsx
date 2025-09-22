@@ -81,14 +81,14 @@ const Dashboard: React.FC<DashboardProps> = ({
                     isDark ? "text-white" : "text-gray-900"
                   }`}
                 >
-                  EventApp
+                  {t("appTitle")}
                 </h1>
                 <p
                   className={`text-sm transition-colors duration-300 ${
                     isDark ? "text-gray-300" : "text-gray-600"
                   }`}
                 >
-                  Secure event reporting
+                  {t("dashboard.subtitle")}
                 </p>
               </div>
             </div>
@@ -156,14 +156,14 @@ const Dashboard: React.FC<DashboardProps> = ({
               isDark ? "text-white" : "text-gray-900"
             } mb-1`}
           >
-            Welcome back
+            {t("dashboard.welcome")}
           </h2>
           <p
             className={`transition-colors duration-300 ${
               isDark ? "text-gray-300" : "text-gray-600"
             }`}
           >
-            Ready to report an event?
+            {t("dashboard.welcomeDesc")}
           </p>
         </div>
 
@@ -184,21 +184,21 @@ const Dashboard: React.FC<DashboardProps> = ({
                 isDark ? "text-white" : "text-gray-900"
               } mb-2`}
             >
-              Create New Event Report
+              {t("dashboard.createEvent.title")}
             </h3>
             <p
               className={`transition-colors duration-300 ${
                 isDark ? "text-gray-300" : "text-gray-600"
               }`}
             >
-              Start a new secure event report with photo capture
+              {t("dashboard.createEvent.description")}
             </p>
           </div>
           <button
             onClick={onCreateEvent}
             className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-4 px-6 rounded-xl shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transform hover:scale-[1.02]"
           >
-            Start New Report
+            {t("dashboard.createEvent.button")}
           </button>
         </div>
 
@@ -215,7 +215,7 @@ const Dashboard: React.FC<DashboardProps> = ({
               isDark ? "text-white" : "text-gray-900"
             } mb-4`}
           >
-            Recent Events
+            {t("dashboard.recentEvents.title")}
           </h3>
           {recentEvents.length === 0 ? (
             <div className="text-center py-8">
@@ -227,14 +227,14 @@ const Dashboard: React.FC<DashboardProps> = ({
                   isDark ? "text-gray-300" : "text-gray-600"
                 }`}
               >
-                No events submitted yet
+                {t("dashboard.recentEvents.empty.title")}
               </p>
               <p
                 className={`text-sm transition-colors duration-300 ${
                   isDark ? "text-gray-400" : "text-gray-500"
                 } mt-1`}
               >
-                Your submitted events will appear here
+                {t("dashboard.recentEvents.empty.description")}
               </p>
             </div>
           ) : (
