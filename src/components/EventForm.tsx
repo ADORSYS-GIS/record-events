@@ -589,7 +589,7 @@ const EventForm: React.FC<EventFormProps> = ({
                           type="number"
                           id={labelId}
                           name={label.labelId}
-                          value={Number(formData[label.labelId] || 0)}
+                          value={typeof formData[label.labelId] === 'boolean' ? '' : formData[label.labelId] ?? ''}
                           onChange={handleChange}
                           className={`w-full px-4 py-3 rounded-xl border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
                             error
@@ -743,7 +743,7 @@ const EventForm: React.FC<EventFormProps> = ({
                         type="number"
                         id={labelId}
                         name={label.labelId}
-                        value={Number(formData[label.labelId] || 0)}
+                        value={typeof formData[label.labelId] === 'boolean' ? '' : formData[label.labelId] ?? ''}
                         onChange={handleChange}
                         className={`w-full px-4 py-3 rounded-xl border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
                           error
@@ -752,7 +752,7 @@ const EventForm: React.FC<EventFormProps> = ({
                         } ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`}
                         min={0}
                         disabled={isSubmitting}
-                        placeholder="0"
+                        placeholder=""
                       />
                       {error && <p className="text-sm text-red-600">{error}</p>}
                     </div>
