@@ -51,10 +51,10 @@ function App() {
   // Event handlers
   const handleGetStarted = useCallback(() => {
     setShowWelcome(false);
-    setShowOnboarding(true);
-    setShowDashboard(false);
+    setShowOnboarding(false);
+    setShowDashboard(true);
     setShowEventForm(false);
-    navigate("/onboarding");
+    navigate("/dashboard");
   }, [navigate]);
 
   const handleOnboardingComplete = useCallback(() => {

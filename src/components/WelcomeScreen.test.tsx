@@ -23,7 +23,7 @@ describe("WelcomeScreen", () => {
       <WelcomeScreen onGetStarted={mockOnGetStarted} i18n={i18n} />,
     );
 
-    expect(screen.getByText("Welcome to EventApp!")).toBeInTheDocument();
+    expect(screen.getByText("Presidential Election 2025")).toBeInTheDocument();
   });
 
   it("renders language selection buttons", () => {

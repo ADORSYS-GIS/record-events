@@ -88,7 +88,7 @@ const Dashboard: React.FC<DashboardProps> = ({
                     isDark ? "text-gray-300" : "text-gray-600"
                   }`}
                 >
-                  Secure event reporting
+                  Report election results
                 </p>
               </div>
             </div>

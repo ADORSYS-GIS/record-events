@@ -45,10 +45,10 @@
   "pleaseCorrectErrors": "Veuillez corriger les erreurs dans le formulaire.",
   "labelRequired": "{{labelName}} est obligatoire.",
   "labelMaxLengthExceeded": "{{labelName}} dépasse la longueur maximale de {{maxLength}}.",
-  "welcomeTitle": "Bienvenue sur EventApp !",
-  "welcomeDescription": "Votre plateforme décentralisée pour signaler les événements de manière sécurisée et efficace.",
+  "welcomeTitle": "Élection présidentielle 2025",
+  "welcomeDescription": "Documentez les résultats électoraux de manière sécurisée et efficace.",
   "getStartedButton": "Commencer",
-  "welcomeMoreInfo": "Cliquez sur 'Commencer' pour commencer à signaler des événements.",
+  "welcomeMoreInfo": "Cliquez sur 'Commencer' pour saisir les résultats.",
   "selectCategoryTitle": "Choisissez une catégorie d'événement",
   "selectCategoryDescription": "Sélectionnez la catégorie qui décrit le mieux l'événement que vous souhaitez signaler.",
   "describeEventPlaceholder": "Décrivez votre événement ici...",
@@ -63,10 +63,10 @@
     "features": {
       "secure": {
         "title": "Sécurisé et privé",
-        "description": "Vos données sont chiffrées et vérifiées sur la blockchain pour une sécurité maximale"
+        "description": "Vos données sont chiffrées pour une sécurité maximale"
       },
       "security": "Sécurisé et privé",
-      "securityDesc": "Vos données sont chiffrées et vérifiées sur la blockchain",
+      "securityDesc": "Vos données sont chiffrées",
       "camera": "Capture photo facile",
       "cameraDesc": "Capturez et annotez les événements avec l'appareil photo de votre appareil"
     },
@@ -91,9 +91,9 @@
     "skip": "Passer pour l'instant"
   },
   "dashboard": {
-    "subtitle": "Signalement d'événements sécurisé",
+    "subtitle": "Rapporter les résultats électoraux",
     "welcome": "Bon retour !",
-    "welcomeDesc": "Prêt à signaler un événement ?",
+    "welcomeDesc": "Prêt à rapporter les résultats électoraux ?",
     "status": {
       "connected": "Connecté",
       "submitted": "Soumis",
@@ -141,9 +141,9 @@
     "selectLanguage": "Sélectionnez votre langue",
     "features": {
       "secure": "Sécurisé et privé",
-      "secureDesc": "Vos données sont chiffrées et vérifiées sur la blockchain",
+      "secureDesc": "Vos données sont chiffrées",
       "easy": "Facile à utiliser",
-      "easyDesc": "Interface simple pour un signalement rapide d'événements"
+      "easyDesc": "Interface simple pour documentation rapide"
     }
   }
 }
