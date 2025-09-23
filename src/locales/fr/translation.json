@@ -45,7 +45,7 @@
   "pleaseCorrectErrors": "Veuillez corriger les erreurs dans le formulaire.",
   "labelRequired": "{{labelName}} est obligatoire.",
   "labelMaxLengthExceeded": "{{labelName}} dépasse la longueur maximale de {{maxLength}}.",
-  "welcomeTitle": "Élection présidentielle 2025",
+  "welcomeTitle": "Élection Présidentielle 2025",
   "welcomeDescription": "Documentez les résultats électoraux de manière sécurisée et efficace.",
   "getStartedButton": "Commencer",
   "welcomeMoreInfo": "Cliquez sur 'Commencer' pour saisir les résultats.",
@@ -128,13 +128,20 @@
   },
   "eventForm": {
     "title": "Nouveau rapport d'événement",
-    "subtitle": "Capturez et soumettez votre événement",
+    "subtitle": "Saisissez et soumettez votre événement en toute sécurité",
     "fields": {
-      "title": "Détails de l'événement"
+      "title": "Détails de l'événement",
+      "description": "Fournissez des informations complètes sur l'événement"
+    },
+    "electionResults": {
+      "title": "Résultats des élections",
+      "description": "Saisissez le nombre de voix pour chaque candidat"
     },
     "media": {
-      "title": "Ajouter des médias à votre rapport",
-      "description": "Capturez une photo ou téléchargez une image pour fournir un contexte visuel"
+      "title": "Ajouter des médias",
+      "description": "Incluez des photos ou des vidéos pour fournir un contexte visuel",
+      "browseFiles": "Parcourir les fichiers",
+      "takePhoto": "Prendre une photo"
     }
   },
   "welcome": {
@@ -144,6 +151,9 @@
       "secureDesc": "Vos données sont chiffrées",
       "easy": "Facile à utiliser",
       "easyDesc": "Interface simple pour documentation rapide"
-    }
+    },
+    "saveDraft": "Enregistrer le brouillon",
+    "submitting": "Soumission...",
+    "submitReport": "Soumettre le rapport"
   }
 }

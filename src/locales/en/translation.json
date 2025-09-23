@@ -128,13 +128,20 @@
   },
   "eventForm": {
     "title": "New Event Report",
-    "subtitle": "Capture and submit your event",
+    "subtitle": "Capture and submit your event securely",
     "fields": {
-      "title": "Event Details"
+      "title": "Event Details",
+      "description": "Provide comprehensive information about the event"
+    },
+    "electionResults": {
+      "title": "Election Results",
+      "description": "Enter the vote count for each candidate"
     },
     "media": {
-      "title": "Add Media to Your Report (Optional)",
-      "description": "Capture a photo or upload an image to provide visual context (optional)"
+      "title": "Add Media",
+      "description": "Include photos or videos to provide visual context",
+      "browseFiles": "Browse Files",
+      "takePhoto": "Take Photo"
     }
   },
   "welcome": {
@@ -144,6 +151,9 @@
       "secureDesc": "Your data is encrypted",
       "easy": "Easy to Use",
       "easyDesc": "Simple interface for quick event reporting"
-    }
+    },
+  "saveDraft": "Save Draft",
+  "submitting": "Submitting...",
+  "submitReport": "Submit Report"
   }
 }
