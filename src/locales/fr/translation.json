@@ -151,9 +151,11 @@
       "secureDesc": "Vos données sont chiffrées",
       "easy": "Facile à utiliser",
       "easyDesc": "Interface simple pour documentation rapide"
-    },
-    "saveDraft": "Enregistrer le brouillon",
-    "submitting": "Soumission...",
-    "submitReport": "Soumettre le rapport"
-  }
+    }
+  },
+  "saveDraft": "Enregistrer le brouillon",
+  "submitting": "Soumission...",
+  "submitReport": "Soumettre le rapport",
+  "draftSaved": "Brouillon enregistré avec succès.",
+  "saveError": "Erreur lors de l'enregistrement du brouillon."
 }

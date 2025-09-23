@@ -154,6 +154,8 @@
     },
   "saveDraft": "Save Draft",
   "submitting": "Submitting...",
-  "submitReport": "Submit Report"
+  "submitReport": "Submit Report",
+  "draftSaved": "Draft saved successfully.",
+  "saveError": "Error saving draft."
   }
 }
