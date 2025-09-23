@@ -434,7 +434,7 @@ const EventForm: React.FC<EventFormProps> = ({
           <div className="flex flex-col sm:flex-row justify-center gap-3">
             <label className="cursor-pointer bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg shadow-sm transition-all duration-200 flex items-center justify-center space-x-2 font-medium">
               <Upload className="w-5 h-5" />
-              <span>Browse Files</span>
+              <span>{t("eventForm.media.browseFiles")}</span>
               <input
                 type="file"
                 accept="image/*,video/*"
@@ -448,7 +448,7 @@ const EventForm: React.FC<EventFormProps> = ({
               className="bg-white hover:bg-gray-50 text-gray-700 px-6 py-3 rounded-lg shadow-sm transition-all duration-200 flex items-center justify-center space-x-2 border border-gray-300 font-medium"
             >
               <Camera className="w-5 h-5" />
-              <span>Take Photo</span>
+              <span>{t("eventForm.media.takePhoto")}</span>
             </button>
           </div>
         </div>
@@ -483,10 +483,10 @@ const EventForm: React.FC<EventFormProps> = ({
               </button>
               <div>
                 <h1 className="text-xl font-semibold text-gray-900">
-                  New Event Report
+                  {t("eventForm.title")}
                 </h1>
                 <p className="text-sm text-gray-600">
-                  Capture and submit your event securely
+                  {t("eventForm.subtitle")}
                 </p>
               </div>
             </div>
@@ -517,10 +517,10 @@ const EventForm: React.FC<EventFormProps> = ({
               </div>
               <div>
                 <h2 className="text-xl font-semibold text-gray-900">
-                  Event Details
+                  {t("eventForm.fields.title")}
                 </h2>
                 <p className="text-sm text-gray-600">
-                  Provide comprehensive information about the event
+                  {t("eventForm.fields.description")}
                 </p>
               </div>
             </div>
@@ -589,7 +589,7 @@ const EventForm: React.FC<EventFormProps> = ({
                           type="number"
                           id={labelId}
                           name={label.labelId}
-                          value={formData[label.labelId] != null && typeof formData[label.labelId] !== 'boolean' ? formData[label.labelId] : ''}
+                          value={formData[label.labelId] === null || formData[label.labelId] === undefined ? '' : String(formData[label.labelId])}
                           onChange={handleChange}
                           className={`w-full px-4 py-3 rounded-xl border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 ${
                             error
@@ -713,10 +713,10 @@ const EventForm: React.FC<EventFormProps> = ({
               </div>
               <div>
                 <h2 className="text-xl font-semibold text-gray-900">
-                  Election Results
+                  {t("eventForm.electionResults.title")}
                 </h2>
                 <p className="text-sm text-gray-600">
-                  Enter the vote count for each candidate
+                  {t("eventForm.electionResults.description")}
                 </p>
               </div>
             </div>
@@ -743,7 +743,7 @@ const EventForm: React.FC<EventFormProps> = ({
                         type="number"
                         id={labelId}
                         name={label.labelId}
-                        value={formData[label.labelId] != null && typeof formData[label.labelId] !== 'boolean' ? formData[label.labelId] : ''}
+                        value={formData[label.labelId] === null || formData[label.labelId] === undefined ? '' : String(formData[label.labelId])}
                         onChange={handleChange}
                         className={`w-full px-4 py-3 rounded-xl border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 ${
                           error
@@ -769,10 +769,10 @@ const EventForm: React.FC<EventFormProps> = ({
               </div>
               <div>
                 <h2 className="text-xl font-semibold text-gray-900">
-                  Add Media
+                  {t("eventForm.media.title")}
                 </h2>
                 <p className="text-sm text-gray-600">
-                  Include photos or videos to provide visual context
+                  {t("eventForm.media.description")}
                 </p>
               </div>
             </div>
@@ -792,7 +792,7 @@ const EventForm: React.FC<EventFormProps> = ({
               className="inline-flex items-center justify-center px-6 py-3 border border-gray-300 shadow-sm text-sm font-medium rounded-xl text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
             >
               <Save className="h-4 w-4 mr-2" />
-              Save Draft
+              {t("saveDraft", "Save Draft")}
             </button>
             <button
               type="submit"
@@ -822,12 +822,12 @@ const EventForm: React.FC<EventFormProps> = ({
                       d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                     ></path>
                   </svg>
-                  Submitting...
+                  {t("submitting", "Submitting...")}
                 </>
               ) : (
                 <>
                   <Send className="h-4 w-4 mr-2" />
-                  Submit Report
+                  {t("submitReport", "Submit Report")}
                 </>
               )}
             </button>
