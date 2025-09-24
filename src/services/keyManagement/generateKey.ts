@@ -4,7 +4,7 @@ async function generateKeyPair() {
   // Check if Web Crypto API is available
   if (!window.crypto || !window.crypto.subtle) {
     throw new Error(
-      "Web Crypto API is not available. This application requires HTTPS or a secure context to function properly."
+      "Web Crypto API is not available. This application requires HTTPS or a secure context to function properly.",
     );
   }
 
@@ -24,7 +24,7 @@ async function generateKeyPair() {
   } catch (error) {
     console.error("Key generation failed:", error);
     throw new Error(
-      `Failed to generate cryptographic keys: ${error instanceof Error ? error.message : 'Unknown error'}`
+      `Failed to generate cryptographic keys: ${error instanceof Error ? error.message : "Unknown error"}`,
     );
   }
 }

@@ -9,12 +9,12 @@ export interface CryptoSupport {
 export function checkWebCryptoSupport(): CryptoSupport {
   // Check if we're in a secure context
   const isSecureContext = window.isSecureContext;
-  
+
   // Check if crypto object exists
-  const hasCrypto = typeof window.crypto !== 'undefined';
-  
+  const hasCrypto = typeof window.crypto !== "undefined";
+
   // Check if subtle crypto is available
-  const hasSubtle = hasCrypto && typeof window.crypto.subtle !== 'undefined';
+  const hasSubtle = hasCrypto && typeof window.crypto.subtle !== "undefined";
 
   if (!hasCrypto) {
     return {
@@ -22,20 +22,21 @@ export function checkWebCryptoSupport(): CryptoSupport {
       error: "Web Crypto API is not supported in this browser",
       recommendations: [
         "Please use a modern browser (Chrome 37+, Firefox 34+, Safari 7+, Edge 12+)",
-        "Update your browser to the latest version"
-      ]
+        "Update your browser to the latest version",
+      ],
     };
   }
 
   if (!hasSubtle) {
     return {
       isAvailable: false,
-      error: "Crypto Subtle API is not available - this usually means you're accessing the site over HTTP",
+      error:
+        "Crypto Subtle API is not available - this usually means you're accessing the site over HTTP",
       recommendations: [
         "Access the application over HTTPS instead of HTTP",
         "If developing locally, use 'localhost' instead of your IP address",
-        "Or use a development server with HTTPS enabled"
-      ]
+        "Or use a development server with HTTPS enabled",
+      ],
     };
   }
 
@@ -45,20 +46,20 @@ export function checkWebCryptoSupport(): CryptoSupport {
       error: "Application is not running in a secure context",
       recommendations: [
         "Access the application over HTTPS",
-        "If developing locally, use 'localhost' instead of an IP address"
-      ]
+        "If developing locally, use 'localhost' instead of an IP address",
+      ],
     };
   }
 
   return {
     isAvailable: true,
-    recommendations: []
+    recommendations: [],
   };
 }
 
 export function getWebCryptoErrorMessage(): string {
   const support = checkWebCryptoSupport();
-  
+
   if (support.isAvailable) {
     return "";
   }

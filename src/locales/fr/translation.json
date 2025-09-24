@@ -1,5 +1,5 @@
 {
-  "appTitle": "",
+  "appTitle": "Système de Vote Camerounais",
   "appSubtitle": "L'avenir du système de rapport d'événements décentralisé.",
   "applicationStatus": "État de l'application",
   "keysInitialized": "Clés initialisées.",
@@ -57,22 +57,19 @@
   "eventSaved": "Événement enregistré avec succès.",
   "onboarding": {
     "welcome": {
-      "title": "Bienvenue sur EventApp",
-      "description": "Votre plateforme sécurisée pour signaler les événements avec vérification blockchain"
+      "title": "Rapport de Vote du Cameroun"
     },
     "features": {
       "secure": {
-        "title": "Sécurisé et privé",
-        "description": "Vos données sont chiffrées pour une sécurité maximale"
+        "title": "Rapport Sécurisé"
       },
       "security": "Sécurisé et privé",
-      "securityDesc": "Vos données sont chiffrées",
+      "securityDesc": "Vos données sont chiffrées. Tous les rapports sont anonymes et ne peuvent pas être retracés jusqu'à vous.",
       "camera": "Capture photo facile",
       "cameraDesc": "Capturez et annotez les événements avec l'appareil photo de votre appareil"
     },
     "permissions": {
-      "title": "Accès à l'appareil photo",
-      "description": "Autoriser l'accès à l'appareil photo pour capturer des photos d'événements"
+      "title": "Accès Caméra"
     },
     "security": {
       "title": "Configuration de sécurité",
@@ -81,13 +78,13 @@
     },
     "ready": {
       "title": "Vous êtes prêt !",
-      "description": "Commencez à signaler les événements en toute sécurité"
+      "description": "Commencez à signaler les événements de manière sécurisée et efficace."
     },
     "generating": "Génération de vos clés sécurisées...",
     "generatingDesc": "Cela peut prendre quelques instants",
-    "getStarted": "Commencer",
+    "getStarted": "Terminer",
     "settingUp": "Configuration...",
-    "continue": "Continuer",
+    "continue": "Suivant",
     "skip": "Passer pour l'instant"
   },
   "dashboard": {

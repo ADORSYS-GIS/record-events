@@ -14,6 +14,9 @@ import type {
   KeyPair,
   AuthenticationStatus,
 } from "../hooks/useAuthenticationFlow";
+import { type LocalEvent } from "../hooks/useEventHistory";
+import { useState } from "react";
+import { EventPackage } from "../openapi-rq/requests/types.gen";
 
 interface AppRoutesProps {
   showWelcome: boolean;
@@ -29,13 +32,19 @@ interface AppRoutesProps {
   webAuthnStatus?: string;
   powStatus?: string;
   authStatus: AuthenticationStatus;
+  events: LocalEvent[];
   onGetStarted: () => void;
   onOnboardingComplete: () => void;
   onCreateEvent: () => void;
-  onViewHistory: () => void;
+  onViewEvent: (event: LocalEvent) => void;
   onOpenSettings: () => void;
   onRetry: () => void;
   onGoBackToDashboard: () => void; // Add this prop
+  addEvent: (eventPackage: EventPackage, hash?: string) => void;
+  saveDraft: (eventPackage: EventPackage, image?: Blob) => void;
+  updateDraft: (eventPackage: EventPackage, image?: Blob) => void;
+  removeEvent: (eventId: string) => void;
+  editingEvent?: LocalEvent;
 }
 
 const AppRoutes: React.FC<AppRoutesProps> = ({
@@ -52,13 +61,19 @@ const AppRoutes: React.FC<AppRoutesProps> = ({
   webAuthnStatus,
   powStatus,
   authStatus,
+  events,
   onGetStarted,
   onOnboardingComplete,
   onCreateEvent,
-  onViewHistory,
+  onViewEvent,
   onOpenSettings,
   onRetry,
   onGoBackToDashboard,
+  addEvent,
+  saveDraft,
+  updateDraft,
+  removeEvent,
+  editingEvent,
 }) => {
   const navigate = useNavigate();
 
@@ -143,6 +158,10 @@ const AppRoutes: React.FC<AppRoutesProps> = ({
           labels={labels}
           keyPair={keyPair}
           onGoBack={onGoBackToDashboard}
+          initialEvent={editingEvent}
+          addEvent={addEvent}
+          saveDraft={saveDraft}
+          updateDraft={updateDraft}
         />
       );
     }
@@ -151,9 +170,11 @@ const AppRoutes: React.FC<AppRoutesProps> = ({
       <DashboardPage
         labels={labels}
         keyPair={keyPair}
+        events={events}
         onCreateEvent={onCreateEvent}
-        onViewHistory={onViewHistory}
+        onViewEvent={onViewEvent}
         onOpenSettings={onOpenSettings}
+        removeEvent={removeEvent}
       />
     );
   } else {
@@ -162,9 +183,11 @@ const AppRoutes: React.FC<AppRoutesProps> = ({
       <DashboardPage
         labels={labels}
         keyPair={keyPair}
+        events={events}
         onCreateEvent={onCreateEvent}
-        onViewHistory={onViewHistory}
+        onViewEvent={onViewEvent}
         onOpenSettings={onOpenSettings}
+        removeEvent={removeEvent}
       />
     );
   }

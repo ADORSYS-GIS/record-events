@@ -118,16 +118,9 @@ const useAuthenticationFlow = () => {
 
         // Validate the restored keyPair
         if (keyPair && keyPair.publicKey && keyPair.privateKey) {
-          setStatus((prev) => ({
-            ...prev,
-            keyPair,
-            keyStatus: "Keys restored from storage",
-            isKeyGenerating: false,
-          }));
           return keyPair;
-        } else {
-          localStorage.removeItem("eventApp_keyPair");
         }
+        localStorage.removeItem("eventApp_keyPair");
       }
     } catch (error) {
       localStorage.removeItem("eventApp_keyPair");
@@ -262,6 +255,9 @@ const useAuthenticationFlow = () => {
 
   // Check if authentication is already complete
   useEffect(() => {
+    if (isInitializedRef.current) {
+      return;
+    }
     const authToken = localStorage.getItem("authToken");
     if (authToken) {
       // Restore keyPair from storage

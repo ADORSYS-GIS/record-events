@@ -250,7 +250,6 @@ export async function fetchLabels(): Promise<Label[]> {
 }
 
 export function cacheLabels(labels: Label[]): void {
-  
   localStorage.setItem(LABELS_STORAGE_KEY, JSON.stringify(labels));
 }
 

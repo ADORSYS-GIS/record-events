@@ -5,7 +5,9 @@ import { BrowserRouter as Router, useNavigate } from "react-router-dom";
 
 import useAuthenticationFlow from "./hooks/useAuthenticationFlow";
 import { useLabelManagement } from "./hooks/useLabelManagement";
+import { useEventHistory, LocalEvent } from "./hooks/useEventHistory";
 import { AppRoutes } from "./routes";
+import { EventPackage } from "./openapi-rq/requests/types.gen";
 
 // Create a client
 const queryClient = new QueryClient({
@@ -23,6 +25,8 @@ function App() {
   const authStatus = useAuthenticationFlow();
 
   const { labels } = useLabelManagement();
+  const { events, addEvent, saveDraft, updateDraft, removeEvent } =
+    useEventHistory();
 
   // App state management
   const [showWelcome, setShowWelcome] = useState(true);
@@ -30,6 +34,9 @@ function App() {
   const [showDashboard, setShowDashboard] = useState(false);
   const [showEventForm, setShowEventForm] = useState(false);
   const [hasInitialized, setHasInitialized] = useState(false);
+  const [editingEvent, setEditingEvent] = useState<LocalEvent | undefined>(
+    undefined,
+  );
 
   // Check if onboarding has been completed (only once on mount)
   useEffect(() => {
@@ -51,10 +58,10 @@ function App() {
   // Event handlers
   const handleGetStarted = useCallback(() => {
     setShowWelcome(false);
-    setShowOnboarding(false);
-    setShowDashboard(true);
+    setShowOnboarding(true);
+    setShowDashboard(false);
     setShowEventForm(false);
-    navigate("/dashboard");
+    navigate("/onboarding");
   }, [navigate]);
 
   const handleOnboardingComplete = useCallback(() => {
@@ -65,6 +72,7 @@ function App() {
   }, [navigate]);
 
   const handleCreateEvent = useCallback(() => {
+    setEditingEvent(undefined);
     setShowWelcome(false);
     setShowOnboarding(false);
     setShowDashboard(false);
@@ -72,9 +80,11 @@ function App() {
     navigate("/event/new");
   }, [navigate]);
 
-  const handleViewHistory = useCallback(() => {
-    // TODO: Implement history view
-  }, []);
+  const handleViewEvent = (event: LocalEvent) => {
+    setEditingEvent(event);
+    setShowEventForm(true);
+    navigate("/event/new");
+  };
 
   const handleOpenSettings = useCallback(() => {
     // TODO: Implement settings
@@ -91,6 +101,18 @@ function App() {
     setShowEventForm(false);
     navigate("/dashboard");
   }, [navigate]);
+
+  const handleSaveDraft = (eventPackage: EventPackage, image?: Blob) => {
+    saveDraft(eventPackage, image);
+    setShowEventForm(false);
+    navigate("/dashboard");
+  };
+
+  const handleUpdateDraft = (eventPackage: EventPackage, image?: Blob) => {
+    updateDraft(eventPackage, image);
+    setShowEventForm(false);
+    navigate("/dashboard");
+  };
 
   // Loading and error states - show loading until full authentication is complete
   const isLoading = authStatus.isLoading;
@@ -112,13 +134,19 @@ function App() {
       webAuthnStatus={authStatus.webAuthnStatus}
       powStatus={authStatus.powStatus}
       authStatus={authStatus}
+      events={events}
       onGetStarted={handleGetStarted}
       onOnboardingComplete={handleOnboardingComplete}
       onCreateEvent={handleCreateEvent}
-      onViewHistory={handleViewHistory}
+      onViewEvent={handleViewEvent}
       onOpenSettings={handleOpenSettings}
       onRetry={handleRetry}
       onGoBackToDashboard={handleGoBackToDashboard}
+      addEvent={addEvent}
+      saveDraft={handleSaveDraft}
+      updateDraft={handleUpdateDraft}
+      removeEvent={removeEvent}
+      editingEvent={editingEvent}
     />
   );
 }

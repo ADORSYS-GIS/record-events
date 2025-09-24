@@ -1,20 +1,12 @@
 import type { i18n as I18nInstance } from "i18next";
-import {
-  ArrowLeft,
-  ArrowRight,
-  Camera,
-  CheckCircle,
-  Lock,
-  Monitor,
-  Moon,
-  Shield,
-  Sparkles,
-  Sun,
-} from "lucide-react";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import type { AuthenticationStatus } from "../hooks/useAuthenticationFlow";
 import { useTheme } from "../hooks/useTheme";
+import OnboardingHeader from "./onboarding/OnboardingHeader";
+import OnboardingNavigation from "./onboarding/OnboardingNavigation";
+import OnboardingProgress from "./onboarding/OnboardingProgress";
+import OnboardingStep from "./onboarding/OnboardingStep";
 
 interface OnboardingFlowProps {
   onComplete: () => void;
@@ -25,30 +17,22 @@ interface OnboardingFlowProps {
   authStatus: AuthenticationStatus;
 }
 
-interface OnboardingStep {
+interface OnboardingStepData {
   id: number;
   title: string;
-  description: string;
   icon: React.ReactNode;
   action?: () => void;
   status: "pending" | "active" | "completed";
   type: "welcome" | "feature" | "permission" | "ready";
 }
 
-const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
-  onComplete,
-  // keyStatus, // TODO: Use for step validation
-  // webAuthnStatus, // TODO: Use for step validation
-  // powStatus, // TODO: Use for step validation
-  // authStatus, // TODO: Use for step validation
-}) => {
+const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ onComplete }) => {
   const { t } = useTranslation();
-  const { theme, changeTheme, isDark } = useTheme();
+  const { isDark } = useTheme();
   const [currentStep, setCurrentStep] = useState(0);
   const [completedSteps, setCompletedSteps] = useState<number[]>([]);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
-  // Define completeStep function first
   const completeStep = useCallback(
     (stepId: number) => {
       setIsTransitioning(true);
@@ -56,14 +40,12 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
 
       setTimeout(() => {
         if (stepId === 4) {
-          // This is the final "You're Ready!" step
-          // Store onboarding completion in localStorage
           localStorage.setItem("eventApp_onboarding_completed", "true");
           setTimeout(() => {
             onComplete();
           }, 300);
         } else {
-          setCurrentStep((prev) => Math.min(prev + 1, 3)); // steps.length - 1, but steps not defined yet
+          setCurrentStep((prev) => Math.min(prev + 1, 3));
           setIsTransitioning(false);
         }
       }, 200);
@@ -71,17 +53,18 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
     [onComplete],
   );
 
-  // Simplified onboarding steps
-  const steps: OnboardingStep[] = useMemo(
+  const steps: OnboardingStepData[] = useMemo(
     () => [
       {
         id: 1,
-        title: t("onboarding.welcome.title", "Welcome to EventApp"),
-        description: t(
-          "onboarding.welcome.description",
-          "Your secure platform for reporting events with blockchain verification",
+        title: t("onboarding.welcome.title", "Cameroon Vote Reporting"),
+        icon: (
+          <img
+            src="/reporting.png"
+            alt="Reporting"
+            className="w-64 h-64 object-contain"
+          />
         ),
-        icon: <Sparkles className="w-12 h-12 text-blue-600" />,
         type: "welcome",
         status:
           currentStep === 0
@@ -92,12 +75,14 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
       },
       {
         id: 2,
-        title: t("onboarding.features.secure.title", "Bank-Grade Security"),
-        description: t(
-          "onboarding.features.secure.description",
-          "Your data is encrypted and verified on the blockchain for maximum security",
+        title: t("onboarding.features.secure.title", "Secure Reporting"),
+        icon: (
+          <img
+            src="/secure.png"
+            alt="Secure"
+            className="w-64 h-64 object-contain"
+          />
         ),
-        icon: <Shield className="w-12 h-12 text-blue-600" />,
         type: "feature",
         status:
           currentStep === 1
@@ -109,21 +94,19 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
       {
         id: 3,
         title: t("onboarding.permissions.title", "Camera Access"),
-        description: t(
-          "onboarding.permissions.description",
-          "Allow camera access to capture event photos",
+        icon: (
+          <img
+            src="/camera.png"
+            alt="Camera"
+            className="w-64 h-64 object-contain"
+          />
         ),
-        icon: <Camera className="w-12 h-12 text-blue-600" />,
         type: "permission",
         action: () => {
           navigator.mediaDevices
             .getUserMedia({ video: true })
-            .then(() => {
-              completeStep(3);
-            })
-            .catch(() => {
-              completeStep(3);
-            });
+            .then(() => completeStep(3))
+            .catch(() => completeStep(3));
         },
         status:
           currentStep === 2
@@ -134,12 +117,14 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
       },
       {
         id: 4,
-        title: t("onboarding.ready.title", "You're Ready!"),
-        description: t(
-          "onboarding.ready.description",
-          "Start reporting events securely",
+        title: t("onboarding.ready.title", "You're All Set!"),
+        icon: (
+          <img
+            src="/letsgo.png"
+            alt="Ready"
+            className="w-64 h-64 object-contain"
+          />
         ),
-        icon: <CheckCircle className="w-12 h-12 text-green-600" />,
         type: "ready",
         status:
           currentStep === 3
@@ -154,7 +139,6 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
 
   const handleNext = useCallback(() => {
     if (isTransitioning) return;
-
     const currentStepData = steps[currentStep];
     if (currentStepData.action) {
       currentStepData.action();
@@ -163,9 +147,8 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
     }
   }, [currentStep, steps, completeStep, isTransitioning]);
 
-  const handlePrevious = useCallback(() => {
+  const handlePrev = useCallback(() => {
     if (isTransitioning || currentStep === 0) return;
-
     setIsTransitioning(true);
     setTimeout(() => {
       setCurrentStep(currentStep - 1);
@@ -173,14 +156,13 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
     }, 200);
   }, [currentStep, isTransitioning]);
 
-  const currentStepData = steps[currentStep] || steps[steps.length - 1];
-
-  // Ensure currentStep never goes beyond the steps array
   useEffect(() => {
     if (currentStep >= steps.length) {
       setCurrentStep(steps.length - 1);
     }
   }, [currentStep, steps.length]);
+
+  const currentStepData = steps[currentStep] || steps[steps.length - 1];
 
   return (
     <div
@@ -190,164 +172,27 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({
           : "bg-gradient-to-br from-gray-50 via-white to-gray-50"
       }`}
     >
+      <OnboardingHeader />
       <div className="w-full max-w-lg">
-        {/* Theme Toggle */}
-        <div className="absolute top-4 right-4">
-          <div
-            className={`flex items-center space-x-1 rounded-xl p-1 shadow-lg ${
-              isDark ? "bg-gray-800" : "bg-white"
-            }`}
-          >
-            <button
-              onClick={() => changeTheme("light")}
-              className={`p-2 rounded-lg transition-all duration-200 ${
-                theme === "light"
-                  ? "bg-blue-600 text-white shadow-md"
-                  : "text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
-              }`}
-            >
-              <Sun className="w-4 h-4" />
-            </button>
-            <button
-              onClick={() => changeTheme("system")}
-              className={`p-2 rounded-lg transition-all duration-200 ${
-                theme === "system"
-                  ? "bg-blue-600 text-white shadow-md"
-                  : "text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
-              }`}
-            >
-              <Monitor className="w-4 h-4" />
-            </button>
-            <button
-              onClick={() => changeTheme("dark")}
-              className={`p-2 rounded-lg transition-all duration-200 ${
-                theme === "dark"
-                  ? "bg-blue-600 text-white shadow-md"
-                  : "text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
-              }`}
-            >
-              <Moon className="w-4 h-4" />
-            </button>
-          </div>
-        </div>
-
-        {/* Progress Indicator */}
-        <div className="mb-10">
-          <div className="flex justify-center space-x-3">
-            {steps.map((step) => (
-              <div
-                key={step.id}
-                className={`w-4 h-4 rounded-full transition-all duration-300 ease-in-out ${
-                  step.status === "completed" || step.status === "active"
-                    ? "bg-blue-600 scale-110"
-                    : isDark
-                      ? "bg-gray-600"
-                      : "bg-gray-300"
-                }`}
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* Main Content Card */}
+        <OnboardingProgress
+          steps={steps}
+          currentStep={currentStep}
+          isDark={isDark}
+        />
         <div
           className={`rounded-2xl shadow-xl p-10 transition-all duration-300 ease-in-out ${
             isDark ? "bg-gray-800 border border-gray-700" : "bg-white"
           } ${isTransitioning ? "opacity-50 scale-95" : "opacity-100 scale-100"}`}
         >
-          {/* Icon */}
-          <div className="flex justify-center mb-8">
-            <div
-              className={`p-6 rounded-2xl w-24 h-24 flex items-center justify-center ${
-                isDark ? "bg-blue-900/20" : "bg-blue-50"
-              }`}
-            >
-              {currentStepData.icon}
-            </div>
-          </div>
-
-          {/* Title */}
-          <h2
-            className={`text-3xl font-bold text-center mb-6 leading-tight ${
-              isDark ? "text-white" : "text-gray-900"
-            }`}
-          >
-            {currentStepData.title}
-          </h2>
-
-          {/* Description */}
-          <p
-            className={`text-center mb-10 leading-relaxed text-lg max-w-md mx-auto ${
-              isDark ? "text-gray-300" : "text-gray-600"
-            }`}
-          >
-            {currentStepData.description}
-          </p>
-
-          {/* Step-specific content */}
-          {currentStepData.type === "welcome" && (
-            <div
-              className={`rounded-xl p-6 mb-8 max-w-md mx-auto ${
-                isDark ? "bg-blue-900/20 border border-blue-800" : "bg-blue-50"
-              }`}
-            >
-              <div className="flex items-start space-x-4">
-                <Lock className="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
-                <div>
-                  <h3
-                    className={`font-semibold mb-2 ${
-                      isDark ? "text-blue-200" : "text-blue-900"
-                    }`}
-                  >
-                    {t("onboarding.features.security", "Secure & Private")}
-                  </h3>
-                  <p
-                    className={`text-sm leading-relaxed ${
-                      isDark ? "text-blue-300" : "text-blue-700"
-                    }`}
-                  >
-                    {t(
-                      "onboarding.features.securityDesc",
-                      "Your data is encrypted and verified on the blockchain",
-                    )}
-                  </p>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* Navigation Buttons */}
-          <div className="flex justify-between items-center">
-            <button
-              onClick={handlePrevious}
-              disabled={currentStep === 0 || isTransitioning}
-              className={`flex items-center space-x-2 px-6 py-3 rounded-xl font-medium transition-all duration-200 ${
-                currentStep === 0 || isTransitioning
-                  ? "text-gray-400 cursor-not-allowed"
-                  : isDark
-                    ? "text-gray-300 hover:text-white hover:bg-gray-700"
-                    : "text-gray-700 hover:text-gray-900 hover:bg-gray-100"
-              }`}
-            >
-              <ArrowLeft className="w-5 h-5" />
-              <span>Previous</span>
-            </button>
-
-            <button
-              onClick={handleNext}
-              disabled={isTransitioning}
-              className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-xl font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
-            >
-              <span>
-                {currentStepData.type === "ready"
-                  ? t("onboarding.getStarted", "Finish")
-                  : t("onboarding.continue", "Next")}
-              </span>
-              <ArrowRight className="w-5 h-5" />
-            </button>
-          </div>
-
-          {/* Skip option for permission step */}
+          <OnboardingStep step={currentStepData} isDark={isDark} />
+          <OnboardingNavigation
+            currentStep={currentStep}
+            stepsLength={steps.length}
+            isDark={isDark}
+            handleNext={handleNext}
+            handlePrev={handlePrev}
+            handleFinish={() => completeStep(4)}
+          />
           {currentStepData.type === "permission" && (
             <button
               onClick={() => completeStep(currentStepData.id)}

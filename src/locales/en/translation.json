@@ -1,5 +1,5 @@
 {
-  "appTitle": "",
+  "appTitle": "Cameroon Vote Reporting",
   "appSubtitle": "The future of decentralized event reporting.",
   "applicationStatus": "Application Status",
   "keysInitialized": "Keys Initialized.",
@@ -57,22 +57,19 @@
   "eventSaved": "Event saved successfully.",
   "onboarding": {
     "welcome": {
-      "title": "Welcome to EventApp",
-      "description": "Your secure platform for reporting events with blockchain verification"
+      "title": "Cameroon Vote Reporting"
     },
     "features": {
       "secure": {
-        "title": "Secure & Private",
-        "description": "Your data is encrypted and verified on the blockchain for maximum security"
+        "title": "Secure Reporting"
       },
       "security": "Secure & Private",
-      "securityDesc": "Your data is encrypted and verified on the blockchain",
+      "securityDesc": "Your data is encrypted and verified on the blockchain. All reports are anonymous and cannot be traced back to you.",
       "camera": "Easy Photo Capture",
       "cameraDesc": "Capture and annotate events with your device camera"
     },
     "permissions": {
-      "title": "Camera Access",
-      "description": "Allow camera access to capture event photos"
+      "title": "Camera Access"
     },
     "security": {
       "title": "Security Setup",
@@ -80,14 +77,14 @@
       "completed": "Security setup completed!"
     },
     "ready": {
-      "title": "You're Ready!",
-      "description": "Start reporting events securely"
+      "title": "You're All Set!",
+      "description": "Start reporting events securely and efficiently."
     },
     "generating": "Generating your secure keys...",
     "generatingDesc": "This may take a few moments",
-    "getStarted": "Get Started",
+    "getStarted": "Finish",
     "settingUp": "Setting up...",
-    "continue": "Continue",
+    "continue": "Next",
     "skip": "Skip for now"
   },
   "dashboard": {
@@ -152,10 +149,10 @@
       "easy": "Easy to Use",
       "easyDesc": "Simple interface for quick event reporting"
     },
-  "saveDraft": "Save Draft",
-  "submitting": "Submitting...",
-  "submitReport": "Submit Report",
-  "draftSaved": "Draft saved successfully.",
-  "saveError": "Error saving draft."
+    "saveDraft": "Save Draft",
+    "submitting": "Submitting...",
+    "submitReport": "Submit Report",
+    "draftSaved": "Draft saved successfully.",
+    "saveError": "Error saving draft."
   }
 }
