@@ -1,4 +1,12 @@
-export const cameroonData = {
+interface CameroonData {
+  [region: string]: {
+    [division: string]: {
+      [subdivision: string]: string[];
+    };
+  };
+}
+
+export const cameroonData: CameroonData = {
   Adamawa: {
     Djérem: {
       Ngaoundal: [],
@@ -498,19 +506,19 @@ export const cameroonData = {
 };
 
 export function getDivisions(region: string): string[] {
-  if (!region || !(cameroonData as any)[region]) return [];
-  return Object.keys((cameroonData as any)[region]);
+  if (!region || !cameroonData[region]) return [];
+  return Object.keys(cameroonData[region]);
 }
 
 export function getSubdivisions(region: string, division: string): string[] {
   if (
     !region ||
     !division ||
-    !(cameroonData as any)[region] ||
-    !(cameroonData as any)[region][division]
+    !cameroonData[region] ||
+    !cameroonData[region][division]
   )
     return [];
-  return Object.keys((cameroonData as any)[region][division]);
+  return Object.keys(cameroonData[region][division]);
 }
 
 export function getPollingStations(subdivision: string): string[] {

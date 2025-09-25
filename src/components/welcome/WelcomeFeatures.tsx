@@ -6,7 +6,7 @@ interface WelcomeFeaturesProps {
   isDark: boolean;
 }
 
-const WelcomeFeatures: React.FC<WelcomeFeaturesProps> = ({ isDark }) => {
+const WelcomeFeatures: React.FC<WelcomeFeaturesProps> = () => {
   const { t } = useTranslation();
 
   return <></>;
