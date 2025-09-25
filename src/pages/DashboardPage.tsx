@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import Dashboard from "../components/Dashboard";
+import DraftSelectionModal from "../components/dashboard/DraftSelectionModal";
 import type { KeyPair } from "../hooks/useAuthenticationFlow";
 import type { Label } from "../labels/label-manager";
 import type { LocalEvent } from "../hooks/useEventHistory";
@@ -9,9 +10,11 @@ interface DashboardPageProps {
   keyPair?: KeyPair;
   events: LocalEvent[];
   onCreateEvent: () => void;
+  onContinueEvent: () => void;
   onViewEvent: (event: LocalEvent) => void;
   onOpenSettings: () => void;
   removeEvent: (eventId: string) => void;
+  onSelectDraft: (draft: LocalEvent) => void;
 }
 
 const DashboardPage: React.FC<DashboardPageProps> = ({
@@ -19,20 +22,48 @@ const DashboardPage: React.FC<DashboardPageProps> = ({
   keyPair,
   events,
   onCreateEvent,
+  onContinueEvent,
   onViewEvent,
   onOpenSettings,
   removeEvent,
+  onSelectDraft,
 }) => {
+  const [isDraftModalOpen, setIsDraftModalOpen] = useState(false);
+  const hasDrafts = events.some((event) => event.status === "draft");
+
+  const handleContinueEvent = () => {
+    if (hasDrafts) {
+      setIsDraftModalOpen(true);
+    } else {
+      onContinueEvent();
+    }
+  };
+
+  const handleSelectDraft = (draft: LocalEvent) => {
+    onSelectDraft(draft);
+    setIsDraftModalOpen(false);
+  };
+
   return (
-    <Dashboard
-      labels={labels}
-      keyPair={keyPair}
-      events={events}
-      onCreateEvent={onCreateEvent}
-      onViewEvent={onViewEvent}
-      onOpenSettings={onOpenSettings}
-      removeEvent={removeEvent}
-    />
+    <>
+      <Dashboard
+        labels={labels}
+        keyPair={keyPair}
+        events={events}
+        onCreateEvent={onCreateEvent}
+        onContinueEvent={handleContinueEvent}
+        onViewEvent={onViewEvent}
+        onOpenSettings={onOpenSettings}
+        removeEvent={removeEvent}
+        hasDrafts={hasDrafts}
+      />
+      <DraftSelectionModal
+        isOpen={isDraftModalOpen}
+        drafts={events.filter((event) => event.status === "draft")}
+        onSelectDraft={handleSelectDraft}
+        onClose={() => setIsDraftModalOpen(false)}
+      />
+    </>
   );
 };
 

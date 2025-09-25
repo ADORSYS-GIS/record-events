@@ -103,10 +103,12 @@
       "safety": "Problème de sécurité",
       "report": "Signaler maintenant"
     },
-    "createEvent": {
-      "title": "Créer un nouveau rapport",
-      "description": "Prenez des photos, ajoutez des détails et soumettez en toute sécurité",
-      "button": "Démarrer un nouveau rapport"
+    "actions": {
+      "create": "Saisir les données de ton bureau de vote",
+      "createDescription": "Commencez un nouveau rapport et remplissez les détails des résultats de l'élection.",
+      "continue": "Continuer les saisies de ton bureau de vote",
+      "continueDescription": "Reprenez la modification d'un rapport précédemment sauvegardé.",
+      "noDrafts": "Aucun brouillon enregistré disponible"
     },
     "recentEvents": {
       "title": "Rapports récents",
@@ -154,5 +156,12 @@
   "submitting": "Soumission...",
   "submitReport": "Soumettre le rapport",
   "draftSaved": "Brouillon enregistré avec succès.",
-  "saveError": "Erreur lors de l'enregistrement du brouillon."
+  "saveError": "Erreur lors de l'enregistrement du brouillon.",
+  "draftSelection": {
+    "title": "Choisissez un brouillon",
+    "description": "Sélectionnez un brouillon pour continuer votre rapport.",
+    "untitled": "Brouillon numéro {{count}}",
+    "lastModified": "Dernière modification",
+    "goBack": "Retour au tableau de bord"
+  }
 }

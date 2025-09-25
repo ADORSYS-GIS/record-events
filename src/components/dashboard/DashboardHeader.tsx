@@ -1,8 +1,9 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Monitor, Moon, Sun } from "lucide-react";
+import { useTheme } from "../../hooks/useTheme.tsx";
+import LanguageSwitcher from "../LanguageSwitcher";
 import ConnectionStatus from "../ConnectionStatus";
-import { useTheme } from "../../hooks/useTheme";
 
 interface DashboardHeaderProps {
   isDark: boolean;
@@ -44,16 +45,17 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({ isDark }) => {
             </div>
           </div>
           <div className="flex items-center space-x-2 sm:space-x-4">
-            <ConnectionStatus
+            {/* <ConnectionStatus
               className={`transition-colors duration-300 text-xs sm:text-sm ${
                 isDark ? "text-gray-300" : "text-gray-200"
               }`}
-            />
+            /> */}
+            <LanguageSwitcher />
 
             {/* Theme Toggle */}
             <div
               className={`hidden sm:flex items-center space-x-1 rounded-xl p-1 shadow-lg transition-all duration-300 ${
-                isDark ? "bg-gray-700" : "bg-white/20"
+                isDark ? "bg-gray-700" : "bg-white/30"
               }`}
             >
               <button
@@ -61,7 +63,9 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({ isDark }) => {
                 className={`p-2 rounded-lg transition-all duration-200 ${
                   theme === "light"
                     ? "bg-cameroon-yellow text-black shadow-md"
-                    : "text-gray-400 hover:text-white"
+                    : isDark
+                    ? "text-gray-400 hover:text-white"
+                    : "text-white hover:text-gray-200"
                 }`}
               >
                 <Sun className="w-4 h-4" />
@@ -71,7 +75,9 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({ isDark }) => {
                 className={`p-2 rounded-lg transition-all duration-200 ${
                   theme === "system"
                     ? "bg-cameroon-yellow text-black shadow-md"
-                    : "text-gray-400 hover:text-white"
+                    : isDark
+                    ? "text-gray-400 hover:text-white"
+                    : "text-white hover:text-gray-200"
                 }`}
               >
                 <Monitor className="w-4 h-4" />
@@ -81,7 +87,9 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({ isDark }) => {
                 className={`p-2 rounded-lg transition-all duration-200 ${
                   theme === "dark"
                     ? "bg-cameroon-yellow text-black shadow-md"
-                    : "text-gray-400 hover:text-white"
+                    : isDark
+                    ? "text-gray-400 hover:text-white"
+                    : "text-white hover:text-gray-200"
                 }`}
               >
                 <Moon className="w-4 h-4" />

@@ -12,7 +12,6 @@ interface WelcomeActionsProps {
 const WelcomeActions: React.FC<WelcomeActionsProps> = ({
   isDark,
   onGetStarted,
-  i18n,
 }) => {
   const { t } = useTranslation();
 

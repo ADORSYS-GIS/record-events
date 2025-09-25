@@ -5,13 +5,12 @@ import { toast } from "sonner";
 import type { KeyPair } from "../hooks/useKeyInitialization";
 import type { Label } from "../labels/label-manager";
 import { createEventPackage, validateFormData } from "../utils/event-packer";
-import { useEventSubmission } from "../hooks/useEventSubmission";
 import { generateEventJWT } from "../services/keyManagement/jwtService";
 import type { EventPackage as LocalEventPackage } from "../types/event";
 import type { EventPackage } from "../openapi-rq/requests/types.gen";
 import { LocalEvent } from "../hooks/useEventHistory";
 import { apiAuthService } from "../services/keyManagement/apiAuthService";
-import { useTheme } from "../hooks/useTheme";
+import { useTheme } from "../hooks/useTheme.tsx";
 import CameraCapture from "./CameraCapture";
 import { FieldValue } from "../types/event";
 import FormHeader from "./event-form/FormHeader";
@@ -31,6 +30,10 @@ interface EventFormProps {
   addEvent: (eventPackage: EventPackage, hash?: string) => void;
   saveDraft: (eventPackage: EventPackage, image?: Blob) => void;
   updateDraft: (eventPackage: EventPackage, image?: Blob) => void;
+  submitEventAsync: (signedEventPackage: string) => Promise<void>;
+  isSubmitting: boolean;
+  updateEventStatus: (eventId: string, status: LocalEvent["status"]) => void;
+  removeEvent: (eventId: string) => void;
 }
 
 const EventForm: React.FC<EventFormProps> = ({
@@ -42,17 +45,18 @@ const EventForm: React.FC<EventFormProps> = ({
   addEvent,
   saveDraft,
   updateDraft,
+  submitEventAsync,
+  isSubmitting,
+  updateEventStatus,
+  removeEvent,
 }) => {
   const { t } = useTranslation();
   const { isDark } = useTheme();
   const [formData, setFormData] = useState<FormData>({});
   const [mediaFile, setMediaFile] = useState<File | null>(null);
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [dragActive, setDragActive] = useState(false);
   const [isCameraOpen, setIsCameraOpen] = useState(false);
-
-  const { submitEvent, isSubmitting: isApiSubmitting } = useEventSubmission();
 
   useEffect(() => {
     if (initialEvent) {
@@ -194,7 +198,6 @@ const EventForm: React.FC<EventFormProps> = ({
       toast.error(t("validationError"));
       return;
     }
-    setIsSubmitting(true);
 
     try {
       const cleanData: Record<string, FieldValue> = {};
@@ -211,7 +214,6 @@ const EventForm: React.FC<EventFormProps> = ({
         { createdBy, source: "web" },
       );
 
-      // Get the token from PoW verification
       const token = localStorage.getItem("authToken");
       if (!token) {
         throw new Error(
@@ -219,14 +221,12 @@ const EventForm: React.FC<EventFormProps> = ({
         );
       }
 
-      // Set the token as Bearer token for API requests
       apiAuthService.setBearerToken(token);
 
       if (!_keyPair || !_keyPair.privateKey || !_keyPair.publicKey) {
         throw new Error("Key pair is not available for signing the event.");
       }
 
-      // Generate JWT with event data
       const jwtEventData = await generateEventJWT(
         _keyPair.privateKey,
         _keyPair.publicKey,
@@ -234,33 +234,48 @@ const EventForm: React.FC<EventFormProps> = ({
         token,
       );
 
-      // Submit to backend using the generated API (with Bearer token in header)
-      await submitEvent(jwtEventData);
+      if (initialEvent) {
+        // Editing a pending event
+        try {
+          await submitEventAsync(jwtEventData);
+          removeEvent(initialEvent.id);
+          toast.success(t("eventResubmitted"));
+        } catch (error) {
+          toast.error(t("eventResubmissionFailed"));
+        }
+      } else {
+        // Submitting a new event
+        const historyEventPackage: EventPackage = {
+          id: eventPackage.id,
+          version: eventPackage.version,
+          annotations: eventPackage.annotations,
+          media: eventPackage.media,
+          metadata: {
+            createdAt: eventPackage.metadata.createdAt,
+            createdBy: eventPackage.metadata.createdBy,
+            source: eventPackage.metadata.source as "web" | "mobile",
+          },
+        };
+        addEvent(historyEventPackage); // Add as pending
 
-      // Add to local history using the generated EventPackage type
-      const historyEventPackage: EventPackage = {
-        id: eventPackage.id,
-        version: eventPackage.version,
-        annotations: eventPackage.annotations,
-        media: eventPackage.media,
-        metadata: {
-          createdAt: eventPackage.metadata.createdAt,
-          createdBy: eventPackage.metadata.createdBy,
-          source: eventPackage.metadata.source as "web" | "mobile",
-        },
-      };
-      addEvent(historyEventPackage);
+        try {
+          await submitEventAsync(jwtEventData);
+          updateEventStatus(historyEventPackage.id, "submitted");
+          toast.success(t("eventSubmitted"));
+        } catch (error) {
+          updateEventStatus(historyEventPackage.id, "failed");
+          toast.error(t("eventSubmissionFailed"));
+        }
+      }
 
       setFormData({});
       setMediaFile(null);
-      toast.success(t("eventSaved"));
+      onGoBack();
     } catch (error) {
       console.error("Error saving event:", error);
       toast.error(
         error instanceof Error ? error.message : String(t("saveError")),
       );
-    } finally {
-      setIsSubmitting(false);
     }
   };
 
@@ -443,7 +458,7 @@ const EventForm: React.FC<EventFormProps> = ({
         </div>
         <ActionBar
           isSubmitting={isSubmitting}
-          isApiSubmitting={isApiSubmitting}
+          isApiSubmitting={isSubmitting}
           handleSaveDraft={handleSaveDraft}
         />
       </div>

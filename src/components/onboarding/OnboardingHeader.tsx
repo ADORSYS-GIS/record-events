@@ -1,6 +1,6 @@
 import React from "react";
 import { Monitor, Moon, Sun } from "lucide-react";
-import { useTheme } from "../../hooks/useTheme";
+import { useTheme } from "../../hooks/useTheme.tsx";
 
 const OnboardingHeader: React.FC = () => {
   const { theme, changeTheme, isDark } = useTheme();

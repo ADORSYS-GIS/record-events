@@ -21,7 +21,7 @@ export const useEventHistory = () => {
       const newEvent: LocalEvent = {
         id: eventPackage.id,
         title: `Event ${eventPackage.id.slice(0, 8)}`,
-        status: "submitted",
+        status: "pending",
         timestamp: new Date().toISOString(),
         eventPackage,
         hash,

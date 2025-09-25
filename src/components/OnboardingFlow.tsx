@@ -2,7 +2,7 @@ import type { i18n as I18nInstance } from "i18next";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import type { AuthenticationStatus } from "../hooks/useAuthenticationFlow";
-import { useTheme } from "../hooks/useTheme";
+import { useTheme } from "../hooks/useTheme.tsx";
 import OnboardingHeader from "./onboarding/OnboardingHeader";
 import OnboardingNavigation from "./onboarding/OnboardingNavigation";
 import OnboardingProgress from "./onboarding/OnboardingProgress";
@@ -12,7 +12,6 @@ interface OnboardingFlowProps {
   onComplete: () => void;
   i18n?: I18nInstance;
   keyStatus?: string;
-  webAuthnStatus?: string;
   powStatus?: string;
   authStatus: AuthenticationStatus;
 }

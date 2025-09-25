@@ -103,10 +103,12 @@
       "safety": "Safety Issue",
       "report": "Report now"
     },
-    "createEvent": {
-      "title": "Create New Event Report",
-      "description": "Capture photos, add details, and submit securely",
-      "button": "Start New Report"
+    "actions": {
+      "create": "Enter Polling Station Data",
+      "createDescription": "Start a new report and fill in the details of the election results.",
+      "continue": "Continue Data Entry",
+      "continueDescription": "Resume editing a previously saved draft report.",
+      "noDrafts": "No saved drafts available"
     },
     "recentEvents": {
       "title": "Recent Reports",
@@ -154,5 +156,12 @@
     "submitReport": "Submit Report",
     "draftSaved": "Draft saved successfully.",
     "saveError": "Error saving draft."
+  },
+  "draftSelection": {
+    "title": "Choose a Draft",
+    "description": "Select a draft to continue your report.",
+    "untitled": "Draft {{count}}",
+    "lastModified": "Last modified",
+    "goBack": "Go Back to Dashboard"
   }
 }

@@ -1,6 +1,6 @@
 import { Monitor, Moon, Sun } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { useTheme } from "../../hooks/useTheme";
+import { useTheme } from "../../hooks/useTheme.tsx";
 
 interface FormHeaderProps {
   onGoBack: () => void;

@@ -2,27 +2,31 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import type { KeyPair } from "../hooks/useAuthenticationFlow";
 import { type LocalEvent } from "../hooks/useEventHistory";
-import { useTheme } from "../hooks/useTheme";
+import { useTheme } from "../hooks/useTheme.tsx";
 import type { Label } from "../labels/label-manager";
 import DashboardHeader from "./dashboard/DashboardHeader";
-import CreateEventCard from "./dashboard/CreateEventCard";
 import RecentEventsList from "./dashboard/RecentEventsList";
+import DashboardActions from "./dashboard/DashboardActions";
 
 interface DashboardProps {
   labels: Label[];
   keyPair?: KeyPair;
   events: LocalEvent[];
   onCreateEvent: () => void;
+  onContinueEvent: () => void;
   onViewEvent: (event: LocalEvent) => void;
   onOpenSettings: () => void;
   removeEvent: (eventId: string) => void;
+  hasDrafts: boolean;
 }
 
 const Dashboard: React.FC<DashboardProps> = ({
   events,
   onCreateEvent,
+  onContinueEvent,
   onViewEvent,
   removeEvent,
+  hasDrafts,
 }) => {
   const { t } = useTranslation();
   const { isDark } = useTheme();
@@ -57,7 +61,12 @@ const Dashboard: React.FC<DashboardProps> = ({
           </p>
         </div>
 
-        <CreateEventCard isDark={isDark} onCreateEvent={onCreateEvent} />
+        <DashboardActions
+          isDark={isDark}
+          onCreateEvent={onCreateEvent}
+          onContinueEvent={onContinueEvent}
+          hasDrafts={hasDrafts}
+        />
 
         <RecentEventsList
           isDark={isDark}

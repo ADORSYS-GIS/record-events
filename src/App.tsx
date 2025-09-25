@@ -8,6 +8,7 @@ import { useLabelManagement } from "./hooks/useLabelManagement";
 import { useEventHistory, LocalEvent } from "./hooks/useEventHistory";
 import { AppRoutes } from "./routes";
 import { EventPackage } from "./openapi-rq/requests/types.gen";
+import { ThemeProvider } from "./hooks/useTheme.tsx";
 
 // Create a client
 const queryClient = new QueryClient({
@@ -25,8 +26,14 @@ function App() {
   const authStatus = useAuthenticationFlow();
 
   const { labels } = useLabelManagement();
-  const { events, addEvent, saveDraft, updateDraft, removeEvent } =
-    useEventHistory();
+  const {
+    events,
+    addEvent,
+    saveDraft,
+    updateDraft,
+    removeEvent,
+    updateEventStatus,
+  } = useEventHistory();
 
   // App state management
   const [showWelcome, setShowWelcome] = useState(true);
@@ -86,6 +93,24 @@ function App() {
     navigate("/event/new");
   };
 
+  const handleContinueEvent = () => {
+    const drafts = events.filter((event) => event.status === "draft");
+    if (drafts.length === 1) {
+      setEditingEvent(drafts[0]);
+      setShowEventForm(true);
+      navigate("/event/new");
+    } else if (drafts.length > 1) {
+      setShowDashboard(true);
+      navigate("/dashboard");
+    }
+  };
+
+  const handleSelectDraft = (draft: LocalEvent) => {
+    setEditingEvent(draft);
+    setShowEventForm(true);
+    navigate("/event/new");
+  };
+
   const handleOpenSettings = useCallback(() => {
     // TODO: Implement settings
   }, []);
@@ -131,21 +156,23 @@ function App() {
       labels={labels}
       keyPair={authStatus.keyPair || undefined}
       keyStatus={authStatus.keyStatus}
-      webAuthnStatus={authStatus.webAuthnStatus}
       powStatus={authStatus.powStatus}
       authStatus={authStatus}
       events={events}
       onGetStarted={handleGetStarted}
       onOnboardingComplete={handleOnboardingComplete}
       onCreateEvent={handleCreateEvent}
+      onContinueEvent={handleContinueEvent}
       onViewEvent={handleViewEvent}
       onOpenSettings={handleOpenSettings}
+      onSelectDraft={handleSelectDraft}
       onRetry={handleRetry}
       onGoBackToDashboard={handleGoBackToDashboard}
       addEvent={addEvent}
       saveDraft={handleSaveDraft}
       updateDraft={handleUpdateDraft}
       removeEvent={removeEvent}
+      updateEventStatus={updateEventStatus}
       editingEvent={editingEvent}
     />
   );
@@ -154,9 +181,11 @@ function App() {
 function AppWithRouter() {
   return (
     <QueryClientProvider client={queryClient}>
-      <Router>
-        <App />
-      </Router>
+      <ThemeProvider>
+        <Router>
+          <App />
+        </Router>
+      </ThemeProvider>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );

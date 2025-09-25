@@ -26,9 +26,6 @@ export interface AuthenticationStatus {
   keyStatus: string;
   isKeyGenerating: boolean;
 
-  // WebAuthn status
-  webAuthnStatus: string;
-  isWebAuthnRegistering: boolean;
 
   // POW status
   powStatus: string;
@@ -46,9 +43,7 @@ const useAuthenticationFlow = () => {
     keyPair: null,
     keyStatus: "Initializing authentication...",
     isKeyGenerating: true,
-    webAuthnStatus: "Waiting for key generation...",
-    isWebAuthnRegistering: false,
-    powStatus: "Waiting for WebAuthn registration...",
+    powStatus: "Waiting for key generation...",
     isPowComputing: false,
     devCert: null,
   });
@@ -128,45 +123,6 @@ const useAuthenticationFlow = () => {
     return null;
   }, []);
 
-  // Step 2: WebAuthn Registration
-  const registerWebAuthn = useCallback(async () => {
-    try {
-      setStatus((prev) => ({
-        ...prev,
-        webAuthnStatus: "Setting up device security...",
-        isWebAuthnRegistering: true,
-      }));
-
-      // Initialize DOM elements for WebAuthn
-      await PasswordManager.initializeDOMElements();
-
-      // Get password (this triggers WebAuthn registration)
-      const password = await PasswordManager.getPassword();
-
-      if (!password) {
-        throw new Error("WebAuthn registration failed");
-      }
-
-      setStatus((prev) => ({
-        ...prev,
-        webAuthnStatus: "Device security configured successfully",
-        isWebAuthnRegistering: false,
-      }));
-
-      return password;
-    } catch (error) {
-      const errorMessage =
-        error instanceof Error ? error.message : "WebAuthn registration failed";
-      setStatus((prev) => ({
-        ...prev,
-        error: errorMessage,
-        webAuthnStatus: "Device security setup failed",
-        isWebAuthnRegistering: false,
-        isLoading: false,
-      }));
-      throw error;
-    }
-  }, []);
 
   // Step 3: Proof of Work
   const performPow = useCallback(
@@ -294,8 +250,6 @@ const useAuthenticationFlow = () => {
           // Step 1: Generate keys
           const keyPair = await generateKeys();
 
-          // Step 2: Register WebAuthn
-          await registerWebAuthn();
 
           // Step 3: Perform Proof of Work
           await performPow(keyPair.publicKey);
@@ -321,7 +275,6 @@ const useAuthenticationFlow = () => {
     cleanupStoredData,
     generateKeys,
     performPow,
-    registerWebAuthn,
   ]); // Add all dependencies
 
   return {

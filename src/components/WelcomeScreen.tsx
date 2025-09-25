@@ -1,7 +1,7 @@
 import type { i18n as I18nInstance } from "i18next";
 import type { FC } from "react";
 import React from "react";
-import { useTheme } from "../hooks/useTheme";
+import { useTheme } from "../hooks/useTheme.tsx";
 import OnboardingHeader from "./onboarding/OnboardingHeader";
 import WelcomeActions from "./welcome/WelcomeActions";
 import WelcomeFeatures from "./welcome/WelcomeFeatures";
