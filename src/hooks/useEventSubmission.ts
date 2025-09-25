@@ -11,14 +11,15 @@ export const useEventSubmission = () => {
       console.error("Submission error:", error);
     },
   });
+
   type SignedEventPackage = string;
 
-  const submitEvent = (signedEventPackage: SignedEventPackage) => {
-    mutation.mutate({ requestBody: signedEventPackage });
+  const submitEventAsync = async (signedEventPackage: SignedEventPackage) => {
+    await mutation.mutateAsync({ requestBody: signedEventPackage });
   };
 
   return {
-    submitEvent,
+    submitEventAsync,
     isSubmitting: mutation.isPending,
     error: mutation.error,
     data: mutation.data,

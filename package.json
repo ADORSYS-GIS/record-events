@@ -31,6 +31,8 @@
     "@tanstack/react-query-devtools": "^5.85.5",
     "@types/uuid": "^10.0.0",
     "crypto-js": "^4.2.0",
+    "dexie": "^4.2.0",
+    "dexie-react-hooks": "^4.2.0",
     "i18next": "^25.3.2",
     "i18next-browser-languagedetector": "^8.2.0",
     "idb": "^8.0.3",
@@ -76,11 +78,13 @@
     "openapi-typescript": "^7.9.1",
     "postcss": "^8.4.32",
     "prettier": "^3.6.2",
+    "rollup-plugin-visualizer": "^6.0.3",
     "tailwindcss": "^3.4.1",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.35.1",
     "vite": "^7.0.4",
-    "vite-plugin-pwa": "^1.0.1",
+    "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-pwa": "^1.0.3",
     "vitest": "^2.0.4"
   }
 }

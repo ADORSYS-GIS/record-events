@@ -14,6 +14,8 @@ import type {
   KeyPair,
   AuthenticationStatus,
 } from "../hooks/useAuthenticationFlow";
+import { type LocalEvent } from "../hooks/useEventHistory";
+import { EventPackage } from "../openapi-rq/requests/types.gen";
 
 interface AppRoutesProps {
   showWelcome: boolean;
@@ -26,16 +28,24 @@ interface AppRoutesProps {
   labels: Label[];
   keyPair?: KeyPair;
   keyStatus?: string;
-  webAuthnStatus?: string;
   powStatus?: string;
   authStatus: AuthenticationStatus;
+  events: LocalEvent[];
   onGetStarted: () => void;
   onOnboardingComplete: () => void;
   onCreateEvent: () => void;
-  onViewHistory: () => void;
+  onContinueEvent: () => void;
+  onViewEvent: (event: LocalEvent) => void;
   onOpenSettings: () => void;
+  onSelectDraft: (draft: LocalEvent) => void;
   onRetry: () => void;
   onGoBackToDashboard: () => void; // Add this prop
+  addEvent: (eventPackage: EventPackage, hash?: string) => void;
+  saveDraft: (eventPackage: EventPackage, image?: Blob) => void;
+  updateDraft: (eventPackage: EventPackage, image?: Blob) => void;
+  removeEvent: (eventId: string) => void;
+  updateEventStatus: (eventId: string, status: LocalEvent["status"]) => void;
+  editingEvent?: LocalEvent;
 }
 
 const AppRoutes: React.FC<AppRoutesProps> = ({
@@ -49,16 +59,24 @@ const AppRoutes: React.FC<AppRoutesProps> = ({
   labels,
   keyPair,
   keyStatus,
-  webAuthnStatus,
   powStatus,
   authStatus,
+  events,
   onGetStarted,
   onOnboardingComplete,
   onCreateEvent,
-  onViewHistory,
+  onContinueEvent,
+  onViewEvent,
   onOpenSettings,
+  onSelectDraft,
   onRetry,
   onGoBackToDashboard,
+  addEvent,
+  saveDraft,
+  updateDraft,
+  removeEvent,
+  updateEventStatus,
+  editingEvent,
 }) => {
   const navigate = useNavigate();
 
@@ -69,9 +87,6 @@ const AppRoutes: React.FC<AppRoutesProps> = ({
     if (authStatus.isKeyGenerating) {
       loadingMessage =
         keyStatus || "Please wait while we secure your device...";
-    } else if (authStatus.isWebAuthnRegistering) {
-      loadingMessage =
-        webAuthnStatus || "Please wait while we secure your device...";
     } else if (authStatus.isPowComputing) {
       loadingMessage =
         powStatus || "Please wait while we verify your device...";
@@ -95,7 +110,6 @@ const AppRoutes: React.FC<AppRoutesProps> = ({
       <OnboardingPage
         onComplete={onOnboardingComplete}
         keyStatus={keyStatus}
-        webAuthnStatus={webAuthnStatus}
         powStatus={powStatus}
         authStatus={authStatus}
       />
@@ -143,6 +157,12 @@ const AppRoutes: React.FC<AppRoutesProps> = ({
           labels={labels}
           keyPair={keyPair}
           onGoBack={onGoBackToDashboard}
+          initialEvent={editingEvent}
+          addEvent={addEvent}
+          saveDraft={saveDraft}
+          updateDraft={updateDraft}
+          removeEvent={removeEvent}
+          updateEventStatus={updateEventStatus}
         />
       );
     }
@@ -151,9 +171,13 @@ const AppRoutes: React.FC<AppRoutesProps> = ({
       <DashboardPage
         labels={labels}
         keyPair={keyPair}
+        events={events}
         onCreateEvent={onCreateEvent}
-        onViewHistory={onViewHistory}
+        onContinueEvent={onContinueEvent}
+        onViewEvent={onViewEvent}
         onOpenSettings={onOpenSettings}
+        removeEvent={removeEvent}
+        onSelectDraft={onSelectDraft}
       />
     );
   } else {
@@ -162,9 +186,13 @@ const AppRoutes: React.FC<AppRoutesProps> = ({
       <DashboardPage
         labels={labels}
         keyPair={keyPair}
+        events={events}
         onCreateEvent={onCreateEvent}
-        onViewHistory={onViewHistory}
+        onContinueEvent={onContinueEvent}
+        onViewEvent={onViewEvent}
         onOpenSettings={onOpenSettings}
+        removeEvent={removeEvent}
+        onSelectDraft={onSelectDraft}
       />
     );
   }
@@ -177,6 +205,7 @@ const AppRoutes: React.FC<AppRoutesProps> = ({
         <Route path="onboarding" element={currentPage} />
         <Route path="dashboard" element={currentPage} />
         <Route path="event/new" element={currentPage} />
+        <Route path="drafts" element={currentPage} />
 
         {/* Default redirect */}
         <Route path="*" element={<Navigate to="/" replace />} />

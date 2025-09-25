@@ -94,8 +94,8 @@ export async function fetchLabels(): Promise<Label[]> {
         },
         {
           labelId: "paul_biya",
-          name_en: "Biya Paul",
-          name_fr: "Biya Paul",
+          name_en: "Paul Biya",
+          name_fr: "Paul Biya",
           type: "number",
           required: false,
           helpText: "Rassemblement Démocratique du Peuple Camerounais - RDPC",
@@ -104,8 +104,8 @@ export async function fetchLabels(): Promise<Label[]> {
         },
         {
           labelId: "issa_tchiroma",
-          name_en: "Issa Tchiroma",
-          name_fr: "Issa Tchiroma",
+          name_en: "Issa Tchiroma Bakary",
+          name_fr: "Issa Tchiroma Bakary",
           type: "number",
           required: false,
           helpText: "Front pour le Salut National Camerounais - FSNC",
@@ -124,8 +124,8 @@ export async function fetchLabels(): Promise<Label[]> {
         },
         {
           labelId: "cabral_libii",
-          name_en: "Libii Li Ngue Ngue Cabral",
-          name_fr: "Libii Li Ngue Ngue Cabral",
+          name_en: "Cabral Libii Li Ngue Ngue",
+          name_fr: "Cabral Libii Li Ngue Ngue",
           type: "number",
           required: false,
           helpText: "Parti Camerounais pour la Réconciliation Nationale - PCRN",
@@ -134,8 +134,8 @@ export async function fetchLabels(): Promise<Label[]> {
         },
         {
           labelId: "joshua_osih",
-          name_en: "Osih Joshua NAMBANGI",
-          name_fr: "Osih Joshua NAMBANGI",
+          name_en: "Joshua Osih Nambangi",
+          name_fr: "Joshua Osih Nambangi",
           type: "number",
           required: false,
           helpText: "Social Democratic Front - SDF",
@@ -144,8 +144,8 @@ export async function fetchLabels(): Promise<Label[]> {
         },
         {
           labelId: "hermine_patricia",
-          name_en: "Tomaïno Hermine Patricia epse Ndam Njoya",
-          name_fr: "Tomaïno Hermine Patricia epse Ndam Njoya",
+          name_en: "Patricia Tomaïno epse Ndam Njoya",
+          name_fr: "Patricia Tomaïno epse Ndam Njoya",
           type: "number",
           required: false,
           helpText: "Union Démocratique du Cameroun - UDC",
@@ -154,8 +154,8 @@ export async function fetchLabels(): Promise<Label[]> {
         },
         {
           labelId: "pierre_kouemo",
-          name_en: "Kwemo Pierre",
-          name_fr: "Kwemo Pierre",
+          name_en: "Pierre Kwemo",
+          name_fr: "Pierre Kwemo",
           type: "number",
           required: false,
           helpText: "Union des Mouvements Socialistes - UMS",
@@ -164,8 +164,8 @@ export async function fetchLabels(): Promise<Label[]> {
         },
         {
           labelId: "serge_matomba",
-          name_en: "Matomba Serge Espoir",
-          name_fr: "Matomba Serge Espoir",
+          name_en: "Serge Espoir Matomba",
+          name_fr: "Serge Espoir Matomba",
           type: "number",
           required: false,
           helpText: "Peuple Uni pour la Rénovation Sociale - PURS",
@@ -174,8 +174,8 @@ export async function fetchLabels(): Promise<Label[]> {
         },
         {
           labelId: "akere_muna",
-          name_en: "Muna Akere Tabeng",
-          name_fr: "Muna Akere Tabeng",
+          name_en: "Akere Muna Tabeng",
+          name_fr: "Akere Muna Tabeng",
           type: "number",
           required: false,
           helpText: "Univers",
@@ -208,7 +208,7 @@ export async function fetchLabels(): Promise<Label[]> {
           name_fr: "Bougha Hagbe Jacques",
           type: "number",
           required: false,
-          helpText: "Mouvement Citoyen National Camerounais - MCMC",
+          helpText: "Mouvement Citoyen National Camerounais - MCNC",
           category: "election_results",
           constraints: { min: 0 },
         },
@@ -250,7 +250,6 @@ export async function fetchLabels(): Promise<Label[]> {
 }
 
 export function cacheLabels(labels: Label[]): void {
-  
   localStorage.setItem(LABELS_STORAGE_KEY, JSON.stringify(labels));
 }
 

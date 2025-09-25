@@ -1,5 +1,10 @@
 // Supported field value types
-export type FieldValue = string | number | boolean | null;
+export type FieldValue =
+  | string
+  | number
+  | boolean
+  | { [key: string]: unknown }
+  | null;
 
 // Supported media types
 export type MediaType = "image/jpeg" | "image/png" | "image/gif" | "video/mp4";

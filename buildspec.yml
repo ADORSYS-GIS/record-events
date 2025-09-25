@@ -41,5 +41,4 @@ phases:
       - aws ecs update-service --cluster $ECS_CLUSTER_NAME --service $ECS_SERVICE_SERVICE_NAME --force-new-deployment
       - echo ECS services updated successfully
       - echo Build completed successfully
-
 # Updated at Sun Sep 14 14:54:35 EDT 2025
