@@ -84,8 +84,8 @@ const DashboardActions: React.FC<DashboardActionsProps> = ({
               hasDrafts
                 ? "bg-gradient-to-br from-cameroon-yellow to-yellow-400"
                 : isDark
-                ? "bg-gray-700/50"
-                : "bg-gray-200"
+                  ? "bg-gray-700/50"
+                  : "bg-gray-200"
             }`}
           >
             <Edit
@@ -93,8 +93,8 @@ const DashboardActions: React.FC<DashboardActionsProps> = ({
                 hasDrafts
                   ? "text-white"
                   : isDark
-                  ? "text-gray-500"
-                  : "text-gray-400"
+                    ? "text-gray-500"
+                    : "text-gray-400"
               }`}
             />
           </div>
@@ -105,8 +105,8 @@ const DashboardActions: React.FC<DashboardActionsProps> = ({
                   ? "text-white"
                   : "text-gray-900"
                 : isDark
-                ? "text-gray-500"
-                : "text-gray-400"
+                  ? "text-gray-500"
+                  : "text-gray-400"
             }`}
           >
             {t("dashboard.actions.continue")}
@@ -118,8 +118,8 @@ const DashboardActions: React.FC<DashboardActionsProps> = ({
                   ? "text-gray-300"
                   : "text-gray-600"
                 : isDark
-                ? "text-gray-500"
-                : "text-gray-400"
+                  ? "text-gray-500"
+                  : "text-gray-400"
             }`}
           >
             {t("dashboard.actions.continueDescription")}

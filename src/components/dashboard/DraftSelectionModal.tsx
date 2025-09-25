@@ -32,17 +32,19 @@ const DraftSelectionModal: React.FC<DraftSelectionModalProps> = ({
     >
       <div
         className={`relative rounded-2xl shadow-2xl border w-full max-w-lg m-4 transition-all duration-300 transform ${
-          isDark
-            ? "bg-gray-900 border-gray-700"
-            : "bg-white border-gray-200/80"
+          isDark ? "bg-gray-900 border-gray-700" : "bg-white border-gray-200/80"
         } ${isOpen ? "scale-100 opacity-100" : "scale-95 opacity-0"}`}
         onClick={(e) => e.stopPropagation()}
       >
         <div className="p-6">
           <div className="flex justify-between items-center mb-4">
             <div className="flex items-center space-x-3">
-              <div className={`p-2 rounded-full ${isDark ? 'bg-gray-800' : 'bg-gray-100'}`}>
-                <FileText className={`w-6 h-6 ${isDark ? 'text-cameroon-yellow' : 'text-cameroon-green'}`} />
+              <div
+                className={`p-2 rounded-full ${isDark ? "bg-gray-800" : "bg-gray-100"}`}
+              >
+                <FileText
+                  className={`w-6 h-6 ${isDark ? "text-cameroon-yellow" : "text-cameroon-green"}`}
+                />
               </div>
               <h2 className="text-xl font-bold">
                 {t("draftSelection.title", "Continue Report")}
@@ -59,7 +61,9 @@ const DraftSelectionModal: React.FC<DraftSelectionModalProps> = ({
               <X className="w-5 h-5" />
             </button>
           </div>
-          <p className={`mb-6 text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+          <p
+            className={`mb-6 text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}
+          >
             {t(
               "draftSelection.description",
               "Select a draft to continue where you left off.",
@@ -104,11 +108,20 @@ const DraftSelectionModal: React.FC<DraftSelectionModalProps> = ({
                 );
               })
             ) : (
-              <div className={`text-center p-8 rounded-lg ${isDark ? 'bg-gray-800/50' : 'bg-gray-50/80'}`}>
+              <div
+                className={`text-center p-8 rounded-lg ${isDark ? "bg-gray-800/50" : "bg-gray-50/80"}`}
+              >
                 <Inbox className="w-12 h-12 mx-auto text-gray-400 mb-4" />
-                <h3 className="font-semibold">{t('draftSelection.noDrafts', 'No Drafts Found')}</h3>
-                <p className={`text-sm mt-1 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-                  {t('draftSelection.noDraftsDescription', 'You can create a new report from the dashboard.')}
+                <h3 className="font-semibold">
+                  {t("draftSelection.noDrafts", "No Drafts Found")}
+                </h3>
+                <p
+                  className={`text-sm mt-1 ${isDark ? "text-gray-400" : "text-gray-600"}`}
+                >
+                  {t(
+                    "draftSelection.noDraftsDescription",
+                    "You can create a new report from the dashboard.",
+                  )}
                 </p>
               </div>
             )}

@@ -64,8 +64,8 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({ isDark }) => {
                   theme === "light"
                     ? "bg-cameroon-yellow text-black shadow-md"
                     : isDark
-                    ? "text-gray-400 hover:text-white"
-                    : "text-white hover:text-gray-200"
+                      ? "text-gray-400 hover:text-white"
+                      : "text-white hover:text-gray-200"
                 }`}
               >
                 <Sun className="w-4 h-4" />
@@ -76,8 +76,8 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({ isDark }) => {
                   theme === "system"
                     ? "bg-cameroon-yellow text-black shadow-md"
                     : isDark
-                    ? "text-gray-400 hover:text-white"
-                    : "text-white hover:text-gray-200"
+                      ? "text-gray-400 hover:text-white"
+                      : "text-white hover:text-gray-200"
                 }`}
               >
                 <Monitor className="w-4 h-4" />
@@ -88,8 +88,8 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({ isDark }) => {
                   theme === "dark"
                     ? "bg-cameroon-yellow text-black shadow-md"
                     : isDark
-                    ? "text-gray-400 hover:text-white"
-                    : "text-white hover:text-gray-200"
+                      ? "text-gray-400 hover:text-white"
+                      : "text-white hover:text-gray-200"
                 }`}
               >
                 <Moon className="w-4 h-4" />

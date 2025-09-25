@@ -38,14 +38,11 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ onComplete }) => {
       setCompletedSteps((prev) => [...prev, stepId]);
 
       setTimeout(() => {
-        if (stepId === 4) {
+        if (stepId === 1) {
           localStorage.setItem("eventApp_onboarding_completed", "true");
           setTimeout(() => {
             onComplete();
           }, 300);
-        } else {
-          setCurrentStep((prev) => Math.min(prev + 1, 3));
-          setIsTransitioning(false);
         }
       }, 200);
     },
@@ -56,42 +53,6 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ onComplete }) => {
     () => [
       {
         id: 1,
-        title: t("onboarding.welcome.title", "Cameroon Vote Reporting"),
-        icon: (
-          <img
-            src="/reporting.png"
-            alt="Reporting"
-            className="w-64 h-64 object-contain"
-          />
-        ),
-        type: "welcome",
-        status:
-          currentStep === 0
-            ? "active"
-            : completedSteps.includes(1)
-              ? "completed"
-              : "pending",
-      },
-      {
-        id: 2,
-        title: t("onboarding.features.secure.title", "Secure Reporting"),
-        icon: (
-          <img
-            src="/secure.png"
-            alt="Secure"
-            className="w-64 h-64 object-contain"
-          />
-        ),
-        type: "feature",
-        status:
-          currentStep === 1
-            ? "active"
-            : completedSteps.includes(2)
-              ? "completed"
-              : "pending",
-      },
-      {
-        id: 3,
         title: t("onboarding.permissions.title", "Camera Access"),
         icon: (
           <img
@@ -104,36 +65,13 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ onComplete }) => {
         action: () => {
           navigator.mediaDevices
             .getUserMedia({ video: true })
-            .then(() => completeStep(3))
-            .catch(() => completeStep(3));
+            .then(() => completeStep(1))
+            .catch(() => completeStep(1));
         },
-        status:
-          currentStep === 2
-            ? "active"
-            : completedSteps.includes(3)
-              ? "completed"
-              : "pending",
-      },
-      {
-        id: 4,
-        title: t("onboarding.ready.title", "You're All Set!"),
-        icon: (
-          <img
-            src="/letsgo.png"
-            alt="Ready"
-            className="w-64 h-64 object-contain"
-          />
-        ),
-        type: "ready",
-        status:
-          currentStep === 3
-            ? "active"
-            : completedSteps.includes(4)
-              ? "completed"
-              : "pending",
+        status: "active",
       },
     ],
-    [t, currentStep, completedSteps, completeStep],
+    [t, completeStep],
   );
 
   const handleNext = useCallback(() => {
@@ -145,15 +83,6 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ onComplete }) => {
       completeStep(currentStepData.id);
     }
   }, [currentStep, steps, completeStep, isTransitioning]);
-
-  const handlePrev = useCallback(() => {
-    if (isTransitioning || currentStep === 0) return;
-    setIsTransitioning(true);
-    setTimeout(() => {
-      setCurrentStep(currentStep - 1);
-      setIsTransitioning(false);
-    }, 200);
-  }, [currentStep, isTransitioning]);
 
   useEffect(() => {
     if (currentStep >= steps.length) {
@@ -173,11 +102,6 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ onComplete }) => {
     >
       <OnboardingHeader />
       <div className="w-full max-w-lg">
-        <OnboardingProgress
-          steps={steps}
-          currentStep={currentStep}
-          isDark={isDark}
-        />
         <div
           className={`rounded-2xl shadow-xl p-10 transition-all duration-300 ease-in-out ${
             isDark ? "bg-gray-800 border border-gray-700" : "bg-white"
@@ -189,8 +113,7 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ onComplete }) => {
             stepsLength={steps.length}
             isDark={isDark}
             handleNext={handleNext}
-            handlePrev={handlePrev}
-            handleFinish={() => completeStep(4)}
+            handleFinish={() => completeStep(1)}
           />
           {currentStepData.type === "permission" && (
             <button

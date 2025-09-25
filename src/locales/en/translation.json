@@ -105,9 +105,9 @@
     },
     "actions": {
       "create": "Enter Polling Station Data",
-      "createDescription": "Start a new report and fill in the details of the election results.",
+      "createDescription": "",
       "continue": "Continue Data Entry",
-      "continueDescription": "Resume editing a previously saved draft report.",
+      "continueDescription": "",
       "noDrafts": "No saved drafts available"
     },
     "recentEvents": {
@@ -153,7 +153,7 @@
     },
     "saveDraft": "Save Draft",
     "submitting": "Submitting...",
-    "submitReport": "Submit Report",
+    "submitReport": "Submit Results",
     "draftSaved": "Draft saved successfully.",
     "saveError": "Error saving draft."
   },

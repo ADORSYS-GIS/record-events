@@ -104,10 +104,10 @@
       "report": "Signaler maintenant"
     },
     "actions": {
-      "create": "Saisir les données de ton bureau de vote",
-      "createDescription": "Commencez un nouveau rapport et remplissez les détails des résultats de l'élection.",
-      "continue": "Continuer les saisies de ton bureau de vote",
-      "continueDescription": "Reprenez la modification d'un rapport précédemment sauvegardé.",
+      "create": "Saisir les données d'un bureau de vote",
+      "createDescription": "",
+      "continue": "Continuer les saisies d'un bureau de vote",
+      "continueDescription": "",
       "noDrafts": "Aucun brouillon enregistré disponible"
     },
     "recentEvents": {
@@ -154,7 +154,7 @@
   },
   "saveDraft": "Enregistrer le brouillon",
   "submitting": "Soumission...",
-  "submitReport": "Soumettre le rapport",
+  "submitReport": "Soumettre les résultats",
   "draftSaved": "Brouillon enregistré avec succès.",
   "saveError": "Erreur lors de l'enregistrement du brouillon.",
   "draftSelection": {

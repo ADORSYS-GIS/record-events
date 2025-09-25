@@ -79,6 +79,32 @@ const EventForm: React.FC<EventFormProps> = ({
     };
   }, [initialEvent]);
 
+  useEffect(() => {
+    const registeredVoters = formData.votants_inscrits
+      ? Number(formData.votants_inscrits)
+      : 0;
+    if (registeredVoters > 0) {
+      const candidateVotes = labels
+        .filter((label) => label.category === "election_results")
+        .reduce((total, label) => {
+          if (
+            label.labelId !== "votants_inscrits" &&
+            label.labelId !== "abstentions" &&
+            label.labelId !== "bulletins_nuls"
+          ) {
+            return total + (Number(formData[label.labelId]) || 0);
+          }
+          return total;
+        }, 0);
+
+      const abstentions = registeredVoters - candidateVotes;
+      setFormData((prev) => ({
+        ...prev,
+        abstentions: abstentions >= 0 ? abstentions : 0,
+      }));
+    }
+  }, [formData, labels]);
+
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
@@ -90,7 +116,11 @@ const EventForm: React.FC<EventFormProps> = ({
     if (type === "checkbox") {
       value = target.checked;
     } else if (type === "number") {
-      value = target.value === "" ? null : Number(target.value);
+      let numValue = target.value === "" ? null : Number(target.value);
+      if (numValue !== null && numValue > 30000000) {
+        numValue = 30000000;
+      }
+      value = numValue;
     } else {
       value = target.value === "" ? null : target.value;
     }
@@ -235,13 +265,25 @@ const EventForm: React.FC<EventFormProps> = ({
       );
 
       if (initialEvent) {
-        // Editing a pending event
-        try {
-          await submitEventAsync(jwtEventData);
-          removeEvent(initialEvent.id);
-          toast.success(t("eventResubmitted"));
-        } catch (error) {
-          toast.error(t("eventResubmissionFailed"));
+        if (initialEvent.status === "draft") {
+          // Submitting a draft
+          try {
+            await submitEventAsync(jwtEventData);
+            updateEventStatus(initialEvent.id, "submitted");
+            toast.success(t("eventSubmitted"));
+          } catch (error) {
+            updateEventStatus(initialEvent.id, "failed");
+            toast.error(t("eventSubmissionFailed"));
+          }
+        } else {
+          // Editing a pending event
+          try {
+            await submitEventAsync(jwtEventData);
+            removeEvent(initialEvent.id);
+            toast.success(t("eventResubmitted"));
+          } catch (error) {
+            toast.error(t("eventResubmissionFailed"));
+          }
         }
       } else {
         // Submitting a new event

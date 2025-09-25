@@ -7,7 +7,6 @@ interface OnboardingNavigationProps {
   stepsLength: number;
   isDark: boolean;
   handleNext: () => void;
-  handlePrev: () => void;
   handleFinish: () => void;
 }
 
@@ -16,31 +15,13 @@ const OnboardingNavigation: React.FC<OnboardingNavigationProps> = ({
   stepsLength,
   isDark,
   handleNext,
-  handlePrev,
   handleFinish,
 }) => {
   const { t } = useTranslation();
 
   return (
     <div className="flex items-center justify-between pt-8">
-      <button
-        onClick={handlePrev}
-        disabled={currentStep === 0}
-        className={`px-6 py-3 rounded-xl font-semibold transition-all duration-200 flex items-center space-x-2 focus:outline-none focus:ring-2 focus:ring-offset-2 ${
-          isDark
-            ? "focus:ring-offset-gray-900 focus:ring-cameroon-yellow"
-            : "focus:ring-offset-white focus:ring-cameroon-green"
-        } ${
-          currentStep === 0
-            ? "opacity-50 cursor-not-allowed"
-            : isDark
-              ? "bg-gray-700 text-white hover:bg-gray-600"
-              : "bg-gray-200 text-gray-800 hover:bg-gray-300"
-        }`}
-      >
-        <ArrowLeft className="w-5 h-5" />
-        <span>{t("onboarding.buttons.back", "Back")}</span>
-      </button>
+      <div></div>
       {currentStep < stepsLength - 1 ? (
         <button
           onClick={handleNext}

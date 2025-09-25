@@ -26,7 +26,6 @@ export interface AuthenticationStatus {
   keyStatus: string;
   isKeyGenerating: boolean;
 
-
   // POW status
   powStatus: string;
   isPowComputing: boolean;
@@ -122,7 +121,6 @@ const useAuthenticationFlow = () => {
     }
     return null;
   }, []);
-
 
   // Step 3: Proof of Work
   const performPow = useCallback(
@@ -250,7 +248,6 @@ const useAuthenticationFlow = () => {
           // Step 1: Generate keys
           const keyPair = await generateKeys();
 
-
           // Step 3: Perform Proof of Work
           await performPow(keyPair.publicKey);
 
@@ -270,12 +267,7 @@ const useAuthenticationFlow = () => {
 
       performAuthentication();
     }
-  }, [
-    restoreKeyPair,
-    cleanupStoredData,
-    generateKeys,
-    performPow,
-  ]); // Add all dependencies
+  }, [restoreKeyPair, cleanupStoredData, generateKeys, performPow]); // Add all dependencies
 
   return {
     ...status,

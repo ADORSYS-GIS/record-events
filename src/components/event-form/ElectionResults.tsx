@@ -67,9 +67,14 @@ const ElectionResults: React.FC<ElectionResultsProps> = ({
                   error
                     ? "border-cameroon-red focus:border-cameroon-red focus:ring-cameroon-red"
                     : "border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600"
-                } ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`}
+                } ${
+                  isSubmitting || label.labelId === "abstentions"
+                    ? "opacity-50 cursor-not-allowed"
+                    : ""
+                }`}
                 min={0}
-                disabled={isSubmitting}
+                max={30000000}
+                disabled={isSubmitting || label.labelId === "abstentions"}
                 placeholder=""
               />
               {error && <p className="text-sm text-cameroon-red">{error}</p>}

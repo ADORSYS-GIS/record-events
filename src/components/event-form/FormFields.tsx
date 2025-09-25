@@ -110,7 +110,7 @@ const FormFields: React.FC<FormFieldsProps> = ({
                       : "border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600"
                   } ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`}
                   min={label.constraints?.min}
-                  max={label.constraints?.max}
+                  max={30000000}
                   step={label.constraints?.step}
                   disabled={isSubmitting}
                   required={label.required}

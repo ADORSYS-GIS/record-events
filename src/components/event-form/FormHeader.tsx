@@ -34,10 +34,10 @@ const FormHeader: React.FC<FormHeaderProps> = ({ onGoBack }) => {
               </svg>
             </button>
             <div>
-              <h1 className="text-xl font-semibold text-white">
+              <h1 className="text-lg font-semibold text-white">
                 {t("eventForm.title")}
               </h1>
-              <p className="text-sm text-gray-200">{t("eventForm.subtitle")}</p>
+              <p className="text-xs text-gray-200">{t("eventForm.subtitle")}</p>
             </div>
           </div>
           {/* Theme Toggle */}

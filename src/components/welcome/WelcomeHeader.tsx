@@ -25,7 +25,7 @@ const WelcomeHeader: React.FC<WelcomeHeaderProps> = ({ isDark, i18n }) => {
         </div>
       </div>
       <h1
-        className={`text-2xl sm:text-3xl md:text-4xl font-bold mb-4 leading-tight ${
+        className={`text-xl sm:text-3xl md:text-4xl font-bold mb-4 leading-tight ${
           isDark ? "text-white" : "text-gray-900"
         }`}
       >
@@ -35,7 +35,7 @@ const WelcomeHeader: React.FC<WelcomeHeaderProps> = ({ isDark, i18n }) => {
         )}
       </h1>
       <p
-        className={`text-base sm:text-lg leading-relaxed mb-8 max-w-md mx-auto ${
+        className={`text-sm sm:text-lg leading-relaxed mb-8 max-w-md mx-auto ${
           isDark ? "text-gray-300" : "text-gray-600"
         }`}
       >

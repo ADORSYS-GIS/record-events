@@ -42,7 +42,8 @@ export default defineConfig({
       manifest: {
         name: "Cameroon Vote Reporting",
         short_name: "VoteReport",
-        description: "An application for reporting election results in Cameroon.",
+        description:
+          "An application for reporting election results in Cameroon.",
         start_url: "/",
         scope: "/",
         display: "standalone",
