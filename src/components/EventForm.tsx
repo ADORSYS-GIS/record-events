@@ -1,23 +1,24 @@
 import { Camera } from "lucide-react";
-import { useCallback, useState, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
 import { v4 as uuidv4 } from "uuid";
+import { LocalEvent } from "../hooks/useEventHistory";
 import type { KeyPair } from "../hooks/useKeyInitialization";
+import { useOnlineStatus } from "../hooks/useOnlineStatus.ts";
+import { useTheme } from "../context/ThemeContext.tsx";
 import type { Label } from "../labels/label-manager";
-import { createEventPackage, validateFormData } from "../utils/event-packer";
+import type { EventPackage } from "../openapi-rq/requests/types.gen";
+import { apiAuthService } from "../services/keyManagement/apiAuthService";
 import { generateEventJWT } from "../services/keyManagement/jwtService";
 import type { EventPackage as LocalEventPackage } from "../types/event";
-import type { EventPackage } from "../openapi-rq/requests/types.gen";
-import { LocalEvent } from "../hooks/useEventHistory";
-import { apiAuthService } from "../services/keyManagement/apiAuthService";
-import { useTheme } from "../hooks/useTheme.tsx";
-import CameraCapture from "./CameraCapture";
 import { FieldValue } from "../types/event";
-import MediaSection from "./event-form/MediaSection";
+import { createEventPackage, validateFormData } from "../utils/event-packer";
+import CameraCapture from "./CameraCapture";
 import ActionBar from "./event-form/ActionBar";
-import FormFields from "./event-form/FormFields";
 import ElectionResults from "./event-form/ElectionResults";
+import FormFields from "./event-form/FormFields";
+import MediaSection from "./event-form/MediaSection";
 
 type FormData = Record<string, FieldValue>;
 
@@ -60,11 +61,13 @@ const EventForm: React.FC<EventFormProps> = ({
 }) => {
   const { t } = useTranslation();
   const { isDark } = useTheme();
+  const { isOnline } = useOnlineStatus();
   const [formData, setFormData] = useState<FormData>({});
   const [mediaFile, setMediaFile] = useState<File | null>(null);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [dragActive, setDragActive] = useState(false);
   const [isCameraOpen, setIsCameraOpen] = useState(false);
+  const isReadOnly = initialEvent?.status === "submitted";
 
   useEffect(() => {
     if (initialEvent) {
@@ -274,25 +277,50 @@ const EventForm: React.FC<EventFormProps> = ({
         token,
       );
 
+      if (!isOnline) {
+        const historyEventPackage: EventPackage = {
+          id: eventPackage.id,
+          version: eventPackage.version,
+          annotations: eventPackage.annotations,
+          media: eventPackage.media,
+          metadata: {
+            createdAt: eventPackage.metadata.createdAt,
+            createdBy: eventPackage.metadata.createdBy,
+            source: eventPackage.metadata.source as "web" | "mobile",
+          },
+        };
+        saveDraft(historyEventPackage, mediaFile || undefined);
+        updateEventStatus(eventPackage.id, "pending");
+        toast.info(t("offlineSubmissionMessage"));
+        onGoBack();
+        return;
+      }
+
       try {
-        if (mediaFile) {
-          const imagePackage = await createEventPackage(
-            {},
-            [],
-            mediaFile,
-            { createdBy, source: "web", eventId },
-          );
+        const timeoutPromise = new Promise((_, reject) =>
+          setTimeout(() => reject(new Error("Submission timeout")), 5000),
+        );
 
-          const jwtImageEventData = await generateEventJWT(
-            _keyPair.privateKey,
-            _keyPair.publicKey,
-            imagePackage,
-            token,
-          );
-
-          await submitEventImageAsync(jwtImageEventData);
-        }
-        await submitEventDataAsync(jwtEventData);
+        await Promise.race([
+          (async () => {
+            await submitEventDataAsync(jwtEventData);
+            if (mediaFile) {
+              const imagePackage = await createEventPackage({}, [], mediaFile, {
+                createdBy,
+                source: "web",
+                eventId,
+              });
+              const jwtImageEventData = await generateEventJWT(
+                _keyPair.privateKey,
+                _keyPair.publicKey,
+                imagePackage,
+                token,
+              );
+              await submitEventImageAsync(jwtImageEventData);
+            }
+          })(),
+          timeoutPromise,
+        ]);
 
         if (initialEvent) {
           if (initialEvent.status === "draft") {
@@ -327,6 +355,18 @@ const EventForm: React.FC<EventFormProps> = ({
             toast.error(t("eventResubmissionFailed"));
           }
         } else {
+          const historyEventPackage: EventPackage = {
+            id: eventPackage.id,
+            version: eventPackage.version,
+            annotations: eventPackage.annotations,
+            media: eventPackage.media,
+            metadata: {
+              createdAt: eventPackage.metadata.createdAt,
+              createdBy: eventPackage.metadata.createdBy,
+              source: eventPackage.metadata.source as "web" | "mobile",
+            },
+          };
+          saveDraft(historyEventPackage, mediaFile || undefined);
           updateEventStatus(eventPackage.id, "failed");
           toast.error(t("eventSubmissionFailed"));
         }
@@ -449,7 +489,7 @@ const EventForm: React.FC<EventFormProps> = ({
                 labels={labels}
                 formData={formData}
                 errors={errors}
-                isSubmitting={isSubmitting}
+                isSubmitting={isSubmitting || isReadOnly}
                 handleChange={handleChange}
                 handleDropdownChange={handleDropdownChange}
               />
@@ -486,7 +526,7 @@ const EventForm: React.FC<EventFormProps> = ({
                 labels={labels}
                 formData={formData}
                 errors={errors}
-                isSubmitting={isSubmitting}
+                isSubmitting={isSubmitting || isReadOnly}
                 handleChange={handleChange}
               />
             </div>
@@ -514,12 +554,13 @@ const EventForm: React.FC<EventFormProps> = ({
                 handleDrop={handleDrop}
                 handleFileChange={handleFileChange}
                 handleTakePhoto={handleTakePhoto}
+                isReadOnly={isReadOnly}
               />
             </div>
             <ActionBar
               isSubmitting={isSubmitting}
-              isApiSubmitting={isSubmitting}
               handleSaveDraft={handleSaveDraft}
+              isReadOnly={isReadOnly}
             />
           </form>
         </div>

@@ -1,7 +1,7 @@
-import { useRegisterSW } from 'virtual:pwa-register/react';
-import { Transition } from '@headlessui/react';
-import { Fragment } from 'react';
-import { X, DownloadCloud } from 'lucide-react';
+import { useRegisterSW } from "virtual:pwa-register/react";
+import { Transition } from "@headlessui/react";
+import { Fragment } from "react";
+import { X, DownloadCloud } from "lucide-react";
 
 function UpdatePrompt() {
   const {
@@ -10,10 +10,10 @@ function UpdatePrompt() {
     updateServiceWorker,
   } = useRegisterSW({
     onRegistered(r) {
-      console.log('SW Registered:', r);
+      console.log("SW Registered:", r);
     },
     onRegisterError(error) {
-      console.log('SW registration error:', error);
+      console.log("SW registration error:", error);
     },
   });
 
@@ -37,10 +37,15 @@ function UpdatePrompt() {
         <div className="fixed bottom-4 right-4 w-full max-w-sm p-4 bg-white dark:bg-gray-800 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
           <div className="flex items-start">
             <div className="flex-shrink-0">
-              <DownloadCloud className="h-6 w-6 text-green-400" aria-hidden="true" />
+              <DownloadCloud
+                className="h-6 w-6 text-green-400"
+                aria-hidden="true"
+              />
             </div>
             <div className="ml-3 w-0 flex-1 pt-0.5">
-              <p className="text-sm font-medium text-gray-900 dark:text-white">App is ready to work offline.</p>
+              <p className="text-sm font-medium text-gray-900 dark:text-white">
+                App is ready to work offline.
+              </p>
             </div>
             <div className="ml-4 flex-shrink-0 flex">
               <button
@@ -67,10 +72,15 @@ function UpdatePrompt() {
         <div className="fixed bottom-4 right-4 w-full max-w-sm p-4 bg-white dark:bg-gray-800 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
           <div className="flex items-start">
             <div className="flex-shrink-0">
-              <DownloadCloud className="h-6 w-6 text-blue-400" aria-hidden="true" />
+              <DownloadCloud
+                className="h-6 w-6 text-blue-400"
+                aria-hidden="true"
+              />
             </div>
             <div className="ml-3 w-0 flex-1">
-              <p className="text-sm font-medium text-gray-900 dark:text-white">A new version is available.</p>
+              <p className="text-sm font-medium text-gray-900 dark:text-white">
+                A new version is available.
+              </p>
               <div className="mt-4 flex">
                 <button
                   onClick={() => updateServiceWorker(true)}

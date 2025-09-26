@@ -3,7 +3,8 @@ import Dashboard from "../components/Dashboard";
 import DashboardHeader from "../components/dashboard/DashboardHeader";
 import DraftSelectionModal from "../components/dashboard/DraftSelectionModal";
 import type { KeyPair } from "../hooks/useAuthenticationFlow";
-import { useTheme } from "../hooks/useTheme";
+import { useBackgroundSync } from "../hooks/useBackgroundSync";
+import { useTheme } from "../context/ThemeContext";
 import type { Label } from "../labels/label-manager";
 import type { LocalEvent } from "../hooks/useEventHistory";
 
@@ -33,6 +34,7 @@ const DashboardPage: React.FC<DashboardPageProps> = ({
   const [isDraftModalOpen, setIsDraftModalOpen] = useState(false);
   const { isDark } = useTheme();
   const hasDrafts = events.some((event) => event.status === "draft");
+  useBackgroundSync(keyPair);
 
   const handleContinueEvent = () => {
     if (hasDrafts) {

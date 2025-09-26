@@ -29,7 +29,9 @@ const ErrorPage: React.FC<ErrorPageProps> = ({
             />
           </svg>
         </div>
-        <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">{title}</h2>
+        <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">
+          {title}
+        </h2>
         <p className="text-gray-600 mb-6">{message}</p>
         {onRetry && (
           <button

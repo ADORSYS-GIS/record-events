@@ -78,34 +78,35 @@ const RecentEventsList: React.FC<RecentEventsListProps> = ({
           {recentEvents.map((event) => (
             <div
               key={event.id}
-              className={`group cursor-pointer flex flex-col sm:flex-row items-start sm:items-center justify-between p-3 sm:p-4 rounded-xl border transition-all duration-200 hover:shadow-sm ${
+              className={`group cursor-pointer flex items-center justify-between p-3 sm:p-4 rounded-xl border transition-all duration-200 hover:shadow-sm ${
                 isDark
                   ? "border-gray-700 hover:bg-gray-700/50"
                   : "border-gray-200/50 hover:bg-white/50"
               }`}
             >
-              <div className="flex-grow" onClick={() => onViewEvent(event)}>
-                <div className="flex items-center space-x-3 mb-2 sm:mb-0">
-                  {getStatusIcon(event.status)}
-                  <div>
-                    <h4
-                      className={`font-medium text-sm transition-colors duration-300 ${
-                        isDark ? "text-white" : "text-gray-900"
-                      }`}
-                    >
-                      {event.title}
-                    </h4>
-                    <p
-                      className={`text-xs transition-colors duration-300 ${
-                        isDark ? "text-gray-400" : "text-gray-600"
-                      }`}
-                    >
-                      {new Date(event.timestamp).toLocaleString()}
-                    </p>
-                  </div>
+              <div
+                className="flex-grow flex items-center space-x-3"
+                onClick={() => onViewEvent(event)}
+              >
+                {getStatusIcon(event.status)}
+                <div>
+                  <h4
+                    className={`font-medium text-sm transition-colors duration-300 ${
+                      isDark ? "text-white" : "text-gray-900"
+                    }`}
+                  >
+                    {event.title}
+                  </h4>
+                  <p
+                    className={`text-xs transition-colors duration-300 ${
+                      isDark ? "text-gray-400" : "text-gray-600"
+                    }`}
+                  >
+                    {new Date(event.timestamp).toLocaleString()}
+                  </p>
                 </div>
               </div>
-              <div className="flex items-center space-x-2 self-end sm:self-center mt-2 sm:mt-0">
+              <div className="flex items-center space-x-2">
                 <span
                   className={`text-xs font-medium px-3 py-1 rounded-full ${
                     event.status === "submitted"

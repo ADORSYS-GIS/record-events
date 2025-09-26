@@ -14,7 +14,10 @@ export interface LocalEvent {
 }
 
 export const useEventHistory = () => {
-  const events = useLiveQuery(() => db.events.toArray(), []);
+  const events = useLiveQuery(
+    () => db.events.orderBy("timestamp").reverse().toArray(),
+    [],
+  );
 
   const addEvent = useCallback(
     async (eventPackage: EventPackage, hash?: string) => {

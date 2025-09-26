@@ -9,9 +9,7 @@ interface MainLayoutProps {
 const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50">
-      <main className="px-0 sm:px-4">
-        {children ?? <Outlet />}
-      </main>
+      <main className="px-0 sm:px-4">{children ?? <Outlet />}</main>
       <Toaster position="top-right" />
     </div>
   );

@@ -1,10 +1,10 @@
-interface CameroonData {
+type CameroonData = {
   [region: string]: {
     [division: string]: {
       [subdivision: string]: string[];
     };
   };
-}
+};
 
 export const cameroonData: CameroonData = {
   Adamawa: {
