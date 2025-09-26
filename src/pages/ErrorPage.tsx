@@ -13,7 +13,7 @@ const ErrorPage: React.FC<ErrorPageProps> = ({
 }) => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-neutral-50 to-primary-50 flex items-center justify-center">
-      <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 text-center">
+      <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-6 sm:p-8 text-center">
         <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
           <svg
             className="w-8 h-8 text-red-600"
@@ -29,7 +29,7 @@ const ErrorPage: React.FC<ErrorPageProps> = ({
             />
           </svg>
         </div>
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">{title}</h2>
+        <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">{title}</h2>
         <p className="text-gray-600 mb-6">{message}</p>
         {onRetry && (
           <button

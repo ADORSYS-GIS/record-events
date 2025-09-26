@@ -35,7 +35,7 @@ const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({
         <div className="flex flex-col items-center justify-center text-center">
           {/* Image container with spinning border */}
           <div
-            className="relative w-64 h-64 mb-8"
+            className="relative w-48 h-48 sm:w-64 sm:h-64 mb-8"
             style={{
               animation: "float-subtle 4s ease-in-out infinite",
             }}

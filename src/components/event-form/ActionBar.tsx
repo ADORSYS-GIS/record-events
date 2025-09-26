@@ -15,8 +15,8 @@ const ActionBar: React.FC<ActionBarProps> = ({
   const { t } = useTranslation();
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-t border-gray-200 dark:border-gray-700 z-40">
-      <div className="max-w-4xl mx-auto px-6 py-4">
+    <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-t border-gray-200 dark:border-gray-700">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
         <div className="flex flex-col sm:flex-row justify-end space-y-3 sm:space-y-0 sm:space-x-4">
           <button
             type="button"

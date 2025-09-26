@@ -6,7 +6,7 @@ const OnboardingHeader: React.FC = () => {
   const { theme, changeTheme, isDark } = useTheme();
 
   return (
-    <header className="absolute top-0 right-0 p-6 z-10">
+    <header className="absolute top-0 right-0 p-4 sm:p-6 z-10">
       <div
         className={`flex items-center space-x-1 rounded-xl p-1 shadow-lg transition-all duration-300 ${
           isDark

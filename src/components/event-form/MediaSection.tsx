@@ -81,7 +81,7 @@ const MediaSection: React.FC<MediaSectionProps> = ({
           </p>
         </div>
 
-        <div className="flex flex-col sm:flex-row justify-center gap-3">
+        <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
           <label className="cursor-pointer bg-cameroon-green hover:bg-cameroon-green/90 text-white px-6 py-3 rounded-lg shadow-sm transition-all duration-200 flex items-center justify-center space-x-2 font-medium">
             <Upload className="w-5 h-5" />
             <span>{t("eventForm.media.browseFiles")}</span>

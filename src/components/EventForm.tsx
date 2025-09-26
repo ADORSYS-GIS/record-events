@@ -2,6 +2,7 @@ import { Camera } from "lucide-react";
 import { useCallback, useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
+import { v4 as uuidv4 } from "uuid";
 import type { KeyPair } from "../hooks/useKeyInitialization";
 import type { Label } from "../labels/label-manager";
 import { createEventPackage, validateFormData } from "../utils/event-packer";
@@ -13,7 +14,6 @@ import { apiAuthService } from "../services/keyManagement/apiAuthService";
 import { useTheme } from "../hooks/useTheme.tsx";
 import CameraCapture from "./CameraCapture";
 import { FieldValue } from "../types/event";
-import FormHeader from "./event-form/FormHeader";
 import MediaSection from "./event-form/MediaSection";
 import ActionBar from "./event-form/ActionBar";
 import FormFields from "./event-form/FormFields";
@@ -31,7 +31,11 @@ interface EventFormProps {
   saveDraft: (eventPackage: EventPackage, image?: Blob) => void;
   updateDraft: (eventPackage: EventPackage, image?: Blob) => void;
   submitEventAsync: (signedEventPackage: string) => Promise<void>;
+  submitEventDataAsync: (signedEventPackage: string) => Promise<void>;
+  submitEventImageAsync: (signedEventPackage: string) => Promise<void>;
   isSubmitting: boolean;
+  isSubmittingData: boolean;
+  isSubmittingImage: boolean;
   updateEventStatus: (eventId: string, status: LocalEvent["status"]) => void;
   removeEvent: (eventId: string) => void;
 }
@@ -46,7 +50,11 @@ const EventForm: React.FC<EventFormProps> = ({
   saveDraft,
   updateDraft,
   submitEventAsync,
+  submitEventDataAsync,
+  submitEventImageAsync,
   isSubmitting,
+  isSubmittingData,
+  isSubmittingImage,
   updateEventStatus,
   removeEvent,
 }) => {
@@ -237,11 +245,13 @@ const EventForm: React.FC<EventFormProps> = ({
         }
       });
 
+      const eventId = uuidv4();
+
       const eventPackage = await createEventPackage(
         cleanData,
         labels,
-        mediaFile,
-        { createdBy, source: "web" },
+        null, // No media file in the main package
+        { createdBy, source: "web", eventId },
       );
 
       const token = localStorage.getItem("authToken");
@@ -264,48 +274,60 @@ const EventForm: React.FC<EventFormProps> = ({
         token,
       );
 
-      if (initialEvent) {
-        if (initialEvent.status === "draft") {
-          // Submitting a draft
-          try {
-            await submitEventAsync(jwtEventData);
+      try {
+        if (mediaFile) {
+          const imagePackage = await createEventPackage(
+            {},
+            [],
+            mediaFile,
+            { createdBy, source: "web", eventId },
+          );
+
+          const jwtImageEventData = await generateEventJWT(
+            _keyPair.privateKey,
+            _keyPair.publicKey,
+            imagePackage,
+            token,
+          );
+
+          await submitEventImageAsync(jwtImageEventData);
+        }
+        await submitEventDataAsync(jwtEventData);
+
+        if (initialEvent) {
+          if (initialEvent.status === "draft") {
             updateEventStatus(initialEvent.id, "submitted");
             toast.success(t("eventSubmitted"));
-          } catch (error) {
-            updateEventStatus(initialEvent.id, "failed");
-            toast.error(t("eventSubmissionFailed"));
-          }
-        } else {
-          // Editing a pending event
-          try {
-            await submitEventAsync(jwtEventData);
+          } else {
             removeEvent(initialEvent.id);
             toast.success(t("eventResubmitted"));
-          } catch (error) {
-            toast.error(t("eventResubmissionFailed"));
           }
-        }
-      } else {
-        // Submitting a new event
-        const historyEventPackage: EventPackage = {
-          id: eventPackage.id,
-          version: eventPackage.version,
-          annotations: eventPackage.annotations,
-          media: eventPackage.media,
-          metadata: {
-            createdAt: eventPackage.metadata.createdAt,
-            createdBy: eventPackage.metadata.createdBy,
-            source: eventPackage.metadata.source as "web" | "mobile",
-          },
-        };
-        addEvent(historyEventPackage); // Add as pending
-
-        try {
-          await submitEventAsync(jwtEventData);
+        } else {
+          const historyEventPackage: EventPackage = {
+            id: eventPackage.id,
+            version: eventPackage.version,
+            annotations: eventPackage.annotations,
+            media: eventPackage.media,
+            metadata: {
+              createdAt: eventPackage.metadata.createdAt,
+              createdBy: eventPackage.metadata.createdBy,
+              source: eventPackage.metadata.source as "web" | "mobile",
+            },
+          };
+          addEvent(historyEventPackage); // Add as pending
           updateEventStatus(historyEventPackage.id, "submitted");
           toast.success(t("eventSubmitted"));
-        } catch (error) {
-          updateEventStatus(historyEventPackage.id, "failed");
+        }
+      } catch (error) {
+        if (initialEvent) {
+          if (initialEvent.status === "draft") {
+            updateEventStatus(initialEvent.id, "failed");
+            toast.error(t("eventSubmissionFailed"));
+          } else {
+            toast.error(t("eventResubmissionFailed"));
+          }
+        } else {
+          updateEventStatus(eventPackage.id, "failed");
           toast.error(t("eventSubmissionFailed"));
         }
       }
@@ -392,13 +414,11 @@ const EventForm: React.FC<EventFormProps> = ({
             : "bg-gradient-to-br from-gray-50 via-white to-gray-50"
         }`}
       >
-        <FormHeader onGoBack={onGoBack} />
-
         {/* Form Content */}
-        <div className="max-w-4xl mx-auto px-6 pt-8 pb-32">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-8 pb-32">
           <form id="event-form" onSubmit={handleSubmit} className="space-y-8">
             {/* Form Fields Section */}
-            <div className="relative z-20 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-200/50 dark:border-gray-700/50 p-8">
+            <div className="relative z-20 p-0 sm:bg-white/80 sm:dark:bg-gray-800/80 sm:backdrop-blur-sm sm:rounded-2xl sm:shadow-xl sm:border sm:border-gray-200/50 sm:dark:border-gray-700/50 sm:p-6 md:p-8">
               <div className="flex items-center space-x-3 mb-8">
                 <div className="w-10 h-10 bg-cameroon-green/20 rounded-xl flex items-center justify-center">
                   <svg
@@ -436,7 +456,7 @@ const EventForm: React.FC<EventFormProps> = ({
             </div>
 
             {/* Election Results Section */}
-            <div className="relative z-10 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-200/50 dark:border-gray-700/50 p-8">
+            <div className="relative z-10 p-0 sm:bg-white/80 sm:dark:bg-gray-800/80 sm:backdrop-blur-sm sm:rounded-2xl sm:shadow-xl sm:border sm:border-gray-200/50 sm:dark:border-gray-700/50 sm:p-6 md:p-8">
               <div className="flex items-center space-x-3 mb-8">
                 <div className="w-10 h-10 bg-cameroon-yellow/20 rounded-xl flex items-center justify-center">
                   <svg
@@ -472,7 +492,7 @@ const EventForm: React.FC<EventFormProps> = ({
             </div>
 
             {/* Media Upload Section */}
-            <div className="relative z-10 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-200/50 dark:border-gray-700/50 p-8">
+            <div className="relative z-10 p-0 sm:bg-white/80 sm:dark:bg-gray-800/80 sm:backdrop-blur-sm sm:rounded-2xl sm:shadow-xl sm:border sm:border-gray-200/50 sm:dark:border-gray-700/50 sm:p-6 md:p-8">
               <div className="flex items-center space-x-3 mb-8">
                 <div className="w-10 h-10 bg-cameroon-red/20 rounded-xl flex items-center justify-center">
                   <Camera className="w-5 h-5 text-cameroon-red" />
@@ -496,13 +516,13 @@ const EventForm: React.FC<EventFormProps> = ({
                 handleTakePhoto={handleTakePhoto}
               />
             </div>
+            <ActionBar
+              isSubmitting={isSubmitting}
+              isApiSubmitting={isSubmitting}
+              handleSaveDraft={handleSaveDraft}
+            />
           </form>
         </div>
-        <ActionBar
-          isSubmitting={isSubmitting}
-          isApiSubmitting={isSubmitting}
-          handleSaveDraft={handleSaveDraft}
-        />
       </div>
     </>
   );

@@ -3,6 +3,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { BrowserRouter as Router, useNavigate } from "react-router-dom";
 
+import UpdatePrompt from './components/UpdatePrompt';
 import useAuthenticationFlow from "./hooks/useAuthenticationFlow";
 import { useLabelManagement } from "./hooks/useLabelManagement";
 import { useEventHistory, LocalEvent } from "./hooks/useEventHistory";
@@ -184,6 +185,7 @@ function AppWithRouter() {
       <ThemeProvider>
         <Router>
           <App />
+          <UpdatePrompt />
         </Router>
       </ThemeProvider>
       <ReactQueryDevtools initialIsOpen={false} />

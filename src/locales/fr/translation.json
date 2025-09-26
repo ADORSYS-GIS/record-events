@@ -126,7 +126,7 @@
     }
   },
   "eventForm": {
-    "title": "Nouveau rapport d'événement",
+    "title": "Nouveau Rapport",
     "subtitle": "Saisissez et soumettez votre événement en toute sécurité",
     "fields": {
       "title": "Détails de l'événement",

@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import Dashboard from "../components/Dashboard";
+import DashboardHeader from "../components/dashboard/DashboardHeader";
 import DraftSelectionModal from "../components/dashboard/DraftSelectionModal";
 import type { KeyPair } from "../hooks/useAuthenticationFlow";
+import { useTheme } from "../hooks/useTheme";
 import type { Label } from "../labels/label-manager";
 import type { LocalEvent } from "../hooks/useEventHistory";
 
@@ -29,6 +31,7 @@ const DashboardPage: React.FC<DashboardPageProps> = ({
   onSelectDraft,
 }) => {
   const [isDraftModalOpen, setIsDraftModalOpen] = useState(false);
+  const { isDark } = useTheme();
   const hasDrafts = events.some((event) => event.status === "draft");
 
   const handleContinueEvent = () => {
@@ -46,6 +49,7 @@ const DashboardPage: React.FC<DashboardPageProps> = ({
 
   return (
     <>
+      <DashboardHeader isDark={isDark} />
       <Dashboard
         labels={labels}
         keyPair={keyPair}

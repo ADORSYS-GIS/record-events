@@ -28,7 +28,7 @@ const WelcomeActions: React.FC<WelcomeActionsProps> = ({
           <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
         </button>
         <p
-          className={`text-center text-xs sm:text-sm mt-4 sm:mt-6 ${
+          className={`text-center text-xs sm:text-sm mt-2 sm:mt-4 ${
             isDark ? "text-gray-400" : "text-gray-500"
           }`}
         >

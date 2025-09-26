@@ -126,7 +126,7 @@
     }
   },
   "eventForm": {
-    "title": "New Event Report",
+    "title": "New Report",
     "subtitle": "Capture and submit your event securely",
     "fields": {
       "title": "Event Details",

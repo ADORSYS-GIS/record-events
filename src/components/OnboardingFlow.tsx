@@ -58,7 +58,7 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ onComplete }) => {
           <img
             src="/camera.png"
             alt="Camera"
-            className="w-64 h-64 object-contain"
+            className="w-32 h-32 sm:w-64 sm:h-64 object-contain"
           />
         ),
         type: "permission",
@@ -94,7 +94,7 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ onComplete }) => {
 
   return (
     <div
-      className={`min-h-screen flex items-center justify-center p-4 transition-all duration-300 ${
+      className={`h-screen overflow-hidden flex flex-col items-center justify-center p-4 transition-all duration-300 ${
         isDark
           ? "bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
           : "bg-gradient-to-br from-gray-50 via-white to-gray-50"
@@ -103,8 +103,8 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ onComplete }) => {
       <OnboardingHeader />
       <div className="w-full max-w-lg">
         <div
-          className={`rounded-2xl shadow-xl p-10 transition-all duration-300 ease-in-out ${
-            isDark ? "bg-gray-800 border border-gray-700" : "bg-white"
+          className={`transition-all duration-300 ease-in-out ${
+            isDark ? "bg-transparent" : "bg-transparent"
           } ${isTransitioning ? "opacity-50 scale-95" : "opacity-100 scale-100"}`}
         >
           <OnboardingStep step={currentStepData} isDark={isDark} />
@@ -119,7 +119,7 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ onComplete }) => {
             <button
               onClick={() => completeStep(currentStepData.id)}
               disabled={isTransitioning}
-              className={`w-full text-center mt-6 text-sm transition-colors duration-200 disabled:opacity-50 ${
+              className={`w-full text-center mt-4 text-sm transition-colors duration-200 disabled:opacity-50 ${
                 isDark
                   ? "text-gray-400 hover:text-gray-200"
                   : "text-gray-500 hover:text-gray-700"

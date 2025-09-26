@@ -78,7 +78,7 @@ const RecentEventsList: React.FC<RecentEventsListProps> = ({
           {recentEvents.map((event) => (
             <div
               key={event.id}
-              className={`group cursor-pointer flex flex-col sm:flex-row items-start sm:items-center sm:justify-between p-3 sm:p-4 rounded-xl border transition-all duration-200 hover:shadow-sm ${
+              className={`group cursor-pointer flex flex-col sm:flex-row items-start sm:items-center justify-between p-3 sm:p-4 rounded-xl border transition-all duration-200 hover:shadow-sm ${
                 isDark
                   ? "border-gray-700 hover:bg-gray-700/50"
                   : "border-gray-200/50 hover:bg-white/50"
