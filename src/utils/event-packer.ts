@@ -10,34 +10,13 @@ import { isEventPackage } from "../types/event";
 import type { Label } from "../labels/label-manager";
 
 /**
- * Converts a File object to a base64 string
- */
-async function fileToBase64(file: File): Promise<string> {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = () => {
-      if (typeof reader.result === "string") {
-        resolve(reader.result);
-      } else {
-        reject(new Error("Failed to read file as base64"));
-      }
-    };
-    reader.onerror = () =>
-      reject(new Error(reader.error?.message || "Failed to read file"));
-
-    // Use readAsDataURL to get base64 data
-    reader.readAsDataURL(file);
-  });
-}
-
-/**
- * Creates an EventPackage object from form data, labels, and an optional media file
- * @throws {Error} If media processing fails or form data is invalid
+ * Creates an EventPackage object from form data and labels
+ * @throws {Error} If form data is invalid
  */
 export async function createEventPackage(
   formData: Record<string, FieldValue>,
   labels: Label[],
-  mediaFile: File | null,
+  // mediaFile: null, // Media file parameter kept for compatibility but not used
   options: {
     createdBy?: string;
     source?: "web" | "mobile" | "api";
@@ -75,31 +54,14 @@ export async function createEventPackage(
     timestamp: now,
   });
 
-  // Process media file if provided
-  let media: EventMedia | undefined;
-  if (mediaFile) {
-    try {
-      const base64Data = await fileToBase64(mediaFile);
-
-      media = {
-        type: mediaFile.type as MediaType, // Will be validated by isEventPackage
-        data: base64Data,
-        name: mediaFile.name,
-        size: mediaFile.size,
-        lastModified: mediaFile.lastModified,
-      };
-    } catch (error) {
-      throw new Error(
-        `Failed to process media file: ${error instanceof Error ? error.message : String(error)}`,
-      );
-    }
-  }
+  // Media processing removed - no media file handling
+  const media: EventMedia | undefined = undefined;
 
   const eventPackage: EventPackage = {
     id: uuidv4(),
     version: "1.0.0",
     annotations,
-    media,
+    media, // Will be undefined since media processing is removed
     metadata: {
       createdAt: now,
       createdBy: options.createdBy,

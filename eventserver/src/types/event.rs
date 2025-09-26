@@ -13,30 +13,6 @@ pub enum FieldValue {
     Null,
 }
 
-/// Supported media types - matches TypeScript MediaType
-#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
-pub enum MediaType {
-    #[serde(rename = "image/jpeg")]
-    ImageJpeg,
-    #[serde(rename = "image/png")]
-    ImagePng,
-    #[serde(rename = "image/gif")]
-    ImageGif,
-    #[serde(rename = "video/mp4")]
-    VideoMp4,
-}
-
-impl MediaType {
-    pub fn as_str(&self) -> &'static str {
-        match self {
-            MediaType::ImageJpeg => "image/jpeg",
-            MediaType::ImagePng => "image/png",
-            MediaType::ImageGif => "image/gif",
-            MediaType::VideoMp4 => "video/mp4",
-        }
-    }
-}
-
 /// Event annotation with strict typing - matches TypeScript EventAnnotation
 #[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
 #[serde(rename_all = "camelCase")]
@@ -50,9 +26,6 @@ pub struct EventAnnotation {
 #[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
 #[serde(rename_all = "camelCase")]
 pub struct EventMedia {
-    #[serde(rename = "type")]
-    pub media_type: MediaType,
-    pub data: String, // Base64 encoded media data
     pub name: String,
     pub size: u64,
     pub last_modified: u64, // Unix timestamp
@@ -103,6 +76,18 @@ pub struct ProcessingResult {
     pub processed_at: DateTime<Utc>,
 }
 
+/// Media submission response
+#[derive(Debug, Serialize, Deserialize, ToSchema)]
+#[serde(rename_all = "camelCase")]
+pub struct MediaSubmissionResponse {
+    pub media_id: String,
+    pub event_id: Uuid,
+    pub access_link: String,
+    pub uploaded_at: DateTime<Utc>,
+    pub media_type: String,
+    pub size: u64,
+}
+
 /// Validation result for event packages
 #[derive(Debug)]
 pub struct ValidationResult {
@@ -132,9 +117,6 @@ impl EventPackage {
 
         // Validate media if present
         if let Some(media) = &self.media {
-            if media.data.is_empty() {
-                errors.push("Media data cannot be empty".to_string());
-            }
             if media.name.is_empty() {
                 errors.push("Media name cannot be empty".to_string());
             }
@@ -155,7 +137,6 @@ impl EventPackage {
             "id": self.id,
             "annotations": self.annotations,
             "media": self.media.as_ref().map(|m| serde_json::json!({
-                "type": m.media_type.as_str(),
                 "size": m.size,
                 "name": m.name
             })),

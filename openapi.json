@@ -150,6 +150,79 @@
         ]
       }
     },
+    "/api/v1/events/{eventId}/media": {
+      "post": {
+        "tags": ["events"],
+        "summary": "Submit media file associated with an event",
+        "operationId": "submit_event_media",
+        "parameters": [
+          {
+            "name": "eventId",
+            "in": "path",
+            "description": "UUID of the event to associate media with",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "media": {
+                    "type": "string",
+                    "format": "binary",
+                    "description": "Media file to upload"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "Optional description of the media"
+                  }
+                },
+                "required": ["media"]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Media uploaded successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MediaSubmissionResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request data or validation failed"
+          },
+          "401": {
+            "description": "Authentication required - Bearer token missing or invalid"
+          },
+          "404": {
+            "description": "Event not found"
+          },
+          "415": {
+            "description": "Unsupported media type"
+          },
+          "500": {
+            "description": "Internal server error during upload"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": []
+          }
+        ]
+      }
+    },
     "/api/v1/pow/challenge": {
       "post": {
         "tags": ["authentication"],
@@ -420,6 +493,42 @@
           },
           "solution": {
             "$ref": "#/components/schemas/PowSolution"
+          }
+        }
+      },
+      "MediaSubmissionResponse": {
+        "type": "object",
+        "description": "Media submission response",
+        "required": [
+          "mediaId",
+          "eventId",
+          "accessLink",
+          "uploadedAt",
+          "mediaType",
+          "size"
+        ],
+        "properties": {
+          "mediaId": {
+            "type": "string"
+          },
+          "eventId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "accessLink": {
+            "type": "string"
+          },
+          "uploadedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "mediaType": {
+            "type": "string"
+          },
+          "size": {
+            "type": "integer",
+            "format": "int64",
+            "minimum": 0
           }
         }
       },

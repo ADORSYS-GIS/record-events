@@ -1,13 +1,5 @@
-import {
-  Camera,
-  Check,
-  ChevronDown,
-  Save,
-  Send,
-  Upload,
-  X,
-} from "lucide-react";
-import { useCallback, useEffect, useRef, useState, useMemo } from "react";
+import { Check, ChevronDown, Save, Send } from "lucide-react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
 import type { KeyPair } from "../hooks/useAuthenticationFlow";
@@ -132,34 +124,11 @@ const EventForm: React.FC<EventFormProps> = ({
 }) => {
   const { t, i18n } = useTranslation();
   const [formData, setFormData] = useState<FormData>({});
-  const [mediaFile, setMediaFile] = useState<File | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [dragActive, setDragActive] = useState(false);
-  const [showCamera, setShowCamera] = useState(false);
-  const [cameraStream, setCameraStream] = useState<MediaStream | null>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   const { submitEvent, isSubmitting: isApiSubmitting } = useEventSubmission();
   const { addEvent } = useEventHistory();
-
-  // Memoize the blob URL to prevent infinite requests
-  const mediaPreviewUrl = useMemo(() => {
-    if (mediaFile) {
-      return URL.createObjectURL(mediaFile);
-    }
-    return null;
-  }, [mediaFile]);
-
-  // Cleanup blob URL when component unmounts or mediaFile changes
-  useEffect(() => {
-    return () => {
-      if (mediaPreviewUrl) {
-        URL.revokeObjectURL(mediaPreviewUrl);
-      }
-    };
-  }, [mediaPreviewUrl]);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -204,139 +173,6 @@ const EventForm: React.FC<EventFormProps> = ({
     }
   };
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      // Prevent processing the same file multiple times
-      if (
-        mediaFile &&
-        mediaFile.name === file.name &&
-        mediaFile.size === file.size
-      ) {
-        e.target.value = "";
-        return;
-      }
-
-      setMediaFile(file);
-      setErrors((prev) => ({ ...prev, media: "" }));
-    }
-    // Reset the input value to prevent repeated onChange events
-    e.target.value = "";
-  };
-
-  const handleTakePhoto = async () => {
-    try {
-      // Request camera access
-      const stream = await navigator.mediaDevices.getUserMedia({
-        video: {
-          facingMode: "environment", // Use back camera on mobile
-          width: { ideal: 1920 },
-          height: { ideal: 1080 },
-        },
-      });
-
-      setCameraStream(stream);
-      setShowCamera(true);
-
-      // Set video source and play
-      if (videoRef.current) {
-        videoRef.current.srcObject = stream;
-        videoRef.current.play();
-      }
-    } catch (error) {
-      toast.error(
-        t("camera.error", "Unable to access camera. Please check permissions."),
-      );
-
-      // Fallback to file input if camera fails
-      const input = document.createElement("input");
-      input.type = "file";
-      input.accept = "image/*";
-      input.capture = "environment";
-
-      input.onchange = (e) => {
-        const file = (e.target as HTMLInputElement).files?.[0];
-        if (file) {
-          setMediaFile(file);
-        }
-        // Reset input value to prevent repeated events
-        (e.target as HTMLInputElement).value = "";
-      };
-
-      input.click();
-    }
-  };
-
-  const capturePhoto = () => {
-    if (!videoRef.current || !canvasRef.current || !cameraStream) return;
-
-    const video = videoRef.current;
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
-
-    if (ctx) {
-      // Set canvas dimensions to match video
-      canvas.width = video.videoWidth;
-      canvas.height = video.videoHeight;
-
-      // Draw the current video frame to canvas
-      ctx.drawImage(video, 0, 0);
-
-      // Convert canvas to blob and create file
-      canvas.toBlob(
-        (blob) => {
-          if (blob) {
-            const file = new File([blob], `photo_${Date.now()}.jpg`, {
-              type: "image/jpeg",
-            });
-            setMediaFile(file);
-          }
-        },
-        "image/jpeg",
-        0.9,
-      );
-    }
-
-    // Stop camera and hide camera view
-    stopCamera();
-  };
-
-  const stopCamera = () => {
-    if (cameraStream) {
-      cameraStream.getTracks().forEach((track) => track.stop());
-      setCameraStream(null);
-    }
-    setShowCamera(false);
-  };
-
-  const clearMediaFile = () => {
-    setMediaFile(null);
-    setErrors((prev) => ({ ...prev, media: "" }));
-  };
-
-  const handleDrag = (e: React.DragEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (e.type === "dragenter" || e.type === "dragover") {
-      setDragActive(true);
-    } else if (e.type === "dragleave") {
-      setDragActive(false);
-    }
-  };
-
-  const handleDrop = (e: React.DragEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setDragActive(false);
-
-    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-      setMediaFile(e.dataTransfer.files[0]);
-      setErrors((prev) => ({ ...prev, media: "" }));
-    }
-    // Clear the data transfer to prevent repeated events
-    e.dataTransfer.clearData();
-  };
-
   const validate = useCallback((): boolean => {
     const newErrors: Record<string, string> = {};
 
@@ -352,14 +188,6 @@ const EventForm: React.FC<EventFormProps> = ({
         );
       }
     });
-
-    // Media file is optional - remove this validation
-    // if (!mediaFile) {
-    //   newErrors.media = t(
-    //     "validation.mediaRequired",
-    //     "Please add a photo or video",
-    //   );
-    // }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -397,16 +225,16 @@ const EventForm: React.FC<EventFormProps> = ({
           }
         });
 
-        // Only create event package if we have data or media
-        if (Object.keys(cleanData).length === 0 && !mediaFile) {
-          toast.error("Please fill in at least one field or add media");
+        // Only create event package if we have data
+        if (Object.keys(cleanData).length === 0) {
+          toast.error("Please fill in at least one field");
           return;
         }
 
         const eventPackage = await createEventPackage(
           cleanData,
           labels,
-          mediaFile,
+          null, // No media file
           { createdBy, source: "web" },
         );
 
@@ -460,7 +288,6 @@ const EventForm: React.FC<EventFormProps> = ({
         addEvent(historyEventPackage);
 
         setFormData({});
-        setMediaFile(null);
         toast.success(t("eventSaved"));
       } catch (error) {
         toast.error(
@@ -477,7 +304,6 @@ const EventForm: React.FC<EventFormProps> = ({
       isApiSubmitting,
       formData,
       labels,
-      mediaFile,
       createdBy,
       submitEvent,
       addEvent,
@@ -494,16 +320,16 @@ const EventForm: React.FC<EventFormProps> = ({
         }
       });
 
-      // Only create event package if we have data or media
-      if (Object.keys(cleanData).length === 0 && !mediaFile) {
-        toast.error("Please fill in at least one field or add media");
+      // Only create event package if we have data
+      if (Object.keys(cleanData).length === 0) {
+        toast.error("Please fill in at least one field");
         return;
       }
 
       const eventPackage = await createEventPackage(
         cleanData,
         labels,
-        mediaFile || null,
+        null, // No media file
         { createdBy, source: "web" },
       );
 
@@ -525,7 +351,7 @@ const EventForm: React.FC<EventFormProps> = ({
     } catch (error) {
       toast.error(t("saveError"));
     }
-  }, [formData, mediaFile, labels, createdBy, t, addEvent]);
+  }, [formData, labels, createdBy, t, addEvent]);
 
   // Early return if keyPair is missing or invalid
   if (!_keyPair || !_keyPair.privateKey || !_keyPair.publicKey) {
@@ -584,196 +410,6 @@ const EventForm: React.FC<EventFormProps> = ({
       </div>
     );
   }
-
-  const renderMediaSection = () => {
-    if (mediaFile) {
-      return (
-        <div className="relative group">
-          <div className="relative overflow-hidden rounded-xl">
-            {mediaPreviewUrl && (
-              <img
-                src={mediaPreviewUrl as string}
-                alt="Preview"
-                className="w-full h-64 object-cover"
-              />
-            )}
-            <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-200 flex items-center justify-center">
-              <button
-                type="button"
-                onClick={() => setMediaFile(null)}
-                className="opacity-0 group-hover:opacity-100 bg-red-500 text-white rounded-full p-2 hover:bg-red-600 transition-all duration-200 shadow-lg"
-              >
-                <X className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
-          <div className="mt-3 text-center">
-            <p className="text-sm text-gray-600">{mediaFile.name}</p>
-            <p className="text-xs text-gray-400">
-              {(mediaFile.size / 1024 / 1024).toFixed(2)} MB
-            </p>
-          </div>
-        </div>
-      );
-    }
-
-    // Camera view when taking photo
-    if (showCamera) {
-      return (
-        <div className="relative border-2 border-gray-300 rounded-xl p-6 bg-gray-900">
-          <div className="text-center mb-4">
-            <h3 className="text-lg font-medium text-white mb-2">
-              {t("eventForm.camera.title", "Take a Photo")}
-            </h3>
-            <p className="text-gray-300 text-sm">
-              {t(
-                "eventForm.camera.description",
-                "Position your camera and click capture when ready",
-              )}
-            </p>
-          </div>
-
-          {/* Camera preview */}
-          <div className="relative mb-4">
-            <video
-              ref={videoRef}
-              autoPlay
-              playsInline
-              muted
-              className="w-full h-64 object-cover rounded-lg"
-            />
-            <div className="absolute inset-0 border-4 border-white/20 rounded-lg pointer-events-none"></div>
-          </div>
-
-          {/* Camera controls */}
-          <div className="flex justify-center space-x-4">
-            <button
-              type="button"
-              onClick={capturePhoto}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full shadow-lg transition-all duration-200 flex items-center space-x-2 font-medium"
-            >
-              <Camera className="w-5 h-5" />
-              <span>Capture Photo</span>
-            </button>
-            <button
-              type="button"
-              onClick={stopCamera}
-              className="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg shadow-sm transition-all duration-200 font-medium"
-            >
-              Cancel
-            </button>
-          </div>
-
-          {/* Hidden canvas for photo capture */}
-          <canvas ref={canvasRef} className="hidden" />
-        </div>
-      );
-    }
-
-    return (
-      <div
-        className={`relative border-2 border-dashed rounded-xl p-8 text-center transition-all duration-200 ${
-          dragActive
-            ? "border-blue-400 bg-blue-50"
-            : "border-gray-300 hover:border-gray-400"
-        }`}
-        onDragEnter={handleDrag}
-        onDragLeave={handleDrag}
-        onDragOver={handleDrag}
-        onDrop={handleDrop}
-      >
-        <div className="space-y-4">
-          <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto">
-            <Camera className="w-8 h-8 text-blue-600" />
-          </div>
-          <div>
-            <h3 className="text-lg font-medium text-gray-900 mb-2">
-              {t("eventForm.media.title", "Add Media to Your Report")}
-            </h3>
-            <p className="text-gray-500 mb-6">
-              {t(
-                "eventForm.media.description",
-                "Drag and drop an image here, or click to browse",
-              )}
-            </p>
-          </div>
-
-          {mediaFile && (
-            <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-4">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-                    <svg
-                      className="w-5 h-5 text-green-600"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="text-sm font-medium text-green-800">
-                      {(mediaFile as File).name}
-                    </p>
-                    <p className="text-xs text-green-600">
-                      {((mediaFile as File).size / 1024 / 1024).toFixed(2)} MB
-                    </p>
-                  </div>
-                </div>
-                <button
-                  type="button"
-                  onClick={clearMediaFile}
-                  className="text-green-600 hover:text-green-800 p-1 rounded-full hover:bg-green-100 transition-colors"
-                >
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                </button>
-              </div>
-            </div>
-          )}
-
-          <div className="flex flex-col sm:flex-row justify-center gap-3">
-            <label className="cursor-pointer bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg shadow-sm transition-all duration-200 flex items-center justify-center space-x-2 font-medium">
-              <Upload className="w-5 h-5" />
-              <span>Browse Files</span>
-              <input
-                key="file-input"
-                type="file"
-                accept="image/*,video/*"
-                className="hidden"
-                onChange={handleFileChange}
-              />
-            </label>
-            <button
-              type="button"
-              onClick={handleTakePhoto}
-              className="bg-white hover:bg-gray-50 text-gray-700 px-6 py-3 rounded-lg shadow-sm transition-all duration-200 flex items-center justify-center space-x-2 border border-gray-300 font-medium"
-            >
-              <Camera className="w-5 h-5" />
-              <span>Take Photo</span>
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
@@ -986,30 +622,6 @@ const EventForm: React.FC<EventFormProps> = ({
                 );
               })}
             </div>
-          </div>
-
-          {/* Media Upload Section */}
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-200/50 p-8">
-            <div className="flex items-center space-x-3 mb-8">
-              <div className="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center">
-                <Camera className="w-5 h-5 text-green-600" />
-              </div>
-              <div>
-                <h2 className="text-xl font-semibold text-gray-900">
-                  {t(
-                    "eventForm.media.title",
-                    "Add Media to Your Report (Optional)",
-                  )}
-                </h2>
-                <p className="text-sm text-gray-600">
-                  {t(
-                    "eventForm.media.description",
-                    "Include photos or videos to provide visual context (optional)",
-                  )}
-                </p>
-              </div>
-            </div>
-            {renderMediaSection()}
           </div>
 
           {/* Action Buttons */}
