@@ -1,0 +1,44 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
+
+  pre_build:
+    commands:
+      - echo Build started on `date`
+      - echo Building the Docker images...
+      - FRONTEND_REPOSITORY_URI=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$FRONTEND_IMAGE_REPO_NAME
+      - MIDDLEWARE_REPOSITORY_URI=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$MIDDLEWARE_IMAGE_REPO_NAME
+      - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
+      - IMAGE_TAG=$COMMIT_HASH
+      - echo "Using image tag:" $IMAGE_TAG
+
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Building the Docker images...
+      - docker build -t $FRONTEND_IMAGE_REPO_NAME:$IMAGE_TAG .
+      - docker build -f eventserver/Dockerfile -t $MIDDLEWARE_IMAGE_REPO_NAME:$IMAGE_TAG eventserver/
+      - docker tag $FRONTEND_IMAGE_REPO_NAME:$IMAGE_TAG $FRONTEND_REPOSITORY_URI:$IMAGE_TAG
+      - docker tag $MIDDLEWARE_IMAGE_REPO_NAME:$IMAGE_TAG $MIDDLEWARE_REPOSITORY_URI:$IMAGE_TAG
+      - docker tag $FRONTEND_IMAGE_REPO_NAME:$IMAGE_TAG $FRONTEND_REPOSITORY_URI:latest
+      - docker tag $MIDDLEWARE_IMAGE_REPO_NAME:$IMAGE_TAG $MIDDLEWARE_REPOSITORY_URI:latest
+
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker images...
+      - docker push $FRONTEND_REPOSITORY_URI:$IMAGE_TAG
+      - docker push $MIDDLEWARE_REPOSITORY_URI:$IMAGE_TAG
+      - docker push $FRONTEND_REPOSITORY_URI:latest
+      - docker push $MIDDLEWARE_REPOSITORY_URI:latest
+      - echo Images pushed successfully
+      - echo Updating ECS services...
+      - aws ecs update-service --cluster $ECS_CLUSTER_NAME --service $ECS_UI_SERVICE_NAME --force-new-deployment
+      - aws ecs update-service --cluster $ECS_CLUSTER_NAME --service $ECS_SERVICE_SERVICE_NAME --force-new-deployment
+      - echo ECS services updated successfully
+      - echo Build completed successfully
+# Updated at Sun Sep 14 14:54:35 EDT 2025

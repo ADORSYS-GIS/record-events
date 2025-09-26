@@ -5,7 +5,6 @@ import type { AuthenticationStatus } from "../hooks/useAuthenticationFlow";
 interface OnboardingPageProps {
   onComplete: () => void;
   keyStatus?: string;
-  webAuthnStatus?: string;
   powStatus?: string;
   authStatus: AuthenticationStatus;
 }
@@ -13,7 +12,6 @@ interface OnboardingPageProps {
 const OnboardingPage: React.FC<OnboardingPageProps> = ({
   onComplete,
   keyStatus,
-  webAuthnStatus,
   powStatus,
   authStatus,
 }) => {
@@ -21,7 +19,6 @@ const OnboardingPage: React.FC<OnboardingPageProps> = ({
     <OnboardingFlow
       onComplete={onComplete}
       keyStatus={keyStatus}
-      webAuthnStatus={webAuthnStatus}
       powStatus={powStatus}
       authStatus={authStatus}
     />

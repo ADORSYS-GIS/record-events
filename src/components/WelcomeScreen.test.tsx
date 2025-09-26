@@ -2,14 +2,19 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { I18nextProvider } from "react-i18next";
 import { vi } from "vitest";
 import i18n from "../i18n";
+import { ThemeProvider } from "../contexts/ThemeContext";
 import WelcomeScreen from "./WelcomeScreen";
 
 // Mock the onGetStarted function
 const mockOnGetStarted = vi.fn();
 
 // Setup test wrapper with i18n provider
-const renderWithI18n = (component: React.ReactElement) => {
-  return render(<I18nextProvider i18n={i18n}>{component}</I18nextProvider>);
+const renderWithProviders = (component: React.ReactElement) => {
+  return render(
+    <I18nextProvider i18n={i18n}>
+      <ThemeProvider>{component}</ThemeProvider>
+    </I18nextProvider>,
+  );
 };
 
 describe("WelcomeScreen", () => {
@@ -19,15 +24,15 @@ describe("WelcomeScreen", () => {
   });
 
   it("renders welcome title", () => {
-    renderWithI18n(
+    renderWithProviders(
       <WelcomeScreen onGetStarted={mockOnGetStarted} i18n={i18n} />,
     );
 
-    expect(screen.getByText("Welcome to EventApp!")).toBeInTheDocument();
+    expect(screen.getByText("Presidential Election 2025")).toBeInTheDocument();
   });
 
   it("renders language selection buttons", () => {
-    renderWithI18n(
+    renderWithProviders(
       <WelcomeScreen onGetStarted={mockOnGetStarted} i18n={i18n} />,
     );
 
@@ -36,7 +41,7 @@ describe("WelcomeScreen", () => {
   });
 
   it("renders get started button", () => {
-    renderWithI18n(
+    renderWithProviders(
       <WelcomeScreen onGetStarted={mockOnGetStarted} i18n={i18n} />,
     );
 
@@ -44,7 +49,7 @@ describe("WelcomeScreen", () => {
   });
 
   it("calls onGetStarted when get started button is clicked", () => {
-    renderWithI18n(
+    renderWithProviders(
       <WelcomeScreen onGetStarted={mockOnGetStarted} i18n={i18n} />,
     );
 
@@ -55,7 +60,7 @@ describe("WelcomeScreen", () => {
   });
 
   it("changes language when language buttons are clicked", () => {
-    renderWithI18n(
+    renderWithProviders(
       <WelcomeScreen onGetStarted={mockOnGetStarted} i18n={i18n} />,
     );
 
