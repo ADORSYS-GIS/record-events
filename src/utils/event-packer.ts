@@ -23,7 +23,7 @@ async function fileToBase64(file: File): Promise<string> {
       }
     };
     reader.onerror = () =>
-        reject(new Error(reader.error?.message || "Failed to read file"));
+      reject(new Error(reader.error?.message || "Failed to read file"));
 
     // Use readAsDataURL to get base64 data
     reader.readAsDataURL(file);
@@ -35,13 +35,13 @@ async function fileToBase64(file: File): Promise<string> {
  * @throws {Error} If media processing fails or form data is invalid
  */
 export async function createEventPackage(
-    formData: Record<string, FieldValue>,
-    labels: Label[],
-    mediaFile: File | null,
-    options: {
-      createdBy?: string;
-      source?: "web" | "mobile" | "api";
-    } = {},
+  formData: Record<string, FieldValue>,
+  labels: Label[],
+  mediaFile: File | null,
+  options: {
+    createdBy?: string;
+    source?: "web" | "mobile" | "api";
+  } = {},
 ): Promise<EventPackage> {
   const now = new Date().toISOString();
 
@@ -51,13 +51,13 @@ export async function createEventPackage(
 
     // Validate value type
     if (
-        value !== null &&
-        typeof value !== "string" &&
-        typeof value !== "number" &&
-        typeof value !== "boolean"
+      value !== null &&
+      typeof value !== "string" &&
+      typeof value !== "number" &&
+      typeof value !== "boolean"
     ) {
       throw new Error(
-          `Invalid value type for ${label.labelId}: ${typeof value}`,
+        `Invalid value type for ${label.labelId}: ${typeof value}`,
       );
     }
 
@@ -90,7 +90,7 @@ export async function createEventPackage(
       };
     } catch (error) {
       throw new Error(
-          `Failed to process media file: ${error instanceof Error ? error.message : String(error)}`,
+        `Failed to process media file: ${error instanceof Error ? error.message : String(error)}`,
       );
     }
   }
@@ -121,8 +121,8 @@ export async function createEventPackage(
 function validateField(value: FieldValue, label: Label): string | undefined {
   // Check required fields
   if (
-      label.required &&
-      (value === null || value === undefined || value === "")
+    label.required &&
+    (value === null || value === undefined || value === "")
   ) {
     return `${label.labelId} is required`;
   }
@@ -140,7 +140,7 @@ function validateField(value: FieldValue, label: Label): string | undefined {
     case "text":
       return validateTextField(value, label);
 
-      // Add other type validations as needed
+    // Add other type validations as needed
     default:
       return undefined;
   }
@@ -150,8 +150,8 @@ function validateField(value: FieldValue, label: Label): string | undefined {
  * Validates a number field against its constraints
  */
 function validateNumberField(
-    value: FieldValue,
-    label: Label,
+  value: FieldValue,
+  label: Label,
 ): string | undefined {
   if (typeof value !== "number") {
     return "Must be a number";
@@ -178,8 +178,8 @@ function validateNumberField(
  * Validates a text field against its constraints
  */
 function validateTextField(
-    value: FieldValue,
-    label: Label,
+  value: FieldValue,
+  label: Label,
 ): string | undefined {
   if (typeof value !== "string") {
     return "Must be text";
@@ -197,8 +197,8 @@ function validateTextField(
  * Validates form data against label constraints
  */
 export function validateFormData(
-    formData: Record<string, FieldValue>,
-    labels: Label[],
+  formData: Record<string, FieldValue>,
+  labels: Label[],
 ): { isValid: boolean; errors: Record<string, string> } {
   const errors: Record<string, string> = {};
 
