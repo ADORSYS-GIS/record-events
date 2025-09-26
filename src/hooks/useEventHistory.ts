@@ -1,74 +1,82 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback } from "react";
+import { useLiveQuery } from "dexie-react-hooks";
+import { db } from "../services/db";
 import { EventPackage } from "../openapi-rq/requests/types.gen";
 
 export interface LocalEvent {
   id: string;
   title: string;
-  status: "submitted" | "pending" | "failed";
+  status: "submitted" | "pending" | "failed" | "draft";
   timestamp: string;
   eventPackage: EventPackage;
   hash?: string;
+  image?: Blob;
 }
 
-const STORAGE_KEY = "reporthub_events";
-
 export const useEventHistory = () => {
-  const [events, setEvents] = useState<LocalEvent[]>([]);
+  const events = useLiveQuery(() => db.events.toArray(), []);
 
-  // Load events from localStorage on mount
-  useEffect(() => {
-    const storedEvents = localStorage.getItem(STORAGE_KEY);
-    if (storedEvents) {
-      try {
-        setEvents(JSON.parse(storedEvents));
-      } catch (error) {
-        console.error("Failed to parse stored events:", error);
-        setEvents([]);
-      }
-    }
-  }, []);
-
-  // Save events to localStorage whenever events change
-  useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(events));
-  }, [events]);
-
-  const addEvent = useCallback((eventPackage: EventPackage, hash?: string) => {
-    const newEvent: LocalEvent = {
-      id: eventPackage.id,
-      title: `Event ${eventPackage.id.slice(0, 8)}`,
-      status: "submitted",
-      timestamp: new Date().toISOString(),
-      eventPackage,
-      hash,
-    };
-
-    setEvents((prev) => [newEvent, ...prev]);
-  }, []);
-
-  const updateEventStatus = useCallback(
-    (eventId: string, status: LocalEvent["status"]) => {
-      setEvents((prev) =>
-        prev.map((event) =>
-          event.id === eventId ? { ...event, status } : event,
-        ),
-      );
+  const addEvent = useCallback(
+    async (eventPackage: EventPackage, hash?: string) => {
+      const newEvent: LocalEvent = {
+        id: eventPackage.id,
+        title: `Event ${eventPackage.id.slice(0, 8)}`,
+        status: "pending",
+        timestamp: new Date().toISOString(),
+        eventPackage,
+        hash,
+      };
+      await db.events.add(newEvent);
     },
     [],
   );
 
-  const removeEvent = useCallback((eventId: string) => {
-    setEvents((prev) => prev.filter((event) => event.id !== eventId));
+  const saveDraft = useCallback(
+    async (eventPackage: EventPackage, image?: Blob) => {
+      const newDraft: LocalEvent = {
+        id: eventPackage.id,
+        title: `Draft ${eventPackage.id.slice(0, 8)}`,
+        status: "draft",
+        timestamp: new Date().toISOString(),
+        eventPackage,
+        image,
+      };
+      await db.events.put(newDraft);
+    },
+    [],
+  );
+
+  const updateDraft = useCallback(
+    async (eventPackage: EventPackage, image?: Blob) => {
+      await db.events.update(eventPackage.id, {
+        eventPackage,
+        timestamp: new Date().toISOString(),
+        image,
+      });
+    },
+    [],
+  );
+
+  const updateEventStatus = useCallback(
+    async (eventId: string, status: LocalEvent["status"]) => {
+      await db.events.update(eventId, { status });
+    },
+    [],
+  );
+
+  const removeEvent = useCallback(async (eventId: string) => {
+    await db.events.delete(eventId);
   }, []);
 
-  const clearEvents = useCallback(() => {
-    setEvents([]);
-    localStorage.removeItem(STORAGE_KEY);
+  const clearEvents = useCallback(async () => {
+    await db.events.clear();
   }, []);
 
   return {
-    events,
+    events: events || [],
     addEvent,
+    saveDraft,
+    updateDraft,
     updateEventStatus,
     removeEvent,
     clearEvents,

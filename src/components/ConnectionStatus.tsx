@@ -107,14 +107,14 @@ const ConnectionStatus: React.FC<ConnectionStatusProps> = ({
 
       {/* Status text */}
       <span
-        className={`text-sm font-medium transition-all duration-300 ${getConnectionColor()}`}
+        className={`hidden sm:inline text-sm font-medium transition-all duration-300 ${getConnectionColor()}`}
       >
         {getConnectionText()}
       </span>
 
       {/* Connection details tooltip */}
       {isOnline && (
-        <div className="group relative">
+        <div className="group relative hidden sm:block">
           <div className="w-3 h-3 text-gray-400 cursor-help">
             <svg fill="currentColor" viewBox="0 0 20 20">
               <path

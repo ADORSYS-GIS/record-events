@@ -1,5 +1,5 @@
 {
-  "appTitle": "EventApp",
+  "appTitle": "Cameroon Vote Reporting",
   "appSubtitle": "The future of decentralized event reporting.",
   "applicationStatus": "Application Status",
   "keysInitialized": "Keys Initialized.",
@@ -46,10 +46,10 @@
   "validationError": "Please correct the errors in the form.",
   "labelRequired": "{{labelName}} is required.",
   "labelMaxLengthExceeded": "{{labelName}} exceeds maximum length of {{maxLength}}.",
-  "welcomeTitle": "Welcome to EventApp!",
-  "welcomeDescription": "Your decentralized platform for reporting events securely and efficiently.",
+  "welcomeTitle": "Presidential Election 2025",
+  "welcomeDescription": "Easily document election results securely and efficiently.",
   "getStartedButton": "Get Started",
-  "welcomeMoreInfo": "Click 'Get Started' to begin reporting events.",
+  "welcomeMoreInfo": "Click 'Get Started' to enter the results.",
   "selectCategoryDescription": "Select the category that best describes the event you wish to report.",
   "describeEventPlaceholder": "Describe your event here...",
   "describeEventHelpText": "Please provide a detailed description of the event.",
@@ -57,22 +57,19 @@
   "eventSaved": "Event saved successfully.",
   "onboarding": {
     "welcome": {
-      "title": "Welcome to EventApp",
-      "description": "Your secure platform for reporting events with blockchain verification"
+      "title": "Cameroon Vote Reporting"
     },
     "features": {
       "secure": {
-        "title": "Secure & Private",
-        "description": "Your data is encrypted and verified on the blockchain for maximum security"
+        "title": "Secure Reporting"
       },
       "security": "Secure & Private",
-      "securityDesc": "Your data is encrypted and verified on the blockchain",
+      "securityDesc": "Your data is encrypted and verified on the blockchain. All reports are anonymous and cannot be traced back to you.",
       "camera": "Easy Photo Capture",
       "cameraDesc": "Capture and annotate events with your device camera"
     },
     "permissions": {
-      "title": "Camera Access",
-      "description": "Allow camera access to capture event photos"
+      "title": "Camera Access"
     },
     "security": {
       "title": "Security Setup",
@@ -80,20 +77,20 @@
       "completed": "Security setup completed!"
     },
     "ready": {
-      "title": "You're Ready!",
-      "description": "Start reporting events securely"
+      "title": "You're All Set!",
+      "description": "Start reporting events securely and efficiently."
     },
     "generating": "Generating your secure keys...",
     "generatingDesc": "This may take a few moments",
-    "getStarted": "Get Started",
+    "getStarted": "Finish",
     "settingUp": "Setting up...",
-    "continue": "Continue",
+    "continue": "Next",
     "skip": "Skip for now"
   },
   "dashboard": {
-    "subtitle": "Secure event reporting",
+    "subtitle": "Report election results",
     "welcome": "Welcome back!",
-    "welcomeDesc": "Ready to report an event?",
+    "welcomeDesc": "Ready to report election results?",
     "status": {
       "connected": "Connected",
       "submitted": "Submitted",
@@ -106,17 +103,19 @@
       "safety": "Safety Issue",
       "report": "Report now"
     },
-    "createEvent": {
-      "title": "Create New Event Report",
-      "description": "Capture photos, add details, and submit securely",
-      "button": "Start New Report"
+    "actions": {
+      "create": "Enter Polling Station Data",
+      "createDescription": "",
+      "continue": "Continue Data Entry",
+      "continueDescription": "",
+      "noDrafts": "No saved drafts available"
     },
     "recentEvents": {
-      "title": "Recent Events",
+      "title": "Recent Reports",
       "viewAll": "View all",
       "empty": {
-        "title": "No events yet",
-        "description": "Create your first event report to get started",
+        "title": "No report submitted yet",
+        "description": "Your submitted reports will appear here",
         "button": "Create First Event"
       }
     },
@@ -128,22 +127,41 @@
   },
   "eventForm": {
     "title": "New Event Report",
-    "subtitle": "Capture and submit your event",
+    "subtitle": "Capture and submit your event securely",
     "fields": {
-      "title": "Event Details"
+      "title": "Event Details",
+      "description": "Provide comprehensive information about the event"
+    },
+    "electionResults": {
+      "title": "Election Results",
+      "description": "Enter the vote count for each candidate"
     },
     "media": {
-      "title": "Add Media to Your Report (Optional)",
-      "description": "Capture a photo or upload an image to provide visual context (optional)"
+      "title": "Add Media",
+      "description": "Include photos or videos to provide visual context",
+      "browseFiles": "Browse Files",
+      "takePhoto": "Take Photo"
     }
   },
   "welcome": {
     "selectLanguage": "Select your language",
     "features": {
       "secure": "Secure & Private",
-      "secureDesc": "Your data is encrypted and blockchain verified",
+      "secureDesc": "Your data is encrypted",
       "easy": "Easy to Use",
       "easyDesc": "Simple interface for quick event reporting"
-    }
+    },
+    "saveDraft": "Save Draft",
+    "submitting": "Submitting...",
+    "submitReport": "Submit Results",
+    "draftSaved": "Draft saved successfully.",
+    "saveError": "Error saving draft."
+  },
+  "draftSelection": {
+    "title": "Choose a Draft",
+    "description": "Select a draft to continue your report.",
+    "untitled": "Draft {{count}}",
+    "lastModified": "Last modified",
+    "goBack": "Go Back to Dashboard"
   }
 }

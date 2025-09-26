@@ -1,5 +1,5 @@
 {
-  "appTitle": "EventApp",
+  "appTitle": "Système de Vote Camerounais",
   "appSubtitle": "L'avenir du système de rapport d'événements décentralisé.",
   "applicationStatus": "État de l'application",
   "keysInitialized": "Clés initialisées.",
@@ -45,10 +45,10 @@
   "pleaseCorrectErrors": "Veuillez corriger les erreurs dans le formulaire.",
   "labelRequired": "{{labelName}} est obligatoire.",
   "labelMaxLengthExceeded": "{{labelName}} dépasse la longueur maximale de {{maxLength}}.",
-  "welcomeTitle": "Bienvenue sur EventApp !",
-  "welcomeDescription": "Votre plateforme décentralisée pour signaler les événements de manière sécurisée et efficace.",
+  "welcomeTitle": "Élection Présidentielle 2025",
+  "welcomeDescription": "Documentez les résultats électoraux de manière sécurisée et efficace.",
   "getStartedButton": "Commencer",
-  "welcomeMoreInfo": "Cliquez sur 'Commencer' pour commencer à signaler des événements.",
+  "welcomeMoreInfo": "Cliquez sur 'Commencer' pour saisir les résultats.",
   "selectCategoryTitle": "Choisissez une catégorie d'événement",
   "selectCategoryDescription": "Sélectionnez la catégorie qui décrit le mieux l'événement que vous souhaitez signaler.",
   "describeEventPlaceholder": "Décrivez votre événement ici...",
@@ -57,22 +57,19 @@
   "eventSaved": "Événement enregistré avec succès.",
   "onboarding": {
     "welcome": {
-      "title": "Bienvenue sur EventApp",
-      "description": "Votre plateforme sécurisée pour signaler les événements avec vérification blockchain"
+      "title": "Rapport de Vote du Cameroun"
     },
     "features": {
       "secure": {
-        "title": "Sécurisé et privé",
-        "description": "Vos données sont chiffrées et vérifiées sur la blockchain pour une sécurité maximale"
+        "title": "Rapport Sécurisé"
       },
       "security": "Sécurisé et privé",
-      "securityDesc": "Vos données sont chiffrées et vérifiées sur la blockchain",
+      "securityDesc": "Vos données sont chiffrées. Tous les rapports sont anonymes et ne peuvent pas être retracés jusqu'à vous.",
       "camera": "Capture photo facile",
       "cameraDesc": "Capturez et annotez les événements avec l'appareil photo de votre appareil"
     },
     "permissions": {
-      "title": "Accès à l'appareil photo",
-      "description": "Autoriser l'accès à l'appareil photo pour capturer des photos d'événements"
+      "title": "Accès Caméra"
     },
     "security": {
       "title": "Configuration de sécurité",
@@ -81,19 +78,19 @@
     },
     "ready": {
       "title": "Vous êtes prêt !",
-      "description": "Commencez à signaler les événements en toute sécurité"
+      "description": "Commencez à signaler les événements de manière sécurisée et efficace."
     },
     "generating": "Génération de vos clés sécurisées...",
     "generatingDesc": "Cela peut prendre quelques instants",
-    "getStarted": "Commencer",
+    "getStarted": "Terminer",
     "settingUp": "Configuration...",
-    "continue": "Continuer",
+    "continue": "Suivant",
     "skip": "Passer pour l'instant"
   },
   "dashboard": {
-    "subtitle": "Signalement d'événements sécurisé",
+    "subtitle": "Rapporter les résultats électoraux",
     "welcome": "Bon retour !",
-    "welcomeDesc": "Prêt à signaler un événement ?",
+    "welcomeDesc": "Prêt à rapporter les résultats des élections ?",
     "status": {
       "connected": "Connecté",
       "submitted": "Soumis",
@@ -101,22 +98,24 @@
     },
     "quickActions": {
       "title": "Actions rapides",
-      "traffic": "Incident de circulation",
+      "traffic": "Incident de la circulation",
       "infrastructure": "Infrastructure",
       "safety": "Problème de sécurité",
       "report": "Signaler maintenant"
     },
-    "createEvent": {
-      "title": "Créer un nouveau rapport d'événement",
-      "description": "Capturez des photos, ajoutez des détails et soumettez en toute sécurité",
-      "button": "Commencer un nouveau rapport"
+    "actions": {
+      "create": "Saisir les données d'un bureau de vote",
+      "createDescription": "",
+      "continue": "Continuer les saisies d'un bureau de vote",
+      "continueDescription": "",
+      "noDrafts": "Aucun brouillon enregistré disponible"
     },
     "recentEvents": {
-      "title": "Événements récents",
+      "title": "Rapports récents",
       "viewAll": "Voir tout",
       "empty": {
-        "title": "Aucun événement pour l'instant",
-        "description": "Créez votre premier rapport d'événement pour commencer",
+        "title": "Aucun rapport soumis pour l'instant",
+        "description": "Vos rapports soumis apparaîtront ici",
         "button": "Créer le premier événement"
       }
     },
@@ -128,22 +127,41 @@
   },
   "eventForm": {
     "title": "Nouveau rapport d'événement",
-    "subtitle": "Capturez et soumettez votre événement",
+    "subtitle": "Saisissez et soumettez votre événement en toute sécurité",
     "fields": {
-      "title": "Détails de l'événement"
+      "title": "Détails de l'événement",
+      "description": "Fournissez des informations complètes sur l'événement"
+    },
+    "electionResults": {
+      "title": "Résultats des élections",
+      "description": "Saisissez le nombre de voix pour chaque candidat"
     },
     "media": {
-      "title": "Ajouter des médias à votre rapport",
-      "description": "Capturez une photo ou téléchargez une image pour fournir un contexte visuel"
+      "title": "Ajouter des médias",
+      "description": "Incluez des photos ou des vidéos pour fournir un contexte visuel",
+      "browseFiles": "Parcourir les fichiers",
+      "takePhoto": "Prendre une photo"
     }
   },
   "welcome": {
     "selectLanguage": "Sélectionnez votre langue",
     "features": {
       "secure": "Sécurisé et privé",
-      "secureDesc": "Vos données sont chiffrées et vérifiées sur la blockchain",
+      "secureDesc": "Vos données sont chiffrées",
       "easy": "Facile à utiliser",
-      "easyDesc": "Interface simple pour un signalement rapide d'événements"
+      "easyDesc": "Interface simple pour documentation rapide"
     }
+  },
+  "saveDraft": "Enregistrer le brouillon",
+  "submitting": "Soumission...",
+  "submitReport": "Soumettre les résultats",
+  "draftSaved": "Brouillon enregistré avec succès.",
+  "saveError": "Erreur lors de l'enregistrement du brouillon.",
+  "draftSelection": {
+    "title": "Choisissez un brouillon",
+    "description": "Sélectionnez un brouillon pour continuer votre rapport.",
+    "untitled": "Brouillon numéro {{count}}",
+    "lastModified": "Dernière modification",
+    "goBack": "Retour au tableau de bord"
   }
 }

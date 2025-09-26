@@ -41,6 +41,7 @@ export async function createEventPackage(
   options: {
     createdBy?: string;
     source?: "web" | "mobile" | "api";
+    existingPackage?: EventPackage;
   } = {},
 ): Promise<EventPackage> {
   const now = new Date().toISOString();
@@ -93,6 +94,22 @@ export async function createEventPackage(
         `Failed to process media file: ${error instanceof Error ? error.message : String(error)}`,
       );
     }
+  }
+
+  if (options.existingPackage) {
+    const updatedPackage = {
+      ...options.existingPackage,
+      annotations,
+      media: media || options.existingPackage.media,
+      metadata: {
+        ...options.existingPackage.metadata,
+        updatedAt: now,
+      },
+    };
+    if (!isEventPackage(updatedPackage)) {
+      throw new Error("Failed to create valid event package");
+    }
+    return updatedPackage;
   }
 
   const eventPackage: EventPackage = {

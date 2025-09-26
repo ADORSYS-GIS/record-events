@@ -20,7 +20,7 @@ use crate::types::{
     api::{HealthResponse, ServiceHealthStatus},
     event::{
         EventAnnotation, EventMedia, EventMetadata, EventPackage, EventPayload, EventSource,
-        FieldValue, MediaType, ProcessingResult,
+        FieldValue, ProcessingResult,
     },
 };
 
@@ -48,7 +48,6 @@ use crate::types::{
             EventMetadata,
             EventSource,
             FieldValue,
-            MediaType,
             PowChallenge,
             PowChallengeResponse,
             PowSolution,
