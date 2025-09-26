@@ -9,7 +9,7 @@ import { useLabelManagement } from "./hooks/useLabelManagement";
 import { useEventHistory, LocalEvent } from "./hooks/useEventHistory";
 import { AppRoutes } from "./routes";
 import { EventPackage } from "./openapi-rq/requests/types.gen";
-import { ThemeProvider } from "./hooks/useTheme.tsx";
+import { ThemeProvider } from "./contexts/ThemeContext.tsx";
 
 // Create a client
 const queryClient = new QueryClient({
