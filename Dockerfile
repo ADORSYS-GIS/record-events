@@ -1,5 +1,6 @@
 # Multi-stage build for React frontend
-FROM node:22-alpine as builder
+# Use standard node image instead of Alpine for better compatibility with native dependencies
+FROM node:22-slim as builder
 
 # NOTE: Network access to the OpenAPI endpoint is required during build.
 # The endpoint specified by EVENTSERVER_OPENAPI_URL must be reachable from inside the build container.
@@ -8,10 +9,24 @@ ENV EVENTSERVER_OPENAPI_URL="http://host.docker.internal:8080/openapi-json"
 # Set working directory
 WORKDIR /app
 
+# Install Python and build tools required for native dependencies
+# This is needed for packages that compile native bindings
+RUN apt-get update && apt-get install -y \
+    python3 \
+    make \
+    g++ \
+    && rm -rf /var/lib/apt/lists/*
+
 # Copy package files for dependency caching
 COPY package*.json ./
 
-# Copy source code
+# Install dependencies with increased memory limit and fallback options
+# The --max-old-space-size helps with memory-intensive installations
+# The --legacy-peer-deps helps with dependency conflicts
+RUN NODE_OPTIONS="--max-old-space-size=4096" npm ci --legacy-peer-deps || \
+    NODE_OPTIONS="--max-old-space-size=4096" npm install --legacy-peer-deps
+
+# Copy source code after dependencies are installed
 COPY . .
 
 # Copy openapi.json explicitly to ensure it's present in the image
@@ -19,9 +34,6 @@ COPY openapi.json ./openapi.json
 
 # Copy startup script
 COPY start.sh ./start.sh
-
-# Install dependencies
-RUN npm install
 
 # Fetch OpenAPI spec during build (not runtime)
 RUN node scripts/fetch_openapi.js

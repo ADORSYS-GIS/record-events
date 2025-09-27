@@ -17,9 +17,10 @@ const __dirname = path.dirname(__filename);
 
 // Change this to the correct eventserver OpenAPI endpoint if needed
 const OPENAPI_URL =
-  process.env.EVENTSERVER_OPENAPI_URL ||
-  "http://host.docker.internal:8080/openapi-json";
-const OUTPUT_PATH = process.env.OPENAPI_OUTPUT_PATH || "/app/openapi.json";
+  process.env.EVENTSERVER_OPENAPI_URL || "http://localhost:3000/openapi-json";
+const OUTPUT_PATH =
+  process.env.OPENAPI_OUTPUT_PATH ||
+  path.resolve(__dirname, "..", "openapi.json");
 const LOCAL_PATH = path.resolve(__dirname, "..", "openapi.json");
 
 function fetchRemoteOpenApiJson(openapiUrl) {

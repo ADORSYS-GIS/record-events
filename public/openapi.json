@@ -14,8 +14,8 @@
   },
   "servers": [
     {
-      "url": "https://app.elecamair.com",
-      "description": "Production server"
+      "url": "http://localhost:3000",
+      "description": "Dynamic server address from environment"
     }
   ],
   "paths": {

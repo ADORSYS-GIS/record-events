@@ -122,11 +122,12 @@ services:
       target: production
       args:
         OPENAPI_URL: http://host.docker.internal:8080/openapi-json
+        BUILDKIT_PROGRESS: plain
       extra_hosts:
         - "host.docker.internal:host-gateway"
     container_name: eventserver-frontend
     ports:
-      - "80:80"
+      - "80:8080"
       - "443:443"
     depends_on:
       openapi-fetcher:
@@ -150,7 +151,7 @@ services:
         nginx -g 'daemon off;'
       "
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:80"]
+      test: ["CMD", "curl", "-f", "http://localhost:8080"]
       interval: 30s
       timeout: 10s
       retries: 3
