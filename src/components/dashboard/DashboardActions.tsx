@@ -27,22 +27,22 @@ const DashboardActions: React.FC<DashboardActionsProps> = ({
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+    <div className="grid grid-cols-2 md:grid-cols-2 gap-4 sm:gap-8 mb-8">
       {/* Create New Report */}
       <div
         onClick={onCreateEvent}
-        className={`relative transition-all duration-300 rounded-2xl shadow-xl border p-6 sm:p-8 text-center cursor-pointer transform hover:scale-[1.03] overflow-hidden ${
+        className={`relative transition-all duration-300 rounded-2xl shadow-xl border p-4 sm:p-8 text-center cursor-pointer transform hover:scale-[1.03] overflow-hidden ${
           isDark
             ? "bg-gray-800/80 backdrop-blur-sm border-gray-700 hover:border-cameroon-green"
             : "bg-white/80 backdrop-blur-sm border-gray-200/50 hover:border-cameroon-green"
         }`}
       >
         <div className="relative z-10">
-          <div className="w-16 h-16 bg-gradient-to-br from-cameroon-green to-green-400 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-            <FilePlus2 className="w-8 h-8 text-white" />
+          <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-cameroon-green to-green-400 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-lg">
+            <FilePlus2 className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
           </div>
           <h3
-            className={`text-xl font-bold transition-colors duration-300 mb-2 ${
+            className={`text-base sm:text-xl font-bold transition-colors duration-300 mb-1 sm:mb-2 ${
               isDark ? "text-white" : "text-gray-900"
             }`}
           >
@@ -66,7 +66,7 @@ const DashboardActions: React.FC<DashboardActionsProps> = ({
       {/* Continue Report */}
       <div
         onClick={handleContinueClick}
-        className={`relative transition-all duration-300 rounded-2xl shadow-xl border p-6 sm:p-8 text-center overflow-hidden ${
+        className={`relative transition-all duration-300 rounded-2xl shadow-xl border p-4 sm:p-8 text-center overflow-hidden ${
           hasDrafts
             ? "cursor-pointer transform hover:scale-[1.03] " +
               (isDark
@@ -80,7 +80,7 @@ const DashboardActions: React.FC<DashboardActionsProps> = ({
       >
         <div className="relative z-10">
           <div
-            className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg transition-colors duration-300 ${
+            className={`w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-lg transition-colors duration-300 ${
               hasDrafts
                 ? "bg-gradient-to-br from-cameroon-yellow to-yellow-400"
                 : isDark
@@ -89,7 +89,7 @@ const DashboardActions: React.FC<DashboardActionsProps> = ({
             }`}
           >
             <Edit
-              className={`w-8 h-8 transition-colors duration-300 ${
+              className={`w-6 h-6 sm:w-8 sm:h-8 transition-colors duration-300 ${
                 hasDrafts
                   ? "text-white"
                   : isDark
@@ -99,7 +99,7 @@ const DashboardActions: React.FC<DashboardActionsProps> = ({
             />
           </div>
           <h3
-            className={`text-xl font-bold transition-colors duration-300 mb-2 ${
+            className={`text-base sm:text-xl font-bold transition-colors duration-300 mb-1 sm:mb-2 ${
               hasDrafts
                 ? isDark
                   ? "text-white"

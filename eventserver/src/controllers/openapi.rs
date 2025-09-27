@@ -20,7 +20,7 @@ use crate::types::{
     api::{HealthResponse, ServiceHealthStatus},
     event::{
         EventAnnotation, EventMedia, EventMetadata, EventPackage, EventPayload, EventSource,
-        FieldValue, MediaType, ProcessingResult,
+        FieldValue, MediaSubmissionResponse, ProcessingResult,
     },
 };
 
@@ -32,6 +32,7 @@ use crate::types::{
         event::receive_event,
         event::receive_event_package,
         event::verify_event_hash,
+        event::submit_event_media,
         crate::request_pow_challenge,
         crate::verify_pow_and_issue_certificate,
     ),
@@ -40,6 +41,7 @@ use crate::types::{
             HealthResponse,
             ServiceHealthStatus,
             event::HashVerificationResponse,
+            MediaSubmissionResponse,
             EventPackage,
             EventPayload,
             ProcessingResult,
@@ -48,7 +50,6 @@ use crate::types::{
             EventMetadata,
             EventSource,
             FieldValue,
-            MediaType,
             PowChallenge,
             PowChallengeResponse,
             PowSolution,

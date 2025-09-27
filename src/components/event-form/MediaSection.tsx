@@ -9,6 +9,7 @@ interface MediaSectionProps {
   handleDrop: (e: React.DragEvent) => void;
   handleFileChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleTakePhoto: () => void;
+  isReadOnly?: boolean;
 }
 
 const MediaSection: React.FC<MediaSectionProps> = ({
@@ -19,6 +20,7 @@ const MediaSection: React.FC<MediaSectionProps> = ({
   handleDrop,
   handleFileChange,
   handleTakePhoto,
+  isReadOnly,
 }) => {
   const { t } = useTranslation();
 
@@ -32,13 +34,15 @@ const MediaSection: React.FC<MediaSectionProps> = ({
             className="w-full h-64 object-cover"
           />
           <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-200 flex items-center justify-center">
-            <button
-              type="button"
-              onClick={() => setMediaFile(null)}
-              className="opacity-0 group-hover:opacity-100 bg-error-500 text-white rounded-full p-2 hover:bg-error-600 transition-all duration-200 shadow-lg"
-            >
-              <X className="w-4 h-4" />
-            </button>
+            {!isReadOnly && (
+              <button
+                type="button"
+                onClick={() => setMediaFile(null)}
+                className="opacity-0 group-hover:opacity-100 bg-error-500 text-white rounded-full p-2 hover:bg-error-600 transition-all duration-200 shadow-lg"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            )}
           </div>
         </div>
         <div className="mt-3 text-center">
@@ -60,10 +64,10 @@ const MediaSection: React.FC<MediaSectionProps> = ({
           ? "border-cameroon-yellow bg-cameroon-yellow/10"
           : "border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500"
       }`}
-      onDragEnter={handleDrag}
-      onDragLeave={handleDrag}
-      onDragOver={handleDrag}
-      onDrop={handleDrop}
+      onDragEnter={isReadOnly ? undefined : handleDrag}
+      onDragLeave={isReadOnly ? undefined : handleDrag}
+      onDragOver={isReadOnly ? undefined : handleDrag}
+      onDrop={isReadOnly ? undefined : handleDrop}
     >
       <div className="space-y-4">
         <div className="w-16 h-16 bg-cameroon-green/20 dark:bg-cameroon-green/30 rounded-full flex items-center justify-center mx-auto">
@@ -81,8 +85,12 @@ const MediaSection: React.FC<MediaSectionProps> = ({
           </p>
         </div>
 
-        <div className="flex flex-col sm:flex-row justify-center gap-3">
-          <label className="cursor-pointer bg-cameroon-green hover:bg-cameroon-green/90 text-white px-6 py-3 rounded-lg shadow-sm transition-all duration-200 flex items-center justify-center space-x-2 font-medium">
+        <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
+          <label
+            className={`cursor-pointer bg-cameroon-green hover:bg-cameroon-green/90 text-white px-6 py-3 rounded-lg shadow-sm transition-all duration-200 flex items-center justify-center space-x-2 font-medium ${
+              isReadOnly ? "opacity-50 cursor-not-allowed" : ""
+            }`}
+          >
             <Upload className="w-5 h-5" />
             <span>{t("eventForm.media.browseFiles")}</span>
             <input
@@ -90,12 +98,16 @@ const MediaSection: React.FC<MediaSectionProps> = ({
               accept="image/*,video/*"
               className="hidden"
               onChange={handleFileChange}
+              disabled={isReadOnly}
             />
           </label>
           <button
             type="button"
             onClick={handleTakePhoto}
-            className="bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 px-6 py-3 rounded-lg shadow-sm transition-all duration-200 flex items-center justify-center space-x-2 border border-gray-300 dark:border-gray-600 font-medium"
+            className={`bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 px-6 py-3 rounded-lg shadow-sm transition-all duration-200 flex items-center justify-center space-x-2 border border-gray-300 dark:border-gray-600 font-medium ${
+              isReadOnly ? "opacity-50 cursor-not-allowed" : ""
+            }`}
+            disabled={isReadOnly}
           >
             <Camera className="w-5 h-5" />
             <span>{t("eventForm.media.takePhoto")}</span>

@@ -18,7 +18,7 @@ use crate::types::event::EventPackage;
 /// StorageService: handles event storage in S3-compatible backends using MinIO
 #[derive(Clone)]
 pub struct StorageService {
-    config: StorageConfig,
+    pub config: StorageConfig,
     s3_client: Arc<S3Client>,
 }
 
@@ -258,5 +258,52 @@ impl StorageService {
         // Upload ZIP file to S3/MinIO
         self.upload_to_s3(&storage_key, zip_data, "application/zip")
             .await
+    }
+
+    /// Upload media file to S3/MinIO and return the storage location
+    pub async fn upload_media_file(
+        &self,
+        event_id: &uuid::Uuid,
+        media_data: &[u8],
+        media_type: &str,
+        file_name: &str,
+    ) -> Result<String, EventServerError> {
+        // Generate storage key for media file
+        let storage_key = self.generate_media_key(event_id, file_name);
+
+        info!(
+            event_id = %event_id,
+            media_type = %media_type,
+            file_name = %file_name,
+            size = media_data.len(),
+            "Uploading media file to S3/MinIO"
+        );
+
+        // Upload media file to S3/MinIO
+        let location = self
+            .upload_to_s3(&storage_key, media_data, media_type)
+            .await?;
+
+        info!(
+            event_id = %event_id,
+            storage_location = %location,
+            "Media file uploaded successfully"
+        );
+
+        Ok(location)
+    }
+
+    /// Generate a storage key for media files
+    fn generate_media_key(&self, event_id: &uuid::Uuid, file_name: &str) -> String {
+        let now = chrono::Utc::now();
+        let file_extension = file_name.split('.').next_back().unwrap_or("bin");
+        format!(
+            "media/{}/{}/{}_{}.{}",
+            now.format("%Y"),
+            now.format("%m"),
+            event_id,
+            now.timestamp(),
+            file_extension
+        )
     }
 }

@@ -16,8 +16,8 @@ const WelcomeHeader: React.FC<WelcomeHeaderProps> = ({ isDark, i18n }) => {
   };
 
   return (
-    <div className="text-center mb-8">
-      <div className="flex justify-center mb-6">
+    <div className="text-center mb-4">
+      <div className="flex justify-center mb-2">
         <div
           className={`rounded-2xl flex items-center justify-center p-4 bg-transparent`}
         >
@@ -25,7 +25,7 @@ const WelcomeHeader: React.FC<WelcomeHeaderProps> = ({ isDark, i18n }) => {
         </div>
       </div>
       <h1
-        className={`text-xl sm:text-3xl md:text-4xl font-bold mb-4 leading-tight ${
+        className={`text-lg sm:text-xl md:text-4xl font-bold mb-2 leading-tight ${
           isDark ? "text-white" : "text-gray-900"
         }`}
       >
@@ -35,7 +35,7 @@ const WelcomeHeader: React.FC<WelcomeHeaderProps> = ({ isDark, i18n }) => {
         )}
       </h1>
       <p
-        className={`text-sm sm:text-lg leading-relaxed mb-8 max-w-md mx-auto ${
+        className={`text-sm sm:text-base leading-relaxed mb-4 max-w-md mx-auto ${
           isDark ? "text-gray-300" : "text-gray-600"
         }`}
       >
@@ -44,7 +44,7 @@ const WelcomeHeader: React.FC<WelcomeHeaderProps> = ({ isDark, i18n }) => {
           "Ensuring transparency and integrity in the electoral process through secure, decentralized event reporting.",
         )}
       </p>
-      <div className="mb-8">
+      <div className="mb-4">
         <h3
           className={`text-sm sm:text-base font-medium mb-4 text-center ${
             isDark ? "text-gray-300" : "text-gray-700"
@@ -55,7 +55,7 @@ const WelcomeHeader: React.FC<WelcomeHeaderProps> = ({ isDark, i18n }) => {
         <div className="flex justify-center space-x-2 sm:space-x-4">
           <button
             onClick={() => changeLanguage("en")}
-            className={`px-4 py-2 sm:px-6 sm:py-3 rounded-xl text-sm sm:text-base font-medium transition-all duration-200 ${
+            className={`px-3 py-1 sm:px-4 sm:py-2 rounded-xl text-sm sm:text-base font-medium transition-all duration-200 ${
               i18n.language === "en"
                 ? "bg-cameroon-green text-white shadow-md"
                 : isDark
@@ -67,7 +67,7 @@ const WelcomeHeader: React.FC<WelcomeHeaderProps> = ({ isDark, i18n }) => {
           </button>
           <button
             onClick={() => changeLanguage("fr")}
-            className={`px-4 py-2 sm:px-6 sm:py-3 rounded-xl text-sm sm:text-base font-medium transition-all duration-200 ${
+            className={`px-3 py-1 sm:px-4 sm:py-2 rounded-xl text-sm sm:text-base font-medium transition-all duration-200 ${
               i18n.language === "fr"
                 ? "bg-cameroon-green text-white shadow-md"
                 : isDark

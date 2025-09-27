@@ -3,25 +3,29 @@ import { useTranslation } from "react-i18next";
 
 interface ActionBarProps {
   isSubmitting: boolean;
-  isApiSubmitting: boolean;
   handleSaveDraft: () => void;
+  isReadOnly?: boolean;
 }
 
 const ActionBar: React.FC<ActionBarProps> = ({
   isSubmitting,
-  isApiSubmitting,
   handleSaveDraft,
+  isReadOnly,
 }) => {
   const { t } = useTranslation();
 
+  if (isReadOnly) {
+    return null;
+  }
+
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-t border-gray-200 dark:border-gray-700 z-40">
-      <div className="max-w-4xl mx-auto px-6 py-4">
+    <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-t border-gray-200 dark:border-gray-700">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
         <div className="flex flex-col sm:flex-row justify-end space-y-3 sm:space-y-0 sm:space-x-4">
           <button
             type="button"
             onClick={handleSaveDraft}
-            disabled={isSubmitting || isApiSubmitting}
+            disabled={isSubmitting}
             className="inline-flex items-center justify-center px-6 py-3 border border-gray-300 dark:border-gray-600 shadow-sm text-sm font-medium rounded-xl text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cameroon-yellow disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
           >
             <Save className="h-4 w-4 mr-2" />
@@ -30,10 +34,10 @@ const ActionBar: React.FC<ActionBarProps> = ({
           <button
             type="submit"
             form="event-form"
-            disabled={isSubmitting || isApiSubmitting}
+            disabled={isSubmitting}
             className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-sm font-medium rounded-xl shadow-lg text-white bg-gradient-to-r from-cameroon-green to-cameroon-red hover:from-cameroon-red hover:to-cameroon-yellow focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cameroon-yellow disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
           >
-            {isSubmitting || isApiSubmitting ? (
+            {isSubmitting ? (
               <>
                 <svg
                   className="animate-spin -ml-1 mr-2 h-4 w-4 text-white"

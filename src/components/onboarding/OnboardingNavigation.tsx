@@ -13,7 +13,6 @@ interface OnboardingNavigationProps {
 const OnboardingNavigation: React.FC<OnboardingNavigationProps> = ({
   currentStep,
   stepsLength,
-  // @ts-expect-error used outside.
   isDark,
   handleNext,
   handleFinish,

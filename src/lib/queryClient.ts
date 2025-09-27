@@ -1,15 +1,21 @@
 import { QueryClient } from "@tanstack/react-query";
+import { useApp } from "../hooks/useApp";
 
 export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 5 * 60 * 1000, // 5 minutes
-      gcTime: 10 * 60 * 1000, // 10 minutes (formerly cacheTime)
-      retry: 3,
-      retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000),
+      retry: false,
     },
     mutations: {
-      retry: 1,
+      onError: (error: unknown) => {
+        // eslint-disable-next-line no-console
+        console.error("Mutation error:", error);
+        if ((error as { status?: number }).status === 401) {
+          // eslint-disable-next-line no-console
+          console.log("401 error detected, re-authenticating...");
+          useApp.getState().reauthenticate();
+        }
+      },
     },
   },
 });

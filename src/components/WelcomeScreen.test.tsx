@@ -1,14 +1,14 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { I18nextProvider } from "react-i18next";
 import { vi } from "vitest";
+import { ThemeProvider } from "../context/ThemeContext";
 import i18n from "../i18n";
-import { ThemeProvider } from "../contexts/ThemeContext";
 import WelcomeScreen from "./WelcomeScreen";
 
 // Mock the onGetStarted function
 const mockOnGetStarted = vi.fn();
 
-// Setup test wrapper with i18n provider
+// Setup test wrapper with i18n and theme provider
 const renderWithProviders = (component: React.ReactElement) => {
   return render(
     <I18nextProvider i18n={i18n}>

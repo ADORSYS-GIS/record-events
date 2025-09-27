@@ -1,5 +1,6 @@
 import React from "react";
 import EventForm from "../components/EventForm";
+import FormHeader from "../components/event-form/FormHeader";
 import type { KeyPair } from "../hooks/useAuthenticationFlow";
 import type { LocalEvent } from "../hooks/useEventHistory";
 import type { Label } from "../labels/label-manager";
@@ -32,23 +33,37 @@ const EventFormPage: React.FC<EventFormPageProps> = ({
   updateEventStatus,
   removeEvent,
 }) => {
-  const { submitEventAsync, isSubmitting } = useEventSubmission();
+  const {
+    submitEventAsync,
+    submitEventDataAsync,
+    submitEventImageAsync,
+    isSubmitting,
+    isSubmittingData,
+    isSubmittingImage,
+  } = useEventSubmission();
 
   return (
-    <EventForm
-      labels={labels}
-      keyPair={keyPair}
-      createdBy={createdBy}
-      onGoBack={onGoBack}
-      initialEvent={initialEvent}
-      addEvent={addEvent}
-      saveDraft={saveDraft}
-      updateDraft={updateDraft}
-      submitEventAsync={submitEventAsync}
-      isSubmitting={isSubmitting}
-      updateEventStatus={updateEventStatus}
-      removeEvent={removeEvent}
-    />
+    <>
+      <FormHeader onGoBack={onGoBack || (() => window.history.back())} />
+      <EventForm
+        labels={labels}
+        keyPair={keyPair}
+        createdBy={createdBy}
+        onGoBack={onGoBack}
+        initialEvent={initialEvent}
+        addEvent={addEvent}
+        saveDraft={saveDraft}
+        updateDraft={updateDraft}
+        submitEventAsync={submitEventAsync}
+        submitEventDataAsync={submitEventDataAsync}
+        submitEventImageAsync={submitEventImageAsync}
+        isSubmitting={isSubmitting}
+        isSubmittingData={isSubmittingData}
+        isSubmittingImage={isSubmittingImage}
+        updateEventStatus={updateEventStatus}
+        removeEvent={removeEvent}
+      />
+    </>
   );
 };
 

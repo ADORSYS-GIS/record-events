@@ -20,7 +20,7 @@ const OnboardingStep: React.FC<OnboardingStepProps> = ({ step, isDark }) => {
       case "welcome":
         return (
           <div
-            className={`rounded-xl p-6 mb-8 max-w-md mx-auto ${
+            className={`rounded-xl p-4 mb-6 max-w-md mx-auto ${
               isDark
                 ? "bg-cameroon-green/20 border border-cameroon-green/30"
                 : "bg-cameroon-green/10"
@@ -55,7 +55,7 @@ const OnboardingStep: React.FC<OnboardingStepProps> = ({ step, isDark }) => {
       case "feature":
         return (
           <div
-            className={`rounded-xl p-6 mb-8 max-w-md mx-auto ${
+            className={`rounded-xl p-4 mb-6 max-w-md mx-auto ${
               isDark
                 ? "bg-cameroon-red/20 border border-cameroon-red/30"
                 : "bg-cameroon-red/10"
@@ -93,7 +93,7 @@ const OnboardingStep: React.FC<OnboardingStepProps> = ({ step, isDark }) => {
       case "permission":
         return (
           <div
-            className={`rounded-xl p-6 mb-8 max-w-md mx-auto ${
+            className={`rounded-xl p-4 mb-6 max-w-md mx-auto ${
               isDark
                 ? "bg-cameroon-yellow/20 border border-cameroon-yellow/30"
                 : "bg-cameroon-yellow/10"
@@ -131,7 +131,7 @@ const OnboardingStep: React.FC<OnboardingStepProps> = ({ step, isDark }) => {
       case "ready":
         return (
           <div
-            className={`rounded-xl p-6 mb-8 max-w-md mx-auto ${
+            className={`rounded-xl p-4 mb-6 max-w-md mx-auto ${
               isDark
                 ? "bg-cameroon-green/20 border border-cameroon-green/30"
                 : "bg-cameroon-green/10"
@@ -170,7 +170,7 @@ const OnboardingStep: React.FC<OnboardingStepProps> = ({ step, isDark }) => {
 
   return (
     <div>
-      <div className="flex justify-center mb-8">
+      <div className="flex justify-center mb-4">
         <div
           className={`rounded-2xl flex items-center justify-center bg-transparent`}
         >
@@ -178,7 +178,7 @@ const OnboardingStep: React.FC<OnboardingStepProps> = ({ step, isDark }) => {
         </div>
       </div>
       <h2
-        className={`text-3xl font-bold text-center mb-10 leading-tight ${
+        className={`text-xl sm:text-3xl font-bold text-center mb-6 leading-tight ${
           isDark ? "text-white" : "text-gray-900"
         }`}
       >

@@ -42,6 +42,7 @@ export async function createEventPackage(
     createdBy?: string;
     source?: "web" | "mobile" | "api";
     existingPackage?: EventPackage;
+    eventId?: string;
   } = {},
 ): Promise<EventPackage> {
   const now = new Date().toISOString();
@@ -113,7 +114,7 @@ export async function createEventPackage(
   }
 
   const eventPackage: EventPackage = {
-    id: uuidv4(),
+    id: options.eventId || uuidv4(),
     version: "1.0.0",
     annotations,
     media,

@@ -24,7 +24,9 @@ export interface Label {
   };
   options?: string[];
   dependsOn?: string;
-  showIf?: (formData: Record<string, unknown>) => boolean;
+  showIf?: (
+    formData: Record<string, string | number | boolean | null>,
+  ) => boolean;
   category?: string;
 }
 

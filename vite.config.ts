@@ -35,7 +35,7 @@ export default defineConfig({
       brotliSize: true,
     }),
     VitePWA({
-      registerType: "autoUpdate",
+      registerType: "prompt",
       devOptions: {
         enabled: true,
       },

@@ -1,4 +1,3 @@
-use base64::{engine::general_purpose, Engine as _};
 use chrono::Utc;
 use std::io::{Cursor, Write};
 use tracing::{info, warn};
@@ -112,25 +111,10 @@ impl ZipPackager {
         file_options: FileOptions<'_, ()>,
         include_metadata: bool,
     ) -> Result<(), EventServerError> {
-        // Decode base64 media data
-        let media_data = Self::decode_base64_media(&media.data)?;
-
-        // Get file extension from media type
-        let extension = Self::get_file_extension(media.media_type.as_str());
-        let filename = format!("media.{extension}");
-
-        // Add the media file
-        zip.start_file(&filename, file_options)
-            .map_err(|e| EventServerError::Storage(format!("Failed to create media file: {e}")))?;
-
-        zip.write_all(&media_data)
-            .map_err(|e| EventServerError::Storage(format!("Failed to write media data: {e}")))?;
-
-        // Add media metadata if requested
+        // Since we no longer have media data or type, we only create metadata
         if include_metadata {
             let media_metadata = serde_json::json!({
                 "originalName": media.name,
-                "type": media.media_type.as_str(),
                 "size": media.size,
                 "lastModified": chrono::DateTime::from_timestamp_millis(media.last_modified as i64)
                     .unwrap_or_else(Utc::now)
@@ -157,34 +141,6 @@ impl ZipPackager {
         }
 
         Ok(())
-    }
-
-    /// Decode base64 media data, handling data URL prefixes
-    fn decode_base64_media(base64_data: &str) -> Result<Vec<u8>, EventServerError> {
-        // Remove data URL prefix if present (e.g., "data:image/jpeg;base64,")
-        let clean_base64 = if base64_data.contains("base64,") {
-            base64_data.split("base64,").nth(1).unwrap_or(base64_data)
-        } else {
-            base64_data
-        };
-
-        general_purpose::STANDARD
-            .decode(clean_base64)
-            .map_err(|e| EventServerError::Storage(format!("Failed to decode base64 media: {e}")))
-    }
-
-    /// Extract file extension from MIME type
-    fn get_file_extension(mime_type: &str) -> &str {
-        match mime_type {
-            "image/jpeg" => "jpg",
-            "image/png" => "png",
-            "image/gif" => "gif",
-            "video/mp4" => "mp4",
-            _ => {
-                // Extract from MIME type (e.g., "image/webp" -> "webp")
-                mime_type.split('/').nth(1).unwrap_or("bin")
-            }
-        }
     }
 }
 
@@ -236,29 +192,5 @@ mod tests {
         assert!(zip_data.is_ok());
         let zip_bytes = zip_data.unwrap();
         assert!(!zip_bytes.is_empty());
-    }
-
-    #[test]
-    fn test_get_file_extension() {
-        assert_eq!(ZipPackager::get_file_extension("image/jpeg"), "jpg");
-        assert_eq!(ZipPackager::get_file_extension("image/png"), "png");
-        assert_eq!(ZipPackager::get_file_extension("video/mp4"), "mp4");
-        assert_eq!(ZipPackager::get_file_extension("image/webp"), "webp");
-        assert_eq!(ZipPackager::get_file_extension("unknown"), "bin");
-    }
-
-    #[test]
-    fn test_decode_base64_media() {
-        // Test with data URL prefix
-        let data_url = "data:image/jpeg;base64,SGVsbG8gV29ybGQ=";
-        let result = ZipPackager::decode_base64_media(data_url);
-        assert!(result.is_ok());
-        assert_eq!(result.unwrap(), b"Hello World");
-
-        // Test without prefix
-        let plain_base64 = "SGVsbG8gV29ybGQ=";
-        let result = ZipPackager::decode_base64_media(plain_base64);
-        assert!(result.is_ok());
-        assert_eq!(result.unwrap(), b"Hello World");
     }
 }

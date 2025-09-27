@@ -1,25 +1,18 @@
 import React, { useCallback, useState, useEffect } from "react";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { BrowserRouter as Router, useNavigate } from "react-router-dom";
-
+import UpdatePrompt from "./components/UpdatePrompt";
 import useAuthenticationFlow from "./hooks/useAuthenticationFlow";
+import { useInitializeApp } from "./hooks/useApp";
 import { useLabelManagement } from "./hooks/useLabelManagement";
 import { useEventHistory, LocalEvent } from "./hooks/useEventHistory";
 import { AppRoutes } from "./routes";
 import { EventPackage } from "./openapi-rq/requests/types.gen";
-import { ThemeProvider } from "./contexts/ThemeContext.tsx";
+import { ThemeProvider } from "./context/ThemeContext.tsx";
 
-// Create a client
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      staleTime: 1000 * 60 * 5, // 5 minutes
-    },
-  },
-});
+import { queryClient } from "./lib/queryClient";
 
 function App() {
+  useInitializeApp();
   const navigate = useNavigate();
 
   // Use the comprehensive authentication flow
@@ -180,14 +173,12 @@ function App() {
 
 function AppWithRouter() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <ThemeProvider>
-        <Router>
-          <App />
-        </Router>
-      </ThemeProvider>
-      <ReactQueryDevtools initialIsOpen={false} />
-    </QueryClientProvider>
+    <ThemeProvider>
+      <Router>
+        <App />
+        <UpdatePrompt />
+      </Router>
+    </ThemeProvider>
   );
 }
 

@@ -105,6 +105,57 @@
         ]
       }
     },
+    "/api/v1/events/{eventId}/media": {
+      "post": {
+        "tags": ["events"],
+        "summary": "Submit media file associated with an event",
+        "operationId": "submit_event_media",
+        "parameters": [
+          {
+            "name": "eventId",
+            "in": "path",
+            "description": "UUID of the event to associate media with",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Media uploaded successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MediaSubmissionResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request data or validation failed"
+          },
+          "401": {
+            "description": "Authentication required - Bearer token missing or invalid"
+          },
+          "404": {
+            "description": "Event not found"
+          },
+          "415": {
+            "description": "Unsupported media type"
+          },
+          "500": {
+            "description": "Internal server error during upload"
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": []
+          }
+        ]
+      }
+    },
     "/api/v1/events/{hash}/verify": {
       "get": {
         "tags": ["events"],
@@ -255,11 +306,8 @@
       "EventMedia": {
         "type": "object",
         "description": "Media data with proper typing - matches TypeScript EventMedia",
-        "required": ["type", "data", "name", "size", "lastModified"],
+        "required": ["name", "size", "lastModified"],
         "properties": {
-          "data": {
-            "type": "string"
-          },
           "lastModified": {
             "type": "integer",
             "format": "int64",
@@ -272,9 +320,6 @@
             "type": "integer",
             "format": "int64",
             "minimum": 0
-          },
-          "type": {
-            "$ref": "#/components/schemas/MediaType"
           }
         }
       },
@@ -402,10 +447,41 @@
           }
         }
       },
-      "MediaType": {
-        "type": "string",
-        "description": "Supported media types - matches TypeScript MediaType",
-        "enum": ["image/jpeg", "image/png", "image/gif", "video/mp4"]
+      "MediaSubmissionResponse": {
+        "type": "object",
+        "description": "Media submission response",
+        "required": [
+          "mediaId",
+          "eventId",
+          "accessLink",
+          "uploadedAt",
+          "mediaType",
+          "size"
+        ],
+        "properties": {
+          "accessLink": {
+            "type": "string"
+          },
+          "eventId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "mediaId": {
+            "type": "string"
+          },
+          "mediaType": {
+            "type": "string"
+          },
+          "size": {
+            "type": "integer",
+            "format": "int64",
+            "minimum": 0
+          },
+          "uploadedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
       },
       "PowCertificateRequest": {
         "type": "object",

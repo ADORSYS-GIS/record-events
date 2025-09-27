@@ -4,7 +4,6 @@ import type { KeyPair } from "../hooks/useAuthenticationFlow";
 import { type LocalEvent } from "../hooks/useEventHistory";
 import { useTheme } from "../hooks/useTheme.tsx";
 import type { Label } from "../labels/label-manager";
-import DashboardHeader from "./dashboard/DashboardHeader";
 import RecentEventsList from "./dashboard/RecentEventsList";
 import DashboardActions from "./dashboard/DashboardActions";
 
@@ -41,9 +40,7 @@ const Dashboard: React.FC<DashboardProps> = ({
           : "bg-gradient-to-br from-gray-50 via-white to-gray-50"
       }`}
     >
-      <DashboardHeader isDark={isDark} />
-
-      <main className="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
+      <main className="px-4 sm:px-6 py-6 sm:py-8">
         <div className="mb-8">
           <h2
             className={`text-xl sm:text-2xl font-semibold transition-colors duration-300 ${
