@@ -2,8 +2,10 @@ import { useRegisterSW } from "virtual:pwa-register/react";
 import { Transition } from "@headlessui/react";
 import { Fragment } from "react";
 import { X, DownloadCloud } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 function UpdatePrompt() {
+  const { t } = useTranslation();
   const {
     offlineReady: [offlineReady, setOfflineReady],
     needRefresh: [needRefresh, setNeedRefresh],
@@ -44,7 +46,7 @@ function UpdatePrompt() {
             </div>
             <div className="ml-3 w-0 flex-1 pt-0.5">
               <p className="text-sm font-medium text-gray-900 dark:text-white">
-                App is ready to work offline.
+                {t("updatePrompt.offlineReady")}
               </p>
             </div>
             <div className="ml-4 flex-shrink-0 flex">
@@ -52,7 +54,7 @@ function UpdatePrompt() {
                 className="bg-white dark:bg-gray-800 rounded-md inline-flex text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 onClick={close}
               >
-                <span className="sr-only">Close</span>
+                <span className="sr-only">{t("updatePrompt.close")}</span>
                 <X className="h-5 w-5" aria-hidden="true" />
               </button>
             </div>
@@ -79,20 +81,20 @@ function UpdatePrompt() {
             </div>
             <div className="ml-3 w-0 flex-1">
               <p className="text-sm font-medium text-gray-900 dark:text-white">
-                A new version is available.
+                {t("updatePrompt.newVersion")}
               </p>
               <div className="mt-4 flex">
                 <button
                   onClick={() => updateServiceWorker(true)}
                   className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:w-auto sm:text-sm"
                 >
-                  Reload
+                  {t("updatePrompt.reload")}
                 </button>
                 <button
                   onClick={close}
                   className="ml-3 w-full inline-flex justify-center rounded-md border border-gray-300 dark:border-gray-600 shadow-sm px-4 py-2 bg-white dark:bg-gray-800 text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-auto sm:text-sm"
                 >
-                  Close
+                  {t("updatePrompt.close")}
                 </button>
               </div>
             </div>

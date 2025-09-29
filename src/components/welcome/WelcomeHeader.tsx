@@ -21,7 +21,13 @@ const WelcomeHeader: React.FC<WelcomeHeaderProps> = ({ isDark, i18n }) => {
         <div
           className={`rounded-2xl flex items-center justify-center p-4 bg-transparent`}
         >
-          <CameroonFlag />
+          <div className="w-32 h-32 rounded-full overflow-hidden">
+            <img
+              src="/elecamair.jpeg"
+              alt="Logo"
+              className="w-full h-full object-cover"
+            />
+          </div>
         </div>
       </div>
       <h1

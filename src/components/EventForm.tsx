@@ -108,7 +108,8 @@ const EventForm: React.FC<EventFormProps> = ({
           return total;
         }, 0);
 
-      const abstentions = registeredVoters - candidateVotes;
+      const nullBulletins = Number(formData.bulletins_nuls) || 0;
+      const abstentions = registeredVoters - candidateVotes - nullBulletins;
       setFormData((prev) => ({
         ...prev,
         abstentions: abstentions >= 0 ? abstentions : 0,
@@ -259,15 +260,13 @@ const EventForm: React.FC<EventFormProps> = ({
 
       const token = localStorage.getItem("authToken");
       if (!token) {
-        throw new Error(
-          "Authentication token not found. Please complete initialization first.",
-        );
+        throw new Error(t("eventForm.authTokenNotFound"));
       }
 
       apiAuthService.setBearerToken(token);
 
       if (!_keyPair || !_keyPair.privateKey || !_keyPair.publicKey) {
-        throw new Error("Key pair is not available for signing the event.");
+        throw new Error(t("eventForm.keyPairNotAvailable"));
       }
 
       const jwtEventData = await generateEventJWT(
@@ -298,7 +297,10 @@ const EventForm: React.FC<EventFormProps> = ({
 
       try {
         const timeoutPromise = new Promise((_, reject) =>
-          setTimeout(() => reject(new Error("Submission timeout")), 5000),
+          setTimeout(
+            () => reject(new Error(t("eventForm.submissionTimeout"))),
+            5000,
+          ),
         );
 
         await Promise.race([

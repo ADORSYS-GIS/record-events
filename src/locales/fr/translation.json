@@ -69,7 +69,8 @@
       "cameraDesc": "Capturez et annotez les événements avec l'appareil photo de votre appareil"
     },
     "permissions": {
-      "title": "Accès Caméra"
+      "title": "Accès Caméra",
+      "description": "Activer l'accès à la caméra pour capturer et signaler des événements avec des preuves photographiques"
     },
     "security": {
       "title": "Configuration de sécurité",
@@ -137,10 +138,18 @@
       "description": "Saisissez le nombre de voix pour chaque candidat"
     },
     "media": {
-      "title": "Ajouter des médias",
-      "description": "Incluez des photos ou des vidéos pour fournir un contexte visuel",
+      "title": "Média",
+      "description": "Ajouter une photo ou une vidéo",
       "browseFiles": "Parcourir les fichiers",
-      "takePhoto": "Prendre une photo"
+      "takePhoto": "Prendre une photo",
+      "authTokenNotFound": "Jeton d'authentification introuvable. Veuillez d'abord terminer l'initialisation.",
+      "keyPairNotAvailable": "La paire de clés n'est pas disponible pour signer l'événement.",
+      "submissionTimeout": "Délai de soumission dépassé",
+      "offlineSubmissionMessage": "Vous êtes hors ligne. Votre événement a été enregistré comme brouillon et sera soumis lorsque vous serez de nouveau en ligne.",
+      "eventSubmitted": "Événement soumis avec succès !",
+      "eventResubmitted": "Événement soumis à nouveau avec succès !",
+      "eventSubmissionFailed": "Échec de la soumission de l'événement.",
+      "eventResubmissionFailed": "Échec de la nouvelle soumission de l'événement."
     }
   },
   "welcome": {
@@ -163,5 +172,29 @@
     "untitled": "Brouillon numéro {{count}}",
     "lastModified": "Dernière modification",
     "goBack": "Retour au tableau de bord"
+  },
+  "updatePrompt": {
+    "offlineReady": "L'application est prête à fonctionner hors ligne.",
+    "newVersion": "Une nouvelle version est disponible.",
+    "reload": "Recharger",
+    "close": "Fermer"
+  },
+  "connectionStatus": {
+    "offline": "Hors ligne",
+    "poorConnection": "Connexion faible",
+    "4g": "4G Connecté",
+    "3g": "3G Connecté",
+    "2g": "2G Connecté",
+    "slow": "Connexion lente",
+    "connected": "Connecté",
+    "details": "Détails de la connexion",
+    "type": "Type",
+    "unknown": "Inconnu",
+    "speed": "Vitesse"
+  },
+  "themeSwitcher": {
+    "light": "Clair",
+    "dark": "Sombre",
+    "system": "Système"
   }
 }

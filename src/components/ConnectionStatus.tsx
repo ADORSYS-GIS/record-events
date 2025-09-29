@@ -8,6 +8,7 @@ import {
   SignalLow,
 } from "lucide-react";
 import { useOnlineStatus } from "../hooks/useOnlineStatus";
+import { useTranslation } from "react-i18next";
 
 interface ConnectionStatusProps {
   className?: string;
@@ -16,6 +17,7 @@ interface ConnectionStatusProps {
 const ConnectionStatus: React.FC<ConnectionStatusProps> = ({
   className = "",
 }) => {
+  const { t } = useTranslation();
   const { isOnline, isConnected, connectionType, downlink, effectiveType } =
     useOnlineStatus();
 
@@ -43,20 +45,20 @@ const ConnectionStatus: React.FC<ConnectionStatusProps> = ({
   };
 
   const getConnectionText = () => {
-    if (!isOnline) return "Offline";
-    if (!isConnected) return "Poor Connection";
+    if (!isOnline) return t("connectionStatus.offline");
+    if (!isConnected) return t("connectionStatus.poorConnection");
 
     switch (effectiveType) {
       case "4g":
-        return "4G Connected";
+        return t("connectionStatus.4g");
       case "3g":
-        return "3G Connected";
+        return t("connectionStatus.3g");
       case "2g":
-        return "2G Connected";
+        return t("connectionStatus.2g");
       case "slow-2g":
-        return "Slow Connection";
+        return t("connectionStatus.slow");
       default:
-        return "Connected";
+        return t("connectionStatus.connected");
     }
   };
 
@@ -128,9 +130,18 @@ const ConnectionStatus: React.FC<ConnectionStatusProps> = ({
           {/* Tooltip */}
           <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-50">
             <div className="text-center">
-              <div className="font-medium mb-1">Connection Details</div>
-              <div>Type: {effectiveType || "Unknown"}</div>
-              {downlink && <div>Speed: {downlink.toFixed(1)} Mbps</div>}
+              <div className="font-medium mb-1">
+                {t("connectionStatus.details")}
+              </div>
+              <div>
+                {t("connectionStatus.type")}:{" "}
+                {effectiveType || t("connectionStatus.unknown")}
+              </div>
+              {downlink && (
+                <div>
+                  {t("connectionStatus.speed")}: {downlink.toFixed(1)} Mbps
+                </div>
+              )}
               <div className="w-full bg-gray-700 rounded-full h-1 mt-1">
                 <div
                   className={`h-1 rounded-full transition-all duration-300 ${

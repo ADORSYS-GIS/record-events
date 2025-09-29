@@ -1,8 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Sun, Moon, Monitor, ChevronDown } from "lucide-react";
 import { useTheme } from "../hooks/useTheme";
+import { useTranslation } from "react-i18next";
 
 const ThemeSwitcher: React.FC = () => {
+  const { t } = useTranslation();
   const { theme, changeTheme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -56,7 +58,7 @@ const ThemeSwitcher: React.FC = () => {
             }`}
           >
             <Sun className="w-4 h-4" />
-            <span>Light</span>
+            <span>{t("themeSwitcher.light")}</span>
           </button>
           <button
             onClick={() => handleThemeChange("dark")}
@@ -67,7 +69,7 @@ const ThemeSwitcher: React.FC = () => {
             }`}
           >
             <Moon className="w-4 h-4" />
-            <span>Dark</span>
+            <span>{t("themeSwitcher.dark")}</span>
           </button>
           <button
             onClick={() => handleThemeChange("system")}
@@ -78,7 +80,7 @@ const ThemeSwitcher: React.FC = () => {
             }`}
           >
             <Monitor className="w-4 h-4" />
-            <span>System</span>
+            <span>{t("themeSwitcher.system")}</span>
           </button>
         </div>
       )}

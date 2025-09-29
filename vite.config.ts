@@ -51,14 +51,30 @@ export default defineConfig({
         theme_color: "#007A5E",
         icons: [
           {
-            src: "icon-192x192.svg",
+            src: "icon-192x192.jpeg",
             sizes: "192x192",
-            type: "image/svg+xml",
+            type: "image/jpeg",
           },
           {
-            src: "icon-512x512.svg",
+            src: "icon-512x512.png",
             sizes: "512x512",
-            type: "image/svg+xml",
+            type: "image/png",
+          },
+        ],
+        screenshots: [
+          {
+            src: "Screenshot1.png",
+            sizes: "1013x527",
+            type: "image/png",
+            form_factor: "wide",
+            label: "Dashboard",
+          },
+          {
+            src: "Screenshot2.png",
+            sizes: "1013x527",
+            type: "image/png",
+            form_factor: "wide",
+            label: "Event Form",
           },
         ],
       },

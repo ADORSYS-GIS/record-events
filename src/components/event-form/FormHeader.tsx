@@ -31,13 +31,14 @@ const FormHeader: React.FC<FormHeaderProps> = ({ onGoBack }) => {
               />
             </svg>
           </button>
-          <div>
-            <h1 className="text-lg font-semibold text-white">
-              {t("eventForm.title")}
-            </h1>
-            <p className="text-xs text-gray-200 hidden sm:block">
-              {t("eventForm.subtitle")}
-            </p>
+          <div className="flex items-center space-x-3">
+            <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+              <img
+                src="/elecamair.jpeg"
+                alt="Logo"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
         </div>
         <div className="flex items-center space-x-2">

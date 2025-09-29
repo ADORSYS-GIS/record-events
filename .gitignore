@@ -79,3 +79,5 @@ Thumbs.db
 *.bak
 *.backup
 *.stats.html
+
+stats.html

@@ -21,7 +21,9 @@
   "paths": {
     "/api/v1/events": {
       "post": {
-        "tags": ["events"],
+        "tags": [
+          "events"
+        ],
         "summary": "Receive and process an event from a relay",
         "description": "This is completely stateless - each request is processed independently",
         "operationId": "receive_event",
@@ -65,7 +67,9 @@
     },
     "/api/v1/events/package": {
       "post": {
-        "tags": ["events"],
+        "tags": [
+          "events"
+        ],
         "summary": "Receive and process a SignedEventPackage from frontend",
         "description": "Creates ZIP file and uploads to S3",
         "operationId": "receive_event_package",
@@ -107,7 +111,9 @@
     },
     "/api/v1/events/{eventId}/media": {
       "post": {
-        "tags": ["events"],
+        "tags": [
+          "events"
+        ],
         "summary": "Submit media file associated with an event",
         "operationId": "submit_event_media",
         "parameters": [
@@ -158,7 +164,9 @@
     },
     "/api/v1/events/{hash}/verify": {
       "get": {
-        "tags": ["events"],
+        "tags": [
+          "events"
+        ],
         "summary": "Verify if an event hash exists in storage",
         "description": "Stateless verification - no local state required",
         "operationId": "verify_event_hash",
@@ -203,7 +211,9 @@
     },
     "/api/v1/pow/challenge": {
       "post": {
-        "tags": ["authentication"],
+        "tags": [
+          "authentication"
+        ],
         "summary": "Request a new PoW challenge (public endpoint)",
         "operationId": "request_pow_challenge",
         "responses": {
@@ -225,7 +235,9 @@
     },
     "/api/v1/pow/verify": {
       "post": {
-        "tags": ["authentication"],
+        "tags": [
+          "authentication"
+        ],
         "summary": "Verify PoW solution and issue device certificate (public endpoint)",
         "operationId": "verify_pow_and_issue_certificate",
         "requestBody": {
@@ -263,7 +275,9 @@
     },
     "/health": {
       "get": {
-        "tags": ["health"],
+        "tags": [
+          "health"
+        ],
         "summary": "Health check endpoint",
         "operationId": "health_check",
         "responses": {
@@ -289,7 +303,11 @@
       "EventAnnotation": {
         "type": "object",
         "description": "Event annotation with strict typing - matches TypeScript EventAnnotation",
-        "required": ["labelId", "value", "timestamp"],
+        "required": [
+          "labelId",
+          "value",
+          "timestamp"
+        ],
         "properties": {
           "labelId": {
             "type": "string"
@@ -306,7 +324,11 @@
       "EventMedia": {
         "type": "object",
         "description": "Media data with proper typing - matches TypeScript EventMedia",
-        "required": ["name", "size", "lastModified"],
+        "required": [
+          "name",
+          "size",
+          "lastModified"
+        ],
         "properties": {
           "lastModified": {
             "type": "integer",
@@ -326,7 +348,10 @@
       "EventMetadata": {
         "type": "object",
         "description": "Event metadata - matches TypeScript structure",
-        "required": ["createdAt", "source"],
+        "required": [
+          "createdAt",
+          "source"
+        ],
         "properties": {
           "createdAt": {
             "type": "string",
@@ -344,7 +369,12 @@
       "EventPackage": {
         "type": "object",
         "description": "Complete event package - matches TypeScript EventPackage",
-        "required": ["id", "version", "annotations", "metadata"],
+        "required": [
+          "id",
+          "version",
+          "annotations",
+          "metadata"
+        ],
         "properties": {
           "annotations": {
             "type": "array",
@@ -375,7 +405,10 @@
       "EventPayload": {
         "type": "object",
         "description": "Simple event payload from frontend - file upload notification",
-        "required": ["filename", "contentType"],
+        "required": [
+          "filename",
+          "contentType"
+        ],
         "properties": {
           "contentType": {
             "type": "string"
@@ -388,7 +421,10 @@
       "EventSource": {
         "type": "string",
         "description": "Event source types - matches TypeScript",
-        "enum": ["web", "mobile"]
+        "enum": [
+          "web",
+          "mobile"
+        ]
       },
       "FieldValue": {
         "oneOf": [
@@ -413,7 +449,11 @@
       "HashVerificationResponse": {
         "type": "object",
         "description": "Response for hash verification",
-        "required": ["hash", "exists", "verifiedAt"],
+        "required": [
+          "hash",
+          "exists",
+          "verifiedAt"
+        ],
         "properties": {
           "exists": {
             "type": "boolean"
@@ -430,7 +470,12 @@
       "HealthResponse": {
         "type": "object",
         "description": "Health check response",
-        "required": ["status", "timestamp", "services", "version"],
+        "required": [
+          "status",
+          "timestamp",
+          "services",
+          "version"
+        ],
         "properties": {
           "services": {
             "$ref": "#/components/schemas/ServiceHealthStatus"
@@ -486,7 +531,11 @@
       "PowCertificateRequest": {
         "type": "object",
         "description": "Proof of Work request for certificate issuance",
-        "required": ["solution", "public_key", "relay_id"],
+        "required": [
+          "solution",
+          "public_key",
+          "relay_id"
+        ],
         "properties": {
           "public_key": {
             "type": "string"
@@ -561,7 +610,11 @@
       "PowSolution": {
         "type": "object",
         "description": "Proof of Work solution",
-        "required": ["challenge_id", "nonce", "hash"],
+        "required": [
+          "challenge_id",
+          "nonce",
+          "hash"
+        ],
         "properties": {
           "challenge_id": {
             "type": "string"
@@ -579,7 +632,12 @@
       "ProcessingResult": {
         "type": "object",
         "description": "Processing result returned after event processing",
-        "required": ["eventId", "hash", "storageLocation", "processedAt"],
+        "required": [
+          "eventId",
+          "hash",
+          "storageLocation",
+          "processedAt"
+        ],
         "properties": {
           "eventId": {
             "type": "string",
@@ -600,7 +658,9 @@
       "ServiceHealthStatus": {
         "type": "object",
         "description": "Service health status breakdown",
-        "required": ["storage"],
+        "required": [
+          "storage"
+        ],
         "properties": {
           "storage": {
             "type": "boolean"
@@ -610,7 +670,9 @@
       "TokenResponse": {
         "type": "object",
         "description": "Response for PoW verification (token only)",
-        "required": ["token"],
+        "required": [
+          "token"
+        ],
         "properties": {
           "token": {
             "type": "string"
