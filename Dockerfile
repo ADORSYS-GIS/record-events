@@ -20,11 +20,14 @@ COPY openapi.json ./openapi.json
 # Copy startup script
 COPY start.sh ./start.sh
 
-# Install dependencies
-RUN npm install
+# Install dependencies (without running postinstall scripts)
+RUN npm install --ignore-scripts
 
-# Fetch OpenAPI spec during build (not runtime)
-RUN node scripts/fetch_openapi.js
+# Copy openapi.json if it exists (for cases where it's pre-generated)
+COPY openapi.json* ./
+
+# Generate types from existing openapi.json (if available)
+RUN if [ -f "openapi.json" ]; then npm run codegen; else echo "No openapi.json found, will be fetched at runtime"; fi
 
 # Build the application
 RUN npm run build

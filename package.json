@@ -18,7 +18,7 @@
     "test:unit": "vitest",
     "coverage": "vitest run --coverage",
     "codegen": "openapi-rq -i openapi.json -o ./src/openapi-rq -c fetch",
-    "postinstall": "npm run codegen"
+    "fetch-and-codegen": "node scripts/fetch_openapi.js && npm run codegen"
   },
   "dependencies": {
     "@adorsys-gis/storage": "^1.0.3",
