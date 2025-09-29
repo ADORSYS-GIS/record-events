@@ -15,6 +15,7 @@ services:
       - RUST_LOG=info
       - SERVER_HOST=0.0.0.0
       - SERVER_PORT=8080
+      - SERVER_ADDRESS=${SERVER_ADDRESS:-https://localhost}
 
       # Storage configuration (MinIO S3-compatible storage, envconfig style)
       - S3_ENDPOINT=${S3_ENDPOINT:-http://minio:9000}
@@ -133,7 +134,7 @@ services:
         condition: service_started
     environment:
       # API endpoint configuration
-      - VITE_API_BASE_URL=http://localhost:8080
+      - VITE_API_BASE_URL=${VITE_API_BASE_URL:-https://localhost}
       - VITE_APP_TITLE=EventServer
       - EVENTSERVER_OPENAPI_URL=http://backend:8080/openapi-json
     networks:

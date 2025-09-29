@@ -122,7 +122,7 @@ async fn openapi_json() -> Response {
     use utoipa::openapi::server::ServerBuilder;
     spec.servers = Some(vec![ServerBuilder::new()
         .url(server_address)
-        .description(Some("Dynamic server address from environment"))
+        .description(Some("Dynamic server address from environment1"))
         .build()]);
 
     match serde_json::to_string_pretty(&spec) {
