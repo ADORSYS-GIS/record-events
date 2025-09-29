@@ -21,8 +21,12 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({ isDark }) => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className="w-9 h-9 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center flex-shrink-0">
-              <span className="text-white font-bold text-base">🇨🇲</span>
+            <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden">
+              <img
+                src="/elecamair.jpeg"
+                alt="Logo"
+                className="w-full h-full object-cover"
+              />
             </div>
             <h1
               className={`hidden sm:block text-base sm:text-lg font-semibold transition-colors duration-300 ${

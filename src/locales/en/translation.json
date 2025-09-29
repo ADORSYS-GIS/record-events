@@ -69,7 +69,8 @@
       "cameraDesc": "Capture and annotate events with your device camera"
     },
     "permissions": {
-      "title": "Camera Access"
+      "title": "Camera Access",
+      "description": "Enable camera access to capture and report events with photographic evidence"
     },
     "security": {
       "title": "Security Setup",
@@ -137,10 +138,18 @@
       "description": "Enter the vote count for each candidate"
     },
     "media": {
-      "title": "Add Media",
-      "description": "Include photos or videos to provide visual context",
+      "title": "Media",
+      "description": "Add a photo or video",
       "browseFiles": "Browse Files",
-      "takePhoto": "Take Photo"
+      "takePhoto": "Take Photo",
+      "authTokenNotFound": "Authentication token not found. Please complete initialization first.",
+      "keyPairNotAvailable": "Key pair is not available for signing the event.",
+      "submissionTimeout": "Submission timeout",
+      "offlineSubmissionMessage": "You are offline. Your event has been saved as a draft and will be submitted when you are back online.",
+      "eventSubmitted": "Event submitted successfully!",
+      "eventResubmitted": "Event resubmitted successfully!",
+      "eventSubmissionFailed": "Event submission failed.",
+      "eventResubmissionFailed": "Event resubmission failed."
     }
   },
   "welcome": {
@@ -163,5 +172,29 @@
     "untitled": "Draft {{count}}",
     "lastModified": "Last modified",
     "goBack": "Go Back to Dashboard"
+  },
+  "updatePrompt": {
+    "offlineReady": "App is ready to work offline.",
+    "newVersion": "A new version is available.",
+    "reload": "Reload",
+    "close": "Close"
+  },
+  "connectionStatus": {
+    "offline": "Offline",
+    "poorConnection": "Poor Connection",
+    "4g": "4G Connected",
+    "3g": "3G Connected",
+    "2g": "2G Connected",
+    "slow": "Slow Connection",
+    "connected": "Connected",
+    "details": "Connection Details",
+    "type": "Type",
+    "unknown": "Unknown",
+    "speed": "Speed"
+  },
+  "themeSwitcher": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
   }
 }
