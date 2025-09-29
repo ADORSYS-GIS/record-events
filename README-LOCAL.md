@@ -5,15 +5,17 @@ This setup provides a simplified local development environment that runs everyth
 ## Quick Start
 
 1. **Start the local environment:**
+
    ```bash
    ./start-local.sh
    ```
 
 2. **Or manually:**
+
    ```bash
    # Initialize MinIO bucket (required for file uploads)
    docker compose -f docker-compose.local.yml --profile init up minio-init
-   
+
    # Start all services
    docker compose -f docker-compose.local.yml up --build
    ```
@@ -23,10 +25,12 @@ This setup provides a simplified local development environment that runs everyth
 ## Environment Configuration
 
 The startup scripts automatically load environment variables from:
+
 - `.env` file (if present)
 - `.env.local` file (if present, for local development)
 
 You can create a `.env.local` file using the template:
+
 ```bash
 cp env.local.example .env.local
 ```

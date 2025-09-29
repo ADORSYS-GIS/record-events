@@ -126,7 +126,7 @@ services:
         - "host.docker.internal:host-gateway"
     container_name: eventserver-frontend-local
     ports:
-      - "3000:80"  # Map to port 3000 for local development
+      - "3000:80" # Map to port 3000 for local development
     depends_on:
       openapi-fetcher:
         condition: service_started
