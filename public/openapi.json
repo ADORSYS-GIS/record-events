@@ -14,7 +14,7 @@
   },
   "servers": [
     {
-      "url": "https://app.camelect.me",
+      "url": "https://camelect.me",
       "description": "Production server"
     }
   ],
