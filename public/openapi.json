@@ -14,7 +14,7 @@
   },
   "servers": [
     {
-      "url": "https://app.elecamair.com",
+      "url": "https://app.camelect.me",
       "description": "Production server"
     }
   ],
