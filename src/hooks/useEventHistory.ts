@@ -36,9 +36,16 @@ export const useEventHistory = () => {
 
   const saveDraft = useCallback(
     async (eventPackage: EventPackage, image?: Blob) => {
+      const bureauDeVoteAnnotation = eventPackage.annotations.find(
+        (annotation) => annotation.labelId === "5",
+      );
+      const draftTitle =
+        (bureauDeVoteAnnotation?.value as string) ||
+        `Draft ${eventPackage.id.slice(0, 8)}`;
+
       const newDraft: LocalEvent = {
         id: eventPackage.id,
-        title: `Draft ${eventPackage.id.slice(0, 8)}`,
+        title: draftTitle,
         status: "draft",
         timestamp: new Date().toISOString(),
         eventPackage,

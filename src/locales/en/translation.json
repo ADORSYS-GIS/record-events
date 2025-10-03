@@ -31,6 +31,8 @@
   "uploadImage": "Upload Image",
   "cancel": "Cancel",
   "removeImage": "Remove Image",
+  "edit": "Edit",
+  "goBack": "Go Back",
   "selectedFile": "Selected file",
   "required": "required",
   "selectAnOption": "Select an option",
@@ -47,7 +49,7 @@
   "labelRequired": "{{labelName}} is required.",
   "labelMaxLengthExceeded": "{{labelName}} exceeds maximum length of {{maxLength}}.",
   "welcomeTitle": "Presidential Election 2025",
-  "welcomeDescription": "Easily document election results securely and efficiently.",
+  "welcomeDescription": "Document electoral results securely and efficiently.",
   "getStartedButton": "Get Started",
   "welcomeMoreInfo": "Click 'Get Started' to enter the results.",
   "selectCategoryDescription": "Select the category that best describes the event you wish to report.",
@@ -86,7 +88,11 @@
     "getStarted": "Finish",
     "settingUp": "Setting up...",
     "continue": "Next",
-    "skip": "Skip for now"
+    "skip": "Skip for now",
+    "buttons": {
+      "next": "Next",
+      "finish": "Give Access"
+    }
   },
   "dashboard": {
     "subtitle": "Report election results",
@@ -95,7 +101,9 @@
     "status": {
       "connected": "Connected",
       "submitted": "Submitted",
-      "pending": "Pending"
+      "pending": "Pending",
+      "draft": "Draft",
+      "failed": "Failed"
     },
     "quickActions": {
       "title": "Quick Actions",
@@ -149,7 +157,9 @@
       "eventSubmitted": "Event submitted successfully!",
       "eventResubmitted": "Event resubmitted successfully!",
       "eventSubmissionFailed": "Event submission failed.",
-      "eventResubmissionFailed": "Event resubmission failed."
+      "eventResubmissionFailed": "Event resubmission failed.",
+      "authTokenNotFoundTitle": "Authentication Required",
+      "authTokenNotFoundDescription": "Your security keys are not available. Please return to the dashboard and try again."
     }
   },
   "welcome": {
@@ -159,18 +169,20 @@
       "secureDesc": "Your data is encrypted",
       "easy": "Easy to Use",
       "easyDesc": "Simple interface for quick event reporting"
-    },
-    "saveDraft": "Save Draft",
-    "submitting": "Submitting...",
-    "submitReport": "Submit Results",
-    "draftSaved": "Draft saved successfully.",
-    "saveError": "Error saving draft."
+    }
   },
+  "saveDraft": "Save Draft",
+  "submitting": "Submitting...",
+  "submitReport": "Submit Results",
+  "draftSaved": "Draft saved successfully.",
+  "saveError": "Error saving draft.",
   "draftSelection": {
     "title": "Choose a Draft",
-    "description": "Select a draft to continue your report.",
+    "description": "Select a draft to continue where you left off.",
     "untitled": "Draft {{count}}",
     "lastModified": "Last modified",
+    "noDrafts": "No Drafts Found",
+    "noDraftsDescription": "You can create a new report from the dashboard.",
     "goBack": "Go Back to Dashboard"
   },
   "updatePrompt": {
@@ -195,6 +207,20 @@
   "themeSwitcher": {
     "light": "Light",
     "dark": "Dark",
-    "system": "System"
+    "system": "System",
+    "toggle": "Toggle theme"
+  },
+  "loading": {
+    "securingDevice": "Please wait while we secure your device...",
+    "verifyingDevice": "Please wait while we verify your device..."
+  },
+  "language": {
+    "english": "English",
+    "french": "Français"
+  },
+  "installPrompt": {
+    "title": "Install App",
+    "installButton": "Install",
+    "closeButton": "Close"
   }
 }

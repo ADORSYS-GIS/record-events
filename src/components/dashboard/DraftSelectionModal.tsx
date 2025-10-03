@@ -46,12 +46,11 @@ const DraftSelectionModal: React.FC<DraftSelectionModalProps> = ({
                   className={`w-6 h-6 ${isDark ? "text-cameroon-yellow" : "text-cameroon-green"}`}
                 />
               </div>
-              <h2 className="text-xl font-bold">
-                {t("draftSelection.title", "Continue Report")}
-              </h2>
+              <h2 className="text-xl font-bold">{t("draftSelection.title")}</h2>
             </div>
             <button
               onClick={onClose}
+              aria-label={t("cancel")}
               className={`p-2 rounded-full transition-colors duration-300 ${
                 isDark
                   ? "text-gray-400 hover:bg-gray-800"
@@ -64,10 +63,7 @@ const DraftSelectionModal: React.FC<DraftSelectionModalProps> = ({
           <p
             className={`mb-6 text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}
           >
-            {t(
-              "draftSelection.description",
-              "Select a draft to continue where you left off.",
-            )}
+            {t("draftSelection.description")}
           </p>
 
           <div className="space-y-3 max-h-[50vh] overflow-y-auto pr-2 -mr-2">
@@ -90,7 +86,7 @@ const DraftSelectionModal: React.FC<DraftSelectionModalProps> = ({
                     <div className="flex items-center space-x-4">
                       <div>
                         <p className="font-semibold group-hover:text-cameroon-yellow transition-colors">
-                          {(regionValue && String(regionValue)) ||
+                          {draft.title ||
                             t("draftSelection.untitled", { count: index + 1 })}
                         </p>
                         <p
@@ -98,7 +94,7 @@ const DraftSelectionModal: React.FC<DraftSelectionModalProps> = ({
                             isDark ? "text-gray-400" : "text-gray-500"
                           }`}
                         >
-                          {t("draftSelection.lastModified", "Last modified")}:{" "}
+                          {t("draftSelection.lastModified")}:{" "}
                           {new Date(draft.timestamp).toLocaleString()}
                         </p>
                       </div>
@@ -113,15 +109,12 @@ const DraftSelectionModal: React.FC<DraftSelectionModalProps> = ({
               >
                 <Inbox className="w-12 h-12 mx-auto text-gray-400 mb-4" />
                 <h3 className="font-semibold">
-                  {t("draftSelection.noDrafts", "No Drafts Found")}
+                  {t("draftSelection.noDrafts")}
                 </h3>
                 <p
                   className={`text-sm mt-1 ${isDark ? "text-gray-400" : "text-gray-600"}`}
                 >
-                  {t(
-                    "draftSelection.noDraftsDescription",
-                    "You can create a new report from the dashboard.",
-                  )}
+                  {t("draftSelection.noDraftsDescription")}
                 </p>
               </div>
             )}

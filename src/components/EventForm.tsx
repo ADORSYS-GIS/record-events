@@ -3,10 +3,10 @@ import { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
 import { v4 as uuidv4 } from "uuid";
+import { useTheme } from "../context/ThemeContext.tsx";
 import { LocalEvent } from "../hooks/useEventHistory";
 import type { KeyPair } from "../hooks/useKeyInitialization";
 import { useOnlineStatus } from "../hooks/useOnlineStatus.ts";
-import { useTheme } from "../context/ThemeContext.tsx";
 import type { Label } from "../labels/label-manager";
 import type { EventPackage } from "../openapi-rq/requests/types.gen";
 import { apiAuthService } from "../services/keyManagement/apiAuthService";
@@ -290,7 +290,7 @@ const EventForm: React.FC<EventFormProps> = ({
         };
         saveDraft(historyEventPackage, mediaFile || undefined);
         updateEventStatus(eventPackage.id, "pending");
-        toast.info(t("offlineSubmissionMessage"));
+        toast.info(t("eventForm.media.offlineSubmissionMessage"));
         onGoBack();
         return;
       }
@@ -327,10 +327,10 @@ const EventForm: React.FC<EventFormProps> = ({
         if (initialEvent) {
           if (initialEvent.status === "draft") {
             updateEventStatus(initialEvent.id, "submitted");
-            toast.success(t("eventSubmitted"));
+            toast.success(t("eventForm.media.eventSubmitted"));
           } else {
             removeEvent(initialEvent.id);
-            toast.success(t("eventResubmitted"));
+            toast.success(t("eventForm.media.eventResubmitted"));
           }
         } else {
           const historyEventPackage: EventPackage = {
@@ -346,15 +346,15 @@ const EventForm: React.FC<EventFormProps> = ({
           };
           addEvent(historyEventPackage); // Add as pending
           updateEventStatus(historyEventPackage.id, "submitted");
-          toast.success(t("eventSubmitted"));
+          toast.success(t("eventForm.media.eventSubmitted"));
         }
       } catch (error) {
         if (initialEvent) {
           if (initialEvent.status === "draft") {
             updateEventStatus(initialEvent.id, "failed");
-            toast.error(t("eventSubmissionFailed"));
+            toast.error(t("eventForm.media.eventSubmissionFailed"));
           } else {
-            toast.error(t("eventResubmissionFailed"));
+            toast.error(t("eventForm.media.eventResubmissionFailed"));
           }
         } else {
           const historyEventPackage: EventPackage = {
@@ -370,7 +370,7 @@ const EventForm: React.FC<EventFormProps> = ({
           };
           saveDraft(historyEventPackage, mediaFile || undefined);
           updateEventStatus(eventPackage.id, "failed");
-          toast.error(t("eventSubmissionFailed"));
+          toast.error(t("eventForm.media.eventSubmissionFailed"));
         }
       }
 
@@ -386,6 +386,10 @@ const EventForm: React.FC<EventFormProps> = ({
   };
 
   const handleSaveDraft = useCallback(async () => {
+    if (!validate()) {
+      toast.error(t("validationError"));
+      return;
+    }
     try {
       const cleanData: Record<string, FieldValue> = {};
       labels.forEach((label) => {

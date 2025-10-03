@@ -34,7 +34,7 @@ const LABELS_STORAGE_KEY = "event-app-labels";
 
 // Mock function to fetch labels from a relay
 export async function fetchLabels(): Promise<Label[]> {
-  console.log("Fetching labels...");
+  // console.log("Fetching labels...");
   // In a real implementation, this would be a network request to a relay.
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -93,6 +93,16 @@ export async function fetchLabels(): Promise<Label[]> {
           placeholder: "Bureau de Vote - Polling Office",
           helpText: "Le bureau de vote - The polling office",
           category: "event_details",
+        },
+        {
+          labelId: "votants_inscrits",
+          name_en: "Registered Voters",
+          name_fr: "Votants Inscrits",
+          type: "number",
+          required: false,
+          helpText: "Votants Inscrits - Registered Voters",
+          category: "election_results",
+          constraints: { min: 0 },
         },
         {
           labelId: "paul_biya",
@@ -215,16 +225,6 @@ export async function fetchLabels(): Promise<Label[]> {
           constraints: { min: 0 },
         },
         {
-          labelId: "votants_inscrits",
-          name_en: "Registered Voters",
-          name_fr: "Votants Inscrits",
-          type: "number",
-          required: false,
-          helpText: "Votants Inscrits - Registered Voters",
-          category: "election_results",
-          constraints: { min: 0 },
-        },
-        {
           labelId: "bulletins_nuls",
           name_en: "Void Ballots",
           name_fr: "Bulletins Nuls",
@@ -245,7 +245,7 @@ export async function fetchLabels(): Promise<Label[]> {
           constraints: { min: 0 },
         },
       ];
-      console.log("Labels received:", labels);
+      // console.log("Labels received:", labels);
       resolve(labels);
     }, 1000);
   });

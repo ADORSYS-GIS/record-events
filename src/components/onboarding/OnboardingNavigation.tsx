@@ -27,7 +27,7 @@ const OnboardingNavigation: React.FC<OnboardingNavigationProps> = ({
           onClick={handleNext}
           className="px-6 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-cameroon-green to-cameroon-red hover:from-cameroon-red hover:to-cameroon-yellow shadow-lg transition-all duration-200 flex items-center space-x-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cameroon-yellow transform hover:scale-[1.02]"
         >
-          <span>{t("onboarding.buttons.next", "Next")}</span>
+          <span>{t("onboarding.buttons.next")}</span>
           <ArrowRight className="w-5 h-5" />
         </button>
       ) : (
@@ -35,7 +35,7 @@ const OnboardingNavigation: React.FC<OnboardingNavigationProps> = ({
           onClick={handleFinish}
           className="px-6 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-cameroon-green to-cameroon-red hover:from-cameroon-red hover:to-cameroon-yellow shadow-lg transition-all duration-200 flex items-center space-x-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cameroon-yellow transform hover:scale-[1.02]"
         >
-          <span>{t("onboarding.buttons.finish", "Finish Setup")}</span>
+          <span>{t("onboarding.buttons.finish")}</span>
           <ArrowRight className="w-5 h-5" />
         </button>
       )}

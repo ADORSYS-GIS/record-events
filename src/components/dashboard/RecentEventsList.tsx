@@ -118,7 +118,7 @@ const RecentEventsList: React.FC<RecentEventsListProps> = ({
                           : "bg-cameroon-red/20 text-cameroon-red"
                   }`}
                 >
-                  {event.status}
+                  {t(`dashboard.status.${event.status}`)}
                 </span>
                 {event.status === "draft" && (
                   <div className="flex items-center space-x-2">
@@ -128,6 +128,7 @@ const RecentEventsList: React.FC<RecentEventsListProps> = ({
                         onViewEvent(event);
                       }}
                       className="text-blue-500 hover:text-blue-700 p-1"
+                      aria-label={t("edit")}
                     >
                       <Pencil className="w-4 h-4" />
                     </button>
@@ -137,6 +138,7 @@ const RecentEventsList: React.FC<RecentEventsListProps> = ({
                         removeEvent(event.id);
                       }}
                       className="text-red-500 hover:text-red-700 p-1"
+                      aria-label={t("removeImage")}
                     >
                       <Trash2 className="w-4 h-4" />
                     </button>
