@@ -35,20 +35,14 @@ const WelcomeHeader: React.FC<WelcomeHeaderProps> = ({ isDark, i18n }) => {
           isDark ? "text-white" : "text-gray-900"
         }`}
       >
-        {t(
-          "welcomeTitle",
-          "Cameroon Elections \n Secure Vote Reporting System",
-        )}
+        {t("welcomeTitle")}
       </h1>
       <p
         className={`text-sm sm:text-base leading-relaxed mb-4 max-w-md mx-auto ${
           isDark ? "text-gray-300" : "text-gray-600"
         }`}
       >
-        {t(
-          "welcomeDescription",
-          "Ensuring transparency and integrity in the electoral process through secure, decentralized event reporting.",
-        )}
+        {t("welcomeDescription")}
       </p>
       <div className="mb-4">
         <h3
@@ -56,7 +50,7 @@ const WelcomeHeader: React.FC<WelcomeHeaderProps> = ({ isDark, i18n }) => {
             isDark ? "text-gray-300" : "text-gray-700"
           }`}
         >
-          {t("welcome.selectLanguage", "Select your language")}
+          {t("welcome.selectLanguage")}
         </h3>
         <div className="flex justify-center space-x-2 sm:space-x-4">
           <button
@@ -69,7 +63,7 @@ const WelcomeHeader: React.FC<WelcomeHeaderProps> = ({ isDark, i18n }) => {
                   : "bg-gray-100 text-gray-700 hover:bg-gray-200"
             }`}
           >
-            English
+            {t("language.english")}
           </button>
           <button
             onClick={() => changeLanguage("fr")}
@@ -81,7 +75,7 @@ const WelcomeHeader: React.FC<WelcomeHeaderProps> = ({ isDark, i18n }) => {
                   : "bg-gray-100 text-gray-700 hover:bg-gray-200"
             }`}
           >
-            Français
+            {t("language.french")}
           </button>
         </div>
       </div>

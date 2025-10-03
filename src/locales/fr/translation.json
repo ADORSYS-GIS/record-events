@@ -31,6 +31,8 @@
   "uploadImage": "Télécharger l'image",
   "cancel": "Annuler",
   "removeImage": "Supprimer l'image",
+  "edit": "Modifier",
+  "goBack": "Retour",
   "selectedFile": "Fichier sélectionné",
   "required": "obligatoire",
   "selectAnOption": "Sélectionner une option",
@@ -86,7 +88,11 @@
     "getStarted": "Terminer",
     "settingUp": "Configuration...",
     "continue": "Suivant",
-    "skip": "Passer pour l'instant"
+    "skip": "Passer pour l'instant",
+    "buttons": {
+      "next": "Suivant",
+      "finish": "Donner accès"
+    }
   },
   "dashboard": {
     "subtitle": "Rapporter les résultats électoraux",
@@ -95,7 +101,9 @@
     "status": {
       "connected": "Connecté",
       "submitted": "Soumis",
-      "pending": "En attente"
+      "pending": "En attente",
+      "draft": "Brouillon",
+      "failed": "Échec"
     },
     "quickActions": {
       "title": "Actions rapides",
@@ -149,7 +157,9 @@
       "eventSubmitted": "Événement soumis avec succès !",
       "eventResubmitted": "Événement soumis à nouveau avec succès !",
       "eventSubmissionFailed": "Échec de la soumission de l'événement.",
-      "eventResubmissionFailed": "Échec de la nouvelle soumission de l'événement."
+      "eventResubmissionFailed": "Échec de la nouvelle soumission de l'événement.",
+      "authTokenNotFoundTitle": "Authentification requise",
+      "authTokenNotFoundDescription": "Vos clés de sécurité ne sont pas disponibles. Veuillez retourner au tableau de bord et réessayer."
     }
   },
   "welcome": {
@@ -168,9 +178,11 @@
   "saveError": "Erreur lors de l'enregistrement du brouillon.",
   "draftSelection": {
     "title": "Choisissez un brouillon",
-    "description": "Sélectionnez un brouillon pour continuer votre rapport.",
+    "description": "Sélectionnez un brouillon pour continuer là où vous vous êtes arrêté.",
     "untitled": "Brouillon numéro {{count}}",
     "lastModified": "Dernière modification",
+    "noDrafts": "Aucun brouillon trouvé",
+    "noDraftsDescription": "Vous pouvez créer un nouveau rapport depuis le tableau de bord.",
     "goBack": "Retour au tableau de bord"
   },
   "updatePrompt": {
@@ -195,6 +207,20 @@
   "themeSwitcher": {
     "light": "Clair",
     "dark": "Sombre",
-    "system": "Système"
+    "system": "Système",
+    "toggle": "Basculer le thème"
+  },
+  "loading": {
+    "securingDevice": "Veuillez patienter pendant que nous sécurisons votre appareil...",
+    "verifyingDevice": "Veuillez patienter pendant que nous vérifions votre appareil..."
+  },
+  "language": {
+    "english": "English",
+    "french": "Français"
+  },
+  "installPrompt": {
+    "title": "Installer l'app",
+    "installButton": "Installer",
+    "closeButton": "Fermer"
   }
 }

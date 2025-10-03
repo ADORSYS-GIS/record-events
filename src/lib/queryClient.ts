@@ -12,7 +12,7 @@ export const queryClient = new QueryClient({
         console.error("Mutation error:", error);
         if ((error as { status?: number }).status === 401) {
           // eslint-disable-next-line no-console
-          console.log("401 error detected, re-authenticating...");
+          // console.log("401 error detected, re-authenticating...");
           useApp.getState().reauthenticate();
         }
       },

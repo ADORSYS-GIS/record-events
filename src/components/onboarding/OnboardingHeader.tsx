@@ -1,8 +1,10 @@
 import React from "react";
 import { Monitor, Moon, Sun } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { useTheme } from "../../hooks/useTheme.tsx";
 
 const OnboardingHeader: React.FC = () => {
+  const { t } = useTranslation();
   const { theme, changeTheme, isDark } = useTheme();
 
   return (
@@ -21,6 +23,7 @@ const OnboardingHeader: React.FC = () => {
               ? "bg-cameroon-yellow text-black shadow-md"
               : "text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
           }`}
+          aria-label={t("themeSwitcher.light")}
         >
           <Sun className="w-4 h-4" />
         </button>
@@ -31,6 +34,7 @@ const OnboardingHeader: React.FC = () => {
               ? "bg-cameroon-yellow text-black shadow-md"
               : "text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
           }`}
+          aria-label={t("themeSwitcher.system")}
         >
           <Monitor className="w-4 h-4" />
         </button>
@@ -41,6 +45,7 @@ const OnboardingHeader: React.FC = () => {
               ? "bg-cameroon-yellow text-black shadow-md"
               : "text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
           }`}
+          aria-label={t("themeSwitcher.dark")}
         >
           <Moon className="w-4 h-4" />
         </button>

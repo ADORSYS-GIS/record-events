@@ -22,9 +22,7 @@ const WelcomeActions: React.FC<WelcomeActionsProps> = ({
           onClick={onGetStarted}
           className="w-full bg-gradient-to-r from-cameroon-green to-cameroon-red hover:from-cameroon-red hover:to-cameroon-yellow text-white font-medium py-3 sm:py-4 px-8 rounded-xl transition-all duration-200 flex items-center justify-center space-x-2 sm:space-x-3 shadow-lg hover:shadow-xl"
         >
-          <span className="text-base sm:text-lg">
-            {t("getStartedButton", "Get Started")}
-          </span>
+          <span className="text-base sm:text-lg">{t("getStartedButton")}</span>
           <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
         </button>
         <p
@@ -32,10 +30,7 @@ const WelcomeActions: React.FC<WelcomeActionsProps> = ({
             isDark ? "text-gray-400" : "text-gray-500"
           }`}
         >
-          {t(
-            "welcomeMoreInfo",
-            "Your participation helps ensure a fair and transparent election for all.",
-          )}
+          {t("welcomeMoreInfo")}
         </p>
       </div>
     </>

@@ -16,6 +16,7 @@ const FormHeader: React.FC<FormHeaderProps> = ({ onGoBack }) => {
           <button
             onClick={onGoBack}
             className="p-2 text-white hover:bg-white/20 rounded-lg transition-all duration-200"
+            aria-label={t("goBack")}
           >
             <svg
               className="w-5 h-5"

@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { ChevronDown } from "lucide-react";
 
 const LanguageSwitcher: React.FC = () => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -33,6 +33,7 @@ const LanguageSwitcher: React.FC = () => {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center space-x-1 p-2 rounded-lg bg-white/30 text-white hover:bg-white/40 transition-all duration-200"
+        aria-label={t("welcome.selectLanguage")}
       >
         <span className="font-semibold text-sm">
           {i18n.language.toUpperCase()}
@@ -51,7 +52,7 @@ const LanguageSwitcher: React.FC = () => {
                 : "text-gray-700 hover:bg-gray-50"
             }`}
           >
-            English
+            {t("language.english")}
           </button>
           <button
             onClick={() => changeLanguage("fr")}
@@ -61,7 +62,7 @@ const LanguageSwitcher: React.FC = () => {
                 : "text-gray-700 hover:bg-gray-50"
             }`}
           >
-            Français
+            {t("language.french")}
           </button>
         </div>
       )}

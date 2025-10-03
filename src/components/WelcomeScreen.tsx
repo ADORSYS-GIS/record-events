@@ -2,9 +2,7 @@ import type { i18n as I18nInstance } from "i18next";
 import type { FC } from "react";
 import React from "react";
 import { useTheme } from "../hooks/useTheme.tsx";
-import OnboardingHeader from "./onboarding/OnboardingHeader";
 import WelcomeActions from "./welcome/WelcomeActions";
-import WelcomeFeatures from "./welcome/WelcomeFeatures";
 import WelcomeHeader from "./welcome/WelcomeHeader";
 
 interface WelcomeScreenProps {
@@ -24,14 +22,12 @@ const WelcomeScreen: FC<WelcomeScreenProps> = ({ onGetStarted, i18n }) => {
       }`}
     >
       <div className="w-full max-w-2xl mx-auto">
-        <OnboardingHeader />
         <div
           className={`rounded-2xl shadow-xl p-4 sm:p-8 md:p-10 transition-all duration-300 ${
             isDark ? "bg-gray-800 border border-gray-700" : "bg-white"
           }`}
         >
           <WelcomeHeader isDark={isDark} i18n={i18n} />
-          <WelcomeFeatures isDark={isDark} />
           <WelcomeActions
             isDark={isDark}
             onGetStarted={onGetStarted}

@@ -1,5 +1,6 @@
-import React from "react";
-import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
+import React, { Dispatch, SetStateAction, useEffect } from "react";
+import { Routes, Route, Navigate, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { MainLayout } from "../layouts";
 import {
   WelcomePage,
@@ -18,10 +19,6 @@ import { type LocalEvent } from "../hooks/useEventHistory";
 import { EventPackage } from "../openapi-rq/requests/types.gen";
 
 interface AppRoutesProps {
-  showWelcome: boolean;
-  showOnboarding: boolean;
-  showDashboard: boolean;
-  showEventForm: boolean;
   isLoading: boolean;
   hasError: boolean;
   errorMessage?: string;
@@ -39,20 +36,17 @@ interface AppRoutesProps {
   onOpenSettings: () => void;
   onSelectDraft: (draft: LocalEvent) => void;
   onRetry: () => void;
-  onGoBackToDashboard: () => void; // Add this prop
+  onGoBackToDashboard: () => void;
   addEvent: (eventPackage: EventPackage, hash?: string) => void;
   saveDraft: (eventPackage: EventPackage, image?: Blob) => void;
   updateDraft: (eventPackage: EventPackage, image?: Blob) => void;
   removeEvent: (eventId: string) => void;
   updateEventStatus: (eventId: string, status: LocalEvent["status"]) => void;
   editingEvent?: LocalEvent;
+  setEditingEvent: Dispatch<SetStateAction<LocalEvent | undefined>>;
 }
 
 const AppRoutes: React.FC<AppRoutesProps> = ({
-  showWelcome,
-  showOnboarding,
-  showDashboard,
-  showEventForm,
   isLoading,
   hasError,
   errorMessage,
@@ -77,19 +71,18 @@ const AppRoutes: React.FC<AppRoutesProps> = ({
   removeEvent,
   updateEventStatus,
   editingEvent,
+  setEditingEvent,
 }) => {
-  const navigate = useNavigate();
+  const { t } = useTranslation();
 
   // Show loading state during device security (key management + WebAuthn + Proof of Work)
   if (isLoading) {
-    let loadingMessage = "Please wait while we secure your device...";
+    let loadingMessage = t("loading.securingDevice");
 
     if (authStatus.isKeyGenerating) {
-      loadingMessage =
-        keyStatus || "Please wait while we secure your device...";
+      loadingMessage = keyStatus || t("loading.securingDevice");
     } else if (authStatus.isPowComputing) {
-      loadingMessage =
-        powStatus || "Please wait while we verify your device...";
+      loadingMessage = powStatus || t("loading.verifyingDevice");
     }
 
     return <LoadingPage message={loadingMessage} />;
@@ -100,24 +93,25 @@ const AppRoutes: React.FC<AppRoutesProps> = ({
     return <ErrorPage message={errorMessage} onRetry={onRetry} />;
   }
 
-  // Determine which page to show based on state
-  let currentPage = null;
+  // Conditional rendering for the EventFormPage when keyPair is not available
+  const EventFormPageWithAuthCheck = () => {
+    const { eventId } = useParams<{ eventId: string }>();
+    const currentEditingEvent = eventId
+      ? events.find((event) => event.id === eventId)
+      : editingEvent;
 
-  if (showWelcome) {
-    currentPage = <WelcomePage onGetStarted={onGetStarted} />;
-  } else if (showOnboarding) {
-    currentPage = (
-      <OnboardingPage
-        onComplete={onOnboardingComplete}
-        keyStatus={keyStatus}
-        powStatus={powStatus}
-        authStatus={authStatus}
-      />
-    );
-  } else if (showEventForm) {
-    // Ensure keyPair is available before showing event form
+    useEffect(() => {
+      if (
+        eventId &&
+        currentEditingEvent &&
+        currentEditingEvent !== editingEvent
+      ) {
+        setEditingEvent(currentEditingEvent);
+      }
+    }, [eventId, currentEditingEvent, editingEvent, setEditingEvent]);
+
     if (!keyPair || !keyPair.privateKey || !keyPair.publicKey) {
-      currentPage = (
+      return (
         <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 flex items-center justify-center p-6">
           <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 text-center">
             <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -136,76 +130,91 @@ const AppRoutes: React.FC<AppRoutesProps> = ({
               </svg>
             </div>
             <h2 className="text-xl font-semibold text-gray-900 mb-2">
-              Authentication Required
+              {t("eventForm.media.authTokenNotFoundTitle")}
             </h2>
             <p className="text-gray-600 mb-6">
-              Your security keys are not available. Please return to the
-              dashboard and try again.
+              {t("eventForm.media.authTokenNotFoundDescription")}
             </p>
             <button
               onClick={onGoBackToDashboard}
               className="w-full bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium py-3 px-4 rounded-xl transition-colors duration-200"
             >
-              Go Back to Dashboard
+              {t("draftSelection.goBack")}
             </button>
           </div>
         </div>
       );
-    } else {
-      currentPage = (
-        <EventFormPage
-          labels={labels}
-          keyPair={keyPair}
-          onGoBack={onGoBackToDashboard}
-          initialEvent={editingEvent}
-          addEvent={addEvent}
-          saveDraft={saveDraft}
-          updateDraft={updateDraft}
-          removeEvent={removeEvent}
-          updateEventStatus={updateEventStatus}
-        />
-      );
     }
-  } else if (showDashboard) {
-    currentPage = (
-      <DashboardPage
+    return (
+      <EventFormPage
         labels={labels}
         keyPair={keyPair}
-        events={events}
-        onCreateEvent={onCreateEvent}
-        onContinueEvent={onContinueEvent}
-        onViewEvent={onViewEvent}
-        onOpenSettings={onOpenSettings}
+        onGoBack={onGoBackToDashboard}
+        initialEvent={currentEditingEvent}
+        addEvent={addEvent}
+        saveDraft={saveDraft}
+        updateDraft={updateDraft}
         removeEvent={removeEvent}
-        onSelectDraft={onSelectDraft}
+        updateEventStatus={updateEventStatus}
       />
     );
-  } else {
-    // Default to dashboard if no specific page is set
-    currentPage = (
-      <DashboardPage
-        labels={labels}
-        keyPair={keyPair}
-        events={events}
-        onCreateEvent={onCreateEvent}
-        onContinueEvent={onContinueEvent}
-        onViewEvent={onViewEvent}
-        onOpenSettings={onOpenSettings}
-        removeEvent={removeEvent}
-        onSelectDraft={onSelectDraft}
-      />
-    );
-  }
+  };
 
   return (
     <Routes>
       <Route path="/" element={<MainLayout />}>
-        {/* All routes render the same content based on state */}
-        <Route index element={currentPage} />
-        <Route path="onboarding" element={currentPage} />
-        <Route path="dashboard" element={currentPage} />
-        <Route path="event/new" element={currentPage} />
-        <Route path="drafts" element={currentPage} />
+        <Route
+          index
+          element={
+            localStorage.getItem("eventApp_onboarding_completed") === "true" ? (
+              <DashboardPage
+                labels={labels}
+                keyPair={keyPair}
+                events={events}
+                onCreateEvent={onCreateEvent}
+                onContinueEvent={onContinueEvent}
+                onViewEvent={onViewEvent}
+                onOpenSettings={onOpenSettings}
+                removeEvent={removeEvent}
+                onSelectDraft={onSelectDraft}
+              />
+            ) : (
+              <WelcomePage onGetStarted={onGetStarted} />
+            )
+          }
+        />
+        <Route
+          path="onboarding"
+          element={
+            <OnboardingPage
+              onComplete={onOnboardingComplete}
+              keyStatus={keyStatus}
+              powStatus={powStatus}
+              authStatus={authStatus}
+            />
+          }
+        />
+        <Route
+          path="dashboard"
+          element={
+            <DashboardPage
+              labels={labels}
+              keyPair={keyPair}
+              events={events}
+              onCreateEvent={onCreateEvent}
+              onContinueEvent={onContinueEvent}
+              onViewEvent={onViewEvent}
+              onOpenSettings={onOpenSettings}
+              removeEvent={removeEvent}
+              onSelectDraft={onSelectDraft}
+            />
+          }
+        />
+        <Route path="event/new" element={<EventFormPageWithAuthCheck />} />
+        <Route
+          path="event/edit/:eventId"
+          element={<EventFormPageWithAuthCheck />}
+        />
 
         {/* Default redirect */}
         <Route path="*" element={<Navigate to="/" replace />} />

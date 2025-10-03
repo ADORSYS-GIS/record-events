@@ -41,6 +41,7 @@ const ThemeSwitcher: React.FC = () => {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center space-x-1 p-2 rounded-lg bg-white/30 text-white hover:bg-white/40 transition-all duration-200"
+        aria-label={t("themeSwitcher.toggle")}
       >
         {themeIcons[theme]}
         <ChevronDown

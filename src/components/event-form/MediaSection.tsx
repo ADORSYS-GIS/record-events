@@ -39,6 +39,7 @@ const MediaSection: React.FC<MediaSectionProps> = ({
                 type="button"
                 onClick={() => setMediaFile(null)}
                 className="opacity-0 group-hover:opacity-100 bg-error-500 text-white rounded-full p-2 hover:bg-error-600 transition-all duration-200 shadow-lg"
+                aria-label={t("removeImage")}
               >
                 <X className="w-4 h-4" />
               </button>
@@ -75,13 +76,10 @@ const MediaSection: React.FC<MediaSectionProps> = ({
         </div>
         <div>
           <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-2">
-            {t("eventForm.media.title", "Add Media to Your Report")}
+            {t("eventForm.media.title")}
           </h3>
           <p className="text-gray-500 dark:text-gray-400 mb-6">
-            {t(
-              "eventForm.media.description",
-              "Drag and drop an image here, or click to browse",
-            )}
+            {t("eventForm.media.description")}
           </p>
         </div>
 
