@@ -1,12 +1,14 @@
 import { useTranslation } from "react-i18next";
 import type { Label, LocalizedText } from "../../labels/label-manager";
 import {
+  cameroonData,
   getDivisions,
   getSubdivisions,
   getRegions,
   LocationNames,
 } from "../../labels/cameroon-data";
 import { FieldValue } from "../../types/event"; // Import FieldValue
+import { useEffect } from "react";
 import Dropdown from "./Dropdown";
 
 type FormData = Record<string, FieldValue>;
@@ -25,10 +27,16 @@ interface FormFieldsProps {
 }
 
 // Helper to get localized text from a string or LocalizedText object
-const getLocalizedText = (text: string | LocalizedText | undefined): string => {
+const getLocalizedText = (
+  text: string | LocalizedText | undefined,
+  lang: string,
+): string => {
   if (!text) return "";
   if (typeof text === "string") return text;
-  return text.en;
+
+  // Fallback to English if the current language is not French
+  const displayLang = lang === "fr" ? "fr" : "en";
+  return text[displayLang];
 };
 
 const FormFields: React.FC<FormFieldsProps> = ({
@@ -41,7 +49,24 @@ const FormFields: React.FC<FormFieldsProps> = ({
 }) => {
   const { t, i18n } = useTranslation();
   const currentLang = i18n.language as keyof LocationNames;
+  const displayLang = currentLang === "fr" ? "fr" : "en";
 
+  const findRegionKey = (regionValue: string): string | undefined => {
+    if (!regionValue) return undefined;
+    return Object.keys(cameroonData).find((key) => {
+      const region = cameroonData[key as keyof typeof cameroonData];
+      return region.name.en === regionValue || region.name.fr === regionValue;
+    });
+  };
+
+  useEffect(() => {
+    const region = formData["1"] as string;
+    if (region === "Foreign" || region === "Étranger") {
+      const foreignValue = displayLang === "en" ? "Foreign" : "Étranger";
+      handleDropdownChange("2", foreignValue);
+      handleDropdownChange("3", foreignValue);
+    }
+  }, [formData["1"], displayLang]);
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
       {labels
@@ -59,14 +84,24 @@ const FormFields: React.FC<FormFieldsProps> = ({
           let options = label.options || [];
           if (label.labelId === "1") {
             // For the Region dropdown
-            options = getRegions().map((name) => name[currentLang]);
+            options = getRegions().map((name) => name[displayLang]);
           } else if (label.dependsOn === "1") {
-            const region = formData["1"] as string;
-            options = getDivisions(region);
+            const regionValue = formData["1"] as string;
+            if (regionValue === "Foreign" || regionValue === "Étranger") {
+              options = [displayLang === "en" ? "Foreign" : "Étranger"];
+            } else {
+              const regionKey = findRegionKey(regionValue);
+              options = getDivisions(regionKey || "");
+            }
           } else if (label.dependsOn === "2") {
-            const region = formData["1"] as string;
-            const division = formData["2"] as string;
-            options = getSubdivisions(region, division);
+            const regionValue = formData["1"] as string;
+            const divisionValue = formData["2"] as string;
+            if (regionValue === "Foreign" || regionValue === "Étranger") {
+              options = [displayLang === "en" ? "Foreign" : "Étranger"];
+            } else {
+              const regionKey = findRegionKey(regionValue);
+              options = getSubdivisions(regionKey || "", divisionValue);
+            }
           }
 
           return (
@@ -123,7 +158,10 @@ const FormFields: React.FC<FormFieldsProps> = ({
                   step={label.constraints?.step}
                   disabled={isSubmitting}
                   required={label.required}
-                  placeholder={getLocalizedText(label.placeholder)}
+                  placeholder={getLocalizedText(
+                    label.placeholder,
+                    i18n.language,
+                  )}
                 />
               )}
 
@@ -202,7 +240,10 @@ const FormFields: React.FC<FormFieldsProps> = ({
                   <span>
                     {typeof label.helpText === "string"
                       ? t(label.helpText)
-                      : t(label.helpText[i18n.language] || label.helpText.en)}
+                      : t(
+                          label.helpText[displayLang] ||
+                            (label.helpText as LocalizedText).en,
+                        )}
                   </span>
                 </p>
               )}
