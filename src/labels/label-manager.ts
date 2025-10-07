@@ -1,4 +1,4 @@
-import { cameroonData } from "./cameroon-data";
+import { FieldValue } from "../types/event";
 
 export interface LocalizedText {
   [key: string]: string;
@@ -24,9 +24,7 @@ export interface Label {
   };
   options?: string[];
   dependsOn?: string;
-  showIf?: (
-    formData: Record<string, string | number | boolean | null>,
-  ) => boolean;
+  showIf?: (formData: Record<string, FieldValue>) => boolean;
   category?: string;
 }
 
@@ -47,7 +45,7 @@ export async function fetchLabels(): Promise<Label[]> {
           required: true,
           placeholder: "Région - Region",
           helpText: "La région - The region",
-          options: Object.keys(cameroonData),
+          options: [], // Options will be dynamically populated in FormFields.tsx
           category: "event_details",
         },
         {

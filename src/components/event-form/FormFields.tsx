@@ -1,7 +1,12 @@
 import { useTranslation } from "react-i18next";
 import type { Label, LocalizedText } from "../../labels/label-manager";
-import { getDivisions, getSubdivisions } from "../../labels/cameroon-data";
-import type { FieldValue } from "../../types/event";
+import {
+  getDivisions,
+  getSubdivisions,
+  getRegions,
+  LocationNames,
+} from "../../labels/cameroon-data";
+import { FieldValue } from "../../types/event"; // Import FieldValue
 import Dropdown from "./Dropdown";
 
 type FormData = Record<string, FieldValue>;
@@ -35,6 +40,7 @@ const FormFields: React.FC<FormFieldsProps> = ({
   handleDropdownChange,
 }) => {
   const { t, i18n } = useTranslation();
+  const currentLang = i18n.language as keyof LocationNames;
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
@@ -51,7 +57,10 @@ const FormFields: React.FC<FormFieldsProps> = ({
           const error = errors[label.labelId];
 
           let options = label.options || [];
-          if (label.dependsOn === "1") {
+          if (label.labelId === "1") {
+            // For the Region dropdown
+            options = getRegions().map((name) => name[currentLang]);
+          } else if (label.dependsOn === "1") {
             const region = formData["1"] as string;
             options = getDivisions(region);
           } else if (label.dependsOn === "2") {
