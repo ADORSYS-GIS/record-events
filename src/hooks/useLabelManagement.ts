@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { initializeLabels, type Label } from "../labels/label-manager";
+import { loadData } from "../labels/cameroon-data";
 
 export function useLabelManagement() {
   const [labels, setLabels] = useState<Label[]>([]);
@@ -9,6 +10,7 @@ export function useLabelManagement() {
     const init = async () => {
       try {
         setLabelStatus("Labels: Fetching...");
+        await loadData();
         const fetchedLabels = await initializeLabels();
         setLabels(fetchedLabels);
         setLabelStatus("Labels: Loaded.");
