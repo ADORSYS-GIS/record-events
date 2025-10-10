@@ -110,6 +110,33 @@ export function getStations(
   );
 }
 
+export function getVotersForStation(
+  region: string,
+  division: string,
+  subdivision: string,
+  locality: string,
+  station: string,
+): number | null {
+  if (
+    !region ||
+    !division ||
+    !subdivision ||
+    !locality ||
+    !station ||
+    !cameroonData[region] ||
+    !cameroonData[region].divisions[division] ||
+    !cameroonData[region].divisions[division][subdivision] ||
+    !cameroonData[region].divisions[division][subdivision][locality]
+  )
+    return null;
+  
+  const stationData = cameroonData[region].divisions[division][subdivision][locality].find(
+    (s) => s.station === station,
+  );
+  
+  return stationData ? stationData.voters : null;
+}
+
 export function findRegionKey(regionValue: string): string | undefined {
   if (!regionValue) return undefined;
   return Object.keys(cameroonData).find((key) => {

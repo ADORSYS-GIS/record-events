@@ -8,6 +8,7 @@ import { LocalEvent } from "../hooks/useEventHistory";
 import type { KeyPair } from "../hooks/useKeyInitialization";
 import { useOnlineStatus } from "../hooks/useOnlineStatus.ts";
 import type { Label } from "../labels/label-manager";
+import { findRegionKey, getVotersForStation } from "../labels/cameroon-data";
 import type { EventPackage } from "../openapi-rq/requests/types.gen";
 import { apiAuthService } from "../services/keyManagement/apiAuthService";
 import { generateEventJWT } from "../services/keyManagement/jwtService";
@@ -89,6 +90,43 @@ const EventForm: React.FC<EventFormProps> = ({
       }
     };
   }, [initialEvent]);
+
+  // Auto-fill voters count when station is selected
+  useEffect(() => {
+    const station = formData.station as string;
+    const regionValue = formData["1"] as string;
+    const divisionValue = formData["2"] as string;
+    const subdivisionValue = formData["3"] as string;
+    const localityValue = formData.locality as string;
+
+    // Only auto-fill if station is selected and not "Others/Autre"
+    if (station && station !== "Others/Autre" && regionValue && divisionValue && subdivisionValue && localityValue) {
+      const regionKey = findRegionKey(regionValue);
+      if (regionKey) {
+        const votersCount = getVotersForStation(
+          regionKey,
+          divisionValue,
+          subdivisionValue,
+          localityValue,
+          station
+        );
+        
+        if (votersCount !== null) {
+          setFormData((prev) => ({
+            ...prev,
+            votants_inscrits: votersCount,
+          }));
+        }
+      }
+    } else if (station === "Others/Autre") {
+      // When "Others/Autre" is selected, clear the voters field to make it editable
+      // Only clear if it was previously auto-filled
+      if (formData.votants_inscrits !== null && formData.votants_inscrits !== undefined) {
+        // Don't clear if the user has already entered a custom value
+        // We can check this by seeing if the value was set by the auto-fill
+      }
+    }
+  }, [formData.station, formData["1"], formData["2"], formData["3"], formData.locality]);
 
   useEffect(() => {
     const registeredVoters = formData.votants_inscrits
