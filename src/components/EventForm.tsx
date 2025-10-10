@@ -423,10 +423,6 @@ const EventForm: React.FC<EventFormProps> = ({
   };
 
   const handleSaveDraft = useCallback(async () => {
-    if (!validate()) {
-      toast.error(t("validationError"));
-      return;
-    }
     try {
       const cleanData: Record<string, FieldValue> = {};
       labels.forEach((label) => {
