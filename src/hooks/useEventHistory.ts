@@ -37,9 +37,15 @@ export const useEventHistory = () => {
   const saveDraft = useCallback(
     async (eventPackage: EventPackage, image?: Blob) => {
       // Try to find a location annotation in priority order
-      const priorityLabelIds = ["other_station", "other_locality", "station", "locality", "3"];
+      const priorityLabelIds = [
+        "other_station",
+        "other_locality",
+        "station",
+        "locality",
+        "3",
+      ];
       let locationValue = "";
-      
+
       for (const labelId of priorityLabelIds) {
         const annotation = eventPackage.annotations.find(
           (annotation) => annotation.labelId === labelId,
@@ -49,7 +55,7 @@ export const useEventHistory = () => {
           break;
         }
       }
-      
+
       // Generate title with location + first 4 characters of event ID
       const eventIdPrefix = eventPackage.id.slice(0, 4);
       const draftTitle = locationValue

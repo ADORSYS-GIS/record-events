@@ -100,7 +100,14 @@ const EventForm: React.FC<EventFormProps> = ({
     const localityValue = formData.locality as string;
 
     // Only auto-fill if station is selected and not "Others/Autre"
-    if (station && station !== "Others/Autre" && regionValue && divisionValue && subdivisionValue && localityValue) {
+    if (
+      station &&
+      station !== "Others/Autre" &&
+      regionValue &&
+      divisionValue &&
+      subdivisionValue &&
+      localityValue
+    ) {
       const regionKey = findRegionKey(regionValue);
       if (regionKey) {
         const votersCount = getVotersForStation(
@@ -108,9 +115,9 @@ const EventForm: React.FC<EventFormProps> = ({
           divisionValue,
           subdivisionValue,
           localityValue,
-          station
+          station,
         );
-        
+
         // Only update if the value is different from current value
         if (votersCount !== null && formData.votants_inscrits !== votersCount) {
           setFormData((prev) => ({
@@ -120,7 +127,14 @@ const EventForm: React.FC<EventFormProps> = ({
         }
       }
     }
-  }, [formData.station, formData["1"], formData["2"], formData["3"], formData.locality, formData.votants_inscrits]);
+  }, [
+    formData.station,
+    formData["1"],
+    formData["2"],
+    formData["3"],
+    formData.locality,
+    formData.votants_inscrits,
+  ]);
 
   useEffect(() => {
     const registeredVoters = formData.votants_inscrits
@@ -141,9 +155,11 @@ const EventForm: React.FC<EventFormProps> = ({
         }, 0);
 
       const nullBulletins = Number(formData.bulletins_nuls) || 0;
-      const calculatedAbstentions = registeredVoters - candidateVotes - nullBulletins;
-      const abstentions = calculatedAbstentions >= 0 ? calculatedAbstentions : 0;
-      
+      const calculatedAbstentions =
+        registeredVoters - candidateVotes - nullBulletins;
+      const abstentions =
+        calculatedAbstentions >= 0 ? calculatedAbstentions : 0;
+
       // Only update if the value is different from current value
       if (formData.abstentions !== abstentions) {
         setFormData((prev) => ({

@@ -54,7 +54,6 @@ const FormFields: React.FC<FormFieldsProps> = ({
   const currentLang = i18n.language as keyof LocationNames;
   const displayLang = currentLang === "fr" ? "fr" : "en";
 
-
   useEffect(() => {
     const region = formData["1"] as string;
     if (region === "Foreign" || region === "Étranger") {
@@ -187,43 +186,47 @@ const FormFields: React.FC<FormFieldsProps> = ({
               )}
 
               {/* Number Field */}
-              {label.type === "number" && (() => {
-                // Check if this is the votants_inscrits field and station is not "Others/Autre"
-                const isVotantsInscritsField = label.labelId === "votants_inscrits";
-                const stationValue = formData.station as string;
-                const shouldBeDisabled = !!(isVotantsInscritsField &&
-                  stationValue &&
-                  stationValue !== "Others/Autre");
-                
-                return (
-                  <input
-                    type="number"
-                    id={labelId}
-                    name={label.labelId}
-                    value={
-                      formData[label.labelId] === null ||
-                      formData[label.labelId] === undefined
-                        ? ""
-                        : String(formData[label.labelId])
-                    }
-                    onChange={handleChange}
-                    className={`w-full px-4 py-3 bg-transparent dark:text-white rounded-xl border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-cameroon-yellow focus:border-cameroon-yellow ${
-                      error
-                        ? "border-cameroon-red focus:border-cameroon-red focus:ring-cameroon-red"
-                        : "border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600"
-                    } ${isSubmitting || shouldBeDisabled ? "opacity-50 cursor-not-allowed" : ""}`}
-                    min={label.constraints?.min}
-                    max={30000000}
-                    step={label.constraints?.step}
-                    disabled={isSubmitting || shouldBeDisabled}
-                    required={label.required}
-                    placeholder={getLocalizedText(
-                      label.placeholder,
-                      i18n.language,
-                    )}
-                  />
-                );
-              })()}
+              {label.type === "number" &&
+                (() => {
+                  // Check if this is the votants_inscrits field and station is not "Others/Autre"
+                  const isVotantsInscritsField =
+                    label.labelId === "votants_inscrits";
+                  const stationValue = formData.station as string;
+                  const shouldBeDisabled = !!(
+                    isVotantsInscritsField &&
+                    stationValue &&
+                    stationValue !== "Others/Autre"
+                  );
+
+                  return (
+                    <input
+                      type="number"
+                      id={labelId}
+                      name={label.labelId}
+                      value={
+                        formData[label.labelId] === null ||
+                        formData[label.labelId] === undefined
+                          ? ""
+                          : String(formData[label.labelId])
+                      }
+                      onChange={handleChange}
+                      className={`w-full px-4 py-3 bg-transparent dark:text-white rounded-xl border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-cameroon-yellow focus:border-cameroon-yellow ${
+                        error
+                          ? "border-cameroon-red focus:border-cameroon-red focus:ring-cameroon-red"
+                          : "border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600"
+                      } ${isSubmitting || shouldBeDisabled ? "opacity-50 cursor-not-allowed" : ""}`}
+                      min={label.constraints?.min}
+                      max={30000000}
+                      step={label.constraints?.step}
+                      disabled={isSubmitting || shouldBeDisabled}
+                      required={label.required}
+                      placeholder={getLocalizedText(
+                        label.placeholder,
+                        i18n.language,
+                      )}
+                    />
+                  );
+                })()}
 
               {/* Boolean Field */}
               {label.type === "boolean" && (

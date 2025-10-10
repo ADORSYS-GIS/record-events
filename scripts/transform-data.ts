@@ -1,6 +1,10 @@
-import * as fs from 'fs';
-import * as path from 'path';
-import { cameroonData, CameroonData, LocationNames } from '../src/labels/cameroon-data20';
+import * as fs from "fs";
+import * as path from "path";
+import {
+  cameroonData,
+  CameroonData,
+  LocationNames,
+} from "../src/labels/cameroon-data20";
 
 // Define the new types
 type NewPollingStationData = {
@@ -103,7 +107,7 @@ export type CameroonData = {
 export const cameroonData: CameroonData = ${JSON.stringify(transformedData, null, 2)};
 `;
 
-const filePath = path.resolve(__dirname, '../src/labels/cameroon-data20.ts');
+const filePath = path.resolve(__dirname, "../src/labels/cameroon-data20.ts");
 fs.writeFileSync(filePath, newFileContent.trim());
 
-console.log('Data transformation complete.');
+console.log("Data transformation complete.");
