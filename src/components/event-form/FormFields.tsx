@@ -128,7 +128,10 @@ const FormFields: React.FC<FormFieldsProps> = ({
                 divisionValue,
                 subdivisionValue,
               );
-              options.push("Others/Autre");
+              // Only add "Others/Autre" if it's not already in the array
+              if (!options.includes("Others/Autre")) {
+                options.push("Others/Autre");
+              }
             }
           } else if (label.dependsOn === "locality") {
             const regionValue = formData["1"] as string;
@@ -145,7 +148,10 @@ const FormFields: React.FC<FormFieldsProps> = ({
                 subdivisionValue,
                 localityValue,
               );
-              options.push("Others/Autre");
+              // Only add "Others/Autre" if it's not already in the array
+              if (!options.includes("Others/Autre")) {
+                options.push("Others/Autre");
+              }
             }
           }
 
