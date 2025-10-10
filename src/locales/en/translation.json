@@ -222,5 +222,21 @@
     "title": "Install App",
     "installButton": "Install",
     "closeButton": "Close"
-  }
+  },
+  "Région - Region": "Region",
+  "La région - The region": "The region",
+  "Département - Division": "Division",
+  "Le département - The division": "The division",
+  "Arrondissement - Subdivision": "Subdivision",
+  "L'arrondissement - The subdivision": "The subdivision",
+  "Village/Quartier - Locality": "Locality",
+  "Le village ou quartier - The locality": "The locality",
+  "Bureau de Vote - Polling Station": "Polling Station",
+  "Bureau de Vote - Polling Office": "Polling Office",
+  "Le bureau de vote - The polling station": "The polling station",
+  "Le bureau de vote - The polling office": "The polling office",
+  "Autre Village/Quartier - Other Locality": "Other Locality",
+  "Autre village/quartier - Other locality": "Other locality",
+  "Votants Inscrits - Registered Voters": "Registered Voters",
+  "Bulletins Nuls - Void Ballots": "Void Ballots"
 }

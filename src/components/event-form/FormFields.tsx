@@ -1,11 +1,14 @@
 import { useTranslation } from "react-i18next";
 import type { Label, LocalizedText } from "../../labels/label-manager";
 import {
-  cameroonData,
+  findRegionKey,
   getDivisions,
+  getLocalities,
+  getStations,
   getSubdivisions,
   getRegions,
   LocationNames,
+  getVotersForStation,
 } from "../../labels/cameroon-data";
 import { FieldValue } from "../../types/event"; // Import FieldValue
 import { useEffect } from "react";
@@ -51,14 +54,6 @@ const FormFields: React.FC<FormFieldsProps> = ({
   const currentLang = i18n.language as keyof LocationNames;
   const displayLang = currentLang === "fr" ? "fr" : "en";
 
-  const findRegionKey = (regionValue: string): string | undefined => {
-    if (!regionValue) return undefined;
-    return Object.keys(cameroonData).find((key) => {
-      const region = cameroonData[key as keyof typeof cameroonData];
-      return region.name.en === regionValue || region.name.fr === regionValue;
-    });
-  };
-
   useEffect(() => {
     const region = formData["1"] as string;
     if (region === "Foreign" || region === "Étranger") {
@@ -70,12 +65,29 @@ const FormFields: React.FC<FormFieldsProps> = ({
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
       {labels
-        .filter(
-          (label) =>
-            (label.category === "event_details" || !label.category) &&
-            (!label.showIf || label.showIf(formData)),
-        )
+        .filter((label) => {
+          const categoryMatch =
+            label.category === "event_details" || !label.category;
+          if (!categoryMatch) return false;
+
+          if (label.labelId === "other_locality") {
+            return formData.locality === "Others/Autre";
+          }
+          if (label.labelId === "other_station") {
+            return formData.station === "Others/Autre";
+          }
+
+          return true;
+        })
         .map((label) => {
+          const isConditionallyRequired =
+            (label.labelId === "other_locality" &&
+              formData.locality === "Others/Autre") ||
+            (label.labelId === "other_station" &&
+              formData.station === "Others/Autre");
+
+          const isRequired = label.required || isConditionallyRequired;
+
           const labelName =
             i18n.language === "fr" ? label.name_fr : label.name_en;
           const labelId = `field-${label.labelId}`;
@@ -102,6 +114,44 @@ const FormFields: React.FC<FormFieldsProps> = ({
               const regionKey = findRegionKey(regionValue);
               options = getSubdivisions(regionKey || "", divisionValue);
             }
+          } else if (label.dependsOn === "3") {
+            const regionValue = formData["1"] as string;
+            const divisionValue = formData["2"] as string;
+            const subdivisionValue = formData["3"] as string;
+            if (regionValue === "Foreign" || regionValue === "Étranger") {
+              options = [displayLang === "en" ? "Foreign" : "Étranger"];
+            } else {
+              const regionKey = findRegionKey(regionValue);
+              options = getLocalities(
+                regionKey || "",
+                divisionValue,
+                subdivisionValue,
+              );
+              // Only add "Others/Autre" if it's not already in the array
+              if (!options.includes("Others/Autre")) {
+                options.push("Others/Autre");
+              }
+            }
+          } else if (label.dependsOn === "locality") {
+            const regionValue = formData["1"] as string;
+            const divisionValue = formData["2"] as string;
+            const subdivisionValue = formData["3"] as string;
+            const localityValue = formData["locality"] as string;
+            if (regionValue === "Foreign" || regionValue === "Étranger") {
+              options = [displayLang === "en" ? "Foreign" : "Étranger"];
+            } else {
+              const regionKey = findRegionKey(regionValue);
+              options = getStations(
+                regionKey || "",
+                divisionValue,
+                subdivisionValue,
+                localityValue,
+              );
+              // Only add "Others/Autre" if it's not already in the array
+              if (!options.includes("Others/Autre")) {
+                options.push("Others/Autre");
+              }
+            }
           }
 
           return (
@@ -111,7 +161,7 @@ const FormFields: React.FC<FormFieldsProps> = ({
                 className="block text-sm font-medium text-gray-700 dark:text-gray-300"
               >
                 {labelName}{" "}
-                {label.required && <span className="text-cameroon-red">*</span>}
+                {isRequired && <span className="text-cameroon-red">*</span>}
               </label>
 
               {/* Text Field */}
@@ -128,7 +178,7 @@ const FormFields: React.FC<FormFieldsProps> = ({
                       : "border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600"
                   } ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`}
                   disabled={isSubmitting}
-                  required={label.required}
+                  required={isRequired}
                   placeholder={
                     label.placeholder ? t(label.placeholder as string) : ""
                   }
@@ -136,34 +186,47 @@ const FormFields: React.FC<FormFieldsProps> = ({
               )}
 
               {/* Number Field */}
-              {label.type === "number" && (
-                <input
-                  type="number"
-                  id={labelId}
-                  name={label.labelId}
-                  value={
-                    formData[label.labelId] === null ||
-                    formData[label.labelId] === undefined
-                      ? ""
-                      : String(formData[label.labelId])
-                  }
-                  onChange={handleChange}
-                  className={`w-full px-4 py-3 bg-transparent dark:text-white rounded-xl border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-cameroon-yellow focus:border-cameroon-yellow ${
-                    error
-                      ? "border-cameroon-red focus:border-cameroon-red focus:ring-cameroon-red"
-                      : "border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600"
-                  } ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`}
-                  min={label.constraints?.min}
-                  max={30000000}
-                  step={label.constraints?.step}
-                  disabled={isSubmitting}
-                  required={label.required}
-                  placeholder={getLocalizedText(
-                    label.placeholder,
-                    i18n.language,
-                  )}
-                />
-              )}
+              {label.type === "number" &&
+                (() => {
+                  // Check if this is the votants_inscrits field and station is not "Others/Autre"
+                  const isVotantsInscritsField =
+                    label.labelId === "votants_inscrits";
+                  const stationValue = formData.station as string;
+                  const shouldBeDisabled = !!(
+                    isVotantsInscritsField &&
+                    stationValue &&
+                    stationValue !== "Others/Autre"
+                  );
+
+                  return (
+                    <input
+                      type="number"
+                      id={labelId}
+                      name={label.labelId}
+                      value={
+                        formData[label.labelId] === null ||
+                        formData[label.labelId] === undefined
+                          ? ""
+                          : String(formData[label.labelId])
+                      }
+                      onChange={handleChange}
+                      className={`w-full px-4 py-3 bg-transparent dark:text-white rounded-xl border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-cameroon-yellow focus:border-cameroon-yellow ${
+                        error
+                          ? "border-cameroon-red focus:border-cameroon-red focus:ring-cameroon-red"
+                          : "border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600"
+                      } ${isSubmitting || shouldBeDisabled ? "opacity-50 cursor-not-allowed" : ""}`}
+                      min={label.constraints?.min}
+                      max={30000000}
+                      step={label.constraints?.step}
+                      disabled={isSubmitting || shouldBeDisabled}
+                      required={label.required}
+                      placeholder={getLocalizedText(
+                        label.placeholder,
+                        i18n.language,
+                      )}
+                    />
+                  );
+                })()}
 
               {/* Boolean Field */}
               {label.type === "boolean" && (

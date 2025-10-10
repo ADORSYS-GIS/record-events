@@ -8,6 +8,7 @@ import { LocalEvent } from "../hooks/useEventHistory";
 import type { KeyPair } from "../hooks/useKeyInitialization";
 import { useOnlineStatus } from "../hooks/useOnlineStatus.ts";
 import type { Label } from "../labels/label-manager";
+import { findRegionKey, getVotersForStation } from "../labels/cameroon-data";
 import type { EventPackage } from "../openapi-rq/requests/types.gen";
 import { apiAuthService } from "../services/keyManagement/apiAuthService";
 import { generateEventJWT } from "../services/keyManagement/jwtService";
@@ -90,6 +91,51 @@ const EventForm: React.FC<EventFormProps> = ({
     };
   }, [initialEvent]);
 
+  // Auto-fill voters count when station is selected
+  useEffect(() => {
+    const station = formData.station as string;
+    const regionValue = formData["1"] as string;
+    const divisionValue = formData["2"] as string;
+    const subdivisionValue = formData["3"] as string;
+    const localityValue = formData.locality as string;
+
+    // Only auto-fill if station is selected and not "Others/Autre"
+    if (
+      station &&
+      station !== "Others/Autre" &&
+      regionValue &&
+      divisionValue &&
+      subdivisionValue &&
+      localityValue
+    ) {
+      const regionKey = findRegionKey(regionValue);
+      if (regionKey) {
+        const votersCount = getVotersForStation(
+          regionKey,
+          divisionValue,
+          subdivisionValue,
+          localityValue,
+          station,
+        );
+
+        // Only update if the value is different from current value
+        if (votersCount !== null && formData.votants_inscrits !== votersCount) {
+          setFormData((prev) => ({
+            ...prev,
+            votants_inscrits: votersCount,
+          }));
+        }
+      }
+    }
+  }, [
+    formData.station,
+    formData["1"],
+    formData["2"],
+    formData["3"],
+    formData.locality,
+    formData.votants_inscrits,
+  ]);
+
   useEffect(() => {
     const registeredVoters = formData.votants_inscrits
       ? Number(formData.votants_inscrits)
@@ -109,11 +155,18 @@ const EventForm: React.FC<EventFormProps> = ({
         }, 0);
 
       const nullBulletins = Number(formData.bulletins_nuls) || 0;
-      const abstentions = registeredVoters - candidateVotes - nullBulletins;
-      setFormData((prev) => ({
-        ...prev,
-        abstentions: abstentions >= 0 ? abstentions : 0,
-      }));
+      const calculatedAbstentions =
+        registeredVoters - candidateVotes - nullBulletins;
+      const abstentions =
+        calculatedAbstentions >= 0 ? calculatedAbstentions : 0;
+
+      // Only update if the value is different from current value
+      if (formData.abstentions !== abstentions) {
+        setFormData((prev) => ({
+          ...prev,
+          abstentions: abstentions,
+        }));
+      }
     }
   }, [formData, labels]);
 
@@ -386,10 +439,6 @@ const EventForm: React.FC<EventFormProps> = ({
   };
 
   const handleSaveDraft = useCallback(async () => {
-    if (!validate()) {
-      toast.error(t("validationError"));
-      return;
-    }
     try {
       const cleanData: Record<string, FieldValue> = {};
       labels.forEach((label) => {

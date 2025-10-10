@@ -1,14 +1,29 @@
+import i18n from "i18next";
+
 export type LocationNames = {
   en: string;
   fr: string;
 };
 
+type PollingStationData = {
+  station: string;
+  voters: number;
+};
+
+type LocalityData = PollingStationData[];
+
+type CouncilData = {
+  [locality: string]: LocalityData;
+};
+
+type DivisionData = {
+  [council: string]: CouncilData;
+};
+
 type RegionData = {
   name: LocationNames;
   divisions: {
-    [division: string]: {
-      [subdivision: string]: string[];
-    };
+    [division: string]: DivisionData;
   };
 };
 
@@ -16,544 +31,25 @@ export type CameroonData = {
   [key: string]: RegionData;
 };
 
-export const cameroonData: CameroonData = {
-  Adamawa: {
-    name: { en: "Adamawa", fr: "Adamaoua" },
-    divisions: {
-      Djérem: {
-        Ngaoundal: [],
-        Tibati: [],
-      },
-      "Faro-et-Déo": {
-        "Galim-Tignère": [],
-        Kontcha: [],
-        "Mayo-Baléo": [],
-        Tignère: [],
-      },
-      "Mayo-Banyo": {
-        Bankim: [],
-        Banyo: [],
-        "Mayo-Darlé": [],
-      },
-      Mbéré: {
-        Dir: [],
-        Djohong: [],
-        Meiganga: [],
-        Ngaoui: [],
-      },
-      Vina: {
-        Belel: [],
-        Martap: [],
-        Mbe: [],
-        Nganha: [],
-        "Ngaoundéré I": [],
-        "Ngaoundéré II": [],
-        "Ngaoundéré III": [],
-        Nyambaka: [],
-      },
-    },
-  },
-  Centre: {
-    name: { en: "Centre", fr: "Centre" },
-    divisions: {
-      "Haute-Sanaga": {
-        Bibey: [],
-        "Lembe-Yezoum": [],
-        Mbandjock: [],
-        Minta: [],
-        "Nanga-Eboko": [],
-        Nkoteng: [],
-        Nsem: [],
-      },
-      Lekié: {
-        Batchenga: [],
-        Ebebda: [],
-        "Elig-Mfomo": [],
-        Evodoula: [],
-        Lobo: [],
-        Monatélé: [],
-        Obala: [],
-        Okola: [],
-        "Sa'a": [],
-      },
-      "Mbam-et-Inoubou": {
-        Bafia: [],
-        Bokito: [],
-        Deuk: [],
-        Kiiki: [],
-        "Kon-Yambetta": [],
-        Makénéné: [],
-        Ndikiniméki: [],
-        Nitoukou: [],
-        Ombessa: [],
-      },
-      "Mbam-et-Kim": {
-        Mbangassina: [],
-        "Ngambè-Tikar": [],
-        Ngoro: [],
-        Ntui: [],
-        Yoko: [],
-      },
-      "Méfou-et-Afamba": {
-        Afanloum: [],
-        Assamba: [],
-        Awaé: [],
-        Edzendouan: [],
-        Esse: [],
-        Mfou: [],
-        Nkolafamba: [],
-        Soa: [],
-      },
-      "Méfou-et-Akono": {
-        Akono: [],
-        Bikok: [],
-        Mbankomo: [],
-        Ngoumou: [],
-      },
-      Mfoundi: {
-        "Yaoundé I": [],
-        "Yaoundé II": [],
-        "Yaoundé III": [],
-        "Yaoundé IV": [],
-        "Yaoundé V": [],
-        "Yaoundé VI": [],
-        "Yaoundé VII": [],
-      },
-      "Nyong-et-Kéllé": {
-        Biyouha: [],
-        Bondjock: [],
-        "Bot-Makak": [],
-        Dibang: [],
-        Éséka: [],
-        Makak: [],
-        Matomb: [],
-        Messondo: [],
-        "Ngog-Mapubi": [],
-        Nguibassal: [],
-      },
-      "Nyong-et-Mfoumou": {
-        Akonolinga: [],
-        Ayos: [],
-        Endom: [],
-        Mengang: [],
-        Nyakokombo: [],
-      },
-      "Nyong-et-So'o": {
-        Akoeman: [],
-        Dzeng: [],
-        Mbalmayo: [],
-        Mengueme: [],
-        Ngomedzap: [],
-        Nkolmetet: [],
-      },
-    },
-  },
-  East: {
-    name: { en: "East", fr: "Est" },
-    divisions: {
-      "Boumba-et-Ngoko": {
-        "Gari-Gombo": [],
-        Moloundou: [],
-        Salapoumbé: [],
-        Yokadouma: [],
-      },
-      Kadey: {
-        Batouri: [],
-        Bombé: [],
-        Kette: [],
-        Mbang: [],
-        Mbotoro: [],
-        Ndelele: [],
-        "Ndem-Nam": [],
-      },
-      "Lom-et-Djérem": {
-        Bélabo: [],
-        "Bertoua I": [],
-        "Bertoua II": [],
-        "Bétaré-Oya": [],
-        Diang: [],
-        "Garoua-Boulaï": [],
-        Mandjou: [],
-        Ngoura: [],
-      },
-      "Haut-Nyong": {
-        "Abong-Mbang": [],
-        Bebend: [],
-        Dimako: [],
-        Dja: [],
-        Doumaintang: [],
-        Doumé: [],
-        Lomié: [],
-        Mboanz: [],
-        Mboma: [],
-        Messamena: [],
-        Messok: [],
-        Ngoyla: [],
-        Nguelemendouka: [],
-        Somalomo: [],
-      },
-    },
-  },
-  "Far North": {
-    name: { en: "Far North", fr: "Extrême-Nord" },
-    divisions: {
-      Diamaré: {
-        Bogo: [],
-        Dargala: [],
-        Gazawa: [],
-        "Maroua I": [],
-        "Maroua II": [],
-        "Maroua III": [],
-        Meri: [],
-        Ndoukoula: [],
-        Petté: [],
-      },
-      "Logone-et-Chari": {
-        Blangoua: [],
-        Darak: [],
-        Fotokol: [],
-        Goulfey: [],
-        "Hile-Alifa": [],
-        Kousséri: [],
-        "Logone-Birni": [],
-        Makary: [],
-        Waza: [],
-        Zina: [],
-      },
-      "Mayo-Danay": {
-        Datcheka: [],
-        Gobo: [],
-        Guéré: [],
-        "Kaï-Kaï": [],
-        Kalfou: [],
-        "Kar-Hay": [],
-        Maga: [],
-        "Tchati-Bali": [],
-        Vele: [],
-        Wina: [],
-        Yagoua: [],
-      },
-      "Mayo-Kani": {
-        Guidiguis: [],
-        Kaélé: [],
-        Mindif: [],
-        Moulvoudaye: [],
-        Moutourwa: [],
-        Porhi: [],
-        Taibong: [],
-      },
-      "Mayo-Sava": {
-        Kolofata: [],
-        Mora: [],
-        Tokombéré: [],
-      },
-      "Mayo-Tsanaga": {
-        Bourrha: [],
-        Hina: [],
-        Koza: [],
-        "Mayo-Moskota": [],
-        Mogode: [],
-        Mokolo: [],
-        "Soulédé-Roua": [],
-      },
-    },
-  },
-  Littoral: {
-    name: { en: "Littoral", fr: "Littoral" },
-    divisions: {
-      Moungo: {
-        "Abo Fiko": [],
-        "Baré-Bakem": [],
-        Dibombari: [],
-        Loum: [],
-        Manjo: [],
-        Mbanga: [],
-        Melong: [],
-        Mombo: [],
-        "Njombe-Penja": [],
-        "Nkongsamba I": [],
-        "Nkongsamba II": [],
-        "Nkongsamba III": [],
-        Nlonako: [],
-      },
-      Nkam: {
-        Nkondjock: [],
-        "Nord-Makombé": [],
-        Yabassi: [],
-        Yingui: [],
-      },
-      "Sanaga-Maritime": {
-        Dibamba: [],
-        Dizangué: [],
-        "Édéa I": [],
-        "Édéa II": [],
-        "Massock-Songloulou": [],
-        Mouanko: [],
-        Ndom: [],
-        Ngambe: [],
-        Ngwei: [],
-        Nyanon: [],
-        Pouma: [],
-      },
-      Wouri: {
-        "Douala I": [],
-        "Douala II": [],
-        "Douala III": [],
-        "Douala IV": [],
-        "Douala V": [],
-        "Douala VI": [],
-      },
-    },
-  },
-  North: {
-    name: { en: "North", fr: "Nord" },
-    divisions: {
-      Bénoué: {
-        Baschéo: [],
-        Bibemi: [],
-        Dembo: [],
-        Demsa: [],
-        "Garoua I": [],
-        "Garoua II": [],
-        "Garoua III": [],
-        Lagdo: [],
-        "Mayo-Hourna": [],
-        Pitoa: [],
-        Tcheboa: [],
-        Touroua: [],
-      },
-      Faro: {
-        Beka: [],
-        Poli: [],
-      },
-      "Mayo-Louti": {
-        Figuil: [],
-        Guider: [],
-        "Mayo-Oulo": [],
-      },
-      "Mayo-Rey": {
-        Madingring: [],
-        "Rey-Bouba": [],
-        Tcholliré: [],
-        Touboro: [],
-      },
-    },
-  },
-  "North-West": {
-    name: { en: "North-West", fr: "Nord-Ouest" },
-    divisions: {
-      Boyo: {
-        Belo: [],
-        Bum: [],
-        Fundong: [],
-        Njinikom: [],
-      },
-      Bui: {
-        Jakiri: [],
-        Kumbo: [],
-        Mbven: [],
-        Nkum: [],
-        Noni: [],
-        Oku: [],
-      },
-      "Donga-Mantung": {
-        Ako: [],
-        Misaje: [],
-        Ndu: [],
-        Nkambé: [],
-        Nwa: [],
-      },
-      Menchum: {
-        Fungom: [],
-        "Furu-Awa": [],
-        "Menchum Valley": [],
-        Wum: [],
-      },
-      Mezam: {
-        Bafut: [],
-        Bali: [],
-        "Bamenda I": [],
-        "Bamenda II": [],
-        "Bamenda III": [],
-        Santa: [],
-        Tubah: [],
-      },
-      Momo: {
-        Batibo: [],
-        Mbengwi: [],
-        Ngie: [],
-        Njikwa: [],
-        "Widikum-Menka": [],
-      },
-      "Ngo-Ketunjia": {
-        Babessi: [],
-        Balikumbat: [],
-        Ndop: [],
-      },
-    },
-  },
-  South: {
-    name: { en: "South", fr: "Sud" },
-    divisions: {
-      "Dja-et-Lobo": {
-        Bengbis: [],
-        Djoum: [],
-        Meyomessala: [],
-        Meyomessi: [],
-        Mintom: [],
-        Oveng: [],
-        Sangmélima: [],
-        Zoétélé: [],
-      },
-      Mvila: {
-        "Biwong-Bane": [],
-        "Biwong-Bulu": [],
-        "Ebolowa I": [],
-        "Ebolowa II": [],
-        Efoulan: [],
-        Mengong: [],
-        Mvangan: [],
-        Ngoulemakong: [],
-      },
-      Océan: {
-        "Akom II": [],
-        Bipindi: [],
-        Campo: [],
-        "Kribi I": [],
-        "Kribi II": [],
-        Lokoundje: [],
-        Lolodorf: [],
-        Mvengue: [],
-        Niete: [],
-      },
-      "Vallée-du-Ntem": {
-        Ambam: [],
-        "Kyé-Ossi": [],
-        "Ma'an": [],
-        Olamze: [],
-      },
-    },
-  },
-  "South-West": {
-    name: { en: "South-West", fr: "Sud-Ouest" },
-    divisions: {
-      Fako: {
-        Buea: [],
-        "Limbé I": [],
-        "Limbé II": [],
-        "Limbé III": [],
-        Muyuka: [],
-        Tiko: [],
-        "West Coast": [],
-      },
-      "Koupé-Manengouba": {
-        Bangem: [],
-        Nguti: [],
-        Tombel: [],
-      },
-      Lebialem: {
-        Alou: [],
-        Fontem: [],
-        Wabane: [],
-      },
-      Manyu: {
-        Akwaya: [],
-        Eyumodjock: [],
-        "Mamfé Central": [],
-        "Upper Banyang": [],
-      },
-      Meme: {
-        Konye: [],
-        "Kumba I": [],
-        "Kumba II": [],
-        "Kumba III": [],
-        Mbonge: [],
-      },
-      Ndian: {
-        Bamusso: [],
-        "Dikome-Balue": [],
-        "Ekondo-Titi": [],
-        Idabato: [],
-        Isanguele: [],
-        "Kombo-Abedimo": [],
-        "Kombo-Itindi": [],
-        Mundemba: [],
-        Toko: [],
-      },
-    },
-  },
-  West: {
-    name: { en: "West", fr: "Ouest" },
-    divisions: {
-      Bamboutos: {
-        Babadjou: [],
-        Batcham: [],
-        Galim: [],
-        Mbouda: [],
-      },
-      "Haut-Nkam": {
-        Bafang: [],
-        Bakou: [],
-        Bana: [],
-        Bandja: [],
-        Banka: [],
-        Banwa: [],
-        Kékem: [],
-      },
-      "Hauts-Plateaux": {
-        Baham: [],
-        Bamendjou: [],
-        Bangou: [],
-        Batié: [],
-      },
-      "Koung-Khi": {
-        Bayangam: [],
-        Djebem: [],
-        Poumougne: [],
-      },
-      Menoua: {
-        Dschang: [],
-        Fokoué: [],
-        "Fongo-Tongo": [],
-        "Nkong-Ni": [],
-        "Penka-Michel": [],
-        Santchou: [],
-      },
-      Mifi: {
-        "Bafoussam I": [],
-        "Bafoussam II": [],
-        "Bafoussam III": [],
-      },
-      Ndé: {
-        Bangangté: [],
-        Bassamba: [],
-        Bazou: [],
-        Tonga: [],
-      },
-      Noun: {
-        Bangourain: [],
-        Foumban: [],
-        Foumbot: [],
-        Kouoptamo: [],
-        Koutaba: [],
-        Magba: [],
-        Malentouen: [],
-        Massangam: [],
-        Njimom: [],
-      },
-    },
-  },
-  Étranger: {
-    name: { en: "Foreign", fr: "Étranger" },
-    divisions: {
-      Étranger: {
-        Étranger: [],
-      },
-    },
-  },
-};
+let cameroonData: CameroonData = {};
 
-import i18n from "i18next";
+export async function loadData() {
+  if (Object.keys(cameroonData).length > 0) {
+    return;
+  }
+
+  const modules = import.meta.glob("./cameroon-data*.ts");
+
+  const allData: CameroonData[] = await Promise.all(
+    Object.values(modules).map((importer) =>
+      importer().then((mod: any) => mod.cameroonData),
+    ),
+  );
+
+  cameroonData = allData.reduce((acc, data) => {
+    return { ...acc, ...data };
+  }, {});
+}
 
 export function getRegions(): LocationNames[] {
   return Object.values(cameroonData).map((region) => region.name);
@@ -575,7 +71,7 @@ export function getSubdivisions(region: string, division: string): string[] {
   return Object.keys(cameroonData[region].divisions[division]);
 }
 
-export function getPollingStations(
+export function getLocalities(
   region: string,
   division: string,
   subdivision: string,
@@ -589,8 +85,64 @@ export function getPollingStations(
     !cameroonData[region].divisions[division][subdivision]
   )
     return [];
+  return Object.keys(cameroonData[region].divisions[division][subdivision]);
+}
 
-  return cameroonData[region].divisions[division][subdivision];
+export function getStations(
+  region: string,
+  division: string,
+  subdivision: string,
+  locality: string,
+): string[] {
+  if (
+    !region ||
+    !division ||
+    !subdivision ||
+    !locality ||
+    !cameroonData[region] ||
+    !cameroonData[region].divisions[division] ||
+    !cameroonData[region].divisions[division][subdivision] ||
+    !cameroonData[region].divisions[division][subdivision][locality]
+  )
+    return [];
+  return cameroonData[region].divisions[division][subdivision][locality].map(
+    (stationData) => stationData.station,
+  );
+}
+
+export function getVotersForStation(
+  region: string,
+  division: string,
+  subdivision: string,
+  locality: string,
+  station: string,
+): number | null {
+  if (
+    !region ||
+    !division ||
+    !subdivision ||
+    !locality ||
+    !station ||
+    !cameroonData[region] ||
+    !cameroonData[region].divisions[division] ||
+    !cameroonData[region].divisions[division][subdivision] ||
+    !cameroonData[region].divisions[division][subdivision][locality]
+  )
+    return null;
+  
+  const stationData = cameroonData[region].divisions[division][subdivision][locality].find(
+    (s) => s.station === station,
+  );
+  
+  return stationData ? stationData.voters : null;
+}
+
+export function findRegionKey(regionValue: string): string | undefined {
+  if (!regionValue) return undefined;
+  return Object.keys(cameroonData).find((key) => {
+    const region = cameroonData[key as keyof typeof cameroonData];
+    return region.name.en === regionValue || region.name.fr === regionValue;
+  });
 }
 
 export const electionCandidates = {

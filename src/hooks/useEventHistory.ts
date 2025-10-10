@@ -36,12 +36,31 @@ export const useEventHistory = () => {
 
   const saveDraft = useCallback(
     async (eventPackage: EventPackage, image?: Blob) => {
-      const bureauDeVoteAnnotation = eventPackage.annotations.find(
-        (annotation) => annotation.labelId === "5",
-      );
-      const draftTitle =
-        (bureauDeVoteAnnotation?.value as string) ||
-        `Draft ${eventPackage.id.slice(0, 8)}`;
+      // Try to find a location annotation in priority order
+      const priorityLabelIds = [
+        "other_station",
+        "other_locality",
+        "station",
+        "locality",
+        "3",
+      ];
+      let locationValue = "";
+
+      for (const labelId of priorityLabelIds) {
+        const annotation = eventPackage.annotations.find(
+          (annotation) => annotation.labelId === labelId,
+        );
+        if (annotation?.value && annotation.value !== "") {
+          locationValue = annotation.value as string;
+          break;
+        }
+      }
+
+      // Generate title with location + first 4 characters of event ID
+      const eventIdPrefix = eventPackage.id.slice(0, 4);
+      const draftTitle = locationValue
+        ? `${locationValue} ${eventIdPrefix}`
+        : `Draft ${eventIdPrefix}`;
 
       const newDraft: LocalEvent = {
         id: eventPackage.id,
