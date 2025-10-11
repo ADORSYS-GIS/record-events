@@ -29,8140 +29,8995 @@ export type CameroonData = {
   [key: string]: RegionData;
 };
 
-export const cameroonData: CameroonData = {
+export const cameroonData = {
   "SUD": {
-    name: { en: "SOUTH", fr: "SUD" },
-    divisions: {
+    "name": {
+      "en": "SOUTH",
+      "fr": "SUD"
+    },
+    "divisions": {
       "OCEAN": {
         "AKOM II": {
-          "CASE A PALABRE D'AKOM II VILLAGE / A": [
+          "AKOM": [
             {
-              station: "AKOM",
-              voters: 1087
-            },
-            {
-              station: "VILLAGE",
-              voters: 385
-            },
+              "station": "CASE A PALABRE D'AKOM II VILLAGE / A",
+              "voters": 1087
+            }
           ],
-          "CASE A PALABRE D'EFOULAN I / A": [
+          "VILLAGE": [
             {
-              station: "EFOULAN",
-              voters: 166
-            },
+              "station": "CASE A PALABRE D'AKOM II VILLAGE / A",
+              "voters": 385
+            }
           ],
-          "CASE A PALABRE D'ESSA-NGOH / A": [
+          "EFOULAN": [
             {
-              station: "NKOMAKAK1",
-              voters: 72
-            },
+              "station": "CASE A PALABRE D'EFOULAN I / A",
+              "voters": 166
+            }
           ],
-          "CASE A PALABRE DE BIBOLE / A": [
+          "NKOMAKAK1": [
             {
-              station: "BIBOLE",
-              voters: 66
-            },
+              "station": "CASE A PALABRE D'ESSA-NGOH / A",
+              "voters": 72
+            }
           ],
-          "CASE A PALABRE DE NKO'ONGOP / A": [
+          "BIBOLE": [
             {
-              station: "NKO'ONGOP",
-              voters: 59
-            },
+              "station": "CASE A PALABRE DE BIBOLE / A",
+              "voters": 66
+            }
           ],
-          "CASE A PALABRE DE NKO'OVUMBA / A": [
+          "NKO'ONGOP": [
             {
-              station: "NKO'OVUMBA",
-              voters: 44
-            },
+              "station": "CASE A PALABRE DE NKO'ONGOP / A",
+              "voters": 59
+            }
           ],
-          "CASE A PALABRE DE NKOMAKAK / A": [
+          "NKO'OVUMBA": [
             {
-              station: "NKOMAKAK",
-              voters: 150
-            },
+              "station": "CASE A PALABRE DE NKO'OVUMBA / A",
+              "voters": 44
+            }
           ],
-          "CASE A PALABRE DE NLOMOTO / A": [
+          "NKOMAKAK": [
             {
-              station: "NLOMOTO",
-              voters: 149
-            },
+              "station": "CASE A PALABRE DE NKOMAKAK / A",
+              "voters": 150
+            }
           ],
-          "CASE A PALABRE DE TYENGUE / A": [
+          "NLOMOTO": [
             {
-              station: "TYENGUE",
-              voters: 100
-            },
+              "station": "CASE A PALABRE DE NLOMOTO / A",
+              "voters": 149
+            }
           ],
-          "ECOLE DES PARENTS DE NDJABILOBE / A": [
+          "TYENGUE": [
             {
-              station: "NDJABILOBE",
-              voters: 63
-            },
+              "station": "CASE A PALABRE DE TYENGUE / A",
+              "voters": 100
+            }
           ],
-          "ECOLE PUBLIQUE D'ABIETE / A": [
+          "NDJABILOBE": [
             {
-              station: "ABIETE",
-              voters: 92
-            },
+              "station": "ECOLE DES PARENTS DE NDJABILOBE / A",
+              "voters": 63
+            }
           ],
-          "ECOLE PUBLIQUE D'AKOK / A": [
+          "ABIETE": [
             {
-              station: "AKOK",
-              voters: 127
-            },
+              "station": "ECOLE PUBLIQUE D'ABIETE / A",
+              "voters": 92
+            }
           ],
-          "ECOLE PUBLIQUE D'AKOM II / A": [
+          "AKOK": [
             {
-              station: "ASSOK",
-              voters: 291
-            },
+              "station": "ECOLE PUBLIQUE D'AKOK / A",
+              "voters": 127
+            }
           ],
-          "ECOLE PUBLIQUE D'AWOMO / A": [
+          "ASSOK": [
             {
-              station: "AWOMO",
-              voters: 26
-            },
+              "station": "ECOLE PUBLIQUE D'AKOM II / A",
+              "voters": 291
+            }
           ],
-          "ECOLE PUBLIQUE D'EBEMVOK / A": [
+          "AWOMO": [
             {
-              station: "EBEMVOK",
-              voters: 146
-            },
+              "station": "ECOLE PUBLIQUE D'AWOMO / A",
+              "voters": 26
+            }
           ],
-          "ECOLE PUBLIQUE D'ELON / A": [
+          "EBEMVOK": [
             {
-              station: "ELON",
-              voters: 53
-            },
+              "station": "ECOLE PUBLIQUE D'EBEMVOK / A",
+              "voters": 146
+            }
           ],
-          "ECOLE PUBLIQUE D'ENYANKOL / A": [
+          "ELON": [
             {
-              station: "ENYANKOL",
-              voters: 109
-            },
+              "station": "ECOLE PUBLIQUE D'ELON / A",
+              "voters": 53
+            }
           ],
-          "ECOLE PUBLIQUE DE BIBINDI / A": [
+          "ENYANKOL": [
             {
-              station: "BIBINDI",
-              voters: 91
-            },
-            {
-              station: "BIYENG",
-              voters: 182
-            },
+              "station": "ECOLE PUBLIQUE D'ENYANKOL / A",
+              "voters": 109
+            }
           ],
-          "ECOLE PUBLIQUE DE FENDA / A": [
+          "BIBINDI": [
             {
-              station: "FENDA",
-              voters: 123
-            },
+              "station": "ECOLE PUBLIQUE DE BIBINDI / A",
+              "voters": 91
+            }
           ],
-          "ECOLE PUBLIQUE DE MALOMBA / A": [
+          "BIYENG": [
             {
-              station: "MALOMBA",
-              voters: 72
-            },
+              "station": "ECOLE PUBLIQUE DE BIBINDI / A",
+              "voters": 182
+            }
           ],
-          "ECOLE PUBLIQUE DE MBANGA / A": [
+          "FENDA": [
             {
-              station: "MBANGA",
-              voters: 110
-            },
+              "station": "ECOLE PUBLIQUE DE FENDA / A",
+              "voters": 123
+            }
           ],
-          "ECOLE PUBLIQUE DE MEFANE / A": [
+          "MALOMBA": [
             {
-              station: "MEFANE",
-              voters: 49
-            },
+              "station": "ECOLE PUBLIQUE DE MALOMBA / A",
+              "voters": 72
+            }
           ],
-          "ECOLE PUBLIQUE DE MINGOH / A": [
+          "MBANGA": [
             {
-              station: "MINGOH",
-              voters: 50
-            },
+              "station": "ECOLE PUBLIQUE DE MBANGA / A",
+              "voters": 110
+            }
           ],
-          "ECOLE PUBLIQUE DE MVIE / A": [
+          "MEFANE": [
             {
-              station: "MVIE",
-              voters: 624
-            },
-            {
-              station: "CENTRE",
-              voters: 312
-            },
+              "station": "ECOLE PUBLIQUE DE MEFANE / A",
+              "voters": 49
+            }
           ],
-          "ECOLE PUBLIQUE DE NLONKENG / A": [
+          "MINGOH": [
             {
-              station: "NLOKENG",
-              voters: 91
-            },
+              "station": "ECOLE PUBLIQUE DE MINGOH / A",
+              "voters": 50
+            }
           ],
-          "ECOLE PUBLIQUE DE NNEMEYONG / A": [
+          "MVIE": [
             {
-              station: "NNEMEYONG",
-              voters: 136
-            },
+              "station": "ECOLE PUBLIQUE DE MVIE / A",
+              "voters": 624
+            }
           ],
-          "ECOLE PUBLIQUE DE TOKO / A": [
+          "CENTRE": [
             {
-              station: "TOKO",
-              voters: 127
-            },
+              "station": "ECOLE PUBLIQUE DE MVIE / A",
+              "voters": 312
+            }
           ],
-          "ESPLANADE CHEFFERIE D'EKOWONG / A": [
+          "NLOKENG": [
             {
-              station: "EKOWONG",
-              voters: 82
-            },
+              "station": "ECOLE PUBLIQUE DE NLONKENG / A",
+              "voters": 91
+            }
           ],
-          "FOYER CULTUREL DE BIBOULEMAM / A": [
+          "NNEMEYONG": [
             {
-              station: "BIBOULEMAM",
-              voters: 76
-            },
+              "station": "ECOLE PUBLIQUE DE NNEMEYONG / A",
+              "voters": 136
+            }
           ],
-          "FOYER CULTUREL DE MEBANGA / A": [
+          "TOKO": [
             {
-              station: "MEBANGA",
-              voters: 46
-            },
+              "station": "ECOLE PUBLIQUE DE TOKO / A",
+              "voters": 127
+            }
           ],
-          "I S M A P DE NYABITANDE / A": [
+          "EKOWONG": [
             {
-              station: "NYABITANDE",
-              voters: 161
-            },
+              "station": "ESPLANADE CHEFFERIE D'EKOWONG / A",
+              "voters": 82
+            }
           ],
-          "LYCEE D'AKOM II / A": [
+          "BIBOULEMAM": [
             {
-              station: "VILLE",
-              voters: 702
-            },
+              "station": "FOYER CULTUREL DE BIBOULEMAM / A",
+              "voters": 76
+            }
           ],
+          "MEBANGA": [
+            {
+              "station": "FOYER CULTUREL DE MEBANGA / A",
+              "voters": 46
+            }
+          ],
+          "NYABITANDE": [
+            {
+              "station": "I S M A P DE NYABITANDE / A",
+              "voters": 161
+            }
+          ],
+          "VILLE": [
+            {
+              "station": "LYCEE D'AKOM II / A",
+              "voters": 702
+            }
+          ]
         },
         "BIPINDI": {
-          "ANNEXE RES. BEKOUNOU NICOLAS / A": [
+          "ZOCK": [
             {
-              station: "ZOCK",
-              voters: 134
-            },
-            {
-              station: "BEFAM-OYACK",
-              voters: 134
-            },
-            {
-              station: "MELEN",
-              voters: 235
-            },
-            {
-              station: "ENGOGO",
-              voters: 134
-            },
+              "station": "ANNEXE RES. BEKOUNOU NICOLAS / A",
+              "voters": 134
+            }
           ],
-          "ANNEXE RES. ENYEGUE METINI ALBERT / A": [
+          "BEFAM-OYACK": [
             {
-              station: "NKOL-BILON",
-              voters: 76
-            },
+              "station": "ANNEXE RES. BEKOUNOU NICOLAS / A",
+              "voters": 134
+            }
           ],
-          "ANNEXE RESIDENCE NLONGVOUMBO / A": [
+          "MELEN": [
             {
-              station: "KOUAMBO",
-              voters: 271
-            },
-            {
-              station: "NABONYARE",
-              voters: 59
-            },
-            {
-              station: "NKULMALENDI",
-              voters: 59
-            },
-            {
-              station: "NTUERPEMBE",
-              voters: 59
-            },
+              "station": "ANNEXE RES. BEKOUNOU NICOLAS / A",
+              "voters": 235
+            }
           ],
-          "ANNEXE RESIDENCE REV, MVONDO MOISE /  A": [
+          "ENGOGO": [
             {
-              station: "ASSOK",
-              voters: 302
-            },
-            {
-              station: "CENTRE",
-              voters: 378
-            },
-            {
-              station: "EDO'O-MANG",
-              voters: 94
-            },
-            {
-              station: "MVONDO",
-              voters: 204
-            },
+              "station": "ANNEXE RES. BEKOUNOU NICOLAS / A",
+              "voters": 134
+            }
           ],
-          "ANNEXE RESIDENCE ZINDO AUGUSTE / A": [
+          "NKOL-BILON": [
             {
-              station: "BIFOUM",
-              voters: 86
-            },
+              "station": "ANNEXE RES. ENYEGUE METINI ALBERT / A",
+              "voters": 76
+            }
           ],
-          "CENTRE DE PROM. FEMME ET FAMILLE / A": [
+          "KOUAMBO": [
             {
-              station: "BIPINDI",
-              voters: 570
-            },
-            {
-              station: "MADAGASCAR",
-              voters: 92
-            },
-            {
-              station: "MISSION",
-              voters: 92
-            },
-            {
-              station: "CATHOLIQUE",
-              voters: 92
-            },
+              "station": "ANNEXE RESIDENCE NLONGVOUMBO / A",
+              "voters": 271
+            }
           ],
-          "CES BIDJOUKA CONDOR / A": [
+          "NABONYARE": [
             {
-              station: "ATLANTIQUE",
-              voters: 206
-            },
-            {
-              station: "CONDOR",
-              voters: 206
-            },
-            {
-              station: "BIDJOUKA",
-              voters: 665
-            },
+              "station": "ANNEXE RESIDENCE NLONGVOUMBO / A",
+              "voters": 59
+            }
           ],
-          "CETIC DE BIPINDI / A": [
+          "NKULMALENDI": [
             {
-              station: "VILLAGE",
-              voters: 175
-            },
+              "station": "ANNEXE RESIDENCE NLONGVOUMBO / A",
+              "voters": 59
+            }
           ],
-          "ECOLE PUBLIQUE ASSOK 2 ESSAWO'O / A": [
+          "NTUERPEMBE": [
             {
-              station: "ESSAWO'O",
-              voters: 57
-            },
-            {
-              station: "ESSEBENG",
-              voters: 57
-            },
+              "station": "ANNEXE RESIDENCE NLONGVOUMBO / A",
+              "voters": 59
+            }
           ],
-          "ECOLE PUBLIQUE ATOG-BOGA CENTRE / A": [
+          "ASSOK": [
             {
-              station: "ATOG-BOGA",
-              voters: 397
-            },
-            {
-              station: "ETETAK",
-              voters: 129
-            },
-            {
-              station: "ESSOMBA-ENOLA",
-              voters: 129
-            },
-            {
-              station: "KAMELON",
-              voters: 129
-            },
-            {
-              station: "NKOL-BIKOM",
-              voters: 129
-            },
-            {
-              station: "NKOL-NGOCK",
-              voters: 129
-            },
+              "station": "ANNEXE RESIDENCE REV, MVONDO MOISE /  A",
+              "voters": 302
+            }
           ],
-          "ECOLE PUBLIQUE BIDJOUKA CENTRE / A": [
+          "CENTRE": [
             {
-              station: "MBAMBA",
-              voters: 177
-            },
-            {
-              station: "NAMASSAMBI",
-              voters: 177
-            },
+              "station": "ANNEXE RESIDENCE REV, MVONDO MOISE /  A",
+              "voters": 378
+            }
           ],
-          "ECOLE PUBLIQUE BONGOUANA / A": [
+          "EDO'O-MANG": [
             {
-              station: "BONGOUANA",
-              voters: 75
-            },
+              "station": "ANNEXE RESIDENCE REV, MVONDO MOISE /  A",
+              "voters": 94
+            }
           ],
-          "ECOLE PUBLIQUE DE KOUAMBO / A": [
+          "MVONDO": [
             {
-              station: "SISANDE",
-              voters: 106
-            },
+              "station": "ANNEXE RESIDENCE REV, MVONDO MOISE /  A",
+              "voters": 204
+            }
           ],
-          "ECOLE PUBLIQUE DE MADOUNGOU / A": [
+          "BIFOUM": [
             {
-              station: "MADOUNGOU",
-              voters: 112
-            },
+              "station": "ANNEXE RESIDENCE ZINDO AUGUSTE / A",
+              "voters": 86
+            }
           ],
-          "ECOLE PUBLIQUE EBIMIMPBANG AKOM / A": [
+          "BIPINDI": [
             {
-              station: "EBIMIMBANG",
-              voters: 182
-            },
+              "station": "CENTRE DE PROM. FEMME ET FAMILLE / A",
+              "voters": 570
+            }
           ],
-          "ECOLE PUBLIQUE GRAND ZAMBI / A": [
+          "MADAGASCAR": [
             {
-              station: "GRAND-ZAMBI",
-              voters: 148
-            },
+              "station": "CENTRE DE PROM. FEMME ET FAMILLE / A",
+              "voters": 92
+            }
           ],
-          "ECOLE PUBLIQUE KPWA / A": [
+          "MISSION": [
             {
-              station: "KPWA",
-              voters: 186
-            },
+              "station": "CENTRE DE PROM. FEMME ET FAMILLE / A",
+              "voters": 92
+            }
           ],
-          "ECOLE PUBLIQUE LAMBI / A": [
+          "CATHOLIQUE": [
             {
-              station: "LAMBI",
-              voters: 240
-            },
+              "station": "CENTRE DE PROM. FEMME ET FAMILLE / A",
+              "voters": 92
+            }
           ],
-          "ECOLE PUBLIQUE MBIKILIKI-SI / A": [
+          "ATLANTIQUE": [
             {
-              station: "DEUX-PONTS",
-              voters: 178
-            },
-            {
-              station: "SAMAL",
-              voters: 178
-            },
-            {
-              station: "BIWANDI",
-              voters: 178
-            },
-            {
-              station: "ORANGER",
-              voters: 178
-            },
+              "station": "CES BIDJOUKA CONDOR / A",
+              "voters": 206
+            }
           ],
-          "ECOLE PUBLIQUE MELOMBO / A": [
+          "CONDOR": [
             {
-              station: "MELOMBO",
-              voters: 333
-            },
+              "station": "CES BIDJOUKA CONDOR / A",
+              "voters": 206
+            }
           ],
-          "ECOLE PUBLIQUE MELONDO CENTRE / A": [
+          "BIDJOUKA": [
             {
-              station: "MELONDO-SI",
-              voters: 128
-            },
+              "station": "CES BIDJOUKA CONDOR / A",
+              "voters": 665
+            }
           ],
-          "ECOLE PUBLIQUE MEMEL 2 / A": [
+          "VILLAGE": [
             {
-              station: "DAHOMEY",
-              voters: 138
-            },
-            {
-              station: "MEMEL",
-              voters: 407
-            },
-            {
-              station: "CARREFOUR",
-              voters: 138
-            },
+              "station": "CETIC DE BIPINDI / A",
+              "voters": 175
+            }
           ],
-          "ECOLE PUBLIQUE MINFOMBO CENTRE / A": [
+          "ESSAWO'O": [
             {
-              station: "MINFOMBO",
-              voters: 79
-            },
+              "station": "ECOLE PUBLIQUE ASSOK 2 ESSAWO'O / A",
+              "voters": 57
+            }
           ],
-          "ECOLE PUBLIQUE MOUNGUE / A": [
+          "ESSEBENG": [
             {
-              station: "MOUNGUE",
-              voters: 165
-            },
+              "station": "ECOLE PUBLIQUE ASSOK 2 ESSAWO'O / A",
+              "voters": 57
+            }
           ],
-          "ECOLE PUBLIQUE NDTOUA CENTRE / A": [
+          "ATOG-BOGA": [
             {
-              station: "MINLOUEL-MIOH",
-              voters: 144
-            },
+              "station": "ECOLE PUBLIQUE ATOG-BOGA CENTRE / A",
+              "voters": 397
+            }
           ],
-          "ECOLE PUBLIQUE NSOLA / A": [
+          "ETETAK": [
             {
-              station: "NSOLA",
-              voters: 148
-            },
+              "station": "ECOLE PUBLIQUE ATOG-BOGA CENTRE / A",
+              "voters": 129
+            }
           ],
-          "ECOLE PUBLIQUE SONG-MAYI / A": [
+          "ESSOMBA-ENOLA": [
             {
-              station: "SONG-MAYI",
-              voters: 168
-            },
+              "station": "ECOLE PUBLIQUE ATOG-BOGA CENTRE / A",
+              "voters": 129
+            }
           ],
-          "ECOLE PUBLIQUE TYANGO / A": [
+          "KAMELON": [
             {
-              station: "TYANGO",
-              voters: 188
-            },
+              "station": "ECOLE PUBLIQUE ATOG-BOGA CENTRE / A",
+              "voters": 129
+            }
           ],
-          "ESPL. CHEFFERIE NDTOUA BITSILBILANDI / A": [
+          "NKOL-BIKOM": [
             {
-              station: "BITSILBILANDI",
-              voters: 148
-            },
-            {
-              station: "NDTOUA",
-              voters: 292
-            },
-            {
-              station: "NGOUMA-NZIOU",
-              voters: 148
-            },
+              "station": "ECOLE PUBLIQUE ATOG-BOGA CENTRE / A",
+              "voters": 129
+            }
           ],
-          "ESPLANADE CHEFFERIE MIMBAMELA  CENTRE / A": [
+          "NKOL-NGOCK": [
             {
-              station: "MIMBAMELA",
-              voters: 76
-            },
+              "station": "ECOLE PUBLIQUE ATOG-BOGA CENTRE / A",
+              "voters": 129
+            }
           ],
-          "ESPLANADE CHEFFERIE NKPWA NKOUTOU /  A": [
+          "MBAMBA": [
             {
-              station: "NKOUTOU",
-              voters: 109
-            },
+              "station": "ECOLE PUBLIQUE BIDJOUKA CENTRE / A",
+              "voters": 177
+            }
           ],
-          "ESPLANADE CHEFFERIE NYAMINKOM / A": [
+          "NAMASSAMBI": [
             {
-              station: "NYAMINKOM",
-              voters: 65
-            },
+              "station": "ECOLE PUBLIQUE BIDJOUKA CENTRE / A",
+              "voters": 177
+            }
           ],
-          "ESPLANADE CHEFFERIE PETIT-ZAMBI / A": [
+          "BONGOUANA": [
             {
-              station: "PETIT",
-              voters: 80
-            },
-            {
-              station: "-ZAMBI",
-              voters: 80
-            },
+              "station": "ECOLE PUBLIQUE BONGOUANA / A",
+              "voters": 75
+            }
           ],
-          "MISSION CATH. MASCHUER-MASHUER / A": [
+          "SISANDE": [
             {
-              station: "BAMBI",
-              voters: 104
-            },
-            {
-              station: "BILIBI-TSOP",
-              voters: 104
-            },
-            {
-              station: "KOUERTSO",
-              voters: 104
-            },
+              "station": "ECOLE PUBLIQUE DE KOUAMBO / A",
+              "voters": 106
+            }
           ],
-          "SALLE DE FETES DE BIPINDI CENTRE / A": [
+          "MADOUNGOU": [
             {
-              station: "CENTRE-VILLE",
-              voters: 303
-            },
+              "station": "ECOLE PUBLIQUE DE MADOUNGOU / A",
+              "voters": 112
+            }
           ],
-          "SALLE DES FETES DE BOKOKOUALA  (G-STONES RESOURCES SA) / A": [
+          "EBIMIMBANG": [
             {
-              station: "BOKOKOUALA",
-              voters: 127
-            },
+              "station": "ECOLE PUBLIQUE EBIMIMPBANG AKOM / A",
+              "voters": 182
+            }
           ],
+          "GRAND-ZAMBI": [
+            {
+              "station": "ECOLE PUBLIQUE GRAND ZAMBI / A",
+              "voters": 148
+            }
+          ],
+          "KPWA": [
+            {
+              "station": "ECOLE PUBLIQUE KPWA / A",
+              "voters": 186
+            }
+          ],
+          "LAMBI": [
+            {
+              "station": "ECOLE PUBLIQUE LAMBI / A",
+              "voters": 240
+            }
+          ],
+          "DEUX-PONTS": [
+            {
+              "station": "ECOLE PUBLIQUE MBIKILIKI-SI / A",
+              "voters": 178
+            }
+          ],
+          "SAMAL": [
+            {
+              "station": "ECOLE PUBLIQUE MBIKILIKI-SI / A",
+              "voters": 178
+            }
+          ],
+          "BIWANDI": [
+            {
+              "station": "ECOLE PUBLIQUE MBIKILIKI-SI / A",
+              "voters": 178
+            }
+          ],
+          "ORANGER": [
+            {
+              "station": "ECOLE PUBLIQUE MBIKILIKI-SI / A",
+              "voters": 178
+            }
+          ],
+          "MELOMBO": [
+            {
+              "station": "ECOLE PUBLIQUE MELOMBO / A",
+              "voters": 333
+            }
+          ],
+          "MELONDO-SI": [
+            {
+              "station": "ECOLE PUBLIQUE MELONDO CENTRE / A",
+              "voters": 128
+            }
+          ],
+          "DAHOMEY": [
+            {
+              "station": "ECOLE PUBLIQUE MEMEL 2 / A",
+              "voters": 138
+            }
+          ],
+          "MEMEL": [
+            {
+              "station": "ECOLE PUBLIQUE MEMEL 2 / A",
+              "voters": 407
+            }
+          ],
+          "CARREFOUR": [
+            {
+              "station": "ECOLE PUBLIQUE MEMEL 2 / A",
+              "voters": 138
+            }
+          ],
+          "MINFOMBO": [
+            {
+              "station": "ECOLE PUBLIQUE MINFOMBO CENTRE / A",
+              "voters": 79
+            }
+          ],
+          "MOUNGUE": [
+            {
+              "station": "ECOLE PUBLIQUE MOUNGUE / A",
+              "voters": 165
+            }
+          ],
+          "MINLOUEL-MIOH": [
+            {
+              "station": "ECOLE PUBLIQUE NDTOUA CENTRE / A",
+              "voters": 144
+            }
+          ],
+          "NSOLA": [
+            {
+              "station": "ECOLE PUBLIQUE NSOLA / A",
+              "voters": 148
+            }
+          ],
+          "SONG-MAYI": [
+            {
+              "station": "ECOLE PUBLIQUE SONG-MAYI / A",
+              "voters": 168
+            }
+          ],
+          "TYANGO": [
+            {
+              "station": "ECOLE PUBLIQUE TYANGO / A",
+              "voters": 188
+            }
+          ],
+          "BITSILBILANDI": [
+            {
+              "station": "ESPL. CHEFFERIE NDTOUA BITSILBILANDI / A",
+              "voters": 148
+            }
+          ],
+          "NDTOUA": [
+            {
+              "station": "ESPL. CHEFFERIE NDTOUA BITSILBILANDI / A",
+              "voters": 292
+            }
+          ],
+          "NGOUMA-NZIOU": [
+            {
+              "station": "ESPL. CHEFFERIE NDTOUA BITSILBILANDI / A",
+              "voters": 148
+            }
+          ],
+          "MIMBAMELA": [
+            {
+              "station": "ESPLANADE CHEFFERIE MIMBAMELA  CENTRE / A",
+              "voters": 76
+            }
+          ],
+          "NKOUTOU": [
+            {
+              "station": "ESPLANADE CHEFFERIE NKPWA NKOUTOU /  A",
+              "voters": 109
+            }
+          ],
+          "NYAMINKOM": [
+            {
+              "station": "ESPLANADE CHEFFERIE NYAMINKOM / A",
+              "voters": 65
+            }
+          ],
+          "PETIT": [
+            {
+              "station": "ESPLANADE CHEFFERIE PETIT-ZAMBI / A",
+              "voters": 80
+            }
+          ],
+          "-ZAMBI": [
+            {
+              "station": "ESPLANADE CHEFFERIE PETIT-ZAMBI / A",
+              "voters": 80
+            }
+          ],
+          "BAMBI": [
+            {
+              "station": "MISSION CATH. MASCHUER-MASHUER / A",
+              "voters": 104
+            }
+          ],
+          "BILIBI-TSOP": [
+            {
+              "station": "MISSION CATH. MASCHUER-MASHUER / A",
+              "voters": 104
+            }
+          ],
+          "KOUERTSO": [
+            {
+              "station": "MISSION CATH. MASCHUER-MASHUER / A",
+              "voters": 104
+            }
+          ],
+          "CENTRE-VILLE": [
+            {
+              "station": "SALLE DE FETES DE BIPINDI CENTRE / A",
+              "voters": 303
+            }
+          ],
+          "BOKOKOUALA": [
+            {
+              "station": "SALLE DES FETES DE BOKOKOUALA  (G-STONES RESOURCES SA) / A",
+              "voters": 127
+            }
+          ]
         },
         "CAMPO": {
-          "BATIMENT CAMEROUNAISE DES EAUX / A": [
+          "TONDEFOM": [
             {
-              station: "TONDEFOM",
-              voters: 55
-            },
+              "station": "BATIMENT CAMEROUNAISE DES EAUX / A",
+              "voters": 55
+            }
           ],
-          "C.E.S. D'EBODJE / A": [
+          "MATAMBA": [
             {
-              station: "MATAMBA",
-              voters: 66
-            },
-            {
-              station: "NGATA",
-              voters: 66
-            },
+              "station": "C.E.S. D'EBODJE / A",
+              "voters": 66
+            }
           ],
-          "CAMP BONO / A": [
+          "NGATA": [
             {
-              station: "LEILA",
-              voters: 66
-            },
-            {
-              station: "MASSEA",
-              voters: 66
-            },
+              "station": "C.E.S. D'EBODJE / A",
+              "voters": 66
+            }
           ],
-          "CARREFOUR MAMEL / A": [
+          "LEILA": [
             {
-              station: "CARREFOUR",
-              voters: 71
-            },
-            {
-              station: "MAMEL",
-              voters: 71
-            },
+              "station": "CAMP BONO / A",
+              "voters": 66
+            }
           ],
-          "CHAPELLE EPC DE MBENDJI / A": [
+          "MASSEA": [
             {
-              station: "BEKOKA",
-              voters: 36
-            },
-            {
-              station: "MBENDJI",
-              voters: 72
-            },
+              "station": "CAMP BONO / A",
+              "voters": 66
+            }
           ],
-          "CHAPELLE EPC DOUM-ESSAMEBENGA / A": [
+          "CARREFOUR": [
             {
-              station: "DOUM",
-              voters: 68
-            },
-            {
-              station: "ESSAMEBENGA",
-              voters: 68
-            },
-            {
-              station: "NKO'ADJAP",
-              voters: 68
-            },
+              "station": "CARREFOUR MAMEL / A",
+              "voters": 71
+            }
           ],
-          "CHAPELLE MALABA / A": [
+          "MAMEL": [
             {
-              station: "MALABA",
-              voters: 61
-            },
-            {
-              station: "OTOU",
-              voters: 61
-            },
+              "station": "CARREFOUR MAMEL / A",
+              "voters": 71
+            }
           ],
-          "E.P. BOUANDJO / A": [
+          "BEKOKA": [
             {
-              station: "BOUANDJO",
-              voters: 182
-            },
-            {
-              station: "DOUM-ESSAMEDJANG",
-              voters: 182
-            },
+              "station": "CHAPELLE EPC DE MBENDJI / A",
+              "voters": 36
+            }
           ],
-          "E.P. CAMPO BEACH / A": [
+          "MBENDJI": [
             {
-              station: "CAMPO",
-              voters: 601
-            },
-            {
-              station: "BEACH",
-              voters: 601
-            },
+              "station": "CHAPELLE EPC DE MBENDJI / A",
+              "voters": 72
+            }
           ],
-          "E.P. CAMPO VILLE / A": [
+          "DOUM": [
             {
-              station: "BOKOMBE",
-              voters: 766
-            },
-            {
-              station: "CHATEAU",
-              voters: 952
-            },
-            {
-              station: "DOUMASSI",
-              voters: 1007
-            },
-            {
-              station: "PARIS",
-              voters: 914
-            },
-            {
-              station: "SOIR",
-              voters: 914
-            },
-            {
-              station: "QUARTIER",
-              voters: 766
-            },
-            {
-              station: "ADMINISTRATIF",
-              voters: 766
-            },
+              "station": "CHAPELLE EPC DOUM-ESSAMEBENGA / A",
+              "voters": 68
+            }
           ],
-          "E.P. D'AKAK / A": [
+          "ESSAMEBENGA": [
             {
-              station: "AFAN",
-              voters: 150
-            },
-            {
-              station: "ESSOKIE",
-              voters: 150
-            },
-            {
-              station: "AKAK",
-              voters: 95
-            },
-            {
-              station: "ASSOK",
-              voters: 95
-            },
-            {
-              station: "BITANDE",
-              voters: 95
-            },
+              "station": "CHAPELLE EPC DOUM-ESSAMEBENGA / A",
+              "voters": 68
+            }
           ],
-          "E.P. EBIANEMEYONG / A": [
+          "NKO'ADJAP": [
             {
-              station: "EBIANEMEYONG",
-              voters: 71
-            },
+              "station": "CHAPELLE EPC DOUM-ESSAMEBENGA / A",
+              "voters": 68
+            }
           ],
-          "E.P. EBODJE / A": [
+          "MALABA": [
             {
-              station: "EBODJE",
-              voters: 438
-            },
-            {
-              station: "CHEFFERIE",
-              voters: 284
-            },
+              "station": "CHAPELLE MALABA / A",
+              "voters": 61
+            }
           ],
-          "E.P. IPONO / A": [
+          "OTOU": [
             {
-              station: "ANCIEN",
-              voters: 195
-            },
-            {
-              station: "CAMP",
-              voters: 390
-            },
-            {
-              station: "HFC",
-              voters: 390
-            },
-            {
-              station: "IPONO",
-              voters: 390
-            },
-            {
-              station: "NOUVEAU",
-              voters: 195
-            },
+              "station": "CHAPELLE MALABA / A",
+              "voters": 61
+            }
           ],
-          "E.P. ITONDEFANG / A": [
+          "BOUANDJO": [
             {
-              station: "ECOLE",
-              voters: 55
-            },
+              "station": "E.P. BOUANDJO / A",
+              "voters": 182
+            }
           ],
-          "E.P. MABIOGO / A": [
+          "DOUM-ESSAMEDJANG": [
             {
-              station: "MABIOGO",
-              voters: 105
-            },
-            {
-              station: "NAZARETH",
-              voters: 105
-            },
+              "station": "E.P. BOUANDJO / A",
+              "voters": 182
+            }
           ],
-          "E.P. MVASSE / A": [
+          "CAMPO": [
             {
-              station: "MVASSE",
-              voters: 142
-            },
+              "station": "E.P. CAMPO BEACH / A",
+              "voters": 601
+            }
           ],
-          "E.P. NKOELON / A": [
+          "BEACH": [
             {
-              station: "NKOELON",
-              voters: 47
-            },
+              "station": "E.P. CAMPO BEACH / A",
+              "voters": 601
+            }
           ],
-          "EGLISE PROTESTANTE ATLANTIQUE / A": [
+          "BOKOMBE": [
             {
-              station: "ENYENGENAMANGA",
-              voters: 93
-            },
-            {
-              station: "GENDARMERIE",
-              voters: 93
-            },
+              "station": "E.P. CAMPO VILLE / A",
+              "voters": 766
+            }
           ],
-          "ESPL. CHEFFERIE D'ITONDEFANG / A": [
+          "CHATEAU": [
             {
-              station: "ITONDE",
-              voters: 65
-            },
-            {
-              station: "MER",
-              voters: 65
-            },
-            {
-              station: "ITONDEFANG",
-              voters: 120
-            },
+              "station": "E.P. CAMPO VILLE / A",
+              "voters": 952
+            }
           ],
-          "ESPLANADE MAISON IPENYENDJE / A": [
+          "DOUMASSI": [
             {
-              station: "BEYO",
-              voters: 25
-            },
-            {
-              station: "IPENYENDJE",
-              voters: 25
-            },
+              "station": "E.P. CAMPO VILLE / A",
+              "voters": 1007
+            }
           ],
-          "P.C. 11EME BAFUMAR / A": [
+          "PARIS": [
             {
-              station: "EME",
-              voters: 389
-            },
-            {
-              station: "BAFUMAR",
-              voters: 389
-            },
+              "station": "E.P. CAMPO VILLE / A",
+              "voters": 914
+            }
           ],
-          "WWF FAUNE MINTOM / A": [
+          "SOIR": [
             {
-              station: "MINTOM",
-              voters: 108
-            },
+              "station": "E.P. CAMPO VILLE / A",
+              "voters": 914
+            }
           ],
+          "QUARTIER": [
+            {
+              "station": "E.P. CAMPO VILLE / A",
+              "voters": 766
+            }
+          ],
+          "ADMINISTRATIF": [
+            {
+              "station": "E.P. CAMPO VILLE / A",
+              "voters": 766
+            }
+          ],
+          "AFAN": [
+            {
+              "station": "E.P. D'AKAK / A",
+              "voters": 150
+            }
+          ],
+          "ESSOKIE": [
+            {
+              "station": "E.P. D'AKAK / A",
+              "voters": 150
+            }
+          ],
+          "AKAK": [
+            {
+              "station": "E.P. D'AKAK / A",
+              "voters": 95
+            }
+          ],
+          "ASSOK": [
+            {
+              "station": "E.P. D'AKAK / A",
+              "voters": 95
+            }
+          ],
+          "BITANDE": [
+            {
+              "station": "E.P. D'AKAK / A",
+              "voters": 95
+            }
+          ],
+          "EBIANEMEYONG": [
+            {
+              "station": "E.P. EBIANEMEYONG / A",
+              "voters": 71
+            }
+          ],
+          "EBODJE": [
+            {
+              "station": "E.P. EBODJE / A",
+              "voters": 438
+            }
+          ],
+          "CHEFFERIE": [
+            {
+              "station": "E.P. EBODJE / A",
+              "voters": 284
+            }
+          ],
+          "ANCIEN": [
+            {
+              "station": "E.P. IPONO / A",
+              "voters": 195
+            }
+          ],
+          "CAMP": [
+            {
+              "station": "E.P. IPONO / A",
+              "voters": 390
+            }
+          ],
+          "HFC": [
+            {
+              "station": "E.P. IPONO / A",
+              "voters": 390
+            }
+          ],
+          "IPONO": [
+            {
+              "station": "E.P. IPONO / A",
+              "voters": 390
+            }
+          ],
+          "NOUVEAU": [
+            {
+              "station": "E.P. IPONO / A",
+              "voters": 195
+            }
+          ],
+          "ECOLE": [
+            {
+              "station": "E.P. ITONDEFANG / A",
+              "voters": 55
+            }
+          ],
+          "MABIOGO": [
+            {
+              "station": "E.P. MABIOGO / A",
+              "voters": 105
+            }
+          ],
+          "NAZARETH": [
+            {
+              "station": "E.P. MABIOGO / A",
+              "voters": 105
+            }
+          ],
+          "MVASSE": [
+            {
+              "station": "E.P. MVASSE / A",
+              "voters": 142
+            }
+          ],
+          "NKOELON": [
+            {
+              "station": "E.P. NKOELON / A",
+              "voters": 47
+            }
+          ],
+          "ENYENGENAMANGA": [
+            {
+              "station": "EGLISE PROTESTANTE ATLANTIQUE / A",
+              "voters": 93
+            }
+          ],
+          "GENDARMERIE": [
+            {
+              "station": "EGLISE PROTESTANTE ATLANTIQUE / A",
+              "voters": 93
+            }
+          ],
+          "ITONDE": [
+            {
+              "station": "ESPL. CHEFFERIE D'ITONDEFANG / A",
+              "voters": 65
+            }
+          ],
+          "MER": [
+            {
+              "station": "ESPL. CHEFFERIE D'ITONDEFANG / A",
+              "voters": 65
+            }
+          ],
+          "ITONDEFANG": [
+            {
+              "station": "ESPL. CHEFFERIE D'ITONDEFANG / A",
+              "voters": 120
+            }
+          ],
+          "BEYO": [
+            {
+              "station": "ESPLANADE MAISON IPENYENDJE / A",
+              "voters": 25
+            }
+          ],
+          "IPENYENDJE": [
+            {
+              "station": "ESPLANADE MAISON IPENYENDJE / A",
+              "voters": 25
+            }
+          ],
+          "EME": [
+            {
+              "station": "P.C. 11EME BAFUMAR / A",
+              "voters": 389
+            }
+          ],
+          "BAFUMAR": [
+            {
+              "station": "P.C. 11EME BAFUMAR / A",
+              "voters": 389
+            }
+          ],
+          "MINTOM": [
+            {
+              "station": "WWF FAUNE MINTOM / A",
+              "voters": 108
+            }
+          ]
         },
         "KRIBI I": {
-          "ANCIENNE COMMUNE RURALE / A": [
+          "NGOYE": [
             {
-              station: "NGOYE",
-              voters: 560
-            },
-            {
-              station: "ADMINISTRATIF",
-              voters: 560
-            },
+              "station": "ANCIENNE COMMUNE RURALE / A",
+              "voters": 560
+            }
           ],
-          "CASE COMMUNAUTAIRE DE TALLA / A": [
+          "ADMINISTRATIF": [
             {
-              station: "EBOUNDJA",
-              voters: 1254
-            },
+              "station": "ANCIENNE COMMUNE RURALE / A",
+              "voters": 560
+            }
           ],
-          "CENTRE SOCIAL LOBE / A": [
+          "EBOUNDJA": [
             {
-              station: "LOBE",
-              voters: 423
-            },
+              "station": "CASE COMMUNAUTAIRE DE TALLA / A",
+              "voters": 1254
+            }
           ],
-          "CHAPELLE CATHOLIQUE / A": [
+          "LOBE": [
             {
-              station: "MBEKA'A",
-              voters: 492
-            },
+              "station": "CENTRE SOCIAL LOBE / A",
+              "voters": 423
+            }
           ],
-          "DAADER / A": [
+          "MBEKA'A": [
             {
-              station: "MASSAKA",
-              voters: 1970
-            },
+              "station": "CHAPELLE CATHOLIQUE / A",
+              "voters": 492
+            }
           ],
-          "DISPENSAIRE / A": [
+          "MASSAKA": [
             {
-              station: "BONGAHELE",
-              voters: 378
-            },
+              "station": "DAADER / A",
+              "voters": 1970
+            }
           ],
-          "ECOLE ADVENTISTE / A": [
+          "BONGAHELE": [
             {
-              station: "ZAIRE",
-              voters: 1315
-            },
+              "station": "DISPENSAIRE / A",
+              "voters": 378
+            }
           ],
-          "ECOLE DU CENTRE / A": [
+          "ZAIRE": [
             {
-              station: "NEW-TOWN",
-              voters: 946
-            },
+              "station": "ECOLE ADVENTISTE / A",
+              "voters": 1315
+            }
           ],
-          "ECOLE MATERNELLE DE TALLA / A": [
+          "NEW-TOWN": [
             {
-              station: "TALLA",
-              voters: 1444
-            },
+              "station": "ECOLE DU CENTRE / A",
+              "voters": 946
+            }
           ],
-          "ECOLE PUBLIQUE DE BWAMBE / A": [
+          "TALLA": [
             {
-              station: "BWAMBE",
-              voters: 541
-            },
+              "station": "ECOLE MATERNELLE DE TALLA / A",
+              "voters": 1444
+            }
           ],
-          "ECOLE PUBLIQUE DE LENDE DIBE / A": [
+          "BWAMBE": [
             {
-              station: "LENDE",
-              voters: 289
-            },
-            {
-              station: "DIBE",
-              voters: 289
-            },
+              "station": "ECOLE PUBLIQUE DE BWAMBE / A",
+              "voters": 541
+            }
           ],
-          "ECOLE PUBLIQUE DE LOLABE / A": [
+          "LENDE": [
             {
-              station: "LOLABE",
-              voters: 1320
-            },
+              "station": "ECOLE PUBLIQUE DE LENDE DIBE / A",
+              "voters": 289
+            }
           ],
-          "ECOLE PUBLIQUE DE LOUMA / A": [
+          "DIBE": [
             {
-              station: "LOUMA",
-              voters: 878
-            },
+              "station": "ECOLE PUBLIQUE DE LENDE DIBE / A",
+              "voters": 289
+            }
           ],
-          "ECOLE PUBLIQUE DE TALLA / A": [
+          "LOLABE": [
             {
-              station: "BONGANDOUE",
-              voters: 398
-            },
+              "station": "ECOLE PUBLIQUE DE LOLABE / A",
+              "voters": 1320
+            }
           ],
-          "ENIEG DE KRIBI / A": [
+          "LOUMA": [
             {
-              station: "MPANGOU",
-              voters: 1020
-            },
+              "station": "ECOLE PUBLIQUE DE LOUMA / A",
+              "voters": 878
+            }
           ],
-          "ETS BLACK & WHITE / A": [
+          "BONGANDOUE": [
             {
-              station: "MOKOLO",
-              voters: 2060
-            },
+              "station": "ECOLE PUBLIQUE DE TALLA / A",
+              "voters": 398
+            }
           ],
-          "ETS CATHY / A": [
+          "MPANGOU": [
             {
-              station: "PETIT",
-              voters: 3480
-            },
-            {
-              station: "PARIS",
-              voters: 3480
-            },
+              "station": "ENIEG DE KRIBI / A",
+              "voters": 1020
+            }
           ],
-          "HANGAR BIWANGI / A": [
+          "MOKOLO": [
             {
-              station: "EBOME",
-              voters: 1619
-            },
+              "station": "ETS BLACK & WHITE / A",
+              "voters": 2060
+            }
           ],
-          "HANGAR LENDI 1 / A": [
+          "PETIT": [
             {
-              station: "LENDI",
-              voters: 612
-            },
+              "station": "ETS CATHY / A",
+              "voters": 3480
+            }
           ],
-          "SALLE DES FETES MBOAMANGA / A": [
+          "PARIS": [
             {
-              station: "MBOAMANGA",
-              voters: 1203
-            },
+              "station": "ETS CATHY / A",
+              "voters": 3480
+            }
           ],
+          "EBOME": [
+            {
+              "station": "HANGAR BIWANGI / A",
+              "voters": 1619
+            }
+          ],
+          "LENDI": [
+            {
+              "station": "HANGAR LENDI 1 / A",
+              "voters": 612
+            }
+          ],
+          "MBOAMANGA": [
+            {
+              "station": "SALLE DES FETES MBOAMANGA / A",
+              "voters": 1203
+            }
+          ]
         },
         "KRIBI II": {
-          "C E S DE DOMBE / A": [
+          "DOMBE": [
             {
-              station: "DOMBE",
-              voters: 13752
-            },
+              "station": "C E S DE DOMBE / A",
+              "voters": 13752
+            }
           ],
-          "COLLEGE ADVENTISTE / A": [
+          "AFAN": [
             {
-              station: "AFAN",
-              voters: 6178
-            },
-            {
-              station: "MABE",
-              voters: 6178
-            },
+              "station": "COLLEGE ADVENTISTE / A",
+              "voters": 6178
+            }
           ],
-          "DESTINY KIDS / A": [
+          "MABE": [
             {
-              station: "DOMBE-TRADEX",
-              voters: 64
-            },
+              "station": "COLLEGE ADVENTISTE / A",
+              "voters": 6178
+            }
           ],
-          "E. PRIVEE BILINGUE ARINA / A": [
+          "DOMBE-TRADEX": [
             {
-              station: "NGOYERESERVE",
-              voters: 608
-            },
+              "station": "DESTINY KIDS / A",
+              "voters": 64
+            }
           ],
-          "E.P. DE MIMBOUGUE / A": [
+          "NGOYERESERVE": [
             {
-              station: "MAKA\AWUM",
-              voters: 2546
-            },
-            {
-              station: "MIMBOUGUE",
-              voters: 1432
-            },
+              "station": "E. PRIVEE BILINGUE ARINA / A",
+              "voters": 608
+            }
           ],
-          "ECOLE ADVENTISTE / A": [
+          "MAKAAWUM": [
             {
-              station: "NEW-",
-              voters: 1606
-            },
-            {
-              station: "TOWN",
-              voters: 1606
-            },
+              "station": "E.P. DE MIMBOUGUE / A",
+              "voters": 2546
+            }
           ],
-          "ECOLE MATERNELLE DES PETITS MARINS / A": [
+          "MIMBOUGUE": [
             {
-              station: "WAMIE",
-              voters: 778
-            },
+              "station": "E.P. DE MIMBOUGUE / A",
+              "voters": 1432
+            }
           ],
-          "ECOLE PRIVEE LES HIRONDELLES / A": [
+          "NEW-": [
             {
-              station: "DOMBE-EBOBISSE",
-              voters: 117
-            },
+              "station": "ECOLE ADVENTISTE / A",
+              "voters": 1606
+            }
           ],
-          "ECOLE PUBLIQUE DE BEBAMBWE 1 / A": [
+          "TOWN": [
             {
-              station: "BEBAMBWE",
-              voters: 343
-            },
+              "station": "ECOLE ADVENTISTE / A",
+              "voters": 1606
+            }
           ],
-          "ECOLE PUBLIQUE DE BIKONDO / A": [
+          "WAMIE": [
             {
-              station: "BIKONDO",
-              voters: 1862
-            },
+              "station": "ECOLE MATERNELLE DES PETITS MARINS / A",
+              "voters": 778
+            }
           ],
-          "ECOLE PUBLIQUE DE MPALLA / A": [
+          "DOMBE-EBOBISSE": [
             {
-              station: "MPALLA",
-              voters: 372
-            },
+              "station": "ECOLE PRIVEE LES HIRONDELLES / A",
+              "voters": 117
+            }
           ],
-          "ECOLE PUBLIQUE DE NZIOU / A": [
+          "BEBAMBWE": [
             {
-              station: "NZIOU",
-              voters: 882
-            },
+              "station": "ECOLE PUBLIQUE DE BEBAMBWE 1 / A",
+              "voters": 343
+            }
           ],
-          "ECOLE PUBLIQUE LONDJI1 / A": [
+          "BIKONDO": [
             {
-              station: "LONDJI",
-              voters: 678
-            },
+              "station": "ECOLE PUBLIQUE DE BIKONDO / A",
+              "voters": 1862
+            }
           ],
-          "EP DE DOMBE CAMP MILITAIRE / A": [
+          "MPALLA": [
             {
-              station: "DOMBE-CAMP",
-              voters: 73
-            },
-            {
-              station: "MILITAIRE",
-              voters: 73
-            },
+              "station": "ECOLE PUBLIQUE DE MPALLA / A",
+              "voters": 372
+            }
           ],
-          "ESPL. DE SWECOM / A": [
+          "NZIOU": [
             {
-              station: "ALAN-MABE",
-              voters: 401
-            },
+              "station": "ECOLE PUBLIQUE DE NZIOU / A",
+              "voters": 882
+            }
           ],
-          "ESPL. DU STADE / A": [
+          "LONDJI": [
             {
-              station: "AFAN-MABE",
-              voters: 1505
-            },
+              "station": "ECOLE PUBLIQUE LONDJI1 / A",
+              "voters": 678
+            }
           ],
-          "ESPLANADE BAR PONT DES PETITS MARINS /  A": [
+          "DOMBE-CAMP": [
             {
-              station: "MPOLONGWE",
-              voters: 175
-            },
+              "station": "EP DE DOMBE CAMP MILITAIRE / A",
+              "voters": 73
+            }
           ],
-          "GROUPE SCOLAIRE GEORGES LAURENT / A": [
+          "MILITAIRE": [
             {
-              station: "DOMBE-BOSSIGUI",
-              voters: 113
-            },
+              "station": "EP DE DOMBE CAMP MILITAIRE / A",
+              "voters": 73
+            }
           ],
-          "LYCEE BILINGUE / A": [
+          "ALAN-MABE": [
             {
-              station: "NZAMI",
-              voters: 561
-            },
+              "station": "ESPL. DE SWECOM / A",
+              "voters": 401
+            }
           ],
-          "LYCEE TECHNIQUE / A": [
+          "AFAN-MABE": [
             {
-              station: "NGOYE",
-              voters: 3913
-            },
-            {
-              station: "RESERVE",
-              voters: 2574
-            },
+              "station": "ESPL. DU STADE / A",
+              "voters": 1505
+            }
           ],
-          "POSTE DE DOUANE D'EBOUYIE / A": [
+          "MPOLONGWE": [
             {
-              station: "EBOUYE",
-              voters: 201
-            },
+              "station": "ESPLANADE BAR PONT DES PETITS MARINS /  A",
+              "voters": 175
+            }
           ],
-          "SALLE COMMUNAUTAIRE D'ELABE / A": [
+          "DOMBE-BOSSIGUI": [
             {
-              station: "ELABE",
-              voters: 469
-            },
+              "station": "GROUPE SCOLAIRE GEORGES LAURENT / A",
+              "voters": 113
+            }
           ],
-          "SALLE COMMUNAUTAIRE DE BILOLO / A": [
+          "NZAMI": [
             {
-              station: "BILOLO",
-              voters: 142
-            },
+              "station": "LYCEE BILINGUE / A",
+              "voters": 561
+            }
           ],
-          "SALLE COMMUNAUTAIRE DE MPOLONGWE /  A": [
+          "NGOYE": [
             {
-              station: "MPOLONGWE1",
-              voters: 214
-            },
+              "station": "LYCEE TECHNIQUE / A",
+              "voters": 3913
+            }
           ],
-          "UNI PALACE / A": [
+          "RESERVE": [
             {
-              station: "NZIOU-TERRE",
-              voters: 57
-            },
-            {
-              station: "PROMISE",
-              voters: 57
-            },
+              "station": "LYCEE TECHNIQUE / A",
+              "voters": 2574
+            }
           ],
+          "EBOUYE": [
+            {
+              "station": "POSTE DE DOUANE D'EBOUYIE / A",
+              "voters": 201
+            }
+          ],
+          "ELABE": [
+            {
+              "station": "SALLE COMMUNAUTAIRE D'ELABE / A",
+              "voters": 469
+            }
+          ],
+          "BILOLO": [
+            {
+              "station": "SALLE COMMUNAUTAIRE DE BILOLO / A",
+              "voters": 142
+            }
+          ],
+          "MPOLONGWE1": [
+            {
+              "station": "SALLE COMMUNAUTAIRE DE MPOLONGWE /  A",
+              "voters": 214
+            }
+          ],
+          "NZIOU-TERRE": [
+            {
+              "station": "UNI PALACE / A",
+              "voters": 57
+            }
+          ],
+          "PROMISE": [
+            {
+              "station": "UNI PALACE / A",
+              "voters": 57
+            }
+          ]
         },
         "LOKOUNDJE": {
-          "ANCIENNE ECOLE PUBLIQUE BIDOU I / A": [
+          "BIDOU": [
             {
-              station: "BIDOU",
-              voters: 284
-            },
+              "station": "ANCIENNE ECOLE PUBLIQUE BIDOU I / A",
+              "voters": 284
+            }
           ],
-          "BASE CAMTEL DE BIVOUBA SUD / A": [
+          "BIVOUBA": [
             {
-              station: "BIVOUBA",
-              voters: 165
-            },
+              "station": "BASE CAMTEL DE BIVOUBA SUD / A",
+              "voters": 165
+            }
           ],
-          "BUREAU SOCAPALM KILOMBO I / A": [
+          "KILOMBO": [
             {
-              station: "KILOMBO",
-              voters: 557
-            },
+              "station": "BUREAU SOCAPALM KILOMBO I / A",
+              "voters": 557
+            }
           ],
-          "CASE COMMUNAUTAIRE DIBOUNE / A": [
+          "DIBOUNE": [
             {
-              station: "DIBOUNE",
-              voters: 23
-            },
+              "station": "CASE COMMUNAUTAIRE DIBOUNE / A",
+              "voters": 23
+            }
           ],
-          "CASE DU VILLAGE EPOLLE / A": [
+          "EPOLLE": [
             {
-              station: "EPOLLE",
-              voters: 64
-            },
+              "station": "CASE DU VILLAGE EPOLLE / A",
+              "voters": 64
+            }
           ],
-          "CASE SANTE NKOLLO / A": [
+          "NKOLLO": [
             {
-              station: "NKOLLO",
-              voters: 96
-            },
+              "station": "CASE SANTE NKOLLO / A",
+              "voters": 96
+            }
           ],
-          "CES BELLA - HAUT / A": [
+          "BELLA": [
             {
-              station: "BELLA",
-              voters: 232
-            },
+              "station": "CES BELLA - HAUT / A",
+              "voters": 232
+            }
           ],
-          "CETIC D'ELOGBATINDI / A": [
+          "ELOGBATINDI": [
             {
-              station: "ELOGBATINDI",
-              voters: 608
-            },
+              "station": "CETIC D'ELOGBATINDI / A",
+              "voters": 608
+            }
           ],
-          "CHAPELLE CATHOLIQUE D'EBONDI / A": [
+          "EBONDI": [
             {
-              station: "EBONDI",
-              voters: 418
-            },
+              "station": "CHAPELLE CATHOLIQUE D'EBONDI / A",
+              "voters": 418
+            }
           ],
-          "ECOLE BILINGUE V I / A": [
+          "SOCAPALM": [
             {
-              station: "SOCAPALM",
-              voters: 2341
-            },
+              "station": "ECOLE BILINGUE V I / A",
+              "voters": 2341
+            }
           ],
-          "ECOLE PUBLIQUE BEHONDO / A": [
+          "BEHONDO": [
             {
-              station: "BEHONDO",
-              voters: 50
-            },
+              "station": "ECOLE PUBLIQUE BEHONDO / A",
+              "voters": 50
+            }
           ],
-          "ECOLE PUBLIQUE DE BANDEVOURI / A": [
+          "BANDEVOURI": [
             {
-              station: "BANDEVOURI",
-              voters: 91
-            },
+              "station": "ECOLE PUBLIQUE DE BANDEVOURI / A",
+              "voters": 91
+            }
           ],
-          "ECOLE PUBLIQUE DE BISSIANG / A": [
+          "BISSIANG": [
             {
-              station: "BISSIANG",
-              voters: 430
-            },
+              "station": "ECOLE PUBLIQUE DE BISSIANG / A",
+              "voters": 430
+            }
           ],
-          "ECOLE PUBLIQUE DE BONGUEN / A": [
+          "BONGUEN": [
             {
-              station: "BONGUEN",
-              voters: 243
-            },
+              "station": "ECOLE PUBLIQUE DE BONGUEN / A",
+              "voters": 243
+            }
           ],
-          "ECOLE PUBLIQUE DE FIFINDA I / A": [
+          "FIFINDA": [
             {
-              station: "FIFINDA",
-              voters: 428
-            },
+              "station": "ECOLE PUBLIQUE DE FIFINDA I / A",
+              "voters": 428
+            }
           ],
-          "ECOLE PUBLIQUE DE GWAP / A": [
+          "GWAP": [
             {
-              station: "GWAP",
-              voters: 59
-            },
+              "station": "ECOLE PUBLIQUE DE GWAP / A",
+              "voters": 59
+            }
           ],
-          "ECOLE PUBLIQUE DE MAKOURE I / A": [
+          "MAKOURE": [
             {
-              station: "MAKOURE",
-              voters: 189
-            },
+              "station": "ECOLE PUBLIQUE DE MAKOURE I / A",
+              "voters": 189
+            }
           ],
-          "ECOLE PUBLIQUE DE MBOKE / A": [
+          "MBOKE": [
             {
-              station: "MBOKE",
-              voters: 67
-            },
+              "station": "ECOLE PUBLIQUE DE MBOKE / A",
+              "voters": 67
+            }
           ],
-          "ECOLE PUBLIQUE DE PAMA / A": [
+          "PAMA": [
             {
-              station: "PAMA",
-              voters: 197
-            },
+              "station": "ECOLE PUBLIQUE DE PAMA / A",
+              "voters": 197
+            }
           ],
-          "ECOLE PUBLIQUE DE PONGO / A": [
+          "PONGO": [
             {
-              station: "PONGO",
-              voters: 47
-            },
+              "station": "ECOLE PUBLIQUE DE PONGO / A",
+              "voters": 47
+            }
           ],
-          "ECOLE PUBLIQUE DEHANE / A": [
+          "DEHANE": [
             {
-              station: "DEHANE",
-              voters: 204
-            },
+              "station": "ECOLE PUBLIQUE DEHANE / A",
+              "voters": 204
+            }
           ],
-          "ECOLE PUBLIQUE DIKOBE / A": [
+          "DIKOBE": [
             {
-              station: "DIKOBE",
-              voters: 70
-            },
+              "station": "ECOLE PUBLIQUE DIKOBE / A",
+              "voters": 70
+            }
           ],
-          "EPC MABENANGA / A": [
+          "MABENANGA": [
             {
-              station: "MABENANGA",
-              voters: 32
-            },
+              "station": "EPC MABENANGA / A",
+              "voters": 32
+            }
           ],
-          "ESPL. SALLE CONFERENCE WIJMA / A": [
+          "CAMP": [
             {
-              station: "CAMP",
-              voters: 310
-            },
-            {
-              station: "WIJMA",
-              voters: 310
-            },
+              "station": "ESPL. SALLE CONFERENCE WIJMA / A",
+              "voters": 310
+            }
           ],
-          "ESPLANADECHEFFERIE / A": [
+          "WIJMA": [
             {
-              station: "NDOUMALE",
-              voters: 65
-            },
+              "station": "ESPL. SALLE CONFERENCE WIJMA / A",
+              "voters": 310
+            }
           ],
-          "HANGAR MARCHE DONENGA / A": [
+          "NDOUMALE": [
             {
-              station: "DONENGA",
-              voters: 55
-            },
+              "station": "ESPLANADECHEFFERIE / A",
+              "voters": 65
+            }
           ],
-          "HANGAR MARCHE EBEA / A": [
+          "DONENGA": [
             {
-              station: "EBEA",
-              voters: 80
-            },
+              "station": "HANGAR MARCHE DONENGA / A",
+              "voters": 55
+            }
           ],
-          "HANGAR MARCHE EBOUDAVAE / A": [
+          "EBEA": [
             {
-              station: "EBOUDAVAE",
-              voters: 20
-            },
+              "station": "HANGAR MARCHE EBEA / A",
+              "voters": 80
+            }
           ],
-          "HANGAR PUBLIC LOKOUNDJE / A": [
+          "EBOUDAVAE": [
             {
-              station: "LOKOUNDJE",
-              voters: 54
-            },
+              "station": "HANGAR MARCHE EBOUDAVAE / A",
+              "voters": 20
+            }
           ],
-          "HANGAR VILLAGE BIPAGA / A": [
+          "LOKOUNDJE": [
             {
-              station: "BIPAGA",
-              voters: 209
-            },
+              "station": "HANGAR PUBLIC LOKOUNDJE / A",
+              "voters": 54
+            }
           ],
-          "LYCEE DE YALPENDA / A": [
+          "BIPAGA": [
             {
-              station: "YALPENDA",
-              voters: 185
-            },
+              "station": "HANGAR VILLAGE BIPAGA / A",
+              "voters": 209
+            }
           ],
-          "QUARTIER LATIN MBEBE / A": [
+          "YALPENDA": [
             {
-              station: "MBEBE",
-              voters: 259
-            },
+              "station": "LYCEE DE YALPENDA / A",
+              "voters": 185
+            }
           ],
-          "RESIDENCE DOMICILE MBILE RAPHAEL / A": [
+          "MBEBE": [
             {
-              station: "EDOUNGANGOMO",
-              voters: 39
-            },
+              "station": "QUARTIER LATIN MBEBE / A",
+              "voters": 259
+            }
           ],
+          "EDOUNGANGOMO": [
+            {
+              "station": "RESIDENCE DOMICILE MBILE RAPHAEL / A",
+              "voters": 39
+            }
+          ]
         },
         "LOLODORF": {
-          "ABATTOIR MUNICIPAL DE LOLODORF / A": [
+          "HAOUSSA": [
             {
-              station: "HAOUSSA",
-              voters: 386
-            },
+              "station": "ABATTOIR MUNICIPAL DE LOLODORF / A",
+              "voters": 386
+            }
           ],
-          "CASE COM. BIGBALLY II MASSAKPWA / A": [
+          "MASSAKPWA": [
             {
-              station: "MASSAKPWA",
-              voters: 62
-            },
+              "station": "CASE COM. BIGBALLY II MASSAKPWA / A",
+              "voters": 62
+            }
           ],
-          "CASE COM. BIKALLA MACEDOINE / A": [
+          "MACEDOINE": [
             {
-              station: "MACEDOINE",
-              voters: 79
-            },
+              "station": "CASE COM. BIKALLA MACEDOINE / A",
+              "voters": 79
+            }
           ],
-          "CASE COM.DE MBANGO NGOUMBA / A": [
+          "NGOUMBA": [
             {
-              station: "NGOUMBA",
-              voters: 59
-            },
+              "station": "CASE COM.DE MBANGO NGOUMBA / A",
+              "voters": 59
+            }
           ],
-          "CASE COMMUNAUTAIRE DE KABA / A": [
+          "KABA": [
             {
-              station: "KABA",
-              voters: 122
-            },
+              "station": "CASE COMMUNAUTAIRE DE KABA / A",
+              "voters": 122
+            }
           ],
-          "CASE COMMUNAUTAIRE DEDE SABALLY / A": [
+          "SABALLY": [
             {
-              station: "SABALLY",
-              voters: 135
-            },
+              "station": "CASE COMMUNAUTAIRE DEDE SABALLY / A",
+              "voters": 135
+            }
           ],
-          "CES DE NKOUMBALA / A": [
+          "NKOUMBALA": [
             {
-              station: "NKOUMBALA",
-              voters: 101
-            },
+              "station": "CES DE NKOUMBALA / A",
+              "voters": 101
+            }
           ],
-          "CETIC DE NGOVAYANG I / A": [
+          "NGOVAYANG": [
             {
-              station: "NGOVAYANG",
-              voters: 622
-            },
+              "station": "CETIC DE NGOVAYANG I / A",
+              "voters": 622
+            }
           ],
-          "E.F.A. BIBONDI NKONG - OGNIE / A": [
+          "NKONG-OGNIE": [
             {
-              station: "NKONG-OGNIE",
-              voters: 81
-            },
+              "station": "E.F.A. BIBONDI NKONG - OGNIE / A",
+              "voters": 81
+            }
           ],
-          "ECOLE EPC DE BIBIA / A": [
+          "BIBIA": [
             {
-              station: "BIBIA",
-              voters: 234
-            },
+              "station": "ECOLE EPC DE BIBIA / A",
+              "voters": 234
+            }
           ],
-          "ECOLE P. DE MELANGUE MVOG-ESSON / A": [
+          "MELANGUE": [
             {
-              station: "MELANGUE",
-              voters: 70
-            },
-            {
-              station: "MVOG",
-              voters: 70
-            },
-            {
-              station: "ESSON",
-              voters: 70
-            },
+              "station": "ECOLE P. DE MELANGUE MVOG-ESSON / A",
+              "voters": 70
+            }
           ],
-          "ECOLE PUBLIQUE DE BIBONDI / A": [
+          "MVOG": [
             {
-              station: "BIBONDI",
-              voters: 269
-            },
-            {
-              station: "CENTRE",
-              voters: 869
-            },
+              "station": "ECOLE P. DE MELANGUE MVOG-ESSON / A",
+              "voters": 70
+            }
           ],
-          "ECOLE PUBLIQUE DE BIGBALLY / A": [
+          "ESSON": [
             {
-              station: "BIGBALLY",
-              voters: 1214
-            },
+              "station": "ECOLE P. DE MELANGUE MVOG-ESSON / A",
+              "voters": 70
+            }
           ],
-          "ECOLE PUBLIQUE DE BIKALLA NGOMBASS / A": [
+          "BIBONDI": [
             {
-              station: "NGOMBASS",
-              voters: 123
-            },
+              "station": "ECOLE PUBLIQUE DE BIBONDI / A",
+              "voters": 269
+            }
           ],
-          "ECOLE PUBLIQUE DE BIKOKA I / A": [
+          "CENTRE": [
             {
-              station: "BIKOKA",
-              voters: 337
-            },
-            {
-              station: "NLANGWAYENE",
-              voters: 145
-            },
+              "station": "ECOLE PUBLIQUE DE BIBONDI / A",
+              "voters": 869
+            }
           ],
-          "ECOLE PUBLIQUE DE KABA MBANGO / A": [
+          "BIGBALLY": [
             {
-              station: "MBANGO",
-              voters: 427
-            },
-            {
-              station: "BITOUER",
-              voters: 240
-            },
+              "station": "ECOLE PUBLIQUE DE BIGBALLY / A",
+              "voters": 1214
+            }
           ],
-          "ECOLE PUBLIQUE DE KOUMBINZIK / A": [
+          "NGOMBASS": [
             {
-              station: "KOUMBINZIK",
-              voters: 73
-            },
+              "station": "ECOLE PUBLIQUE DE BIKALLA NGOMBASS / A",
+              "voters": 123
+            }
           ],
-          "ECOLE PUBLIQUE DE LOLODORF / A": [
+          "BIKOKA": [
             {
-              station: "QUARTIER",
-              voters: 547
-            },
-            {
-              station: "ADMINISTRATIF",
-              voters: 161
-            },
+              "station": "ECOLE PUBLIQUE DE BIKOKA I / A",
+              "voters": 337
+            }
           ],
-          "ECOLE PUBLIQUE DE MADONG / A": [
+          "NLANGWAYENE": [
             {
-              station: "MADONG",
-              voters: 514
-            },
+              "station": "ECOLE PUBLIQUE DE BIKOKA I / A",
+              "voters": 145
+            }
           ],
-          "ECOLE PUBLIQUE DE MANGOUMA / A": [
+          "MBANGO": [
             {
-              station: "MANGOUMA",
-              voters: 122
-            },
+              "station": "ECOLE PUBLIQUE DE KABA MBANGO / A",
+              "voters": 427
+            }
           ],
-          "ECOLE PUBLIQUE DE MBANGO BOULOU / A": [
+          "BITOUER": [
             {
-              station: "BOULOU",
-              voters: 128
-            },
+              "station": "ECOLE PUBLIQUE DE KABA MBANGO / A",
+              "voters": 240
+            }
           ],
-          "ECOLE PUBLIQUE DE MBIKILIKI / A": [
+          "KOUMBINZIK": [
             {
-              station: "MBIKILIKI",
-              voters: 177
-            },
+              "station": "ECOLE PUBLIQUE DE KOUMBINZIK / A",
+              "voters": 73
+            }
           ],
-          "ECOLE PUBLIQUE DE MILL / A": [
+          "QUARTIER": [
             {
-              station: "MILL",
-              voters: 141
-            },
+              "station": "ECOLE PUBLIQUE DE LOLODORF / A",
+              "voters": 547
+            }
           ],
-          "ECOLE PUBLIQUE DE MOUGUE / A": [
+          "ADMINISTRATIF": [
             {
-              station: "MOUGUE",
-              voters: 214
-            },
+              "station": "ECOLE PUBLIQUE DE LOLODORF / A",
+              "voters": 161
+            }
           ],
-          "ECOLE PUBLIQUE DE NGOYANG / A": [
+          "MADONG": [
             {
-              station: "NGOYANG",
-              voters: 548
-            },
-            {
-              station: "NKOUONGUIOH",
-              voters: 274
-            },
+              "station": "ECOLE PUBLIQUE DE MADONG / A",
+              "voters": 514
+            }
           ],
-          "ECOLE PUBLIQUE DE NKOUAMBPOER I / A": [
+          "MANGOUMA": [
             {
-              station: "NKOUAMBPOER",
-              voters: 254
-            },
+              "station": "ECOLE PUBLIQUE DE MANGOUMA / A",
+              "voters": 122
+            }
           ],
-          "FOYER COM.DE BIKOUI II - MBPANGA / A": [
+          "BOULOU": [
             {
-              station: "MBPANGA",
-              voters: 130
-            },
+              "station": "ECOLE PUBLIQUE DE MBANGO BOULOU / A",
+              "voters": 128
+            }
           ],
-          "FOYER COMMUNAUTAIRE DE / A": [
+          "MBIKILIKI": [
             {
-              station: "MVILLE",
-              voters: 193
-            },
+              "station": "ECOLE PUBLIQUE DE MBIKILIKI / A",
+              "voters": 177
+            }
           ],
-          "FOYER COMMUNAUTAIRE DE BINGAMBO / A": [
+          "MILL": [
             {
-              station: "BINGAMBO",
-              voters: 394
-            },
+              "station": "ECOLE PUBLIQUE DE MILL / A",
+              "voters": 141
+            }
           ],
-          "FOYER MUNICIPAL DE LOLODORF / A": [
+          "MOUGUE": [
             {
-              station: "LOLODORF",
-              voters: 508
-            },
-            {
-              station: "VILLE",
-              voters: 508
-            },
+              "station": "ECOLE PUBLIQUE DE MOUGUE / A",
+              "voters": 214
+            }
           ],
-          "HANGAR MARCHE BIKALLA CENTRE / A": [
+          "NGOYANG": [
             {
-              station: "BIKALLA",
-              voters: 375
-            },
+              "station": "ECOLE PUBLIQUE DE NGOYANG / A",
+              "voters": 548
+            }
           ],
-          "LYCEE CLASSIQUE DE LOLODORF / A": [
+          "NKOUONGUIOH": [
             {
-              station: "III",
-              voters: 485
-            },
-            {
-              station: "LYCEE",
-              voters: 398
-            },
+              "station": "ECOLE PUBLIQUE DE NGOYANG / A",
+              "voters": 274
+            }
           ],
-          "LYCEE TECHNIQUE DE LOLODORF / A": [
+          "NKOUAMBPOER": [
             {
-              station: "BIKOUI",
-              voters: 475
-            },
-            {
-              station: "LIMAZOUANG",
-              voters: 345
-            },
+              "station": "ECOLE PUBLIQUE DE NKOUAMBPOER I / A",
+              "voters": 254
+            }
           ],
+          "MBPANGA": [
+            {
+              "station": "FOYER COM.DE BIKOUI II - MBPANGA / A",
+              "voters": 130
+            }
+          ],
+          "MVILLE": [
+            {
+              "station": "FOYER COMMUNAUTAIRE DE / A",
+              "voters": 193
+            }
+          ],
+          "BINGAMBO": [
+            {
+              "station": "FOYER COMMUNAUTAIRE DE BINGAMBO / A",
+              "voters": 394
+            }
+          ],
+          "LOLODORF": [
+            {
+              "station": "FOYER MUNICIPAL DE LOLODORF / A",
+              "voters": 508
+            }
+          ],
+          "VILLE": [
+            {
+              "station": "FOYER MUNICIPAL DE LOLODORF / A",
+              "voters": 508
+            }
+          ],
+          "BIKALLA": [
+            {
+              "station": "HANGAR MARCHE BIKALLA CENTRE / A",
+              "voters": 375
+            }
+          ],
+          "III": [
+            {
+              "station": "LYCEE CLASSIQUE DE LOLODORF / A",
+              "voters": 485
+            }
+          ],
+          "LYCEE": [
+            {
+              "station": "LYCEE CLASSIQUE DE LOLODORF / A",
+              "voters": 398
+            }
+          ],
+          "BIKOUI": [
+            {
+              "station": "LYCEE TECHNIQUE DE LOLODORF / A",
+              "voters": 475
+            }
+          ],
+          "LIMAZOUANG": [
+            {
+              "station": "LYCEE TECHNIQUE DE LOLODORF / A",
+              "voters": 345
+            }
+          ]
         },
         "MVENGUE": {
-          "CASE COM. D'ATING - ETOM / A": [
+          "ATING": [
             {
-              station: "ATING",
-              voters: 124
-            },
-            {
-              station: "ETOM",
-              voters: 124
-            },
+              "station": "CASE COM. D'ATING - ETOM / A",
+              "voters": 124
+            }
           ],
-          "CASE COM. D'ELON NYAMFENDE / A": [
+          "ETOM": [
             {
-              station: "NYAMFENDE",
-              voters: 108
-            },
+              "station": "CASE COM. D'ATING - ETOM / A",
+              "voters": 124
+            }
           ],
-          "CASE COM. D'ELON YANDA / A": [
+          "NYAMFENDE": [
             {
-              station: "YANDA",
-              voters: 26
-            },
+              "station": "CASE COM. D'ELON NYAMFENDE / A",
+              "voters": 108
+            }
           ],
-          "CASE COM. DE MENGANDA I / A": [
+          "YANDA": [
             {
-              station: "MENGADA",
-              voters: 75
-            },
+              "station": "CASE COM. D'ELON YANDA / A",
+              "voters": 26
+            }
           ],
-          "CASE COM. DE MINKOUGOU / A": [
+          "MENGADA": [
             {
-              station: "MINKOUGOU",
-              voters: 81
-            },
+              "station": "CASE COM. DE MENGANDA I / A",
+              "voters": 75
+            }
           ],
-          "CASE COM. DE MVENGUE NSAM / A": [
+          "MINKOUGOU": [
             {
-              station: "NSAM",
-              voters: 131
-            },
+              "station": "CASE COM. DE MINKOUGOU / A",
+              "voters": 81
+            }
           ],
-          "CASE COM. DE NKOALATOM / A": [
+          "NSAM": [
             {
-              station: "NKOLATOM",
-              voters: 70
-            },
+              "station": "CASE COM. DE MVENGUE NSAM / A",
+              "voters": 131
+            }
           ],
-          "CASE COM. DE NKOLMENDING I / A": [
+          "NKOLATOM": [
             {
-              station: "NKOLMENDING",
-              voters: 172
-            },
+              "station": "CASE COM. DE NKOALATOM / A",
+              "voters": 70
+            }
           ],
-          "CASE COM. DE WOM I / A": [
+          "NKOLMENDING": [
             {
-              station: "WOM",
-              voters: 299
-            },
+              "station": "CASE COM. DE NKOLMENDING I / A",
+              "voters": 172
+            }
           ],
-          "CETIC DE MELONDO / A": [
+          "WOM": [
             {
-              station: "MELONDO",
-              voters: 188
-            },
+              "station": "CASE COM. DE WOM I / A",
+              "voters": 299
+            }
           ],
-          "ECOLE DE PUBLIQUE D'EBAYEGE / A": [
+          "MELONDO": [
             {
-              station: "EBAYEGA",
-              voters: 125
-            },
+              "station": "CETIC DE MELONDO / A",
+              "voters": 188
+            }
           ],
-          "ECOLE PUBLIQUE ADOUMAN / A": [
+          "EBAYEGA": [
             {
-              station: "ADOUMAN",
-              voters: 50
-            },
+              "station": "ECOLE DE PUBLIQUE D'EBAYEGE / A",
+              "voters": 125
+            }
           ],
-          "ECOLE PUBLIQUE ANNEX -A / A": [
+          "ADOUMAN": [
             {
-              station: "MVENGUE",
-              voters: 1197
-            },
+              "station": "ECOLE PUBLIQUE ADOUMAN / A",
+              "voters": 50
+            }
           ],
-          "ECOLE PUBLIQUE D'ABAM / A": [
+          "MVENGUE": [
             {
-              station: "ABAM",
-              voters: 118
-            },
+              "station": "ECOLE PUBLIQUE ANNEX -A / A",
+              "voters": 1197
+            }
           ],
-          "ECOLE PUBLIQUE D'AKIE / A": [
+          "ABAM": [
             {
-              station: "AKIE",
-              voters: 150
-            },
+              "station": "ECOLE PUBLIQUE D'ABAM / A",
+              "voters": 118
+            }
           ],
-          "ECOLE PUBLIQUE D'AKOK / A": [
+          "AKIE": [
             {
-              station: "AKOK",
-              voters: 100
-            },
+              "station": "ECOLE PUBLIQUE D'AKIE / A",
+              "voters": 150
+            }
           ],
-          "ECOLE PUBLIQUE D'AKOM / A": [
+          "AKOK": [
             {
-              station: "AKOM",
-              voters: 228
-            },
+              "station": "ECOLE PUBLIQUE D'AKOK / A",
+              "voters": 100
+            }
           ],
-          "ECOLE PUBLIQUE D'ATINZAM / A": [
+          "AKOM": [
             {
-              station: "ATINZAM",
-              voters: 69
-            },
+              "station": "ECOLE PUBLIQUE D'AKOM / A",
+              "voters": 228
+            }
           ],
-          "ECOLE PUBLIQUE D'AWANDA / A": [
+          "ATINZAM": [
             {
-              station: "AWANDA",
-              voters: 614
-            },
+              "station": "ECOLE PUBLIQUE D'ATINZAM / A",
+              "voters": 69
+            }
           ],
-          "ECOLE PUBLIQUE D'EBOM CENTRE / A": [
+          "AWANDA": [
             {
-              station: "EBOM",
-              voters: 353
-            },
-            {
-              station: "CENTRE",
-              voters: 759
-            },
+              "station": "ECOLE PUBLIQUE D'AWANDA / A",
+              "voters": 614
+            }
           ],
-          "ECOLE PUBLIQUE D'ELON / A": [
+          "EBOM": [
             {
-              station: "ELON",
-              voters: 190
-            },
+              "station": "ECOLE PUBLIQUE D'EBOM CENTRE / A",
+              "voters": 353
+            }
           ],
-          "ECOLE PUBLIQUE D'OKOGA / A": [
+          "CENTRE": [
             {
-              station: "OKOGA",
-              voters: 111
-            },
+              "station": "ECOLE PUBLIQUE D'EBOM CENTRE / A",
+              "voters": 759
+            }
           ],
-          "ECOLE PUBLIQUE DE BEMBE / A": [
+          "ELON": [
             {
-              station: "BEMBE",
-              voters: 41
-            },
+              "station": "ECOLE PUBLIQUE D'ELON / A",
+              "voters": 190
+            }
           ],
-          "ECOLE PUBLIQUE DE BIKOE I / A": [
+          "OKOGA": [
             {
-              station: "BIKOE",
-              voters: 373
-            },
+              "station": "ECOLE PUBLIQUE D'OKOGA / A",
+              "voters": 111
+            }
           ],
-          "ECOLE PUBLIQUE DE BIKOP / A": [
+          "BEMBE": [
             {
-              station: "BIKOP",
-              voters: 152
-            },
+              "station": "ECOLE PUBLIQUE DE BEMBE / A",
+              "voters": 41
+            }
           ],
-          "ECOLE PUBLIQUE DE D'OKAROBELE / A": [
+          "BIKOE": [
             {
-              station: "OKAROBELE",
-              voters: 203
-            },
+              "station": "ECOLE PUBLIQUE DE BIKOE I / A",
+              "voters": 373
+            }
           ],
-          "ECOLE PUBLIQUE DE KA'AN II / A": [
+          "BIKOP": [
             {
-              station: "KA'AN",
-              voters: 318
-            },
+              "station": "ECOLE PUBLIQUE DE BIKOP / A",
+              "voters": 152
+            }
           ],
-          "ECOLE PUBLIQUE DE KOULNGANGA / A": [
+          "OKAROBELE": [
             {
-              station: "KOULNGANGA",
-              voters: 281
-            },
+              "station": "ECOLE PUBLIQUE DE D'OKAROBELE / A",
+              "voters": 203
+            }
           ],
-          "ECOLE PUBLIQUE DE MEKOM / A": [
+          "KA'AN": [
             {
-              station: "MEKOM",
-              voters: 101
-            },
+              "station": "ECOLE PUBLIQUE DE KA'AN II / A",
+              "voters": 318
+            }
           ],
-          "ECOLE PUBLIQUE DE MELEN / A": [
+          "KOULNGANGA": [
             {
-              station: "MELEN",
-              voters: 180
-            },
+              "station": "ECOLE PUBLIQUE DE KOULNGANGA / A",
+              "voters": 281
+            }
           ],
-          "ECOLE PUBLIQUE DE MENGANDA II / A": [
+          "MEKOM": [
             {
-              station: "MENGANDA",
-              voters: 99
-            },
+              "station": "ECOLE PUBLIQUE DE MEKOM / A",
+              "voters": 101
+            }
           ],
-          "ECOLE PUBLIQUE DE MINKAN / A": [
+          "MELEN": [
             {
-              station: "MINKAN",
-              voters: 446
-            },
+              "station": "ECOLE PUBLIQUE DE MELEN / A",
+              "voters": 180
+            }
           ],
-          "ECOLE PUBLIQUE DE NDZIEBETONO / A": [
+          "MENGANDA": [
             {
-              station: "NDZIEBETONO",
-              voters: 131
-            },
+              "station": "ECOLE PUBLIQUE DE MENGANDA II / A",
+              "voters": 99
+            }
           ],
-          "ECOLE PUBLIQUE DE NKOALA'A I / A": [
+          "MINKAN": [
             {
-              station: "NKOALA'A",
-              voters: 113
-            },
+              "station": "ECOLE PUBLIQUE DE MINKAN / A",
+              "voters": 446
+            }
           ],
-          "ECOLE PUBLIQUE DE NKOALA'A II / A": [
+          "NDZIEBETONO": [
             {
-              station: "NKOALA",
-              voters: 101
-            },
+              "station": "ECOLE PUBLIQUE DE NDZIEBETONO / A",
+              "voters": 131
+            }
           ],
-          "ECOLE PUBLIQUE DE NKOAMBE / A": [
+          "NKOALA'A": [
             {
-              station: "NKOAMBE",
-              voters: 163
-            },
+              "station": "ECOLE PUBLIQUE DE NKOALA'A I / A",
+              "voters": 113
+            }
           ],
-          "ECOLE PUBLIQUE MVENGUE III / A": [
+          "NKOALA": [
             {
-              station: "III",
-              voters: 189
-            },
+              "station": "ECOLE PUBLIQUE DE NKOALA'A II / A",
+              "voters": 101
+            }
           ],
-          "SAR/SM DE MVENGUE MEDZOBO / A": [
+          "NKOAMBE": [
             {
-              station: "MEDZOBO",
-              voters: 163
-            },
+              "station": "ECOLE PUBLIQUE DE NKOAMBE / A",
+              "voters": 163
+            }
           ],
+          "III": [
+            {
+              "station": "ECOLE PUBLIQUE MVENGUE III / A",
+              "voters": 189
+            }
+          ],
+          "MEDZOBO": [
+            {
+              "station": "SAR/SM DE MVENGUE MEDZOBO / A",
+              "voters": 163
+            }
+          ]
         },
         "NIETE": {
-          "ECOLE PUBLIQUE BIDOU III / A": [
+          "BIDOU": [
             {
-              station: "BIDOU",
-              voters: 160
-            },
-            {
-              station: "III",
-              voters: 160
-            },
+              "station": "ECOLE PUBLIQUE BIDOU III / A",
+              "voters": 160
+            }
           ],
-          "ECOLE PUBLIQUE D'ADJAP / A": [
+          "III": [
             {
-              station: "ADJAP",
-              voters: 249
-            },
-            {
-              station: "AKO'OZAM",
-              voters: 249
-            },
-            {
-              station: "NKOMGMINTOM",
-              voters: 249
-            },
+              "station": "ECOLE PUBLIQUE BIDOU III / A",
+              "voters": 160
+            }
           ],
-          "ECOLE PUBLIQUE D'AFAN-OVENG / A": [
+          "ADJAP": [
             {
-              station: "AFANG-OVENG",
-              voters: 184
-            },
-            {
-              station: "ANGALE",
-              voters: 184
-            },
+              "station": "ECOLE PUBLIQUE D'ADJAP / A",
+              "voters": 249
+            }
           ],
-          "ECOLE PUBLIQUE D'AKOM I / A": [
+          "AKO'OZAM": [
             {
-              station: "AKOM",
-              voters: 172
-            },
-            {
-              station: "EDOUDOUMA",
-              voters: 172
-            },
-            {
-              station: "NJANTOM",
-              voters: 172
-            },
-            {
-              station: "VILLAGE",
-              voters: 11059
-            },
+              "station": "ECOLE PUBLIQUE D'ADJAP / A",
+              "voters": 249
+            }
           ],
-          "ECOLE PUBLIQUE DE BIFA / A": [
+          "NKOMGMINTOM": [
             {
-              station: "BIFA",
-              voters: 75
-            },
-            {
-              station: "MEKANDA",
-              voters: 75
-            },
-            {
-              station: "OLEM",
-              voters: 75
-            },
+              "station": "ECOLE PUBLIQUE D'ADJAP / A",
+              "voters": 249
+            }
           ],
-          "ECOLE PUBLIQUE DE NGOCK / A": [
+          "AFANG-OVENG": [
             {
-              station: "NGOCK",
-              voters: 261
-            },
+              "station": "ECOLE PUBLIQUE D'AFAN-OVENG / A",
+              "voters": 184
+            }
           ],
-          "ECOLE PUBLIQUE DE NKO'OLONG / A": [
+          "ANGALE": [
             {
-              station: "NKO'OLONG",
-              voters: 230
-            },
+              "station": "ECOLE PUBLIQUE D'AFAN-OVENG / A",
+              "voters": 184
+            }
           ],
-          "ECOLE PUBLIQUE DE ZINGUI / A": [
+          "AKOM": [
             {
-              station: "ANDJECK",
-              voters: 302
-            },
-            {
-              station: "BINAK",
-              voters: 302
-            },
-            {
-              station: "NYEMA",
-              voters: 302
-            },
-            {
-              station: "ZINGUI",
-              voters: 302
-            },
+              "station": "ECOLE PUBLIQUE D'AKOM I / A",
+              "voters": 172
+            }
           ],
-          "ECOLE PUBLIQUE HEVECAM VILLAGE 1 / A": [
+          "EDOUDOUMA": [
             {
-              station: "CITE",
-              voters: 159
-            },
-            {
-              station: "DES",
-              voters: 159
-            },
-            {
-              station: "CADRES",
-              voters: 159
-            },
+              "station": "ECOLE PUBLIQUE D'AKOM I / A",
+              "voters": 172
+            }
           ],
-          "ECOLE PUBLIQUE HEVECAM VILLAGE 15 / A": [
+          "NJANTOM": [
             {
-              station: "LOBE",
-              voters: 686
-            },
+              "station": "ECOLE PUBLIQUE D'AKOM I / A",
+              "voters": 172
+            }
           ],
-          "ECOLE PUBLIQUE HEVECAM VILLAGE 2 / A": [
+          "VILLAGE": [
             {
-              station: "NIETE",
-              voters: 545
-            },
+              "station": "ECOLE PUBLIQUE D'AKOM I / A",
+              "voters": 11059
+            }
           ],
-          "ECOLE PUBLIQUE HEVECAM VILLAGE HOP. /  A": [
+          "BIFA": [
             {
-              station: "QUARTIER",
-              voters: 65
-            },
-            {
-              station: "HOPITAL",
-              voters: 65
-            },
+              "station": "ECOLE PUBLIQUE DE BIFA / A",
+              "voters": 75
+            }
           ],
-          "ECOLE PUBLIQUE NKO'OLONG / A": [
+          "MEKANDA": [
             {
-              station: "NLOZOK",
-              voters: 45
-            },
+              "station": "ECOLE PUBLIQUE DE BIFA / A",
+              "voters": 75
+            }
           ],
-          "ESPL. BAR ALIMENTATION CODERA / A": [
+          "OLEM": [
             {
-              station: "NKOLMBONDA",
-              voters: 149
-            },
-            {
-              station: "NKOMBONDA",
-              voters: 149
-            },
+              "station": "ECOLE PUBLIQUE DE BIFA / A",
+              "voters": 75
+            }
           ],
-          "SALLE DES FETES NLONGO / A": [
+          "NGOCK": [
             {
-              station: "NLONGO",
-              voters: 107
-            },
-            {
-              station: "GENDARMERIE",
-              voters: 107
-            },
+              "station": "ECOLE PUBLIQUE DE NGOCK / A",
+              "voters": 261
+            }
           ],
-        },
+          "NKO'OLONG": [
+            {
+              "station": "ECOLE PUBLIQUE DE NKO'OLONG / A",
+              "voters": 230
+            }
+          ],
+          "ANDJECK": [
+            {
+              "station": "ECOLE PUBLIQUE DE ZINGUI / A",
+              "voters": 302
+            }
+          ],
+          "BINAK": [
+            {
+              "station": "ECOLE PUBLIQUE DE ZINGUI / A",
+              "voters": 302
+            }
+          ],
+          "NYEMA": [
+            {
+              "station": "ECOLE PUBLIQUE DE ZINGUI / A",
+              "voters": 302
+            }
+          ],
+          "ZINGUI": [
+            {
+              "station": "ECOLE PUBLIQUE DE ZINGUI / A",
+              "voters": 302
+            }
+          ],
+          "CITE": [
+            {
+              "station": "ECOLE PUBLIQUE HEVECAM VILLAGE 1 / A",
+              "voters": 159
+            }
+          ],
+          "DES": [
+            {
+              "station": "ECOLE PUBLIQUE HEVECAM VILLAGE 1 / A",
+              "voters": 159
+            }
+          ],
+          "CADRES": [
+            {
+              "station": "ECOLE PUBLIQUE HEVECAM VILLAGE 1 / A",
+              "voters": 159
+            }
+          ],
+          "LOBE": [
+            {
+              "station": "ECOLE PUBLIQUE HEVECAM VILLAGE 15 / A",
+              "voters": 686
+            }
+          ],
+          "NIETE": [
+            {
+              "station": "ECOLE PUBLIQUE HEVECAM VILLAGE 2 / A",
+              "voters": 545
+            }
+          ],
+          "QUARTIER": [
+            {
+              "station": "ECOLE PUBLIQUE HEVECAM VILLAGE HOP. /  A",
+              "voters": 65
+            }
+          ],
+          "HOPITAL": [
+            {
+              "station": "ECOLE PUBLIQUE HEVECAM VILLAGE HOP. /  A",
+              "voters": 65
+            }
+          ],
+          "NLOZOK": [
+            {
+              "station": "ECOLE PUBLIQUE NKO'OLONG / A",
+              "voters": 45
+            }
+          ],
+          "NKOLMBONDA": [
+            {
+              "station": "ESPL. BAR ALIMENTATION CODERA / A",
+              "voters": 149
+            }
+          ],
+          "NKOMBONDA": [
+            {
+              "station": "ESPL. BAR ALIMENTATION CODERA / A",
+              "voters": 149
+            }
+          ],
+          "NLONGO": [
+            {
+              "station": "SALLE DES FETES NLONGO / A",
+              "voters": 107
+            }
+          ],
+          "GENDARMERIE": [
+            {
+              "station": "SALLE DES FETES NLONGO / A",
+              "voters": 107
+            }
+          ]
+        }
       },
       "VALLE DU": {
         "AMBAM": {
-          "CORPS DE GARDE AKINA / A": [
+          "AKINA": [
             {
-              station: "AKINA",
-              voters: 67
-            },
+              "station": "CORPS DE GARDE AKINA / A",
+              "voters": 67
+            }
           ],
-          "CORPS DE GARDE AKOM BIKAK / A": [
+          "AKOM": [
             {
-              station: "AKOM",
-              voters: 73
-            },
-            {
-              station: "BIKAK",
-              voters: 73
-            },
+              "station": "CORPS DE GARDE AKOM BIKAK / A",
+              "voters": 73
+            }
           ],
-          "CORPS DE GARDE AMBAM YAT / A": [
+          "BIKAK": [
             {
-              station: "YAT",
-              voters: 439
-            },
+              "station": "CORPS DE GARDE AKOM BIKAK / A",
+              "voters": 73
+            }
           ],
-          "CORPS DE GARDE BILE OSSI / A": [
+          "YAT": [
             {
-              station: "BILE",
-              voters: 107
-            },
+              "station": "CORPS DE GARDE AMBAM YAT / A",
+              "voters": 439
+            }
+          ],
+          "BILE": [
             {
-              station: "OSSI",
-              voters: 107
-            },
+              "station": "CORPS DE GARDE BILE OSSI / A",
+              "voters": 107
+            }
           ],
-          "CORPS DE GARDE BILIK-BI-THO / A": [
+          "OSSI": [
             {
-              station: "BILIK",
-              voters: 123
-            },
+              "station": "CORPS DE GARDE BILE OSSI / A",
+              "voters": 107
+            }
+          ],
+          "BILIK": [
             {
-              station: "THO",
-              voters: 280
-            },
+              "station": "CORPS DE GARDE BILIK-BI-THO / A",
+              "voters": 123
+            }
           ],
-          "CORPS DE GARDE BINDAMEYOS / A": [
+          "THO": [
             {
-              station: "BINDAMEYOS",
-              voters: 144
-            },
+              "station": "CORPS DE GARDE BILIK-BI-THO / A",
+              "voters": 280
+            }
           ],
-          "CORPS DE GARDE EBOZI I / A": [
+          "BINDAMEYOS": [
             {
-              station: "EBOZI",
-              voters: 160
-            },
+              "station": "CORPS DE GARDE BINDAMEYOS / A",
+              "voters": 144
+            }
           ],
-          "CORPS DE GARDE EKOUMEDOUM / A": [
+          "EBOZI": [
             {
-              station: "EKOUMEDOUM",
-              voters: 248
-            },
+              "station": "CORPS DE GARDE EBOZI I / A",
+              "voters": 160
+            }
           ],
-          "CORPS DE GARDE ELON / A": [
+          "EKOUMEDOUM": [
             {
-              station: "ELON",
-              voters: 108
-            },
+              "station": "CORPS DE GARDE EKOUMEDOUM / A",
+              "voters": 248
+            }
           ],
-          "CORPS DE GARDE KONEMEKAK / A": [
+          "ELON": [
             {
-              station: "KONEMEKAK",
-              voters: 84
-            },
+              "station": "CORPS DE GARDE ELON / A",
+              "voters": 108
+            }
           ],
-          "CORPS DE GARDE M . OVENG ESSAKORAN /  A": [
+          "KONEMEKAK": [
             {
-              station: "ESSAKORAN",
-              voters: 99
-            },
+              "station": "CORPS DE GARDE KONEMEKAK / A",
+              "voters": 84
+            }
           ],
-          "CORPS DE GARDE MEDJOUNOU / A": [
+          "ESSAKORAN": [
             {
-              station: "MEDJOUNOU",
-              voters: 69
-            },
+              "station": "CORPS DE GARDE M . OVENG ESSAKORAN /  A",
+              "voters": 99
+            }
           ],
-          "CORPS DE GARDE MEKAMAN / A": [
+          "MEDJOUNOU": [
             {
-              station: "MEKAMAN",
-              voters: 124
-            },
+              "station": "CORPS DE GARDE MEDJOUNOU / A",
+              "voters": 69
+            }
           ],
-          "CORPS DE GARDE MEKOMO AMBAM / A": [
+          "MEKAMAN": [
             {
-              station: "MEKOMO",
-              voters: 255
-            },
+              "station": "CORPS DE GARDE MEKAMAN / A",
+              "voters": 124
+            }
           ],
-          "CORPS DE GARDE MENGOMO / A": [
+          "MEKOMO": [
             {
-              station: "MENGOMO",
-              voters: 175
-            },
+              "station": "CORPS DE GARDE MEKOMO AMBAM / A",
+              "voters": 255
+            }
           ],
-          "CORPS DE GARDE MESSI-MESSI / A": [
+          "MENGOMO": [
             {
-              station: "MESSI-MESSI",
-              voters: 81
-            },
+              "station": "CORPS DE GARDE MENGOMO / A",
+              "voters": 175
+            }
           ],
-          "CORPS DE GARDE NKOLMELEN / A": [
+          "MESSI-MESSI": [
             {
-              station: "NKOLMELEN",
-              voters: 55
-            },
+              "station": "CORPS DE GARDE MESSI-MESSI / A",
+              "voters": 81
+            }
           ],
-          "CORPS DE GARDE NKOTOVENG / A": [
+          "NKOLMELEN": [
             {
-              station: "NKOTOVENG",
-              voters: 163
-            },
+              "station": "CORPS DE GARDE NKOLMELEN / A",
+              "voters": 55
+            }
           ],
-          "CORPS DE GARDE NNEZAM / A": [
+          "NKOTOVENG": [
             {
-              station: "NNEZAM",
-              voters: 77
-            },
+              "station": "CORPS DE GARDE NKOTOVENG / A",
+              "voters": 163
+            }
           ],
-          "CORPS DE GARDE NSELANG / A": [
+          "NNEZAM": [
             {
-              station: "NSELANG",
-              voters: 107
-            },
+              "station": "CORPS DE GARDE NNEZAM / A",
+              "voters": 77
+            }
           ],
-          "CORPS DE GARDE NSESSOUM / A": [
+          "NSELANG": [
             {
-              station: "NSESSOUM",
-              voters: 192
-            },
+              "station": "CORPS DE GARDE NSELANG / A",
+              "voters": 107
+            }
           ],
-          "CORPS DE GARDE NYAZANGA / A": [
+          "NSESSOUM": [
             {
-              station: "NYANZANGA",
-              voters: 137
-            },
+              "station": "CORPS DE GARDE NSESSOUM / A",
+              "voters": 192
+            }
           ],
-          "CORPS DE GARDE YOS-MA'AN / A": [
+          "NYANZANGA": [
             {
-              station: "YOS-MA'AN",
-              voters: 28
-            },
+              "station": "CORPS DE GARDE NYAZANGA / A",
+              "voters": 137
+            }
           ],
-          "CORPS-DE-GARDE ZALOM / A": [
+          "YOS-MA'AN": [
             {
-              station: "ZALOM",
-              voters: 45
-            },
+              "station": "CORPS DE GARDE YOS-MA'AN / A",
+              "voters": 28
+            }
           ],
-          "DELEGATION MINDAF-AMBAM / A": [
+          "ZALOM": [
             {
-              station: "MELEN-SI",
-              voters: 760
-            },
+              "station": "CORPS-DE-GARDE ZALOM / A",
+              "voters": 45
+            }
           ],
-          "DOUANE AMBAM / A": [
+          "MELEN-SI": [
             {
-              station: "CENTRE",
-              voters: 572
-            },
+              "station": "DELEGATION MINDAF-AMBAM / A",
+              "voters": 760
+            }
+          ],
+          "CENTRE": [
             {
-              station: "VILLE",
-              voters: 206
-            },
+              "station": "DOUANE AMBAM / A",
+              "voters": 572
+            }
           ],
-          "ECOLE ANNEXE NSOLE / A": [
+          "VILLE": [
             {
-              station: "NSOLE",
-              voters: 994
-            },
+              "station": "DOUANE AMBAM / A",
+              "voters": 206
+            }
           ],
-          "ECOLE CATHOLIQUE NKOLETAM / A": [
+          "NSOLE": [
             {
-              station: "NKOLETAM",
-              voters: 253
-            },
+              "station": "ECOLE ANNEXE NSOLE / A",
+              "voters": 994
+            }
           ],
-          "ECOLE PUBLIQUE ABANG BETHEL / A": [
+          "NKOLETAM": [
             {
-              station: "ABANG",
-              voters: 1125
-            },
+              "station": "ECOLE CATHOLIQUE NKOLETAM / A",
+              "voters": 253
+            }
+          ],
+          "ABANG": [
             {
-              station: "BETHEL",
-              voters: 122
-            },
+              "station": "ECOLE PUBLIQUE ABANG BETHEL / A",
+              "voters": 1125
+            }
           ],
-          "ECOLE PUBLIQUE AKAK METOM / A": [
+          "BETHEL": [
             {
-              station: "AKAK",
-              voters: 52
-            },
+              "station": "ECOLE PUBLIQUE ABANG BETHEL / A",
+              "voters": 122
+            }
+          ],
+          "AKAK": [
             {
-              station: "METOM",
-              voters: 52
-            },
+              "station": "ECOLE PUBLIQUE AKAK METOM / A",
+              "voters": 52
+            }
           ],
-          "ECOLE PUBLIQUE AKAM BITAM I / A": [
+          "METOM": [
             {
-              station: "AKAM",
-              voters: 489
-            },
+              "station": "ECOLE PUBLIQUE AKAK METOM / A",
+              "voters": 52
+            }
+          ],
+          "AKAM": [
             {
-              station: "BITAM",
-              voters: 299
-            },
+              "station": "ECOLE PUBLIQUE AKAM BITAM I / A",
+              "voters": 489
+            }
           ],
-          "ECOLE PUBLIQUE AKAM MESSI / A": [
+          "BITAM": [
             {
-              station: "MESSI",
-              voters: 190
-            },
+              "station": "ECOLE PUBLIQUE AKAM BITAM I / A",
+              "voters": 299
+            }
           ],
-          "ECOLE PUBLIQUE AKONETYE / A": [
+          "MESSI": [
             {
-              station: "AKONETYE",
-              voters: 173
-            },
+              "station": "ECOLE PUBLIQUE AKAM MESSI / A",
+              "voters": 190
+            }
           ],
-          "ECOLE PUBLIQUE AKOULEZOK / A": [
+          "AKONETYE": [
             {
-              station: "AKOULEZOK",
-              voters: 361
-            },
+              "station": "ECOLE PUBLIQUE AKONETYE / A",
+              "voters": 173
+            }
           ],
-          "ECOLE PUBLIQUE ANDOM / A": [
+          "AKOULEZOK": [
             {
-              station: "ANDOM",
-              voters: 128
-            },
+              "station": "ECOLE PUBLIQUE AKOULEZOK / A",
+              "voters": 361
+            }
           ],
-          "ECOLE PUBLIQUE ASSANDJIK / A": [
+          "ANDOM": [
             {
-              station: "ASSANDJIK",
-              voters: 126
-            },
+              "station": "ECOLE PUBLIQUE ANDOM / A",
+              "voters": 128
+            }
           ],
-          "ECOLE PUBLIQUE BILIK BI YAMA / A": [
+          "ASSANDJIK": [
             {
-              station: "YAMA",
-              voters: 154
-            },
+              "station": "ECOLE PUBLIQUE ASSANDJIK / A",
+              "voters": 126
+            }
           ],
-          "ECOLE PUBLIQUE BIYI-EBA / A": [
+          "YAMA": [
             {
-              station: "BIYI",
-              voters: 166
-            },
+              "station": "ECOLE PUBLIQUE BILIK BI YAMA / A",
+              "voters": 154
+            }
+          ],
+          "BIYI": [
             {
-              station: "EBA",
-              voters: 91
-            },
+              "station": "ECOLE PUBLIQUE BIYI-EBA / A",
+              "voters": 166
+            }
           ],
-          "ECOLE PUBLIQUE BIYI-EFACK / A": [
+          "EBA": [
             {
-              station: "EFACK",
-              voters: 75
-            },
+              "station": "ECOLE PUBLIQUE BIYI-EBA / A",
+              "voters": 91
+            }
           ],
-          "ECOLE PUBLIQUE DE MEYO CENTRE / A": [
+          "EFACK": [
             {
-              station: "MEYO",
-              voters: 631
-            },
+              "station": "ECOLE PUBLIQUE BIYI-EFACK / A",
+              "voters": 75
+            }
           ],
-          "ECOLE PUBLIQUE DE NEW BELL / A": [
+          "MEYO": [
             {
-              station: "NEW",
-              voters: 670
-            },
+              "station": "ECOLE PUBLIQUE DE MEYO CENTRE / A",
+              "voters": 631
+            }
+          ],
+          "NEW": [
             {
-              station: "BELL",
-              voters: 670
-            },
+              "station": "ECOLE PUBLIQUE DE NEW BELL / A",
+              "voters": 670
+            }
           ],
-          "ECOLE PUBLIQUE DU CENTRE / A": [
+          "BELL": [
             {
-              station: "AVIATION",
-              voters: 1799
-            },
+              "station": "ECOLE PUBLIQUE DE NEW BELL / A",
+              "voters": 670
+            }
           ],
-          "ECOLE PUBLIQUE MBAM ESSAOBAM / A": [
+          "AVIATION": [
             {
-              station: "MBAM",
-              voters: 136
-            },
+              "station": "ECOLE PUBLIQUE DU CENTRE / A",
+              "voters": 1799
+            }
+          ],
+          "MBAM": [
             {
-              station: "ESSAOBAM",
-              voters: 241
-            },
+              "station": "ECOLE PUBLIQUE MBAM ESSAOBAM / A",
+              "voters": 136
+            }
           ],
-          "ECOLE PUBLIQUE MEFOUP ESSAKAK / A": [
+          "ESSAOBAM": [
             {
-              station: "MEFOUP",
-              voters: 264
-            },
+              "station": "ECOLE PUBLIQUE MBAM ESSAOBAM / A",
+              "voters": 241
+            }
+          ],
+          "MEFOUP": [
             {
-              station: "ESSAKAK",
-              voters: 264
-            },
+              "station": "ECOLE PUBLIQUE MEFOUP ESSAKAK / A",
+              "voters": 264
+            }
           ],
-          "ECOLE PUBLIQUE MEMVIM / A": [
+          "ESSAKAK": [
             {
-              station: "MEMVIM",
-              voters: 85
-            },
+              "station": "ECOLE PUBLIQUE MEFOUP ESSAKAK / A",
+              "voters": 264
+            }
           ],
-          "ECOLE PUBLIQUE MENDJIMI / A": [
+          "MEMVIM": [
             {
-              station: "MENDJIMI",
-              voters: 249
-            },
+              "station": "ECOLE PUBLIQUE MEMVIM / A",
+              "voters": 85
+            }
           ],
-          "ECOLE PUBLIQUE MENGAMA / A": [
+          "MENDJIMI": [
             {
-              station: "MENGAMA",
-              voters: 100
-            },
+              "station": "ECOLE PUBLIQUE MENDJIMI / A",
+              "voters": 249
+            }
           ],
-          "ECOLE PUBLIQUE MEYO-ELIE / A": [
+          "MENGAMA": [
             {
-              station: "ELIE",
-              voters: 265
-            },
+              "station": "ECOLE PUBLIQUE MENGAMA / A",
+              "voters": 100
+            }
           ],
-          "ECOLE PUBLIQUE MEYO-NYAKA / A": [
+          "ELIE": [
             {
-              station: "MEYO-NYAKA",
-              voters: 121
-            },
+              "station": "ECOLE PUBLIQUE MEYO-ELIE / A",
+              "voters": 265
+            }
           ],
-          "ECOLE PUBLIQUE MFOULEKOK / A": [
+          "MEYO-NYAKA": [
             {
-              station: "MFOULEKOK",
-              voters: 129
-            },
+              "station": "ECOLE PUBLIQUE MEYO-NYAKA / A",
+              "voters": 121
+            }
           ],
-          "ECOLE PUBLIQUE MINDI MI OVENG / A": [
+          "MFOULEKOK": [
             {
-              station: "MINDJI",
-              voters: 100
-            },
+              "station": "ECOLE PUBLIQUE MFOULEKOK / A",
+              "voters": 129
+            }
+          ],
+          "MINDJI": [
             {
-              station: "OVENG",
-              voters: 199
-            },
+              "station": "ECOLE PUBLIQUE MINDI MI OVENG / A",
+              "voters": 100
+            }
           ],
-          "ECOLE PUBLIQUE MINKOK / A": [
+          "OVENG": [
             {
-              station: "MINKOK",
-              voters: 159
-            },
+              "station": "ECOLE PUBLIQUE MINDI MI OVENG / A",
+              "voters": 199
+            }
           ],
-          "ECOLE PUBLIQUE MINYIN / A": [
+          "MINKOK": [
             {
-              station: "MINYIN",
-              voters: 205
-            },
+              "station": "ECOLE PUBLIQUE MINKOK / A",
+              "voters": 159
+            }
           ],
-          "ECOLE PUBLIQUE NGOM-ADJAP / A": [
+          "MINYIN": [
             {
-              station: "NGOM",
-              voters: 167
-            },
+              "station": "ECOLE PUBLIQUE MINYIN / A",
+              "voters": 205
+            }
+          ],
+          "NGOM": [
             {
-              station: "ADJAP",
-              voters: 62
-            },
+              "station": "ECOLE PUBLIQUE NGOM-ADJAP / A",
+              "voters": 167
+            }
           ],
-          "ECOLE PUBLIQUE NKAN / A": [
+          "ADJAP": [
             {
-              station: "NKAN",
-              voters: 122
-            },
+              "station": "ECOLE PUBLIQUE NGOM-ADJAP / A",
+              "voters": 62
+            }
           ],
-          "ECOLE PUBLIQUE NKO'OMBE / A": [
+          "NKAN": [
             {
-              station: "NKO'OMBE",
-              voters: 90
-            },
+              "station": "ECOLE PUBLIQUE NKAN / A",
+              "voters": 122
+            }
           ],
-          "ECOLE PUBLIQUE NKOLEFOULAN / A": [
+          "NKO'OMBE": [
             {
-              station: "NKOLEFOULAN",
-              voters: 88
-            },
+              "station": "ECOLE PUBLIQUE NKO'OMBE / A",
+              "voters": 90
+            }
           ],
-          "ECOLE PUBLIQUE NKOLEKON / A": [
+          "NKOLEFOULAN": [
             {
-              station: "NKOLEKON",
-              voters: 68
-            },
+              "station": "ECOLE PUBLIQUE NKOLEFOULAN / A",
+              "voters": 88
+            }
           ],
-          "ECOLE PUBLIQUE NKPWA EVOLE / A": [
+          "NKOLEKON": [
             {
-              station: "NPWA",
-              voters: 201
-            },
+              "station": "ECOLE PUBLIQUE NKOLEKON / A",
+              "voters": 68
+            }
+          ],
+          "NPWA": [
             {
-              station: "EVOLE",
-              voters: 201
-            },
+              "station": "ECOLE PUBLIQUE NKPWA EVOLE / A",
+              "voters": 201
+            }
           ],
-          "ECOLE PUBLIQUE NLONO / A": [
+          "EVOLE": [
             {
-              station: "NLONO",
-              voters: 148
-            },
+              "station": "ECOLE PUBLIQUE NKPWA EVOLE / A",
+              "voters": 201
+            }
           ],
-          "ECOLE PUBLIQUE NONG / A": [
+          "NLONO": [
             {
-              station: "NONG",
-              voters: 53
-            },
+              "station": "ECOLE PUBLIQUE NLONO / A",
+              "voters": 148
+            }
           ],
-          "ECOLE PUBLIQUE ZAMINKAN / A": [
+          "NONG": [
             {
-              station: "ZAMINKAN",
-              voters: 136
-            },
+              "station": "ECOLE PUBLIQUE NONG / A",
+              "voters": 53
+            }
           ],
-          "ECOLE-PRIVEE AFANETE / A": [
+          "ZAMINKAN": [
             {
-              station: "AFANETE",
-              voters: 1798
-            },
+              "station": "ECOLE PUBLIQUE ZAMINKAN / A",
+              "voters": 136
+            }
           ],
-          "ESPLANADE PRISON / A": [
+          "AFANETE": [
             {
-              station: "PRISON",
-              voters: 181
-            },
+              "station": "ECOLE-PRIVEE AFANETE / A",
+              "voters": 1798
+            }
           ],
-          "FOYER MUNICIPAL AMBAM / A": [
+          "PRISON": [
             {
-              station: "QUARTIER",
-              voters: 397
-            },
+              "station": "ESPLANADE PRISON / A",
+              "voters": 181
+            }
+          ],
+          "QUARTIER": [
             {
-              station: "ADMINISTRATIF",
-              voters: 397
-            },
+              "station": "FOYER MUNICIPAL AMBAM / A",
+              "voters": 397
+            }
           ],
-          "LYCEE BILINGUE AMBAM / A": [
+          "ADMINISTRATIF": [
             {
-              station: "AMBAM",
-              voters: 8875
-            },
+              "station": "FOYER MUNICIPAL AMBAM / A",
+              "voters": 397
+            }
+          ],
+          "AMBAM": [
             {
-              station: "BRIQUETERIE",
-              voters: 388
-            },
+              "station": "LYCEE BILINGUE AMBAM / A",
+              "voters": 8875
+            }
           ],
-          "LYCEE MIXTE ABANG MINKO / A": [
+          "BRIQUETERIE": [
             {
-              station: "MINKO",
-              voters: 1003
-            },
+              "station": "LYCEE BILINGUE AMBAM / A",
+              "voters": 388
+            }
           ],
-          "LYCEE TECHNIQUE NKOUMEKEKE / A": [
+          "MINKO": [
             {
-              station: "NKOUMEKEKE",
-              voters: 735
-            },
+              "station": "LYCEE MIXTE ABANG MINKO / A",
+              "voters": 1003
+            }
           ],
+          "NKOUMEKEKE": [
+            {
+              "station": "LYCEE TECHNIQUE NKOUMEKEKE / A",
+              "voters": 735
+            }
+          ]
         },
         "KYE-OSSI": {
-          "BUREAU DE DOUANE ONGOZOK / A": [
+          "ONGOZOK": [
             {
-              station: "ONGOZOK",
-              voters: 74
-            },
+              "station": "BUREAU DE DOUANE ONGOZOK / A",
+              "voters": 74
+            }
           ],
-          "CENTRE DE SANTEINTEGREDE FENETE / A": [
+          "FENETE": [
             {
-              station: "FENETE",
-              voters: 204
-            },
+              "station": "CENTRE DE SANTEINTEGREDE FENETE / A",
+              "voters": 204
+            }
           ],
-          "CORPS DE GARDE EBENGON I / A": [
+          "EBENGON": [
             {
-              station: "EBENGON",
-              voters: 257
-            },
+              "station": "CORPS DE GARDE EBENGON I / A",
+              "voters": 257
+            }
           ],
-          "CORPS DE GARDE KONO FONOSSI / A": [
+          "KONO": [
             {
-              station: "KONO",
-              voters: 202
-            },
-            {
-              station: "FONOSSI",
-              voters: 202
-            },
+              "station": "CORPS DE GARDE KONO FONOSSI / A",
+              "voters": 202
+            }
           ],
-          "CORPS DE GARDE MEFOUP / A": [
+          "FONOSSI": [
             {
-              station: "MEFOUP",
-              voters: 109
-            },
+              "station": "CORPS DE GARDE KONO FONOSSI / A",
+              "voters": 202
+            }
           ],
-          "CORPS DE GARDE METET / A": [
+          "MEFOUP": [
             {
-              station: "METET",
-              voters: 138
-            },
+              "station": "CORPS DE GARDE MEFOUP / A",
+              "voters": 109
+            }
           ],
-          "CORPS DE GARDE MINYON / A": [
+          "METET": [
             {
-              station: "MINYON",
-              voters: 57
-            },
+              "station": "CORPS DE GARDE METET / A",
+              "voters": 138
+            }
           ],
-          "CORPS DE GARDE NKAN / A": [
+          "MINYON": [
             {
-              station: "NKAN",
-              voters: 57
-            },
+              "station": "CORPS DE GARDE MINYON / A",
+              "voters": 57
+            }
           ],
-          "DOUANE AKOMBANG / A": [
+          "NKAN": [
             {
-              station: "AKOMBANG",
-              voters: 8086
-            },
+              "station": "CORPS DE GARDE NKAN / A",
+              "voters": 57
+            }
           ],
-          "E.P. DE NSANGBWANG / A": [
+          "AKOMBANG": [
             {
-              station: "NSANBWANG",
-              voters: 136
-            },
-            {
-              station: "NSANGBWANG",
-              voters: 136
-            },
+              "station": "DOUANE AKOMBANG / A",
+              "voters": 8086
+            }
           ],
-          "ECOLE PUBLIQUE ADJOU'OU / A": [
+          "NSANBWANG": [
             {
-              station: "ADJOU'OU",
-              voters: 84
-            },
+              "station": "E.P. DE NSANGBWANG / A",
+              "voters": 136
+            }
           ],
-          "ECOLE PUBLIQUE AKONANGUI / A": [
+          "NSANGBWANG": [
             {
-              station: "AKONANGUI",
-              voters: 198
-            },
+              "station": "E.P. DE NSANGBWANG / A",
+              "voters": 136
+            }
           ],
-          "ECOLE PUBLIQUE DAMA / A": [
+          "ADJOU'OU": [
             {
-              station: "DAMA",
-              voters: 106
-            },
+              "station": "ECOLE PUBLIQUE ADJOU'OU / A",
+              "voters": 84
+            }
           ],
-          "ECOLE PUBLIQUE KYE-OSSI / A": [
+          "AKONANGUI": [
             {
-              station: "KYE-OSSI",
-              voters: 1709
-            },
+              "station": "ECOLE PUBLIQUE AKONANGUI / A",
+              "voters": 198
+            }
           ],
-          "ECOLE PUBLIQUE MINKOMO / A": [
+          "DAMA": [
             {
-              station: "MINKOMO",
-              voters: 112
-            },
+              "station": "ECOLE PUBLIQUE DAMA / A",
+              "voters": 106
+            }
           ],
-          "ECOLE PUBLIQUE NGOAZIK / A": [
+          "KYE-OSSI": [
             {
-              station: "NGOAZIK",
-              voters: 274
-            },
+              "station": "ECOLE PUBLIQUE KYE-OSSI / A",
+              "voters": 1709
+            }
           ],
-          "ECOLE PUBLIQUE NKOSSI MEKOMO I / A": [
+          "MINKOMO": [
             {
-              station: "MEKOMO",
-              voters: 386
-            },
+              "station": "ECOLE PUBLIQUE MINKOMO / A",
+              "voters": 112
+            }
           ],
-          "ECOLE PUBLIQUE NSANA / A": [
+          "NGOAZIK": [
             {
-              station: "NSANA",
-              voters: 207
-            },
+              "station": "ECOLE PUBLIQUE NGOAZIK / A",
+              "voters": 274
+            }
           ],
-          "ECOLE PUBLIQUE NSEZANG / A": [
+          "MEKOMO": [
             {
-              station: "NSEZANG",
-              voters: 62
-            },
+              "station": "ECOLE PUBLIQUE NKOSSI MEKOMO I / A",
+              "voters": 386
+            }
           ],
-          "TRIBUNAL COUTUMIER MEYO NKOULOU / A": [
+          "NSANA": [
             {
-              station: "MEYO",
-              voters: 168
-            },
-            {
-              station: "NKOULOU",
-              voters: 168
-            },
+              "station": "ECOLE PUBLIQUE NSANA / A",
+              "voters": 207
+            }
           ],
+          "NSEZANG": [
+            {
+              "station": "ECOLE PUBLIQUE NSEZANG / A",
+              "voters": 62
+            }
+          ],
+          "MEYO": [
+            {
+              "station": "TRIBUNAL COUTUMIER MEYO NKOULOU / A",
+              "voters": 168
+            }
+          ],
+          "NKOULOU": [
+            {
+              "station": "TRIBUNAL COUTUMIER MEYO NKOULOU / A",
+              "voters": 168
+            }
+          ]
         },
         "MA'AN": {
-          "CENTRE DE SANTE DE ZOUAMEYONG / A": [
+          "ZOUAMEYONG": [
             {
-              station: "ZOUAMEYONG",
-              voters: 54
-            },
+              "station": "CENTRE DE SANTE DE ZOUAMEYONG / A",
+              "voters": 54
+            }
           ],
-          "CORPS DE GARDE D'ABEM / A": [
+          "CHEFFERIE": [
             {
-              station: "CHEFFERIE",
-              voters: 231
-            },
-            {
-              station: "ODING",
-              voters: 66
-            },
+              "station": "CORPS DE GARDE D'ABEM / A",
+              "voters": 231
+            }
           ],
-          "CORPS DE GARDE D'AKOM / A": [
+          "ODING": [
             {
-              station: "AKOM",
-              voters: 167
-            },
+              "station": "CORPS DE GARDE D'ABEM / A",
+              "voters": 66
+            }
           ],
-          "CORPS DE GARDE D'EBOLMBAMA / A": [
+          "AKOM": [
             {
-              station: "EBOLMBAMA",
-              voters: 65
-            },
+              "station": "CORPS DE GARDE D'AKOM / A",
+              "voters": 167
+            }
           ],
-          "CORPS DE GARDE D'ENDENDEM / A": [
+          "EBOLMBAMA": [
             {
-              station: "ENDENDEM",
-              voters: 150
-            },
+              "station": "CORPS DE GARDE D'EBOLMBAMA / A",
+              "voters": 65
+            }
           ],
-          "CORPS DE GARDE DE MEBERA / A": [
+          "ENDENDEM": [
             {
-              station: "ABANG",
-              voters: 208
-            },
-            {
-              station: "BITOTO",
-              voters: 130
-            },
-            {
-              station: "MEBERA",
-              voters: 130
-            },
+              "station": "CORPS DE GARDE D'ENDENDEM / A",
+              "voters": 150
+            }
           ],
-          "CORPS DE GARDE DE NDJAZENG / A": [
+          "ABANG": [
             {
-              station: "NDJAZENG",
-              voters: 98
-            },
+              "station": "CORPS DE GARDE DE MEBERA / A",
+              "voters": 208
+            }
           ],
-          "CORPS DE GARDE DE NGBWA-AKOM / A": [
+          "BITOTO": [
             {
-              station: "EWONG",
-              voters: 61
-            },
-            {
-              station: "NGBWA",
-              voters: 61
-            },
+              "station": "CORPS DE GARDE DE MEBERA / A",
+              "voters": 130
+            }
           ],
-          "CORPS DE GARDE DE NNEMEYONG / A": [
+          "MEBERA": [
             {
-              station: "MELEN",
-              voters: 184
-            },
-            {
-              station: "NNEMEYONG",
-              voters: 127
-            },
+              "station": "CORPS DE GARDE DE MEBERA / A",
+              "voters": 130
+            }
           ],
-          "CORPS DE GARDE DE NSEBITO / A": [
+          "NDJAZENG": [
             {
-              station: "NSEBITO",
-              voters: 124
-            },
+              "station": "CORPS DE GARDE DE NDJAZENG / A",
+              "voters": 98
+            }
           ],
-          "CORPS DE GARDE DE NYABIBAK / A": [
+          "EWONG": [
             {
-              station: "NYABIBAK",
-              voters: 61
-            },
+              "station": "CORPS DE GARDE DE NGBWA-AKOM / A",
+              "voters": 61
+            }
           ],
-          "CORPS DE GARDE DE ZOETELE / A": [
+          "NGBWA": [
             {
-              station: "MEYO-NTEM",
-              voters: 177
-            },
-            {
-              station: "MEYOS",
-              voters: 177
-            },
-            {
-              station: "ZOETELE",
-              voters: 177
-            },
+              "station": "CORPS DE GARDE DE NGBWA-AKOM / A",
+              "voters": 61
+            }
           ],
-          "CORPS DE GARGE DE MEKONDOM / A": [
+          "MELEN": [
             {
-              station: "NKOL",
-              voters: 78
-            },
-            {
-              station: "ABUI",
-              voters: 78
-            },
+              "station": "CORPS DE GARDE DE NNEMEYONG / A",
+              "voters": 184
+            }
           ],
-          "ECOLE PUBLIQUE D'AFAN / A": [
+          "NNEMEYONG": [
             {
-              station: "AFAN",
-              voters: 83
-            },
+              "station": "CORPS DE GARDE DE NNEMEYONG / A",
+              "voters": 127
+            }
           ],
-          "ECOLE PUBLIQUE D'ALEN 1 / A": [
+          "NSEBITO": [
             {
-              station: "ALEN1",
-              voters: 156
-            },
-            {
-              station: "NKONGMEYOS",
-              voters: 156
-            },
+              "station": "CORPS DE GARDE DE NSEBITO / A",
+              "voters": 124
+            }
           ],
-          "ECOLE PUBLIQUE D'ALEN 2 / A": [
+          "NYABIBAK": [
             {
-              station: "ALEN",
-              voters: 96
-            },
-            {
-              station: "NTEBEZOK",
-              voters: 96
-            },
+              "station": "CORPS DE GARDE DE NYABIBAK / A",
+              "voters": 61
+            }
           ],
-          "ECOLE PUBLIQUE D'ALOUM 1 / A": [
+          "MEYO-NTEM": [
             {
-              station: "ALOUM",
-              voters: 245
-            },
+              "station": "CORPS DE GARDE DE ZOETELE / A",
+              "voters": 177
+            }
           ],
-          "ECOLE PUBLIQUE D'ANGUIRIDJANG / A": [
+          "MEYOS": [
             {
-              station: "ANGUIRIDJANG",
-              voters: 89
-            },
+              "station": "CORPS DE GARDE DE ZOETELE / A",
+              "voters": 177
+            }
           ],
-          "ECOLE PUBLIQUE D'ASSAM / A": [
+          "ZOETELE": [
             {
-              station: "ASSAM",
-              voters: 96
-            },
-            {
-              station: "SON",
-              voters: 96
-            },
+              "station": "CORPS DE GARDE DE ZOETELE / A",
+              "voters": 177
+            }
           ],
-          "ECOLE PUBLIQUE D'AYA'AMANG / A": [
+          "NKOL": [
             {
-              station: "AYA'AMANG",
-              voters: 87
-            },
+              "station": "CORPS DE GARGE DE MEKONDOM / A",
+              "voters": 78
+            }
           ],
-          "ECOLE PUBLIQUE D'EKEKE / A": [
+          "ABUI": [
             {
-              station: "EKEKE",
-              voters: 105
-            },
+              "station": "CORPS DE GARGE DE MEKONDOM / A",
+              "voters": 78
+            }
           ],
-          "ECOLE PUBLIQUE D'EVES / A": [
+          "AFAN": [
             {
-              station: "EVES",
-              voters: 185
-            },
+              "station": "ECOLE PUBLIQUE D'AFAN / A",
+              "voters": 83
+            }
           ],
-          "ECOLE PUBLIQUE D'EVOLE / A": [
+          "ALEN1": [
             {
-              station: "EVOLE",
-              voters: 113
-            },
+              "station": "ECOLE PUBLIQUE D'ALEN 1 / A",
+              "voters": 156
+            }
           ],
-          "ECOLE PUBLIQUE D'EVOUZOK / A": [
+          "NKONGMEYOS": [
             {
-              station: "EVOUZOK",
-              voters: 68
-            },
-            {
-              station: "MEKONDOM",
-              voters: 107
-            },
+              "station": "ECOLE PUBLIQUE D'ALEN 1 / A",
+              "voters": 156
+            }
           ],
-          "ECOLE PUBLIQUE D'OKONG / A": [
+          "ALEN": [
             {
-              station: "EVINDISSI",
-              voters: 203
-            },
-            {
-              station: "OKONG",
-              voters: 203
-            },
+              "station": "ECOLE PUBLIQUE D'ALEN 2 / A",
+              "voters": 96
+            }
           ],
-          "ECOLE PUBLIQUE DE BIDJAP / A": [
+          "NTEBEZOK": [
             {
-              station: "BIDJAP",
-              voters: 244
-            },
+              "station": "ECOLE PUBLIQUE D'ALEN 2 / A",
+              "voters": 96
+            }
           ],
-          "ECOLE PUBLIQUE DE BIYAN / A": [
+          "ALOUM": [
             {
-              station: "BIYAN",
-              voters: 89
-            },
+              "station": "ECOLE PUBLIQUE D'ALOUM 1 / A",
+              "voters": 245
+            }
           ],
-          "ECOLE PUBLIQUE DE MA'AN CENTRE / A": [
+          "ANGUIRIDJANG": [
             {
-              station: "MA'AN",
-              voters: 958
-            },
-            {
-              station: "CENTRE",
-              voters: 958
-            },
-            {
-              station: "MINKAN-MENGALE",
-              voters: 1222
-            },
-            {
-              station: "NNEZAM",
-              voters: 1021
-            },
+              "station": "ECOLE PUBLIQUE D'ANGUIRIDJANG / A",
+              "voters": 89
+            }
           ],
-          "ECOLE PUBLIQUE DE MBEKOMO / A": [
+          "ASSAM": [
             {
-              station: "MBEKOMO",
-              voters: 126
-            },
+              "station": "ECOLE PUBLIQUE D'ASSAM / A",
+              "voters": 96
+            }
           ],
-          "ECOLE PUBLIQUE DE MEBANG / A": [
+          "SON": [
             {
-              station: "MEBANG",
-              voters: 97
-            },
+              "station": "ECOLE PUBLIQUE D'ASSAM / A",
+              "voters": 96
+            }
           ],
-          "ECOLE PUBLIQUE DE MEKOK / A": [
+          "AYA'AMANG": [
             {
-              station: "MEKOK",
-              voters: 249
-            },
+              "station": "ECOLE PUBLIQUE D'AYA'AMANG / A",
+              "voters": 87
+            }
           ],
-          "ECOLE PUBLIQUE DE MELEN 2 / A": [
+          "EKEKE": [
             {
-              station: "NGO'AMBANG",
-              voters: 57
-            },
+              "station": "ECOLE PUBLIQUE D'EKEKE / A",
+              "voters": 105
+            }
           ],
-          "ECOLE PUBLIQUE DE MESSAMA 1 / A": [
+          "EVES": [
             {
-              station: "BINDEM",
-              voters: 143
-            },
-            {
-              station: "MESSAMA",
-              voters: 293
-            },
+              "station": "ECOLE PUBLIQUE D'EVES / A",
+              "voters": 185
+            }
           ],
-          "ECOLE PUBLIQUE DE METONDO / A": [
+          "EVOLE": [
             {
-              station: "MESSONDO",
-              voters: 65
-            },
-            {
-              station: "METONDO",
-              voters: 65
-            },
+              "station": "ECOLE PUBLIQUE D'EVOLE / A",
+              "voters": 113
+            }
           ],
-          "ECOLE PUBLIQUE DE MFANG / A": [
+          "EVOUZOK": [
             {
-              station: "MFANG",
-              voters: 165
-            },
+              "station": "ECOLE PUBLIQUE D'EVOUZOK / A",
+              "voters": 68
+            }
           ],
-          "ECOLE PUBLIQUE DE MFOUA / A": [
+          "MEKONDOM": [
             {
-              station: "MFOUA",
-              voters: 120
-            },
+              "station": "ECOLE PUBLIQUE D'EVOUZOK / A",
+              "voters": 107
+            }
           ],
-          "ECOLE PUBLIQUE DE MINKAN / A": [
+          "EVINDISSI": [
             {
-              station: "MINKAN",
-              voters: 33
-            },
+              "station": "ECOLE PUBLIQUE D'OKONG / A",
+              "voters": 203
+            }
           ],
-          "ECOLE PUBLIQUE DE MINKAN- MENGALE / A": [
+          "OKONG": [
             {
-              station: "ZAMAYAT",
-              voters: 264
-            },
+              "station": "ECOLE PUBLIQUE D'OKONG / A",
+              "voters": 203
+            }
           ],
-          "ECOLE PUBLIQUE DE MVI'ILIMENGALE / A": [
+          "BIDJAP": [
             {
-              station: "MVI'ILIMENGALE",
-              voters: 138
-            },
+              "station": "ECOLE PUBLIQUE DE BIDJAP / A",
+              "voters": 244
+            }
           ],
-          "ECOLE PUBLIQUE DE NKO'ONDO'O / A": [
+          "BIYAN": [
             {
-              station: "NKO'ONDO'O",
-              voters: 89
-            },
+              "station": "ECOLE PUBLIQUE DE BIYAN / A",
+              "voters": 89
+            }
           ],
-          "ECOLE PUBLIQUE DE NSENGOU / A": [
+          "MA'AN": [
             {
-              station: "NSENGOU",
-              voters: 49
-            },
+              "station": "ECOLE PUBLIQUE DE MA'AN CENTRE / A",
+              "voters": 958
+            }
           ],
-          "ECOLE PUBLIQUE DE NSOMESSOK / A": [
+          "CENTRE": [
             {
-              station: "ANGALE",
-              voters: 155
-            },
-            {
-              station: "NSOMESSOK",
-              voters: 85
-            },
+              "station": "ECOLE PUBLIQUE DE MA'AN CENTRE / A",
+              "voters": 958
+            }
           ],
-          "ECOLE PUBLIQUE DE NYABESSANG / A": [
+          "MINKAN-MENGALE": [
             {
-              station: "ABEM",
-              voters: 555
-            },
-            {
-              station: "NYABESSANG",
-              voters: 489
-            },
+              "station": "ECOLE PUBLIQUE DE MA'AN CENTRE / A",
+              "voters": 1222
+            }
           ],
-          "ECOLE PUBLIQUE DE TOM / A": [
+          "NNEZAM": [
             {
-              station: "ASSENG",
-              voters: 104
-            },
-            {
-              station: "TOM",
-              voters: 104
-            },
+              "station": "ECOLE PUBLIQUE DE MA'AN CENTRE / A",
+              "voters": 1021
+            }
           ],
-          "ECOLE PUBLIQUE DE TYA'ASSONO / A": [
+          "MBEKOMO": [
             {
-              station: "MEKOMENGON",
-              voters: 153
-            },
-            {
-              station: "TYA'ASSONO",
-              voters: 153
-            },
+              "station": "ECOLE PUBLIQUE DE MBEKOMO / A",
+              "voters": 126
+            }
           ],
-          "ECOLE PUBLIQUE D\ANGALE / A": [
+          "MEBANG": [
             {
-              station: "NKOMO",
-              voters: 70
-            },
-            {
-              station: "OFET",
-              voters: 70
-            },
+              "station": "ECOLE PUBLIQUE DE MEBANG / A",
+              "voters": 97
+            }
           ],
-          "ECOLE PUBLIQUE D\EVOUMA / A": [
+          "MEKOK": [
             {
-              station: "EVOUMA",
-              voters: 91
-            },
+              "station": "ECOLE PUBLIQUE DE MEKOK / A",
+              "voters": 249
+            }
           ],
-          "LYCEE BILINGUE DE MEBEM / A": [
+          "NGO'AMBANG": [
             {
-              station: "MEBEM",
-              voters: 198
-            },
-            {
-              station: "CARREFOUR",
-              voters: 132
-            },
-            {
-              station: "LYCEE",
-              voters: 66
-            },
-            {
-              station: "BILINGUE",
-              voters: 66
-            },
-            {
-              station: "MVAM",
-              voters: 66
-            },
-            {
-              station: "ZAMBE",
-              voters: 66
-            },
+              "station": "ECOLE PUBLIQUE DE MELEN 2 / A",
+              "voters": 57
+            }
           ],
+          "BINDEM": [
+            {
+              "station": "ECOLE PUBLIQUE DE MESSAMA 1 / A",
+              "voters": 143
+            }
+          ],
+          "MESSAMA": [
+            {
+              "station": "ECOLE PUBLIQUE DE MESSAMA 1 / A",
+              "voters": 293
+            }
+          ],
+          "MESSONDO": [
+            {
+              "station": "ECOLE PUBLIQUE DE METONDO / A",
+              "voters": 65
+            }
+          ],
+          "METONDO": [
+            {
+              "station": "ECOLE PUBLIQUE DE METONDO / A",
+              "voters": 65
+            }
+          ],
+          "MFANG": [
+            {
+              "station": "ECOLE PUBLIQUE DE MFANG / A",
+              "voters": 165
+            }
+          ],
+          "MFOUA": [
+            {
+              "station": "ECOLE PUBLIQUE DE MFOUA / A",
+              "voters": 120
+            }
+          ],
+          "MINKAN": [
+            {
+              "station": "ECOLE PUBLIQUE DE MINKAN / A",
+              "voters": 33
+            }
+          ],
+          "ZAMAYAT": [
+            {
+              "station": "ECOLE PUBLIQUE DE MINKAN- MENGALE / A",
+              "voters": 264
+            }
+          ],
+          "MVI'ILIMENGALE": [
+            {
+              "station": "ECOLE PUBLIQUE DE MVI'ILIMENGALE / A",
+              "voters": 138
+            }
+          ],
+          "NKO'ONDO'O": [
+            {
+              "station": "ECOLE PUBLIQUE DE NKO'ONDO'O / A",
+              "voters": 89
+            }
+          ],
+          "NSENGOU": [
+            {
+              "station": "ECOLE PUBLIQUE DE NSENGOU / A",
+              "voters": 49
+            }
+          ],
+          "ANGALE": [
+            {
+              "station": "ECOLE PUBLIQUE DE NSOMESSOK / A",
+              "voters": 155
+            }
+          ],
+          "NSOMESSOK": [
+            {
+              "station": "ECOLE PUBLIQUE DE NSOMESSOK / A",
+              "voters": 85
+            }
+          ],
+          "ABEM": [
+            {
+              "station": "ECOLE PUBLIQUE DE NYABESSANG / A",
+              "voters": 555
+            }
+          ],
+          "NYABESSANG": [
+            {
+              "station": "ECOLE PUBLIQUE DE NYABESSANG / A",
+              "voters": 489
+            }
+          ],
+          "ASSENG": [
+            {
+              "station": "ECOLE PUBLIQUE DE TOM / A",
+              "voters": 104
+            }
+          ],
+          "TOM": [
+            {
+              "station": "ECOLE PUBLIQUE DE TOM / A",
+              "voters": 104
+            }
+          ],
+          "MEKOMENGON": [
+            {
+              "station": "ECOLE PUBLIQUE DE TYA'ASSONO / A",
+              "voters": 153
+            }
+          ],
+          "TYA'ASSONO": [
+            {
+              "station": "ECOLE PUBLIQUE DE TYA'ASSONO / A",
+              "voters": 153
+            }
+          ],
+          "NKOMO": [
+            {
+              "station": "ECOLE PUBLIQUE DANGALE / A",
+              "voters": 70
+            }
+          ],
+          "OFET": [
+            {
+              "station": "ECOLE PUBLIQUE DANGALE / A",
+              "voters": 70
+            }
+          ],
+          "EVOUMA": [
+            {
+              "station": "ECOLE PUBLIQUE DEVOUMA / A",
+              "voters": 91
+            }
+          ],
+          "MEBEM": [
+            {
+              "station": "LYCEE BILINGUE DE MEBEM / A",
+              "voters": 198
+            }
+          ],
+          "CARREFOUR": [
+            {
+              "station": "LYCEE BILINGUE DE MEBEM / A",
+              "voters": 132
+            }
+          ],
+          "LYCEE": [
+            {
+              "station": "LYCEE BILINGUE DE MEBEM / A",
+              "voters": 66
+            }
+          ],
+          "BILINGUE": [
+            {
+              "station": "LYCEE BILINGUE DE MEBEM / A",
+              "voters": 66
+            }
+          ],
+          "MVAM": [
+            {
+              "station": "LYCEE BILINGUE DE MEBEM / A",
+              "voters": 66
+            }
+          ],
+          "ZAMBE": [
+            {
+              "station": "LYCEE BILINGUE DE MEBEM / A",
+              "voters": 66
+            }
+          ]
         },
         "OLAMZE": {
-          "CORPS DE GARDE D'OBANG / A": [
+          "OBANG": [
             {
-              station: "OBANG",
-              voters: 114
-            },
+              "station": "CORPS DE GARDE D'OBANG / A",
+              "voters": 114
+            }
           ],
-          "CORPS DE GARDE D'OLAMZE VILLAGE / A": [
+          "VILLAGE": [
             {
-              station: "VILLAGE",
-              voters: 153
-            },
+              "station": "CORPS DE GARDE D'OLAMZE VILLAGE / A",
+              "voters": 153
+            }
           ],
-          "CORPS DE GARDE D'OLANG AMVILA / A": [
+          "OLANG-AMVILA": [
             {
-              station: "OLANG-AMVILA",
-              voters: 260
-            },
+              "station": "CORPS DE GARDE D'OLANG AMVILA / A",
+              "voters": 260
+            }
           ],
-          "CORPS DE GARDE D'OLANG MFOUMOU / A": [
+          "OLANG": [
             {
-              station: "OLANG",
-              voters: 70
-            },
-            {
-              station: "MFOUMOU",
-              voters: 70
-            },
+              "station": "CORPS DE GARDE D'OLANG MFOUMOU / A",
+              "voters": 70
+            }
           ],
-          "CORPS DE GARDE D'OLANG-LAE / A": [
+          "MFOUMOU": [
             {
-              station: "OLANG-LAE",
-              voters: 96
-            },
+              "station": "CORPS DE GARDE D'OLANG MFOUMOU / A",
+              "voters": 70
+            }
           ],
-          "CORPS DE GARDE DE BINDOM / A": [
+          "OLANG-LAE": [
             {
-              station: "BINDOM",
-              voters: 50
-            },
+              "station": "CORPS DE GARDE D'OLANG-LAE / A",
+              "voters": 96
+            }
           ],
-          "CORPS DE GARDE DE BIYI / A": [
+          "BINDOM": [
             {
-              station: "BIYI",
-              voters: 141
-            },
+              "station": "CORPS DE GARDE DE BINDOM / A",
+              "voters": 50
+            }
           ],
-          "CORPS DE GARDE DE MBANG / A": [
+          "BIYI": [
             {
-              station: "MBANG",
-              voters: 81
-            },
+              "station": "CORPS DE GARDE DE BIYI / A",
+              "voters": 141
+            }
           ],
-          "CORPS DE GARDE DE MENGUET / A": [
+          "MBANG": [
             {
-              station: "MENGUET",
-              voters: 75
-            },
+              "station": "CORPS DE GARDE DE MBANG / A",
+              "voters": 81
+            }
           ],
-          "CORPS DE GARDE DE MEYO NKOLAYAT / A": [
+          "MENGUET": [
             {
-              station: "MEYO-NKOLAYAT",
-              voters: 145
-            },
+              "station": "CORPS DE GARDE DE MENGUET / A",
+              "voters": 75
+            }
           ],
-          "CORPS DE GARDE DE MINDJO-KOUMOU / A": [
+          "MEYO-NKOLAYAT": [
             {
-              station: "MINDJO-KOUMOU",
-              voters: 121
-            },
+              "station": "CORPS DE GARDE DE MEYO NKOLAYAT / A",
+              "voters": 145
+            }
           ],
-          "E.P. DE MEKA'AMINKOUMOU / A": [
+          "MINDJO-KOUMOU": [
             {
-              station: "MBO'O",
-              voters: 140
-            },
-            {
-              station: "AYOP",
-              voters: 140
-            },
-            {
-              station: "MEKA'AMINKOUMOU",
-              voters: 140
-            },
-            {
-              station: "MEKA\AMINKOUMOU",
-              voters: 140
-            },
+              "station": "CORPS DE GARDE DE MINDJO-KOUMOU / A",
+              "voters": 121
+            }
           ],
-          "ECOLE PUBLIQUE D'ATA'ANTEM / A": [
+          "MBO'O": [
             {
-              station: "ATA'ANTEM",
-              voters: 219
-            },
+              "station": "E.P. DE MEKA'AMINKOUMOU / A",
+              "voters": 140
+            }
           ],
-          "ECOLE PUBLIQUE D'EMIANGON / A": [
+          "AYOP": [
             {
-              station: "EMIANGON",
-              voters: 88
-            },
+              "station": "E.P. DE MEKA'AMINKOUMOU / A",
+              "voters": 140
+            }
           ],
-          "ECOLE PUBLIQUE D'ENGO-NLOZOK / A": [
+          "MEKA'AMINKOUMOU": [
             {
-              station: "ENGO-NLOZOK",
-              voters: 129
-            },
+              "station": "E.P. DE MEKA'AMINKOUMOU / A",
+              "voters": 140
+            }
           ],
-          "ECOLE PUBLIQUE D'EYINANTOUM / A": [
+          "MEKAAMINKOUMOU": [
             {
-              station: "EYINANTOUM",
-              voters: 121
-            },
+              "station": "E.P. DE MEKA'AMINKOUMOU / A",
+              "voters": 140
+            }
           ],
-          "ECOLE PUBLIQUE D'OLAMZE CENTRE / A": [
+          "ATA'ANTEM": [
             {
-              station: "OLAMZE",
-              voters: 1405
-            },
-            {
-              station: "CENTRE",
-              voters: 417
-            },
-            {
-              station: "QUARTIER",
-              voters: 835
-            },
-            {
-              station: "ADMINISTRATIF",
-              voters: 835
-            },
+              "station": "ECOLE PUBLIQUE D'ATA'ANTEM / A",
+              "voters": 219
+            }
           ],
-          "ECOLE PUBLIQUE D'OLANG -CENTRE / A": [
+          "EMIANGON": [
             {
-              station: "OLANG-CENTRE",
-              voters: 101
-            },
+              "station": "ECOLE PUBLIQUE D'EMIANGON / A",
+              "voters": 88
+            }
           ],
-          "ECOLE PUBLIQUE DE MBE ETO / A": [
+          "ENGO-NLOZOK": [
             {
-              station: "MBE",
-              voters: 210
-            },
-            {
-              station: "ETO",
-              voters: 210
-            },
+              "station": "ECOLE PUBLIQUE D'ENGO-NLOZOK / A",
+              "voters": 129
+            }
           ],
-          "ECOLE PUBLIQUE DE MEKO'OSSI I / A": [
+          "EYINANTOUM": [
             {
-              station: "MEKO'OSSI",
-              voters: 713
-            },
+              "station": "ECOLE PUBLIQUE D'EYINANTOUM / A",
+              "voters": 121
+            }
           ],
-          "ECOLE PUBLIQUE DE MEKOMENGONA I / A": [
+          "OLAMZE": [
             {
-              station: "MEKOMENGONA",
-              voters: 353
-            },
+              "station": "ECOLE PUBLIQUE D'OLAMZE CENTRE / A",
+              "voters": 1405
+            }
           ],
-          "ECOLE PUBLIQUE DE MENGUIKOM / A": [
+          "CENTRE": [
             {
-              station: "MENGUIKOM",
-              voters: 497
-            },
+              "station": "ECOLE PUBLIQUE D'OLAMZE CENTRE / A",
+              "voters": 417
+            }
           ],
-          "ECOLE PUBLIQUE DE MEYO -CARREFOUR / A": [
+          "QUARTIER": [
             {
-              station: "MEYO-CARREFOUR",
-              voters: 249
-            },
+              "station": "ECOLE PUBLIQUE D'OLAMZE CENTRE / A",
+              "voters": 835
+            }
           ],
-          "ECOLE PUBLIQUE DE YOS II / A": [
+          "ADMINISTRATIF": [
             {
-              station: "YOS",
-              voters: 212
-            },
+              "station": "ECOLE PUBLIQUE D'OLAMZE CENTRE / A",
+              "voters": 835
+            }
           ],
-          "ECOLE PUBLIQUE MBEDOUMOU-SI / A": [
+          "OLANG-CENTRE": [
             {
-              station: "AKA\A-",
-              voters: 78
-            },
-            {
-              station: "AKA\A-SI",
-              voters: 78
-            },
-            {
-              station: "CHEFFERIE",
-              voters: 78
-            },
-            {
-              station: "MBEDOUMOU-SI",
-              voters: 156
-            },
-            {
-              station: "ECOLE",
-              voters: 78
-            },
+              "station": "ECOLE PUBLIQUE D'OLANG -CENTRE / A",
+              "voters": 101
+            }
           ],
-        },
+          "MBE": [
+            {
+              "station": "ECOLE PUBLIQUE DE MBE ETO / A",
+              "voters": 210
+            }
+          ],
+          "ETO": [
+            {
+              "station": "ECOLE PUBLIQUE DE MBE ETO / A",
+              "voters": 210
+            }
+          ],
+          "MEKO'OSSI": [
+            {
+              "station": "ECOLE PUBLIQUE DE MEKO'OSSI I / A",
+              "voters": 713
+            }
+          ],
+          "MEKOMENGONA": [
+            {
+              "station": "ECOLE PUBLIQUE DE MEKOMENGONA I / A",
+              "voters": 353
+            }
+          ],
+          "MENGUIKOM": [
+            {
+              "station": "ECOLE PUBLIQUE DE MENGUIKOM / A",
+              "voters": 497
+            }
+          ],
+          "MEYO-CARREFOUR": [
+            {
+              "station": "ECOLE PUBLIQUE DE MEYO -CARREFOUR / A",
+              "voters": 249
+            }
+          ],
+          "YOS": [
+            {
+              "station": "ECOLE PUBLIQUE DE YOS II / A",
+              "voters": 212
+            }
+          ],
+          "AKAA-": [
+            {
+              "station": "ECOLE PUBLIQUE MBEDOUMOU-SI / A",
+              "voters": 78
+            }
+          ],
+          "AKAA-SI": [
+            {
+              "station": "ECOLE PUBLIQUE MBEDOUMOU-SI / A",
+              "voters": 78
+            }
+          ],
+          "CHEFFERIE": [
+            {
+              "station": "ECOLE PUBLIQUE MBEDOUMOU-SI / A",
+              "voters": 78
+            }
+          ],
+          "MBEDOUMOU-SI": [
+            {
+              "station": "ECOLE PUBLIQUE MBEDOUMOU-SI / A",
+              "voters": 156
+            }
+          ],
+          "ECOLE": [
+            {
+              "station": "ECOLE PUBLIQUE MBEDOUMOU-SI / A",
+              "voters": 78
+            }
+          ]
+        }
       },
       "DJA-ET-LOBO": {
         "BENGBIS": {
-          "CES MEKAS / A": [
+          "MEKAS": [
             {
-              station: "MEKAS",
-              voters: 127
-            },
+              "station": "CES MEKAS / A",
+              "voters": 127
+            }
           ],
-          "CES NGONEBEME / A": [
+          "NGONEBEME": [
             {
-              station: "NGONEBEME",
-              voters: 130
-            },
+              "station": "CES NGONEBEME / A",
+              "voters": 130
+            }
           ],
-          "CORPS DE GARDE AKAM II / A": [
+          "AKAM": [
             {
-              station: "AKAM",
-              voters: 522
-            },
-            {
-              station: "OYEM",
-              voters: 261
-            },
+              "station": "CORPS DE GARDE AKAM II / A",
+              "voters": 522
+            }
           ],
-          "CORPS DE GARDE ANDO'O / A": [
+          "OYEM": [
             {
-              station: "ANDO'O",
-              voters: 113
-            },
+              "station": "CORPS DE GARDE AKAM II / A",
+              "voters": 261
+            }
           ],
-          "CORPS DE GARDE BENGBIS II BANZOK / A": [
+          "ANDO'O": [
             {
-              station: "ADJOLE",
-              voters: 144
-            },
-            {
-              station: "BENGBIS",
-              voters: 1301
-            },
-            {
-              station: "BANZOCK",
-              voters: 144
-            },
+              "station": "CORPS DE GARDE ANDO'O / A",
+              "voters": 113
+            }
           ],
-          "CORPS DE GARDE BENGBIS II CHEFFERIE / A": [
+          "ADJOLE": [
             {
-              station: "CHEFFERIE",
-              voters: 77
-            },
+              "station": "CORPS DE GARDE BENGBIS II BANZOK / A",
+              "voters": 144
+            }
           ],
-          "CORPS DE GARDE BITON / A": [
+          "BENGBIS": [
             {
-              station: "BITON",
-              voters: 72
-            },
+              "station": "CORPS DE GARDE BENGBIS II BANZOK / A",
+              "voters": 1301
+            }
           ],
-          "CORPS DE GARDE CARREF. NGOUNAYOS / A": [
+          "BANZOCK": [
             {
-              station: "NGOUNAYOS",
-              voters: 152
-            },
+              "station": "CORPS DE GARDE BENGBIS II BANZOK / A",
+              "voters": 144
+            }
           ],
-          "CORPS DE GARDE DOUMA / A": [
+          "CHEFFERIE": [
             {
-              station: "DOUMA",
-              voters: 101
-            },
+              "station": "CORPS DE GARDE BENGBIS II CHEFFERIE / A",
+              "voters": 77
+            }
           ],
-          "CORPS DE GARDE DOUMBAYAN / A": [
+          "BITON": [
             {
-              station: "DOUMBANYAN",
-              voters: 31
-            },
+              "station": "CORPS DE GARDE BITON / A",
+              "voters": 72
+            }
           ],
-          "CORPS DE GARDE EBODOUMOU / A": [
+          "NGOUNAYOS": [
             {
-              station: "EBODOUMOU",
-              voters: 105
-            },
+              "station": "CORPS DE GARDE CARREF. NGOUNAYOS / A",
+              "voters": 152
+            }
           ],
-          "CORPS DE GARDE ENDAM / A": [
+          "DOUMA": [
             {
-              station: "ENDAM",
-              voters: 89
-            },
+              "station": "CORPS DE GARDE DOUMA / A",
+              "voters": 101
+            }
           ],
-          "CORPS DE GARDE MEBA / A": [
+          "DOUMBANYAN": [
             {
-              station: "MEBA",
-              voters: 61
-            },
+              "station": "CORPS DE GARDE DOUMBAYAN / A",
+              "voters": 31
+            }
           ],
-          "CORPS DE GARDE MEBOMO / A": [
+          "EBODOUMOU": [
             {
-              station: "MEBOMO",
-              voters: 58
-            },
+              "station": "CORPS DE GARDE EBODOUMOU / A",
+              "voters": 105
+            }
           ],
-          "CORPS DE GARDE MEKA'A / A": [
+          "ENDAM": [
             {
-              station: "MEKA'A",
-              voters: 457
-            },
+              "station": "CORPS DE GARDE ENDAM / A",
+              "voters": 89
+            }
           ],
-          "CORPS DE GARDE MEKA'A AKOE / A": [
+          "MEBA": [
             {
-              station: "AKOE",
-              voters: 94
-            },
-            {
-              station: "YANDA",
-              voters: 94
-            },
+              "station": "CORPS DE GARDE MEBA / A",
+              "voters": 61
+            }
           ],
-          "CORPS DE GARDE MEKA'A YEKOMBO / A": [
+          "MEBOMO": [
             {
-              station: "YEKOMBO",
-              voters: 132
-            },
+              "station": "CORPS DE GARDE MEBOMO / A",
+              "voters": 58
+            }
           ],
-          "CORPS DE GARDE MEKA'A YETYANG / A": [
+          "MEKA'A": [
             {
-              station: "YETYANG",
-              voters: 79
-            },
+              "station": "CORPS DE GARDE MEKA'A / A",
+              "voters": 457
+            }
           ],
-          "CORPS DE GARDE MIMBANG / A": [
+          "AKOE": [
             {
-              station: "MIMBANG",
-              voters: 52
-            },
+              "station": "CORPS DE GARDE MEKA'A AKOE / A",
+              "voters": 94
+            }
           ],
-          "CORPS DE GARDE NDOUNDOU / A": [
+          "YANDA": [
             {
-              station: "NDOUNDOU",
-              voters: 104
-            },
+              "station": "CORPS DE GARDE MEKA'A AKOE / A",
+              "voters": 94
+            }
           ],
-          "CORPS DE GARDE NGOBISSONG / A": [
+          "YEKOMBO": [
             {
-              station: "NGOBISSONG",
-              voters: 117
-            },
+              "station": "CORPS DE GARDE MEKA'A YEKOMBO / A",
+              "voters": 132
+            }
           ],
-          "CORPS DE GARDE NKOLMEKAE / A": [
+          "YETYANG": [
             {
-              station: "NKOLMEKAE",
-              voters: 76
-            },
+              "station": "CORPS DE GARDE MEKA'A YETYANG / A",
+              "voters": 79
+            }
           ],
-          "CORPS DE GARDE NKOULAZE / A": [
+          "MIMBANG": [
             {
-              station: "NKOULAZE",
-              voters: 55
-            },
+              "station": "CORPS DE GARDE MIMBANG / A",
+              "voters": 52
+            }
           ],
-          "CORPS DE GARDE ONGOLZOK / A": [
+          "NDOUNDOU": [
             {
-              station: "ONGOLZOK",
-              voters: 112
-            },
+              "station": "CORPS DE GARDE NDOUNDOU / A",
+              "voters": 104
+            }
           ],
-          "CORPS DE GARDE YEME YEME II / A": [
+          "NGOBISSONG": [
             {
-              station: "ALANGANA",
-              voters: 85
-            },
-            {
-              station: "YEME",
-              voters: 170
-            },
+              "station": "CORPS DE GARDE NGOBISSONG / A",
+              "voters": 117
+            }
           ],
-          "CORPS DE GARDE ZOUAMEYONG / A": [
+          "NKOLMEKAE": [
             {
-              station: "NGOMBO",
-              voters: 70
-            },
-            {
-              station: "ZOUAMEYONG",
-              voters: 70
-            },
+              "station": "CORPS DE GARDE NKOLMEKAE / A",
+              "voters": 76
+            }
           ],
-          "EP ASSOK / A": [
+          "NKOULAZE": [
             {
-              station: "ASSOK",
-              voters: 169
-            },
+              "station": "CORPS DE GARDE NKOULAZE / A",
+              "voters": 55
+            }
           ],
-          "EP BENGBIS-VILLE / A": [
+          "ONGOLZOK": [
             {
-              station: "CENTRE",
-              voters: 976
-            },
-            {
-              station: "ADMINISTRATIF",
-              voters: 976
-            },
+              "station": "CORPS DE GARDE ONGOLZOK / A",
+              "voters": 112
+            }
           ],
-          "EP BIBINDA / A": [
+          "ALANGANA": [
             {
-              station: "BIBINDA",
-              voters: 180
-            },
+              "station": "CORPS DE GARDE YEME YEME II / A",
+              "voters": 85
+            }
           ],
-          "EP BISSOMBO / A": [
+          "YEME": [
             {
-              station: "BISSOMBO",
-              voters: 65
-            },
+              "station": "CORPS DE GARDE YEME YEME II / A",
+              "voters": 170
+            }
           ],
-          "EP DJENG / A": [
+          "NGOMBO": [
             {
-              station: "DJENG",
-              voters: 160
-            },
-            {
-              station: "ESSON",
-              voters: 160
-            },
+              "station": "CORPS DE GARDE ZOUAMEYONG / A",
+              "voters": 70
+            }
           ],
-          "EP EVINDISSI / A": [
+          "ZOUAMEYONG": [
             {
-              station: "EVINDISSI",
-              voters: 116
-            },
-            {
-              station: "KAM",
-              voters: 116
-            },
+              "station": "CORPS DE GARDE ZOUAMEYONG / A",
+              "voters": 70
+            }
           ],
-          "EP KOUNGOULOU / A": [
+          "ASSOK": [
             {
-              station: "KOUNGOULOU",
-              voters: 91
-            },
+              "station": "EP ASSOK / A",
+              "voters": 169
+            }
           ],
-          "EP MBOMETA'A / A": [
+          "CENTRE": [
             {
-              station: "MBOMETA'A",
-              voters: 161
-            },
+              "station": "EP BENGBIS-VILLE / A",
+              "voters": 976
+            }
           ],
-          "EP MBOUN / A": [
+          "ADMINISTRATIF": [
             {
-              station: "MBOUN",
-              voters: 72
-            },
+              "station": "EP BENGBIS-VILLE / A",
+              "voters": 976
+            }
           ],
-          "EP MELONDO / A": [
+          "BIBINDA": [
             {
-              station: "MELONDO",
-              voters: 101
-            },
+              "station": "EP BIBINDA / A",
+              "voters": 180
+            }
           ],
-          "EP MESSE / A": [
+          "BISSOMBO": [
             {
-              station: "MESSE",
-              voters: 97
-            },
+              "station": "EP BISSOMBO / A",
+              "voters": 65
+            }
           ],
-          "EP MESSENG / A": [
+          "DJENG": [
             {
-              station: "EWOT",
-              voters: 86
-            },
-            {
-              station: "MESSENG",
-              voters: 86
-            },
+              "station": "EP DJENG / A",
+              "voters": 160
+            }
           ],
-          "EP METOM / A": [
+          "ESSON": [
             {
-              station: "METOM",
-              voters: 137
-            },
+              "station": "EP DJENG / A",
+              "voters": 160
+            }
           ],
-          "EP MIMBIL / A": [
+          "EVINDISSI": [
             {
-              station: "MIMBIL",
-              voters: 141
-            },
+              "station": "EP EVINDISSI / A",
+              "voters": 116
+            }
           ],
-          "EP MINLA'A / A": [
+          "KAM": [
             {
-              station: "MINLA'A",
-              voters: 144
-            },
+              "station": "EP EVINDISSI / A",
+              "voters": 116
+            }
           ],
-          "EP NKOLMBEMBE / A": [
+          "KOUNGOULOU": [
             {
-              station: "NKOLBEMBE",
-              voters: 137
-            },
-            {
-              station: "NSIMALEN",
-              voters: 137
-            },
+              "station": "EP KOUNGOULOU / A",
+              "voters": 91
+            }
           ],
-          "EP NYANGBWASSA / A": [
+          "MBOMETA'A": [
             {
-              station: "MELAN",
-              voters: 178
-            },
+              "station": "EP MBOMETA'A / A",
+              "voters": 161
+            }
           ],
-          "EP OLEMBE / A": [
+          "MBOUN": [
             {
-              station: "OLEMBE",
-              voters: 105
-            },
+              "station": "EP MBOUN / A",
+              "voters": 72
+            }
           ],
-          "EP TENG / A": [
+          "MELONDO": [
             {
-              station: "EWOLOMBAMA",
-              voters: 202
-            },
-            {
-              station: "TENG",
-              voters: 202
-            },
+              "station": "EP MELONDO / A",
+              "voters": 101
+            }
           ],
-          "EP TYIZOK / A": [
+          "MESSE": [
             {
-              station: "TYIZOCK",
-              voters: 76
-            },
+              "station": "EP MESSE / A",
+              "voters": 97
+            }
           ],
-          "EP ZALENGANG / A": [
+          "EWOT": [
             {
-              station: "ALLEN",
-              voters: 80
-            },
-            {
-              station: "ZALENGANG",
-              voters: 80
-            },
+              "station": "EP MESSENG / A",
+              "voters": 86
+            }
           ],
+          "MESSENG": [
+            {
+              "station": "EP MESSENG / A",
+              "voters": 86
+            }
+          ],
+          "METOM": [
+            {
+              "station": "EP METOM / A",
+              "voters": 137
+            }
+          ],
+          "MIMBIL": [
+            {
+              "station": "EP MIMBIL / A",
+              "voters": 141
+            }
+          ],
+          "MINLA'A": [
+            {
+              "station": "EP MINLA'A / A",
+              "voters": 144
+            }
+          ],
+          "NKOLBEMBE": [
+            {
+              "station": "EP NKOLMBEMBE / A",
+              "voters": 137
+            }
+          ],
+          "NSIMALEN": [
+            {
+              "station": "EP NKOLMBEMBE / A",
+              "voters": 137
+            }
+          ],
+          "MELAN": [
+            {
+              "station": "EP NYANGBWASSA / A",
+              "voters": 178
+            }
+          ],
+          "OLEMBE": [
+            {
+              "station": "EP OLEMBE / A",
+              "voters": 105
+            }
+          ],
+          "EWOLOMBAMA": [
+            {
+              "station": "EP TENG / A",
+              "voters": 202
+            }
+          ],
+          "TENG": [
+            {
+              "station": "EP TENG / A",
+              "voters": 202
+            }
+          ],
+          "TYIZOCK": [
+            {
+              "station": "EP TYIZOK / A",
+              "voters": 76
+            }
+          ],
+          "ALLEN": [
+            {
+              "station": "EP ZALENGANG / A",
+              "voters": 80
+            }
+          ],
+          "ZALENGANG": [
+            {
+              "station": "EP ZALENGANG / A",
+              "voters": 80
+            }
+          ]
         },
         "DJOUM": {
-          "ANCIEN MARCHE / A": [
+          "ADJAP": [
             {
-              station: "ADJAP",
-              voters: 342
-            },
+              "station": "ANCIEN MARCHE / A",
+              "voters": 342
+            }
           ],
-          "CASE COM. MINKO'O MESSENG / A": [
+          "AKONETYE": [
             {
-              station: "AKONETYE",
-              voters: 87
-            },
-            {
-              station: "MESSENG",
-              voters: 87
-            },
+              "station": "CASE COM. MINKO'O MESSENG / A",
+              "voters": 87
+            }
           ],
-          "CASE COMMUNAUTAIRE ABOELONE / A": [
+          "MESSENG": [
             {
-              station: "ABOELONE",
-              voters: 139
-            },
+              "station": "CASE COM. MINKO'O MESSENG / A",
+              "voters": 87
+            }
           ],
-          "CASE COMMUNAUTAIRE AMVAM / A": [
+          "ABOELONE": [
             {
-              station: "AMVAM",
-              voters: 85
-            },
-            {
-              station: "OTTONGMBONG",
-              voters: 85
-            },
+              "station": "CASE COMMUNAUTAIRE ABOELONE / A",
+              "voters": 139
+            }
           ],
-          "CASE COMMUNAUTAIRE AVOBENGON / A": [
+          "AMVAM": [
             {
-              station: "AVOBENGON",
-              voters: 36
-            },
+              "station": "CASE COMMUNAUTAIRE AMVAM / A",
+              "voters": 85
+            }
           ],
-          "CASE COMMUNAUTAIRE DJOP / A": [
+          "OTTONGMBONG": [
             {
-              station: "DJOP",
-              voters: 137
-            },
+              "station": "CASE COMMUNAUTAIRE AMVAM / A",
+              "voters": 85
+            }
           ],
-          "CASE COMMUNAUTAIRE MBOMELA / A": [
+          "AVOBENGON": [
             {
-              station: "MBOMELA",
-              voters: 40
-            },
+              "station": "CASE COMMUNAUTAIRE AVOBENGON / A",
+              "voters": 36
+            }
           ],
-          "CORPS DE GARDE ALOP / A": [
+          "DJOP": [
             {
-              station: "ALOP",
-              voters: 58
-            },
+              "station": "CASE COMMUNAUTAIRE DJOP / A",
+              "voters": 137
+            }
           ],
-          "CORPS DE GARDE DJOUZE / A": [
+          "MBOMELA": [
             {
-              station: "DJOUZE",
-              voters: 177
-            },
+              "station": "CASE COMMUNAUTAIRE MBOMELA / A",
+              "voters": 40
+            }
           ],
-          "CORPS DE GARDE DOUM / A": [
+          "ALOP": [
             {
-              station: "DOUM",
-              voters: 87
-            },
+              "station": "CORPS DE GARDE ALOP / A",
+              "voters": 58
+            }
           ],
-          "CORPS DE GARDE ELLENG / A": [
+          "DJOUZE": [
             {
-              station: "AKAK",
-              voters: 137
-            },
-            {
-              station: "ELLENG",
-              voters: 340
-            },
-            {
-              station: "MEYOS",
-              voters: 260
-            },
-            {
-              station: "OBAM",
-              voters: 137
-            },
+              "station": "CORPS DE GARDE DJOUZE / A",
+              "voters": 177
+            }
           ],
-          "CORPS DE GARDE MBOUMA / A": [
+          "DOUM": [
             {
-              station: "MBOUMA",
-              voters: 99
-            },
+              "station": "CORPS DE GARDE DOUM / A",
+              "voters": 87
+            }
           ],
-          "CORPS DE GARDE MINKO'O / A": [
+          "AKAK": [
             {
-              station: "MINKO'O",
-              voters: 348
-            },
+              "station": "CORPS DE GARDE ELLENG / A",
+              "voters": 137
+            }
           ],
-          "CORPS DE GARDE NKO / A": [
+          "ELLENG": [
             {
-              station: "NKO",
-              voters: 81
-            },
+              "station": "CORPS DE GARDE ELLENG / A",
+              "voters": 340
+            }
           ],
-          "CORPS DE GARDE OKPWENG / A": [
+          "MEYOS": [
             {
-              station: "OKPWENG",
-              voters: 142
-            },
+              "station": "CORPS DE GARDE ELLENG / A",
+              "voters": 260
+            }
           ],
-          "CYBER MUNICIPAL / A": [
+          "OBAM": [
             {
-              station: "KAKA",
-              voters: 434
-            },
-            {
-              station: "NEW-TOWN",
-              voters: 434
-            },
+              "station": "CORPS DE GARDE ELLENG / A",
+              "voters": 137
+            }
           ],
-          "ECOLE CATHO ABING / A": [
+          "MBOUMA": [
             {
-              station: "ABING",
-              voters: 237
-            },
-            {
-              station: "DJOUM",
-              voters: 2123
-            },
-            {
-              station: "VILLAGE",
-              voters: 1416
-            },
+              "station": "CORPS DE GARDE MBOUMA / A",
+              "voters": 99
+            }
           ],
-          "EM DJOUM VILLE / A": [
+          "MINKO'O": [
             {
-              station: "VILLE",
-              voters: 814
-            },
+              "station": "CORPS DE GARDE MINKO'O / A",
+              "voters": 348
+            }
           ],
-          "EP AKOM ZAMANE / A": [
+          "NKO": [
             {
-              station: "ZAMANE",
-              voters: 275
-            },
+              "station": "CORPS DE GARDE NKO / A",
+              "voters": 81
+            }
           ],
-          "EP AKONTANGAN / A": [
+          "OKPWENG": [
             {
-              station: "AKONTANGAN",
-              voters: 163
-            },
+              "station": "CORPS DE GARDE OKPWENG / A",
+              "voters": 142
+            }
           ],
-          "EP AVEBE / A": [
+          "KAKA": [
             {
-              station: "AVEBE",
-              voters: 71
-            },
+              "station": "CYBER MUNICIPAL / A",
+              "voters": 434
+            }
           ],
-          "EP BINDOUMBA / A": [
+          "NEW-TOWN": [
             {
-              station: "ALAT",
-              voters: 204
-            },
-            {
-              station: "MEKAE",
-              voters: 204
-            },
-            {
-              station: "BINDOUMBA",
-              voters: 204
-            },
+              "station": "CYBER MUNICIPAL / A",
+              "voters": 434
+            }
           ],
-          "EP CIFAN / A": [
+          "ABING": [
             {
-              station: "CENTRE",
-              voters: 1415
-            },
-            {
-              station: "D'INSTRUCTION",
-              voters: 601
-            },
-            {
-              station: "NKAN",
-              voters: 418
-            },
+              "station": "ECOLE CATHO ABING / A",
+              "voters": 237
+            }
           ],
-          "EP EFOULAN / A": [
+          "DJOUM": [
             {
-              station: "EFOULAN",
-              voters: 156
-            },
-            {
-              station: "MENDOUNG",
-              voters: 156
-            },
+              "station": "ECOLE CATHO ABING / A",
+              "voters": 2123
+            }
           ],
-          "EP ENDENGUE / A": [
+          "VILLAGE": [
             {
-              station: "AKOM",
-              voters: 390
-            },
-            {
-              station: "BINYENG",
-              voters: 188
-            },
-            {
-              station: "ENDENGUE",
-              voters: 330
-            },
+              "station": "ECOLE CATHO ABING / A",
+              "voters": 1416
+            }
           ],
-          "EP ESSONG / A": [
+          "VILLE": [
             {
-              station: "ESSONG",
-              voters: 131
-            },
+              "station": "EM DJOUM VILLE / A",
+              "voters": 814
+            }
           ],
-          "EP GROUPE III / A": [
+          "ZAMANE": [
             {
-              station: "BITEBIOKANG",
-              voters: 1577
-            },
-            {
-              station: "LONO-YAT",
-              voters: 1179
-            },
+              "station": "EP AKOM ZAMANE / A",
+              "voters": 275
+            }
           ],
-          "EP MEBANE / A": [
+          "AKONTANGAN": [
             {
-              station: "MEBANE",
-              voters: 312
-            },
+              "station": "EP AKONTANGAN / A",
+              "voters": 163
+            }
           ],
-          "EP MELLEN BOULOU / A": [
+          "AVEBE": [
             {
-              station: "MELLEN",
-              voters: 223
-            },
-            {
-              station: "BOULOU",
-              voters: 150
-            },
+              "station": "EP AVEBE / A",
+              "voters": 71
+            }
           ],
-          "EP MEYOS III / A": [
+          "ALAT": [
             {
-              station: "III",
-              voters: 123
-            },
+              "station": "EP BINDOUMBA / A",
+              "voters": 204
+            }
           ],
-          "EP MFEM / A": [
+          "MEKAE": [
             {
-              station: "AYENE",
-              voters: 287
-            },
-            {
-              station: "MFEM",
-              voters: 287
-            },
+              "station": "EP BINDOUMBA / A",
+              "voters": 204
+            }
           ],
-          "EP MIATTA / A": [
+          "BINDOUMBA": [
             {
-              station: "MIATTA",
-              voters: 200
-            },
+              "station": "EP BINDOUMBA / A",
+              "voters": 204
+            }
           ],
-          "EP MVENG / A": [
+          "CENTRE": [
             {
-              station: "MVENG",
-              voters: 255
-            },
+              "station": "EP CIFAN / A",
+              "voters": 1415
+            }
           ],
-          "EP NKOLAFENDEK / A": [
+          "D'INSTRUCTION": [
             {
-              station: "NKOLAFENDEK",
-              voters: 191
-            },
+              "station": "EP CIFAN / A",
+              "voters": 601
+            }
           ],
-          "EP NKOLENYENG / A": [
+          "NKAN": [
             {
-              station: "NKOLENYENG",
-              voters: 183
-            },
+              "station": "EP CIFAN / A",
+              "voters": 418
+            }
           ],
-          "EP NYABIBETE / A": [
+          "EFOULAN": [
             {
-              station: "NYABIBETE",
-              voters: 124
-            },
+              "station": "EP EFOULAN / A",
+              "voters": 156
+            }
           ],
-          "EP YEN / A": [
+          "MENDOUNG": [
             {
-              station: "YEN",
-              voters: 312
-            },
+              "station": "EP EFOULAN / A",
+              "voters": 156
+            }
           ],
-          "ESPLANADE CHEFFERIE HAOUSSA / A": [
+          "AKOM": [
             {
-              station: "ACCRA",
-              voters: 444
-            },
-            {
-              station: "HAOUSSA",
-              voters: 531
-            },
+              "station": "EP ENDENGUE / A",
+              "voters": 390
+            }
           ],
-          "FOYER CHANTIER CAMINEX / A": [
+          "BINYENG": [
             {
-              station: "SOCIETE",
-              voters: 19
-            },
-            {
-              station: "CAMINEX",
-              voters: 19
-            },
+              "station": "EP ENDENGUE / A",
+              "voters": 188
+            }
           ],
-          "FOYER DU SOLDAT / A": [
+          "ENDENGUE": [
             {
-              station: "ETOILE",
-              voters: 801
-            },
+              "station": "EP ENDENGUE / A",
+              "voters": 330
+            }
           ],
-          "FOYER SCIERIE / A": [
+          "ESSONG": [
             {
-              station: "SFID",
-              voters: 106
-            },
+              "station": "EP ESSONG / A",
+              "voters": 131
+            }
           ],
-          "TRAVAUX PUBLICS / A": [
+          "BITEBIOKANG": [
             {
-              station: "EVINDI-SI",
-              voters: 185
-            },
+              "station": "EP GROUPE III / A",
+              "voters": 1577
+            }
           ],
+          "LONO-YAT": [
+            {
+              "station": "EP GROUPE III / A",
+              "voters": 1179
+            }
+          ],
+          "MEBANE": [
+            {
+              "station": "EP MEBANE / A",
+              "voters": 312
+            }
+          ],
+          "MELLEN": [
+            {
+              "station": "EP MELLEN BOULOU / A",
+              "voters": 223
+            }
+          ],
+          "BOULOU": [
+            {
+              "station": "EP MELLEN BOULOU / A",
+              "voters": 150
+            }
+          ],
+          "III": [
+            {
+              "station": "EP MEYOS III / A",
+              "voters": 123
+            }
+          ],
+          "AYENE": [
+            {
+              "station": "EP MFEM / A",
+              "voters": 287
+            }
+          ],
+          "MFEM": [
+            {
+              "station": "EP MFEM / A",
+              "voters": 287
+            }
+          ],
+          "MIATTA": [
+            {
+              "station": "EP MIATTA / A",
+              "voters": 200
+            }
+          ],
+          "MVENG": [
+            {
+              "station": "EP MVENG / A",
+              "voters": 255
+            }
+          ],
+          "NKOLAFENDEK": [
+            {
+              "station": "EP NKOLAFENDEK / A",
+              "voters": 191
+            }
+          ],
+          "NKOLENYENG": [
+            {
+              "station": "EP NKOLENYENG / A",
+              "voters": 183
+            }
+          ],
+          "NYABIBETE": [
+            {
+              "station": "EP NYABIBETE / A",
+              "voters": 124
+            }
+          ],
+          "YEN": [
+            {
+              "station": "EP YEN / A",
+              "voters": 312
+            }
+          ],
+          "ACCRA": [
+            {
+              "station": "ESPLANADE CHEFFERIE HAOUSSA / A",
+              "voters": 444
+            }
+          ],
+          "HAOUSSA": [
+            {
+              "station": "ESPLANADE CHEFFERIE HAOUSSA / A",
+              "voters": 531
+            }
+          ],
+          "SOCIETE": [
+            {
+              "station": "FOYER CHANTIER CAMINEX / A",
+              "voters": 19
+            }
+          ],
+          "CAMINEX": [
+            {
+              "station": "FOYER CHANTIER CAMINEX / A",
+              "voters": 19
+            }
+          ],
+          "ETOILE": [
+            {
+              "station": "FOYER DU SOLDAT / A",
+              "voters": 801
+            }
+          ],
+          "SFID": [
+            {
+              "station": "FOYER SCIERIE / A",
+              "voters": 106
+            }
+          ],
+          "EVINDI-SI": [
+            {
+              "station": "TRAVAUX PUBLICS / A",
+              "voters": 185
+            }
+          ]
         },
         "MEYOMESSI": {
-          "ANGAT OLOUNOU / A": [
+          "OLOUNOU": [
             {
-              station: "OLOUNOU",
-              voters: 259
-            },
+              "station": "ANGAT OLOUNOU / A",
+              "voters": 259
+            }
           ],
-          "CENTRE DE SANTE INTEGRE D'AMVAN / A": [
+          "AMVAN": [
             {
-              station: "AMVAN",
-              voters: 70
-            },
+              "station": "CENTRE DE SANTE INTEGRE D'AMVAN / A",
+              "voters": 70
+            }
           ],
-          "CENTRE PRESCOLAIRE NGOM-EBAE / A": [
+          "NGOM-EBAE": [
             {
-              station: "NGOM-EBAE",
-              voters: 159
-            },
+              "station": "CENTRE PRESCOLAIRE NGOM-EBAE / A",
+              "voters": 159
+            }
           ],
-          "CORPS DE GARDE EMVIENG I / A": [
+          "EMVIENG": [
             {
-              station: "EMVIENG",
-              voters: 265
-            },
+              "station": "CORPS DE GARDE EMVIENG I / A",
+              "voters": 265
+            }
           ],
-          "CORPS DE GARDE MBIELEME / A": [
+          "MBIELEME": [
             {
-              station: "MBIELEME",
-              voters: 187
-            },
+              "station": "CORPS DE GARDE MBIELEME / A",
+              "voters": 187
+            }
           ],
-          "CORPS DE GARDE MEKOK-NDONG / A": [
+          "MEKOK-NDONG": [
             {
-              station: "MEKOK-NDONG",
-              voters: 165
-            },
+              "station": "CORPS DE GARDE MEKOK-NDONG / A",
+              "voters": 165
+            }
           ],
-          "CORPS DE GARDE MELAN-NDONG / A": [
+          "MELAN-NDONG": [
             {
-              station: "MELAN-NDONG",
-              voters: 156
-            },
+              "station": "CORPS DE GARDE MELAN-NDONG / A",
+              "voters": 156
+            }
           ],
-          "CORPS DE GARDE MIMBANG / A": [
+          "MIMBANG": [
             {
-              station: "MIMBANG",
-              voters: 142
-            },
+              "station": "CORPS DE GARDE MIMBANG / A",
+              "voters": 142
+            }
           ],
-          "CORPS DE GARDE MINKANG II / A": [
+          "CHEFFERIE": [
             {
-              station: "CHEFFERIE",
-              voters: 203
-            },
+              "station": "CORPS DE GARDE MINKANG II / A",
+              "voters": 203
+            }
           ],
-          "EP AKOM-NDONG / A": [
+          "AKOM-NDONG": [
             {
-              station: "AKOM-NDONG",
-              voters: 184
-            },
+              "station": "EP AKOM-NDONG / A",
+              "voters": 184
+            }
           ],
-          "EP AZEM-YEMFEK / A": [
+          "AZEM-YEMFEK": [
             {
-              station: "AZEM-YEMFEK",
-              voters: 284
-            },
+              "station": "EP AZEM-YEMFEK / A",
+              "voters": 284
+            }
           ],
-          "EP BIKOULA / A": [
+          "BIKOULA": [
             {
-              station: "BIKOULA",
-              voters: 152
-            },
+              "station": "EP BIKOULA / A",
+              "voters": 152
+            }
           ],
-          "EP ELOM / A": [
+          "ELOM": [
             {
-              station: "ELOM",
-              voters: 354
-            },
+              "station": "EP ELOM / A",
+              "voters": 354
+            }
           ],
-          "EP ESSANGMVOUT / A": [
+          "ESSANGMVOUT": [
             {
-              station: "ESSANGMVOUT",
-              voters: 187
-            },
+              "station": "EP ESSANGMVOUT / A",
+              "voters": 187
+            }
           ],
-          "EP ESSONG / A": [
+          "ESSONG-NDONG": [
             {
-              station: "ESSONG-NDONG",
-              voters: 74
-            },
+              "station": "EP ESSONG / A",
+              "voters": 74
+            }
           ],
-          "EP KONGO / A": [
+          "KONGO": [
             {
-              station: "KONGO",
-              voters: 330
-            },
+              "station": "EP KONGO / A",
+              "voters": 330
+            }
           ],
-          "EP MBILEMVOM / A": [
+          "MBILEMVOM": [
             {
-              station: "MBILEMVOM",
-              voters: 162
-            },
+              "station": "EP MBILEMVOM / A",
+              "voters": 162
+            }
           ],
-          "EP MEDJOUNOU / A": [
+          "MEDJOUNOU": [
             {
-              station: "MEDJOUNOU",
-              voters: 220
-            },
+              "station": "EP MEDJOUNOU / A",
+              "voters": 220
+            }
           ],
-          "EP MELOK / A": [
+          "MELOK": [
             {
-              station: "MELOK",
-              voters: 146
-            },
+              "station": "EP MELOK / A",
+              "voters": 146
+            }
           ],
-          "EP MESSOK / A": [
+          "MESSOK-NDONG": [
             {
-              station: "MESSOK-NDONG",
-              voters: 117
-            },
+              "station": "EP MESSOK / A",
+              "voters": 117
+            }
           ],
-          "EP MEYOMESSI / A": [
+          "MEYOMESSI": [
             {
-              station: "MEYOMESSI",
-              voters: 557
-            },
+              "station": "EP MEYOMESSI / A",
+              "voters": 557
+            }
           ],
-          "EP MEYOS / A": [
+          "MEYOS": [
             {
-              station: "MEYOS",
-              voters: 190
-            },
+              "station": "EP MEYOS / A",
+              "voters": 190
+            }
           ],
-          "EP MINKANG I / A": [
+          "MINKANG": [
             {
-              station: "MINKANG",
-              voters: 429
-            },
+              "station": "EP MINKANG I / A",
+              "voters": 429
+            }
           ],
-          "EP NDJELE / A": [
+          "NDJELE": [
             {
-              station: "NDJELE",
-              voters: 52
-            },
+              "station": "EP NDJELE / A",
+              "voters": 52
+            }
           ],
-          "EP ODING / A": [
+          "ODING": [
             {
-              station: "ODING",
-              voters: 91
-            },
-          ],
+              "station": "EP ODING / A",
+              "voters": 91
+            }
+          ]
         },
         "MEYOMESSALA": {
-          "BLOC ADMINISTRATIF SUDCAM I / A": [
+          "SDAIC": [
             {
-              station: "SDAIC",
-              voters: 265
-            },
-            {
-              station: "SUDCAM",
-              voters: 1917
-            },
+              "station": "BLOC ADMINISTRATIF SUDCAM I / A",
+              "voters": 265
+            }
           ],
-          "CASE COMMUNAUTAIRE YOUS / A": [
+          "SUDCAM": [
             {
-              station: "YOUS",
-              voters: 68
-            },
+              "station": "BLOC ADMINISTRATIF SUDCAM I / A",
+              "voters": 1917
+            }
           ],
-          "CENTRE COOP MEYOMAKOT / A": [
+          "YOUS": [
             {
-              station: "KOUT",
-              voters: 207
-            },
-            {
-              station: "MEYOMAKOT",
-              voters: 207
-            },
+              "station": "CASE COMMUNAUTAIRE YOUS / A",
+              "voters": 68
+            }
           ],
-          "CENTRE COOP NNEMEYONG III / A": [
+          "KOUT": [
             {
-              station: "MEMVAE",
-              voters: 287
-            },
-            {
-              station: "MINTIMA",
-              voters: 287
-            },
-            {
-              station: "NNEMEYONG",
-              voters: 766
-            },
-            {
-              station: "III",
-              voters: 560
-            },
+              "station": "CENTRE COOP MEYOMAKOT / A",
+              "voters": 207
+            }
           ],
-          "CENTRE DE SANTESUDCAM II / A": [
+          "MEYOMAKOT": [
             {
-              station: "VILLAGE",
-              voters: 1417
-            },
+              "station": "CENTRE COOP MEYOMAKOT / A",
+              "voters": 207
+            }
           ],
-          "CES MEBAME / A": [
+          "MEMVAE": [
             {
-              station: "MEBAME",
-              voters: 156
-            },
+              "station": "CENTRE COOP NNEMEYONG III / A",
+              "voters": 287
+            }
           ],
-          "CETIC NDONKOL / A": [
+          "MINTIMA": [
             {
-              station: "NDONKOL",
-              voters: 166
-            },
+              "station": "CENTRE COOP NNEMEYONG III / A",
+              "voters": 287
+            }
           ],
-          "CORPS DE GARDE ALEN / A": [
+          "NNEMEYONG": [
             {
-              station: "ALEN",
-              voters: 189
-            },
-            {
-              station: "BIKOKO",
-              voters: 189
-            },
+              "station": "CENTRE COOP NNEMEYONG III / A",
+              "voters": 766
+            }
           ],
-          "CORPS DE GARDE BIBAS / A": [
+          "III": [
             {
-              station: "BIBAS",
-              voters: 99
-            },
+              "station": "CENTRE COOP NNEMEYONG III / A",
+              "voters": 560
+            }
           ],
-          "CORPS DE GARDE BIDJONG / A": [
+          "VILLAGE": [
             {
-              station: "CHEFFERIE",
-              voters: 930
-            },
-            {
-              station: "LIBI",
-              voters: 443
-            },
-            {
-              station: "SNEC",
-              voters: 443
-            },
+              "station": "CENTRE DE SANTESUDCAM II / A",
+              "voters": 1417
+            }
           ],
-          "CORPS DE GARDE EBOLAKOUNOU / A": [
+          "MEBAME": [
             {
-              station: "EBOLAKOUNOU",
-              voters: 42
-            },
+              "station": "CES MEBAME / A",
+              "voters": 156
+            }
           ],
-          "CORPS DE GARDE EKONG / A": [
+          "NDONKOL": [
             {
-              station: "EKONG",
-              voters: 525
-            },
+              "station": "CETIC NDONKOL / A",
+              "voters": 166
+            }
           ],
-          "CORPS DE GARDE ETON / A": [
+          "ALEN": [
             {
-              station: "ETON",
-              voters: 111
-            },
-            {
-              station: "MEYOS",
-              voters: 343
-            },
-            {
-              station: "YETYANG",
-              voters: 111
-            },
+              "station": "CORPS DE GARDE ALEN / A",
+              "voters": 189
+            }
           ],
-          "CORPS DE GARDE MBANLAM / A": [
+          "BIKOKO": [
             {
-              station: "MBANLAM",
-              voters: 74
-            },
+              "station": "CORPS DE GARDE ALEN / A",
+              "voters": 189
+            }
           ],
-          "CORPS DE GARDE MBE'ELON / A": [
+          "BIBAS": [
             {
-              station: "MBE'ELON",
-              voters: 104
-            },
+              "station": "CORPS DE GARDE BIBAS / A",
+              "voters": 99
+            }
           ],
-          "CORPS DE GARDE MELOK II / A": [
+          "CHEFFERIE": [
             {
-              station: "MELOK",
-              voters: 374
-            },
+              "station": "CORPS DE GARDE BIDJONG / A",
+              "voters": 930
+            }
           ],
-          "CORPS DE GARDE NKO'ONTONDA / A": [
+          "LIBI": [
             {
-              station: "NKO'ONTONDA",
-              voters: 67
-            },
+              "station": "CORPS DE GARDE BIDJONG / A",
+              "voters": 443
+            }
           ],
-          "E.P. DE YEMFECK / A": [
+          "SNEC": [
             {
-              station: "YEMFEK",
-              voters: 874
-            },
-            {
-              station: "YEM",
-              voters: 334
-            },
+              "station": "CORPS DE GARDE BIDJONG / A",
+              "voters": 443
+            }
           ],
-          "EP ANYOUNGAN / A": [
+          "EBOLAKOUNOU": [
             {
-              station: "ANYOUNGAN",
-              voters: 205
-            },
-            {
-              station: "ONGONGO'O",
-              voters: 205
-            },
+              "station": "CORPS DE GARDE EBOLAKOUNOU / A",
+              "voters": 42
+            }
           ],
-          "EP BIBA YEZOUM / A": [
+          "EKONG": [
             {
-              station: "BIBA",
-              voters: 697
-            },
-            {
-              station: "YEZOUM",
-              voters: 157
-            },
+              "station": "CORPS DE GARDE EKONG / A",
+              "voters": 525
+            }
           ],
-          "EP BIBOULEMAN / A": [
+          "ETON": [
             {
-              station: "BIBOULEMAM",
-              voters: 165
-            },
+              "station": "CORPS DE GARDE ETON / A",
+              "voters": 111
+            }
           ],
-          "EP BIDJONG / A": [
+          "MEYOS": [
             {
-              station: "ANDOM",
-              voters: 514
-            },
-            {
-              station: "ANGAMBA",
-              voters: 514
-            },
-            {
-              station: "BIDJONG",
-              voters: 1444
-            },
-            {
-              station: "CARREFOUR",
-              voters: 514
-            },
+              "station": "CORPS DE GARDE ETON / A",
+              "voters": 343
+            }
           ],
-          "EP BITYE / A": [
+          "YETYANG": [
             {
-              station: "BITYE",
-              voters: 231
-            },
+              "station": "CORPS DE GARDE ETON / A",
+              "voters": 111
+            }
           ],
-          "EP BIYEBE / A": [
+          "MBANLAM": [
             {
-              station: "BIYEBE",
-              voters: 57
-            },
-            {
-              station: "MENGOM",
-              voters: 391
-            },
+              "station": "CORPS DE GARDE MBANLAM / A",
+              "voters": 74
+            }
           ],
-          "EP EBEZOM / A": [
+          "MBE'ELON": [
             {
-              station: "BITEKBOE",
-              voters: 251
-            },
-            {
-              station: "EBEZOM",
-              voters: 251
-            },
-            {
-              station: "NKOLESSAS",
-              voters: 251
-            },
-            {
-              station: "NKOUT",
-              voters: 251
-            },
+              "station": "CORPS DE GARDE MBE'ELON / A",
+              "voters": 104
+            }
           ],
-          "EP EDJOM / A": [
+          "MELOK": [
             {
-              station: "AKOM",
-              voters: 161
-            },
-            {
-              station: "NDONG",
-              voters: 161
-            },
-            {
-              station: "EDJOM",
-              voters: 161
-            },
-            {
-              station: "NDJOM",
-              voters: 418
-            },
-            {
-              station: "YEKOMBO",
-              voters: 418
-            },
+              "station": "CORPS DE GARDE MELOK II / A",
+              "voters": 374
+            }
           ],
-          "EP EFOULAN YASSAMAN / A": [
+          "NKO'ONTONDA": [
             {
-              station: "BISSO'O",
-              voters: 307
-            },
-            {
-              station: "EFOULAN",
-              voters: 895
-            },
-            {
-              station: "YASSAMAN",
-              voters: 193
-            },
+              "station": "CORPS DE GARDE NKO'ONTONDA / A",
+              "voters": 67
+            }
           ],
-          "EP EKOK / A": [
+          "YEMFEK": [
             {
-              station: "EKOK",
-              voters: 130
-            },
-            {
-              station: "MEKIN",
-              voters: 595
-            },
-            {
-              station: "MEKOMO",
-              voters: 130
-            },
+              "station": "E.P. DE YEMFECK / A",
+              "voters": 874
+            }
           ],
-          "EP ENDAM / A": [
+          "YEM": [
             {
-              station: "ENDAM",
-              voters: 285
-            },
-            {
-              station: "YEMBONG",
-              voters: 285
-            },
+              "station": "E.P. DE YEMFECK / A",
+              "voters": 334
+            }
           ],
-          "EP FIBOT-YEBENE / A": [
+          "ANYOUNGAN": [
             {
-              station: "FIBOT",
-              voters: 61
-            },
-            {
-              station: "YEBENE",
-              voters: 61
-            },
+              "station": "EP ANYOUNGAN / A",
+              "voters": 205
+            }
           ],
-          "EP KOUM YETOTANE / A": [
+          "ONGONGO'O": [
             {
-              station: "KOUM",
-              voters: 575
-            },
+              "station": "EP ANYOUNGAN / A",
+              "voters": 205
+            }
           ],
-          "EP KPWE / A": [
+          "BIBA": [
             {
-              station: "ELLE",
-              voters: 316
-            },
-            {
-              station: "KPWE",
-              voters: 316
-            },
+              "station": "EP BIBA YEZOUM / A",
+              "voters": 697
+            }
           ],
-          "EP MEKALAT / A": [
+          "YEZOUM": [
             {
-              station: "ESSON",
-              voters: 375
-            },
-            {
-              station: "MEKALAT",
-              voters: 198
-            },
+              "station": "EP BIBA YEZOUM / A",
+              "voters": 157
+            }
           ],
-          "EP MESSOK / A": [
+          "BIBOULEMAM": [
             {
-              station: "MESSOK",
-              voters: 359
-            },
+              "station": "EP BIBOULEMAN / A",
+              "voters": 165
+            }
           ],
-          "EP MEYOS YEMVAK / A": [
+          "ANDOM": [
             {
-              station: "YEMVAK",
-              voters: 107
-            },
+              "station": "EP BIDJONG / A",
+              "voters": 514
+            }
           ],
-          "EP MEZA'A I / A": [
+          "ANGAMBA": [
             {
-              station: "YEBAE",
-              voters: 177
-            },
-            {
-              station: "MEZA'A",
-              voters: 354
-            },
+              "station": "EP BIDJONG / A",
+              "voters": 514
+            }
           ],
-          "EP MIMBANG / A": [
+          "BIDJONG": [
             {
-              station: "ESSONG",
-              voters: 98
-            },
-            {
-              station: "MIMBANG",
-              voters: 98
-            },
+              "station": "EP BIDJONG / A",
+              "voters": 1444
+            }
           ],
-          "EP MVANBISSON / A": [
+          "CARREFOUR": [
             {
-              station: "MVANBISSON",
-              voters: 179
-            },
+              "station": "EP BIDJONG / A",
+              "voters": 514
+            }
           ],
-          "EP MVIA / A": [
+          "BITYE": [
             {
-              station: "MVIA",
-              voters: 243
-            },
+              "station": "EP BITYE / A",
+              "voters": 231
+            }
           ],
-          "EP MVOMEKA'A / A": [
+          "BIYEBE": [
             {
-              station: "MVOMEKA'A",
-              voters: 2521
-            },
+              "station": "EP BIYEBE / A",
+              "voters": 57
+            }
           ],
-          "EP NDJABEM / A": [
+          "MENGOM": [
             {
-              station: "YEMVAM",
-              voters: 513
-            },
-            {
-              station: "NDJABEM",
-              voters: 125
-            },
+              "station": "EP BIYEBE / A",
+              "voters": 391
+            }
           ],
-          "EP NDJIKOM / A": [
+          "BITEKBOE": [
             {
-              station: "EBANG",
-              voters: 142
-            },
-            {
-              station: "NDJIKOM",
-              voters: 732
-            },
+              "station": "EP EBEZOM / A",
+              "voters": 251
+            }
           ],
-          "EP NDJOM-YEKOMBO / A": [
+          "EBEZOM": [
             {
-              station: "MELAN",
-              voters: 257
-            },
+              "station": "EP EBEZOM / A",
+              "voters": 251
+            }
           ],
-          "EP NKO / A": [
+          "NKOLESSAS": [
             {
-              station: "AKOK",
-              voters: 325
-            },
-            {
-              station: "MINKO",
-              voters: 418
-            },
-            {
-              station: "NKO",
-              voters: 325
-            },
+              "station": "EP EBEZOM / A",
+              "voters": 251
+            }
           ],
-          "EP NKOLEBO'O / A": [
+          "NKOUT": [
             {
-              station: "NKOLEBO'O",
-              voters: 225
-            },
-            {
-              station: "NKOLENDAM",
-              voters: 225
-            },
+              "station": "EP EBEZOM / A",
+              "voters": 251
+            }
           ],
-          "EP NKOMO / A": [
+          "AKOM": [
             {
-              station: "NKOLESSAM",
-              voters: 240
-            },
-            {
-              station: "NKOMO",
-              voters: 240
-            },
+              "station": "EP EDJOM / A",
+              "voters": 161
+            }
           ],
-          "EP NKONGMEKAK / A": [
+          "NDONG": [
             {
-              station: "NGOUNDOU",
-              voters: 289
-            },
-            {
-              station: "NKONGMEKAK",
-              voters: 289
-            },
-            {
-              station: "OVENG-SI",
-              voters: 289
-            },
+              "station": "EP EDJOM / A",
+              "voters": 161
+            }
           ],
-          "EP NLOBESSE'E / A": [
+          "EDJOM": [
             {
-              station: "NLOBESSE'E",
-              voters: 353
-            },
+              "station": "EP EDJOM / A",
+              "voters": 161
+            }
           ],
-          "EP NYE'ELE / A": [
+          "NDJOM": [
             {
-              station: "NYE'ELE",
-              voters: 1045
-            },
+              "station": "EP EDJOM / A",
+              "voters": 418
+            }
           ],
-          "EP OYOP / A": [
+          "YEKOMBO": [
             {
-              station: "LOUM",
-              voters: 128
-            },
-            {
-              station: "OYOP",
-              voters: 128
-            },
+              "station": "EP EDJOM / A",
+              "voters": 418
+            }
           ],
-          "EP TATCHING I / A": [
+          "BISSO'O": [
             {
-              station: "TATCHING",
-              voters: 608
-            },
+              "station": "EP EFOULAN YASSAMAN / A",
+              "voters": 307
+            }
           ],
-          "EP TEKMO II / A": [
+          "EFOULAN": [
             {
-              station: "OLONG",
-              voters: 177
-            },
-            {
-              station: "TEKMO",
-              voters: 878
-            },
+              "station": "EP EFOULAN YASSAMAN / A",
+              "voters": 895
+            }
           ],
-          "EP ZOUMEYO / A": [
+          "YASSAMAN": [
             {
-              station: "MESSILA",
-              voters: 129
-            },
-            {
-              station: "ZOUMEYO",
-              voters: 129
-            },
+              "station": "EP EFOULAN YASSAMAN / A",
+              "voters": 193
+            }
           ],
-          "ESPL. MARCHENKOLDJA / A": [
+          "EKOK": [
             {
-              station: "NKOLDJA",
-              voters: 178
-            },
+              "station": "EP EKOK / A",
+              "voters": 130
+            }
           ],
-          "LYCEE TECH. MEYOMESSALA / A": [
+          "MEKIN": [
             {
-              station: "CAMP",
-              voters: 1585
-            },
-            {
-              station: "SONEL",
-              voters: 1585
-            },
-            {
-              station: "CENTRE",
-              voters: 1585
-            },
-            {
-              station: "SOCIAL",
-              voters: 1585
-            },
-            {
-              station: "EKOUK",
-              voters: 1585
-            },
-            {
-              station: "MEYOMESSALA",
-              voters: 2072
-            },
-            {
-              station: "NGAT",
-              voters: 1585
-            },
+              "station": "EP EKOK / A",
+              "voters": 595
+            }
           ],
-          "MARCHE DE MINKO / A": [
+          "MEKOMO": [
             {
-              station: "NKAE",
-              voters: 93
-            },
+              "station": "EP EKOK / A",
+              "voters": 130
+            }
           ],
-          "MISSION CATHOLIQUE MENGON / A": [
+          "ENDAM": [
             {
-              station: "MENGON",
-              voters: 263
-            },
+              "station": "EP ENDAM / A",
+              "voters": 285
+            }
           ],
-          "NOVAPALM FOYER / A": [
+          "YEMBONG": [
             {
-              station: "NOVAPALM",
-              voters: 176
-            },
+              "station": "EP ENDAM / A",
+              "voters": 285
+            }
           ],
-          "SAR SM MVOMEKA'A / A": [
+          "FIBOT": [
             {
-              station: "NGOASSE",
-              voters: 1194
-            },
+              "station": "EP FIBOT-YEBENE / A",
+              "voters": 61
+            }
           ],
+          "YEBENE": [
+            {
+              "station": "EP FIBOT-YEBENE / A",
+              "voters": 61
+            }
+          ],
+          "KOUM": [
+            {
+              "station": "EP KOUM YETOTANE / A",
+              "voters": 575
+            }
+          ],
+          "ELLE": [
+            {
+              "station": "EP KPWE / A",
+              "voters": 316
+            }
+          ],
+          "KPWE": [
+            {
+              "station": "EP KPWE / A",
+              "voters": 316
+            }
+          ],
+          "ESSON": [
+            {
+              "station": "EP MEKALAT / A",
+              "voters": 375
+            }
+          ],
+          "MEKALAT": [
+            {
+              "station": "EP MEKALAT / A",
+              "voters": 198
+            }
+          ],
+          "MESSOK": [
+            {
+              "station": "EP MESSOK / A",
+              "voters": 359
+            }
+          ],
+          "YEMVAK": [
+            {
+              "station": "EP MEYOS YEMVAK / A",
+              "voters": 107
+            }
+          ],
+          "YEBAE": [
+            {
+              "station": "EP MEZA'A I / A",
+              "voters": 177
+            }
+          ],
+          "MEZA'A": [
+            {
+              "station": "EP MEZA'A I / A",
+              "voters": 354
+            }
+          ],
+          "ESSONG": [
+            {
+              "station": "EP MIMBANG / A",
+              "voters": 98
+            }
+          ],
+          "MIMBANG": [
+            {
+              "station": "EP MIMBANG / A",
+              "voters": 98
+            }
+          ],
+          "MVANBISSON": [
+            {
+              "station": "EP MVANBISSON / A",
+              "voters": 179
+            }
+          ],
+          "MVIA": [
+            {
+              "station": "EP MVIA / A",
+              "voters": 243
+            }
+          ],
+          "MVOMEKA'A": [
+            {
+              "station": "EP MVOMEKA'A / A",
+              "voters": 2521
+            }
+          ],
+          "YEMVAM": [
+            {
+              "station": "EP NDJABEM / A",
+              "voters": 513
+            }
+          ],
+          "NDJABEM": [
+            {
+              "station": "EP NDJABEM / A",
+              "voters": 125
+            }
+          ],
+          "EBANG": [
+            {
+              "station": "EP NDJIKOM / A",
+              "voters": 142
+            }
+          ],
+          "NDJIKOM": [
+            {
+              "station": "EP NDJIKOM / A",
+              "voters": 732
+            }
+          ],
+          "MELAN": [
+            {
+              "station": "EP NDJOM-YEKOMBO / A",
+              "voters": 257
+            }
+          ],
+          "AKOK": [
+            {
+              "station": "EP NKO / A",
+              "voters": 325
+            }
+          ],
+          "MINKO": [
+            {
+              "station": "EP NKO / A",
+              "voters": 418
+            }
+          ],
+          "NKO": [
+            {
+              "station": "EP NKO / A",
+              "voters": 325
+            }
+          ],
+          "NKOLEBO'O": [
+            {
+              "station": "EP NKOLEBO'O / A",
+              "voters": 225
+            }
+          ],
+          "NKOLENDAM": [
+            {
+              "station": "EP NKOLEBO'O / A",
+              "voters": 225
+            }
+          ],
+          "NKOLESSAM": [
+            {
+              "station": "EP NKOMO / A",
+              "voters": 240
+            }
+          ],
+          "NKOMO": [
+            {
+              "station": "EP NKOMO / A",
+              "voters": 240
+            }
+          ],
+          "NGOUNDOU": [
+            {
+              "station": "EP NKONGMEKAK / A",
+              "voters": 289
+            }
+          ],
+          "NKONGMEKAK": [
+            {
+              "station": "EP NKONGMEKAK / A",
+              "voters": 289
+            }
+          ],
+          "OVENG-SI": [
+            {
+              "station": "EP NKONGMEKAK / A",
+              "voters": 289
+            }
+          ],
+          "NLOBESSE'E": [
+            {
+              "station": "EP NLOBESSE'E / A",
+              "voters": 353
+            }
+          ],
+          "NYE'ELE": [
+            {
+              "station": "EP NYE'ELE / A",
+              "voters": 1045
+            }
+          ],
+          "LOUM": [
+            {
+              "station": "EP OYOP / A",
+              "voters": 128
+            }
+          ],
+          "OYOP": [
+            {
+              "station": "EP OYOP / A",
+              "voters": 128
+            }
+          ],
+          "TATCHING": [
+            {
+              "station": "EP TATCHING I / A",
+              "voters": 608
+            }
+          ],
+          "OLONG": [
+            {
+              "station": "EP TEKMO II / A",
+              "voters": 177
+            }
+          ],
+          "TEKMO": [
+            {
+              "station": "EP TEKMO II / A",
+              "voters": 878
+            }
+          ],
+          "MESSILA": [
+            {
+              "station": "EP ZOUMEYO / A",
+              "voters": 129
+            }
+          ],
+          "ZOUMEYO": [
+            {
+              "station": "EP ZOUMEYO / A",
+              "voters": 129
+            }
+          ],
+          "NKOLDJA": [
+            {
+              "station": "ESPL. MARCHENKOLDJA / A",
+              "voters": 178
+            }
+          ],
+          "CAMP": [
+            {
+              "station": "LYCEE TECH. MEYOMESSALA / A",
+              "voters": 1585
+            }
+          ],
+          "SONEL": [
+            {
+              "station": "LYCEE TECH. MEYOMESSALA / A",
+              "voters": 1585
+            }
+          ],
+          "CENTRE": [
+            {
+              "station": "LYCEE TECH. MEYOMESSALA / A",
+              "voters": 1585
+            }
+          ],
+          "SOCIAL": [
+            {
+              "station": "LYCEE TECH. MEYOMESSALA / A",
+              "voters": 1585
+            }
+          ],
+          "EKOUK": [
+            {
+              "station": "LYCEE TECH. MEYOMESSALA / A",
+              "voters": 1585
+            }
+          ],
+          "MEYOMESSALA": [
+            {
+              "station": "LYCEE TECH. MEYOMESSALA / A",
+              "voters": 2072
+            }
+          ],
+          "NGAT": [
+            {
+              "station": "LYCEE TECH. MEYOMESSALA / A",
+              "voters": 1585
+            }
+          ],
+          "NKAE": [
+            {
+              "station": "MARCHE DE MINKO / A",
+              "voters": 93
+            }
+          ],
+          "MENGON": [
+            {
+              "station": "MISSION CATHOLIQUE MENGON / A",
+              "voters": 263
+            }
+          ],
+          "NOVAPALM": [
+            {
+              "station": "NOVAPALM FOYER / A",
+              "voters": 176
+            }
+          ],
+          "NGOASSE": [
+            {
+              "station": "SAR SM MVOMEKA'A / A",
+              "voters": 1194
+            }
+          ]
         },
         "MINTOM": {
-          "CENTRE PRESCOLAIRE ZOULABOT / A": [
+          "ZOULABOT": [
             {
-              station: "ZOULABOT",
-              voters: 297
-            },
+              "station": "CENTRE PRESCOLAIRE ZOULABOT / A",
+              "voters": 297
+            }
           ],
-          "CORPS DE GARDE BITE / A": [
+          "BITE": [
             {
-              station: "BITE",
-              voters: 463
-            },
+              "station": "CORPS DE GARDE BITE / A",
+              "voters": 463
+            }
           ],
-          "CORPS DE GARDE ESSENG / A": [
+          "ESSENG": [
             {
-              station: "ESSENG",
-              voters: 51
-            },
+              "station": "CORPS DE GARDE ESSENG / A",
+              "voters": 51
+            }
           ],
-          "CORPS DE GARDE NOAH AKOM II / A": [
+          "BELLE": [
             {
-              station: "BELLE",
-              voters: 189
-            },
-            {
-              station: "VILLE",
-              voters: 189
-            },
-            {
-              station: "EKOMBITE",
-              voters: 136
-            },
+              "station": "CORPS DE GARDE NOAH AKOM II / A",
+              "voters": 189
+            }
           ],
-          "EP AKOM / A": [
+          "VILLE": [
             {
-              station: "AKOM",
-              voters: 210
-            },
+              "station": "CORPS DE GARDE NOAH AKOM II / A",
+              "voters": 189
+            }
           ],
-          "EP ALATI / A": [
+          "EKOMBITE": [
             {
-              station: "ALATI",
-              voters: 77
-            },
+              "station": "CORPS DE GARDE NOAH AKOM II / A",
+              "voters": 136
+            }
           ],
-          "EP BINDOM / A": [
+          "AKOM": [
             {
-              station: "BINDOM",
-              voters: 128
-            },
-            {
-              station: "DOUM",
-              voters: 128
-            },
+              "station": "EP AKOM / A",
+              "voters": 210
+            }
           ],
-          "EP DU CENTRE MINTOM II / A": [
+          "ALATI": [
             {
-              station: "MEYIBOTO",
-              voters: 345
-            },
-            {
-              station: "MINTOM",
-              voters: 1059
-            },
+              "station": "EP ALATI / A",
+              "voters": 77
+            }
           ],
-          "EP KOUNGOULOU / A": [
+          "BINDOM": [
             {
-              station: "KOUNGOULOU",
-              voters: 119
-            },
-            {
-              station: "ZO'OTOU",
-              voters: 161
-            },
+              "station": "EP BINDOM / A",
+              "voters": 128
+            }
           ],
-          "EP LELE / A": [
+          "DOUM": [
             {
-              station: "LELE",
-              voters: 156
-            },
-            {
-              station: "NKOLFONG",
-              voters: 314
-            },
+              "station": "EP BINDOM / A",
+              "voters": 128
+            }
           ],
-          "EP MBOUT-OKONG / A": [
+          "MEYIBOTO": [
             {
-              station: "MBOUT-OKONG",
-              voters: 215
-            },
+              "station": "EP DU CENTRE MINTOM II / A",
+              "voters": 345
+            }
           ],
-          "EP MEKOM / A": [
+          "MINTOM": [
             {
-              station: "MEKOM",
-              voters: 53
-            },
+              "station": "EP DU CENTRE MINTOM II / A",
+              "voters": 1059
+            }
           ],
-          "EP MEKOTTO / A": [
+          "KOUNGOULOU": [
             {
-              station: "MEKOTTO",
-              voters: 156
-            },
+              "station": "EP KOUNGOULOU / A",
+              "voters": 119
+            }
           ],
-          "EP NKOLMBOULA / A": [
+          "ZO'OTOU": [
             {
-              station: "NKOLMBOULA",
-              voters: 79
-            },
-            {
-              station: "ZOULAMEYONG",
-              voters: 327
-            },
+              "station": "EP KOUNGOULOU / A",
+              "voters": 161
+            }
           ],
-          "EP ZOEBEFAM / A": [
+          "LELE": [
             {
-              station: "NKOLEFIAL",
-              voters: 248
-            },
-            {
-              station: "ZOEBEFAM",
-              voters: 200
-            },
+              "station": "EP LELE / A",
+              "voters": 156
+            }
           ],
-          "FOYER AKONETYE / A": [
+          "NKOLFONG": [
             {
-              station: "AKONETYE",
-              voters: 55
-            },
-            {
-              station: "MENGOM",
-              voters: 201
-            },
-            {
-              station: "SAKE",
-              voters: 201
-            },
+              "station": "EP LELE / A",
+              "voters": 314
+            }
           ],
-          "FOYER NKOLKOUMOU / A": [
+          "MBOUT-OKONG": [
             {
-              station: "NKOLKOUMOU",
-              voters: 113
-            },
+              "station": "EP MBOUT-OKONG / A",
+              "voters": 215
+            }
           ],
-          "LYCEE MINTOM CENTRE / A": [
+          "MEKOM": [
             {
-              station: "CENTRE",
-              voters: 592
-            },
+              "station": "EP MEKOM / A",
+              "voters": 53
+            }
           ],
+          "MEKOTTO": [
+            {
+              "station": "EP MEKOTTO / A",
+              "voters": 156
+            }
+          ],
+          "NKOLMBOULA": [
+            {
+              "station": "EP NKOLMBOULA / A",
+              "voters": 79
+            }
+          ],
+          "ZOULAMEYONG": [
+            {
+              "station": "EP NKOLMBOULA / A",
+              "voters": 327
+            }
+          ],
+          "NKOLEFIAL": [
+            {
+              "station": "EP ZOEBEFAM / A",
+              "voters": 248
+            }
+          ],
+          "ZOEBEFAM": [
+            {
+              "station": "EP ZOEBEFAM / A",
+              "voters": 200
+            }
+          ],
+          "AKONETYE": [
+            {
+              "station": "FOYER AKONETYE / A",
+              "voters": 55
+            }
+          ],
+          "MENGOM": [
+            {
+              "station": "FOYER AKONETYE / A",
+              "voters": 201
+            }
+          ],
+          "SAKE": [
+            {
+              "station": "FOYER AKONETYE / A",
+              "voters": 201
+            }
+          ],
+          "NKOLKOUMOU": [
+            {
+              "station": "FOYER NKOLKOUMOU / A",
+              "voters": 113
+            }
+          ],
+          "CENTRE": [
+            {
+              "station": "LYCEE MINTOM CENTRE / A",
+              "voters": 592
+            }
+          ]
         },
         "OVENG": {
-          "CORPS DE GARDE AKOM / A": [
+          "AKOM": [
             {
-              station: "AKOM",
-              voters: 139
-            },
-            {
-              station: "EPC",
-              voters: 139
-            },
+              "station": "CORPS DE GARDE AKOM / A",
+              "voters": 139
+            }
           ],
-          "CORPS DE GARDE DE BIKOUGOU / A": [
+          "EPC": [
             {
-              station: "CORPS",
-              voters: 35
-            },
-            {
-              station: "GARDE",
-              voters: 35
-            },
+              "station": "CORPS DE GARDE AKOM / A",
+              "voters": 139
+            }
           ],
-          "CORPS DE GARDE EBOMANE / A": [
+          "CORPS": [
             {
-              station: "EBOMANE",
-              voters: 62
-            },
-            {
-              station: "ENDONE",
-              voters: 62
-            },
+              "station": "CORPS DE GARDE DE BIKOUGOU / A",
+              "voters": 35
+            }
           ],
-          "CORPS DE GARDE EKOWONG / A": [
+          "GARDE": [
             {
-              station: "EKOWONG",
-              voters: 123
-            },
+              "station": "CORPS DE GARDE DE BIKOUGOU / A",
+              "voters": 35
+            }
           ],
-          "CORPS DE GARDE ESSAM / A": [
+          "EBOMANE": [
             {
-              station: "ESSAM",
-              voters: 41
-            },
+              "station": "CORPS DE GARDE EBOMANE / A",
+              "voters": 62
+            }
           ],
-          "CORPS DE GARDE MEBASSA / A": [
+          "ENDONE": [
             {
-              station: "MEBASSA",
-              voters: 98
-            },
+              "station": "CORPS DE GARDE EBOMANE / A",
+              "voters": 62
+            }
           ],
-          "CORPS DE GARDE MVAM I / A": [
+          "EKOWONG": [
             {
-              station: "MVAM",
-              voters: 251
-            },
+              "station": "CORPS DE GARDE EKOWONG / A",
+              "voters": 123
+            }
           ],
-          "CORPS DE GARDE NKOLMESSAS / A": [
+          "ESSAM": [
             {
-              station: "MBEDOUM",
-              voters: 177
-            },
-            {
-              station: "NKOLMESSAS",
-              voters: 177
-            },
+              "station": "CORPS DE GARDE ESSAM / A",
+              "voters": 41
+            }
           ],
-          "ECOLE PRIVEE CATHOLIQUE OVENG / A": [
+          "MEBASSA": [
             {
-              station: "LALALA",
-              voters: 174
-            },
-            {
-              station: "MISSION",
-              voters: 348
-            },
-            {
-              station: "CATHOLIQUE",
-              voters: 174
-            },
-            {
-              station: "OVENG",
-              voters: 483
-            },
-            {
-              station: "CATH",
-              voters: 174
-            },
+              "station": "CORPS DE GARDE MEBASSA / A",
+              "voters": 98
+            }
           ],
-          "EM AKOM (NKO'ETENG) / A": [
+          "MVAM": [
             {
-              station: "NKO'ETENG",
-              voters: 183
-            },
+              "station": "CORPS DE GARDE MVAM I / A",
+              "voters": 251
+            }
           ],
-          "EP ABECK / A": [
+          "MBEDOUM": [
             {
-              station: "ABECK",
-              voters: 104
-            },
+              "station": "CORPS DE GARDE NKOLMESSAS / A",
+              "voters": 177
+            }
           ],
-          "EP ABOULOU VILLAGE / A": [
+          "NKOLMESSAS": [
             {
-              station: "VILLAGE",
-              voters: 76
-            },
+              "station": "CORPS DE GARDE NKOLMESSAS / A",
+              "voters": 177
+            }
           ],
-          "EP ADJAP / A": [
+          "LALALA": [
             {
-              station: "ADJAP",
-              voters: 72
-            },
+              "station": "ECOLE PRIVEE CATHOLIQUE OVENG / A",
+              "voters": 174
+            }
           ],
-          "EP AKOABAS / A": [
+          "MISSION": [
             {
-              station: "AKOABAS",
-              voters: 210
-            },
+              "station": "ECOLE PRIVEE CATHOLIQUE OVENG / A",
+              "voters": 348
+            }
           ],
-          "EP ANDOUNG / A": [
+          "CATHOLIQUE": [
             {
-              station: "ANDOUNG",
-              voters: 93
-            },
+              "station": "ECOLE PRIVEE CATHOLIQUE OVENG / A",
+              "voters": 174
+            }
           ],
-          "EP BITCHE / A": [
+          "OVENG": [
             {
-              station: "BIKOUGOU",
-              voters: 181
-            },
-            {
-              station: "BITCHE",
-              voters: 111
-            },
+              "station": "ECOLE PRIVEE CATHOLIQUE OVENG / A",
+              "voters": 483
+            }
           ],
-          "EP MEBANG / A": [
+          "CATH": [
             {
-              station: "MEBANG",
-              voters: 120
-            },
+              "station": "ECOLE PRIVEE CATHOLIQUE OVENG / A",
+              "voters": 174
+            }
           ],
-          "EP MEDJENG / A": [
+          "NKO'ETENG": [
             {
-              station: "MEDJENG",
-              voters: 162
-            },
+              "station": "EM AKOM (NKO'ETENG) / A",
+              "voters": 183
+            }
           ],
-          "EP NDJA / A": [
+          "ABECK": [
             {
-              station: "NDJA",
-              voters: 125
-            },
+              "station": "EP ABECK / A",
+              "voters": 104
+            }
           ],
-          "EP NGBWASSA / A": [
+          "VILLAGE": [
             {
-              station: "NGBWASSA",
-              voters: 124
-            },
+              "station": "EP ABOULOU VILLAGE / A",
+              "voters": 76
+            }
           ],
-          "EP NGOUDJEN / A": [
+          "ADJAP": [
             {
-              station: "NGOUDJEN",
-              voters: 123
-            },
+              "station": "EP ADJAP / A",
+              "voters": 72
+            }
           ],
-          "EP NKONO / A": [
+          "AKOABAS": [
             {
-              station: "NKONO",
-              voters: 113
-            },
+              "station": "EP AKOABAS / A",
+              "voters": 210
+            }
           ],
-          "EP ONON / A": [
+          "ANDOUNG": [
             {
-              station: "ONON",
-              voters: 216
-            },
+              "station": "EP ANDOUNG / A",
+              "voters": 93
+            }
           ],
-          "EP OVENG CENTRE CHEFFERIE / A": [
+          "BIKOUGOU": [
             {
-              station: "CENTRE",
-              voters: 309
-            },
+              "station": "EP BITCHE / A",
+              "voters": 181
+            }
           ],
-          "EPC ANYOUNGOM / A": [
+          "BITCHE": [
             {
-              station: "ANYOUNGOM",
-              voters: 49
-            },
+              "station": "EP BITCHE / A",
+              "voters": 111
+            }
           ],
-          "EPC BIFOT / A": [
+          "MEBANG": [
             {
-              station: "BIFOT",
-              voters: 70
-            },
+              "station": "EP MEBANG / A",
+              "voters": 120
+            }
           ],
-          "EPC ESSAMENKOU / A": [
+          "MEDJENG": [
             {
-              station: "ESSAMENKOU",
-              voters: 58
-            },
+              "station": "EP MEDJENG / A",
+              "voters": 162
+            }
           ],
-          "MAIRIE / A": [
+          "NDJA": [
             {
-              station: "BONO-SI",
-              voters: 156
-            },
+              "station": "EP NDJA / A",
+              "voters": 125
+            }
           ],
-          "POSTE DE POLICE ABOULOU FRONTIERE / A": [
+          "NGBWASSA": [
             {
-              station: "ABOULOU",
-              voters: 266
-            },
-            {
-              station: "FRONTIERE",
-              voters: 190
-            },
+              "station": "EP NGBWASSA / A",
+              "voters": 124
+            }
           ],
-          "SOUS-PREFECTURE / A": [
+          "NGOUDJEN": [
             {
-              station: "SOUS-PREFECTURE",
-              voters: 130
-            },
+              "station": "EP NGOUDJEN / A",
+              "voters": 123
+            }
           ],
-          "TELECENTRE OVENG / A": [
+          "NKONO": [
             {
-              station: "GENDARMERIE",
-              voters: 75
-            },
+              "station": "EP NKONO / A",
+              "voters": 113
+            }
           ],
+          "ONON": [
+            {
+              "station": "EP ONON / A",
+              "voters": 216
+            }
+          ],
+          "CENTRE": [
+            {
+              "station": "EP OVENG CENTRE CHEFFERIE / A",
+              "voters": 309
+            }
+          ],
+          "ANYOUNGOM": [
+            {
+              "station": "EPC ANYOUNGOM / A",
+              "voters": 49
+            }
+          ],
+          "BIFOT": [
+            {
+              "station": "EPC BIFOT / A",
+              "voters": 70
+            }
+          ],
+          "ESSAMENKOU": [
+            {
+              "station": "EPC ESSAMENKOU / A",
+              "voters": 58
+            }
+          ],
+          "BONO-SI": [
+            {
+              "station": "MAIRIE / A",
+              "voters": 156
+            }
+          ],
+          "ABOULOU": [
+            {
+              "station": "POSTE DE POLICE ABOULOU FRONTIERE / A",
+              "voters": 266
+            }
+          ],
+          "FRONTIERE": [
+            {
+              "station": "POSTE DE POLICE ABOULOU FRONTIERE / A",
+              "voters": 190
+            }
+          ],
+          "SOUS-PREFECTURE": [
+            {
+              "station": "SOUS-PREFECTURE / A",
+              "voters": 130
+            }
+          ],
+          "GENDARMERIE": [
+            {
+              "station": "TELECENTRE OVENG / A",
+              "voters": 75
+            }
+          ]
         },
         "SANGMELIMA": {
-          "ANTENNE CRTV / A": [
+          "SOURCES": [
             {
-              station: "SOURCES",
-              voters: 332
-            },
+              "station": "ANTENNE CRTV / A",
+              "voters": 332
+            }
           ],
-          "BATIMENT ELEVAGE NKOLNGUET / A": [
+          "NKOLNGUET": [
             {
-              station: "NKOLNGUET",
-              voters: 860
-            },
+              "station": "BATIMENT ELEVAGE NKOLNGUET / A",
+              "voters": 860
+            }
           ],
-          "CES NKOLOTOU' OUTOU / A": [
+          "NKOLEBOM": [
             {
-              station: "NKOLEBOM",
-              voters: 213
-            },
+              "station": "CES NKOLOTOU' OUTOU / A",
+              "voters": 213
+            }
           ],
-          "CODJAL / A": [
+          "COMMERCIAL": [
             {
-              station: "COMMERCIAL",
-              voters: 506
-            },
+              "station": "CODJAL / A",
+              "voters": 506
+            }
           ],
-          "COLLEGE KISITO / A": [
+          "LOBO-SI": [
             {
-              station: "LOBO-SI",
-              voters: 1782
-            },
+              "station": "COLLEGE KISITO / A",
+              "voters": 1782
+            }
           ],
-          "CORPS DE GARDE AKO'O ESSE / A": [
+          "AKO'O-ESSE": [
             {
-              station: "AKO'O-ESSE",
-              voters: 62
-            },
+              "station": "CORPS DE GARDE AKO'O ESSE / A",
+              "voters": 62
+            }
           ],
-          "CORPS DE GARDE AKO'O LUI / A": [
+          "AKO'O": [
             {
-              station: "AKO'O",
-              voters: 107
-            },
-            {
-              station: "LUI",
-              voters: 107
-            },
+              "station": "CORPS DE GARDE AKO'O LUI / A",
+              "voters": 107
+            }
           ],
-          "CORPS DE GARDE EFOULAN-YEMVAK / A": [
+          "LUI": [
             {
-              station: "EFOULAN",
-              voters: 83
-            },
+              "station": "CORPS DE GARDE AKO'O LUI / A",
+              "voters": 107
+            }
+          ],
+          "EFOULAN": [
             {
-              station: "YEMVAK",
-              voters: 266
-            },
+              "station": "CORPS DE GARDE EFOULAN-YEMVAK / A",
+              "voters": 83
+            }
           ],
-          "CORPS DE GARDE MEKOMO YENDAM / A": [
+          "YEMVAK": [
             {
-              station: "MEKOMO",
-              voters: 201
-            },
+              "station": "CORPS DE GARDE EFOULAN-YEMVAK / A",
+              "voters": 266
+            }
+          ],
+          "MEKOMO": [
             {
-              station: "YENDAM",
-              voters: 114
-            },
+              "station": "CORPS DE GARDE MEKOMO YENDAM / A",
+              "voters": 201
+            }
           ],
-          "CORPS DE GARDE MFOULOVENG / A": [
+          "YENDAM": [
             {
-              station: "MFOULOVENG",
-              voters: 90
-            },
+              "station": "CORPS DE GARDE MEKOMO YENDAM / A",
+              "voters": 114
+            }
           ],
-          "CORPS DE GARDE NGOMEYOP / A": [
+          "MFOULOVENG": [
             {
-              station: "NGOMEYOP",
-              voters: 90
-            },
+              "station": "CORPS DE GARDE MFOULOVENG / A",
+              "voters": 90
+            }
+          ],
+          "NGOMEYOP": [
             {
-              station: "NKOETYE",
-              voters: 90
-            },
+              "station": "CORPS DE GARDE NGOMEYOP / A",
+              "voters": 90
+            }
           ],
-          "CORPS DE GARDE ZOEBEFAM / A": [
+          "NKOETYE": [
             {
-              station: "ZOEBEFAM",
-              voters: 65
-            },
+              "station": "CORPS DE GARDE NGOMEYOP / A",
+              "voters": 90
+            }
           ],
-          "CORPS DE GARDE ZOUM / A": [
+          "ZOEBEFAM": [
             {
-              station: "ZOUM",
-              voters: 225
-            },
+              "station": "CORPS DE GARDE ZOEBEFAM / A",
+              "voters": 65
+            }
           ],
-          "DISPENSAIRE MONEKO'O / A": [
+          "ZOUM": [
             {
-              station: "MONEKO'O",
-              voters: 268
-            },
+              "station": "CORPS DE GARDE ZOUM / A",
+              "voters": 225
+            }
           ],
-          "DISPENSAIRE NDJOM ESSAMAN / A": [
+          "MONEKO'O": [
             {
-              station: "NDJOM",
-              voters: 199
-            },
+              "station": "DISPENSAIRE MONEKO'O / A",
+              "voters": 268
+            }
           ],
-          "ECOLE ANNEXE DE SANGMELIMA GI / A": [
+          "NDJOM": [
             {
-              station: "CENTRE",
-              voters: 1409
-            },
+              "station": "DISPENSAIRE NDJOM ESSAMAN / A",
+              "voters": 199
+            }
+          ],
+          "CENTRE": [
             {
-              station: "ADMINISTRATIF",
-              voters: 903
-            },
+              "station": "ECOLE ANNEXE DE SANGMELIMA GI / A",
+              "voters": 1409
+            }
           ],
-          "ECOLE ANNEXE HOPITAL / A": [
+          "ADMINISTRATIF": [
             {
-              station: "BASE",
-              voters: 694
-            },
+              "station": "ECOLE ANNEXE DE SANGMELIMA GI / A",
+              "voters": 903
+            }
           ],
-          "ECOLE BILINGUE DE SANGMELIMA / A": [
+          "BASE": [
             {
-              station: "NYLON",
-              voters: 1013
-            },
+              "station": "ECOLE ANNEXE HOPITAL / A",
+              "voters": 694
+            }
           ],
-          "ECOLE CATHO ST JOSEPH / A": [
+          "NYLON": [
             {
-              station: "BRIQUETERIE",
-              voters: 751
-            },
+              "station": "ECOLE BILINGUE DE SANGMELIMA / A",
+              "voters": 1013
+            }
+          ],
+          "BRIQUETERIE": [
             {
-              station: "SANGMELIMA",
-              voters: 6579
-            },
+              "station": "ECOLE CATHO ST JOSEPH / A",
+              "voters": 751
+            }
+          ],
+          "SANGMELIMA": [
             {
-              station: "VILLAGE",
-              voters: 6579
-            },
+              "station": "ECOLE CATHO ST JOSEPH / A",
+              "voters": 6579
+            }
           ],
-          "ECOLE MATERNELLE 7E RUE / A": [
+          "VILLAGE": [
             {
-              station: "III",
-              voters: 1287
-            },
+              "station": "ECOLE CATHO ST JOSEPH / A",
+              "voters": 6579
+            }
           ],
-          "EM BIBOULEMAM / A": [
+          "III": [
             {
-              station: "BIBOULEMAM",
-              voters: 110
-            },
+              "station": "ECOLE MATERNELLE 7E RUE / A",
+              "voters": 1287
+            }
           ],
-          "EM LA ROSEE DU SUD / A": [
+          "BIBOULEMAM": [
             {
-              station: "AKON",
-              voters: 7324
-            },
+              "station": "EM BIBOULEMAM / A",
+              "voters": 110
+            }
+          ],
+          "AKON": [
             {
-              station: "BISSONO",
-              voters: 3346
-            },
+              "station": "EM LA ROSEE DU SUD / A",
+              "voters": 7324
+            }
+          ],
+          "BISSONO": [
             {
-              station: "GENDARMERIE",
-              voters: 2437
-            },
+              "station": "EM LA ROSEE DU SUD / A",
+              "voters": 3346
+            }
           ],
-          "ENIEG / A": [
+          "GENDARMERIE": [
             {
-              station: "MBELI'I",
-              voters: 620
-            },
+              "station": "EM LA ROSEE DU SUD / A",
+              "voters": 2437
+            }
           ],
-          "EP AKAK ESSE / A": [
+          "MBELI'I": [
             {
-              station: "AKAK-ESSE",
-              voters: 138
-            },
+              "station": "ENIEG / A",
+              "voters": 620
+            }
           ],
-          "EP AKOMENDIBI / A": [
+          "AKAK-ESSE": [
             {
-              station: "AKOMENDIBI",
-              voters: 198
-            },
+              "station": "EP AKAK ESSE / A",
+              "voters": 138
+            }
           ],
-          "EP AKOMESSING / A": [
+          "AKOMENDIBI": [
             {
-              station: "AKOMESSING",
-              voters: 335
-            },
+              "station": "EP AKOMENDIBI / A",
+              "voters": 198
+            }
           ],
-          "EP ALOUMA YEKOMBO / A": [
+          "AKOMESSING": [
             {
-              station: "ALOUMA",
-              voters: 382
-            },
+              "station": "EP AKOMESSING / A",
+              "voters": 335
+            }
+          ],
+          "ALOUMA": [
             {
-              station: "YEKOMBO",
-              voters: 538
-            },
+              "station": "EP ALOUMA YEKOMBO / A",
+              "voters": 382
+            }
           ],
-          "EP ASSOK YEMVENG / A": [
+          "YEKOMBO": [
             {
-              station: "ASSOK-YEMVENG",
-              voters: 399
-            },
+              "station": "EP ALOUMA YEKOMBO / A",
+              "voters": 538
+            }
           ],
-          "EP ASSOK-YEMVENG / A": [
+          "ASSOK-YEMVENG": [
             {
-              station: "YEMVENG",
-              voters: 342
-            },
+              "station": "EP ASSOK YEMVENG / A",
+              "voters": 399
+            }
           ],
-          "EP AVEBE ESSE / A": [
+          "YEMVENG": [
             {
-              station: "AVEBE",
-              voters: 602
-            },
+              "station": "EP ASSOK-YEMVENG / A",
+              "voters": 342
+            }
+          ],
+          "AVEBE": [
             {
-              station: "ESSE",
-              voters: 539
-            },
+              "station": "EP AVEBE ESSE / A",
+              "voters": 602
+            }
           ],
-          "EP BENYOUNGOU / A": [
+          "ESSE": [
             {
-              station: "BENYOUNGOU",
-              voters: 158
-            },
+              "station": "EP AVEBE ESSE / A",
+              "voters": 539
+            }
           ],
-          "EP BIDJOM / A": [
+          "BENYOUNGOU": [
             {
-              station: "BIDJOM",
-              voters: 260
-            },
+              "station": "EP BENYOUNGOU / A",
+              "voters": 158
+            }
+          ],
+          "BIDJOM": [
             {
-              station: "MANG",
-              voters: 260
-            },
+              "station": "EP BIDJOM / A",
+              "voters": 260
+            }
           ],
-          "EP BIKOBO ESSAMAN / A": [
+          "MANG": [
             {
-              station: "BIKOBO",
-              voters: 267
-            },
+              "station": "EP BIDJOM / A",
+              "voters": 260
+            }
+          ],
+          "BIKOBO": [
             {
-              station: "ESSAMAN",
-              voters: 466
-            },
+              "station": "EP BIKOBO ESSAMAN / A",
+              "voters": 267
+            }
           ],
-          "EP BINGOU / A": [
+          "ESSAMAN": [
             {
-              station: "ANGONGUE",
-              voters: 159
-            },
+              "station": "EP BIKOBO ESSAMAN / A",
+              "voters": 466
+            }
+          ],
+          "ANGONGUE": [
             {
-              station: "BINGOU",
-              voters: 159
-            },
+              "station": "EP BINGOU / A",
+              "voters": 159
+            }
           ],
-          "EP BISSONO / A": [
+          "BINGOU": [
             {
-              station: "EPCO",
-              voters: 909
-            },
+              "station": "EP BINGOU / A",
+              "voters": 159
+            }
           ],
-          "EP BIZANG / A": [
+          "EPCO": [
             {
-              station: "BIZANG",
-              voters: 56
-            },
+              "station": "EP BISSONO / A",
+              "voters": 909
+            }
           ],
-          "EP DE MEKA'A / A": [
+          "BIZANG": [
             {
-              station: "MEKA'A",
-              voters: 284
-            },
+              "station": "EP BIZANG / A",
+              "voters": 56
+            }
           ],
-          "EP EBOLENGBWANG / A": [
+          "MEKA'A": [
             {
-              station: "EBOLENGBWANG",
-              voters: 2128
-            },
+              "station": "EP DE MEKA'A / A",
+              "voters": 284
+            }
           ],
-          "EP EMINEMVOM / A": [
+          "EBOLENGBWANG": [
             {
-              station: "EKOUMEDOUM",
-              voters: 379
-            },
+              "station": "EP EBOLENGBWANG / A",
+              "voters": 2128
+            }
+          ],
+          "EKOUMEDOUM": [
             {
-              station: "EMINEMVOM",
-              voters: 449
-            },
+              "station": "EP EMINEMVOM / A",
+              "voters": 379
+            }
           ],
-          "EP ESSAM-ESSE / A": [
+          "EMINEMVOM": [
             {
-              station: "ESSAM-ESSE",
-              voters: 112
-            },
+              "station": "EP EMINEMVOM / A",
+              "voters": 449
+            }
           ],
-          "EP EVELESSI I / A": [
+          "ESSAM-ESSE": [
             {
-              station: "EVELESSI",
-              voters: 319
-            },
+              "station": "EP ESSAM-ESSE / A",
+              "voters": 112
+            }
           ],
-          "EP EVINDISSI I / A": [
+          "EVELESSI": [
             {
-              station: "EVINDISSI",
-              voters: 323
-            },
+              "station": "EP EVELESSI I / A",
+              "voters": 319
+            }
           ],
-          "EP EYE'E / A": [
+          "EVINDISSI": [
             {
-              station: "YETOK",
-              voters: 200
-            },
+              "station": "EP EVINDISSI I / A",
+              "voters": 323
+            }
+          ],
+          "YETOK": [
             {
-              station: "EYE'E",
-              voters: 200
-            },
+              "station": "EP EYE'E / A",
+              "voters": 200
+            }
           ],
-          "EP KAMELON / A": [
+          "EYE'E": [
             {
-              station: "KAMELON",
-              voters: 220
-            },
+              "station": "EP EYE'E / A",
+              "voters": 200
+            }
           ],
-          "EP KEKA / A": [
+          "KAMELON": [
             {
-              station: "KEKA",
-              voters: 176
-            },
+              "station": "EP KAMELON / A",
+              "voters": 220
+            }
           ],
-          "EP KOMBE / A": [
+          "KEKA": [
             {
-              station: "KOMBE",
-              voters: 254
-            },
+              "station": "EP KEKA / A",
+              "voters": 176
+            }
           ],
-          "EP KOUM ESSE / A": [
+          "KOMBE": [
             {
-              station: "KOUM",
-              voters: 206
-            },
+              "station": "EP KOMBE / A",
+              "voters": 254
+            }
           ],
-          "EP MA'ANMENYIN / A": [
+          "KOUM": [
             {
-              station: "MA'ANMENYIN",
-              voters: 111
-            },
+              "station": "EP KOUM ESSE / A",
+              "voters": 206
+            }
           ],
-          "EP MBOM / A": [
+          "MA'ANMENYIN": [
             {
-              station: "MBOM",
-              voters: 229
-            },
+              "station": "EP MA'ANMENYIN / A",
+              "voters": 111
+            }
           ],
-          "EP MEBEM / A": [
+          "MBOM": [
             {
-              station: "MEBEM",
-              voters: 148
-            },
+              "station": "EP MBOM / A",
+              "voters": 229
+            }
           ],
-          "EP MEKAM / A": [
+          "MEBEM": [
             {
-              station: "MEKAM",
-              voters: 180
-            },
+              "station": "EP MEBEM / A",
+              "voters": 148
+            }
           ],
-          "EP MEKOM I / A": [
+          "MEKAM": [
             {
-              station: "MEKOM",
-              voters: 228
-            },
+              "station": "EP MEKAM / A",
+              "voters": 180
+            }
           ],
-          "EP MELEN / A": [
+          "MEKOM": [
             {
-              station: "MELEN",
-              voters: 127
-            },
+              "station": "EP MEKOM I / A",
+              "voters": 228
+            }
           ],
-          "EP MENGUE / A": [
+          "MELEN": [
             {
-              station: "MENGUE",
-              voters: 162
-            },
+              "station": "EP MELEN / A",
+              "voters": 127
+            }
+          ],
+          "MENGUE": [
             {
-              station: "MESSAK",
-              voters: 304
-            },
+              "station": "EP MENGUE / A",
+              "voters": 162
+            }
           ],
-          "EP MEPHO / A": [
+          "MESSAK": [
             {
-              station: "MEPHO",
-              voters: 295
-            },
+              "station": "EP MENGUE / A",
+              "voters": 304
+            }
           ],
-          "EP METET / A": [
+          "MEPHO": [
             {
-              station: "METET",
-              voters: 160
-            },
+              "station": "EP MEPHO / A",
+              "voters": 295
+            }
           ],
-          "EP MEYO-ESSE / A": [
+          "METET": [
             {
-              station: "MEYO-ESSE",
-              voters: 140
-            },
+              "station": "EP METET / A",
+              "voters": 160
+            }
           ],
-          "EP MEYOMADJOM / A": [
+          "MEYO-ESSE": [
             {
-              station: "MEYOMADJOM",
-              voters: 364
-            },
+              "station": "EP MEYO-ESSE / A",
+              "voters": 140
+            }
           ],
-          "EP MEYOS ESSABIKOULA / A": [
+          "MEYOMADJOM": [
             {
-              station: "MEYOS",
-              voters: 384
-            },
+              "station": "EP MEYOMADJOM / A",
+              "voters": 364
+            }
+          ],
+          "MEYOS": [
             {
-              station: "ESSABIKOULA",
-              voters: 292
-            },
+              "station": "EP MEYOS ESSABIKOULA / A",
+              "voters": 384
+            }
           ],
-          "EP MEZESSE / A": [
+          "ESSABIKOULA": [
             {
-              station: "MEZESSE",
-              voters: 230
-            },
+              "station": "EP MEYOS ESSABIKOULA / A",
+              "voters": 292
+            }
           ],
-          "EP MINKPWAEMIOVENG / A": [
+          "MEZESSE": [
             {
-              station: "MINKPWAEMIOVENG",
-              voters: 121
-            },
+              "station": "EP MEZESSE / A",
+              "voters": 230
+            }
           ],
-          "EP MINTYAEMINYUMIN / A": [
+          "MINKPWAEMIOVENG": [
             {
-              station: "MINTYAEMINYUMIN",
-              voters: 511
-            },
+              "station": "EP MINKPWAEMIOVENG / A",
+              "voters": 121
+            }
           ],
-          "EP NDJANTOM / A": [
+          "MINTYAEMINYUMIN": [
             {
-              station: "NDJANTOM",
-              voters: 388
-            },
+              "station": "EP MINTYAEMINYUMIN / A",
+              "voters": 511
+            }
           ],
-          "EP NDJOM-YEMVAK / A": [
+          "NDJANTOM": [
             {
-              station: "NDJOM-YEMVAK",
-              voters: 130
-            },
+              "station": "EP NDJANTOM / A",
+              "voters": 388
+            }
           ],
-          "EP NGAM YEMBONG / A": [
+          "NDJOM-YEMVAK": [
             {
-              station: "NGAM",
-              voters: 739
-            },
+              "station": "EP NDJOM-YEMVAK / A",
+              "voters": 130
+            }
+          ],
+          "NGAM": [
             {
-              station: "YEMBONG",
-              voters: 444
-            },
+              "station": "EP NGAM YEMBONG / A",
+              "voters": 739
+            }
           ],
-          "EP NGOULEMEKONG / A": [
+          "YEMBONG": [
             {
-              station: "NGOULEMEKONG",
-              voters: 355
-            },
+              "station": "EP NGAM YEMBONG / A",
+              "voters": 444
+            }
           ],
-          "EP NKOLEWOT / A": [
+          "NGOULEMEKONG": [
             {
-              station: "NKOLEWOT",
-              voters: 101
-            },
+              "station": "EP NGOULEMEKONG / A",
+              "voters": 355
+            }
           ],
-          "EP NKOLEYOP / A": [
+          "NKOLEWOT": [
             {
-              station: "NKOLEYOP",
-              voters: 164
-            },
+              "station": "EP NKOLEWOT / A",
+              "voters": 101
+            }
+          ],
+          "NKOLEYOP": [
             {
-              station: "ONDONDO",
-              voters: 164
-            },
+              "station": "EP NKOLEYOP / A",
+              "voters": 164
+            }
           ],
-          "EP NKOLNGBWA / A": [
+          "ONDONDO": [
             {
-              station: "NKOLNGBWA",
-              voters: 123
-            },
+              "station": "EP NKOLEYOP / A",
+              "voters": 164
+            }
           ],
-          "EP NKOLOTOU'OUTOU / A": [
+          "NKOLNGBWA": [
             {
-              station: "MFOULADJA",
-              voters: 66
-            },
+              "station": "EP NKOLNGBWA / A",
+              "voters": 123
+            }
+          ],
+          "MFOULADJA": [
             {
-              station: "NGOM",
-              voters: 66
-            },
+              "station": "EP NKOLOTOU'OUTOU / A",
+              "voters": 66
+            }
+          ],
+          "NGOM": [
             {
-              station: "NKOLOTOU'OUTOU",
-              voters: 279
-            },
+              "station": "EP NKOLOTOU'OUTOU / A",
+              "voters": 66
+            }
           ],
-          "EP NKOUT II / A": [
+          "NKOLOTOU'OUTOU": [
             {
-              station: "NKOUT",
-              voters: 92
-            },
+              "station": "EP NKOLOTOU'OUTOU / A",
+              "voters": 279
+            }
           ],
-          "EP NKPWANG / A": [
+          "NKOUT": [
             {
-              station: "NKPWANG",
-              voters: 510
-            },
+              "station": "EP NKOUT II / A",
+              "voters": 92
+            }
           ],
-          "EP NLOUP / A": [
+          "NKPWANG": [
             {
-              station: "MIMBO",
-              voters: 344
-            },
+              "station": "EP NKPWANG / A",
+              "voters": 510
+            }
+          ],
+          "MIMBO": [
             {
-              station: "NLOUP",
-              voters: 344
-            },
+              "station": "EP NLOUP / A",
+              "voters": 344
+            }
           ],
-          "EP NYAZANGA / A": [
+          "NLOUP": [
             {
-              station: "NYAZANGA",
-              voters: 138
-            },
+              "station": "EP NLOUP / A",
+              "voters": 344
+            }
           ],
-          "EP OVENG YEMBONG / A": [
+          "NYAZANGA": [
             {
-              station: "OVENG",
-              voters: 230
-            },
+              "station": "EP NYAZANGA / A",
+              "voters": 138
+            }
           ],
-          "EP OVENG-YEMEVONG / A": [
+          "OVENG": [
             {
-              station: "OVENG-YEMEVONG",
-              voters: 132
-            },
+              "station": "EP OVENG YEMBONG / A",
+              "voters": 230
+            }
           ],
-          "EP PLATEAU CHIC / A": [
+          "OVENG-YEMEVONG": [
             {
-              station: "PLATEAU",
-              voters: 802
-            },
+              "station": "EP OVENG-YEMEVONG / A",
+              "voters": 132
+            }
+          ],
+          "PLATEAU": [
             {
-              station: "CHIC",
-              voters: 802
-            },
+              "station": "EP PLATEAU CHIC / A",
+              "voters": 802
+            }
           ],
-          "EP ZOUAMEYONG / A": [
+          "CHIC": [
             {
-              station: "ZOUAMEYONG",
-              voters: 110
-            },
+              "station": "EP PLATEAU CHIC / A",
+              "voters": 802
+            }
           ],
-          "ETA MONAVEBE / A": [
+          "ZOUAMEYONG": [
             {
-              station: "MONAVEBE",
-              voters: 1213
-            },
+              "station": "EP ZOUAMEYONG / A",
+              "voters": 110
+            }
           ],
-          "FOYER FERUDJAL / A": [
+          "MONAVEBE": [
             {
-              station: "MINKONGO",
-              voters: 556
-            },
+              "station": "ETA MONAVEBE / A",
+              "voters": 1213
+            }
           ],
-          "HANGAR EKOUMEDOUM / A": [
+          "MINKONGO": [
             {
-              station: "EKOUMDOUM",
-              voters: 70
-            },
+              "station": "FOYER FERUDJAL / A",
+              "voters": 556
+            }
           ],
-          "SALLE DE FETE ATONG / A": [
+          "EKOUMDOUM": [
             {
-              station: "ATONG",
-              voters: 151
-            },
+              "station": "HANGAR EKOUMEDOUM / A",
+              "voters": 70
+            }
           ],
-          "SALLE DE FETE KONDEMEYOS / A": [
+          "ATONG": [
             {
-              station: "KONDEMEYOS",
-              voters: 170
-            },
+              "station": "SALLE DE FETE ATONG / A",
+              "voters": 151
+            }
           ],
-          "SALLE DE FETE KONDEYEBAE / A": [
+          "KONDEMEYOS": [
             {
-              station: "KONDEYEBAE",
-              voters: 157
-            },
+              "station": "SALLE DE FETE KONDEMEYOS / A",
+              "voters": 170
+            }
           ],
-          "SALLE DE FETE MENDONG / A": [
+          "KONDEYEBAE": [
             {
-              station: "MENDONG",
-              voters: 100
-            },
+              "station": "SALLE DE FETE KONDEYEBAE / A",
+              "voters": 157
+            }
           ],
-          "SALLE DE FETE NGON / A": [
+          "MENDONG": [
             {
-              station: "NGON",
-              voters: 154
-            },
+              "station": "SALLE DE FETE MENDONG / A",
+              "voters": 100
+            }
           ],
-          "SALLE DE FETE NSIMALENE I / A": [
+          "NGON": [
             {
-              station: "NSIMALENE",
-              voters: 172
-            },
+              "station": "SALLE DE FETE NGON / A",
+              "voters": 154
+            }
           ],
-          "STADE MUNICIPAL / A": [
+          "NSIMALENE": [
             {
-              station: "STADE",
-              voters: 721
-            },
+              "station": "SALLE DE FETE NSIMALENE I / A",
+              "voters": 172
+            }
           ],
+          "STADE": [
+            {
+              "station": "STADE MUNICIPAL / A",
+              "voters": 721
+            }
+          ]
         },
         "ZOETELE": {
-          "CES NKILZOK / A": [
+          "NKILZOK": [
             {
-              station: "NKILZOK",
-              voters: 705
-            },
+              "station": "CES NKILZOK / A",
+              "voters": 705
+            }
           ],
-          "CORPS DE GARDE ADJAP / A": [
+          "ADJAP": [
             {
-              station: "ADJAP",
-              voters: 64
-            },
+              "station": "CORPS DE GARDE ADJAP / A",
+              "voters": 64
+            }
           ],
-          "CORPS DE GARDE BIYAN-CARREFOUR / A": [
+          "BIYAN": [
             {
-              station: "BIYAN",
-              voters: 241
-            },
+              "station": "CORPS DE GARDE BIYAN-CARREFOUR / A",
+              "voters": 241
+            }
           ],
-          "CORPS DE GARDE ENAMENGAL / A": [
+          "ENAMENGAL": [
             {
-              station: "ENAMENGAL",
-              voters: 82
-            },
+              "station": "CORPS DE GARDE ENAMENGAL / A",
+              "voters": 82
+            }
           ],
-          "CORPS DE GARDE ENGOUTOUK / A": [
+          "ENGOUTOUK": [
             {
-              station: "ENGOUTOUK",
-              voters: 308
-            },
+              "station": "CORPS DE GARDE ENGOUTOUK / A",
+              "voters": 308
+            }
           ],
-          "CORPS DE GARDE ESSA / A": [
+          "ESSA": [
             {
-              station: "ESSA",
-              voters: 156
-            },
+              "station": "CORPS DE GARDE ESSA / A",
+              "voters": 156
+            }
           ],
-          "CORPS DE GARDE ETOTO / A": [
+          "ETOTO": [
             {
-              station: "ETOTO",
-              voters: 289
-            },
+              "station": "CORPS DE GARDE ETOTO / A",
+              "voters": 289
+            }
           ],
-          "CORPS DE GARDE KONDEBILONG / A": [
+          "KONDEBILONG": [
             {
-              station: "KONDEBILONG",
-              voters: 196
-            },
+              "station": "CORPS DE GARDE KONDEBILONG / A",
+              "voters": 196
+            }
           ],
-          "CORPS DE GARDE KONDEBIYEN / A": [
+          "KONDEBIYEN": [
             {
-              station: "KONDEBIYEN",
-              voters: 70
-            },
+              "station": "CORPS DE GARDE KONDEBIYEN / A",
+              "voters": 70
+            }
           ],
-          "CORPS DE GARDE MEKAK / A": [
+          "MEKAK": [
             {
-              station: "MEKAK",
-              voters: 125
-            },
+              "station": "CORPS DE GARDE MEKAK / A",
+              "voters": 125
+            }
           ],
-          "CORPS DE GARDE MELOMEBAE CENTRE / A": [
+          "MELOMEBAE": [
             {
-              station: "MELOMEBAE",
-              voters: 229
-            },
+              "station": "CORPS DE GARDE MELOMEBAE CENTRE / A",
+              "voters": 229
+            }
           ],
-          "CORPS DE GARDE MEYIBOTO / A": [
+          "MEYIBOTO": [
             {
-              station: "MEYIBOTO",
-              voters: 141
-            },
+              "station": "CORPS DE GARDE MEYIBOTO / A",
+              "voters": 141
+            }
           ],
-          "CORPS DE GARDE NDELE / A": [
+          "NDELE": [
             {
-              station: "NDELE",
-              voters: 232
-            },
+              "station": "CORPS DE GARDE NDELE / A",
+              "voters": 232
+            }
           ],
-          "CORPS DE GARDE NEW TOWN-ZOETELE / A": [
+          "NEW": [
             {
-              station: "NEW",
-              voters: 333
-            },
-            {
-              station: "TOWN",
-              voters: 333
-            },
+              "station": "CORPS DE GARDE NEW TOWN-ZOETELE / A",
+              "voters": 333
+            }
           ],
-          "CORPS DE GARDE NGOLBANG / A": [
+          "TOWN": [
             {
-              station: "NGOLBANG",
-              voters: 248
-            },
+              "station": "CORPS DE GARDE NEW TOWN-ZOETELE / A",
+              "voters": 333
+            }
           ],
-          "CORPS DE GARDE NKOLASSOK / A": [
+          "NGOLBANG": [
             {
-              station: "NKOLASSOK",
-              voters: 124
-            },
+              "station": "CORPS DE GARDE NGOLBANG / A",
+              "voters": 248
+            }
           ],
-          "CORPS DE GARDE NKOLFITI / A": [
+          "NKOLASSOK": [
             {
-              station: "NKOLFITI",
-              voters: 171
-            },
+              "station": "CORPS DE GARDE NKOLASSOK / A",
+              "voters": 124
+            }
           ],
-          "CORPS DE GARDE NKOLFONG / A": [
+          "NKOLFITI": [
             {
-              station: "NKOLFONG",
-              voters: 332
-            },
+              "station": "CORPS DE GARDE NKOLFITI / A",
+              "voters": 171
+            }
           ],
-          "CORPS DE GARDE NNEMEYONG / A": [
+          "NKOLFONG": [
             {
-              station: "NNEMEYONG",
-              voters: 52
-            },
+              "station": "CORPS DE GARDE NKOLFONG / A",
+              "voters": 332
+            }
           ],
-          "CORPS DE GARDE NYABIBETE / A": [
+          "NNEMEYONG": [
             {
-              station: "MEYILA",
-              voters: 727
-            },
+              "station": "CORPS DE GARDE NNEMEYONG / A",
+              "voters": 52
+            }
           ],
-          "CORPS DE GARDE OLOUNOU / A": [
+          "MEYILA": [
             {
-              station: "OLOUNOU",
-              voters: 93
-            },
+              "station": "CORPS DE GARDE NYABIBETE / A",
+              "voters": 727
+            }
           ],
-          "CORPS DE GARDE OTETEK / A": [
+          "OLOUNOU": [
             {
-              station: "OTETEK",
-              voters: 341
-            },
+              "station": "CORPS DE GARDE OLOUNOU / A",
+              "voters": 93
+            }
           ],
-          "CORPS DE GARDE OVENG-NKOLASSOK / A": [
+          "OTETEK": [
             {
-              station: "OVENG",
-              voters: 244
-            },
+              "station": "CORPS DE GARDE OTETEK / A",
+              "voters": 341
+            }
           ],
-          "CORPS DE GARDE ZOETELE VILLAGE I / A": [
+          "OVENG": [
             {
-              station: "ZOETELE",
-              voters: 725
-            },
-            {
-              station: "VILLAGE",
-              voters: 725
-            },
+              "station": "CORPS DE GARDE OVENG-NKOLASSOK / A",
+              "voters": 244
+            }
           ],
-          "ECOLE MATERNELLE ZOETELE / A": [
+          "ZOETELE": [
             {
-              station: "PLATEAU",
-              voters: 1517
-            },
+              "station": "CORPS DE GARDE ZOETELE VILLAGE I / A",
+              "voters": 725
+            }
           ],
-          "ECOLE PUBLIQUE ENYENG / A": [
+          "VILLAGE": [
             {
-              station: "ENYENG",
-              voters: 132
-            },
+              "station": "CORPS DE GARDE ZOETELE VILLAGE I / A",
+              "voters": 725
+            }
           ],
-          "EP ABANGOK / A": [
+          "PLATEAU": [
             {
-              station: "ABANGOK",
-              voters: 271
-            },
+              "station": "ECOLE MATERNELLE ZOETELE / A",
+              "voters": 1517
+            }
           ],
-          "EP AKOK / A": [
+          "ENYENG": [
             {
-              station: "AKOK",
-              voters: 183
-            },
+              "station": "ECOLE PUBLIQUE ENYENG / A",
+              "voters": 132
+            }
           ],
-          "EP AWOUT / A": [
+          "ABANGOK": [
             {
-              station: "AWOUT",
-              voters: 198
-            },
+              "station": "EP ABANGOK / A",
+              "voters": 271
+            }
           ],
-          "EP BIBE / A": [
+          "AKOK": [
             {
-              station: "BIBE",
-              voters: 70
-            },
+              "station": "EP AKOK / A",
+              "voters": 183
+            }
           ],
-          "EP BIBOULEMAM / A": [
+          "AWOUT": [
             {
-              station: "BIBOULEMAM",
-              voters: 94
-            },
+              "station": "EP AWOUT / A",
+              "voters": 198
+            }
           ],
-          "EP BINDOUMBA / A": [
+          "BIBE": [
             {
-              station: "BINDOUMBA",
-              voters: 99
-            },
+              "station": "EP BIBE / A",
+              "voters": 70
+            }
           ],
-          "EP EBAMINA I / A": [
+          "BIBOULEMAM": [
             {
-              station: "EBAMINA",
-              voters: 631
-            },
+              "station": "EP BIBOULEMAM / A",
+              "voters": 94
+            }
           ],
-          "EP EKOMBITE / A": [
+          "BINDOUMBA": [
             {
-              station: "EKOMBITE",
-              voters: 179
-            },
+              "station": "EP BINDOUMBA / A",
+              "voters": 99
+            }
           ],
-          "EP ELAND-NORD / A": [
+          "EBAMINA": [
             {
-              station: "NKOUMADJAP",
-              voters: 727
-            },
+              "station": "EP EBAMINA I / A",
+              "voters": 631
+            }
           ],
-          "EP FIBOT / A": [
+          "EKOMBITE": [
             {
-              station: "FIBOT",
-              voters: 456
-            },
+              "station": "EP EKOMBITE / A",
+              "voters": 179
+            }
           ],
-          "EP KONDEMEYOS / A": [
+          "NKOUMADJAP": [
             {
-              station: "KONDEMEYOS",
-              voters: 100
-            },
+              "station": "EP ELAND-NORD / A",
+              "voters": 727
+            }
           ],
-          "EP MBEDOUMOU / A": [
+          "FIBOT": [
             {
-              station: "MBEDOUMOU",
-              voters: 107
-            },
+              "station": "EP FIBOT / A",
+              "voters": 456
+            }
           ],
-          "EP MEBA / A": [
+          "KONDEMEYOS": [
             {
-              station: "MEBA",
-              voters: 408
-            },
+              "station": "EP KONDEMEYOS / A",
+              "voters": 100
+            }
           ],
-          "EP MENGBWA / A": [
+          "MBEDOUMOU": [
             {
-              station: "MENGBWA",
-              voters: 227
-            },
+              "station": "EP MBEDOUMOU / A",
+              "voters": 107
+            }
           ],
-          "EP MESSAM / A": [
+          "MEBA": [
             {
-              station: "MESSAM",
-              voters: 231
-            },
+              "station": "EP MEBA / A",
+              "voters": 408
+            }
           ],
-          "EP MESSOK / A": [
+          "MENGBWA": [
             {
-              station: "MESSOK",
-              voters: 117
-            },
+              "station": "EP MENGBWA / A",
+              "voters": 227
+            }
           ],
-          "EP MINKOUMOU / A": [
+          "MESSAM": [
             {
-              station: "MINKOUMOU",
-              voters: 161
-            },
+              "station": "EP MESSAM / A",
+              "voters": 231
+            }
           ],
-          "EP MVOUTESSI I / A": [
+          "MESSOK": [
             {
-              station: "MVOUTESSI",
-              voters: 689
-            },
+              "station": "EP MESSOK / A",
+              "voters": 117
+            }
           ],
-          "EP NGOMEDJAP / A": [
+          "MINKOUMOU": [
             {
-              station: "NGOMEDJAP",
-              voters: 164
-            },
+              "station": "EP MINKOUMOU / A",
+              "voters": 161
+            }
           ],
-          "EP NGOUNGOUMOU I / A": [
+          "MVOUTESSI": [
             {
-              station: "NGOUNGOUMOU",
-              voters: 288
-            },
+              "station": "EP MVOUTESSI I / A",
+              "voters": 689
+            }
           ],
-          "EP NGOUNGOUMOU II CENTRE / A": [
+          "NGOMEDJAP": [
             {
-              station: "CENTRE",
-              voters: 137
-            },
+              "station": "EP NGOMEDJAP / A",
+              "voters": 164
+            }
           ],
-          "EP NKOLBANG / A": [
+          "NGOUNGOUMOU": [
             {
-              station: "NKOLBANG",
-              voters: 222
-            },
+              "station": "EP NGOUNGOUMOU I / A",
+              "voters": 288
+            }
           ],
-          "EP NKOUMADJAP III / A": [
+          "CENTRE": [
             {
-              station: "III",
-              voters: 132
-            },
+              "station": "EP NGOUNGOUMOU II CENTRE / A",
+              "voters": 137
+            }
           ],
-          "EP NSIMI-CARREFOUR / A": [
+          "NKOLBANG": [
             {
-              station: "NSIMI",
-              voters: 294
-            },
+              "station": "EP NKOLBANG / A",
+              "voters": 222
+            }
           ],
-          "EP WOABETE / A": [
+          "III": [
             {
-              station: "WOABETE",
-              voters: 198
-            },
+              "station": "EP NKOUMADJAP III / A",
+              "voters": 132
+            }
           ],
-          "EP YEM-NKILZOK / A": [
+          "NSIMI": [
             {
-              station: "YEM",
-              voters: 310
-            },
+              "station": "EP NSIMI-CARREFOUR / A",
+              "voters": 294
+            }
           ],
-          "MAIRIE DE ZOETELE / A": [
+          "WOABETE": [
             {
-              station: "LAC",
-              voters: 452
-            },
+              "station": "EP WOABETE / A",
+              "voters": 198
+            }
           ],
-        },
+          "YEM": [
+            {
+              "station": "EP YEM-NKILZOK / A",
+              "voters": 310
+            }
+          ],
+          "LAC": [
+            {
+              "station": "MAIRIE DE ZOETELE / A",
+              "voters": 452
+            }
+          ]
+        }
       },
       "MVILA": {
         "BIWONG-BANE": {
-          "CASE A PALABRE D' ADJAP-MVOG-EDA / A": [
+          "ADJAP-MVOG-EDA": [
             {
-              station: "ADJAP-MVOG-EDA",
-              voters: 351
-            },
-            {
-              station: "YEM",
-              voters: 522
-            },
+              "station": "CASE A PALABRE D' ADJAP-MVOG-EDA / A",
+              "voters": 351
+            }
           ],
-          "CASE A PALABRE D' ATING-BANE / A": [
+          "YEM": [
             {
-              station: "ATING-BANE",
-              voters: 62
-            },
+              "station": "CASE A PALABRE D' ADJAP-MVOG-EDA / A",
+              "voters": 522
+            }
           ],
-          "CASE A PALABRE D'ADJAP-MENYIE / A": [
+          "ATING-BANE": [
             {
-              station: "ADJAP-MENYIE",
-              voters: 50
-            },
+              "station": "CASE A PALABRE D' ATING-BANE / A",
+              "voters": 62
+            }
           ],
-          "CASE A PALABRE D'AKIAE / A": [
+          "ADJAP-MENYIE": [
             {
-              station: "AKIAE",
-              voters: 73
-            },
+              "station": "CASE A PALABRE D'ADJAP-MENYIE / A",
+              "voters": 50
+            }
           ],
-          "CASE A PALABRE D'EFOUMLOU-NSELEK / A": [
+          "AKIAE": [
             {
-              station: "EFOUMLOU-NSELEK",
-              voters: 47
-            },
+              "station": "CASE A PALABRE D'AKIAE / A",
+              "voters": 73
+            }
           ],
-          "CASE A PALABRE D'OVENG-BANE / A": [
+          "EFOUMLOU-NSELEK": [
             {
-              station: "ABIERE",
-              voters: 182
-            },
-            {
-              station: "OVENGE-BANE",
-              voters: 182
-            },
+              "station": "CASE A PALABRE D'EFOUMLOU-NSELEK / A",
+              "voters": 47
+            }
           ],
-          "CASE A PALABRE D'OVENG-FONG / A": [
+          "ABIERE": [
             {
-              station: "OVENG-FONG",
-              voters: 175
-            },
+              "station": "CASE A PALABRE D'OVENG-BANE / A",
+              "voters": 182
+            }
           ],
-          "CASE A PALABRE DE NKOLONYIE / A": [
+          "OVENGE-BANE": [
             {
-              station: "NKOLONYIE",
-              voters: 242
-            },
+              "station": "CASE A PALABRE D'OVENG-BANE / A",
+              "voters": 182
+            }
           ],
-          "CASE A PALABRE METET / A": [
+          "OVENG-FONG": [
             {
-              station: "METET",
-              voters: 210
-            },
+              "station": "CASE A PALABRE D'OVENG-FONG / A",
+              "voters": 175
+            }
           ],
-          "CASE A PALABRE OBANG I / A": [
+          "NKOLONYIE": [
             {
-              station: "OBANG",
-              voters: 42
-            },
+              "station": "CASE A PALABRE DE NKOLONYIE / A",
+              "voters": 242
+            }
           ],
-          "ECOLE CATHOLIQUE D'OFOUMBI / A": [
+          "METET": [
             {
-              station: "OFOUMBI",
-              voters: 109
-            },
+              "station": "CASE A PALABRE METET / A",
+              "voters": 210
+            }
           ],
-          "ECOLE CATHOLIQUE DE MINKANE / A": [
+          "OBANG": [
             {
-              station: "MINKANE",
-              voters: 160
-            },
+              "station": "CASE A PALABRE OBANG I / A",
+              "voters": 42
+            }
           ],
-          "ECOLE FAMILIALE D'AGRICULTURE  NDZOM-BANE / A": [
+          "OFOUMBI": [
             {
-              station: "NDZOM-BANE",
-              voters: 177
-            },
+              "station": "ECOLE CATHOLIQUE D'OFOUMBI / A",
+              "voters": 109
+            }
           ],
-          "ECOLE PUBLIQUE D'ADJAP-FONG / A": [
+          "MINKANE": [
             {
-              station: "ADJAP-FONG",
-              voters: 140
-            },
+              "station": "ECOLE CATHOLIQUE DE MINKANE / A",
+              "voters": 160
+            }
           ],
-          "ECOLE PUBLIQUE D'EBEMEVOMAN I / A": [
+          "NDZOM-BANE": [
             {
-              station: "EBEMEWOMAN",
-              voters: 252
-            },
+              "station": "ECOLE FAMILIALE D'AGRICULTURE  NDZOM-BANE / A",
+              "voters": 177
+            }
           ],
-          "ECOLE PUBLIQUE DE KAMA / A": [
+          "ADJAP-FONG": [
             {
-              station: "KAMA",
-              voters: 378
-            },
+              "station": "ECOLE PUBLIQUE D'ADJAP-FONG / A",
+              "voters": 140
+            }
           ],
-          "ECOLE PUBLIQUE DE MA'ANMENYIN / A": [
+          "EBEMEWOMAN": [
             {
-              station: "MA'ANMENYIN",
-              voters: 298
-            },
+              "station": "ECOLE PUBLIQUE D'EBEMEVOMAN I / A",
+              "voters": 252
+            }
           ],
-          "ECOLE PUBLIQUE DE MELANGUE III / A": [
+          "KAMA": [
             {
-              station: "III",
-              voters: 166
-            },
+              "station": "ECOLE PUBLIQUE DE KAMA / A",
+              "voters": 378
+            }
           ],
-          "ECOLE PUBLIQUE DE NGOAEKELE / A": [
+          "MA'ANMENYIN": [
             {
-              station: "NGOAEKELE",
-              voters: 167
-            },
+              "station": "ECOLE PUBLIQUE DE MA'ANMENYIN / A",
+              "voters": 298
+            }
           ],
-          "ECOLE PUBLIQUE DE NKOEMVONE / A": [
+          "III": [
             {
-              station: "NKOEMVONE",
-              voters: 154
-            },
+              "station": "ECOLE PUBLIQUE DE MELANGUE III / A",
+              "voters": 166
+            }
           ],
-          "ECOLE PUBLIQUE DE NKOLAMOUGOU / A": [
+          "NGOAEKELE": [
             {
-              station: "NKOLAMOUGOU",
-              voters: 157
-            },
+              "station": "ECOLE PUBLIQUE DE NGOAEKELE / A",
+              "voters": 167
+            }
           ],
-          "ECOLE PUBLIQUE DE NKOLNKENG / A": [
+          "NKOEMVONE": [
             {
-              station: "NKOLNKENG",
-              voters: 231
-            },
+              "station": "ECOLE PUBLIQUE DE NKOEMVONE / A",
+              "voters": 154
+            }
           ],
-          "ECOLE PUBLIQUE DE NYAZOA / A": [
+          "NKOLAMOUGOU": [
             {
-              station: "NYAZOA",
-              voters: 79
-            },
+              "station": "ECOLE PUBLIQUE DE NKOLAMOUGOU / A",
+              "voters": 157
+            }
           ],
-          "ECOLE PUBLIQUE DE NYEP-BANE / A": [
+          "NKOLNKENG": [
             {
-              station: "NYEP-BANE",
-              voters: 205
-            },
+              "station": "ECOLE PUBLIQUE DE NKOLNKENG / A",
+              "voters": 231
+            }
           ],
-          "LYCEE BIWONG CENTRE / A": [
+          "NYAZOA": [
             {
-              station: "BIWONG",
-              voters: 687
-            },
-            {
-              station: "CENTRE",
-              voters: 687
-            },
+              "station": "ECOLE PUBLIQUE DE NYAZOA / A",
+              "voters": 79
+            }
           ],
-          "LYCEE MELANGUE I / A": [
+          "NYEP-BANE": [
             {
-              station: "MELANGUE",
-              voters: 555
-            },
+              "station": "ECOLE PUBLIQUE DE NYEP-BANE / A",
+              "voters": 205
+            }
           ],
-          "LYCEE NGOAZIP I / A": [
+          "BIWONG": [
             {
-              station: "NGOAZIP",
-              voters: 589
-            },
+              "station": "LYCEE BIWONG CENTRE / A",
+              "voters": 687
+            }
           ],
+          "CENTRE": [
+            {
+              "station": "LYCEE BIWONG CENTRE / A",
+              "voters": 687
+            }
+          ],
+          "MELANGUE": [
+            {
+              "station": "LYCEE MELANGUE I / A",
+              "voters": 555
+            }
+          ],
+          "NGOAZIP": [
+            {
+              "station": "LYCEE NGOAZIP I / A",
+              "voters": 589
+            }
+          ]
         },
         "BIWONG-BULU": {
-          "DISPENSAIRE EBE / A": [
+          "EBE": [
             {
-              station: "EBE",
-              voters: 75
-            },
+              "station": "DISPENSAIRE EBE / A",
+              "voters": 75
+            }
           ],
-          "E.P. ABIETE / A": [
+          "ABIETE": [
             {
-              station: "ABIETE",
-              voters: 482
-            },
-            {
-              station: "NKONE",
-              voters: 482
-            },
+              "station": "E.P. ABIETE / A",
+              "voters": 482
+            }
           ],
-          "ECOLE MATERNELLE D'AKOM / A": [
+          "NKONE": [
             {
-              station: "AKOM",
-              voters: 299
-            },
-            {
-              station: "BIBA",
-              voters: 299
-            },
-            {
-              station: "III",
-              voters: 299
-            },
-            {
-              station: "BIWONG-",
-              voters: 1211
-            },
-            {
-              station: "BULU",
-              voters: 1211
-            },
-            {
-              station: "EMINEMVOM",
-              voters: 598
-            },
+              "station": "E.P. ABIETE / A",
+              "voters": 482
+            }
           ],
-          "ECOLE PUBLIQUE AKAK-YEVOL / A": [
+          "AKOM": [
             {
-              station: "AKAK-YEVOL",
-              voters: 343
-            },
-            {
-              station: "BIBOULEMAM",
-              voters: 343
-            },
-            {
-              station: "NKONG-MELEN",
-              voters: 343
-            },
+              "station": "ECOLE MATERNELLE D'AKOM / A",
+              "voters": 299
+            }
           ],
-          "ECOLE PUBLIQUE AKPWAE / A": [
+          "BIBA": [
             {
-              station: "AKPWAE",
-              voters: 124
-            },
+              "station": "ECOLE MATERNELLE D'AKOM / A",
+              "voters": 299
+            }
           ],
-          "ECOLE PUBLIQUE BIBA -YEVOL / A": [
+          "III": [
             {
-              station: "BIBA-YEVOL",
-              voters: 332
-            },
-            {
-              station: "ZOEBEFAM",
-              voters: 332
-            },
+              "station": "ECOLE MATERNELLE D'AKOM / A",
+              "voters": 299
+            }
           ],
-          "ECOLE PUBLIQUE DE MELANE / A": [
+          "BIWONG-": [
             {
-              station: "ELONE",
-              voters: 150
-            },
-            {
-              station: "MELANE",
-              voters: 150
-            },
+              "station": "ECOLE MATERNELLE D'AKOM / A",
+              "voters": 1211
+            }
           ],
-          "ECOLE PUBLIQUE ESSANGONG / A": [
+          "BULU": [
             {
-              station: "ADJAP-MVOESON",
-              voters: 255
-            },
-            {
-              station: "ESSANGONG",
-              voters: 255
-            },
-            {
-              station: "OKPWENG",
-              voters: 511
-            },
+              "station": "ECOLE MATERNELLE D'AKOM / A",
+              "voters": 1211
+            }
           ],
-          "ECOLE PUBLIQUE KOUNGOULOU-NGOE / A": [
+          "EMINEMVOM": [
             {
-              station: "KOUNGOULOU-NGOE",
-              voters: 233
-            },
+              "station": "ECOLE MATERNELLE D'AKOM / A",
+              "voters": 598
+            }
           ],
-          "ECOLE PUBLIQUE MAMENYIE / A": [
+          "AKAK-YEVOL": [
             {
-              station: "MAMENYIE",
-              voters: 224
-            },
-            {
-              station: "NKPWEBAE",
-              voters: 224
-            },
-            {
-              station: "NPKWEBAE",
-              voters: 224
-            },
-            {
-              station: "OVENG",
-              voters: 224
-            },
+              "station": "ECOLE PUBLIQUE AKAK-YEVOL / A",
+              "voters": 343
+            }
           ],
-          "ECOLE PUBLIQUE MANG-YEMINSEM / A": [
+          "BIBOULEMAM": [
             {
-              station: "MANG-YEMINSEM",
-              voters: 410
-            },
+              "station": "ECOLE PUBLIQUE AKAK-YEVOL / A",
+              "voters": 343
+            }
           ],
-          "ECOLE PUBLIQUE MESSAMBE-NDONG / A": [
+          "NKONG-MELEN": [
             {
-              station: "EFOULANE",
-              voters: 201
-            },
-            {
-              station: "MESSAMBE-NDONG",
-              voters: 201
-            },
+              "station": "ECOLE PUBLIQUE AKAK-YEVOL / A",
+              "voters": 343
+            }
           ],
-          "ECOLE PUBLIQUE METYKPWALE -NGOE / A": [
+          "AKPWAE": [
             {
-              station: "METYKPWALE-NGOE",
-              voters: 215
-            },
-            {
-              station: "MINKPWELE",
-              voters: 295
-            },
+              "station": "ECOLE PUBLIQUE AKPWAE / A",
+              "voters": 124
+            }
           ],
-          "ECOLE PUBLIQUE MOMEBILI / A": [
+          "BIBA-YEVOL": [
             {
-              station: "MBOUNEZOK",
-              voters: 119
-            },
-            {
-              station: "MOMEBILI",
-              voters: 119
-            },
+              "station": "ECOLE PUBLIQUE BIBA -YEVOL / A",
+              "voters": 332
+            }
           ],
-          "ECOLE PUBLIQUE MVONG / A": [
+          "ZOEBEFAM": [
             {
-              station: "MVO",
-              voters: 196
-            },
+              "station": "ECOLE PUBLIQUE BIBA -YEVOL / A",
+              "voters": 332
+            }
           ],
-          "ECOLE PUBLIQUE NJANA / A": [
+          "ELONE": [
             {
-              station: "MEDOUM",
-              voters: 203
-            },
-            {
-              station: "NJANA",
-              voters: 203
-            },
+              "station": "ECOLE PUBLIQUE DE MELANE / A",
+              "voters": 150
+            }
           ],
-          "ECOLE PUBLIQUE NKO'ETYE / A": [
+          "MELANE": [
             {
-              station: "NKO'ETYE",
-              voters: 486
-            },
+              "station": "ECOLE PUBLIQUE DE MELANE / A",
+              "voters": 150
+            }
           ],
-          "ECOLE PUBLIQUE NKOLBITYE / A": [
+          "ADJAP-MVOESON": [
             {
-              station: "NKOLBITYE",
-              voters: 271
-            },
+              "station": "ECOLE PUBLIQUE ESSANGONG / A",
+              "voters": 255
+            }
           ],
-          "ECOLE PUBLIQUE NKOLENYENG / A": [
+          "ESSANGONG": [
             {
-              station: "EKOUM",
-              voters: 184
-            },
-            {
-              station: "-ANDO'O",
-              voters: 184
-            },
-            {
-              station: "NKOLEBAN",
-              voters: 184
-            },
-            {
-              station: "NKOLENYENG",
-              voters: 184
-            },
+              "station": "ECOLE PUBLIQUE ESSANGONG / A",
+              "voters": 255
+            }
           ],
-          "ECOLE PUBLIQUE NKONG-EDJOM / A": [
+          "OKPWENG": [
             {
-              station: "NKONG-EDJOM",
-              voters: 351
-            },
+              "station": "ECOLE PUBLIQUE ESSANGONG / A",
+              "voters": 511
+            }
           ],
-          "ECOLE PUBLIQUE NLOUPESSA- YEVOL / A": [
+          "KOUNGOULOU-NGOE": [
             {
-              station: "NLOUPESSA-YEVOL",
-              voters: 306
-            },
+              "station": "ECOLE PUBLIQUE KOUNGOULOU-NGOE / A",
+              "voters": 233
+            }
           ],
-          "ECOLE PUBLIQUE NSELANG / A": [
+          "MAMENYIE": [
             {
-              station: "MVOULA",
-              voters: 552
-            },
-            {
-              station: "NSELANG",
-              voters: 552
-            },
+              "station": "ECOLE PUBLIQUE MAMENYIE / A",
+              "voters": 224
+            }
           ],
-          "ECOLE PUBLIQUE ONDONDO / A": [
+          "NKPWEBAE": [
             {
-              station: "ONDONDO",
-              voters: 244
-            },
+              "station": "ECOLE PUBLIQUE MAMENYIE / A",
+              "voters": 224
+            }
           ],
-          "ECOLE PUBLIQUE ONGOL / A": [
+          "NPKWEBAE": [
             {
-              station: "ONGOL",
-              voters: 103
-            },
+              "station": "ECOLE PUBLIQUE MAMENYIE / A",
+              "voters": 224
+            }
           ],
-          "ECOLE PUBLIQUE SONKOE / A": [
+          "OVENG": [
             {
-              station: "SONKOE",
-              voters: 389
-            },
+              "station": "ECOLE PUBLIQUE MAMENYIE / A",
+              "voters": 224
+            }
           ],
-          "ESPL CHEF ZOUAMEYONG / A": [
+          "MANG-YEMINSEM": [
             {
-              station: "ZOUAMEYONG",
-              voters: 149
-            },
+              "station": "ECOLE PUBLIQUE MANG-YEMINSEM / A",
+              "voters": 410
+            }
           ],
-          "ESPLANADE CHEFFERIE NKONGMEDJAP II / A": [
+          "EFOULANE": [
             {
-              station: "NGOMEDEN",
-              voters: 206
-            },
-            {
-              station: "NKONGMEDJAP",
-              voters: 321
-            },
+              "station": "ECOLE PUBLIQUE MESSAMBE-NDONG / A",
+              "voters": 201
+            }
           ],
-          "FOYER COMMUNAUTAIRE DE NGONE / A": [
+          "MESSAMBE-NDONG": [
             {
-              station: "LOBE",
-              voters: 564
-            },
-            {
-              station: "NGONE",
-              voters: 564
-            },
+              "station": "ECOLE PUBLIQUE MESSAMBE-NDONG / A",
+              "voters": 201
+            }
           ],
+          "METYKPWALE-NGOE": [
+            {
+              "station": "ECOLE PUBLIQUE METYKPWALE -NGOE / A",
+              "voters": 215
+            }
+          ],
+          "MINKPWELE": [
+            {
+              "station": "ECOLE PUBLIQUE METYKPWALE -NGOE / A",
+              "voters": 295
+            }
+          ],
+          "MBOUNEZOK": [
+            {
+              "station": "ECOLE PUBLIQUE MOMEBILI / A",
+              "voters": 119
+            }
+          ],
+          "MOMEBILI": [
+            {
+              "station": "ECOLE PUBLIQUE MOMEBILI / A",
+              "voters": 119
+            }
+          ],
+          "MVO": [
+            {
+              "station": "ECOLE PUBLIQUE MVONG / A",
+              "voters": 196
+            }
+          ],
+          "MEDOUM": [
+            {
+              "station": "ECOLE PUBLIQUE NJANA / A",
+              "voters": 203
+            }
+          ],
+          "NJANA": [
+            {
+              "station": "ECOLE PUBLIQUE NJANA / A",
+              "voters": 203
+            }
+          ],
+          "NKO'ETYE": [
+            {
+              "station": "ECOLE PUBLIQUE NKO'ETYE / A",
+              "voters": 486
+            }
+          ],
+          "NKOLBITYE": [
+            {
+              "station": "ECOLE PUBLIQUE NKOLBITYE / A",
+              "voters": 271
+            }
+          ],
+          "EKOUM": [
+            {
+              "station": "ECOLE PUBLIQUE NKOLENYENG / A",
+              "voters": 184
+            }
+          ],
+          "-ANDO'O": [
+            {
+              "station": "ECOLE PUBLIQUE NKOLENYENG / A",
+              "voters": 184
+            }
+          ],
+          "NKOLEBAN": [
+            {
+              "station": "ECOLE PUBLIQUE NKOLENYENG / A",
+              "voters": 184
+            }
+          ],
+          "NKOLENYENG": [
+            {
+              "station": "ECOLE PUBLIQUE NKOLENYENG / A",
+              "voters": 184
+            }
+          ],
+          "NKONG-EDJOM": [
+            {
+              "station": "ECOLE PUBLIQUE NKONG-EDJOM / A",
+              "voters": 351
+            }
+          ],
+          "NLOUPESSA-YEVOL": [
+            {
+              "station": "ECOLE PUBLIQUE NLOUPESSA- YEVOL / A",
+              "voters": 306
+            }
+          ],
+          "MVOULA": [
+            {
+              "station": "ECOLE PUBLIQUE NSELANG / A",
+              "voters": 552
+            }
+          ],
+          "NSELANG": [
+            {
+              "station": "ECOLE PUBLIQUE NSELANG / A",
+              "voters": 552
+            }
+          ],
+          "ONDONDO": [
+            {
+              "station": "ECOLE PUBLIQUE ONDONDO / A",
+              "voters": 244
+            }
+          ],
+          "ONGOL": [
+            {
+              "station": "ECOLE PUBLIQUE ONGOL / A",
+              "voters": 103
+            }
+          ],
+          "SONKOE": [
+            {
+              "station": "ECOLE PUBLIQUE SONKOE / A",
+              "voters": 389
+            }
+          ],
+          "ZOUAMEYONG": [
+            {
+              "station": "ESPL CHEF ZOUAMEYONG / A",
+              "voters": 149
+            }
+          ],
+          "NGOMEDEN": [
+            {
+              "station": "ESPLANADE CHEFFERIE NKONGMEDJAP II / A",
+              "voters": 206
+            }
+          ],
+          "NKONGMEDJAP": [
+            {
+              "station": "ESPLANADE CHEFFERIE NKONGMEDJAP II / A",
+              "voters": 321
+            }
+          ],
+          "LOBE": [
+            {
+              "station": "FOYER COMMUNAUTAIRE DE NGONE / A",
+              "voters": 564
+            }
+          ],
+          "NGONE": [
+            {
+              "station": "FOYER COMMUNAUTAIRE DE NGONE / A",
+              "voters": 564
+            }
+          ]
         },
         "EBOLOWA I": {
-          "ANCIENNE COMMUNE URBAINE / A": [
+          "ANGOUNOU": [
             {
-              station: "ANGOUNOU",
-              voters: 533
-            },
+              "station": "ANCIENNE COMMUNE URBAINE / A",
+              "voters": 533
+            }
           ],
-          "BATIMENT ETANG AQUACOLE / A": [
+          "LO'O-BIYENG": [
             {
-              station: "LO'O-BIYENG",
-              voters: 362
-            },
-            {
-              station: "MEBAE",
-              voters: 362
-            },
+              "station": "BATIMENT ETANG AQUACOLE / A",
+              "voters": 362
+            }
           ],
-          "BUREAU DES POSTES / A": [
+          "MEBAE": [
             {
-              station: "MENDAMESSAMAN",
-              voters: 1734
-            },
+              "station": "BATIMENT ETANG AQUACOLE / A",
+              "voters": 362
+            }
           ],
-          "C.E.S DE MVIENG / A": [
+          "MENDAMESSAMAN": [
             {
-              station: "BIKOU'OU",
-              voters: 301
-            },
-            {
-              station: "MVIENG",
-              voters: 301
-            },
-            {
-              station: "NKOENVONE",
-              voters: 301
-            },
+              "station": "BUREAU DES POSTES / A",
+              "voters": 1734
+            }
           ],
-          "CASE A PALABRE CHEFFERIE EBOLOWA-SI I /  A": [
+          "BIKOU'OU": [
             {
-              station: "EBOLOWA-SI",
-              voters: 4338
-            },
+              "station": "C.E.S DE MVIENG / A",
+              "voters": 301
+            }
           ],
-          "CASE A PALABRES D'ALAM / A": [
+          "MVIENG": [
             {
-              station: "ALAM",
-              voters: 153
-            },
+              "station": "C.E.S DE MVIENG / A",
+              "voters": 301
+            }
           ],
-          "CENTRE DE FORMATION DE DON BOSCO / A": [
+          "NKOENVONE": [
             {
-              station: "CENTRE-VILLE",
-              voters: 1331
-            },
+              "station": "C.E.S DE MVIENG / A",
+              "voters": 301
+            }
           ],
-          "CENTRE DE SANTE INTEGRE / A": [
+          "EBOLOWA-SI": [
             {
-              station: "NGALANE",
-              voters: 656
-            },
+              "station": "CASE A PALABRE CHEFFERIE EBOLOWA-SI I /  A",
+              "voters": 4338
+            }
           ],
-          "E. PRIVEE JORDAN / A": [
+          "ALAM": [
             {
-              station: "BASE",
-              voters: 489
-            },
-            {
-              station: "RAZEL",
-              voters: 489
-            },
+              "station": "CASE A PALABRES D'ALAM / A",
+              "voters": 153
+            }
           ],
-          "E.P. DE JOHN HOLT / A": [
+          "CENTRE-VILLE": [
             {
-              station: "JOHN",
-              voters: 807
-            },
-            {
-              station: "HOLT",
-              voters: 807
-            },
+              "station": "CENTRE DE FORMATION DE DON BOSCO / A",
+              "voters": 1331
+            }
           ],
-          "ECOLE CATHOLIQUE D'ABANG / A": [
+          "NGALANE": [
             {
-              station: "ABANG",
-              voters: 1129
-            },
+              "station": "CENTRE DE SANTE INTEGRE / A",
+              "voters": 656
+            }
           ],
-          "ECOLE MATERNELLE CAMP DE POLICE / A": [
+          "BASE": [
             {
-              station: "III",
-              voters: 639
-            },
+              "station": "E. PRIVEE JORDAN / A",
+              "voters": 489
+            }
           ],
-          "ECOLE MATERNELLE DE KONDA / A": [
+          "RAZEL": [
             {
-              station: "ANDO'O",
-              voters: 276
-            },
-            {
-              station: "KONDA",
-              voters: 276
-            },
-            {
-              station: "MVILA-YEMISSEM",
-              voters: 276
-            },
+              "station": "E. PRIVEE JORDAN / A",
+              "voters": 489
+            }
           ],
-          "ECOLE PUBLIQUE D'ADJAP-BIYENG / A": [
+          "JOHN": [
             {
-              station: "ADJAP-BIYENG",
-              voters: 99
-            },
-            {
-              station: "KOUNGOULOU-BIYENG",
-              voters: 99
-            },
+              "station": "E.P. DE JOHN HOLT / A",
+              "voters": 807
+            }
           ],
-          "ECOLE PUBLIQUE D'ADOUM / A": [
+          "HOLT": [
             {
-              station: "ADOUM",
-              voters: 722
-            },
+              "station": "E.P. DE JOHN HOLT / A",
+              "voters": 807
+            }
           ],
-          "ECOLE PUBLIQUE D'AFANENGONG / A": [
+          "ABANG": [
             {
-              station: "AFANENGONG",
-              voters: 100
-            },
-            {
-              station: "-EVELE",
-              voters: 100
-            },
-            {
-              station: "AFANENGONG-ADJAP",
-              voters: 100
-            },
+              "station": "ECOLE CATHOLIQUE D'ABANG / A",
+              "voters": 1129
+            }
           ],
-          "ECOLE PUBLIQUE D'AKAK ESSATOLO / A": [
+          "III": [
             {
-              station: "AKAK-ESSATOLO",
-              voters: 325
-            },
-            {
-              station: "EVES",
-              voters: 325
-            },
+              "station": "ECOLE MATERNELLE CAMP DE POLICE / A",
+              "voters": 639
+            }
           ],
-          "ECOLE PUBLIQUE D'ALAM-SONKOT / A": [
+          "ANDO'O": [
             {
-              station: "SONKOT",
-              voters: 85
-            },
+              "station": "ECOLE MATERNELLE DE KONDA / A",
+              "voters": 276
+            }
           ],
-          "ECOLE PUBLIQUE D'AMVAM-YEVOL / A": [
+          "KONDA": [
             {
-              station: "AMVAM-YEVOL",
-              voters: 300
-            },
-            {
-              station: "OLEM",
-              voters: 300
-            },
+              "station": "ECOLE MATERNELLE DE KONDA / A",
+              "voters": 276
+            }
           ],
-          "ECOLE PUBLIQUE D'ENGONG / A": [
+          "MVILA-YEMISSEM": [
             {
-              station: "ENGONG",
-              voters: 178
-            },
+              "station": "ECOLE MATERNELLE DE KONDA / A",
+              "voters": 276
+            }
           ],
-          "ECOLE PUBLIQUE DE MEFAK / A": [
+          "ADJAP-BIYENG": [
             {
-              station: "MEFAK",
-              voters: 124
-            },
+              "station": "ECOLE PUBLIQUE D'ADJAP-BIYENG / A",
+              "voters": 99
+            }
           ],
-          "ECOLE PUBLIQUE DE MEKA'A I / A": [
+          "KOUNGOULOU-BIYENG": [
             {
-              station: "MEKA'A",
-              voters: 115
-            },
+              "station": "ECOLE PUBLIQUE D'ADJAP-BIYENG / A",
+              "voters": 99
+            }
           ],
-          "ECOLE PUBLIQUE DE MESSAMBE / A": [
+          "ADOUM": [
             {
-              station: "MESSAMBE-YEMISSEM",
-              voters: 75
-            },
-            {
-              station: "MINKANE",
-              voters: 75
-            },
+              "station": "ECOLE PUBLIQUE D'ADOUM / A",
+              "voters": 722
+            }
           ],
-          "ECOLE PUBLIQUE DE MEYO-VILLE / A": [
+          "AFANENGONG": [
             {
-              station: "MEYO-VILLE",
-              voters: 197
-            },
-            {
-              station: "YEM-NDONG",
-              voters: 197
-            },
+              "station": "ECOLE PUBLIQUE D'AFANENGONG / A",
+              "voters": 100
+            }
           ],
-          "ECOLE PUBLIQUE DE NEW-BELL / A": [
+          "-EVELE": [
             {
-              station: "NEW-BELL",
-              voters: 5844
-            },
+              "station": "ECOLE PUBLIQUE D'AFANENGONG / A",
+              "voters": 100
+            }
           ],
-          "ECOLE PUBLIQUE DE NYANGONG / A": [
+          "AFANENGONG-ADJAP": [
             {
-              station: "NYANGONG",
-              voters: 135
-            },
+              "station": "ECOLE PUBLIQUE D'AFANENGONG / A",
+              "voters": 100
+            }
           ],
-          "ECOLE PUBLIQUE GROUPE II / A": [
+          "AKAK-ESSATOLO": [
             {
-              station: "CENTRE",
-              voters: 4284
-            },
-            {
-              station: "ADMINISTRATIF",
-              voters: 4284
-            },
-            {
-              station: "NKO'OVOS",
-              voters: 3524
-            },
+              "station": "ECOLE PUBLIQUE D'AKAK ESSATOLO / A",
+              "voters": 325
+            }
           ],
-          "ECOLE PULIQUE D'AZEM / A": [
+          "EVES": [
             {
-              station: "AZEM",
-              voters: 396
-            },
+              "station": "ECOLE PUBLIQUE D'AKAK ESSATOLO / A",
+              "voters": 325
+            }
           ],
-          "ENIEG / A": [
+          "SONKOT": [
             {
-              station: "EBOLOWA",
-              voters: 5406
-            },
-            {
-              station: "SI-II",
-              voters: 5406
-            },
+              "station": "ECOLE PUBLIQUE D'ALAM-SONKOT / A",
+              "voters": 85
+            }
           ],
-          "ESPLANADE CHEFFERIE  FOULASSI-YEMBONG / A": [
+          "AMVAM-YEVOL": [
             {
-              station: "FOULASSI-YEMBONG",
-              voters: 77
-            },
+              "station": "ECOLE PUBLIQUE D'AMVAM-YEVOL / A",
+              "voters": 300
+            }
           ],
-          "ESPLANADE CHEFFERIE DE MELATE / A": [
+          "OLEM": [
             {
-              station: "MELATE",
-              voters: 53
-            },
+              "station": "ECOLE PUBLIQUE D'AMVAM-YEVOL / A",
+              "voters": 300
+            }
           ],
-          "ESPLANADE CHEFFERIE DE YEM-ESSAKOE /  A": [
+          "ENGONG": [
             {
-              station: "YEM-ESSAKOE",
-              voters: 77
-            },
+              "station": "ECOLE PUBLIQUE D'ENGONG / A",
+              "voters": 178
+            }
           ],
-          "ESPLANADE CHEFFERIE DE ZINGUI / A": [
+          "MEFAK": [
             {
-              station: "ZINGUI",
-              voters: 114
-            },
+              "station": "ECOLE PUBLIQUE DE MEFAK / A",
+              "voters": 124
+            }
           ],
-          "ESPLANADE CHEFFERIE ENGOM II / A": [
+          "MEKA'A": [
             {
-              station: "ENGOM",
-              voters: 278
-            },
+              "station": "ECOLE PUBLIQUE DE MEKA'A I / A",
+              "voters": 115
+            }
           ],
-          "ESPLANADE CHEFFERIE MBANGA / A": [
+          "MESSAMBE-YEMISSEM": [
             {
-              station: "VI-MBANGA",
-              voters: 773
-            },
+              "station": "ECOLE PUBLIQUE DE MESSAMBE / A",
+              "voters": 75
+            }
           ],
-          "GROUPE SCOLAIRE BILINGUE ﾫ LE SUIVI ﾻ / A": [
+          "MINKANE": [
             {
-              station: "GOUDRON",
-              voters: 90
-            },
+              "station": "ECOLE PUBLIQUE DE MESSAMBE / A",
+              "voters": 75
+            }
           ],
-          "PRISON CENTRALE D'EBOLOWA / A": [
+          "MEYO-VILLE": [
             {
-              station: "CAMP",
-              voters: 100
-            },
-            {
-              station: "PRISON",
-              voters: 100
-            },
+              "station": "ECOLE PUBLIQUE DE MEYO-VILLE / A",
+              "voters": 197
+            }
           ],
+          "YEM-NDONG": [
+            {
+              "station": "ECOLE PUBLIQUE DE MEYO-VILLE / A",
+              "voters": 197
+            }
+          ],
+          "NEW-BELL": [
+            {
+              "station": "ECOLE PUBLIQUE DE NEW-BELL / A",
+              "voters": 5844
+            }
+          ],
+          "NYANGONG": [
+            {
+              "station": "ECOLE PUBLIQUE DE NYANGONG / A",
+              "voters": 135
+            }
+          ],
+          "CENTRE": [
+            {
+              "station": "ECOLE PUBLIQUE GROUPE II / A",
+              "voters": 4284
+            }
+          ],
+          "ADMINISTRATIF": [
+            {
+              "station": "ECOLE PUBLIQUE GROUPE II / A",
+              "voters": 4284
+            }
+          ],
+          "NKO'OVOS": [
+            {
+              "station": "ECOLE PUBLIQUE GROUPE II / A",
+              "voters": 3524
+            }
+          ],
+          "AZEM": [
+            {
+              "station": "ECOLE PULIQUE D'AZEM / A",
+              "voters": 396
+            }
+          ],
+          "EBOLOWA": [
+            {
+              "station": "ENIEG / A",
+              "voters": 5406
+            }
+          ],
+          "SI-II": [
+            {
+              "station": "ENIEG / A",
+              "voters": 5406
+            }
+          ],
+          "FOULASSI-YEMBONG": [
+            {
+              "station": "ESPLANADE CHEFFERIE  FOULASSI-YEMBONG / A",
+              "voters": 77
+            }
+          ],
+          "MELATE": [
+            {
+              "station": "ESPLANADE CHEFFERIE DE MELATE / A",
+              "voters": 53
+            }
+          ],
+          "YEM-ESSAKOE": [
+            {
+              "station": "ESPLANADE CHEFFERIE DE YEM-ESSAKOE /  A",
+              "voters": 77
+            }
+          ],
+          "ZINGUI": [
+            {
+              "station": "ESPLANADE CHEFFERIE DE ZINGUI / A",
+              "voters": 114
+            }
+          ],
+          "ENGOM": [
+            {
+              "station": "ESPLANADE CHEFFERIE ENGOM II / A",
+              "voters": 278
+            }
+          ],
+          "VI-MBANGA": [
+            {
+              "station": "ESPLANADE CHEFFERIE MBANGA / A",
+              "voters": 773
+            }
+          ],
+          "GOUDRON": [
+            {
+              "station": "GROUPE SCOLAIRE BILINGUE ﾫ LE SUIVI ﾻ / A",
+              "voters": 90
+            }
+          ],
+          "CAMP": [
+            {
+              "station": "PRISON CENTRALE D'EBOLOWA / A",
+              "voters": 100
+            }
+          ],
+          "PRISON": [
+            {
+              "station": "PRISON CENTRALE D'EBOLOWA / A",
+              "voters": 100
+            }
+          ]
         },
         "EBOLOWA II": {
-          "CES D'ESSINGUILI / A": [
+          "ESSINGUILI": [
             {
-              station: "ESSINGUILI",
-              voters: 582
-            },
+              "station": "CES D'ESSINGUILI / A",
+              "voters": 582
+            }
           ],
-          "CES DE MEKOMO / A": [
+          "MEKOMO": [
             {
-              station: "MEKOMO",
-              voters: 252
-            },
-            {
-              station: "NKPWAEBAE",
-              voters: 252
-            },
+              "station": "CES DE MEKOMO / A",
+              "voters": 252
+            }
           ],
-          "COLLEGES UNIS D'ELAT / A": [
+          "NKPWAEBAE": [
             {
-              station: "ELAT",
-              voters: 1678
-            },
+              "station": "CES DE MEKOMO / A",
+              "voters": 252
+            }
           ],
-          "E.P DE MEKALAT-BIYENG / A": [
+          "ELAT": [
             {
-              station: "BIYENG",
-              voters: 231
-            },
-            {
-              station: "MEKALAT-BIYENG",
-              voters: 231
-            },
+              "station": "COLLEGES UNIS D'ELAT / A",
+              "voters": 1678
+            }
           ],
-          "ECOLE CATHOLIQUE NKO'OVOS II / A": [
+          "BIYENG": [
             {
-              station: "NKO'OVOS",
-              voters: 3032
-            },
+              "station": "E.P DE MEKALAT-BIYENG / A",
+              "voters": 231
+            }
           ],
-          "ECOLE DES INFIRMIERS EKOMBITE / A": [
+          "MEKALAT-BIYENG": [
             {
-              station: "EKOMBITE",
-              voters: 4824
-            },
+              "station": "E.P DE MEKALAT-BIYENG / A",
+              "voters": 231
+            }
           ],
-          "ECOLE MATERNELLE DE BISSOK / A": [
+          "NKO'OVOS": [
             {
-              station: "BISSOK",
-              voters: 368
-            },
-            {
-              station: "BITYILI",
-              voters: 828
-            },
+              "station": "ECOLE CATHOLIQUE NKO'OVOS II / A",
+              "voters": 3032
+            }
           ],
-          "ECOLE MATERNELLE DE MBAKO'O / A": [
+          "EKOMBITE": [
             {
-              station: "MBAKO'O",
-              voters: 91
-            },
+              "station": "ECOLE DES INFIRMIERS EKOMBITE / A",
+              "voters": 4824
+            }
           ],
-          "ECOLE MATERNELLE SMT7 / A": [
+          "BISSOK": [
             {
-              station: "ANGALE",
-              voters: 5122
-            },
+              "station": "ECOLE MATERNELLE DE BISSOK / A",
+              "voters": 368
+            }
           ],
-          "ECOLE P. METYIKPWALE - Y. NLAYOP / A": [
+          "BITYILI": [
             {
-              station: "METYIKPWALE",
-              voters: 203
-            },
-            {
-              station: "YEMISSEM",
-              voters: 203
-            },
+              "station": "ECOLE MATERNELLE DE BISSOK / A",
+              "voters": 828
+            }
           ],
-          "ECOLE PUBLIQUE ABOUT / A": [
+          "MBAKO'O": [
             {
-              station: "ABOUT",
-              voters: 305
-            },
-            {
-              station: "BOUS",
-              voters: 305
-            },
+              "station": "ECOLE MATERNELLE DE MBAKO'O / A",
+              "voters": 91
+            }
           ],
-          "ECOLE PUBLIQUE ADJAP II / A": [
+          "ANGALE": [
             {
-              station: "ASSOK",
-              voters: 189
-            },
-            {
-              station: "NKO'ADJAP",
-              voters: 189
-            },
+              "station": "ECOLE MATERNELLE SMT7 / A",
+              "voters": 5122
+            }
           ],
-          "ECOLE PUBLIQUE AKOK - FEG YOP / A": [
+          "METYIKPWALE": [
             {
-              station: "ADJAP",
-              voters: 475
-            },
-            {
-              station: "AKOK",
-              voters: 286
-            },
-            {
-              station: "EYEK",
-              voters: 286
-            },
-            {
-              station: "NKOLEMVONE",
-              voters: 286
-            },
+              "station": "ECOLE P. METYIKPWALE - Y. NLAYOP / A",
+              "voters": 203
+            }
           ],
-          "ECOLE PUBLIQUE ALOUM I / A": [
+          "YEMISSEM": [
             {
-              station: "ALOUM",
-              voters: 404
-            },
-            {
-              station: "NGONE",
-              voters: 202
-            },
+              "station": "ECOLE P. METYIKPWALE - Y. NLAYOP / A",
+              "voters": 203
+            }
           ],
-          "ECOLE PUBLIQUE BIBA I / A": [
+          "ABOUT": [
             {
-              station: "BIBA",
-              voters: 350
-            },
+              "station": "ECOLE PUBLIQUE ABOUT / A",
+              "voters": 305
+            }
           ],
-          "ECOLE PUBLIQUE D'ENONGAL-BULU / A": [
+          "BOUS": [
             {
-              station: "ENONGAL",
-              voters: 321
-            },
-            {
-              station: "NKO\ESSOMBO",
-              voters: 321
-            },
+              "station": "ECOLE PUBLIQUE ABOUT / A",
+              "voters": 305
+            }
           ],
-          "ECOLE PUBLIQUE D'EVINDISSI / A": [
+          "ASSOK": [
             {
-              station: "EVINDISSI",
-              voters: 195
-            },
-            {
-              station: "MEYOS",
-              voters: 489
-            },
-            {
-              station: "OKPWENG",
-              voters: 195
-            },
+              "station": "ECOLE PUBLIQUE ADJAP II / A",
+              "voters": 189
+            }
           ],
-          "ECOLE PUBLIQUE DE BIKPWAE- EBOMAM II /  A": [
+          "NKO'ADJAP": [
             {
-              station: "BIKPWAE",
-              voters: 504
-            },
-            {
-              station: "EBOMAM",
-              voters: 593
-            },
-            {
-              station: "MINTO",
-              voters: 231
-            },
+              "station": "ECOLE PUBLIQUE ADJAP II / A",
+              "voters": 189
+            }
           ],
-          "ECOLE PUBLIQUE DE BIKPWAE-ENGUEP  ANYU / A": [
+          "ADJAP": [
             {
-              station: "ENGUEP",
-              voters: 532
-            },
-            {
-              station: "ANYU",
-              voters: 532
-            },
-            {
-              station: "EBOLAKOUN",
-              voters: 273
-            },
-            {
-              station: "NDJAFOB",
-              voters: 273
-            },
+              "station": "ECOLE PUBLIQUE AKOK - FEG YOP / A",
+              "voters": 475
+            }
           ],
-          "ECOLE PUBLIQUE DE BISSAM / A": [
+          "AKOK": [
             {
-              station: "BISSAM",
-              voters: 172
-            },
+              "station": "ECOLE PUBLIQUE AKOK - FEG YOP / A",
+              "voters": 286
+            }
           ],
-          "ECOLE PUBLIQUE DE BITON / A": [
+          "EYEK": [
             {
-              station: "BITON",
-              voters: 119
-            },
+              "station": "ECOLE PUBLIQUE AKOK - FEG YOP / A",
+              "voters": 286
+            }
           ],
-          "ECOLE PUBLIQUE DE BIYEYEM / A": [
+          "NKOLEMVONE": [
             {
-              station: "BIYEYEM",
-              voters: 279
-            },
+              "station": "ECOLE PUBLIQUE AKOK - FEG YOP / A",
+              "voters": 286
+            }
           ],
-          "ECOLE PUBLIQUE DE MA'AMEZAM / A": [
+          "ALOUM": [
             {
-              station: "AFANEGONG",
-              voters: 311
-            },
-            {
-              station: "YESSOK",
-              voters: 311
-            },
-            {
-              station: "MA'AMEZAM",
-              voters: 311
-            },
-            {
-              station: "MBILETANGAN",
-              voters: 311
-            },
+              "station": "ECOLE PUBLIQUE ALOUM I / A",
+              "voters": 404
+            }
           ],
-          "ECOLE PUBLIQUE DE MEFO / A": [
+          "NGONE": [
             {
-              station: "MEFO",
-              voters: 146
-            },
-            {
-              station: "ONOYONG",
-              voters: 166
-            },
+              "station": "ECOLE PUBLIQUE ALOUM I / A",
+              "voters": 202
+            }
           ],
-          "ECOLE PUBLIQUE DE MFENDA / A": [
+          "BIBA": [
             {
-              station: "AVELEZOK",
-              voters: 125
-            },
-            {
-              station: "MFENDA",
-              voters: 125
-            },
-            {
-              station: "SIJAKON",
-              voters: 125
-            },
+              "station": "ECOLE PUBLIQUE BIBA I / A",
+              "voters": 350
+            }
           ],
-          "ECOLE PUBLIQUE DE NLOUPESSA - YEMONG  /A": [
+          "ENONGAL": [
             {
-              station: "MVOMAN",
-              voters: 170
-            },
-            {
-              station: "NLOUPESSA",
-              voters: 170
-            },
-            {
-              station: "YEMONG",
-              voters: 170
-            },
+              "station": "ECOLE PUBLIQUE D'ENONGAL-BULU / A",
+              "voters": 321
+            }
           ],
-          "ECOLE PUBLIQUE DE NNELEFOUP / A": [
+          "NKOESSOMBO": [
             {
-              station: "NNELEFOUP",
-              voters: 61
-            },
+              "station": "ECOLE PUBLIQUE D'ENONGAL-BULU / A",
+              "voters": 321
+            }
           ],
-          "ECOLE PUBLIQUE DE VEMA / A": [
+          "EVINDISSI": [
             {
-              station: "AKO\OKAS",
-              voters: 188
-            },
-            {
-              station: "VEMA",
-              voters: 188
-            },
+              "station": "ECOLE PUBLIQUE D'EVINDISSI / A",
+              "voters": 195
+            }
           ],
-          "ECOLE PUBLIQUE MEKALAT - YEMVENG / A": [
+          "MEYOS": [
             {
-              station: "MEKALAT",
-              voters: 5405
-            },
-            {
-              station: "YEMVENG",
-              voters: 372
-            },
+              "station": "ECOLE PUBLIQUE D'EVINDISSI / A",
+              "voters": 489
+            }
           ],
-          "ECOLE PUBLIQUE MEKALAT - YEVOL / A": [
+          "OKPWENG": [
             {
-              station: "YEVOL",
-              voters: 4802
-            },
+              "station": "ECOLE PUBLIQUE D'EVINDISSI / A",
+              "voters": 195
+            }
           ],
-          "ECOLE PUBLIQUE MEKOK I / A": [
+          "BIKPWAE": [
             {
-              station: "MEKOK",
-              voters: 178
-            },
+              "station": "ECOLE PUBLIQUE DE BIKPWAE- EBOMAM II /  A",
+              "voters": 504
+            }
           ],
-          "ECOLE PUBLIQUE MEYOS - ENGUEP ANYU / A": [
+          "EBOMAM": [
             {
-              station: "NGALAN",
-              voters: 259
-            },
+              "station": "ECOLE PUBLIQUE DE BIKPWAE- EBOMAM II /  A",
+              "voters": 593
+            }
           ],
-          "ECOLE PUBLIQUE MVAM - ESSAKOE / A": [
+          "MINTO": [
             {
-              station: "MVAM",
-              voters: 743
-            },
-            {
-              station: "ESSAKOE",
-              voters: 517
-            },
+              "station": "ECOLE PUBLIQUE DE BIKPWAE- EBOMAM II /  A",
+              "voters": 231
+            }
           ],
-          "ECOLE PUBLIQUE MVAM - YETOM / A": [
+          "ENGUEP": [
             {
-              station: "MBOUT",
-              voters: 226
-            },
-            {
-              station: "YETOM",
-              voters: 226
-            },
+              "station": "ECOLE PUBLIQUE DE BIKPWAE-ENGUEP  ANYU / A",
+              "voters": 532
+            }
           ],
-          "ECOLE PUBLIQUE NDENGUE / A": [
+          "ANYU": [
             {
-              station: "NDENGUE",
-              voters: 225
-            },
+              "station": "ECOLE PUBLIQUE DE BIKPWAE-ENGUEP  ANYU / A",
+              "voters": 532
+            }
           ],
-          "ECOLE PUBLIQUE NKOLANDOM / A": [
+          "EBOLAKOUN": [
             {
-              station: "NKOLANDOM",
-              voters: 348
-            },
+              "station": "ECOLE PUBLIQUE DE BIKPWAE-ENGUEP  ANYU / A",
+              "voters": 273
+            }
           ],
-          "ECOLE PUBLIQUE NKOLENYENG - YEMVANG /  A": [
+          "NDJAFOB": [
             {
-              station: "NKOLENYENG",
-              voters: 75
-            },
-            {
-              station: "YEMVANG",
-              voters: 75
-            },
+              "station": "ECOLE PUBLIQUE DE BIKPWAE-ENGUEP  ANYU / A",
+              "voters": 273
+            }
           ],
-          "ECOLE PUBLIQUE NKOLOVENG / A": [
+          "BISSAM": [
             {
-              station: "NKOLOVENG",
-              voters: 108
-            },
+              "station": "ECOLE PUBLIQUE DE BISSAM / A",
+              "voters": 172
+            }
           ],
-          "ENIEG / A": [
+          "BITON": [
             {
-              station: "AMANG",
-              voters: 22524
-            },
-            {
-              station: "III",
-              voters: 4224
-            },
-            {
-              station: "DJOP",
-              voters: 3504
-            },
+              "station": "ECOLE PUBLIQUE DE BITON / A",
+              "voters": 119
+            }
           ],
-          "ESPL. CHEF. MEVOUS / A": [
+          "BIYEYEM": [
             {
-              station: "EBAE",
-              voters: 178
-            },
-            {
-              station: "MEVOUS",
-              voters: 178
-            },
+              "station": "ECOLE PUBLIQUE DE BIYEYEM / A",
+              "voters": 279
+            }
           ],
-          "ESPLANADE CHEFFERIE ALEN / A": [
+          "AFANEGONG": [
             {
-              station: "ALEN",
-              voters: 77
-            },
+              "station": "ECOLE PUBLIQUE DE MA'AMEZAM / A",
+              "voters": 311
+            }
           ],
-          "ESPLANADE CHEFFERIE D'EKOWONG / A": [
+          "YESSOK": [
             {
-              station: "ABOMVOMBA",
-              voters: 178
-            },
-            {
-              station: "EKOWONG",
-              voters: 178
-            },
+              "station": "ECOLE PUBLIQUE DE MA'AMEZAM / A",
+              "voters": 311
+            }
           ],
-          "ESPLANADE CHEFFERIE D'ELONE / A": [
+          "MA'AMEZAM": [
             {
-              station: "ELONE",
-              voters: 109
-            },
+              "station": "ECOLE PUBLIQUE DE MA'AMEZAM / A",
+              "voters": 311
+            }
           ],
-          "ESPLANADE CHEFFERIE DE BITYILI III / A": [
+          "MBILETANGAN": [
             {
-              station: "MINKOK-",
-              voters: 343
-            },
-            {
-              station: "MVII",
-              voters: 211
-            },
+              "station": "ECOLE PUBLIQUE DE MA'AMEZAM / A",
+              "voters": 311
+            }
           ],
-          "ESPLANADE CHEFFERIE DE FOULASSI I / A": [
+          "MEFO": [
             {
-              station: "FOULASSI",
-              voters: 161
-            },
+              "station": "ECOLE PUBLIQUE DE MEFO / A",
+              "voters": 146
+            }
           ],
-          "ESPLANADE CHEFFERIE DENKONG / A": [
+          "ONOYONG": [
             {
-              station: "NKONG",
-              voters: 98
-            },
+              "station": "ECOLE PUBLIQUE DE MEFO / A",
+              "voters": 166
+            }
           ],
-          "ESPLANADE CHEFFERIE MINKOK - EBOMAM II  /A": [
+          "AVELEZOK": [
             {
-              station: "NKONDONGO",
-              voters: 132
-            },
+              "station": "ECOLE PUBLIQUE DE MFENDA / A",
+              "voters": 125
+            }
           ],
-          "LYCEE NKOEMVONE / A": [
+          "MFENDA": [
             {
-              station: "ASSO\OSSENG",
-              voters: 407
-            },
-            {
-              station: "NKOEMVONE",
-              voters: 407
-            },
+              "station": "ECOLE PUBLIQUE DE MFENDA / A",
+              "voters": 125
+            }
           ],
-          "SAR / SM DE BILON / A": [
+          "SIJAKON": [
             {
-              station: "BILON",
-              voters: 1492
-            },
+              "station": "ECOLE PUBLIQUE DE MFENDA / A",
+              "voters": 125
+            }
           ],
+          "MVOMAN": [
+            {
+              "station": "ECOLE PUBLIQUE DE NLOUPESSA - YEMONG  /A",
+              "voters": 170
+            }
+          ],
+          "NLOUPESSA": [
+            {
+              "station": "ECOLE PUBLIQUE DE NLOUPESSA - YEMONG  /A",
+              "voters": 170
+            }
+          ],
+          "YEMONG": [
+            {
+              "station": "ECOLE PUBLIQUE DE NLOUPESSA - YEMONG  /A",
+              "voters": 170
+            }
+          ],
+          "NNELEFOUP": [
+            {
+              "station": "ECOLE PUBLIQUE DE NNELEFOUP / A",
+              "voters": 61
+            }
+          ],
+          "AKOOKAS": [
+            {
+              "station": "ECOLE PUBLIQUE DE VEMA / A",
+              "voters": 188
+            }
+          ],
+          "VEMA": [
+            {
+              "station": "ECOLE PUBLIQUE DE VEMA / A",
+              "voters": 188
+            }
+          ],
+          "MEKALAT": [
+            {
+              "station": "ECOLE PUBLIQUE MEKALAT - YEMVENG / A",
+              "voters": 5405
+            }
+          ],
+          "YEMVENG": [
+            {
+              "station": "ECOLE PUBLIQUE MEKALAT - YEMVENG / A",
+              "voters": 372
+            }
+          ],
+          "YEVOL": [
+            {
+              "station": "ECOLE PUBLIQUE MEKALAT - YEVOL / A",
+              "voters": 4802
+            }
+          ],
+          "MEKOK": [
+            {
+              "station": "ECOLE PUBLIQUE MEKOK I / A",
+              "voters": 178
+            }
+          ],
+          "NGALAN": [
+            {
+              "station": "ECOLE PUBLIQUE MEYOS - ENGUEP ANYU / A",
+              "voters": 259
+            }
+          ],
+          "MVAM": [
+            {
+              "station": "ECOLE PUBLIQUE MVAM - ESSAKOE / A",
+              "voters": 743
+            }
+          ],
+          "ESSAKOE": [
+            {
+              "station": "ECOLE PUBLIQUE MVAM - ESSAKOE / A",
+              "voters": 517
+            }
+          ],
+          "MBOUT": [
+            {
+              "station": "ECOLE PUBLIQUE MVAM - YETOM / A",
+              "voters": 226
+            }
+          ],
+          "YETOM": [
+            {
+              "station": "ECOLE PUBLIQUE MVAM - YETOM / A",
+              "voters": 226
+            }
+          ],
+          "NDENGUE": [
+            {
+              "station": "ECOLE PUBLIQUE NDENGUE / A",
+              "voters": 225
+            }
+          ],
+          "NKOLANDOM": [
+            {
+              "station": "ECOLE PUBLIQUE NKOLANDOM / A",
+              "voters": 348
+            }
+          ],
+          "NKOLENYENG": [
+            {
+              "station": "ECOLE PUBLIQUE NKOLENYENG - YEMVANG /  A",
+              "voters": 75
+            }
+          ],
+          "YEMVANG": [
+            {
+              "station": "ECOLE PUBLIQUE NKOLENYENG - YEMVANG /  A",
+              "voters": 75
+            }
+          ],
+          "NKOLOVENG": [
+            {
+              "station": "ECOLE PUBLIQUE NKOLOVENG / A",
+              "voters": 108
+            }
+          ],
+          "AMANG": [
+            {
+              "station": "ENIEG / A",
+              "voters": 22524
+            }
+          ],
+          "III": [
+            {
+              "station": "ENIEG / A",
+              "voters": 4224
+            }
+          ],
+          "DJOP": [
+            {
+              "station": "ENIEG / A",
+              "voters": 3504
+            }
+          ],
+          "EBAE": [
+            {
+              "station": "ESPL. CHEF. MEVOUS / A",
+              "voters": 178
+            }
+          ],
+          "MEVOUS": [
+            {
+              "station": "ESPL. CHEF. MEVOUS / A",
+              "voters": 178
+            }
+          ],
+          "ALEN": [
+            {
+              "station": "ESPLANADE CHEFFERIE ALEN / A",
+              "voters": 77
+            }
+          ],
+          "ABOMVOMBA": [
+            {
+              "station": "ESPLANADE CHEFFERIE D'EKOWONG / A",
+              "voters": 178
+            }
+          ],
+          "EKOWONG": [
+            {
+              "station": "ESPLANADE CHEFFERIE D'EKOWONG / A",
+              "voters": 178
+            }
+          ],
+          "ELONE": [
+            {
+              "station": "ESPLANADE CHEFFERIE D'ELONE / A",
+              "voters": 109
+            }
+          ],
+          "MINKOK-": [
+            {
+              "station": "ESPLANADE CHEFFERIE DE BITYILI III / A",
+              "voters": 343
+            }
+          ],
+          "MVII": [
+            {
+              "station": "ESPLANADE CHEFFERIE DE BITYILI III / A",
+              "voters": 211
+            }
+          ],
+          "FOULASSI": [
+            {
+              "station": "ESPLANADE CHEFFERIE DE FOULASSI I / A",
+              "voters": 161
+            }
+          ],
+          "NKONG": [
+            {
+              "station": "ESPLANADE CHEFFERIE DENKONG / A",
+              "voters": 98
+            }
+          ],
+          "NKONDONGO": [
+            {
+              "station": "ESPLANADE CHEFFERIE MINKOK - EBOMAM II  /A",
+              "voters": 132
+            }
+          ],
+          "ASSOOSSENG": [
+            {
+              "station": "LYCEE NKOEMVONE / A",
+              "voters": 407
+            }
+          ],
+          "NKOEMVONE": [
+            {
+              "station": "LYCEE NKOEMVONE / A",
+              "voters": 407
+            }
+          ],
+          "BILON": [
+            {
+              "station": "SAR / SM DE BILON / A",
+              "voters": 1492
+            }
+          ]
         },
         "EFOULAN": {
-          "ECOLE PUBLIQUE D'ABO'ONTOMBA / A": [
+          "ABO'ONTOMBA": [
             {
-              station: "ABO'ONTOMBA",
-              voters: 82
-            },
+              "station": "ECOLE PUBLIQUE D'ABO'ONTOMBA / A",
+              "voters": 82
+            }
           ],
-          "ECOLE PUBLIQUE D'ADJAP ESSAWO / A": [
+          "ADJAP": [
             {
-              station: "ADJAP",
-              voters: 535
-            },
-            {
-              station: "ESSAWO",
-              voters: 492
-            },
+              "station": "ECOLE PUBLIQUE D'ADJAP ESSAWO / A",
+              "voters": 535
+            }
           ],
-          "ECOLE PUBLIQUE D'EBOM ESSAWO / A": [
+          "ESSAWO": [
             {
-              station: "EBOM",
-              voters: 212
-            },
+              "station": "ECOLE PUBLIQUE D'ADJAP ESSAWO / A",
+              "voters": 492
+            }
           ],
-          "ECOLE PUBLIQUE D'ENGOMBA / A": [
+          "EBOM": [
             {
-              station: "ENGOMBA",
-              voters: 152
-            },
-            {
-              station: "MEKALATE",
-              voters: 152
-            },
+              "station": "ECOLE PUBLIQUE D'EBOM ESSAWO / A",
+              "voters": 212
+            }
           ],
-          "ECOLE PUBLIQUE D'ONDONG ADJAP / A": [
+          "ENGOMBA": [
             {
-              station: "BIKOUBA",
-              voters: 256
-            },
-            {
-              station: "ONDONG",
-              voters: 256
-            },
+              "station": "ECOLE PUBLIQUE D'ENGOMBA / A",
+              "voters": 152
+            }
           ],
-          "ECOLE PUBLIQUE DE MA'AMENYIN / A": [
+          "MEKALATE": [
             {
-              station: "MA'AMENYIN",
-              voters: 101
-            },
+              "station": "ECOLE PUBLIQUE D'ENGOMBA / A",
+              "voters": 152
+            }
           ],
-          "ECOLE PUBLIQUE DE MELANE / A": [
+          "BIKOUBA": [
             {
-              station: "MELANE",
-              voters: 145
-            },
-            {
-              station: "MFALA",
-              voters: 145
-            },
+              "station": "ECOLE PUBLIQUE D'ONDONG ADJAP / A",
+              "voters": 256
+            }
           ],
-          "ECOLE PUBLIQUE DE MELANGUE II / A": [
+          "ONDONG": [
             {
-              station: "ELONE",
-              voters: 189
-            },
-            {
-              station: "MELANGUE",
-              voters: 189
-            },
+              "station": "ECOLE PUBLIQUE D'ONDONG ADJAP / A",
+              "voters": 256
+            }
           ],
-          "ECOLE PUBLIQUE DE MENGALE / A": [
+          "MA'AMENYIN": [
             {
-              station: "MENGALE",
-              voters: 196
-            },
+              "station": "ECOLE PUBLIQUE DE MA'AMENYIN / A",
+              "voters": 101
+            }
           ],
-          "ECOLE PUBLIQUE DE MIMBOMINGAL / A": [
+          "MELANE": [
             {
-              station: "ANGBWEK",
-              voters: 289
-            },
-            {
-              station: "MIMBOMINGAL",
-              voters: 289
-            },
-            {
-              station: "MINTO",
-              voters: 289
-            },
+              "station": "ECOLE PUBLIQUE DE MELANE / A",
+              "voters": 145
+            }
           ],
-          "ECOLE PUBLIQUE DE NGONEBOK / A": [
+          "MFALA": [
             {
-              station: "NGONEBOK",
-              voters: 317
-            },
+              "station": "ECOLE PUBLIQUE DE MELANE / A",
+              "voters": 145
+            }
           ],
-          "ECOLE PUBLIQUE DE NKOADJAP / A": [
+          "ELONE": [
             {
-              station: "MINTOM",
-              voters: 228
-            },
-            {
-              station: "NKOADJAP",
-              voters: 228
-            },
+              "station": "ECOLE PUBLIQUE DE MELANGUE II / A",
+              "voters": 189
+            }
           ],
-          "ECOLE PUBLIQUE DE NKOUEKOUK / A": [
+          "MELANGUE": [
             {
-              station: "NKOUEKOUK",
-              voters: 182
-            },
+              "station": "ECOLE PUBLIQUE DE MELANGUE II / A",
+              "voters": 189
+            }
           ],
-          "ECOLE PUBLIQUE DE NYAZO'O / A": [
+          "MENGALE": [
             {
-              station: "BONGOLO",
-              voters: 194
-            },
-            {
-              station: "NYAZO'O",
-              voters: 194
-            },
+              "station": "ECOLE PUBLIQUE DE MENGALE / A",
+              "voters": 196
+            }
           ],
-          "ECOLE PUBLIQUE DE TCHANGUE / A": [
+          "ANGBWEK": [
             {
-              station: "MEBEM",
-              voters: 360
-            },
-            {
-              station: "TCHANGUE",
-              voters: 360
-            },
+              "station": "ECOLE PUBLIQUE DE MIMBOMINGAL / A",
+              "voters": 289
+            }
           ],
-          "ESPLANADE D'ALOUM YEMVENG / A": [
+          "MIMBOMINGAL": [
             {
-              station: "ALOUM",
-              voters: 139
-            },
-            {
-              station: "YEMVENG",
-              voters: 139
-            },
+              "station": "ECOLE PUBLIQUE DE MIMBOMINGAL / A",
+              "voters": 289
+            }
           ],
-          "ESPLANADE DE BINYINA / A": [
+          "MINTO": [
             {
-              station: "BINYINA",
-              voters: 92
-            },
+              "station": "ECOLE PUBLIQUE DE MIMBOMINGAL / A",
+              "voters": 289
+            }
           ],
-          "ESPLANADE DE KALATE ABA'A / A": [
+          "NGONEBOK": [
             {
-              station: "KALATE",
-              voters: 115
-            },
-            {
-              station: "ABA'A",
-              voters: 115
-            },
-            {
-              station: "NKOUTOU",
-              voters: 321
-            },
+              "station": "ECOLE PUBLIQUE DE NGONEBOK / A",
+              "voters": 317
+            }
           ],
-          "ESPLANADE DE MBONG / A": [
+          "MINTOM": [
             {
-              station: "MBONG",
-              voters: 225
-            },
-            {
-              station: "MVILA",
-              voters: 399
-            },
-            {
-              station: "YEVOL",
-              voters: 843
-            },
-            {
-              station: "NDJANTOM",
-              voters: 225
-            },
+              "station": "ECOLE PUBLIQUE DE NKOADJAP / A",
+              "voters": 228
+            }
           ],
-          "ESPLANADE DE MEBANDE / A": [
+          "NKOADJAP": [
             {
-              station: "MEBANDE",
-              voters: 82
-            },
+              "station": "ECOLE PUBLIQUE DE NKOADJAP / A",
+              "voters": 228
+            }
           ],
-          "ESPLANADE DE NGALANE II / A": [
+          "NKOUEKOUK": [
             {
-              station: "AKOM",
-              voters: 293
-            },
-            {
-              station: "NGALANE",
-              voters: 293
-            },
+              "station": "ECOLE PUBLIQUE DE NKOUEKOUK / A",
+              "voters": 182
+            }
           ],
-          "LYCEE D'EFOULAN / A": [
+          "BONGOLO": [
             {
-              station: "EFOULAN",
-              voters: 867
-            },
-            {
-              station: "MINKANE",
-              voters: 867
-            },
-            {
-              station: "NGAT",
-              voters: 867
-            },
+              "station": "ECOLE PUBLIQUE DE NYAZO'O / A",
+              "voters": 194
+            }
           ],
+          "NYAZO'O": [
+            {
+              "station": "ECOLE PUBLIQUE DE NYAZO'O / A",
+              "voters": 194
+            }
+          ],
+          "MEBEM": [
+            {
+              "station": "ECOLE PUBLIQUE DE TCHANGUE / A",
+              "voters": 360
+            }
+          ],
+          "TCHANGUE": [
+            {
+              "station": "ECOLE PUBLIQUE DE TCHANGUE / A",
+              "voters": 360
+            }
+          ],
+          "ALOUM": [
+            {
+              "station": "ESPLANADE D'ALOUM YEMVENG / A",
+              "voters": 139
+            }
+          ],
+          "YEMVENG": [
+            {
+              "station": "ESPLANADE D'ALOUM YEMVENG / A",
+              "voters": 139
+            }
+          ],
+          "BINYINA": [
+            {
+              "station": "ESPLANADE DE BINYINA / A",
+              "voters": 92
+            }
+          ],
+          "KALATE": [
+            {
+              "station": "ESPLANADE DE KALATE ABA'A / A",
+              "voters": 115
+            }
+          ],
+          "ABA'A": [
+            {
+              "station": "ESPLANADE DE KALATE ABA'A / A",
+              "voters": 115
+            }
+          ],
+          "NKOUTOU": [
+            {
+              "station": "ESPLANADE DE KALATE ABA'A / A",
+              "voters": 321
+            }
+          ],
+          "MBONG": [
+            {
+              "station": "ESPLANADE DE MBONG / A",
+              "voters": 225
+            }
+          ],
+          "MVILA": [
+            {
+              "station": "ESPLANADE DE MBONG / A",
+              "voters": 399
+            }
+          ],
+          "YEVOL": [
+            {
+              "station": "ESPLANADE DE MBONG / A",
+              "voters": 843
+            }
+          ],
+          "NDJANTOM": [
+            {
+              "station": "ESPLANADE DE MBONG / A",
+              "voters": 225
+            }
+          ],
+          "MEBANDE": [
+            {
+              "station": "ESPLANADE DE MEBANDE / A",
+              "voters": 82
+            }
+          ],
+          "AKOM": [
+            {
+              "station": "ESPLANADE DE NGALANE II / A",
+              "voters": 293
+            }
+          ],
+          "NGALANE": [
+            {
+              "station": "ESPLANADE DE NGALANE II / A",
+              "voters": 293
+            }
+          ],
+          "EFOULAN": [
+            {
+              "station": "LYCEE D'EFOULAN / A",
+              "voters": 867
+            }
+          ],
+          "MINKANE": [
+            {
+              "station": "LYCEE D'EFOULAN / A",
+              "voters": 867
+            }
+          ],
+          "NGAT": [
+            {
+              "station": "LYCEE D'EFOULAN / A",
+              "voters": 867
+            }
+          ]
         },
         "MENGONG": {
-          "BOUKAROU / A": [
+          "EBOLEBOLA": [
             {
-              station: "EBOLEBOLA",
-              voters: 143
-            },
+              "station": "BOUKAROU / A",
+              "voters": 143
+            }
           ],
-          "BOUKAROU DOUNGOU / A": [
+          "DOUNGOU": [
             {
-              station: "DOUNGOU",
-              voters: 52
-            },
+              "station": "BOUKAROU DOUNGOU / A",
+              "voters": 52
+            }
           ],
-          "CASE SANTE DE MA'ANEMENYIN / A": [
+          "MA'ANEMENYIN": [
             {
-              station: "MA'ANEMENYIN",
-              voters: 96
-            },
+              "station": "CASE SANTE DE MA'ANEMENYIN / A",
+              "voters": 96
+            }
           ],
-          "CASE SANTE KE'EKE / A": [
+          "KE'EKE": [
             {
-              station: "KE'EKE",
-              voters: 217
-            },
+              "station": "CASE SANTE KE'EKE / A",
+              "voters": 217
+            }
           ],
-          "ECOLE MATERNELLE D'ENDAM I / A": [
+          "ENDAM": [
             {
-              station: "ENDAM",
-              voters: 216
-            },
+              "station": "ECOLE MATERNELLE D'ENDAM I / A",
+              "voters": 216
+            }
           ],
-          "ECOLE MATERNELLE DE MENGONG / A": [
+          "MENGONG": [
             {
-              station: "MENGONG",
-              voters: 810
-            },
+              "station": "ECOLE MATERNELLE DE MENGONG / A",
+              "voters": 810
+            }
           ],
-          "ECOLE MATERNELLE DE NGOULESSAMAN / A": [
+          "NGOULESSAMAN": [
             {
-              station: "NGOULESSAMAN",
-              voters: 295
-            },
+              "station": "ECOLE MATERNELLE DE NGOULESSAMAN / A",
+              "voters": 295
+            }
           ],
-          "ECOLE PUBLIQUE D'ABIETE / A": [
+          "ABIETE": [
             {
-              station: "ABIETE",
-              voters: 368
-            },
-            {
-              station: "DOUM",
-              voters: 368
-            },
+              "station": "ECOLE PUBLIQUE D'ABIETE / A",
+              "voters": 368
+            }
           ],
-          "ECOLE PUBLIQUE D'EBAP / A": [
+          "DOUM": [
             {
-              station: "EBAP",
-              voters: 102
-            },
+              "station": "ECOLE PUBLIQUE D'ABIETE / A",
+              "voters": 368
+            }
           ],
-          "ECOLE PUBLIQUE D'EKOUK / A": [
+          "EBAP": [
             {
-              station: "EKOUK",
-              voters: 114
-            },
+              "station": "ECOLE PUBLIQUE D'EBAP / A",
+              "voters": 102
+            }
           ],
-          "ECOLE PUBLIQUE D'EMANEMVAM / A": [
+          "EKOUK": [
             {
-              station: "EMANEMVAM",
-              voters: 170
-            },
+              "station": "ECOLE PUBLIQUE D'EKOUK / A",
+              "voters": 114
+            }
           ],
-          "ECOLE PUBLIQUE DE LOUM / A": [
+          "EMANEMVAM": [
             {
-              station: "LOUM",
-              voters: 75
-            },
+              "station": "ECOLE PUBLIQUE D'EMANEMVAM / A",
+              "voters": 170
+            }
           ],
-          "ECOLE PUBLIQUE DE MVANGUE / A": [
+          "LOUM": [
             {
-              station: "MVANGUE",
-              voters: 157
-            },
+              "station": "ECOLE PUBLIQUE DE LOUM / A",
+              "voters": 75
+            }
           ],
-          "ECOLE PUBLIQUE DE NGUET / A": [
+          "MVANGUE": [
             {
-              station: "NGUET",
-              voters: 179
-            },
+              "station": "ECOLE PUBLIQUE DE MVANGUE / A",
+              "voters": 157
+            }
           ],
-          "ECOLE PUBLIQUE DE NKAN / A": [
+          "NGUET": [
             {
-              station: "NKAN",
-              voters: 132
-            },
+              "station": "ECOLE PUBLIQUE DE NGUET / A",
+              "voters": 179
+            }
           ],
-          "ECOLE PUBLIQUE DE NKO'OVOS II / A": [
+          "NKAN": [
             {
-              station: "NKO'OVOS",
-              voters: 118
-            },
+              "station": "ECOLE PUBLIQUE DE NKAN / A",
+              "voters": 132
+            }
           ],
-          "ECOLE PUBLIQUE DE NKOLETOTO / A": [
+          "NKO'OVOS": [
             {
-              station: "NKOLETOTO",
-              voters: 360
-            },
+              "station": "ECOLE PUBLIQUE DE NKO'OVOS II / A",
+              "voters": 118
+            }
           ],
-          "ECOLE PUBLIQUE DE NNEMEYONG I / A": [
+          "NKOLETOTO": [
             {
-              station: "NNEMEYONG",
-              voters: 473
-            },
+              "station": "ECOLE PUBLIQUE DE NKOLETOTO / A",
+              "voters": 360
+            }
           ],
-          "ECOLE PUBLIQUE DE NNEMEYONG III / A": [
+          "NNEMEYONG": [
             {
-              station: "III",
-              voters: 126
-            },
+              "station": "ECOLE PUBLIQUE DE NNEMEYONG I / A",
+              "voters": 473
+            }
           ],
-          "ECOLE PUBLIQUE DE NYENGUE / A": [
+          "III": [
             {
-              station: "NYENGUE",
-              voters: 198
-            },
+              "station": "ECOLE PUBLIQUE DE NNEMEYONG III / A",
+              "voters": 126
+            }
           ],
-          "HANGAR ABABITA / A": [
+          "NYENGUE": [
             {
-              station: "ABABITA",
-              voters: 68
-            },
+              "station": "ECOLE PUBLIQUE DE NYENGUE / A",
+              "voters": 198
+            }
           ],
-          "HANGAR ANDO'O / A": [
+          "ABABITA": [
             {
-              station: "ANDO'O",
-              voters: 49
-            },
+              "station": "HANGAR ABABITA / A",
+              "voters": 68
+            }
           ],
-          "HANGAR ATOUI / A": [
+          "ANDO'O": [
             {
-              station: "ATOUI",
-              voters: 56
-            },
+              "station": "HANGAR ANDO'O / A",
+              "voters": 49
+            }
           ],
-          "HANGAR BAN-YOP / A": [
+          "ATOUI": [
             {
-              station: "BAN-YOP",
-              voters: 49
-            },
+              "station": "HANGAR ATOUI / A",
+              "voters": 56
+            }
           ],
-          "HANGAR D'ADJAP-YEVOL / A": [
+          "BAN-YOP": [
             {
-              station: "ADJAP-YEVOL",
-              voters: 117
-            },
+              "station": "HANGAR BAN-YOP / A",
+              "voters": 49
+            }
           ],
-          "HANGAR EFOT / A": [
+          "ADJAP-YEVOL": [
             {
-              station: "EFOT",
-              voters: 51
-            },
+              "station": "HANGAR D'ADJAP-YEVOL / A",
+              "voters": 117
+            }
           ],
-          "HANGAR ESSESSANA / A": [
+          "EFOT": [
             {
-              station: "ESSESSANA",
-              voters: 45
-            },
+              "station": "HANGAR EFOT / A",
+              "voters": 51
+            }
           ],
-          "HANGAR ESSOKBENGA'A / A": [
+          "ESSESSANA": [
             {
-              station: "ESSOKBENGA'A",
-              voters: 113
-            },
+              "station": "HANGAR ESSESSANA / A",
+              "voters": 45
+            }
           ],
-          "HANGAR ETONDO / A": [
+          "ESSOKBENGA'A": [
             {
-              station: "ETONDO",
-              voters: 119
-            },
+              "station": "HANGAR ESSOKBENGA'A / A",
+              "voters": 113
+            }
           ],
-          "HANGAR EYENG-ESSEL / A": [
+          "ETONDO": [
             {
-              station: "EYENG-ESSEL",
-              voters: 84
-            },
+              "station": "HANGAR ETONDO / A",
+              "voters": 119
+            }
           ],
-          "HANGAR KOUNGOULOU / A": [
+          "EYENG-ESSEL": [
             {
-              station: "KOUNGOULOU",
-              voters: 210
-            },
+              "station": "HANGAR EYENG-ESSEL / A",
+              "voters": 84
+            }
           ],
-          "HANGAR MARCHE ATO'OVENG I / A": [
+          "KOUNGOULOU": [
             {
-              station: "ATO'OVENG",
-              voters: 315
-            },
+              "station": "HANGAR KOUNGOULOU / A",
+              "voters": 210
+            }
           ],
-          "HANGAR MBOABANG I / A": [
+          "ATO'OVENG": [
             {
-              station: "MBOABANG",
-              voters: 160
-            },
+              "station": "HANGAR MARCHE ATO'OVENG I / A",
+              "voters": 315
+            }
           ],
-          "HANGAR MBONDO / A": [
+          "MBOABANG": [
             {
-              station: "MBONDO",
-              voters: 85
-            },
+              "station": "HANGAR MBOABANG I / A",
+              "voters": 160
+            }
           ],
-          "HANGAR MBOULA / A": [
+          "MBONDO": [
             {
-              station: "MBOULA",
-              voters: 163
-            },
+              "station": "HANGAR MBONDO / A",
+              "voters": 85
+            }
           ],
-          "HANGAR MEFIEP / A": [
+          "MBOULA": [
             {
-              station: "MEFIEP",
-              voters: 25
-            },
+              "station": "HANGAR MBOULA / A",
+              "voters": 163
+            }
           ],
-          "HANGAR MEKAMEMVOM / A": [
+          "MEFIEP": [
             {
-              station: "MEKAMEMVOM",
-              voters: 209
-            },
+              "station": "HANGAR MEFIEP / A",
+              "voters": 25
+            }
           ],
-          "HANGAR MVII / A": [
+          "MEKAMEMVOM": [
             {
-              station: "MVII",
-              voters: 56
-            },
+              "station": "HANGAR MEKAMEMVOM / A",
+              "voters": 209
+            }
           ],
-          "HANGAR NGOMESSANE / A": [
+          "MVII": [
             {
-              station: "NGOMESSANE",
-              voters: 182
-            },
+              "station": "HANGAR MVII / A",
+              "voters": 56
+            }
           ],
-          "HANGAR NKOLEBENGUE / A": [
+          "NGOMESSANE": [
             {
-              station: "NKOLEBENGUE",
-              voters: 88
-            },
+              "station": "HANGAR NGOMESSANE / A",
+              "voters": 182
+            }
           ],
-          "HANGAR NKOLOWON / A": [
+          "NKOLEBENGUE": [
             {
-              station: "NKOLOWON",
-              voters: 100
-            },
+              "station": "HANGAR NKOLEBENGUE / A",
+              "voters": 88
+            }
           ],
-          "HANGAR ONDONDO / A": [
+          "NKOLOWON": [
             {
-              station: "ONDONDO",
-              voters: 83
-            },
+              "station": "HANGAR NKOLOWON / A",
+              "voters": 100
+            }
           ],
-          "HANGAR YEM / A": [
+          "ONDONDO": [
             {
-              station: "YEM",
-              voters: 72
-            },
+              "station": "HANGAR ONDONDO / A",
+              "voters": 83
+            }
           ],
-          "POSTE AGRICOLE DE MELANE / A": [
+          "YEM": [
             {
-              station: "NDENG",
-              voters: 116
-            },
+              "station": "HANGAR YEM / A",
+              "voters": 72
+            }
           ],
+          "NDENG": [
+            {
+              "station": "POSTE AGRICOLE DE MELANE / A",
+              "voters": 116
+            }
+          ]
         },
         "MVANGAN": {
-          "ECOLE CATHOLIQUE D'ABABENDOMAN / A": [
+          "ABABENDOMAN": [
             {
-              station: "ABABENDOMAN",
-              voters: 183
-            },
+              "station": "ECOLE CATHOLIQUE D'ABABENDOMAN / A",
+              "voters": 183
+            }
           ],
-          "ECOLE PUBLIQUE D'ABOELONE / A": [
+          "ABOELONE": [
             {
-              station: "ABOELONE",
-              voters: 128
-            },
+              "station": "ECOLE PUBLIQUE D'ABOELONE / A",
+              "voters": 128
+            }
           ],
-          "ECOLE PUBLIQUE D'AFAN / A": [
+          "AFAN": [
             {
-              station: "AFAN",
-              voters: 230
-            },
+              "station": "ECOLE PUBLIQUE D'AFAN / A",
+              "voters": 230
+            }
           ],
-          "ECOLE PUBLIQUE D'AKAM / A": [
+          "AKAM": [
             {
-              station: "AKAM",
-              voters: 155
-            },
+              "station": "ECOLE PUBLIQUE D'AKAM / A",
+              "voters": 155
+            }
           ],
-          "ECOLE PUBLIQUE D'AKO'OBETE / A": [
+          "AKO'OBETE": [
             {
-              station: "AKO'OBETE",
-              voters: 122
-            },
+              "station": "ECOLE PUBLIQUE D'AKO'OBETE / A",
+              "voters": 122
+            }
           ],
-          "ECOLE PUBLIQUE D'ALOMBO / A": [
+          "ALOMBO": [
             {
-              station: "ALOMBO",
-              voters: 198
-            },
+              "station": "ECOLE PUBLIQUE D'ALOMBO / A",
+              "voters": 198
+            }
           ],
-          "ECOLE PUBLIQUE D'AMVOM / A": [
+          "AMVOM": [
             {
-              station: "AMVOM",
-              voters: 151
-            },
+              "station": "ECOLE PUBLIQUE D'AMVOM / A",
+              "voters": 151
+            }
           ],
-          "ECOLE PUBLIQUE D'ENDENGUE / A": [
+          "ENDENGUE": [
             {
-              station: "ENDENGUE",
-              voters: 150
-            },
+              "station": "ECOLE PUBLIQUE D'ENDENGUE / A",
+              "voters": 150
+            }
           ],
-          "ECOLE PUBLIQUE D'OYEM I / A": [
+          "OYEM": [
             {
-              station: "OYEM",
-              voters: 239
-            },
+              "station": "ECOLE PUBLIQUE D'OYEM I / A",
+              "voters": 239
+            }
           ],
-          "ECOLE PUBLIQUE DE BIKONG / A": [
+          "BIKONG": [
             {
-              station: "BIKONG",
-              voters: 199
-            },
+              "station": "ECOLE PUBLIQUE DE BIKONG / A",
+              "voters": 199
+            }
           ],
-          "ECOLE PUBLIQUE DE KOUGOULOU / A": [
+          "KOUGOULOU": [
             {
-              station: "KOUGOULOU",
-              voters: 210
-            },
+              "station": "ECOLE PUBLIQUE DE KOUGOULOU / A",
+              "voters": 210
+            }
           ],
-          "ECOLE PUBLIQUE DE MEBEMENKO / A": [
+          "MEBEMENKO": [
             {
-              station: "MEBEMENKO",
-              voters: 307
-            },
+              "station": "ECOLE PUBLIQUE DE MEBEMENKO / A",
+              "voters": 307
+            }
           ],
-          "ECOLE PUBLIQUE DE MEBO'O NGOE / A": [
+          "MEBO'O": [
             {
-              station: "MEBO'O",
-              voters: 530
-            },
-            {
-              station: "NGOE",
-              voters: 80
-            },
+              "station": "ECOLE PUBLIQUE DE MEBO'O NGOE / A",
+              "voters": 530
+            }
           ],
-          "ECOLE PUBLIQUE DE MEBOSSO / A": [
+          "NGOE": [
             {
-              station: "MEBOSSO",
-              voters: 130
-            },
+              "station": "ECOLE PUBLIQUE DE MEBO'O NGOE / A",
+              "voters": 80
+            }
           ],
-          "ECOLE PUBLIQUE DE MGOMEBAE / A": [
+          "MEBOSSO": [
             {
-              station: "ENDAMEYOS",
-              voters: 244
-            },
+              "station": "ECOLE PUBLIQUE DE MEBOSSO / A",
+              "voters": 130
+            }
           ],
-          "ECOLE PUBLIQUE DE MINKOUMOU / A": [
+          "ENDAMEYOS": [
             {
-              station: "MINKOUMOU",
-              voters: 85
-            },
+              "station": "ECOLE PUBLIQUE DE MGOMEBAE / A",
+              "voters": 244
+            }
           ],
-          "ECOLE PUBLIQUE DE MINTYENE / A": [
+          "MINKOUMOU": [
             {
-              station: "MINTYENE",
-              voters: 276
-            },
+              "station": "ECOLE PUBLIQUE DE MINKOUMOU / A",
+              "voters": 85
+            }
           ],
-          "ECOLE PUBLIQUE DE NDICK / A": [
+          "MINTYENE": [
             {
-              station: "NDICK",
-              voters: 163
-            },
+              "station": "ECOLE PUBLIQUE DE MINTYENE / A",
+              "voters": 276
+            }
           ],
-          "ECOLE PUBLIQUE DE ZOEBEFAM / A": [
+          "NDICK": [
             {
-              station: "ZOEBEFAM",
-              voters: 322
-            },
+              "station": "ECOLE PUBLIQUE DE NDICK / A",
+              "voters": 163
+            }
           ],
-          "HANGAR ALOTOM / A": [
+          "ZOEBEFAM": [
             {
-              station: "ALOTOM",
-              voters: 57
-            },
+              "station": "ECOLE PUBLIQUE DE ZOEBEFAM / A",
+              "voters": 322
+            }
           ],
-          "HANGAR D'ANDJECK / A": [
+          "ALOTOM": [
             {
-              station: "ANDJECK",
-              voters: 305
-            },
+              "station": "HANGAR ALOTOM / A",
+              "voters": 57
+            }
           ],
-          "HANGAR D'ASSOK I / A": [
+          "ANDJECK": [
             {
-              station: "ASSOK",
-              voters: 172
-            },
-            {
-              station: "NKENGOU",
-              voters: 415
-            },
+              "station": "HANGAR D'ANDJECK / A",
+              "voters": 305
+            }
           ],
-          "HANGAR D'EBOMAN I / A": [
+          "ASSOK": [
             {
-              station: "EBOMAN",
-              voters: 203
-            },
+              "station": "HANGAR D'ASSOK I / A",
+              "voters": 172
+            }
           ],
-          "HANGAR D'EKOWONG I / A": [
+          "NKENGOU": [
             {
-              station: "EKOWONG",
-              voters: 485
-            },
+              "station": "HANGAR D'ASSOK I / A",
+              "voters": 415
+            }
           ],
-          "HANGAR D'ETOUBETOUBANDI / A": [
+          "EBOMAN": [
             {
-              station: "ETOUBETOUBANDI",
-              voters: 113
-            },
+              "station": "HANGAR D'EBOMAN I / A",
+              "voters": 203
+            }
           ],
-          "HANGAR DE BIBOULEMAM / A": [
+          "EKOWONG": [
             {
-              station: "BIBOULEMAM",
-              voters: 133
-            },
+              "station": "HANGAR D'EKOWONG I / A",
+              "voters": 485
+            }
           ],
-          "HANGAR DE MEBO'O YENGAP / A": [
+          "ETOUBETOUBANDI": [
             {
-              station: "YENGAP",
-              voters: 450
-            },
+              "station": "HANGAR D'ETOUBETOUBANDI / A",
+              "voters": 113
+            }
           ],
-          "HANGAR DE MVAEZOM / A": [
+          "BIBOULEMAM": [
             {
-              station: "MVAEZOM",
-              voters: 204
-            },
+              "station": "HANGAR DE BIBOULEMAM / A",
+              "voters": 133
+            }
           ],
-          "HANGAR DE NDANGA / A": [
+          "YENGAP": [
             {
-              station: "NDANGA",
-              voters: 99
-            },
+              "station": "HANGAR DE MEBO'O YENGAP / A",
+              "voters": 450
+            }
           ],
-          "HANGAR DE NKOLENYENG / A": [
+          "MVAEZOM": [
             {
-              station: "NKOLENYENG",
-              voters: 367
-            },
+              "station": "HANGAR DE MVAEZOM / A",
+              "voters": 204
+            }
           ],
-          "HANGAR DE NKOMO / A": [
+          "NDANGA": [
             {
-              station: "NKOMO",
-              voters: 114
-            },
+              "station": "HANGAR DE NDANGA / A",
+              "voters": 99
+            }
           ],
-          "HANGAR DE NNELEFOUP / A": [
+          "NKOLENYENG": [
             {
-              station: "NNELEFOUP",
-              voters: 122
-            },
+              "station": "HANGAR DE NKOLENYENG / A",
+              "voters": 367
+            }
           ],
-          "HANGAR DE NNEZAM / A": [
+          "NKOMO": [
             {
-              station: "NNEZAM",
-              voters: 121
-            },
+              "station": "HANGAR DE NKOMO / A",
+              "voters": 114
+            }
           ],
-          "HANGAR MVANGAN- VILLAGE / A": [
+          "NNELEFOUP": [
             {
-              station: "VILLAGE",
-              voters: 170
-            },
+              "station": "HANGAR DE NNELEFOUP / A",
+              "voters": 122
+            }
           ],
-          "LYCEE DE MVANGAN / A": [
+          "NNEZAM": [
             {
-              station: "MVANGAN-",
-              voters: 836
-            },
-            {
-              station: "CENTRE",
-              voters: 247
-            },
-            {
-              station: "ADMINISTRATIF",
-              voters: 247
-            },
-            {
-              station: "VILLE",
-              voters: 419
-            },
+              "station": "HANGAR DE NNEZAM / A",
+              "voters": 121
+            }
           ],
+          "VILLAGE": [
+            {
+              "station": "HANGAR MVANGAN- VILLAGE / A",
+              "voters": 170
+            }
+          ],
+          "MVANGAN-": [
+            {
+              "station": "LYCEE DE MVANGAN / A",
+              "voters": 836
+            }
+          ],
+          "CENTRE": [
+            {
+              "station": "LYCEE DE MVANGAN / A",
+              "voters": 247
+            }
+          ],
+          "ADMINISTRATIF": [
+            {
+              "station": "LYCEE DE MVANGAN / A",
+              "voters": 247
+            }
+          ],
+          "VILLE": [
+            {
+              "station": "LYCEE DE MVANGAN / A",
+              "voters": 419
+            }
+          ]
         },
         "NGOULEMAKONG": {
-          "C.E.S D'ENAMENGAL I / A": [
+          "ENAMENGAL": [
             {
-              station: "ENAMENGAL",
-              voters: 434
-            },
+              "station": "C.E.S D'ENAMENGAL I / A",
+              "voters": 434
+            }
           ],
-          "C.E.S DE BITSOGMAN / A": [
+          "BITSOGMAM": [
             {
-              station: "BITSOGMAM",
-              voters: 188
-            },
-            {
-              station: "ENYENG",
-              voters: 188
-            },
+              "station": "C.E.S DE BITSOGMAN / A",
+              "voters": 188
+            }
           ],
-          "C.E.S DE DOUM / A": [
+          "ENYENG": [
             {
-              station: "DOUM",
-              voters: 410
-            },
-            {
-              station: "CHEFFERIE",
-              voters: 169
-            },
+              "station": "C.E.S DE BITSOGMAN / A",
+              "voters": 188
+            }
           ],
-          "C.E.S DE SOUMOU / A": [
+          "DOUM": [
             {
-              station: "SOUMOU",
-              voters: 113
-            },
+              "station": "C.E.S DE DOUM / A",
+              "voters": 410
+            }
           ],
-          "DELEGATION D'AGRICULTURE / A": [
+          "CHEFFERIE": [
             {
-              station: "MBAMA",
-              voters: 512
-            },
-            {
-              station: "MINKONGO",
-              voters: 512
-            },
-            {
-              station: "NKOL-YOP",
-              voters: 512
-            },
+              "station": "C.E.S DE DOUM / A",
+              "voters": 169
+            }
           ],
-          "ECOLE MATERNELLE DE MBEKA'A I / A": [
+          "SOUMOU": [
             {
-              station: "OVENG",
-              voters: 156
-            },
-            {
-              station: "OTOLO'O",
-              voters: 156
-            },
+              "station": "C.E.S DE SOUMOU / A",
+              "voters": 113
+            }
           ],
-          "ECOLE MATERNELLE DE NNEMEYONG / A": [
+          "MBAMA": [
             {
-              station: "NNEMEYONG",
-              voters: 176
-            },
+              "station": "DELEGATION D'AGRICULTURE / A",
+              "voters": 512
+            }
           ],
-          "ECOLE PUBLIQUE D'ALLOM / A": [
+          "MINKONGO": [
             {
-              station: "ALLOM",
-              voters: 77
-            },
-            {
-              station: "NLAN",
-              voters: 77
-            },
-            {
-              station: "YOP",
-              voters: 420
-            },
+              "station": "DELEGATION D'AGRICULTURE / A",
+              "voters": 512
+            }
           ],
-          "ECOLE PUBLIQUE D'EBOTENKOU / A": [
+          "NKOL-YOP": [
             {
-              station: "EBOTENKOU",
-              voters: 174
-            },
-            {
-              station: "OYACK",
-              voters: 311
-            },
-            {
-              station: "-FONG",
-              voters: 174
-            },
+              "station": "DELEGATION D'AGRICULTURE / A",
+              "voters": 512
+            }
           ],
-          "ECOLE PUBLIQUE D'ELONE / A": [
+          "OVENG": [
             {
-              station: "ELONE",
-              voters: 102
-            },
+              "station": "ECOLE MATERNELLE DE MBEKA'A I / A",
+              "voters": 156
+            }
           ],
-          "ECOLE PUBLIQUE D'ESSINGANG / A": [
+          "OTOLO'O": [
             {
-              station: "ESSINGANG",
-              voters: 73
-            },
+              "station": "ECOLE MATERNELLE DE MBEKA'A I / A",
+              "voters": 156
+            }
           ],
-          "ECOLE PUBLIQUE D'OBANG II / A": [
+          "NNEMEYONG": [
             {
-              station: "OBANG",
-              voters: 174
-            },
+              "station": "ECOLE MATERNELLE DE NNEMEYONG / A",
+              "voters": 176
+            }
           ],
-          "ECOLE PUBLIQUE DE BINYINYALI / A": [
+          "ALLOM": [
             {
-              station: "BINYINYALI",
-              voters: 152
-            },
+              "station": "ECOLE PUBLIQUE D'ALLOM / A",
+              "voters": 77
+            }
           ],
-          "ECOLE PUBLIQUE DE DOUM / A": [
+          "NLAN": [
             {
-              station: "CARREFOUR",
-              voters: 57
-            },
+              "station": "ECOLE PUBLIQUE D'ALLOM / A",
+              "voters": 77
+            }
           ],
-          "ECOLE PUBLIQUE DE KOUMA / A": [
+          "YOP": [
             {
-              station: "KOUMA",
-              voters: 141
-            },
+              "station": "ECOLE PUBLIQUE D'ALLOM / A",
+              "voters": 420
+            }
           ],
-          "ECOLE PUBLIQUE DE MBEKA'A II / A": [
+          "EBOTENKOU": [
             {
-              station: "MBEKA'A",
-              voters: 235
-            },
+              "station": "ECOLE PUBLIQUE D'EBOTENKOU / A",
+              "voters": 174
+            }
           ],
-          "ECOLE PUBLIQUE DE MBENG / A": [
+          "OYACK": [
             {
-              station: "MBENG",
-              voters: 211
-            },
-            {
-              station: "OSSOEFEME",
-              voters: 211
-            },
+              "station": "ECOLE PUBLIQUE D'EBOTENKOU / A",
+              "voters": 311
+            }
           ],
-          "ECOLE PUBLIQUE DE MESSOK I / A": [
+          "-FONG": [
             {
-              station: "MESSOK",
-              voters: 284
-            },
-            {
-              station: "NGOCK",
-              voters: 142
-            },
+              "station": "ECOLE PUBLIQUE D'EBOTENKOU / A",
+              "voters": 174
+            }
           ],
-          "ECOLE PUBLIQUE DE MINLAMIZIBI / A": [
+          "ELONE": [
             {
-              station: "MINLAMIZIBI",
-              voters: 428
-            },
-            {
-              station: "MINYEBE",
-              voters: 428
-            },
+              "station": "ECOLE PUBLIQUE D'ELONE / A",
+              "voters": 102
+            }
           ],
-          "ECOLE PUBLIQUE DE MVAMEDJAP BANE / A": [
+          "ESSINGANG": [
             {
-              station: "OLLA",
-              voters: 184
-            },
-            {
-              station: "MVAMEDJAP-",
-              voters: 308
-            },
-            {
-              station: "BANE",
-              voters: 184
-            },
+              "station": "ECOLE PUBLIQUE D'ESSINGANG / A",
+              "voters": 73
+            }
           ],
-          "ECOLE PUBLIQUE DE MVAMEDJAP FONG / A": [
+          "OBANG": [
             {
-              station: "FONG",
-              voters: 124
-            },
+              "station": "ECOLE PUBLIQUE D'OBANG II / A",
+              "voters": 174
+            }
           ],
-          "ECOLE PUBLIQUE DE MVANDA / A": [
+          "BINYINYALI": [
             {
-              station: "MVANDA",
-              voters: 87
-            },
+              "station": "ECOLE PUBLIQUE DE BINYINYALI / A",
+              "voters": 152
+            }
           ],
-          "ECOLE PUBLIQUE DE NTOUMBA / A": [
+          "CARREFOUR": [
             {
-              station: "NTOUMBA",
-              voters: 187
-            },
+              "station": "ECOLE PUBLIQUE DE DOUM / A",
+              "voters": 57
+            }
           ],
-          "ESPLANADE CHEF. DE NKOUMADJAP I / A": [
+          "KOUMA": [
             {
-              station: "NKOUMADJAP",
-              voters: 180
-            },
+              "station": "ECOLE PUBLIQUE DE KOUMA / A",
+              "voters": 141
+            }
           ],
-          "ESPLANADE CHEFFERIE D'AKOATALA / A": [
+          "MBEKA'A": [
             {
-              station: "AKOATALA",
-              voters: 66
-            },
+              "station": "ECOLE PUBLIQUE DE MBEKA'A II / A",
+              "voters": 235
+            }
           ],
-          "ESPLANADE CHEFFERIE D'ASSAM / A": [
+          "MBENG": [
             {
-              station: "ASSAM",
-              voters: 49
-            },
-            {
-              station: "ONGONGO",
-              voters: 49
-            },
+              "station": "ECOLE PUBLIQUE DE MBENG / A",
+              "voters": 211
+            }
           ],
-          "ESPLANADE CHEFFERIE D'EBAE / A": [
+          "OSSOEFEME": [
             {
-              station: "EBAE",
-              voters: 76
-            },
+              "station": "ECOLE PUBLIQUE DE MBENG / A",
+              "voters": 211
+            }
           ],
-          "ESPLANADE CHEFFERIE D'EBOLBOUM / A": [
+          "MESSOK": [
             {
-              station: "EBOLBOUM",
-              voters: 82
-            },
+              "station": "ECOLE PUBLIQUE DE MESSOK I / A",
+              "voters": 284
+            }
           ],
-          "ESPLANADE CHEFFERIE DE BANGA / A": [
+          "NGOCK": [
             {
-              station: "BANGA",
-              voters: 655
-            },
-            {
-              station: "BIKOP",
-              voters: 331
-            },
-            {
-              station: "KOUNGOULOU",
-              voters: 143
-            },
-            {
-              station: "NKOLMEKOK",
-              voters: 143
-            },
+              "station": "ECOLE PUBLIQUE DE MESSOK I / A",
+              "voters": 142
+            }
           ],
-          "ESPLANADE CHEFFERIE DE MEKOM / A": [
+          "MINLAMIZIBI": [
             {
-              station: "MEKOM",
-              voters: 101
-            },
+              "station": "ECOLE PUBLIQUE DE MINLAMIZIBI / A",
+              "voters": 428
+            }
           ],
-          "ESPLANADE CHEFFERIE DE MENGBWA / A": [
+          "MINYEBE": [
             {
-              station: "ABIETE",
-              voters: 121
-            },
-            {
-              station: "MENGBWA",
-              voters: 121
-            },
+              "station": "ECOLE PUBLIQUE DE MINLAMIZIBI / A",
+              "voters": 428
+            }
           ],
-          "ESPLANADE CHEFFERIE DE MINKOK / A": [
+          "OLLA": [
             {
-              station: "MINKOK",
-              voters: 238
-            },
+              "station": "ECOLE PUBLIQUE DE MVAMEDJAP BANE / A",
+              "voters": 184
+            }
           ],
-          "ESPLANADE CHEFFERIE DE NDZAFOM / A": [
+          "MVAMEDJAP-": [
             {
-              station: "NDZAFOM",
-              voters: 31
-            },
-            {
-              station: "NKOLNGOCK",
-              voters: 31
-            },
+              "station": "ECOLE PUBLIQUE DE MVAMEDJAP BANE / A",
+              "voters": 308
+            }
           ],
-          "ESPLANADE CHEFFERIE DE NKOLE / A": [
+          "BANE": [
             {
-              station: "FONE",
-              voters: 146
-            },
-            {
-              station: "NKOLE",
-              voters: 146
-            },
+              "station": "ECOLE PUBLIQUE DE MVAMEDJAP BANE / A",
+              "voters": 184
+            }
           ],
-          "ESPLANADE CHEFFERIE DE NYAMVENDE / A": [
+          "FONG": [
             {
-              station: "NYAMVENDE",
-              voters: 71
-            },
+              "station": "ECOLE PUBLIQUE DE MVAMEDJAP FONG / A",
+              "voters": 124
+            }
           ],
-          "ESPLANADE CHEFFERIE EKOWONDO / A": [
+          "MVANDA": [
             {
-              station: "EKOWONDO",
-              voters: 80
-            },
+              "station": "ECOLE PUBLIQUE DE MVANDA / A",
+              "voters": 87
+            }
           ],
-          "LYCEE MIXTE DE NGOULEMAKONG / A": [
+          "NTOUMBA": [
             {
-              station: "NNANGA",
-              voters: 364
-            },
-            {
-              station: "EZAN",
-              voters: 364
-            },
+              "station": "ECOLE PUBLIQUE DE NTOUMBA / A",
+              "voters": 187
+            }
           ],
-          "LYCEE TECHNIQUE DE NGOULEMAKONG / A": [
+          "NKOUMADJAP": [
             {
-              station: "CENTRE",
-              voters: 896
-            },
-            {
-              station: "COMMERCIAL",
-              voters: 896
-            },
-            {
-              station: "OMANG",
-              voters: 896
-            },
-            {
-              station: "-SI",
-              voters: 896
-            },
+              "station": "ESPLANADE CHEF. DE NKOUMADJAP I / A",
+              "voters": 180
+            }
           ],
-          "MISSION CATHOLIQUE / A": [
+          "AKOATALA": [
             {
-              station: "NKOL-MESSAS",
-              voters: 137
-            },
-            {
-              station: "-BENE",
-              voters: 137
-            },
+              "station": "ESPLANADE CHEFFERIE D'AKOATALA / A",
+              "voters": 66
+            }
           ],
-        },
-      },
-    },
-  },
+          "ASSAM": [
+            {
+              "station": "ESPLANADE CHEFFERIE D'ASSAM / A",
+              "voters": 49
+            }
+          ],
+          "ONGONGO": [
+            {
+              "station": "ESPLANADE CHEFFERIE D'ASSAM / A",
+              "voters": 49
+            }
+          ],
+          "EBAE": [
+            {
+              "station": "ESPLANADE CHEFFERIE D'EBAE / A",
+              "voters": 76
+            }
+          ],
+          "EBOLBOUM": [
+            {
+              "station": "ESPLANADE CHEFFERIE D'EBOLBOUM / A",
+              "voters": 82
+            }
+          ],
+          "BANGA": [
+            {
+              "station": "ESPLANADE CHEFFERIE DE BANGA / A",
+              "voters": 655
+            }
+          ],
+          "BIKOP": [
+            {
+              "station": "ESPLANADE CHEFFERIE DE BANGA / A",
+              "voters": 331
+            }
+          ],
+          "KOUNGOULOU": [
+            {
+              "station": "ESPLANADE CHEFFERIE DE BANGA / A",
+              "voters": 143
+            }
+          ],
+          "NKOLMEKOK": [
+            {
+              "station": "ESPLANADE CHEFFERIE DE BANGA / A",
+              "voters": 143
+            }
+          ],
+          "MEKOM": [
+            {
+              "station": "ESPLANADE CHEFFERIE DE MEKOM / A",
+              "voters": 101
+            }
+          ],
+          "ABIETE": [
+            {
+              "station": "ESPLANADE CHEFFERIE DE MENGBWA / A",
+              "voters": 121
+            }
+          ],
+          "MENGBWA": [
+            {
+              "station": "ESPLANADE CHEFFERIE DE MENGBWA / A",
+              "voters": 121
+            }
+          ],
+          "MINKOK": [
+            {
+              "station": "ESPLANADE CHEFFERIE DE MINKOK / A",
+              "voters": 238
+            }
+          ],
+          "NDZAFOM": [
+            {
+              "station": "ESPLANADE CHEFFERIE DE NDZAFOM / A",
+              "voters": 31
+            }
+          ],
+          "NKOLNGOCK": [
+            {
+              "station": "ESPLANADE CHEFFERIE DE NDZAFOM / A",
+              "voters": 31
+            }
+          ],
+          "FONE": [
+            {
+              "station": "ESPLANADE CHEFFERIE DE NKOLE / A",
+              "voters": 146
+            }
+          ],
+          "NKOLE": [
+            {
+              "station": "ESPLANADE CHEFFERIE DE NKOLE / A",
+              "voters": 146
+            }
+          ],
+          "NYAMVENDE": [
+            {
+              "station": "ESPLANADE CHEFFERIE DE NYAMVENDE / A",
+              "voters": 71
+            }
+          ],
+          "EKOWONDO": [
+            {
+              "station": "ESPLANADE CHEFFERIE EKOWONDO / A",
+              "voters": 80
+            }
+          ],
+          "NNANGA": [
+            {
+              "station": "LYCEE MIXTE DE NGOULEMAKONG / A",
+              "voters": 364
+            }
+          ],
+          "EZAN": [
+            {
+              "station": "LYCEE MIXTE DE NGOULEMAKONG / A",
+              "voters": 364
+            }
+          ],
+          "CENTRE": [
+            {
+              "station": "LYCEE TECHNIQUE DE NGOULEMAKONG / A",
+              "voters": 896
+            }
+          ],
+          "COMMERCIAL": [
+            {
+              "station": "LYCEE TECHNIQUE DE NGOULEMAKONG / A",
+              "voters": 896
+            }
+          ],
+          "OMANG": [
+            {
+              "station": "LYCEE TECHNIQUE DE NGOULEMAKONG / A",
+              "voters": 896
+            }
+          ],
+          "-SI": [
+            {
+              "station": "LYCEE TECHNIQUE DE NGOULEMAKONG / A",
+              "voters": 896
+            }
+          ],
+          "NKOL-MESSAS": [
+            {
+              "station": "MISSION CATHOLIQUE / A",
+              "voters": 137
+            }
+          ],
+          "-BENE": [
+            {
+              "station": "MISSION CATHOLIQUE / A",
+              "voters": 137
+            }
+          ]
+        }
+      }
+    }
+  }
 };

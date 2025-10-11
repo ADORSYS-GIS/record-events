@@ -118,8 +118,11 @@ const EventForm: React.FC<EventFormProps> = ({
           station,
         );
 
-        // Only update if the value is different from current value
-        if (votersCount !== null && formData.votants_inscrits !== votersCount) {
+        // Only update if votersCount is valid and votants_inscrits is not set or is zero
+        if (
+          votersCount !== null &&
+          !formData.votants_inscrits
+        ) {
           setFormData((prev) => ({
             ...prev,
             votants_inscrits: votersCount,

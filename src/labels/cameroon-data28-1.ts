@@ -29,3110 +29,3473 @@ export type CameroonData = {
   [key: string]: RegionData;
 };
 
-export const cameroonData: CameroonData = {
+export const cameroonData = {
   "SUD-OUEST": {
-    name: { en: "SOUTH-WEST", fr: "SUD-OUEST" },
-    divisions: {
+    "name": {
+      "en": "SOUTH-WEST",
+      "fr": "SUD-OUEST"
+    },
+    "divisions": {
       "FAKO": {
         "BUEA": {
-          "B.C.U.F. / A": [
+          "MOLYKO": [
             {
-              station: "MOLYKO",
-              voters: 10737
-            },
+              "station": "B.C.U.F. / A",
+              "voters": 10737
+            }
           ],
-          "BAPTIST CHURCH LOWER BOKOVA / A": [
+          "BOKOKO": [
             {
-              station: "BOKOKO",
-              voters: 323
-            },
+              "station": "BAPTIST CHURCH LOWER BOKOVA / A",
+              "voters": 323
+            }
           ],
-          "BAPTIST COMPREHENSIVE UPPER  MOKONGO / A": [
+          "GREAT": [
             {
-              station: "GREAT",
-              voters: 8541
-            },
-            {
-              station: "SOPPO",
-              voters: 9539
-            },
+              "station": "BAPTIST COMPREHENSIVE UPPER  MOKONGO / A",
+              "voters": 8541
+            }
           ],
-          "BLESSING INTER. BILINGUAL SCHOOL / A": [
+          "SOPPO": [
             {
-              station: "BWITEVA",
-              voters: 373
-            },
+              "station": "BAPTIST COMPREHENSIVE UPPER  MOKONGO / A",
+              "voters": 9539
+            }
           ],
-          "BORSTAL (CAMP SIC/WEST FARM) / A": [
+          "BWITEVA": [
             {
-              station: "WOTEKE",
-              voters: 617
-            },
+              "station": "BLESSING INTER. BILINGUAL SCHOOL / A",
+              "voters": 373
+            }
           ],
-          "BULU BLIND CENTER / A": [
+          "WOTEKE": [
             {
-              station: "BULU",
-              voters: 183
-            },
+              "station": "BORSTAL (CAMP SIC/WEST FARM) / A",
+              "voters": 617
+            }
           ],
-          "C.B.C. SCHOOL BWIYUKU / A": [
+          "BULU": [
             {
-              station: "BWIYUKU",
-              voters: 973
-            },
+              "station": "BULU BLIND CENTER / A",
+              "voters": 183
+            }
           ],
-          "C.B.C. SCHOOL LOWER BOLIFAMBA / A": [
+          "BWIYUKU": [
             {
-              station: "BOLIFAMBA",
-              voters: 2761
-            },
+              "station": "C.B.C. SCHOOL BWIYUKU / A",
+              "voters": 973
+            }
           ],
-          "COMMMUNITY HALL BOANA / A": [
+          "BOLIFAMBA": [
             {
-              station: "BOANA",
-              voters: 123
-            },
+              "station": "C.B.C. SCHOOL LOWER BOLIFAMBA / A",
+              "voters": 2761
+            }
           ],
-          "COMMMUNITY HALL BOANDA / A": [
+          "BOANA": [
             {
-              station: "BOANDA",
-              voters: 235
-            },
+              "station": "COMMMUNITY HALL BOANA / A",
+              "voters": 123
+            }
           ],
-          "COMMMUNITY HALL BOANDO / A": [
+          "BOANDA": [
             {
-              station: "BOANDO",
-              voters: 60
-            },
+              "station": "COMMMUNITY HALL BOANDA / A",
+              "voters": 235
+            }
           ],
-          "COMMMUNITY HALL BOKWAI / A": [
+          "BOANDO": [
             {
-              station: "BOKWAI",
-              voters: 670
-            },
+              "station": "COMMMUNITY HALL BOANDO / A",
+              "voters": 60
+            }
           ],
-          "COMMMUNITY HALL BONAKANDA / A": [
+          "BOKWAI": [
             {
-              station: "BONAKANDA",
-              voters: 308
-            },
+              "station": "COMMMUNITY HALL BOKWAI / A",
+              "voters": 670
+            }
+          ],
+          "BONAKANDA": [
             {
-              station: "WOKULU",
-              voters: 308
-            },
+              "station": "COMMMUNITY HALL BONAKANDA / A",
+              "voters": 308
+            }
           ],
-          "COMMMUNITY HALL BONDUMA / A": [
+          "WOKULU": [
             {
-              station: "BONDUMA",
-              voters: 2308
-            },
+              "station": "COMMMUNITY HALL BONAKANDA / A",
+              "voters": 308
+            }
           ],
-          "COMMMUNITY HALL BOTEVA / A": [
+          "BONDUMA": [
             {
-              station: "BOTEVA",
-              voters: 60
-            },
+              "station": "COMMMUNITY HALL BONDUMA / A",
+              "voters": 2308
+            }
           ],
-          "COMMMUNITY HALL BWILE / A": [
+          "BOTEVA": [
             {
-              station: "LYSOKA",
-              voters: 176
-            },
+              "station": "COMMMUNITY HALL BOTEVA / A",
+              "voters": 60
+            }
           ],
-          "COMMMUNITY HALL EKANDE / A": [
+          "LYSOKA": [
             {
-              station: "EKANDE",
-              voters: 57
-            },
+              "station": "COMMMUNITY HALL BWILE / A",
+              "voters": 176
+            }
           ],
-          "COMMMUNITY HALL EKONJO / A": [
+          "EKANDE": [
             {
-              station: "EKONJO",
-              voters: 40
-            },
+              "station": "COMMMUNITY HALL EKANDE / A",
+              "voters": 57
+            }
           ],
-          "COMMMUNITY HALL EWILI (NEW) / A": [
+          "EKONJO": [
             {
-              station: "MUSAKA",
-              voters: 118
-            },
+              "station": "COMMMUNITY HALL EKONJO / A",
+              "voters": 40
+            }
+          ],
+          "MUSAKA": [
             {
-              station: "WONYA",
-              voters: 2689
-            },
+              "station": "COMMMUNITY HALL EWILI (NEW) / A",
+              "voters": 118
+            }
+          ],
+          "WONYA": [
             {
-              station: "MOKUMBA",
-              voters: 223
-            },
+              "station": "COMMMUNITY HALL EWILI (NEW) / A",
+              "voters": 2689
+            }
           ],
-          "COMMMUNITY HALL EWONDA / A": [
+          "MOKUMBA": [
             {
-              station: "EWONDA",
-              voters: 65
-            },
+              "station": "COMMMUNITY HALL EWILI (NEW) / A",
+              "voters": 223
+            }
           ],
-          "COMMMUNITY HALL LIKOMBE / A": [
+          "EWONDA": [
             {
-              station: "LIKOMBE",
-              voters: 82
-            },
+              "station": "COMMMUNITY HALL EWONDA / A",
+              "voters": 65
+            }
           ],
-          "COMMMUNITY HALL MAPANJA / A": [
+          "LIKOMBE": [
             {
-              station: "MAPANJA",
-              voters: 115
-            },
+              "station": "COMMMUNITY HALL LIKOMBE / A",
+              "voters": 82
+            }
           ],
-          "COMMMUNITY HALL MAUMU / A": [
+          "MAPANJA": [
             {
-              station: "MAUMU",
-              voters: 462
-            },
+              "station": "COMMMUNITY HALL MAPANJA / A",
+              "voters": 115
+            }
           ],
-          "COMMMUNITY HALL MEMBEA / A": [
+          "MAUMU": [
             {
-              station: "LIKOKO",
-              voters: 1424
-            },
+              "station": "COMMMUNITY HALL MAUMU / A",
+              "voters": 462
+            }
+          ],
+          "LIKOKO": [
             {
-              station: "MEMBEA",
-              voters: 1358
-            },
+              "station": "COMMMUNITY HALL MEMBEA / A",
+              "voters": 1424
+            }
           ],
-          "COMMMUNITY HALL MOLI (NEW) / A": [
+          "MEMBEA": [
             {
-              station: "MOLI",
-              voters: 72
-            },
+              "station": "COMMMUNITY HALL MEMBEA / A",
+              "voters": 1358
+            }
           ],
-          "COMMMUNITY HALL SAXENHOFF / A": [
+          "MOLI": [
             {
-              station: "SAXENHOFF",
-              voters: 37
-            },
+              "station": "COMMMUNITY HALL MOLI (NEW) / A",
+              "voters": 72
+            }
           ],
-          "COMMMUNITY HALL VASINGI / A": [
+          "SAXENHOFF": [
             {
-              station: "VASINGI",
-              voters: 446
-            },
+              "station": "COMMMUNITY HALL SAXENHOFF / A",
+              "voters": 37
+            }
           ],
-          "COMMMUNITY HALL WOKAKA / A": [
+          "VASINGI": [
             {
-              station: "WOKAKA",
-              voters: 75
-            },
+              "station": "COMMMUNITY HALL VASINGI / A",
+              "voters": 446
+            }
           ],
-          "COMMMUNITY HALL WOKEKA / A": [
+          "WOKAKA": [
             {
-              station: "WOKEKA",
-              voters: 43
-            },
+              "station": "COMMMUNITY HALL WOKAKA / A",
+              "voters": 75
+            }
           ],
-          "COMMMUNITY HALL WOLIKAWO / A": [
+          "WOKEKA": [
             {
-              station: "WOLIKAWO",
-              voters: 144
-            },
+              "station": "COMMMUNITY HALL WOKEKA / A",
+              "voters": 43
+            }
           ],
-          "COMMMUNITY HALL WONGANJO / A": [
+          "WOLIKAWO": [
             {
-              station: "WONGANJO",
-              voters: 163
-            },
+              "station": "COMMMUNITY HALL WOLIKAWO / A",
+              "voters": 144
+            }
           ],
-          "COMMMUNITY HALL WONJAVA / A": [
+          "WONGANJO": [
             {
-              station: "WONJAVA",
-              voters: 67
-            },
+              "station": "COMMMUNITY HALL WONGANJO / A",
+              "voters": 163
+            }
           ],
-          "COMMMUNITY HALL WONJIA (NEW) / A": [
+          "WONJAVA": [
             {
-              station: "WONJIA",
-              voters: 95
-            },
+              "station": "COMMMUNITY HALL WONJAVA / A",
+              "voters": 67
+            }
           ],
-          "COMMMUNITY HALL WONYA EMONGO / A": [
+          "WONJIA": [
             {
-              station: "EMONGO",
-              voters: 1163
-            },
+              "station": "COMMMUNITY HALL WONJIA (NEW) / A",
+              "voters": 95
+            }
           ],
-          "COMMMUNITY HALL WONYA LYONGA / A": [
+          "EMONGO": [
             {
-              station: "LYONGA",
-              voters: 521
-            },
+              "station": "COMMMUNITY HALL WONYA EMONGO / A",
+              "voters": 1163
+            }
           ],
-          "COMMMUNITY HALL WONYA MAVIO / A": [
+          "LYONGA": [
             {
-              station: "MAVIO",
-              voters: 782
-            },
+              "station": "COMMMUNITY HALL WONYA LYONGA / A",
+              "voters": 521
+            }
           ],
-          "COMMMUNITY HALL WOTUTU / A": [
+          "MAVIO": [
             {
-              station: "WOTUTU",
-              voters: 902
-            },
+              "station": "COMMMUNITY HALL WONYA MAVIO / A",
+              "voters": 782
+            }
           ],
-          "COMMMUNITY HALL WOVILLA NATIVE / A": [
+          "WOTUTU": [
             {
-              station: "WOVILLA",
-              voters: 720
-            },
+              "station": "COMMMUNITY HALL WOTUTU / A",
+              "voters": 902
+            }
           ],
-          "COMMMUNITY MWANGAI / A": [
+          "WOVILLA": [
             {
-              station: "MWANGAI",
-              voters: 30
-            },
+              "station": "COMMMUNITY HALL WOVILLA NATIVE / A",
+              "voters": 720
+            }
           ],
-          "COOPERATIVE HALL WONGANGA / A": [
+          "MWANGAI": [
             {
-              station: "WONGANGA",
-              voters: 838
-            },
+              "station": "COMMMUNITY MWANGAI / A",
+              "voters": 30
+            }
           ],
-          "COURT OF APPEAL / A": [
+          "WONGANGA": [
             {
-              station: "EWILI",
-              voters: 751
-            },
+              "station": "COOPERATIVE HALL WONGANGA / A",
+              "voters": 838
+            }
+          ],
+          "EWILI": [
             {
-              station: "GOVERNMENT",
-              voters: 528
-            },
+              "station": "COURT OF APPEAL / A",
+              "voters": 751
+            }
+          ],
+          "GOVERNMENT": [
             {
-              station: "STATION",
-              voters: 528
-            },
+              "station": "COURT OF APPEAL / A",
+              "voters": 528
+            }
           ],
-          "CUSTOMARY COURT HALL BONJONGO / A": [
+          "STATION": [
             {
-              station: "BONJONGO",
-              voters: 235
-            },
+              "station": "COURT OF APPEAL / A",
+              "voters": 528
+            }
           ],
-          "CUSTOMARY COURT HALL BUEA TOWN / A": [
+          "BONJONGO": [
             {
-              station: "WONDONGO",
-              voters: 645
-            },
+              "station": "CUSTOMARY COURT HALL BONJONGO / A",
+              "voters": 235
+            }
           ],
-          "CUSTOMARY COURT HALL UPPER MUEA / A": [
+          "WONDONGO": [
             {
-              station: "MUEA",
-              voters: 3748
-            },
+              "station": "CUSTOMARY COURT HALL BUEA TOWN / A",
+              "voters": 645
+            }
           ],
-          "E.N.A.P. / A": [
+          "MUEA": [
             {
-              station: "LOWER",
-              voters: 618
-            },
+              "station": "CUSTOMARY COURT HALL UPPER MUEA / A",
+              "voters": 3748
+            }
+          ],
+          "LOWER": [
             {
-              station: "FARMS",
-              voters: 789
-            },
+              "station": "E.N.A.P. / A",
+              "voters": 618
+            }
           ],
-          "ECOLE FRANCOPHONE / A": [
+          "FARMS": [
             {
-              station: "LONG",
-              voters: 932
-            },
+              "station": "E.N.A.P. / A",
+              "voters": 789
+            }
+          ],
+          "LONG": [
             {
-              station: "ST.",
-              voters: 932
-            },
+              "station": "ECOLE FRANCOPHONE / A",
+              "voters": 932
+            }
+          ],
+          "ST.": [
             {
-              station: "SMALL",
-              voters: 932
-            },
+              "station": "ECOLE FRANCOPHONE / A",
+              "voters": 932
+            }
           ],
-          "FIRST POLICE DISTRICT MOKUNDA / A": [
+          "SMALL": [
             {
-              station: "MOKUNDA",
-              voters: 561
-            },
+              "station": "ECOLE FRANCOPHONE / A",
+              "voters": 932
+            }
           ],
-          "G.B.P.S. EWONGO / A": [
+          "MOKUNDA": [
             {
-              station: "EWONGO",
-              voters: 150
-            },
+              "station": "FIRST POLICE DISTRICT MOKUNDA / A",
+              "voters": 561
+            }
           ],
-          "G.S. BOMAKA / A": [
+          "EWONGO": [
             {
-              station: "BOMAKA",
-              voters: 2641
-            },
+              "station": "G.B.P.S. EWONGO / A",
+              "voters": 150
+            }
           ],
-          "G.S. BOVA II / A": [
+          "BOMAKA": [
             {
-              station: "BOVA",
-              voters: 524
-            },
+              "station": "G.S. BOMAKA / A",
+              "voters": 2641
+            }
+          ],
+          "BOVA": [
             {
-              station: "LIONGO",
-              voters: 403
-            },
+              "station": "G.S. BOVA II / A",
+              "voters": 524
+            }
+          ],
+          "LIONGO": [
             {
-              station: "WONJOKU",
-              voters: 260
-            },
+              "station": "G.S. BOVA II / A",
+              "voters": 403
+            }
           ],
-          "G.S. BUEA TOWN / A": [
+          "WONJOKU": [
             {
-              station: "BUEA",
-              voters: 1606
-            },
+              "station": "G.S. BOVA II / A",
+              "voters": 260
+            }
+          ],
+          "BUEA": [
             {
-              station: "TOWN",
-              voters: 1606
-            },
+              "station": "G.S. BUEA TOWN / A",
+              "voters": 1606
+            }
+          ],
+          "TOWN": [
             {
-              station: "STRANGERS",
-              voters: 1606
-            },
+              "station": "G.S. BUEA TOWN / A",
+              "voters": 1606
+            }
           ],
-          "G.S. BWASSA / A": [
+          "STRANGERS": [
             {
-              station: "BWASSA",
-              voters: 102
-            },
+              "station": "G.S. BUEA TOWN / A",
+              "voters": 1606
+            }
           ],
-          "G.S. DIBANDA / A": [
+          "BWASSA": [
             {
-              station: "DIBANDA",
-              voters: 742
-            },
+              "station": "G.S. BWASSA / A",
+              "voters": 102
+            }
           ],
-          "G.S. MEVIO / A": [
+          "DIBANDA": [
             {
-              station: "MEVIO",
-              voters: 95
-            },
+              "station": "G.S. DIBANDA / A",
+              "voters": 742
+            }
           ],
-          "G.S. MOLYKO / A": [
+          "MEVIO": [
             {
-              station: "WOKOKO",
-              voters: 3163
-            },
+              "station": "G.S. MEVIO / A",
+              "voters": 95
+            }
           ],
-          "G.S. NA'ANGA / A": [
+          "WOKOKO": [
             {
-              station: "NA'ANGA",
-              voters: 288
-            },
+              "station": "G.S. MOLYKO / A",
+              "voters": 3163
+            }
           ],
-          "GENDARMERIE LEGION / A": [
+          "NA'ANGA": [
             {
-              station: "CLERKS'",
-              voters: 513
-            },
+              "station": "G.S. NA'ANGA / A",
+              "voters": 288
+            }
+          ],
+          "CLERKS'": [
             {
-              station: "QTRS",
-              voters: 513
-            },
+              "station": "GENDARMERIE LEGION / A",
+              "voters": 513
+            }
+          ],
+          "QTRS": [
             {
-              station: "GENDARMERIE",
-              voters: 513
-            },
+              "station": "GENDARMERIE LEGION / A",
+              "voters": 513
+            }
           ],
-          "GHS BONJONGO / A": [
+          "GENDARMERIE": [
             {
-              station: "BOJOKE",
-              voters: 130
-            },
+              "station": "GENDARMERIE LEGION / A",
+              "voters": 513
+            }
+          ],
+          "BOJOKE": [
             {
-              station: "WOSENGE",
-              voters: 130
-            },
+              "station": "GHS BONJONGO / A",
+              "voters": 130
+            }
           ],
-          "HINT INTERNATIONAL / A": [
+          "WOSENGE": [
             {
-              station: "WOTOLO",
-              voters: 1366
-            },
+              "station": "GHS BONJONGO / A",
+              "voters": 130
+            }
           ],
-          "JAMADALE SCHOOL / A": [
+          "WOTOLO": [
             {
-              station: "BWITINGI",
-              voters: 482
-            },
+              "station": "HINT INTERNATIONAL / A",
+              "voters": 1366
+            }
           ],
-          "MEMBEA HEALTH CENTER BOKWANGO / A": [
+          "BWITINGI": [
             {
-              station: "BOKWANGO",
-              voters: 1127
-            },
+              "station": "JAMADALE SCHOOL / A",
+              "voters": 482
+            }
           ],
-          "MILITARY SECTOR I / A": [
+          "BOKWANGO": [
             {
-              station: "GRA",
-              voters: 604
-            },
+              "station": "MEMBEA HEALTH CENTER BOKWANGO / A",
+              "voters": 1127
+            }
           ],
-          "MILITARY SECTOR II / A": [
+          "GRA": [
             {
-              station: "TWENTY",
-              voters: 484
-            },
+              "station": "MILITARY SECTOR I / A",
+              "voters": 604
+            }
+          ],
+          "TWENTY": [
             {
-              station: "FIRST",
-              voters: 484
-            },
+              "station": "MILITARY SECTOR II / A",
+              "voters": 484
+            }
+          ],
+          "FIRST": [
             {
-              station: "MILITARY",
-              voters: 484
-            },
+              "station": "MILITARY SECTOR II / A",
+              "voters": 484
+            }
+          ],
+          "MILITARY": [
             {
-              station: "SECTOR",
-              voters: 484
-            },
+              "station": "MILITARY SECTOR II / A",
+              "voters": 484
+            }
           ],
-          "OLD GOVERNENT STATION / A": [
+          "SECTOR": [
             {
-              station: "YOUTH",
-              voters: 210
-            },
+              "station": "MILITARY SECTOR II / A",
+              "voters": 484
+            }
+          ],
+          "YOUTH": [
             {
-              station: "CENTER",
-              voters: 210
-            },
+              "station": "OLD GOVERNENT STATION / A",
+              "voters": 210
+            }
           ],
-          "PARLIAMENTARY FLAT / A": [
+          "CENTER": [
             {
-              station: "FEDERAL",
-              voters: 572
-            },
+              "station": "OLD GOVERNENT STATION / A",
+              "voters": 210
+            }
           ],
-          "POLICE BARARACKS / A": [
+          "FEDERAL": [
             {
-              station: "POLICE",
-              voters: 232
-            },
+              "station": "PARLIAMENTARY FLAT / A",
+              "voters": 572
+            }
+          ],
+          "POLICE": [
             {
-              station: "CANTEEN",
-              voters: 232
-            },
+              "station": "POLICE BARARACKS / A",
+              "voters": 232
+            }
           ],
-          "POLICE PERSONEL / A": [
+          "CANTEEN": [
             {
-              station: "NATIONAL",
-              voters: 171
-            },
+              "station": "POLICE BARARACKS / A",
+              "voters": 232
+            }
+          ],
+          "NATIONAL": [
             {
-              station: "SECURITY",
-              voters: 171
-            },
+              "station": "POLICE PERSONEL / A",
+              "voters": 171
+            }
+          ],
+          "SECURITY": [
             {
-              station: "DELEGATION",
-              voters: 171
-            },
+              "station": "POLICE PERSONEL / A",
+              "voters": 171
+            }
+          ],
+          "DELEGATION": [
             {
-              station: "UPPER",
-              voters: 171
-            },
+              "station": "POLICE PERSONEL / A",
+              "voters": 171
+            }
           ],
-          "PRES CHURCH BOSSUMBU / A": [
+          "UPPER": [
             {
-              station: "BOSSUMBU",
-              voters: 50
-            },
+              "station": "POLICE PERSONEL / A",
+              "voters": 171
+            }
           ],
-          "PRISON LECTURE HALL / A": [
+          "BOSSUMBU": [
             {
-              station: "WARDERS'",
-              voters: 175
-            },
+              "station": "PRES CHURCH BOSSUMBU / A",
+              "voters": 50
+            }
+          ],
+          "WARDERS'": [
             {
-              station: "BARRACKS",
-              voters: 175
-            },
+              "station": "PRISON LECTURE HALL / A",
+              "voters": 175
+            }
           ],
-          "SURVEY SCHOOL / A": [
+          "BARRACKS": [
             {
-              station: "CLERK'S",
-              voters: 1727
-            },
+              "station": "PRISON LECTURE HALL / A",
+              "voters": 175
+            }
+          ],
+          "CLERK'S": [
             {
-              station: "QUARTERS",
-              voters: 2299
-            },
+              "station": "SURVEY SCHOOL / A",
+              "voters": 1727
+            }
           ],
+          "QUARTERS": [
+            {
+              "station": "SURVEY SCHOOL / A",
+              "voters": 2299
+            }
+          ]
         },
         "IDENAU": {
-          "BIR BASE (NEW) / A": [
+          "BIBUNDE": [
             {
-              station: "BIBUNDE",
-              voters: 2895
-            },
+              "station": "BIR BASE (NEW) / A",
+              "voters": 2895
+            }
           ],
-          "CDC SECTORIAL OFFICE NJONJI / A": [
+          "NJONJI": [
             {
-              station: "NJONJI",
-              voters: 291
-            },
+              "station": "CDC SECTORIAL OFFICE NJONJI / A",
+              "voters": 291
+            }
           ],
-          "CDC SECTORIAL OFFICE SODEN / A": [
+          "SODEN": [
             {
-              station: "SODEN",
-              voters: 82
-            },
+              "station": "CDC SECTORIAL OFFICE SODEN / A",
+              "voters": 82
+            }
           ],
-          "CDC SECTOTIONAL OFFICE / A": [
+          "ISONGO": [
             {
-              station: "ISONGO",
-              voters: 580
-            },
+              "station": "CDC SECTOTIONAL OFFICE / A",
+              "voters": 580
+            }
           ],
-          "COMMUNITY HALL ETOME / A": [
+          "ETOME": [
             {
-              station: "ETOME",
-              voters: 67
-            },
+              "station": "COMMUNITY HALL ETOME / A",
+              "voters": 67
+            }
           ],
-          "GOV'T PRACT. SCHOOL KOSSE II / A": [
+          "KOSSE": [
             {
-              station: "KOSSE",
-              voters: 16
-            },
+              "station": "GOV'T PRACT. SCHOOL KOSSE II / A",
+              "voters": 16
+            }
           ],
-          "GREEN VALLEY / A": [
+          "BAKINGILI": [
             {
-              station: "BAKINGILI",
-              voters: 415
-            },
+              "station": "GREEN VALLEY / A",
+              "voters": 415
+            }
           ],
-          "GS ENYENGE / A": [
+          "ENYENGE": [
             {
-              station: "ENYENGE",
-              voters: 235
-            },
+              "station": "GS ENYENGE / A",
+              "voters": 235
+            }
           ],
-          "GS IDENAU GROUP I / A": [
+          "SCIPIO/RESCHFLUSS": [
             {
-              station: "SCIPIO/RESCHFLUSS",
-              voters: 287
-            },
+              "station": "GS IDENAU GROUP I / A",
+              "voters": 287
+            }
           ],
-          "HEALTH CENTER SANJE / A": [
+          "SANJE": [
             {
-              station: "SANJE",
-              voters: 87
-            },
+              "station": "HEALTH CENTER SANJE / A",
+              "voters": 87
+            }
           ],
-          "MOBILE CANOPY / A": [
+          "BAROMBI": [
             {
-              station: "BAROMBI",
-              voters: 193
-            },
-            {
-              station: "DEBUNDSCHA",
-              voters: 432
-            },
+              "station": "MOBILE CANOPY / A",
+              "voters": 193
+            }
           ],
+          "DEBUNDSCHA": [
+            {
+              "station": "MOBILE CANOPY / A",
+              "voters": 432
+            }
+          ]
         },
         "LIMBE I": {
-          "APOSTOLIC FAITH MAWOH / A": [
+          "MAWOH": [
             {
-              station: "MAWOH",
-              voters: 1424
-            },
+              "station": "APOSTOLIC FAITH MAWOH / A",
+              "voters": 1424
+            }
           ],
-          "BILL & SCOTT NURSERY/PRIMARY SCHOOL /  A": [
+          "LUMPSUM": [
             {
-              station: "LUMPSUM",
-              voters: 680
-            },
+              "station": "BILL & SCOTT NURSERY/PRIMARY SCHOOL /  A",
+              "voters": 680
+            }
           ],
-          "CATHOLIC SCHOOL GARDENS / A": [
+          "MOKEBA": [
             {
-              station: "MOKEBA",
-              voters: 1012
-            },
+              "station": "CATHOLIC SCHOOL GARDENS / A",
+              "voters": 1012
+            }
           ],
-          "CBC PRIM. SCHOOL BONADIKOMBO / A": [
+          "NEWTOWN": [
             {
-              station: "NEWTOWN",
-              voters: 3909
-            },
+              "station": "CBC PRIM. SCHOOL BONADIKOMBO / A",
+              "voters": 3909
+            }
           ],
-          "CHAMBER OF COMMERCE / A": [
+          "MBONJO/DOCKYARD": [
             {
-              station: "MBONJO/DOCKYARD",
-              voters: 349
-            },
+              "station": "CHAMBER OF COMMERCE / A",
+              "voters": 349
+            }
           ],
-          "COLLEGE SONARA / A": [
+          "CITE": [
             {
-              station: "CITE",
-              voters: 937
-            },
-            {
-              station: "NANGA/SONARA",
-              voters: 937
-            },
+              "station": "COLLEGE SONARA / A",
+              "voters": 937
+            }
           ],
-          "COMMUNITY HALL BOTA / A": [
+          "NANGA/SONARA": [
             {
-              station: "MIDDLEFARMS",
-              voters: 1060
-            },
+              "station": "COLLEGE SONARA / A",
+              "voters": 937
+            }
           ],
-          "COMMUNITY HALL MEVEO / A": [
+          "MIDDLEFARMS": [
             {
-              station: "MEVEO",
-              voters: 69
-            },
-            {
-              station: "MBENGE",
-              voters: 69
-            },
-            {
-              station: "VILLAGE",
-              voters: 69
-            },
+              "station": "COMMUNITY HALL BOTA / A",
+              "voters": 1060
+            }
           ],
-          "COMMUNITY HALL, BONADIKOMBO / A": [
+          "MEVEO": [
             {
-              station: "BONADIKOMBO",
-              voters: 8539
-            },
+              "station": "COMMUNITY HALL MEVEO / A",
+              "voters": 69
+            }
           ],
-          "DELEGATION OF AGRIC / A": [
+          "MBENGE": [
             {
-              station: "TWO",
-              voters: 1075
-            },
+              "station": "COMMUNITY HALL MEVEO / A",
+              "voters": 69
+            }
           ],
-          "DELEGATION OF URBAN AFFAIRS / A": [
+          "VILLAGE": [
             {
-              station: "COCONUT",
-              voters: 391
-            },
-            {
-              station: "ISLAND",
-              voters: 391
-            },
+              "station": "COMMUNITY HALL MEVEO / A",
+              "voters": 69
+            }
           ],
-          "ECOLE FRANCOPHONE,MILE ONE / A": [
+          "BONADIKOMBO": [
             {
-              station: "LIVANDA",
-              voters: 1728
-            },
-            {
-              station: "CONGO/NURSES",
-              voters: 1728
-            },
-            {
-              station: "QUARTER",
-              voters: 7149
-            },
+              "station": "COMMUNITY HALL, BONADIKOMBO / A",
+              "voters": 8539
+            }
           ],
-          "FEICOM / A": [
+          "TWO": [
             {
-              station: "NAMBEKE",
-              voters: 420
-            },
-            {
-              station: "PHEMBELE",
-              voters: 420
-            },
+              "station": "DELEGATION OF AGRIC / A",
+              "voters": 1075
+            }
           ],
-          "G.H.S. LIMBE / A": [
+          "COCONUT": [
             {
-              station: "MAFANY",
-              voters: 1097
-            },
+              "station": "DELEGATION OF URBAN AFFAIRS / A",
+              "voters": 391
+            }
           ],
-          "G.N.S. MABETA NEWLAYOUT / A": [
+          "ISLAND": [
             {
-              station: "MABETA",
-              voters: 1031
-            },
-            {
-              station: "NEWLAYOUT",
-              voters: 1031
-            },
+              "station": "DELEGATION OF URBAN AFFAIRS / A",
+              "voters": 391
+            }
           ],
-          "G.S. BOSSUMBU / A": [
+          "LIVANDA": [
             {
-              station: "LOWER",
-              voters: 585
-            },
-            {
-              station: "BOSSUMBU",
-              voters: 585
-            },
+              "station": "ECOLE FRANCOPHONE,MILE ONE / A",
+              "voters": 1728
+            }
           ],
-          "G.S. BOTA / A": [
+          "CONGO/NURSES": [
             {
-              station: "LIMBE",
-              voters: 1063
-            },
+              "station": "ECOLE FRANCOPHONE,MILE ONE / A",
+              "voters": 1728
+            }
           ],
-          "G.S. MILE ONE / A": [
+          "QUARTER": [
             {
-              station: "MILE",
-              voters: 3156
-            },
-            {
-              station: "ONE",
-              voters: 2081
-            },
+              "station": "ECOLE FRANCOPHONE,MILE ONE / A",
+              "voters": 7149
+            }
           ],
-          "G.S. MOTOWOH / A": [
+          "NAMBEKE": [
             {
-              station: "MOTOWOH",
-              voters: 1207
-            },
+              "station": "FEICOM / A",
+              "voters": 420
+            }
           ],
-          "G.S. NEWTOWN / A": [
+          "PHEMBELE": [
             {
-              station: "SOUTH",
-              voters: 597
-            },
-            {
-              station: "EAST",
-              voters: 597
-            },
-            {
-              station: "COMMUNITY",
-              voters: 597
-            },
+              "station": "FEICOM / A",
+              "voters": 420
+            }
           ],
-          "G.S. TOWE / A": [
+          "MAFANY": [
             {
-              station: "TOWE",
-              voters: 2602
-            },
+              "station": "G.H.S. LIMBE / A",
+              "voters": 1097
+            }
           ],
-          "LIMBE RIVER CLUB / A": [
+          "MABETA": [
             {
-              station: "CUSTOM/FEDERAL",
-              voters: 385
-            },
-            {
-              station: "QUARTERS",
-              voters: 1497
-            },
+              "station": "G.N.S. MABETA NEWLAYOUT / A",
+              "voters": 1031
+            }
           ],
-          "LIMBE URBAN COUNCIL HALL / A": [
+          "NEWLAYOUT": [
             {
-              station: "DOWNBEACH/BOTANIC",
-              voters: 261
-            },
-            {
-              station: "GARDENS",
-              voters: 1067
-            },
+              "station": "G.N.S. MABETA NEWLAYOUT / A",
+              "voters": 1031
+            }
           ],
-          "NURSING AID SCHOOL / A": [
+          "LOWER": [
             {
-              station: "UNITY",
-              voters: 2060
-            },
+              "station": "G.S. BOSSUMBU / A",
+              "voters": 585
+            }
           ],
-          "OLD BOULANGERIE / A": [
+          "BOSSUMBU": [
             {
-              station: "CHURCH",
-              voters: 534
-            },
-            {
-              station: "STREET",
-              voters: 534
-            },
+              "station": "G.S. BOSSUMBU / A",
+              "voters": 585
+            }
           ],
-          "PHYTOSANITARY BASE / A": [
+          "LIMBE": [
             {
-              station: "CASSAVA",
-              voters: 1683
-            },
-            {
-              station: "FARMS",
-              voters: 2695
-            },
+              "station": "G.S. BOTA / A",
+              "voters": 1063
+            }
           ],
-          "PREVENTIVE MEDICINE / A": [
+          "MILE": [
             {
-              station: "CLERK'S",
-              voters: 681
-            },
-            {
-              station: "QTRS/COW",
-              voters: 681
-            },
-            {
-              station: "FENCE",
-              voters: 681
-            },
+              "station": "G.S. MILE ONE / A",
+              "voters": 3156
+            }
           ],
-          "S.S. CLUB BOTA / A": [
+          "ONE": [
             {
-              station: "G.R.A",
-              voters: 1112
-            },
-            {
-              station: "/S.S.",
-              voters: 1112
-            },
+              "station": "G.S. MILE ONE / A",
+              "voters": 2081
+            }
           ],
-          "SENIOR OVERSEERS OFFICE, MOLIWE / A": [
+          "MOTOWOH": [
             {
-              station: "CAMP",
-              voters: 1159
-            },
-            {
-              station: "C.D.C.",
-              voters: 96
-            },
-            {
-              station: "MOLIWE",
-              voters: 321
-            },
+              "station": "G.S. MOTOWOH / A",
+              "voters": 1207
+            }
           ],
-          "VETERINARY POST / A": [
+          "SOUTH": [
             {
-              station: "MBENDE",
-              voters: 385
-            },
-            {
-              station: "EAST/WEST",
-              voters: 385
-            },
+              "station": "G.S. NEWTOWN / A",
+              "voters": 597
+            }
           ],
+          "EAST": [
+            {
+              "station": "G.S. NEWTOWN / A",
+              "voters": 597
+            }
+          ],
+          "COMMUNITY": [
+            {
+              "station": "G.S. NEWTOWN / A",
+              "voters": 597
+            }
+          ],
+          "TOWE": [
+            {
+              "station": "G.S. TOWE / A",
+              "voters": 2602
+            }
+          ],
+          "CUSTOM/FEDERAL": [
+            {
+              "station": "LIMBE RIVER CLUB / A",
+              "voters": 385
+            }
+          ],
+          "QUARTERS": [
+            {
+              "station": "LIMBE RIVER CLUB / A",
+              "voters": 1497
+            }
+          ],
+          "DOWNBEACH/BOTANIC": [
+            {
+              "station": "LIMBE URBAN COUNCIL HALL / A",
+              "voters": 261
+            }
+          ],
+          "GARDENS": [
+            {
+              "station": "LIMBE URBAN COUNCIL HALL / A",
+              "voters": 1067
+            }
+          ],
+          "UNITY": [
+            {
+              "station": "NURSING AID SCHOOL / A",
+              "voters": 2060
+            }
+          ],
+          "CHURCH": [
+            {
+              "station": "OLD BOULANGERIE / A",
+              "voters": 534
+            }
+          ],
+          "STREET": [
+            {
+              "station": "OLD BOULANGERIE / A",
+              "voters": 534
+            }
+          ],
+          "CASSAVA": [
+            {
+              "station": "PHYTOSANITARY BASE / A",
+              "voters": 1683
+            }
+          ],
+          "FARMS": [
+            {
+              "station": "PHYTOSANITARY BASE / A",
+              "voters": 2695
+            }
+          ],
+          "CLERK'S": [
+            {
+              "station": "PREVENTIVE MEDICINE / A",
+              "voters": 681
+            }
+          ],
+          "QTRS/COW": [
+            {
+              "station": "PREVENTIVE MEDICINE / A",
+              "voters": 681
+            }
+          ],
+          "FENCE": [
+            {
+              "station": "PREVENTIVE MEDICINE / A",
+              "voters": 681
+            }
+          ],
+          "G.R.A": [
+            {
+              "station": "S.S. CLUB BOTA / A",
+              "voters": 1112
+            }
+          ],
+          "/S.S.": [
+            {
+              "station": "S.S. CLUB BOTA / A",
+              "voters": 1112
+            }
+          ],
+          "CAMP": [
+            {
+              "station": "SENIOR OVERSEERS OFFICE, MOLIWE / A",
+              "voters": 1159
+            }
+          ],
+          "C.D.C.": [
+            {
+              "station": "SENIOR OVERSEERS OFFICE, MOLIWE / A",
+              "voters": 96
+            }
+          ],
+          "MOLIWE": [
+            {
+              "station": "SENIOR OVERSEERS OFFICE, MOLIWE / A",
+              "voters": 321
+            }
+          ],
+          "MBENDE": [
+            {
+              "station": "VETERINARY POST / A",
+              "voters": 385
+            }
+          ],
+          "EAST/WEST": [
+            {
+              "station": "VETERINARY POST / A",
+              "voters": 385
+            }
+          ]
         },
         "LIMBE II": {
-          "ARMY CAMP HALL CAPE LIMBO / A": [
+          "CSPS": [
             {
-              station: "CSPS",
-              voters: 108
-            },
-            {
-              station: "ARMY",
-              voters: 108
-            },
-            {
-              station: "CAMP",
-              voters: 1926
-            },
-            {
-              station: "CAPE",
-              voters: 1042
-            },
-            {
-              station: "LIMBO",
-              voters: 1042
-            },
+              "station": "ARMY CAMP HALL CAPE LIMBO / A",
+              "voters": 108
+            }
           ],
-          "BEATRICE HENRY SCHOOL / A": [
+          "ARMY": [
             {
-              station: "ISOKOLO",
-              voters: 1743
-            },
-            {
-              station: "OLD",
-              voters: 1743
-            },
-            {
-              station: "ROAD",
-              voters: 1743
-            },
+              "station": "ARMY CAMP HALL CAPE LIMBO / A",
+              "voters": 108
+            }
           ],
-          "CAMP HALL TOPLINE LIMBOLA / A": [
+          "CAMP": [
             {
-              station: "CITE",
-              voters: 934
-            },
-            {
-              station: "SONARA",
-              voters: 934
-            },
-            {
-              station: "TOPLINE",
-              voters: 50
-            },
-            {
-              station: "CDC",
-              voters: 50
-            },
+              "station": "ARMY CAMP HALL CAPE LIMBO / A",
+              "voters": 1926
+            }
           ],
-          "COMM. HALL BOANDO / A": [
+          "CAPE": [
             {
-              station: "LOWER",
-              voters: 154
-            },
-            {
-              station: "BOANDO",
-              voters: 154
-            },
+              "station": "ARMY CAMP HALL CAPE LIMBO / A",
+              "voters": 1042
+            }
           ],
-          "COMMUNITY FIELD NGEME / A": [
+          "LIMBO": [
             {
-              station: "NGEME",
-              voters: 1027
-            },
+              "station": "ARMY CAMP HALL CAPE LIMBO / A",
+              "voters": 1042
+            }
           ],
-          "COMMUNITY HALL BATOKE / A": [
+          "ISOKOLO": [
             {
-              station: "BATOKE",
-              voters: 3233
-            },
+              "station": "BEATRICE HENRY SCHOOL / A",
+              "voters": 1743
+            }
           ],
-          "COMMUNITY HALL BOTALAND / A": [
+          "OLD": [
             {
-              station: "BOTALAND",
-              voters: 3571
-            },
+              "station": "BEATRICE HENRY SCHOOL / A",
+              "voters": 1743
+            }
           ],
-          "COMMUNITY HALL KIE / A": [
+          "ROAD": [
             {
-              station: "KIE",
-              voters: 174
-            },
+              "station": "BEATRICE HENRY SCHOOL / A",
+              "voters": 1743
+            }
           ],
-          "COMMUNITY HALL LIMBOLA / A": [
+          "CITE": [
             {
-              station: "LIMBOLA",
-              voters: 647
-            },
+              "station": "CAMP HALL TOPLINE LIMBOLA / A",
+              "voters": 934
+            }
           ],
-          "COMMUNITY HALL MOKUNDA / A": [
+          "SONARA": [
             {
-              station: "MOKUNDA",
-              voters: 1206
-            },
+              "station": "CAMP HALL TOPLINE LIMBOLA / A",
+              "voters": 934
+            }
           ],
-          "COMMUNITY HALL WOVIA / A": [
+          "TOPLINE": [
             {
-              station: "WOVIA",
-              voters: 806
-            },
+              "station": "CAMP HALL TOPLINE LIMBOLA / A",
+              "voters": 50
+            }
           ],
-          "GS MOKUNDANGE / A": [
+          "CDC": [
             {
-              station: "MOKUNDANGE",
-              voters: 1257
-            },
+              "station": "CAMP HALL TOPLINE LIMBOLA / A",
+              "voters": 50
+            }
           ],
-          "MOKINDI COMM HALL / A": [
+          "LOWER": [
             {
-              station: "MOKINDI",
-              voters: 1368
-            },
+              "station": "COMM. HALL BOANDO / A",
+              "voters": 154
+            }
           ],
-          "MUNICIPAL HALL RESTAURANT / A": [
+          "BOANDO": [
             {
-              station: "KRATER",
-              voters: 1768
-            },
+              "station": "COMM. HALL BOANDO / A",
+              "voters": 154
+            }
           ],
-          "STAFF BILINGUAL NURS. AND PRIM. SCHOOL  /A": [
+          "NGEME": [
             {
-              station: "BOBENDE",
-              voters: 868
-            },
+              "station": "COMMUNITY FIELD NGEME / A",
+              "voters": 1027
+            }
           ],
+          "BATOKE": [
+            {
+              "station": "COMMUNITY HALL BATOKE / A",
+              "voters": 3233
+            }
+          ],
+          "BOTALAND": [
+            {
+              "station": "COMMUNITY HALL BOTALAND / A",
+              "voters": 3571
+            }
+          ],
+          "KIE": [
+            {
+              "station": "COMMUNITY HALL KIE / A",
+              "voters": 174
+            }
+          ],
+          "LIMBOLA": [
+            {
+              "station": "COMMUNITY HALL LIMBOLA / A",
+              "voters": 647
+            }
+          ],
+          "MOKUNDA": [
+            {
+              "station": "COMMUNITY HALL MOKUNDA / A",
+              "voters": 1206
+            }
+          ],
+          "WOVIA": [
+            {
+              "station": "COMMUNITY HALL WOVIA / A",
+              "voters": 806
+            }
+          ],
+          "MOKUNDANGE": [
+            {
+              "station": "GS MOKUNDANGE / A",
+              "voters": 1257
+            }
+          ],
+          "MOKINDI": [
+            {
+              "station": "MOKINDI COMM HALL / A",
+              "voters": 1368
+            }
+          ],
+          "KRATER": [
+            {
+              "station": "MUNICIPAL HALL RESTAURANT / A",
+              "voters": 1768
+            }
+          ],
+          "BOBENDE": [
+            {
+              "station": "STAFF BILINGUAL NURS. AND PRIM. SCHOOL  /A",
+              "voters": 868
+            }
+          ]
         },
         "LIMBE III": {
-          "BIR MAN-O-WAR BAY / A": [
+          "BIR": [
             {
-              station: "BIR",
-              voters: 2360
-            },
-            {
-              station: "MAN-O-WAR",
-              voters: 2360
-            },
-            {
-              station: "BAY",
-              voters: 2360
-            },
-            {
-              station: "CENTER",
-              voters: 2360
-            },
+              "station": "BIR MAN-O-WAR BAY / A",
+              "voters": 2360
+            }
           ],
-          "CDC BIMBIA CAMP OFIICE / A": [
+          "MAN-O-WAR": [
             {
-              station: "CDC",
-              voters: 532
-            },
-            {
-              station: "BIMBIA",
-              voters: 517
-            },
-            {
-              station: "CAMP/ESELE",
-              voters: 388
-            },
-            {
-              station: "NATIVE",
-              voters: 388
-            },
-            {
-              station: "MONDOLI",
-              voters: 388
-            },
+              "station": "BIR MAN-O-WAR BAY / A",
+              "voters": 2360
+            }
           ],
-          "CDC CLUB HALL MABETA / A": [
+          "BAY": [
             {
-              station: "MABETA",
-              voters: 265
-            },
-            {
-              station: "CAMP",
-              voters: 144
-            },
+              "station": "BIR MAN-O-WAR BAY / A",
+              "voters": 2360
+            }
           ],
-          "COMMUNITY HALL BONABILE / A": [
+          "CENTER": [
             {
-              station: "BONABILE",
-              voters: 77
-            },
-            {
-              station: "VILLAGE",
-              voters: 594
-            },
+              "station": "BIR MAN-O-WAR BAY / A",
+              "voters": 2360
+            }
           ],
-          "COMMUNITY HALL BONANGOMBE / A": [
+          "CDC": [
             {
-              station: "BONANGOMBE",
-              voters: 99
-            },
+              "station": "CDC BIMBIA CAMP OFIICE / A",
+              "voters": 532
+            }
           ],
-          "COMMUNITY HALL DIKOLO BIMBIA / A": [
+          "BIMBIA": [
             {
-              station: "DIKOLO",
-              voters: 129
-            },
+              "station": "CDC BIMBIA CAMP OFIICE / A",
+              "voters": 517
+            }
           ],
-          "COUNCIL CHECK POINT / A": [
+          "CAMP/ESELE": [
             {
-              station: "MANGA",
-              voters: 1582
-            },
-            {
-              station: "HILL",
-              voters: 1582
-            },
+              "station": "CDC BIMBIA CAMP OFIICE / A",
+              "voters": 388
+            }
           ],
-          "CRTV TRANSMISSION CENTER / A": [
+          "NATIVE": [
             {
-              station: "CHOP",
-              voters: 54
-            },
-            {
-              station: "FARM",
-              voters: 54
-            },
+              "station": "CDC BIMBIA CAMP OFIICE / A",
+              "voters": 388
+            }
           ],
-          "GS KANGE / A": [
+          "MONDOLI": [
             {
-              station: "KANGE",
-              voters: 105
-            },
-            {
-              station: "FISHING",
-              voters: 330
-            },
-            {
-              station: "PORT",
-              voters: 330
-            },
+              "station": "CDC BIMBIA CAMP OFIICE / A",
+              "voters": 388
+            }
           ],
-          "GS MBOKO I / A": [
+          "MABETA": [
             {
-              station: "MBOKO",
-              voters: 52
-            },
-            {
-              station: "MBOMO",
-              voters: 52
-            },
+              "station": "CDC CLUB HALL MABETA / A",
+              "voters": 265
+            }
           ],
+          "CAMP": [
+            {
+              "station": "CDC CLUB HALL MABETA / A",
+              "voters": 144
+            }
+          ],
+          "BONABILE": [
+            {
+              "station": "COMMUNITY HALL BONABILE / A",
+              "voters": 77
+            }
+          ],
+          "VILLAGE": [
+            {
+              "station": "COMMUNITY HALL BONABILE / A",
+              "voters": 594
+            }
+          ],
+          "BONANGOMBE": [
+            {
+              "station": "COMMUNITY HALL BONANGOMBE / A",
+              "voters": 99
+            }
+          ],
+          "DIKOLO": [
+            {
+              "station": "COMMUNITY HALL DIKOLO BIMBIA / A",
+              "voters": 129
+            }
+          ],
+          "MANGA": [
+            {
+              "station": "COUNCIL CHECK POINT / A",
+              "voters": 1582
+            }
+          ],
+          "HILL": [
+            {
+              "station": "COUNCIL CHECK POINT / A",
+              "voters": 1582
+            }
+          ],
+          "CHOP": [
+            {
+              "station": "CRTV TRANSMISSION CENTER / A",
+              "voters": 54
+            }
+          ],
+          "FARM": [
+            {
+              "station": "CRTV TRANSMISSION CENTER / A",
+              "voters": 54
+            }
+          ],
+          "KANGE": [
+            {
+              "station": "GS KANGE / A",
+              "voters": 105
+            }
+          ],
+          "FISHING": [
+            {
+              "station": "GS KANGE / A",
+              "voters": 330
+            }
+          ],
+          "PORT": [
+            {
+              "station": "GS KANGE / A",
+              "voters": 330
+            }
+          ],
+          "MBOKO": [
+            {
+              "station": "GS MBOKO I / A",
+              "voters": 52
+            }
+          ],
+          "MBOMO": [
+            {
+              "station": "GS MBOKO I / A",
+              "voters": 52
+            }
+          ]
         },
         "MUYUKA": {
-          "AGRIC POST BAFIA / A": [
+          "BAFIA": [
             {
-              station: "BAFIA",
-              voters: 1089
-            },
+              "station": "AGRIC POST BAFIA / A",
+              "voters": 1089
+            }
           ],
-          "BAVENGA COMMUNITY HALL / A": [
+          "BAVENGA": [
             {
-              station: "BAVENGA",
-              voters: 19
-            },
+              "station": "BAVENGA COMMUNITY HALL / A",
+              "voters": 19
+            }
           ],
-          "CATHOLIC SCHOOL EKONA MBENGE / A": [
+          "MBENGE": [
             {
-              station: "MBENGE",
-              voters: 2644
-            },
+              "station": "CATHOLIC SCHOOL EKONA MBENGE / A",
+              "voters": 2644
+            }
           ],
-          "CATHOLIC SCHOOL MALENDE / A": [
+          "MALENDE": [
             {
-              station: "MALENDE",
-              voters: 990
-            },
+              "station": "CATHOLIC SCHOOL MALENDE / A",
+              "voters": 990
+            }
           ],
-          "CATHOLIC SCHOOL MAUTU / A": [
+          "MAUTU": [
             {
-              station: "MAUTU",
-              voters: 566
-            },
+              "station": "CATHOLIC SCHOOL MAUTU / A",
+              "voters": 566
+            }
           ],
-          "CDC CAMDEV I OFFICE / A": [
+          "CDC": [
             {
-              station: "CDC",
-              voters: 994
-            },
-            {
-              station: "CAMDEV",
-              voters: 621
-            },
+              "station": "CDC CAMDEV I OFFICE / A",
+              "voters": 994
+            }
           ],
-          "COURT HALL MUYUKA / A": [
+          "CAMDEV": [
             {
-              station: "MUYUKA",
-              voters: 6635
-            },
-            {
-              station: "BALONG",
-              voters: 3386
-            },
+              "station": "CDC CAMDEV I OFFICE / A",
+              "voters": 621
+            }
           ],
-          "EKONA LELU COMMUNITY HALL / A": [
+          "MUYUKA": [
             {
-              station: "EKONA",
-              voters: 3053
-            },
-            {
-              station: "LELU",
-              voters: 36
-            },
+              "station": "COURT HALL MUYUKA / A",
+              "voters": 6635
+            }
           ],
-          "ELDERS AND FIFFS / A": [
+          "BALONG": [
             {
-              station: "ELDERS",
-              voters: 31
-            },
-            {
-              station: "AND",
-              voters: 31
-            },
-            {
-              station: "FIFFS",
-              voters: 31
-            },
-            {
-              station: "VILLAGE",
-              voters: 6126
-            },
+              "station": "COURT HALL MUYUKA / A",
+              "voters": 3386
+            }
           ],
-          "GBHS MUYUKA / A": [
+          "EKONA": [
             {
-              station: "STRANGERS",
-              voters: 3249
-            },
-            {
-              station: "QUARTERS",
-              voters: 3249
-            },
+              "station": "EKONA LELU COMMUNITY HALL / A",
+              "voters": 3053
+            }
           ],
-          "GNS EKONA MBENGE / A": [
+          "LELU": [
             {
-              station: "YARD",
-              voters: 373
-            },
+              "station": "EKONA LELU COMMUNITY HALL / A",
+              "voters": 36
+            }
           ],
-          "IKATA COOP HALL / A": [
+          "ELDERS": [
             {
-              station: "IKATA",
-              voters: 729
-            },
+              "station": "ELDERS AND FIFFS / A",
+              "voters": 31
+            }
           ],
-          "LEOLA BUEA COMMUNITY / A": [
+          "AND": [
             {
-              station: "LEOLA",
-              voters: 13
-            },
-            {
-              station: "BUEA",
-              voters: 13
-            },
+              "station": "ELDERS AND FIFFS / A",
+              "voters": 31
+            }
           ],
-          "LILALE COOP HALL / A": [
+          "FIFFS": [
             {
-              station: "LILALE",
-              voters: 194
-            },
+              "station": "ELDERS AND FIFFS / A",
+              "voters": 31
+            }
           ],
-          "LYKOKO VILLAGE COMMUNITY HALL / A": [
+          "VILLAGE": [
             {
-              station: "LYKOKO",
-              voters: 591
-            },
+              "station": "ELDERS AND FIFFS / A",
+              "voters": 6126
+            }
           ],
-          "MASUMA COMMUNITY HALL / A": [
+          "STRANGERS": [
             {
-              station: "MASUMA",
-              voters: 16
-            },
+              "station": "GBHS MUYUKA / A",
+              "voters": 3249
+            }
           ],
-          "MBO QUARTER YOKE / A": [
+          "QUARTERS": [
             {
-              station: "YOKE",
-              voters: 3260
-            },
+              "station": "GBHS MUYUKA / A",
+              "voters": 3249
+            }
           ],
-          "MEANJA CAMP HALL / A": [
+          "YARD": [
             {
-              station: "MEANJA",
-              voters: 888
-            },
+              "station": "GNS EKONA MBENGE / A",
+              "voters": 373
+            }
           ],
-          "MILE 29 CAMP / A": [
+          "IKATA": [
             {
-              station: "MILE",
-              voters: 217
-            },
+              "station": "IKATA COOP HALL / A",
+              "voters": 729
+            }
           ],
-          "MPUNDU BALONG COM. HALL (NATIVE) / A": [
+          "LEOLA": [
             {
-              station: "MPUNDU",
-              voters: 668
-            },
+              "station": "LEOLA BUEA COMMUNITY / A",
+              "voters": 13
+            }
           ],
-          "MUNDAME CAMP OFFICE / A": [
+          "BUEA": [
             {
-              station: "MUNDAME",
-              voters: 95
-            },
+              "station": "LEOLA BUEA COMMUNITY / A",
+              "voters": 13
+            }
           ],
-          "MUYENGE CATHOLIC SCHOOL KCB / A": [
+          "LILALE": [
             {
-              station: "MUNYENGE",
-              voters: 1449
-            },
+              "station": "LILALE COOP HALL / A",
+              "voters": 194
+            }
           ],
-          "MUYENGE GS / A": [
+          "LYKOKO": [
             {
-              station: "MASONE",
-              voters: 609
-            },
+              "station": "LYKOKO VILLAGE COMMUNITY HALL / A",
+              "voters": 591
+            }
           ],
-          "OWE COMMUNITY HALL / A": [
+          "MASUMA": [
             {
-              station: "OWE",
-              voters: 967
-            },
+              "station": "MASUMA COMMUNITY HALL / A",
+              "voters": 16
+            }
           ],
-          "POWO CDC CAMP OFFICE / A": [
+          "YOKE": [
             {
-              station: "POWO",
-              voters: 14
-            },
-            {
-              station: "CAMP",
-              voters: 14
-            },
+              "station": "MBO QUARTER YOKE / A",
+              "voters": 3260
+            }
           ],
+          "MEANJA": [
+            {
+              "station": "MEANJA CAMP HALL / A",
+              "voters": 888
+            }
+          ],
+          "MILE": [
+            {
+              "station": "MILE 29 CAMP / A",
+              "voters": 217
+            }
+          ],
+          "MPUNDU": [
+            {
+              "station": "MPUNDU BALONG COM. HALL (NATIVE) / A",
+              "voters": 668
+            }
+          ],
+          "MUNDAME": [
+            {
+              "station": "MUNDAME CAMP OFFICE / A",
+              "voters": 95
+            }
+          ],
+          "MUNYENGE": [
+            {
+              "station": "MUYENGE CATHOLIC SCHOOL KCB / A",
+              "voters": 1449
+            }
+          ],
+          "MASONE": [
+            {
+              "station": "MUYENGE GS / A",
+              "voters": 609
+            }
+          ],
+          "OWE": [
+            {
+              "station": "OWE COMMUNITY HALL / A",
+              "voters": 967
+            }
+          ],
+          "POWO": [
+            {
+              "station": "POWO CDC CAMP OFFICE / A",
+              "voters": 14
+            }
+          ],
+          "CAMP": [
+            {
+              "station": "POWO CDC CAMP OFFICE / A",
+              "voters": 14
+            }
+          ]
         },
         "TIKO": {
-          "AIRPORT TIKO / A": [
+          "LIKOMBA": [
             {
-              station: "LIKOMBA",
-              voters: 8396
-            },
+              "station": "AIRPORT TIKO / A",
+              "voters": 8396
+            }
           ],
-          "BANANA EXPANSION OFFICE TIKO / A": [
+          "HOLFORTH": [
             {
-              station: "HOLFORTH",
-              voters: 1889
-            },
-            {
-              station: "LONG",
-              voters: 5999
-            },
+              "station": "BANANA EXPANSION OFFICE TIKO / A",
+              "voters": 1889
+            }
           ],
-          "BIG IKANGE CAMP OFFICE / A": [
+          "LONG": [
             {
-              station: "IKANGE",
-              voters: 199
-            },
-            {
-              station: "VILLAGE",
-              voters: 199
-            },
+              "station": "BANANA EXPANSION OFFICE TIKO / A",
+              "voters": 5999
+            }
           ],
-          "BSA / A": [
+          "IKANGE": [
             {
-              station: "TIKO",
-              voters: 1202
-            },
-            {
-              station: "BEACH",
-              voters: 1202
-            },
+              "station": "BIG IKANGE CAMP OFFICE / A",
+              "voters": 199
+            }
           ],
-          "BWINGA CAMP OFFICE / A": [
+          "VILLAGE": [
             {
-              station: "TONGO",
-              voters: 55
-            },
-            {
-              station: "NATIVE",
-              voters: 55
-            },
+              "station": "BIG IKANGE CAMP OFFICE / A",
+              "voters": 199
+            }
           ],
-          "CAMP 12 OFFICE / A": [
+          "TIKO": [
             {
-              station: "MONDONI",
-              voters: 637
-            },
+              "station": "BSA / A",
+              "voters": 1202
+            }
           ],
-          "CAMP 6 OFFICE / A": [
+          "BEACH": [
             {
-              station: "ESSOASSOA",
-              voters: 179
-            },
+              "station": "BSA / A",
+              "voters": 1202
+            }
           ],
-          "CBC SCHOOL MISAKA / A": [
+          "TONGO": [
             {
-              station: "MISAKA",
-              voters: 283
-            },
+              "station": "BWINGA CAMP OFFICE / A",
+              "voters": 55
+            }
           ],
-          "CIAP MUTENGENE / A": [
+          "NATIVE": [
             {
-              station: "MUTENGENE",
-              voters: 16708
-            },
+              "station": "BWINGA CAMP OFFICE / A",
+              "voters": 55
+            }
           ],
-          "COMMUNITY HEALTH CENTER BONASONE / A": [
+          "MONDONI": [
             {
-              station: "MONGO",
-              voters: 99
-            },
+              "station": "CAMP 12 OFFICE / A",
+              "voters": 637
+            }
           ],
-          "CUSTOMARY COURT HALL TIKO / A": [
+          "ESSOASSOA": [
             {
-              station: "JOHN",
-              voters: 937
-            },
-            {
-              station: "HOLT",
-              voters: 937
-            },
+              "station": "CAMP 6 OFFICE / A",
+              "voters": 179
+            }
           ],
-          "GOV'T HEALTH CENTER MOQUO CAMP / A": [
+          "MISAKA": [
             {
-              station: "MOQUO",
-              voters: 447
-            },
+              "station": "CBC SCHOOL MISAKA / A",
+              "voters": 283
+            }
           ],
-          "GOV'T NURSE. SCHOOL OMBE NEW LAYOUT /  A": [
+          "MUTENGENE": [
             {
-              station: "OMBE",
-              voters: 582
-            },
+              "station": "CIAP MUTENGENE / A",
+              "voters": 16708
+            }
           ],
-          "GOV'T SCHOOL MISSELLELE / A": [
+          "MONGO": [
             {
-              station: "MISSELLELE",
-              voters: 688
-            },
+              "station": "COMMUNITY HEALTH CENTER BONASONE / A",
+              "voters": 99
+            }
           ],
-          "GOV'T SCHOOL PUNGO CAMP / A": [
+          "JOHN": [
             {
-              station: "PUNGO",
-              voters: 179
-            },
+              "station": "CUSTOMARY COURT HALL TIKO / A",
+              "voters": 937
+            }
           ],
-          "GOV'T SEC. SCHOOL MOTOMBOLOMBO / A": [
+          "HOLT": [
             {
-              station: "MOTOMBOLOMBO",
-              voters: 1882
-            },
-            {
-              station: "AND",
-              voters: 2858
-            },
-            {
-              station: "NEW",
-              voters: 2858
-            },
-            {
-              station: "QUARTER",
-              voters: 2858
-            },
+              "station": "CUSTOMARY COURT HALL TIKO / A",
+              "voters": 937
+            }
           ],
-          "GOVERNMENT SCHOOL LIFONGO / A": [
+          "MOQUO": [
             {
-              station: "LIFONGO",
-              voters: 96
-            },
+              "station": "GOV'T HEALTH CENTER MOQUO CAMP / A",
+              "voters": 447
+            }
           ],
-          "GOVERNMENT SCHOOL NDONGO / A": [
+          "OMBE": [
             {
-              station: "NDONGO",
-              voters: 175
-            },
-            {
-              station: "CAMP",
-              voters: 175
-            },
-            {
-              station: "GOLF",
-              voters: 175
-            },
-            {
-              station: "QTR",
-              voters: 175
-            },
+              "station": "GOV'T NURSE. SCHOOL OMBE NEW LAYOUT /  A",
+              "voters": 582
+            }
           ],
-          "GOVERNMENT SCHOOL TIKO TOWN / A": [
+          "MISSELLELE": [
             {
-              station: "BOMA",
-              voters: 2501
-            },
-            {
-              station: "STREET",
-              voters: 8500
-            },
-            {
-              station: "MUDEKA",
-              voters: 1271
-            },
+              "station": "GOV'T SCHOOL MISSELLELE / A",
+              "voters": 688
+            }
           ],
-          "KEME CAMP OFFICE / A": [
+          "PUNGO": [
             {
-              station: "KEME",
-              voters: 59
-            },
+              "station": "GOV'T SCHOOL PUNGO CAMP / A",
+              "voters": 179
+            }
           ],
-          "KOKE CAMP OFFICE / A": [
+          "MOTOMBOLOMBO": [
             {
-              station: "KOKE",
-              voters: 101
-            },
+              "station": "GOV'T SEC. SCHOOL MOTOMBOLOMBO / A",
+              "voters": 1882
+            }
           ],
-          "MARTE CAMP OFFICE / A": [
+          "AND": [
             {
-              station: "MARTE",
-              voters: 235
-            },
+              "station": "GOV'T SEC. SCHOOL MOTOMBOLOMBO / A",
+              "voters": 2858
+            }
           ],
-          "NEW BONAKO FORESTRY POST / A": [
+          "NEW": [
             {
-              station: "BONAKO",
-              voters: 456
-            },
+              "station": "GOV'T SEC. SCHOOL MOTOMBOLOMBO / A",
+              "voters": 2858
+            }
           ],
-          "NGOMBE I KOMBOS / A": [
+          "QUARTER": [
             {
-              station: "KOMBOS",
-              voters: 22
-            },
+              "station": "GOV'T SEC. SCHOOL MOTOMBOLOMBO / A",
+              "voters": 2858
+            }
           ],
-          "PUNGO MATUTE CAMP OFFICE / A": [
+          "LIFONGO": [
             {
-              station: "MATUTE",
-              voters: 51
-            },
+              "station": "GOVERNMENT SCHOOL LIFONGO / A",
+              "voters": 96
+            }
           ],
-          "SONNE CAMP OFFICE / A": [
+          "NDONGO": [
             {
-              station: "SONNE",
-              voters: 115
-            },
+              "station": "GOVERNMENT SCHOOL NDONGO / A",
+              "voters": 175
+            }
           ],
-          "TIKO RURAL COUNCIL CHECK POINT I / A": [
+          "CAMP": [
             {
-              station: "KONGWE",
-              voters: 41
-            },
+              "station": "GOVERNMENT SCHOOL NDONGO / A",
+              "voters": 175
+            }
           ],
-        },
+          "GOLF": [
+            {
+              "station": "GOVERNMENT SCHOOL NDONGO / A",
+              "voters": 175
+            }
+          ],
+          "QTR": [
+            {
+              "station": "GOVERNMENT SCHOOL NDONGO / A",
+              "voters": 175
+            }
+          ],
+          "BOMA": [
+            {
+              "station": "GOVERNMENT SCHOOL TIKO TOWN / A",
+              "voters": 2501
+            }
+          ],
+          "STREET": [
+            {
+              "station": "GOVERNMENT SCHOOL TIKO TOWN / A",
+              "voters": 8500
+            }
+          ],
+          "MUDEKA": [
+            {
+              "station": "GOVERNMENT SCHOOL TIKO TOWN / A",
+              "voters": 1271
+            }
+          ],
+          "KEME": [
+            {
+              "station": "KEME CAMP OFFICE / A",
+              "voters": 59
+            }
+          ],
+          "KOKE": [
+            {
+              "station": "KOKE CAMP OFFICE / A",
+              "voters": 101
+            }
+          ],
+          "MARTE": [
+            {
+              "station": "MARTE CAMP OFFICE / A",
+              "voters": 235
+            }
+          ],
+          "BONAKO": [
+            {
+              "station": "NEW BONAKO FORESTRY POST / A",
+              "voters": 456
+            }
+          ],
+          "KOMBOS": [
+            {
+              "station": "NGOMBE I KOMBOS / A",
+              "voters": 22
+            }
+          ],
+          "MATUTE": [
+            {
+              "station": "PUNGO MATUTE CAMP OFFICE / A",
+              "voters": 51
+            }
+          ],
+          "SONNE": [
+            {
+              "station": "SONNE CAMP OFFICE / A",
+              "voters": 115
+            }
+          ],
+          "KONGWE": [
+            {
+              "station": "TIKO RURAL COUNCIL CHECK POINT I / A",
+              "voters": 41
+            }
+          ]
+        }
       },
       "NDIAN": {
         "DIKOME-BALUE": {
-          "CATHOLIC MISSION / A": [
+          "ITENDE": [
             {
-              station: "ITENDE",
-              voters: 248
-            },
+              "station": "CATHOLIC MISSION / A",
+              "voters": 248
+            }
           ],
-          "G S BETENGE BALUE / A": [
+          "BETENGE": [
             {
-              station: "BETENGE",
-              voters: 550
-            },
+              "station": "G S BETENGE BALUE / A",
+              "voters": 550
+            }
           ],
-          "G S BONJI BALUE / A": [
+          "BONJI": [
             {
-              station: "BONJI",
-              voters: 245
-            },
+              "station": "G S BONJI BALUE / A",
+              "voters": 245
+            }
           ],
-          "G S DIBOKI BALUE / A": [
+          "DIBOKI": [
             {
-              station: "DIBOKI",
-              voters: 73
-            },
+              "station": "G S DIBOKI BALUE / A",
+              "voters": 73
+            }
           ],
-          "G S DIFENDA BALUE / A": [
+          "DIFENDA": [
             {
-              station: "DIFENDA",
-              voters: 456
-            },
+              "station": "G S DIFENDA BALUE / A",
+              "voters": 456
+            }
           ],
-          "G S DIKOME BALUE / A": [
+          "DIKOME": [
             {
-              station: "DIKOME",
-              voters: 1312
-            },
-            {
-              station: "BALUE",
-              voters: 4393
-            },
+              "station": "G S DIKOME BALUE / A",
+              "voters": 1312
+            }
           ],
-          "G S MBOMBE BALUE / A": [
+          "BALUE": [
             {
-              station: "MBOMBE",
-              voters: 40
-            },
+              "station": "G S DIKOME BALUE / A",
+              "voters": 4393
+            }
           ],
-          "G S MEKOMA BALUE / A": [
+          "MBOMBE": [
             {
-              station: "MEKOMA",
-              voters: 141
-            },
+              "station": "G S MBOMBE BALUE / A",
+              "voters": 40
+            }
           ],
-          "G S MOFAKO BALUE / A": [
+          "MEKOMA": [
             {
-              station: "MOFAKO",
-              voters: 366
-            },
+              "station": "G S MEKOMA BALUE / A",
+              "voters": 141
+            }
           ],
-          "G S WEME BALUE / A": [
+          "MOFAKO": [
             {
-              station: "BONA",
-              voters: 192
-            },
-            {
-              station: "BOSUNGA",
-              voters: 192
-            },
-            {
-              station: "WEME",
-              voters: 192
-            },
+              "station": "G S MOFAKO BALUE / A",
+              "voters": 366
+            }
           ],
-          "G T C EBOBE BALUE / A": [
+          "BONA": [
             {
-              station: "EBOBE",
-              voters: 148
-            },
+              "station": "G S WEME BALUE / A",
+              "voters": 192
+            }
           ],
-          "NDONONO COM.HALL / A": [
+          "BOSUNGA": [
             {
-              station: "NDONONO",
-              voters: 238
-            },
+              "station": "G S WEME BALUE / A",
+              "voters": 192
+            }
           ],
+          "WEME": [
+            {
+              "station": "G S WEME BALUE / A",
+              "voters": 192
+            }
+          ],
+          "EBOBE": [
+            {
+              "station": "G T C EBOBE BALUE / A",
+              "voters": 148
+            }
+          ],
+          "NDONONO": [
+            {
+              "station": "NDONONO COM.HALL / A",
+              "voters": 238
+            }
+          ]
         },
         "EKONDO-TITI": {
-          "ARMY CAMP / A": [
+          "TITI": [
             {
-              station: "TITI",
-              voters: 5467
-            },
-            {
-              station: "MARINE",
-              voters: 373
-            },
-            {
-              station: "BATTALION",
-              voters: 373
-            },
+              "station": "ARMY CAMP / A",
+              "voters": 5467
+            }
           ],
-          "BAFAKA COM. HALL / A": [
+          "MARINE": [
             {
-              station: "BAFAKA",
-              voters: 595
-            },
-            {
-              station: "BALUE",
-              voters: 2877
-            },
+              "station": "ARMY CAMP / A",
+              "voters": 373
+            }
           ],
-          "BERENGE COM. HALL / A": [
+          "BATTALION": [
             {
-              station: "BERENGE",
-              voters: 53
-            },
+              "station": "ARMY CAMP / A",
+              "voters": 373
+            }
           ],
-          "BEYANGA CDC OFFICE / A": [
+          "BAFAKA": [
             {
-              station: "CDC",
-              voters: 21
-            },
-            {
-              station: "BEYANGA",
-              voters: 21
-            },
+              "station": "BAFAKA COM. HALL / A",
+              "voters": 595
+            }
           ],
-          "BISORO HEALTH CENTRE / A": [
+          "BALUE": [
             {
-              station: "BISORO",
-              voters: 209
-            },
+              "station": "BAFAKA COM. HALL / A",
+              "voters": 2877
+            }
           ],
-          "BONGONGO I COM. HALL / A": [
+          "BERENGE": [
             {
-              station: "BONGONGO",
-              voters: 833
-            },
+              "station": "BERENGE COM. HALL / A",
+              "voters": 53
+            }
           ],
-          "CS EKONDO TITI / A": [
+          "CDC": [
             {
-              station: "WARD",
-              voters: 6617
-            },
+              "station": "BEYANGA CDC OFFICE / A",
+              "voters": 21
+            }
           ],
-          "EKWE COM. HALL / A": [
+          "BEYANGA": [
             {
-              station: "EKWE",
-              voters: 376
-            },
+              "station": "BEYANGA CDC OFFICE / A",
+              "voters": 21
+            }
           ],
-          "GHS BEKORA BAROMBI / A": [
+          "BISORO": [
             {
-              station: "BEKORA",
-              voters: 1456
-            },
-            {
-              station: "BAROMBI",
-              voters: 2658
-            },
+              "station": "BISORO HEALTH CENTRE / A",
+              "voters": 209
+            }
           ],
-          "GS BEKATAKO BALUE / A": [
+          "BONGONGO": [
             {
-              station: "BEKATAKO",
-              voters: 128
-            },
+              "station": "BONGONGO I COM. HALL / A",
+              "voters": 833
+            }
           ],
-          "GS DIBONDA BALONDO / A": [
+          "WARD": [
             {
-              station: "DIBONDA",
-              voters: 47
-            },
-            {
-              station: "BALONDO",
-              voters: 1004
-            },
+              "station": "CS EKONDO TITI / A",
+              "voters": 6617
+            }
           ],
-          "GS DORA BAROMBI / A": [
+          "EKWE": [
             {
-              station: "DORA",
-              voters: 86
-            },
+              "station": "EKWE COM. HALL / A",
+              "voters": 376
+            }
           ],
-          "GS EKONDO TITI BEACH / A": [
+          "BEKORA": [
             {
-              station: "BLACK",
-              voters: 30
-            },
-            {
-              station: "BUSH",
-              voters: 30
-            },
-            {
-              station: "AND",
-              voters: 280
-            },
-            {
-              station: "FISHING",
-              voters: 30
-            },
-            {
-              station: "PORTS",
-              voters: 30
-            },
-            {
-              station: "(BEACH)",
-              voters: 30
-            },
+              "station": "GHS BEKORA BAROMBI / A",
+              "voters": 1456
+            }
           ],
-          "GS FUNGE BALONDO / A": [
+          "BAROMBI": [
             {
-              station: "FUNGE",
-              voters: 103
-            },
-            {
-              station: "KUMBE",
-              voters: 538
-            },
+              "station": "GHS BEKORA BAROMBI / A",
+              "voters": 2658
+            }
           ],
-          "GS ILIBANYANGA BALUE / A": [
+          "BEKATAKO": [
             {
-              station: "ILIBANYANGE",
-              voters: 96
-            },
+              "station": "GS BEKATAKO BALUE / A",
+              "voters": 128
+            }
           ],
-          "GS ILLOR BALONDO / A": [
+          "DIBONDA": [
             {
-              station: "ILLOR",
-              voters: 125
-            },
+              "station": "GS DIBONDA BALONDO / A",
+              "voters": 47
+            }
           ],
-          "GS KOTTO BALUE / A": [
+          "BALONDO": [
             {
-              station: "KOTTO",
-              voters: 94
-            },
+              "station": "GS DIBONDA BALONDO / A",
+              "voters": 1004
+            }
           ],
-          "GS LIPENJA BAROMBI / A": [
+          "DORA": [
             {
-              station: "LIPENJA/NWENGI",
-              voters: 144
-            },
+              "station": "GS DORA BAROMBI / A",
+              "voters": 86
+            }
           ],
-          "GS LOBE ESTATE GROUP III / A": [
+          "BLACK": [
             {
-              station: "ESTATE",
-              voters: 797
-            },
-            {
-              station: "CAMPS",
-              voters: 797
-            },
+              "station": "GS EKONDO TITI BEACH / A",
+              "voters": 30
+            }
           ],
-          "GS LOE BALONDO / A": [
+          "BUSH": [
             {
-              station: "LOE",
-              voters: 89
-            },
+              "station": "GS EKONDO TITI BEACH / A",
+              "voters": 30
+            }
           ],
-          "GS MASORE BALUE / A": [
+          "AND": [
             {
-              station: "MASORE",
-              voters: 130
-            },
+              "station": "GS EKONDO TITI BEACH / A",
+              "voters": 280
+            }
           ],
-          "GS MOKONO BAROMBI / A": [
+          "FISHING": [
             {
-              station: "MOKONO",
-              voters: 139
-            },
+              "station": "GS EKONDO TITI BEACH / A",
+              "voters": 30
+            }
           ],
-          "GS MONYANGE BALUE / A": [
+          "PORTS": [
             {
-              station: "MONYANGE",
-              voters: 24
-            },
+              "station": "GS EKONDO TITI BEACH / A",
+              "voters": 30
+            }
           ],
-          "GS NALENDE BALUE / A": [
+          "(BEACH)": [
             {
-              station: "NALENDE",
-              voters: 93
-            },
+              "station": "GS EKONDO TITI BEACH / A",
+              "voters": 30
+            }
           ],
-          "GS NGOLO METOKO BALUE / A": [
+          "FUNGE": [
             {
-              station: "NGOLO",
-              voters: 202
-            },
-            {
-              station: "METOKO",
-              voters: 202
-            },
+              "station": "GS FUNGE BALONDO / A",
+              "voters": 103
+            }
           ],
-          "GS PONDO BALUE / A": [
+          "KUMBE": [
             {
-              station: "PONDO",
-              voters: 208
-            },
+              "station": "GS FUNGE BALONDO / A",
+              "voters": 538
+            }
           ],
-          "GSS KITTA BALUE / A": [
+          "ILIBANYANGE": [
             {
-              station: "KITTA",
-              voters: 202
-            },
+              "station": "GS ILIBANYANGA BALUE / A",
+              "voters": 96
+            }
           ],
-          "LIPENJA CLUB / A": [
+          "ILLOR": [
             {
-              station: "LIPENJA",
-              voters: 334
-            },
+              "station": "GS ILLOR BALONDO / A",
+              "voters": 125
+            }
           ],
-          "LOBE BALONDO COM. HALL / A": [
+          "KOTTO": [
             {
-              station: "LOBE",
-              voters: 1482
-            },
+              "station": "GS KOTTO BALUE / A",
+              "voters": 94
+            }
           ],
-          "MANAGEMENT CLUB LOBE / A": [
+          "LIPENJA/NWENGI": [
             {
-              station: "MGT-SUP",
-              voters: 68
-            },
-            {
-              station: "STAFF",
-              voters: 68
-            },
-            {
-              station: "QTRS",
-              voters: 68
-            },
+              "station": "GS LIPENJA BAROMBI / A",
+              "voters": 144
+            }
           ],
-          "NJIMA COM.HALL / A": [
+          "ESTATE": [
             {
-              station: "NJIMA",
-              voters: 29
-            },
+              "station": "GS LOBE ESTATE GROUP III / A",
+              "voters": 797
+            }
           ],
-          "PAMOL EKONDO NENE OFFICE / A": [
+          "CAMPS": [
             {
-              station: "PAMOL",
-              voters: 401
-            },
-            {
-              station: "EKONDO",
-              voters: 5589
-            },
-            {
-              station: "NENE",
-              voters: 122
-            },
+              "station": "GS LOBE ESTATE GROUP III / A",
+              "voters": 797
+            }
           ],
-          "RESEARCH OFFICE LOBE / A": [
+          "LOE": [
             {
-              station: "CAMP",
-              voters: 132
-            },
-            {
-              station: "JUNGLE",
-              voters: 132
-            },
-            {
-              station: "VILLAGE",
-              voters: 132
-            },
+              "station": "GS LOE BALONDO / A",
+              "voters": 89
+            }
           ],
+          "MASORE": [
+            {
+              "station": "GS MASORE BALUE / A",
+              "voters": 130
+            }
+          ],
+          "MOKONO": [
+            {
+              "station": "GS MOKONO BAROMBI / A",
+              "voters": 139
+            }
+          ],
+          "MONYANGE": [
+            {
+              "station": "GS MONYANGE BALUE / A",
+              "voters": 24
+            }
+          ],
+          "NALENDE": [
+            {
+              "station": "GS NALENDE BALUE / A",
+              "voters": 93
+            }
+          ],
+          "NGOLO": [
+            {
+              "station": "GS NGOLO METOKO BALUE / A",
+              "voters": 202
+            }
+          ],
+          "METOKO": [
+            {
+              "station": "GS NGOLO METOKO BALUE / A",
+              "voters": 202
+            }
+          ],
+          "PONDO": [
+            {
+              "station": "GS PONDO BALUE / A",
+              "voters": 208
+            }
+          ],
+          "KITTA": [
+            {
+              "station": "GSS KITTA BALUE / A",
+              "voters": 202
+            }
+          ],
+          "LIPENJA": [
+            {
+              "station": "LIPENJA CLUB / A",
+              "voters": 334
+            }
+          ],
+          "LOBE": [
+            {
+              "station": "LOBE BALONDO COM. HALL / A",
+              "voters": 1482
+            }
+          ],
+          "MGT-SUP": [
+            {
+              "station": "MANAGEMENT CLUB LOBE / A",
+              "voters": 68
+            }
+          ],
+          "STAFF": [
+            {
+              "station": "MANAGEMENT CLUB LOBE / A",
+              "voters": 68
+            }
+          ],
+          "QTRS": [
+            {
+              "station": "MANAGEMENT CLUB LOBE / A",
+              "voters": 68
+            }
+          ],
+          "NJIMA": [
+            {
+              "station": "NJIMA COM.HALL / A",
+              "voters": 29
+            }
+          ],
+          "PAMOL": [
+            {
+              "station": "PAMOL EKONDO NENE OFFICE / A",
+              "voters": 401
+            }
+          ],
+          "EKONDO": [
+            {
+              "station": "PAMOL EKONDO NENE OFFICE / A",
+              "voters": 5589
+            }
+          ],
+          "NENE": [
+            {
+              "station": "PAMOL EKONDO NENE OFFICE / A",
+              "voters": 122
+            }
+          ],
+          "CAMP": [
+            {
+              "station": "RESEARCH OFFICE LOBE / A",
+              "voters": 132
+            }
+          ],
+          "JUNGLE": [
+            {
+              "station": "RESEARCH OFFICE LOBE / A",
+              "voters": 132
+            }
+          ],
+          "VILLAGE": [
+            {
+              "station": "RESEARCH OFFICE LOBE / A",
+              "voters": 132
+            }
+          ]
         },
         "IDABATO": {
-          "DELTA BIR CAMP / A": [
+          "DELTA": [
             {
-              station: "DELTA",
-              voters: 538
-            },
-            {
-              station: "BIR",
-              voters: 538
-            },
-            {
-              station: "JABANE",
-              voters: 1614
-            },
+              "station": "DELTA BIR CAMP / A",
+              "voters": 538
+            }
           ],
-          "GPS IDABATO 2B / A": [
+          "BIR": [
             {
-              station: "DIAMOND",
-              voters: 1460
-            },
-            {
-              station: "EDEN",
-              voters: 730
-            },
-            {
-              station: "ABASI",
-              voters: 730
-            },
-            {
-              station: "EKEYA",
-              voters: 730
-            },
-            {
-              station: "GIDIGIDI",
-              voters: 730
-            },
-            {
-              station: "IDABATO",
-              voters: 730
-            },
-            {
-              station: "KOMBO",
-              voters: 1390
-            },
-            {
-              station: "AMUNJA",
-              voters: 1390
-            },
-            {
-              station: "NKOBODI",
-              voters: 730
-            },
+              "station": "DELTA BIR CAMP / A",
+              "voters": 538
+            }
           ],
-          "GPS KOMBO AMUNJA 1 / A": [
+          "JABANE": [
             {
-              station: "PASTOR",
-              voters: 220
-            },
-            {
-              station: "VILLAGE",
-              voters: 220
-            },
-            {
-              station: "SHELL",
-              voters: 660
-            },
-            {
-              station: "CREEK",
-              voters: 660
-            },
+              "station": "DELTA BIR CAMP / A",
+              "voters": 1614
+            }
           ],
-          "HEALTH CENTER NDO LOCATION / A": [
+          "DIAMOND": [
             {
-              station: "NAWUMSI",
-              voters: 165
-            },
-            {
-              station: "NDO",
-              voters: 55
-            },
-            {
-              station: "LOCATION",
-              voters: 55
-            },
+              "station": "GPS IDABATO 2B / A",
+              "voters": 1460
+            }
           ],
+          "EDEN": [
+            {
+              "station": "GPS IDABATO 2B / A",
+              "voters": 730
+            }
+          ],
+          "ABASI": [
+            {
+              "station": "GPS IDABATO 2B / A",
+              "voters": 730
+            }
+          ],
+          "EKEYA": [
+            {
+              "station": "GPS IDABATO 2B / A",
+              "voters": 730
+            }
+          ],
+          "GIDIGIDI": [
+            {
+              "station": "GPS IDABATO 2B / A",
+              "voters": 730
+            }
+          ],
+          "IDABATO": [
+            {
+              "station": "GPS IDABATO 2B / A",
+              "voters": 730
+            }
+          ],
+          "KOMBO": [
+            {
+              "station": "GPS IDABATO 2B / A",
+              "voters": 1390
+            }
+          ],
+          "AMUNJA": [
+            {
+              "station": "GPS IDABATO 2B / A",
+              "voters": 1390
+            }
+          ],
+          "NKOBODI": [
+            {
+              "station": "GPS IDABATO 2B / A",
+              "voters": 730
+            }
+          ],
+          "PASTOR": [
+            {
+              "station": "GPS KOMBO AMUNJA 1 / A",
+              "voters": 220
+            }
+          ],
+          "VILLAGE": [
+            {
+              "station": "GPS KOMBO AMUNJA 1 / A",
+              "voters": 220
+            }
+          ],
+          "SHELL": [
+            {
+              "station": "GPS KOMBO AMUNJA 1 / A",
+              "voters": 660
+            }
+          ],
+          "CREEK": [
+            {
+              "station": "GPS KOMBO AMUNJA 1 / A",
+              "voters": 660
+            }
+          ],
+          "NAWUMSI": [
+            {
+              "station": "HEALTH CENTER NDO LOCATION / A",
+              "voters": 165
+            }
+          ],
+          "NDO": [
+            {
+              "station": "HEALTH CENTER NDO LOCATION / A",
+              "voters": 55
+            }
+          ],
+          "LOCATION": [
+            {
+              "station": "HEALTH CENTER NDO LOCATION / A",
+              "voters": 55
+            }
+          ]
         },
         "ISANGUELE": {
-          "COUNCIL CHAMBERS / A": [
+          "ORON": [
             {
-              station: "ORON",
-              voters: 323
-            },
+              "station": "COUNCIL CHAMBERS / A",
+              "voters": 323
+            }
           ],
-          "G.P.S BATEKA / A": [
+          "IDIBANYANGHA": [
             {
-              station: "IDIBANYANGHA",
-              voters: 447
-            },
+              "station": "G.P.S BATEKA / A",
+              "voters": 447
+            }
           ],
-          "G.S MASSAKA / A": [
+          "MASSAKA": [
             {
-              station: "MASSAKA",
-              voters: 138
-            },
+              "station": "G.S MASSAKA / A",
+              "voters": 138
+            }
           ],
-          "GENDARMERIE BRIGADE / A": [
+          "BATEKA": [
             {
-              station: "BATEKA",
-              voters: 780
-            },
+              "station": "GENDARMERIE BRIGADE / A",
+              "voters": 780
+            }
           ],
-          "GVMT. SCHOOL IDIBANYANGA / A": [
+          "IDIBANYANGA": [
             {
-              station: "IDIBANYANGA",
-              voters: 102
-            },
-            {
-              station: "ITANYAYANG",
-              voters: 102
-            },
-            {
-              station: "PAMOL",
-              voters: 102
-            },
-            {
-              station: "CAMP",
-              voters: 102
-            },
+              "station": "GVMT. SCHOOL IDIBANYANGA / A",
+              "voters": 102
+            }
           ],
-          "MILITARY POST RIO-DEL-REY / A": [
+          "ITANYAYANG": [
             {
-              station: "BON-BON",
-              voters: 47
-            },
-            {
-              station: "RIO-DEL",
-              voters: 29
-            },
-            {
-              station: "-REY",
-              voters: 29
-            },
+              "station": "GVMT. SCHOOL IDIBANYANGA / A",
+              "voters": 102
+            }
           ],
-          "TOWN HALL AMOTO / A": [
+          "PAMOL": [
             {
-              station: "AMOTO",
-              voters: 746
-            },
-            {
-              station: "BUSH",
-              voters: 373
-            },
-            {
-              station: "DIBONDORIKPA",
-              voters: 373
-            },
-            {
-              station: "EKUMAMINDO",
-              voters: 373
-            },
-            {
-              station: "ISO-OBO",
-              voters: 639
-            },
-            {
-              station: "ITANYANYANG",
-              voters: 373
-            },
+              "station": "GVMT. SCHOOL IDIBANYANGA / A",
+              "voters": 102
+            }
           ],
+          "CAMP": [
+            {
+              "station": "GVMT. SCHOOL IDIBANYANGA / A",
+              "voters": 102
+            }
+          ],
+          "BON-BON": [
+            {
+              "station": "MILITARY POST RIO-DEL-REY / A",
+              "voters": 47
+            }
+          ],
+          "RIO-DEL": [
+            {
+              "station": "MILITARY POST RIO-DEL-REY / A",
+              "voters": 29
+            }
+          ],
+          "-REY": [
+            {
+              "station": "MILITARY POST RIO-DEL-REY / A",
+              "voters": 29
+            }
+          ],
+          "AMOTO": [
+            {
+              "station": "TOWN HALL AMOTO / A",
+              "voters": 746
+            }
+          ],
+          "BUSH": [
+            {
+              "station": "TOWN HALL AMOTO / A",
+              "voters": 373
+            }
+          ],
+          "DIBONDORIKPA": [
+            {
+              "station": "TOWN HALL AMOTO / A",
+              "voters": 373
+            }
+          ],
+          "EKUMAMINDO": [
+            {
+              "station": "TOWN HALL AMOTO / A",
+              "voters": 373
+            }
+          ],
+          "ISO-OBO": [
+            {
+              "station": "TOWN HALL AMOTO / A",
+              "voters": 639
+            }
+          ],
+          "ITANYANYANG": [
+            {
+              "station": "TOWN HALL AMOTO / A",
+              "voters": 373
+            }
+          ]
         },
         "KOMBO-ABEDIMO": {
-          "GS AKWA / A": [
+          "AKWA": [
             {
-              station: "AKWA",
-              voters: 467
-            },
+              "station": "GS AKWA / A",
+              "voters": 467
+            }
           ],
-          "GS MBENMONG / A": [
+          "MBENMONG": [
             {
-              station: "MBENMONG",
-              voters: 59
-            },
+              "station": "GS MBENMONG / A",
+              "voters": 59
+            }
           ],
-          "KOMBO ABEDIMO MILITARY BARRACKS / A": [
+          "KOMBO": [
             {
-              station: "KOMBO",
-              voters: 237
-            },
-            {
-              station: "ABEDIMO",
-              voters: 237
-            },
-            {
-              station: "FISHING",
-              voters: 237
-            },
-            {
-              station: "PORT",
-              voters: 237
-            },
+              "station": "KOMBO ABEDIMO MILITARY BARRACKS / A",
+              "voters": 237
+            }
           ],
+          "ABEDIMO": [
+            {
+              "station": "KOMBO ABEDIMO MILITARY BARRACKS / A",
+              "voters": 237
+            }
+          ],
+          "FISHING": [
+            {
+              "station": "KOMBO ABEDIMO MILITARY BARRACKS / A",
+              "voters": 237
+            }
+          ],
+          "PORT": [
+            {
+              "station": "KOMBO ABEDIMO MILITARY BARRACKS / A",
+              "voters": 237
+            }
+          ]
         },
         "KOMBO-ITINDI": {
-          "G.S. BARRACKS / A": [
+          "BARRACKS": [
             {
-              station: "BARRACKS",
-              voters: 459
-            },
+              "station": "G.S. BARRACKS / A",
+              "voters": 459
+            }
           ],
-          "G.S. NGOSSO / A": [
+          "NGOSSO": [
             {
-              station: "NGOSSO",
-              voters: 619
-            },
+              "station": "G.S. NGOSSO / A",
+              "voters": 619
+            }
           ],
-          "MILITARY POST / A": [
+          "GOC": [
             {
-              station: "GOC",
-              voters: 283
-            },
-          ],
-        },
+              "station": "MILITARY POST / A",
+              "voters": 283
+            }
+          ]
+        }
       },
       "MANYU": {
         "MAMFE": {
-          "BALI MEETING HALL / A": [
+          "BANSO": [
             {
-              station: "BANSO",
-              voters: 225
-            },
-            {
-              station: "QUARTER",
-              voters: 225
-            },
+              "station": "BALI MEETING HALL / A",
+              "voters": 225
+            }
           ],
-          "CATHOLIC MISSION HALL / A": [
+          "QUARTER": [
             {
-              station: "NEWLAYOUT",
-              voters: 576
-            },
+              "station": "BALI MEETING HALL / A",
+              "voters": 225
+            }
           ],
-          "COMMUNITY DEVELOPMENT OFFICE / A": [
+          "NEWLAYOUT": [
             {
-              station: "JOHN",
-              voters: 205
-            },
-            {
-              station: "HOLT",
-              voters: 205
-            },
+              "station": "CATHOLIC MISSION HALL / A",
+              "voters": 576
+            }
           ],
-          "COMMUNITY HALL TETOCKONOCK / A": [
+          "JOHN": [
             {
-              station: "BESONGABANG",
-              voters: 860
-            },
+              "station": "COMMUNITY DEVELOPMENT OFFICE / A",
+              "voters": 205
+            }
           ],
-          "CREDIT UNION HALL / A": [
+          "HOLT": [
             {
-              station: "OKOYONG",
-              voters: 809
-            },
+              "station": "COMMUNITY DEVELOPMENT OFFICE / A",
+              "voters": 205
+            }
           ],
-          "G.S BACHUO NTAI I / A": [
+          "BESONGABANG": [
             {
-              station: "BACHUO",
-              voters: 1044
-            },
-            {
-              station: "NTAI",
-              voters: 1044
-            },
+              "station": "COMMUNITY HALL TETOCKONOCK / A",
+              "voters": 860
+            }
           ],
-          "G.S BANYA / A": [
+          "OKOYONG": [
             {
-              station: "BANYA",
-              voters: 816
-            },
-            {
-              station: "MAMFE",
-              voters: 5059
-            },
-            {
-              station: "URBAN",
-              voters: 5059
-            },
+              "station": "CREDIT UNION HALL / A",
+              "voters": 809
+            }
           ],
-          "G.S ESHOBI / A": [
+          "BACHUO": [
             {
-              station: "ESHOBI",
-              voters: 286
-            },
+              "station": "G.S BACHUO NTAI I / A",
+              "voters": 1044
+            }
           ],
-          "G.S ESHOBI GROUP II BERORE / A": [
+          "NTAI": [
             {
-              station: "BERORE",
-              voters: 250
-            },
+              "station": "G.S BACHUO NTAI I / A",
+              "voters": 1044
+            }
           ],
-          "G.S EYANCHANG/ETEMETEK / A": [
+          "BANYA": [
             {
-              station: "ETEMETEK",
-              voters: 84
-            },
+              "station": "G.S BANYA / A",
+              "voters": 816
+            }
           ],
-          "G.S.S BACHUO NTAI I / A": [
+          "MAMFE": [
             {
-              station: "NCHANG",
-              voters: 928
-            },
+              "station": "G.S BANYA / A",
+              "voters": 5059
+            }
           ],
-          "GPS EGBEKAW / A": [
+          "URBAN": [
             {
-              station: "EGBEKAW",
-              voters: 950
-            },
+              "station": "G.S BANYA / A",
+              "voters": 5059
+            }
           ],
-          "GVMT. SCHOOL BOMBE / A": [
+          "ESHOBI": [
             {
-              station: "BOMBE",
-              voters: 67
-            },
+              "station": "G.S ESHOBI / A",
+              "voters": 286
+            }
           ],
-          "OPERATION AKWAYA CHURCH / A": [
+          "BERORE": [
             {
-              station: "BEJA",
-              voters: 28
-            },
+              "station": "G.S ESHOBI GROUP II BERORE / A",
+              "voters": 250
+            }
           ],
-          "VILLAGE HALL EYANCHANG / A": [
+          "ETEMETEK": [
             {
-              station: "EYANCHANG",
-              voters: 277
-            },
+              "station": "G.S EYANCHANG/ETEMETEK / A",
+              "voters": 84
+            }
           ],
-          "VILLAGE HALL EYANGNTUI / A": [
+          "NCHANG": [
             {
-              station: "EYANGNTUI",
-              voters: 209
-            },
+              "station": "G.S.S BACHUO NTAI I / A",
+              "voters": 928
+            }
           ],
-          "VILLAGE HALL NFAITOCK II / A": [
+          "EGBEKAW": [
             {
-              station: "NFAITOCK",
-              voters: 156
-            },
+              "station": "GPS EGBEKAW / A",
+              "voters": 950
+            }
           ],
-          "WOMEN CENTRE / A": [
+          "BOMBE": [
             {
-              station: "HAUSA",
-              voters: 726
-            },
-            {
-              station: "QUARTERS",
-              voters: 726
-            },
+              "station": "GVMT. SCHOOL BOMBE / A",
+              "voters": 67
+            }
           ],
+          "BEJA": [
+            {
+              "station": "OPERATION AKWAYA CHURCH / A",
+              "voters": 28
+            }
+          ],
+          "EYANCHANG": [
+            {
+              "station": "VILLAGE HALL EYANCHANG / A",
+              "voters": 277
+            }
+          ],
+          "EYANGNTUI": [
+            {
+              "station": "VILLAGE HALL EYANGNTUI / A",
+              "voters": 209
+            }
+          ],
+          "NFAITOCK": [
+            {
+              "station": "VILLAGE HALL NFAITOCK II / A",
+              "voters": 156
+            }
+          ],
+          "HAUSA": [
+            {
+              "station": "WOMEN CENTRE / A",
+              "voters": 726
+            }
+          ],
+          "QUARTERS": [
+            {
+              "station": "WOMEN CENTRE / A",
+              "voters": 726
+            }
+          ]
         },
         "TINTO": {
-          "ARM SCHOOL ADJELI / A": [
+          "ADJELI": [
             {
-              station: "ADJELI",
-              voters: 42
-            },
+              "station": "ARM SCHOOL ADJELI / A",
+              "voters": 42
+            }
           ],
-          "ARM SCHOOL EYANG. LAST BUSH / A": [
+          "EYANGATEMAKO": [
             {
-              station: "EYANGATEMAKO",
-              voters: 54
-            },
-            {
-              station: "LAST",
-              voters: 54
-            },
-            {
-              station: "BUSH",
-              voters: 54
-            },
+              "station": "ARM SCHOOL EYANG. LAST BUSH / A",
+              "voters": 54
+            }
           ],
-          "ARM SCHOOL KEPELLE / A": [
+          "LAST": [
             {
-              station: "KEPELLE",
-              voters: 70
-            },
+              "station": "ARM SCHOOL EYANG. LAST BUSH / A",
+              "voters": 54
+            }
           ],
-          "ARM SCHOOL TAFU / A": [
+          "BUSH": [
             {
-              station: "TAFU",
-              voters: 52
-            },
+              "station": "ARM SCHOOL EYANG. LAST BUSH / A",
+              "voters": 54
+            }
           ],
-          "ARM SCHOOL TINTO MBU / A": [
+          "KEPELLE": [
             {
-              station: "MBU",
-              voters: 134
-            },
+              "station": "ARM SCHOOL KEPELLE / A",
+              "voters": 70
+            }
           ],
-          "CATH. SCHOOL BACHUO AKAGBE / A": [
+          "TAFU": [
             {
-              station: "BACHUO",
-              voters: 1323
-            },
-            {
-              station: "AKAGBE",
-              voters: 1323
-            },
+              "station": "ARM SCHOOL TAFU / A",
+              "voters": 52
+            }
           ],
-          "CATHOLIC SCHOOL MBEME / A": [
+          "MBU": [
             {
-              station: "MBEME",
-              voters: 490
-            },
+              "station": "ARM SCHOOL TINTO MBU / A",
+              "voters": 134
+            }
           ],
-          "COOPERATIVE HALL ASHUM / A": [
+          "BACHUO": [
             {
-              station: "ASHUM",
-              voters: 412
-            },
+              "station": "CATH. SCHOOL BACHUO AKAGBE / A",
+              "voters": 1323
+            }
           ],
-          "GOV'T SCHOOL AGONG / A": [
+          "AKAGBE": [
             {
-              station: "AGONG",
-              voters: 297
-            },
-            {
-              station: "KENYANG",
-              voters: 297
-            },
-            {
-              station: "SABES",
-              voters: 491
-            },
+              "station": "CATH. SCHOOL BACHUO AKAGBE / A",
+              "voters": 1323
+            }
           ],
-          "GOV'T SCHOOL AKIRIBA / A": [
+          "MBEME": [
             {
-              station: "AKIRIBA",
-              voters: 164
-            },
+              "station": "CATHOLIC SCHOOL MBEME / A",
+              "voters": 490
+            }
           ],
-          "GOV'T SCHOOL ATI NUMBA / A": [
+          "ASHUM": [
             {
-              station: "ATI",
-              voters: 102
-            },
-            {
-              station: "NUMBA",
-              voters: 481
-            },
+              "station": "COOPERATIVE HALL ASHUM / A",
+              "voters": 412
+            }
           ],
-          "GOV'T SCHOOL ATIBONG WIRE / A": [
+          "AGONG": [
             {
-              station: "ATIBONG",
-              voters: 162
-            },
-            {
-              station: "WIRE",
-              voters: 704
-            },
+              "station": "GOV'T SCHOOL AGONG / A",
+              "voters": 297
+            }
           ],
-          "GOV'T SCHOOL AYUKABA / A": [
+          "KENYANG": [
             {
-              station: "AYUKABA",
-              voters: 135
-            },
+              "station": "GOV'T SCHOOL AGONG / A",
+              "voters": 297
+            }
           ],
-          "GOV'T SCHOOL BATOH NUMBA / A": [
+          "SABES": [
             {
-              station: "BATOH",
-              voters: 168
-            },
+              "station": "GOV'T SCHOOL AGONG / A",
+              "voters": 491
+            }
           ],
-          "GOV'T SCHOOL EBEAGWA / A": [
+          "AKIRIBA": [
             {
-              station: "EBEAGWA",
-              voters: 149
-            },
+              "station": "GOV'T SCHOOL AKIRIBA / A",
+              "voters": 164
+            }
           ],
-          "GOV'T SCHOOL EBENSUK / A": [
+          "ATI": [
             {
-              station: "EBENSUK",
-              voters: 78
-            },
+              "station": "GOV'T SCHOOL ATI NUMBA / A",
+              "voters": 102
+            }
           ],
-          "GOV'T SCHOOL EKPAW / A": [
+          "NUMBA": [
             {
-              station: "EKPAW",
-              voters: 105
-            },
+              "station": "GOV'T SCHOOL ATI NUMBA / A",
+              "voters": 481
+            }
           ],
-          "GOV'T SCHOOL ETOKO / A": [
+          "ATIBONG": [
             {
-              station: "ETOKO",
-              voters: 515
-            },
+              "station": "GOV'T SCHOOL ATIBONG WIRE / A",
+              "voters": 162
+            }
           ],
-          "GOV'T SCHOOL EYANGATEMAKO / A": [
+          "WIRE": [
             {
-              station: "EYANGATAMAKO",
-              voters: 379
-            },
+              "station": "GOV'T SCHOOL ATIBONG WIRE / A",
+              "voters": 704
+            }
           ],
-          "GOV'T SCHOOL FOTABE / A": [
+          "AYUKABA": [
             {
-              station: "FOTABE",
-              voters: 368
-            },
+              "station": "GOV'T SCHOOL AYUKABA / A",
+              "voters": 135
+            }
           ],
-          "GOV'T SCHOOL KEKPOTI / A": [
+          "BATOH": [
             {
-              station: "KEKPOTI",
-              voters: 95
-            },
+              "station": "GOV'T SCHOOL BATOH NUMBA / A",
+              "voters": 168
+            }
           ],
-          "GOV'T SCHOOL KENDEM / A": [
+          "EBEAGWA": [
             {
-              station: "KENDEM",
-              voters: 536
-            },
+              "station": "GOV'T SCHOOL EBEAGWA / A",
+              "voters": 149
+            }
           ],
-          "GOV'T SCHOOL MBANGA PONGO / A": [
+          "EBENSUK": [
             {
-              station: "MBANGA",
-              voters: 122
-            },
-            {
-              station: "PONGO",
-              voters: 122
-            },
+              "station": "GOV'T SCHOOL EBENSUK / A",
+              "voters": 78
+            }
           ],
-          "GOV'T SCHOOL MBINJONG / A": [
+          "EKPAW": [
             {
-              station: "MBINJONG",
-              voters: 527
-            },
+              "station": "GOV'T SCHOOL EKPAW / A",
+              "voters": 105
+            }
           ],
-          "GOV'T SCHOOL MFAITOCK IA / A": [
+          "ETOKO": [
             {
-              station: "NFAITOCK",
-              voters: 300
-            },
+              "station": "GOV'T SCHOOL ETOKO / A",
+              "voters": 515
+            }
           ],
-          "GOV'T SCHOOL NCHEMBA I / A": [
+          "EYANGATAMAKO": [
             {
-              station: "NCHEMBA",
-              voters: 270
-            },
+              "station": "GOV'T SCHOOL EYANGATEMAKO / A",
+              "voters": 379
+            }
           ],
-          "GOV'T SCHOOL NFAINCHANG / A": [
+          "FOTABE": [
             {
-              station: "NFAINCHANG",
-              voters: 119
-            },
+              "station": "GOV'T SCHOOL FOTABE / A",
+              "voters": 368
+            }
           ],
-          "GOV'T SCHOOL NTENMBANG / A": [
+          "KEKPOTI": [
             {
-              station: "NTENMBANG",
-              voters: 213
-            },
+              "station": "GOV'T SCHOOL KEKPOTI / A",
+              "voters": 95
+            }
           ],
-          "GOV'T SCHOOL NYENEBA / A": [
+          "KENDEM": [
             {
-              station: "NYENNEBA",
-              voters: 370
-            },
+              "station": "GOV'T SCHOOL KENDEM / A",
+              "voters": 536
+            }
           ],
-          "GOV'T SCHOOL OBANG 3 CORNER / A": [
+          "MBANGA": [
             {
-              station: "OBANG",
-              voters: 197
-            },
-            {
-              station: "CORNER",
-              voters: 197
-            },
+              "station": "GOV'T SCHOOL MBANGA PONGO / A",
+              "voters": 122
+            }
           ],
-          "GOV'T SCHOOL TAKWAI / A": [
+          "PONGO": [
             {
-              station: "TAKWAI",
-              voters: 113
-            },
+              "station": "GOV'T SCHOOL MBANGA PONGO / A",
+              "voters": 122
+            }
           ],
-          "GOV'T SCHOOL TALI I / A": [
+          "MBINJONG": [
             {
-              station: "BARRAH",
-              voters: 87
-            },
-            {
-              station: "TALI",
-              voters: 262
-            },
+              "station": "GOV'T SCHOOL MBINJONG / A",
+              "voters": 527
+            }
           ],
-          "GOV'T SEC. SCHOOL NYENEBA / A": [
+          "NFAITOCK": [
             {
-              station: "GURUTE",
-              voters: 112
-            },
+              "station": "GOV'T SCHOOL MFAITOCK IA / A",
+              "voters": 300
+            }
           ],
-          "GOVERNMENT SCHOOL BAKEBE / A": [
+          "NCHEMBA": [
             {
-              station: "BAKEBE",
-              voters: 418
-            },
+              "station": "GOV'T SCHOOL NCHEMBA I / A",
+              "voters": 270
+            }
           ],
-          "GOVERNMENT SCHOOL BAKUMBA / A": [
+          "NFAINCHANG": [
             {
-              station: "BAKUMBA",
-              voters: 140
-            },
+              "station": "GOV'T SCHOOL NFAINCHANG / A",
+              "voters": 119
+            }
           ],
-          "GOVERNMENT SCHOOL FUMBE / A": [
+          "NTENMBANG": [
             {
-              station: "FUMBE",
-              voters: 49
-            },
+              "station": "GOV'T SCHOOL NTENMBANG / A",
+              "voters": 213
+            }
           ],
-          "GOVERNMENT SCHOOL MANTAH / A": [
+          "NYENNEBA": [
             {
-              station: "MANTAH",
-              voters: 214
-            },
+              "station": "GOV'T SCHOOL NYENEBA / A",
+              "voters": 370
+            }
           ],
-          "GOVERNMENT SCHOOL MOSHIE / A": [
+          "OBANG": [
             {
-              station: "MOSHIE",
-              voters: 151
-            },
+              "station": "GOV'T SCHOOL OBANG 3 CORNER / A",
+              "voters": 197
+            }
           ],
-          "GOVERNMENT SCHOOL TAYOR / A": [
+          "CORNER": [
             {
-              station: "TAYOR",
-              voters: 99
-            },
+              "station": "GOV'T SCHOOL OBANG 3 CORNER / A",
+              "voters": 197
+            }
           ],
-          "GOV\T SCHOOL SUMBE TA\MBU / A": [
+          "TAKWAI": [
             {
-              station: "TA\MBU",
-              voters: 247
-            },
+              "station": "GOV'T SCHOOL TAKWAI / A",
+              "voters": 113
+            }
           ],
-          "QUARTER HALL DEFANG / A": [
+          "BARRAH": [
             {
-              station: "QUARTER",
-              voters: 59
-            },
+              "station": "GOV'T SCHOOL TALI I / A",
+              "voters": 87
+            }
           ],
-          "QUARTER HALL ETOKO MILE 27 / A": [
+          "TALI": [
             {
-              station: "MILE",
-              voters: 127
-            },
+              "station": "GOV'T SCHOOL TALI I / A",
+              "voters": 262
+            }
           ],
-          "QUARTER HALL KOH SABES / A": [
+          "GURUTE": [
             {
-              station: "KOH",
-              voters: 43
-            },
+              "station": "GOV'T SEC. SCHOOL NYENEBA / A",
+              "voters": 112
+            }
           ],
-          "QUARTER HALL MENSING & MPAH / A": [
+          "BAKEBE": [
             {
-              station: "MENSING",
-              voters: 196
-            },
-            {
-              station: "MPAH",
-              voters: 196
-            },
+              "station": "GOVERNMENT SCHOOL BAKEBE / A",
+              "voters": 418
+            }
           ],
-          "QUARTER HALL NGASANG / A": [
+          "BAKUMBA": [
             {
-              station: "NGASANG",
-              voters: 39
-            },
+              "station": "GOVERNMENT SCHOOL BAKUMBA / A",
+              "voters": 140
+            }
           ],
-          "QUARTER HALL SUMBE NCHOT / A": [
+          "FUMBE": [
             {
-              station: "SUMBE",
-              voters: 306
-            },
-            {
-              station: "NCHOT",
-              voters: 59
-            },
+              "station": "GOVERNMENT SCHOOL FUMBE / A",
+              "voters": 49
+            }
           ],
-          "SAR/SM TINTO KERIEH / A": [
+          "MANTAH": [
             {
-              station: "TINTO",
-              voters: 1042
-            },
-            {
-              station: "KERIEH",
-              voters: 366
-            },
+              "station": "GOVERNMENT SCHOOL MANTAH / A",
+              "voters": 214
+            }
           ],
-          "TOWN HALL AMEBEISU / A": [
+          "MOSHIE": [
             {
-              station: "AMEBEISU",
-              voters: 82
-            },
+              "station": "GOVERNMENT SCHOOL MOSHIE / A",
+              "voters": 151
+            }
           ],
-          "TOWN HALL ANAMAFONG / A": [
+          "TAYOR": [
             {
-              station: "ANAMAFONG",
-              voters: 30
-            },
+              "station": "GOVERNMENT SCHOOL TAYOR / A",
+              "voters": 99
+            }
           ],
-          "TOWN HALL BAMBAT / A": [
+          "TAMBU": [
             {
-              station: "BAMBAT",
-              voters: 62
-            },
+              "station": "GOVT SCHOOL SUMBE TAMBU / A",
+              "voters": 247
+            }
           ],
-          "TOWN HALL BOKWA / A": [
+          "QUARTER": [
             {
-              station: "BOKWA",
-              voters: 146
-            },
+              "station": "QUARTER HALL DEFANG / A",
+              "voters": 59
+            }
           ],
-          "TOWN HALL CHINDA / A": [
+          "MILE": [
             {
-              station: "CHINDA",
-              voters: 68
-            },
+              "station": "QUARTER HALL ETOKO MILE 27 / A",
+              "voters": 127
+            }
           ],
-          "TOWN HALL DEFANG / A": [
+          "KOH": [
             {
-              station: "DEFANG",
-              voters: 196
-            },
+              "station": "QUARTER HALL KOH SABES / A",
+              "voters": 43
+            }
           ],
-          "TOWN HALL EBANGABI / A": [
+          "MENSING": [
             {
-              station: "EBANGABI",
-              voters: 82
-            },
+              "station": "QUARTER HALL MENSING & MPAH / A",
+              "voters": 196
+            }
           ],
-          "TOWN HALL EDJUINGANG / A": [
+          "MPAH": [
             {
-              station: "EDJUINGANG",
-              voters: 70
-            },
+              "station": "QUARTER HALL MENSING & MPAH / A",
+              "voters": 196
+            }
           ],
-          "TOWN HALL EGBEMO / A": [
+          "NGASANG": [
             {
-              station: "EGBEMO",
-              voters: 22
-            },
+              "station": "QUARTER HALL NGASANG / A",
+              "voters": 39
+            }
           ],
-          "TOWN HALL ETOKO MBATOP / A": [
+          "SUMBE": [
             {
-              station: "MBATOP",
-              voters: 35
-            },
+              "station": "QUARTER HALL SUMBE NCHOT / A",
+              "voters": 306
+            }
           ],
-          "TOWN HALL GURUFENG / A": [
+          "NCHOT": [
             {
-              station: "GURUFENG",
-              voters: 100
-            },
+              "station": "QUARTER HALL SUMBE NCHOT / A",
+              "voters": 59
+            }
           ],
-          "TOWN HALL KOANO / A": [
+          "TINTO": [
             {
-              station: "KOANO",
-              voters: 108
-            },
+              "station": "SAR/SM TINTO KERIEH / A",
+              "voters": 1042
+            }
           ],
-          "TOWN HALL MAMBO / A": [
+          "KERIEH": [
             {
-              station: "MAMBO",
-              voters: 75
-            },
+              "station": "SAR/SM TINTO KERIEH / A",
+              "voters": 366
+            }
           ],
-          "TOWN HALL MBIO / A": [
+          "AMEBEISU": [
             {
-              station: "MBIO",
-              voters: 85
-            },
+              "station": "TOWN HALL AMEBEISU / A",
+              "voters": 82
+            }
           ],
-          "TOWN HALL MOKWECHA / A": [
+          "ANAMAFONG": [
             {
-              station: "MUKWECHA",
-              voters: 76
-            },
+              "station": "TOWN HALL ANAMAFONG / A",
+              "voters": 30
+            }
           ],
-          "VILLAGE HALL FONJO / A": [
+          "BAMBAT": [
             {
-              station: "FONJO",
-              voters: 51
-            },
+              "station": "TOWN HALL BAMBAT / A",
+              "voters": 62
+            }
           ],
-        },
+          "BOKWA": [
+            {
+              "station": "TOWN HALL BOKWA / A",
+              "voters": 146
+            }
+          ],
+          "CHINDA": [
+            {
+              "station": "TOWN HALL CHINDA / A",
+              "voters": 68
+            }
+          ],
+          "DEFANG": [
+            {
+              "station": "TOWN HALL DEFANG / A",
+              "voters": 196
+            }
+          ],
+          "EBANGABI": [
+            {
+              "station": "TOWN HALL EBANGABI / A",
+              "voters": 82
+            }
+          ],
+          "EDJUINGANG": [
+            {
+              "station": "TOWN HALL EDJUINGANG / A",
+              "voters": 70
+            }
+          ],
+          "EGBEMO": [
+            {
+              "station": "TOWN HALL EGBEMO / A",
+              "voters": 22
+            }
+          ],
+          "MBATOP": [
+            {
+              "station": "TOWN HALL ETOKO MBATOP / A",
+              "voters": 35
+            }
+          ],
+          "GURUFENG": [
+            {
+              "station": "TOWN HALL GURUFENG / A",
+              "voters": 100
+            }
+          ],
+          "KOANO": [
+            {
+              "station": "TOWN HALL KOANO / A",
+              "voters": 108
+            }
+          ],
+          "MAMBO": [
+            {
+              "station": "TOWN HALL MAMBO / A",
+              "voters": 75
+            }
+          ],
+          "MBIO": [
+            {
+              "station": "TOWN HALL MBIO / A",
+              "voters": 85
+            }
+          ],
+          "MUKWECHA": [
+            {
+              "station": "TOWN HALL MOKWECHA / A",
+              "voters": 76
+            }
+          ],
+          "FONJO": [
+            {
+              "station": "VILLAGE HALL FONJO / A",
+              "voters": 51
+            }
+          ]
+        }
       },
       "KOUPE-MANENGOUBA": {
         "TOMBEL": {
-          "ARMY CAMP / A": [
+          "ELEMENTS": [
             {
-              station: "ELEMENTS",
-              voters: 395
-            },
-            {
-              station: "211TH",
-              voters: 395
-            },
-            {
-              station: "CIM",
-              voters: 395
-            },
-            {
-              station: "GENDARMERIE",
-              voters: 395
-            },
-            {
-              station: "ARMY",
-              voters: 395
-            },
-            {
-              station: "AND",
-              voters: 1293
-            },
-            {
-              station: "GENDAMARIE",
-              voters: 395
-            },
+              "station": "ARMY CAMP / A",
+              "voters": 395
+            }
           ],
-          "BAKOLLE HEALTH POST / A": [
+          "211TH": [
             {
-              station: "BAKOLLE",
-              voters: 212
-            },
+              "station": "ARMY CAMP / A",
+              "voters": 395
+            }
           ],
-          "CATH CHURCH EKEB-MBABE / A": [
+          "CIM": [
             {
-              station: "EKEB-MBABE",
-              voters: 146
-            },
+              "station": "ARMY CAMP / A",
+              "voters": 395
+            }
           ],
-          "CATH CHURCH MEKEDMBENG / A": [
+          "GENDARMERIE": [
             {
-              station: "MEKEDMBENG",
-              voters: 87
-            },
+              "station": "ARMY CAMP / A",
+              "voters": 395
+            }
           ],
-          "CATH CHURCH MENYOM / A": [
+          "ARMY": [
             {
-              station: "MENYOM",
-              voters: 33
-            },
+              "station": "ARMY CAMP / A",
+              "voters": 395
+            }
           ],
-          "CATH SCHOOL EBONJI / A": [
+          "AND": [
             {
-              station: "EBONJI",
-              voters: 1511
-            },
+              "station": "ARMY CAMP / A",
+              "voters": 1293
+            }
           ],
-          "CATH SCHOOL ESAM / A": [
+          "GENDAMARIE": [
             {
-              station: "ESAM",
-              voters: 112
-            },
+              "station": "ARMY CAMP / A",
+              "voters": 395
+            }
           ],
-          "CATHOLIC SCHOOL WATER FALL / A": [
+          "BAKOLLE": [
             {
-              station: "WATER",
-              voters: 328
-            },
-            {
-              station: "FALL",
-              voters: 328
-            },
+              "station": "BAKOLLE HEALTH POST / A",
+              "voters": 212
+            }
           ],
-          "CO-OPERATIVE STORE BULUTU / A": [
+          "EKEB-MBABE": [
             {
-              station: "BULUTU",
-              voters: 344
-            },
+              "station": "CATH CHURCH EKEB-MBABE / A",
+              "voters": 146
+            }
           ],
-          "CO-OPERATIVE STORE EHOM / A": [
+          "MEKEDMBENG": [
             {
-              station: "EHOM",
-              voters: 340
-            },
+              "station": "CATH CHURCH MEKEDMBENG / A",
+              "voters": 87
+            }
           ],
-          "CO-OPERATIVE STORE ETAM I / A": [
+          "MENYOM": [
             {
-              station: "ETAM",
-              voters: 1380
-            },
+              "station": "CATH CHURCH MENYOM / A",
+              "voters": 33
+            }
           ],
-          "CO-OPERATIVE STORE MEKOM / A": [
+          "EBONJI": [
             {
-              station: "MEKOM",
-              voters: 176
-            },
+              "station": "CATH SCHOOL EBONJI / A",
+              "voters": 1511
+            }
           ],
-          "COCOA CAMP CDC / A": [
+          "ESAM": [
             {
-              station: "TOMBEL",
-              voters: 17026
-            },
+              "station": "CATH SCHOOL ESAM / A",
+              "voters": 112
+            }
           ],
-          "COMM. HALL BELLE / A": [
+          "WATER": [
             {
-              station: "BELLE",
-              voters: 51
-            },
+              "station": "CATHOLIC SCHOOL WATER FALL / A",
+              "voters": 328
+            }
           ],
-          "COMM. SCHOOL BANGONE / A": [
+          "FALL": [
             {
-              station: "BANGONE",
-              voters: 48
-            },
+              "station": "CATHOLIC SCHOOL WATER FALL / A",
+              "voters": 328
+            }
           ],
-          "COMMUNITY HALL ATOB / A": [
+          "BULUTU": [
             {
-              station: "ATOB",
-              voters: 141
-            },
+              "station": "CO-OPERATIVE STORE BULUTU / A",
+              "voters": 344
+            }
           ],
-          "COMMUNITY HALL BASENG / A": [
+          "EHOM": [
             {
-              station: "BASENG",
-              voters: 153
-            },
+              "station": "CO-OPERATIVE STORE EHOM / A",
+              "voters": 340
+            }
           ],
-          "COMMUNITY HALL BUBA III / A": [
+          "ETAM": [
             {
-              station: "III",
-              voters: 654
-            },
+              "station": "CO-OPERATIVE STORE ETAM I / A",
+              "voters": 1380
+            }
           ],
-          "COMMUNITY HALL BUBA MILE 6 / A": [
+          "MEKOM": [
             {
-              station: "MILE",
-              voters: 813
-            },
+              "station": "CO-OPERATIVE STORE MEKOM / A",
+              "voters": 176
+            }
           ],
-          "COMMUNITY HALL CDC EDIBENJOCK / A": [
+          "TOMBEL": [
             {
-              station: "EDIBENJOCK",
-              voters: 233
-            },
+              "station": "COCOA CAMP CDC / A",
+              "voters": 17026
+            }
           ],
-          "COMMUNITY HALL EBOKO BAJOH / A": [
+          "BELLE": [
             {
-              station: "EBOKO",
-              voters: 324
-            },
-            {
-              station: "BAJOH",
-              voters: 324
-            },
+              "station": "COMM. HALL BELLE / A",
+              "voters": 51
+            }
           ],
-          "COMMUNITY HALL MAHOLE / A": [
+          "BANGONE": [
             {
-              station: "MAHOLE",
-              voters: 271
-            },
+              "station": "COMM. SCHOOL BANGONE / A",
+              "voters": 48
+            }
           ],
-          "COMMUNITY HALL MBWOGMUTI / A": [
+          "ATOB": [
             {
-              station: "MBWOGMUTI",
-              voters: 55
-            },
+              "station": "COMMUNITY HALL ATOB / A",
+              "voters": 141
+            }
           ],
-          "COMMUNITY HALL MENGE / A": [
+          "BASENG": [
             {
-              station: "MENGE",
-              voters: 28
-            },
+              "station": "COMMUNITY HALL BASENG / A",
+              "voters": 153
+            }
           ],
-          "COMMUNITY HALL MPAKO / A": [
+          "III": [
             {
-              station: "MPAKO",
-              voters: 181
-            },
+              "station": "COMMUNITY HALL BUBA III / A",
+              "voters": 654
+            }
           ],
-          "COMMUNITY HALL NYALLE / A": [
+          "MILE": [
             {
-              station: "NYALLE",
-              voters: 86
-            },
+              "station": "COMMUNITY HALL BUBA MILE 6 / A",
+              "voters": 813
+            }
           ],
-          "COMMUNITY HALL NYASOSO / A": [
+          "EDIBENJOCK": [
             {
-              station: "NYASOSO",
-              voters: 791
-            },
+              "station": "COMMUNITY HALL CDC EDIBENJOCK / A",
+              "voters": 233
+            }
           ],
-          "COURT HALL NYANDONG / A": [
+          "EBOKO": [
             {
-              station: "NYANDONG",
-              voters: 428
-            },
+              "station": "COMMUNITY HALL EBOKO BAJOH / A",
+              "voters": 324
+            }
           ],
-          "COURT HALL TOMBEL / A": [
+          "BAJOH": [
             {
-              station: "FIVE",
-              voters: 646
-            },
+              "station": "COMMUNITY HALL EBOKO BAJOH / A",
+              "voters": 324
+            }
           ],
-          "DISTRIC HEALTH SERVICE / A": [
+          "MAHOLE": [
             {
-              station: "VIII",
-              voters: 546
-            },
-            {
-              station: "TOMBELWARD",
-              voters: 546
-            },
-            {
-              station: "EIGHT",
-              voters: 546
-            },
+              "station": "COMMUNITY HALL MAHOLE / A",
+              "voters": 271
+            }
           ],
-          "FONCHA'S HALL CDC / A": [
+          "MBWOGMUTI": [
             {
-              station: "CDC",
-              voters: 608
-            },
-            {
-              station: "CAMP",
-              voters: 235
-            },
+              "station": "COMMUNITY HALL MBWOGMUTI / A",
+              "voters": 55
+            }
           ],
-          "GOV'T NURSERY SCHOOL NGOMBOKU / A": [
+          "MENGE": [
             {
-              station: "NGOMBOKU",
-              voters: 251
-            },
+              "station": "COMMUNITY HALL MENGE / A",
+              "voters": 28
+            }
           ],
-          "GOV'T NURSERY SCHOOL TOMBEL / A": [
+          "MPAKO": [
             {
-              station: "NGOMENYOH",
-              voters: 462
-            },
+              "station": "COMMUNITY HALL MPAKO / A",
+              "voters": 181
+            }
           ],
-          "GOV'T SCHOOL KODMIN / A": [
+          "NYALLE": [
             {
-              station: "KODMIN",
-              voters: 74
-            },
+              "station": "COMMUNITY HALL NYALLE / A",
+              "voters": 86
+            }
           ],
-          "GOV'T SCHOOL MBABE / A": [
+          "NYASOSO": [
             {
-              station: "MBABE",
-              voters: 239
-            },
+              "station": "COMMUNITY HALL NYASOSO / A",
+              "voters": 791
+            }
           ],
-          "GOV'T SCHOOL NDOM / A": [
+          "NYANDONG": [
             {
-              station: "NDOM",
-              voters: 259
-            },
+              "station": "COURT HALL NYANDONG / A",
+              "voters": 428
+            }
           ],
-          "GOV'T SCHOOL NGUSI / A": [
+          "FIVE": [
             {
-              station: "NGUSI",
-              voters: 1107
-            },
+              "station": "COURT HALL TOMBEL / A",
+              "voters": 646
+            }
           ],
-          "GOV'T SCHOOL NHIANGSE / A": [
+          "VIII": [
             {
-              station: "NHIANGSE",
-              voters: 25
-            },
+              "station": "DISTRIC HEALTH SERVICE / A",
+              "voters": 546
+            }
           ],
-          "GOV'T SCHOOL NSUKE / A": [
+          "TOMBELWARD": [
             {
-              station: "NSUKE",
-              voters: 160
-            },
+              "station": "DISTRIC HEALTH SERVICE / A",
+              "voters": 546
+            }
           ],
-          "GOV'T SCHOOL TOMBEL III / A": [
+          "EIGHT": [
             {
-              station: "VII",
-              voters: 935
-            },
+              "station": "DISTRIC HEALTH SERVICE / A",
+              "voters": 546
+            }
           ],
-          "GS BEKUME / A": [
+          "CDC": [
             {
-              station: "BEKUME",
-              voters: 124
-            },
+              "station": "FONCHA'S HALL CDC / A",
+              "voters": 608
+            }
           ],
-          "GS BUBA I / A": [
+          "CAMP": [
             {
-              station: "BUBA",
-              voters: 1511
-            },
+              "station": "FONCHA'S HALL CDC / A",
+              "voters": 235
+            }
           ],
-          "GS BUBA WATER FALL / A": [
+          "NGOMBOKU": [
             {
-              station: "WATERFALL",
-              voters: 598
-            },
+              "station": "GOV'T NURSERY SCHOOL NGOMBOKU / A",
+              "voters": 251
+            }
           ],
-          "GS EKEB / A": [
+          "NGOMENYOH": [
             {
-              station: "EKEB",
-              voters: 128
-            },
+              "station": "GOV'T NURSERY SCHOOL TOMBEL / A",
+              "voters": 462
+            }
           ],
-          "GS KUPE / A": [
+          "KODMIN": [
             {
-              station: "KUPE",
-              voters: 236
-            },
+              "station": "GOV'T SCHOOL KODMIN / A",
+              "voters": 74
+            }
           ],
-          "GS MBULLE / A": [
+          "MBABE": [
             {
-              station: "MBULLE",
-              voters: 143
-            },
+              "station": "GOV'T SCHOOL MBABE / A",
+              "voters": 239
+            }
           ],
-          "GS MBWOGMUT II / A": [
+          "NDOM": [
             {
-              station: "MBWOGMUT",
-              voters: 105
-            },
+              "station": "GOV'T SCHOOL NDOM / A",
+              "voters": 259
+            }
           ],
-          "GS MELONGO / A": [
+          "NGUSI": [
             {
-              station: "MELONGO",
-              voters: 85
-            },
+              "station": "GOV'T SCHOOL NGUSI / A",
+              "voters": 1107
+            }
           ],
-          "GS MENGE-MESAKA / A": [
+          "NHIANGSE": [
             {
-              station: "MENGE-MESAKA",
-              voters: 65
-            },
+              "station": "GOV'T SCHOOL NHIANGSE / A",
+              "voters": 25
+            }
           ],
-          "GS PENG / A": [
+          "NSUKE": [
             {
-              station: "PENG",
-              voters: 748
-            },
+              "station": "GOV'T SCHOOL NSUKE / A",
+              "voters": 160
+            }
           ],
-          "GTC NDABEKOM / A": [
+          "VII": [
             {
-              station: "NDABEKOM",
-              voters: 121
-            },
+              "station": "GOV'T SCHOOL TOMBEL III / A",
+              "voters": 935
+            }
           ],
-          "HEALTH CENTRE NDIBENJOCK / A": [
+          "BEKUME": [
             {
-              station: "NDIBENJOCK",
-              voters: 109
-            },
+              "station": "GS BEKUME / A",
+              "voters": 124
+            }
           ],
-          "NONI HALL BAMBELE EBONDIAD / A": [
+          "BUBA": [
             {
-              station: "BAMBELE",
-              voters: 97
-            },
-            {
-              station: "EBONDIAD",
-              voters: 97
-            },
+              "station": "GS BUBA I / A",
+              "voters": 1511
+            }
           ],
-          "PRES. NURSERY SCHOOL KACK / A": [
+          "WATERFALL": [
             {
-              station: "KACK",
-              voters: 166
-            },
+              "station": "GS BUBA WATER FALL / A",
+              "voters": 598
+            }
           ],
-          "PRESBYTERIAN CHURCH EBUL-PENG / A": [
+          "EKEB": [
             {
-              station: "EBUL-PENG",
-              voters: 101
-            },
+              "station": "GS EKEB / A",
+              "voters": 128
+            }
           ],
-          "PRESBYTERIAN CHURCH MUANYAN / A": [
+          "KUPE": [
             {
-              station: "MUANYAN",
-              voters: 44
-            },
+              "station": "GS KUPE / A",
+              "voters": 236
+            }
           ],
-          "PRESBYTERIAN CHURCH NLOG / A": [
+          "MBULLE": [
             {
-              station: "NLOG",
-              voters: 204
-            },
+              "station": "GS MBULLE / A",
+              "voters": 143
+            }
           ],
-          "PS NGOMBOMBENG / A": [
+          "MBWOGMUT": [
             {
-              station: "NGOMBOMBENG",
-              voters: 65
-            },
+              "station": "GS MBWOGMUT II / A",
+              "voters": 105
+            }
           ],
-          "UCHS TOMBEL / A": [
+          "MELONGO": [
             {
-              station: "NGAB",
-              voters: 898
-            },
-            {
-              station: "EKONEBEL",
-              voters: 898
-            },
-            {
-              station: "WARD",
-              voters: 14853
-            },
+              "station": "GS MELONGO / A",
+              "voters": 85
+            }
           ],
-        },
-      },
-    },
-  },
+          "MENGE-MESAKA": [
+            {
+              "station": "GS MENGE-MESAKA / A",
+              "voters": 65
+            }
+          ],
+          "PENG": [
+            {
+              "station": "GS PENG / A",
+              "voters": 748
+            }
+          ],
+          "NDABEKOM": [
+            {
+              "station": "GTC NDABEKOM / A",
+              "voters": 121
+            }
+          ],
+          "NDIBENJOCK": [
+            {
+              "station": "HEALTH CENTRE NDIBENJOCK / A",
+              "voters": 109
+            }
+          ],
+          "BAMBELE": [
+            {
+              "station": "NONI HALL BAMBELE EBONDIAD / A",
+              "voters": 97
+            }
+          ],
+          "EBONDIAD": [
+            {
+              "station": "NONI HALL BAMBELE EBONDIAD / A",
+              "voters": 97
+            }
+          ],
+          "KACK": [
+            {
+              "station": "PRES. NURSERY SCHOOL KACK / A",
+              "voters": 166
+            }
+          ],
+          "EBUL-PENG": [
+            {
+              "station": "PRESBYTERIAN CHURCH EBUL-PENG / A",
+              "voters": 101
+            }
+          ],
+          "MUANYAN": [
+            {
+              "station": "PRESBYTERIAN CHURCH MUANYAN / A",
+              "voters": 44
+            }
+          ],
+          "NLOG": [
+            {
+              "station": "PRESBYTERIAN CHURCH NLOG / A",
+              "voters": 204
+            }
+          ],
+          "NGOMBOMBENG": [
+            {
+              "station": "PS NGOMBOMBENG / A",
+              "voters": 65
+            }
+          ],
+          "NGAB": [
+            {
+              "station": "UCHS TOMBEL / A",
+              "voters": 898
+            }
+          ],
+          "EKONEBEL": [
+            {
+              "station": "UCHS TOMBEL / A",
+              "voters": 898
+            }
+          ],
+          "WARD": [
+            {
+              "station": "UCHS TOMBEL / A",
+              "voters": 14853
+            }
+          ]
+        }
+      }
+    }
+  }
 };

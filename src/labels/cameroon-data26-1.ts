@@ -29,15680 +29,20043 @@ export type CameroonData = {
   [key: string]: RegionData;
 };
 
-export const cameroonData: CameroonData = {
+export const cameroonData = {
   "NORD": {
-    name: { en: "NORTH", fr: "NORD" },
-    divisions: {
+    "name": {
+      "en": "NORTH",
+      "fr": "NORD"
+    },
+    "divisions": {
       "BENOUE": {
         "BASCHEO": {
-          "EP DARAM / A": [
+          "DARAM": [
             {
-              station: "DARAM",
-              voters: 530
-            },
-            {
-              station: "WINDE",
-              voters: 530
-            },
-            {
-              station: "DEBRI",
-              voters: 530
-            },
+              "station": "EP DARAM / A",
+              "voters": 530
+            }
           ],
-          "EP DJALINGO BELEL / A": [
+          "WINDE": [
             {
-              station: "BELEL",
-              voters: 646
-            },
-            {
-              station: "MANAWASSI",
-              voters: 646
-            },
-            {
-              station: "GODJE",
-              voters: 890
-            },
+              "station": "EP DARAM / A",
+              "voters": 530
+            }
           ],
-          "EP DJARENGUOL / A": [
+          "DEBRI": [
             {
-              station: "DJARENGUOL",
-              voters: 415
-            },
-            {
-              station: "DABA",
-              voters: 766
-            },
+              "station": "EP DARAM / A",
+              "voters": 530
+            }
           ],
-          "EP HAMAKOUSSOU / A": [
+          "BELEL": [
             {
-              station: "DJALLOU",
-              voters: 514
-            },
-            {
-              station: "HAMAKOUSSOU",
-              voters: 514
-            },
-            {
-              station: "TONDIRE",
-              voters: 514
-            },
+              "station": "EP DJALINGO BELEL / A",
+              "voters": 646
+            }
           ],
-          "EP HARKOU / A": [
+          "MANAWASSI": [
             {
-              station: "HARKOU",
-              voters: 368
-            },
-            {
-              station: "ROYA",
-              voters: 368
-            },
+              "station": "EP DJALINGO BELEL / A",
+              "voters": 646
+            }
           ],
-          "EP KATAKO / A": [
+          "GODJE": [
             {
-              station: "BAO",
-              voters: 705
-            },
-            {
-              station: "KATAKO",
-              voters: 705
-            },
-            {
-              station: "NGOUTCHOUMI",
-              voters: 705
-            },
-            {
-              station: "BASCHEO",
-              voters: 7040
-            },
-            {
-              station: "TIMPILRE",
-              voters: 705
-            },
-            {
-              station: "MODIBO",
-              voters: 705
-            },
+              "station": "EP DJALINGO BELEL / A",
+              "voters": 890
+            }
           ],
-          "EP KOBOSSI / A": [
+          "DJARENGUOL": [
             {
-              station: "BOUGOUR",
-              voters: 1400
-            },
-            {
-              station: "DJALINGO",
-              voters: 1520
-            },
-            {
-              station: "MAPOUTKI",
-              voters: 1204
-            },
-            {
-              station: "DJARIA",
-              voters: 1400
-            },
-            {
-              station: "KOBOSSI",
-              voters: 1418
-            },
-            {
-              station: "MBILLA",
-              voters: 709
-            },
-            {
-              station: "TCHIKAKRE",
-              voters: 709
-            },
+              "station": "EP DJARENGUOL / A",
+              "voters": 415
+            }
           ],
-          "EP MAPOUKTI / A": [
+          "DABA": [
             {
-              station: "LAINDE",
-              voters: 165
-            },
+              "station": "EP DJARENGUOL / A",
+              "voters": 766
+            }
           ],
-          "EP MAYO OULO BASCHEO / A": [
+          "DJALLOU": [
             {
-              station: "MAYO",
-              voters: 860
-            },
-            {
-              station: "OULO",
-              voters: 860
-            },
-            {
-              station: "FOULBE",
-              voters: 430
-            },
-            {
-              station: "TCHOME",
-              voters: 430
-            },
+              "station": "EP HAMAKOUSSOU / A",
+              "voters": 514
+            }
           ],
-          "EP MBABI BANTADJE / A": [
+          "HAMAKOUSSOU": [
             {
-              station: "BAH",
-              voters: 909
-            },
-            {
-              station: "DJABOU",
-              voters: 909
-            },
-            {
-              station: "FOULBERE",
-              voters: 740
-            },
-            {
-              station: "MBABI",
-              voters: 1176
-            },
-            {
-              station: "GASCHIRE",
-              voters: 436
-            },
-            {
-              station: "LARIA",
-              voters: 909
-            },
-            {
-              station: "WOURO",
-              voters: 8172
-            },
-            {
-              station: "HAMAYEL",
-              voters: 740
-            },
-            {
-              station: "WOURO-DOUNDEHI",
-              voters: 909
-            },
-            {
-              station: "WOURO-MAIDIBINO",
-              voters: 436
-            },
+              "station": "EP HAMAKOUSSOU / A",
+              "voters": 514
+            }
           ],
-          "EP MBOULMI BALDAYEL / A": [
+          "TONDIRE": [
             {
-              station: "BALDAYEL",
-              voters: 402
-            },
-            {
-              station: "DOUNDERE",
-              voters: 402
-            },
-            {
-              station: "MBOULMI",
-              voters: 402
-            },
+              "station": "EP HAMAKOUSSOU / A",
+              "voters": 514
+            }
           ],
-          "EP NARO KOUBADJE / A": [
+          "HARKOU": [
             {
-              station: "BOMBOL",
-              voters: 725
-            },
-            {
-              station: "KOUBADJE",
-              voters: 725
-            },
-            {
-              station: "NARO-KOUBADJE",
-              voters: 725
-            },
-            {
-              station: "POUROUROU",
-              voters: 725
-            },
-            {
-              station: "TCHAKOUM",
-              voters: 725
-            },
-            {
-              station: "TONGO",
-              voters: 725
-            },
+              "station": "EP HARKOU / A",
+              "voters": 368
+            }
           ],
-          "EP PEMGOU / A": [
+          "ROYA": [
             {
-              station: "DORBA",
-              voters: 424
-            },
-            {
-              station: "PEMGOU",
-              voters: 424
-            },
+              "station": "EP HARKOU / A",
+              "voters": 368
+            }
           ],
-          "EP ROGNOU / A": [
+          "BAO": [
             {
-              station: "DJAMBOUTOU",
-              voters: 1194
-            },
-            {
-              station: "ROGNOU",
-              voters: 1866
-            },
-            {
-              station: "KERZENG",
-              voters: 933
-            },
-            {
-              station: "NASSARAO",
-              voters: 6262
-            },
-            {
-              station: "GOH",
-              voters: 1284
-            },
-            {
-              station: "NGONKA",
-              voters: 1284
-            },
-            {
-              station: "NGOUROU",
-              voters: 2050
-            },
-            {
-              station: "FALI",
-              voters: 1714
-            },
-            {
-              station: "SEBORE",
-              voters: 933
-            },
-            {
-              station: "TARABA",
-              voters: 1194
-            },
-            {
-              station: "WAFANGO",
-              voters: 933
-            },
+              "station": "EP KATAKO / A",
+              "voters": 705
+            }
           ],
-          "EP WOURO NAOUDE / A": [
+          "KATAKO": [
             {
-              station: "SABONGARI",
-              voters: 491
-            },
-            {
-              station: "SOUKI",
-              voters: 491
-            },
-            {
-              station: "NAOUDE",
-              voters: 241
-            },
+              "station": "EP KATAKO / A",
+              "voters": 705
+            }
           ],
-          "ESPL CHEF POURI ALAM / A": [
+          "NGOUTCHOUMI": [
             {
-              station: "DARPATA",
-              voters: 436
-            },
-            {
-              station: "DJOUGOUNDOU",
-              voters: 436
-            },
-            {
-              station: "POURI",
-              voters: 436
-            },
-            {
-              station: "RAYO",
-              voters: 436
-            },
+              "station": "EP KATAKO / A",
+              "voters": 705
+            }
           ],
-          "LYCEE DE BASCHEO / A": [
+          "BASCHEO": [
             {
-              station: "KESSOURE",
-              voters: 4978
-            },
-            {
-              station: "MALKOUROU",
-              voters: 4978
-            },
-            {
-              station: "MBOUTOU",
-              voters: 4978
-            },
-            {
-              station: "ARDO",
-              voters: 4978
-            },
-            {
-              station: "MBAI",
-              voters: 4978
-            },
-            {
-              station: "DJAOURO",
-              voters: 5596
-            },
-            {
-              station: "MOUSSA",
-              voters: 5596
-            },
+              "station": "EP KATAKO / A",
+              "voters": 7040
+            }
           ],
+          "TIMPILRE": [
+            {
+              "station": "EP KATAKO / A",
+              "voters": 705
+            }
+          ],
+          "MODIBO": [
+            {
+              "station": "EP KATAKO / A",
+              "voters": 705
+            }
+          ],
+          "BOUGOUR": [
+            {
+              "station": "EP KOBOSSI / A",
+              "voters": 1400
+            }
+          ],
+          "DJALINGO": [
+            {
+              "station": "EP KOBOSSI / A",
+              "voters": 1520
+            }
+          ],
+          "MAPOUTKI": [
+            {
+              "station": "EP KOBOSSI / A",
+              "voters": 1204
+            }
+          ],
+          "DJARIA": [
+            {
+              "station": "EP KOBOSSI / A",
+              "voters": 1400
+            }
+          ],
+          "KOBOSSI": [
+            {
+              "station": "EP KOBOSSI / A",
+              "voters": 1418
+            }
+          ],
+          "MBILLA": [
+            {
+              "station": "EP KOBOSSI / A",
+              "voters": 709
+            }
+          ],
+          "TCHIKAKRE": [
+            {
+              "station": "EP KOBOSSI / A",
+              "voters": 709
+            }
+          ],
+          "LAINDE": [
+            {
+              "station": "EP MAPOUKTI / A",
+              "voters": 165
+            }
+          ],
+          "MAYO": [
+            {
+              "station": "EP MAYO OULO BASCHEO / A",
+              "voters": 860
+            }
+          ],
+          "OULO": [
+            {
+              "station": "EP MAYO OULO BASCHEO / A",
+              "voters": 860
+            }
+          ],
+          "FOULBE": [
+            {
+              "station": "EP MAYO OULO BASCHEO / A",
+              "voters": 430
+            }
+          ],
+          "TCHOME": [
+            {
+              "station": "EP MAYO OULO BASCHEO / A",
+              "voters": 430
+            }
+          ],
+          "BAH": [
+            {
+              "station": "EP MBABI BANTADJE / A",
+              "voters": 909
+            }
+          ],
+          "DJABOU": [
+            {
+              "station": "EP MBABI BANTADJE / A",
+              "voters": 909
+            }
+          ],
+          "FOULBERE": [
+            {
+              "station": "EP MBABI BANTADJE / A",
+              "voters": 740
+            }
+          ],
+          "MBABI": [
+            {
+              "station": "EP MBABI BANTADJE / A",
+              "voters": 1176
+            }
+          ],
+          "GASCHIRE": [
+            {
+              "station": "EP MBABI BANTADJE / A",
+              "voters": 436
+            }
+          ],
+          "LARIA": [
+            {
+              "station": "EP MBABI BANTADJE / A",
+              "voters": 909
+            }
+          ],
+          "WOURO": [
+            {
+              "station": "EP MBABI BANTADJE / A",
+              "voters": 8172
+            }
+          ],
+          "HAMAYEL": [
+            {
+              "station": "EP MBABI BANTADJE / A",
+              "voters": 740
+            }
+          ],
+          "WOURO-DOUNDEHI": [
+            {
+              "station": "EP MBABI BANTADJE / A",
+              "voters": 909
+            }
+          ],
+          "WOURO-MAIDIBINO": [
+            {
+              "station": "EP MBABI BANTADJE / A",
+              "voters": 436
+            }
+          ],
+          "BALDAYEL": [
+            {
+              "station": "EP MBOULMI BALDAYEL / A",
+              "voters": 402
+            }
+          ],
+          "DOUNDERE": [
+            {
+              "station": "EP MBOULMI BALDAYEL / A",
+              "voters": 402
+            }
+          ],
+          "MBOULMI": [
+            {
+              "station": "EP MBOULMI BALDAYEL / A",
+              "voters": 402
+            }
+          ],
+          "BOMBOL": [
+            {
+              "station": "EP NARO KOUBADJE / A",
+              "voters": 725
+            }
+          ],
+          "KOUBADJE": [
+            {
+              "station": "EP NARO KOUBADJE / A",
+              "voters": 725
+            }
+          ],
+          "NARO-KOUBADJE": [
+            {
+              "station": "EP NARO KOUBADJE / A",
+              "voters": 725
+            }
+          ],
+          "POUROUROU": [
+            {
+              "station": "EP NARO KOUBADJE / A",
+              "voters": 725
+            }
+          ],
+          "TCHAKOUM": [
+            {
+              "station": "EP NARO KOUBADJE / A",
+              "voters": 725
+            }
+          ],
+          "TONGO": [
+            {
+              "station": "EP NARO KOUBADJE / A",
+              "voters": 725
+            }
+          ],
+          "DORBA": [
+            {
+              "station": "EP PEMGOU / A",
+              "voters": 424
+            }
+          ],
+          "PEMGOU": [
+            {
+              "station": "EP PEMGOU / A",
+              "voters": 424
+            }
+          ],
+          "DJAMBOUTOU": [
+            {
+              "station": "EP ROGNOU / A",
+              "voters": 1194
+            }
+          ],
+          "ROGNOU": [
+            {
+              "station": "EP ROGNOU / A",
+              "voters": 1866
+            }
+          ],
+          "KERZENG": [
+            {
+              "station": "EP ROGNOU / A",
+              "voters": 933
+            }
+          ],
+          "NASSARAO": [
+            {
+              "station": "EP ROGNOU / A",
+              "voters": 6262
+            }
+          ],
+          "GOH": [
+            {
+              "station": "EP ROGNOU / A",
+              "voters": 1284
+            }
+          ],
+          "NGONKA": [
+            {
+              "station": "EP ROGNOU / A",
+              "voters": 1284
+            }
+          ],
+          "NGOUROU": [
+            {
+              "station": "EP ROGNOU / A",
+              "voters": 2050
+            }
+          ],
+          "FALI": [
+            {
+              "station": "EP ROGNOU / A",
+              "voters": 1714
+            }
+          ],
+          "SEBORE": [
+            {
+              "station": "EP ROGNOU / A",
+              "voters": 933
+            }
+          ],
+          "TARABA": [
+            {
+              "station": "EP ROGNOU / A",
+              "voters": 1194
+            }
+          ],
+          "WAFANGO": [
+            {
+              "station": "EP ROGNOU / A",
+              "voters": 933
+            }
+          ],
+          "SABONGARI": [
+            {
+              "station": "EP WOURO NAOUDE / A",
+              "voters": 491
+            }
+          ],
+          "SOUKI": [
+            {
+              "station": "EP WOURO NAOUDE / A",
+              "voters": 491
+            }
+          ],
+          "NAOUDE": [
+            {
+              "station": "EP WOURO NAOUDE / A",
+              "voters": 241
+            }
+          ],
+          "DARPATA": [
+            {
+              "station": "ESPL CHEF POURI ALAM / A",
+              "voters": 436
+            }
+          ],
+          "DJOUGOUNDOU": [
+            {
+              "station": "ESPL CHEF POURI ALAM / A",
+              "voters": 436
+            }
+          ],
+          "POURI": [
+            {
+              "station": "ESPL CHEF POURI ALAM / A",
+              "voters": 436
+            }
+          ],
+          "RAYO": [
+            {
+              "station": "ESPL CHEF POURI ALAM / A",
+              "voters": 436
+            }
+          ],
+          "KESSOURE": [
+            {
+              "station": "LYCEE DE BASCHEO / A",
+              "voters": 4978
+            }
+          ],
+          "MALKOUROU": [
+            {
+              "station": "LYCEE DE BASCHEO / A",
+              "voters": 4978
+            }
+          ],
+          "MBOUTOU": [
+            {
+              "station": "LYCEE DE BASCHEO / A",
+              "voters": 4978
+            }
+          ],
+          "ARDO": [
+            {
+              "station": "LYCEE DE BASCHEO / A",
+              "voters": 4978
+            }
+          ],
+          "MBAI": [
+            {
+              "station": "LYCEE DE BASCHEO / A",
+              "voters": 4978
+            }
+          ],
+          "DJAOURO": [
+            {
+              "station": "LYCEE DE BASCHEO / A",
+              "voters": 5596
+            }
+          ],
+          "MOUSSA": [
+            {
+              "station": "LYCEE DE BASCHEO / A",
+              "voters": 5596
+            }
+          ]
         },
         "BIBEMI": {
-          "ECOLE MISSION / A": [
+          "LATIN": [
             {
-              station: "LATIN",
-              voters: 481
-            },
-            {
-              station: "NAGUE",
-              voters: 481
-            },
+              "station": "ECOLE MISSION / A",
+              "voters": 481
+            }
           ],
-          "EP ADOUMRI / A": [
+          "NAGUE": [
             {
-              station: "ADOUMRI",
-              voters: 23792
-            },
+              "station": "ECOLE MISSION / A",
+              "voters": 481
+            }
+          ],
+          "ADOUMRI": [
             {
-              station: "HAOUSSARE",
-              voters: 3646
-            },
+              "station": "EP ADOUMRI / A",
+              "voters": 23792
+            }
+          ],
+          "HAOUSSARE": [
             {
-              station: "KAGOURE",
-              voters: 4261
-            },
+              "station": "EP ADOUMRI / A",
+              "voters": 3646
+            }
+          ],
+          "KAGOURE": [
             {
-              station: "KOLLERE",
-              voters: 5402
-            },
+              "station": "EP ADOUMRI / A",
+              "voters": 4261
+            }
+          ],
+          "KOLLERE": [
             {
-              station: "SODECOTON",
-              voters: 5754
-            },
+              "station": "EP ADOUMRI / A",
+              "voters": 5402
+            }
+          ],
+          "SODECOTON": [
             {
-              station: "WAFANGO",
-              voters: 3956
-            },
+              "station": "EP ADOUMRI / A",
+              "voters": 5754
+            }
+          ],
+          "WAFANGO": [
             {
-              station: "BIBEMI",
-              voters: 20018
-            },
+              "station": "EP ADOUMRI / A",
+              "voters": 3956
+            }
+          ],
+          "BIBEMI": [
             {
-              station: "CENTRE",
-              voters: 7164
-            },
+              "station": "EP ADOUMRI / A",
+              "voters": 20018
+            }
+          ],
+          "CENTRE": [
             {
-              station: "BOUKTIO",
-              voters: 3534
-            },
+              "station": "EP ADOUMRI / A",
+              "voters": 7164
+            }
+          ],
+          "BOUKTIO": [
             {
-              station: "ROUMDE",
-              voters: 3766
-            },
+              "station": "EP ADOUMRI / A",
+              "voters": 3534
+            }
+          ],
+          "ROUMDE": [
             {
-              station: "SEBORE-ADOUMRI",
-              voters: 3038
-            },
+              "station": "EP ADOUMRI / A",
+              "voters": 3766
+            }
+          ],
+          "SEBORE-ADOUMRI": [
             {
-              station: "TCHAMIDARI",
-              voters: 3534
-            },
+              "station": "EP ADOUMRI / A",
+              "voters": 3038
+            }
           ],
-          "EP BABOUDJI / A": [
+          "TCHAMIDARI": [
             {
-              station: "BABOUDJI",
-              voters: 630
-            },
+              "station": "EP ADOUMRI / A",
+              "voters": 3534
+            }
+          ],
+          "BABOUDJI": [
             {
-              station: "OURO-KIANDA",
-              voters: 798
-            },
+              "station": "EP BABOUDJI / A",
+              "voters": 630
+            }
           ],
-          "EP BADEO / A": [
+          "OURO-KIANDA": [
             {
-              station: "TCHEKEHI",
-              voters: 205
-            },
+              "station": "EP BABOUDJI / A",
+              "voters": 798
+            }
           ],
-          "EP BAHAMADIKO / A": [
+          "TCHEKEHI": [
             {
-              station: "BAHAMADICKO",
-              voters: 302
-            },
+              "station": "EP BADEO / A",
+              "voters": 205
+            }
+          ],
+          "BAHAMADICKO": [
             {
-              station: "DJAOURO",
-              voters: 444
-            },
+              "station": "EP BAHAMADIKO / A",
+              "voters": 302
+            }
+          ],
+          "DJAOURO": [
             {
-              station: "GOTEL",
-              voters: 373
-            },
+              "station": "EP BAHAMADIKO / A",
+              "voters": 444
+            }
           ],
-          "EP BAHIMI 1 / A": [
+          "GOTEL": [
             {
-              station: "OURO-SABERE",
-              voters: 410
-            },
+              "station": "EP BAHAMADIKO / A",
+              "voters": 373
+            }
+          ],
+          "OURO-SABERE": [
             {
-              station: "WANDJARA",
-              voters: 410
-            },
+              "station": "EP BAHIMI 1 / A",
+              "voters": 410
+            }
           ],
-          "EP BAHIMI 2 / A": [
+          "WANDJARA": [
             {
-              station: "BAHIMI",
-              voters: 2348
-            },
+              "station": "EP BAHIMI 1 / A",
+              "voters": 410
+            }
+          ],
+          "BAHIMI": [
             {
-              station: "OURO",
-              voters: 10745
-            },
+              "station": "EP BAHIMI 2 / A",
+              "voters": 2348
+            }
+          ],
+          "OURO": [
             {
-              station: "BOCKI",
-              voters: 559
-            },
+              "station": "EP BAHIMI 2 / A",
+              "voters": 10745
+            }
           ],
-          "EP BAKSA / A": [
+          "BOCKI": [
             {
-              station: "BAKSA",
-              voters: 838
-            },
+              "station": "EP BAHIMI 2 / A",
+              "voters": 559
+            }
           ],
-          "EP BALDA / A": [
+          "BAKSA": [
             {
-              station: "YALANGO",
-              voters: 413
-            },
+              "station": "EP BAKSA / A",
+              "voters": 838
+            }
           ],
-          "EP BANDORO / A": [
+          "YALANGO": [
             {
-              station: "BANDORO",
-              voters: 249
-            },
+              "station": "EP BALDA / A",
+              "voters": 413
+            }
+          ],
+          "BANDORO": [
             {
-              station: "P￈RE",
-              voters: 249
-            },
+              "station": "EP BANDORO / A",
+              "voters": 249
+            }
           ],
-          "EP BEBOUMZA / A": [
+          "P￈RE": [
             {
-              station: "BEBOUMZA",
-              voters: 321
-            },
+              "station": "EP BANDORO / A",
+              "voters": 249
+            }
           ],
-          "EP BESOUM-BOUBA / A": [
+          "BEBOUMZA": [
             {
-              station: "BESSOUM-BOUBA",
-              voters: 358
-            },
+              "station": "EP BEBOUMZA / A",
+              "voters": 321
+            }
           ],
-          "EP BESSOUM-LABAY / A": [
+          "BESSOUM-BOUBA": [
             {
-              station: "BESSOUM-LABAY",
-              voters: 216
-            },
+              "station": "EP BESOUM-BOUBA / A",
+              "voters": 358
+            }
           ],
-          "EP BIBEMI GR I / A": [
+          "BESSOUM-LABAY": [
             {
-              station: "DAMARE",
-              voters: 771
-            },
+              "station": "EP BESSOUM-LABAY / A",
+              "voters": 216
+            }
+          ],
+          "DAMARE": [
             {
-              station: "LAMORDE",
-              voters: 771
-            },
+              "station": "EP BIBEMI GR I / A",
+              "voters": 771
+            }
+          ],
+          "LAMORDE": [
             {
-              station: "BEBEMI",
-              voters: 771
-            },
+              "station": "EP BIBEMI GR I / A",
+              "voters": 771
+            }
           ],
-          "EP BIBEMI GR II / A": [
+          "BEBEMI": [
             {
-              station: "PLAQUES",
-              voters: 2050
-            },
+              "station": "EP BIBEMI GR I / A",
+              "voters": 771
+            }
+          ],
+          "PLAQUES": [
             {
-              station: "KAPSIKIRE",
-              voters: 1115
-            },
+              "station": "EP BIBEMI GR II / A",
+              "voters": 2050
+            }
+          ],
+          "KAPSIKIRE": [
             {
-              station: "DOWORO",
-              voters: 2050
-            },
+              "station": "EP BIBEMI GR II / A",
+              "voters": 1115
+            }
+          ],
+          "DOWORO": [
             {
-              station: "FOULBERE",
-              voters: 1886
-            },
+              "station": "EP BIBEMI GR II / A",
+              "voters": 2050
+            }
+          ],
+          "FOULBERE": [
             {
-              station: "GUIZIGARE",
-              voters: 1596
-            },
+              "station": "EP BIBEMI GR II / A",
+              "voters": 1886
+            }
+          ],
+          "GUIZIGARE": [
             {
-              station: "KAPSIKI",
-              voters: 2199
-            },
+              "station": "EP BIBEMI GR II / A",
+              "voters": 1596
+            }
+          ],
+          "KAPSIKI": [
             {
-              station: "MANDJAOLA",
-              voters: 2498
-            },
+              "station": "EP BIBEMI GR II / A",
+              "voters": 2199
+            }
+          ],
+          "MANDJAOLA": [
             {
-              station: "MAYO-BARKA",
-              voters: 1342
-            },
+              "station": "EP BIBEMI GR II / A",
+              "voters": 2498
+            }
+          ],
+          "MAYO-BARKA": [
             {
-              station: "YADJI",
-              voters: 1894
-            },
+              "station": "EP BIBEMI GR II / A",
+              "voters": 1342
+            }
+          ],
+          "YADJI": [
             {
-              station: "OURO-KARI",
-              voters: 2050
-            },
+              "station": "EP BIBEMI GR II / A",
+              "voters": 1894
+            }
+          ],
+          "OURO-KARI": [
             {
-              station: "OURO-YADJI",
-              voters: 1115
-            },
+              "station": "EP BIBEMI GR II / A",
+              "voters": 2050
+            }
+          ],
+          "OURO-YADJI": [
             {
-              station: "SABONGARI",
-              voters: 2050
-            },
+              "station": "EP BIBEMI GR II / A",
+              "voters": 1115
+            }
+          ],
+          "SABONGARI": [
             {
-              station: "WINDE",
-              voters: 2050
-            },
+              "station": "EP BIBEMI GR II / A",
+              "voters": 2050
+            }
           ],
-          "EP BIKALE / A": [
+          "WINDE": [
             {
-              station: "BIKALE",
-              voters: 1566
-            },
+              "station": "EP BIBEMI GR II / A",
+              "voters": 2050
+            }
           ],
-          "EP BOELI / A": [
+          "BIKALE": [
             {
-              station: "BOELI",
-              voters: 1971
-            },
+              "station": "EP BIKALE / A",
+              "voters": 1566
+            }
+          ],
+          "BOELI": [
             {
-              station: "DJAGNI",
-              voters: 657
-            },
+              "station": "EP BOELI / A",
+              "voters": 1971
+            }
+          ],
+          "DJAGNI": [
             {
-              station: "SEBORE",
-              voters: 1884
-            },
+              "station": "EP BOELI / A",
+              "voters": 657
+            }
           ],
-          "EP BOULA-IBIB / A": [
+          "SEBORE": [
             {
-              station: "BOULA-",
-              voters: 2240
-            },
+              "station": "EP BOELI / A",
+              "voters": 1884
+            }
+          ],
+          "BOULA-": [
             {
-              station: "IBIB",
-              voters: 4480
-            },
+              "station": "EP BOULA-IBIB / A",
+              "voters": 2240
+            }
+          ],
+          "IBIB": [
             {
-              station: "DJARENDIRE",
-              voters: 2240
-            },
+              "station": "EP BOULA-IBIB / A",
+              "voters": 4480
+            }
+          ],
+          "DJARENDIRE": [
             {
-              station: "GADA-BOUWOL",
-              voters: 2654
-            },
+              "station": "EP BOULA-IBIB / A",
+              "voters": 2240
+            }
+          ],
+          "GADA-BOUWOL": [
             {
-              station: "HARDE",
-              voters: 2240
-            },
+              "station": "EP BOULA-IBIB / A",
+              "voters": 2654
+            }
+          ],
+          "HARDE": [
             {
-              station: "BOULA",
-              voters: 2240
-            },
+              "station": "EP BOULA-IBIB / A",
+              "voters": 2240
+            }
+          ],
+          "BOULA": [
             {
-              station: "NANGUE",
-              voters: 2240
-            },
+              "station": "EP BOULA-IBIB / A",
+              "voters": 2240
+            }
+          ],
+          "NANGUE": [
             {
-              station: "OURO-BAI",
-              voters: 2240
-            },
+              "station": "EP BOULA-IBIB / A",
+              "voters": 2240
+            }
           ],
-          "EP BOUNGA / A": [
+          "OURO-BAI": [
             {
-              station: "BOUNGA",
-              voters: 739
-            },
+              "station": "EP BOULA-IBIB / A",
+              "voters": 2240
+            }
           ],
-          "EP BOUNGA HOSSERE / A": [
+          "BOUNGA": [
             {
-              station: "BOUNGA-HOSSERE",
-              voters: 402
-            },
+              "station": "EP BOUNGA / A",
+              "voters": 739
+            }
           ],
-          "EP BOUNGUEL / A": [
+          "BOUNGA-HOSSERE": [
             {
-              station: "BOUNGUEL",
-              voters: 313
-            },
+              "station": "EP BOUNGA HOSSERE / A",
+              "voters": 402
+            }
+          ],
+          "BOUNGUEL": [
             {
-              station: "GARALAWO",
-              voters: 313
-            },
+              "station": "EP BOUNGUEL / A",
+              "voters": 313
+            }
           ],
-          "EP CARREFOUR DJAOURO SIDDI / A": [
+          "GARALAWO": [
             {
-              station: "SIDDI",
-              voters: 71
-            },
+              "station": "EP BOUNGUEL / A",
+              "voters": 313
+            }
           ],
-          "EP DANDERE / A": [
+          "SIDDI": [
             {
-              station: "DANDERE",
-              voters: 459
-            },
+              "station": "EP CARREFOUR DJAOURO SIDDI / A",
+              "voters": 71
+            }
+          ],
+          "DANDERE": [
             {
-              station: "NAKERE",
-              voters: 872
-            },
+              "station": "EP DANDERE / A",
+              "voters": 459
+            }
           ],
-          "EP DERINTCHING / A": [
+          "NAKERE": [
             {
-              station: "DERINTCHING",
-              voters: 686
-            },
+              "station": "EP DANDERE / A",
+              "voters": 872
+            }
           ],
-          "EP DJALOUMI / A": [
+          "DERINTCHING": [
             {
-              station: "DJALOUMI",
-              voters: 1920
-            },
+              "station": "EP DERINTCHING / A",
+              "voters": 686
+            }
+          ],
+          "DJALOUMI": [
             {
-              station: "OURO-FADA",
-              voters: 960
-            },
+              "station": "EP DJALOUMI / A",
+              "voters": 1920
+            }
+          ],
+          "OURO-FADA": [
             {
-              station: "POUPOU",
-              voters: 960
-            },
+              "station": "EP DJALOUMI / A",
+              "voters": 960
+            }
           ],
-          "EP DJARENDI BELLO / A": [
+          "POUPOU": [
             {
-              station: "BINOU",
-              voters: 1121
-            },
+              "station": "EP DJALOUMI / A",
+              "voters": 960
+            }
+          ],
+          "BINOU": [
             {
-              station: "DJARENDI-BELLO",
-              voters: 466
-            },
+              "station": "EP DJARENDI BELLO / A",
+              "voters": 1121
+            }
+          ],
+          "DJARENDI-BELLO": [
             {
-              station: "TEWER",
-              voters: 466
-            },
+              "station": "EP DJARENDI BELLO / A",
+              "voters": 466
+            }
           ],
-          "EP DJARENGOL / A": [
+          "TEWER": [
             {
-              station: "BOKKIRE",
-              voters: 115
-            },
+              "station": "EP DJARENDI BELLO / A",
+              "voters": 466
+            }
+          ],
+          "BOKKIRE": [
             {
-              station: "DJARENGOL",
-              voters: 115
-            },
+              "station": "EP DJARENGOL / A",
+              "voters": 115
+            }
           ],
-          "EP DJENEO / A": [
+          "DJARENGOL": [
             {
-              station: "DJENEO",
-              voters: 395
-            },
+              "station": "EP DJARENGOL / A",
+              "voters": 115
+            }
           ],
-          "EP DJOUGOUNDOURE / A": [
+          "DJENEO": [
             {
-              station: "LOUDOU",
-              voters: 182
-            },
+              "station": "EP DJENEO / A",
+              "voters": 395
+            }
+          ],
+          "LOUDOU": [
             {
-              station: "NEFETENGOL",
-              voters: 182
-            },
+              "station": "EP DJOUGOUNDOURE / A",
+              "voters": 182
+            }
           ],
-          "EP DOUGGUE / A": [
+          "NEFETENGOL": [
             {
-              station: "DOUGGUE",
-              voters: 302
-            },
+              "station": "EP DJOUGOUNDOURE / A",
+              "voters": 182
+            }
           ],
-          "EP FALTIGOU / A": [
+          "DOUGGUE": [
             {
-              station: "MAYO-PARIS",
-              voters: 205
-            },
+              "station": "EP DOUGGUE / A",
+              "voters": 302
+            }
+          ],
+          "MAYO-PARIS": [
             {
-              station: "SISSIRI",
-              voters: 205
-            },
+              "station": "EP FALTIGOU / A",
+              "voters": 205
+            }
           ],
-          "EP FAMOU / A": [
+          "SISSIRI": [
             {
-              station: "FAMOU",
-              voters: 441
-            },
+              "station": "EP FALTIGOU / A",
+              "voters": 205
+            }
           ],
-          "EP FAMOURE / A": [
+          "FAMOU": [
             {
-              station: "FAMOURE",
-              voters: 330
-            },
+              "station": "EP FAMOU / A",
+              "voters": 441
+            }
           ],
-          "EP G II ADOUMRI / A": [
+          "FAMOURE": [
             {
-              station: "BARRIERE",
-              voters: 728
-            },
+              "station": "EP FAMOURE / A",
+              "voters": 330
+            }
           ],
-          "EP GALI / A": [
+          "BARRIERE": [
             {
-              station: "ARABO",
-              voters: 540
-            },
+              "station": "EP G II ADOUMRI / A",
+              "voters": 728
+            }
+          ],
+          "ARABO": [
             {
-              station: "GALI",
-              voters: 540
-            },
+              "station": "EP GALI / A",
+              "voters": 540
+            }
+          ],
+          "GALI": [
             {
-              station: "SUNSANE",
-              voters: 540
-            },
+              "station": "EP GALI / A",
+              "voters": 540
+            }
+          ],
+          "SUNSANE": [
             {
-              station: "TCHONASSANE",
-              voters: 540
-            },
+              "station": "EP GALI / A",
+              "voters": 540
+            }
           ],
-          "EP GII BIBEMI / A": [
+          "TCHONASSANE": [
             {
-              station: "QUARTIER",
-              voters: 935
-            },
+              "station": "EP GALI / A",
+              "voters": 540
+            }
+          ],
+          "QUARTIER": [
             {
-              station: "WADJIRI",
-              voters: 935
-            },
+              "station": "EP GII BIBEMI / A",
+              "voters": 935
+            }
           ],
-          "EP GOKA / A": [
+          "WADJIRI": [
             {
-              station: "GOKA",
-              voters: 1112
-            },
+              "station": "EP GII BIBEMI / A",
+              "voters": 935
+            }
+          ],
+          "GOKA": [
             {
-              station: "MAYO-BIRIDJI",
-              voters: 1021
-            },
+              "station": "EP GOKA / A",
+              "voters": 1112
+            }
+          ],
+          "MAYO-BIRIDJI": [
             {
-              station: "SOSSARI",
-              voters: 703
-            },
+              "station": "EP GOKA / A",
+              "voters": 1021
+            }
           ],
-          "EP GONZOUNE / A": [
+          "SOSSARI": [
             {
-              station: "GONZOUNE",
-              voters: 265
-            },
+              "station": "EP GOKA / A",
+              "voters": 703
+            }
           ],
-          "EP GOPTIKERE / A": [
+          "GONZOUNE": [
             {
-              station: "CARREFOUR",
-              voters: 615
-            },
+              "station": "EP GONZOUNE / A",
+              "voters": 265
+            }
+          ],
+          "CARREFOUR": [
             {
-              station: "GOPTIKERE",
-              voters: 1088
-            },
+              "station": "EP GOPTIKERE / A",
+              "voters": 615
+            }
           ],
-          "EP GORE ARDO / A": [
+          "GOPTIKERE": [
             {
-              station: "GAGAWA",
-              voters: 414
-            },
+              "station": "EP GOPTIKERE / A",
+              "voters": 1088
+            }
+          ],
+          "GAGAWA": [
             {
-              station: "GORE-ARDO",
-              voters: 414
-            },
+              "station": "EP GORE ARDO / A",
+              "voters": 414
+            }
+          ],
+          "GORE-ARDO": [
             {
-              station: "KAREDJE",
-              voters: 795
-            },
+              "station": "EP GORE ARDO / A",
+              "voters": 414
+            }
+          ],
+          "KAREDJE": [
             {
-              station: "GOUBE",
-              voters: 414
-            },
+              "station": "EP GORE ARDO / A",
+              "voters": 795
+            }
+          ],
+          "GOUBE": [
             {
-              station: "NGORE",
-              voters: 603
-            },
+              "station": "EP GORE ARDO / A",
+              "voters": 414
+            }
+          ],
+          "NGORE": [
             {
-              station: "NGASKA",
-              voters: 603
-            },
+              "station": "EP GORE ARDO / A",
+              "voters": 603
+            }
           ],
-          "EP HAMALADE / A": [
+          "NGASKA": [
             {
-              station: "HAMALADE",
-              voters: 608
-            },
+              "station": "EP GORE ARDO / A",
+              "voters": 603
+            }
+          ],
+          "HAMALADE": [
             {
-              station: "KALYANFOU",
-              voters: 608
-            },
+              "station": "EP HAMALADE / A",
+              "voters": 608
+            }
           ],
-          "EP HOLMA / A": [
+          "KALYANFOU": [
             {
-              station: "DOUMGUEL",
-              voters: 680
-            },
+              "station": "EP HAMALADE / A",
+              "voters": 608
+            }
+          ],
+          "DOUMGUEL": [
             {
-              station: "HOLMA",
-              voters: 1213
-            },
+              "station": "EP HOLMA / A",
+              "voters": 680
+            }
           ],
-          "EP HOULA / A": [
+          "HOLMA": [
             {
-              station: "HOULA",
-              voters: 4078
-            },
+              "station": "EP HOLMA / A",
+              "voters": 1213
+            }
+          ],
+          "HOULA": [
             {
-              station: "KILBAO",
-              voters: 2182
-            },
+              "station": "EP HOULA / A",
+              "voters": 4078
+            }
+          ],
+          "KILBAO": [
             {
-              station: "MBEDEO",
-              voters: 2182
-            },
+              "station": "EP HOULA / A",
+              "voters": 2182
+            }
+          ],
+          "MBEDEO": [
             {
-              station: "YAYA",
-              voters: 2039
-            },
+              "station": "EP HOULA / A",
+              "voters": 2182
+            }
+          ],
+          "YAYA": [
             {
-              station: "SOULMAKI",
-              voters: 2182
-            },
+              "station": "EP HOULA / A",
+              "voters": 2039
+            }
           ],
-          "EP KAKOU / A": [
+          "SOULMAKI": [
             {
-              station: "KAKOU",
-              voters: 662
-            },
+              "station": "EP HOULA / A",
+              "voters": 2182
+            }
           ],
-          "EP KALAO / A": [
+          "KAKOU": [
             {
-              station: "BIMARE",
-              voters: 324
-            },
+              "station": "EP KAKOU / A",
+              "voters": 662
+            }
+          ],
+          "BIMARE": [
             {
-              station: "DAKSI",
-              voters: 439
-            },
+              "station": "EP KALAO / A",
+              "voters": 324
+            }
+          ],
+          "DAKSI": [
             {
-              station: "NAKANDJA",
-              voters: 324
-            },
+              "station": "EP KALAO / A",
+              "voters": 439
+            }
           ],
-          "EP KAPANAY / A": [
+          "NAKANDJA": [
             {
-              station: "KAPANAY",
-              voters: 287
-            },
+              "station": "EP KALAO / A",
+              "voters": 324
+            }
           ],
-          "EP KATCHEO / A": [
+          "KAPANAY": [
             {
-              station: "KATCHEO",
-              voters: 234
-            },
+              "station": "EP KAPANAY / A",
+              "voters": 287
+            }
+          ],
+          "KATCHEO": [
             {
-              station: "LANKANDJA",
-              voters: 234
-            },
+              "station": "EP KATCHEO / A",
+              "voters": 234
+            }
+          ],
+          "LANKANDJA": [
             {
-              station: "OURO-BOCKI",
-              voters: 234
-            },
+              "station": "EP KATCHEO / A",
+              "voters": 234
+            }
           ],
-          "EP KILBAO / A": [
+          "OURO-BOCKI": [
             {
-              station: "TCHABEWA",
-              voters: 143
-            },
+              "station": "EP KATCHEO / A",
+              "voters": 234
+            }
           ],
-          "EP LABARE BOBODJO / A": [
+          "TCHABEWA": [
             {
-              station: "LABARE-BOBODJO",
-              voters: 407
-            },
+              "station": "EP KILBAO / A",
+              "voters": 143
+            }
           ],
-          "EP LADDE-GORE / A": [
+          "LABARE-BOBODJO": [
             {
-              station: "LADDE-GORE",
-              voters: 592
-            },
+              "station": "EP LABARE BOBODJO / A",
+              "voters": 407
+            }
+          ],
+          "LADDE-GORE": [
             {
-              station: "SABERE",
-              voters: 592
-            },
+              "station": "EP LADDE-GORE / A",
+              "voters": 592
+            }
+          ],
+          "SABERE": [
             {
-              station: "LADDE",
-              voters: 592
-            },
+              "station": "EP LADDE-GORE / A",
+              "voters": 592
+            }
+          ],
+          "LADDE": [
             {
-              station: "GORE",
-              voters: 592
-            },
+              "station": "EP LADDE-GORE / A",
+              "voters": 592
+            }
           ],
-          "EP LAM / A": [
+          "GORE": [
             {
-              station: "KALAO",
-              voters: 820
-            },
+              "station": "EP LADDE-GORE / A",
+              "voters": 592
+            }
+          ],
+          "KALAO": [
             {
-              station: "LAM",
-              voters: 496
-            },
+              "station": "EP LAM / A",
+              "voters": 820
+            }
           ],
-          "EP LAWA / A": [
+          "LAM": [
             {
-              station: "ADI",
-              voters: 315
-            },
+              "station": "EP LAM / A",
+              "voters": 496
+            }
+          ],
+          "ADI": [
             {
-              station: "LAWA",
-              voters: 315
-            },
+              "station": "EP LAWA / A",
+              "voters": 315
+            }
+          ],
+          "LAWA": [
             {
-              station: "LIBINE",
-              voters: 315
-            },
+              "station": "EP LAWA / A",
+              "voters": 315
+            }
+          ],
+          "LIBINE": [
             {
-              station: "WASO",
-              voters: 315
-            },
+              "station": "EP LAWA / A",
+              "voters": 315
+            }
           ],
-          "EP LAZOUA / A": [
+          "WASO": [
             {
-              station: "BOLGUI",
-              voters: 110
-            },
+              "station": "EP LAWA / A",
+              "voters": 315
+            }
+          ],
+          "BOLGUI": [
             {
-              station: "LAZOUA",
-              voters: 110
-            },
+              "station": "EP LAZOUA / A",
+              "voters": 110
+            }
           ],
-          "EP LOMBO / A": [
+          "LAZOUA": [
             {
-              station: "DORBA",
-              voters: 552
-            },
+              "station": "EP LAZOUA / A",
+              "voters": 110
+            }
+          ],
+          "DORBA": [
             {
-              station: "LOMBO",
-              voters: 552
-            },
+              "station": "EP LOMBO / A",
+              "voters": 552
+            }
           ],
-          "EP LOUMINGUEL / A": [
+          "LOMBO": [
             {
-              station: "LOUMINGUEL",
-              voters: 930
-            },
+              "station": "EP LOMBO / A",
+              "voters": 552
+            }
+          ],
+          "LOUMINGUEL": [
             {
-              station: "LOMINGUEL",
-              voters: 465
-            },
+              "station": "EP LOUMINGUEL / A",
+              "voters": 930
+            }
           ],
-          "EP MADJOLDE / A": [
+          "LOMINGUEL": [
             {
-              station: "GONKOI",
-              voters: 532
-            },
+              "station": "EP LOUMINGUEL / A",
+              "voters": 465
+            }
+          ],
+          "GONKOI": [
             {
-              station: "MADJOLDE",
-              voters: 532
-            },
+              "station": "EP MADJOLDE / A",
+              "voters": 532
+            }
           ],
-          "EP MAFALE / A": [
+          "MADJOLDE": [
             {
-              station: "MAFALE",
-              voters: 239
-            },
+              "station": "EP MADJOLDE / A",
+              "voters": 532
+            }
+          ],
+          "MAFALE": [
             {
-              station: "MATSIRI",
-              voters: 239
-            },
+              "station": "EP MAFALE / A",
+              "voters": 239
+            }
           ],
-          "EP MAIDJIMI / A": [
+          "MATSIRI": [
             {
-              station: "MAIDJIMI",
-              voters: 335
-            },
+              "station": "EP MAFALE / A",
+              "voters": 239
+            }
           ],
-          "EP MAKASSELE / A": [
+          "MAIDJIMI": [
             {
-              station: "HOULA-FANDOU",
-              voters: 472
-            },
+              "station": "EP MAIDJIMI / A",
+              "voters": 335
+            }
+          ],
+          "HOULA-FANDOU": [
             {
-              station: "MAKASSELLE",
-              voters: 338
-            },
+              "station": "EP MAKASSELE / A",
+              "voters": 472
+            }
+          ],
+          "MAKASSELLE": [
             {
-              station: "MATALI",
-              voters: 338
-            },
+              "station": "EP MAKASSELE / A",
+              "voters": 338
+            }
+          ],
+          "MATALI": [
             {
-              station: "ZOULGO",
-              voters: 338
-            },
+              "station": "EP MAKASSELE / A",
+              "voters": 338
+            }
           ],
-          "EP MAYO BARKA / A": [
+          "ZOULGO": [
             {
-              station: "BARKA",
-              voters: 454
-            },
+              "station": "EP MAKASSELE / A",
+              "voters": 338
+            }
+          ],
+          "BARKA": [
             {
-              station: "FOULBE",
-              voters: 227
-            },
+              "station": "EP MAYO BARKA / A",
+              "voters": 454
+            }
+          ],
+          "FOULBE": [
             {
-              station: "GUIZIGA",
-              voters: 227
-            },
+              "station": "EP MAYO BARKA / A",
+              "voters": 227
+            }
           ],
-          "EP MAYO-LAOULADJE / A": [
+          "GUIZIGA": [
             {
-              station: "BIZOME",
-              voters: 146
-            },
+              "station": "EP MAYO BARKA / A",
+              "voters": 227
+            }
+          ],
+          "BIZOME": [
             {
-              station: "MAYO-LAOULADJE",
-              voters: 146
-            },
+              "station": "EP MAYO-LAOULADJE / A",
+              "voters": 146
+            }
           ],
-          "EP MAYO-LOPE / A": [
+          "MAYO-LAOULADJE": [
             {
-              station: "MAYO-LOPE",
-              voters: 1036
-            },
+              "station": "EP MAYO-LAOULADJE / A",
+              "voters": 146
+            }
           ],
-          "EP MBELLA / A": [
+          "MAYO-LOPE": [
             {
-              station: "DJABIRE",
-              voters: 803
-            },
+              "station": "EP MAYO-LOPE / A",
+              "voters": 1036
+            }
+          ],
+          "DJABIRE": [
             {
-              station: "MBELLA",
-              voters: 803
-            },
+              "station": "EP MBELLA / A",
+              "voters": 803
+            }
           ],
-          "EP MBIGOU / A": [
+          "MBELLA": [
             {
-              station: "DANDIBALI",
-              voters: 694
-            },
+              "station": "EP MBELLA / A",
+              "voters": 803
+            }
+          ],
+          "DANDIBALI": [
             {
-              station: "DOMAYO",
-              voters: 694
-            },
+              "station": "EP MBIGOU / A",
+              "voters": 694
+            }
+          ],
+          "DOMAYO": [
             {
-              station: "MBIGOU",
-              voters: 1388
-            },
+              "station": "EP MBIGOU / A",
+              "voters": 694
+            }
+          ],
+          "MBIGOU": [
             {
-              station: "GOLLA",
-              voters: 694
-            },
+              "station": "EP MBIGOU / A",
+              "voters": 1388
+            }
+          ],
+          "GOLLA": [
             {
-              station: "TOUPOURI",
-              voters: 694
-            },
+              "station": "EP MBIGOU / A",
+              "voters": 694
+            }
           ],
-          "EP MORA-CARREFOUR / A": [
+          "TOUPOURI": [
             {
-              station: "MORA-CARREFOUR",
-              voters: 187
-            },
+              "station": "EP MBIGOU / A",
+              "voters": 694
+            }
           ],
-          "EP NDIAM-BADI / A": [
+          "MORA-CARREFOUR": [
             {
-              station: "BALDA",
-              voters: 1247
-            },
+              "station": "EP MORA-CARREFOUR / A",
+              "voters": 187
+            }
+          ],
+          "BALDA": [
             {
-              station: "NDIAM-BADI",
-              voters: 673
-            },
+              "station": "EP NDIAM-BADI / A",
+              "voters": 1247
+            }
+          ],
+          "NDIAM-BADI": [
             {
-              station: "YALAGO",
-              voters: 827
-            },
+              "station": "EP NDIAM-BADI / A",
+              "voters": 673
+            }
+          ],
+          "YALAGO": [
             {
-              station: "GONI",
-              voters: 827
-            },
+              "station": "EP NDIAM-BADI / A",
+              "voters": 827
+            }
           ],
-          "EP NDJOURA / A": [
+          "GONI": [
             {
-              station: "NDJOURA",
-              voters: 270
-            },
+              "station": "EP NDIAM-BADI / A",
+              "voters": 827
+            }
           ],
-          "EP NDONGA / A": [
+          "NDJOURA": [
             {
-              station: "LENDJE",
-              voters: 340
-            },
+              "station": "EP NDJOURA / A",
+              "voters": 270
+            }
+          ],
+          "LENDJE": [
             {
-              station: "NDONGA",
-              voters: 340
-            },
+              "station": "EP NDONGA / A",
+              "voters": 340
+            }
+          ],
+          "NDONGA": [
             {
-              station: "TCHAKARI",
-              voters: 439
-            },
+              "station": "EP NDONGA / A",
+              "voters": 340
+            }
           ],
-          "EP NGAOULI / A": [
+          "TCHAKARI": [
             {
-              station: "BADIWA",
-              voters: 479
-            },
+              "station": "EP NDONGA / A",
+              "voters": 439
+            }
+          ],
+          "BADIWA": [
             {
-              station: "NGAOULI",
-              voters: 479
-            },
+              "station": "EP NGAOULI / A",
+              "voters": 479
+            }
           ],
-          "EP OURO KIANDA / A": [
+          "NGAOULI": [
             {
-              station: "LARKI",
-              voters: 168
-            },
+              "station": "EP NGAOULI / A",
+              "voters": 479
+            }
+          ],
+          "LARKI": [
             {
-              station: "KIANDA1",
-              voters: 168
-            },
+              "station": "EP OURO KIANDA / A",
+              "voters": 168
+            }
+          ],
+          "KIANDA1": [
             {
-              station: "KIANDA2",
-              voters: 168
-            },
+              "station": "EP OURO KIANDA / A",
+              "voters": 168
+            }
           ],
-          "EP OURO-ARDE / A": [
+          "KIANDA2": [
             {
-              station: "GAMDOUGUEL",
-              voters: 543
-            },
+              "station": "EP OURO KIANDA / A",
+              "voters": 168
+            }
+          ],
+          "GAMDOUGUEL": [
             {
-              station: "OURO-ARDE",
-              voters: 408
-            },
+              "station": "EP OURO-ARDE / A",
+              "voters": 543
+            }
           ],
-          "EP OURO-KIO / A": [
+          "OURO-ARDE": [
             {
-              station: "OURO-KIO",
-              voters: 526
-            },
+              "station": "EP OURO-ARDE / A",
+              "voters": 408
+            }
           ],
-          "EP PADARME / A": [
+          "OURO-KIO": [
             {
-              station: "PADARME",
-              voters: 1696
-            },
+              "station": "EP OURO-KIO / A",
+              "voters": 526
+            }
+          ],
+          "PADARME": [
             {
-              station: "TIGUERE",
-              voters: 1696
-            },
+              "station": "EP PADARME / A",
+              "voters": 1696
+            }
           ],
-          "EP PATADJE / A": [
+          "TIGUERE": [
             {
-              station: "DJOUGOUNDOURE",
-              voters: 477
-            },
+              "station": "EP PADARME / A",
+              "voters": 1696
+            }
+          ],
+          "DJOUGOUNDOURE": [
             {
-              station: "MAYO-LOUNDOU",
-              voters: 295
-            },
+              "station": "EP PATADJE / A",
+              "voters": 477
+            }
+          ],
+          "MAYO-LOUNDOU": [
             {
-              station: "NEFETEGOL",
-              voters: 295
-            },
+              "station": "EP PATADJE / A",
+              "voters": 295
+            }
+          ],
+          "NEFETEGOL": [
             {
-              station: "PATADJE",
-              voters: 295
-            },
+              "station": "EP PATADJE / A",
+              "voters": 295
+            }
           ],
-          "EP PIAGA / A": [
+          "PATADJE": [
             {
-              station: "BOUZA",
-              voters: 306
-            },
+              "station": "EP PATADJE / A",
+              "voters": 295
+            }
+          ],
+          "BOUZA": [
             {
-              station: "FADARMA",
-              voters: 306
-            },
+              "station": "EP PIAGA / A",
+              "voters": 306
+            }
+          ],
+          "FADARMA": [
             {
-              station: "PIAGA",
-              voters: 306
-            },
+              "station": "EP PIAGA / A",
+              "voters": 306
+            }
           ],
-          "EP POMLA / A": [
+          "PIAGA": [
             {
-              station: "BANTADJE",
-              voters: 1201
-            },
+              "station": "EP PIAGA / A",
+              "voters": 306
+            }
+          ],
+          "BANTADJE": [
             {
-              station: "POMLA",
-              voters: 2162
-            },
+              "station": "EP POMLA / A",
+              "voters": 1201
+            }
           ],
-          "EP ROUMDE-BIDE / A": [
+          "POMLA": [
             {
-              station: "BIDE",
-              voters: 640
-            },
+              "station": "EP POMLA / A",
+              "voters": 2162
+            }
+          ],
+          "BIDE": [
             {
-              station: "BIDE-YAYA",
-              voters: 640
-            },
+              "station": "EP ROUMDE-BIDE / A",
+              "voters": 640
+            }
+          ],
+          "BIDE-YAYA": [
             {
-              station: "LABARE",
-              voters: 1078
-            },
+              "station": "EP ROUMDE-BIDE / A",
+              "voters": 640
+            }
+          ],
+          "LABARE": [
             {
-              station: "DJAMAHA",
-              voters: 757
-            },
+              "station": "EP ROUMDE-BIDE / A",
+              "voters": 1078
+            }
+          ],
+          "DJAMAHA": [
             {
-              station: "ROUMDE-BIDE",
-              voters: 640
-            },
+              "station": "EP ROUMDE-BIDE / A",
+              "voters": 757
+            }
+          ],
+          "ROUMDE-BIDE": [
             {
-              station: "SERAWA",
-              voters: 640
-            },
+              "station": "EP ROUMDE-BIDE / A",
+              "voters": 640
+            }
           ],
-          "EP SEBORE / A": [
+          "SERAWA": [
             {
-              station: "OURO-GOUBE",
-              voters: 570
-            },
+              "station": "EP ROUMDE-BIDE / A",
+              "voters": 640
+            }
           ],
-          "EP TAM / A": [
+          "OURO-GOUBE": [
             {
-              station: "BADEOU",
-              voters: 767
-            },
+              "station": "EP SEBORE / A",
+              "voters": 570
+            }
+          ],
+          "BADEOU": [
             {
-              station: "BADORO",
-              voters: 1292
-            },
+              "station": "EP TAM / A",
+              "voters": 767
+            }
+          ],
+          "BADORO": [
             {
-              station: "TAM",
-              voters: 1534
-            },
+              "station": "EP TAM / A",
+              "voters": 1292
+            }
+          ],
+          "TAM": [
             {
-              station: "FALTIGOU",
-              voters: 2205
-            },
+              "station": "EP TAM / A",
+              "voters": 1534
+            }
+          ],
+          "FALTIGOU": [
             {
-              station: "MAYEL",
-              voters: 767
-            },
+              "station": "EP TAM / A",
+              "voters": 2205
+            }
+          ],
+          "MAYEL": [
             {
-              station: "PARIS-TAM",
-              voters: 767
-            },
+              "station": "EP TAM / A",
+              "voters": 767
+            }
+          ],
+          "PARIS-TAM": [
             {
-              station: "SISSERI",
-              voters: 767
-            },
+              "station": "EP TAM / A",
+              "voters": 767
+            }
           ],
-          "EP TEWERE / A": [
+          "SISSERI": [
             {
-              station: "BIRIDJI",
-              voters: 189
-            },
+              "station": "EP TAM / A",
+              "voters": 767
+            }
+          ],
+          "BIRIDJI": [
             {
-              station: "TEWERE",
-              voters: 189
-            },
+              "station": "EP TEWERE / A",
+              "voters": 189
+            }
           ],
-          "EP TIHELE / A": [
+          "TEWERE": [
             {
-              station: "TIHELE",
-              voters: 225
-            },
+              "station": "EP TEWERE / A",
+              "voters": 189
+            }
           ],
-          "EP WAGA / A": [
+          "TIHELE": [
             {
-              station: "WAGA",
-              voters: 415
-            },
+              "station": "EP TIHELE / A",
+              "voters": 225
+            }
           ],
-          "EP YABERIYA / A": [
+          "WAGA": [
             {
-              station: "YABERIYA",
-              voters: 323
-            },
+              "station": "EP WAGA / A",
+              "voters": 415
+            }
           ],
-          "ESPL PLACE DE FETE BOUI / A": [
+          "YABERIYA": [
             {
-              station: "BOUI",
-              voters: 283
-            },
+              "station": "EP YABERIYA / A",
+              "voters": 323
+            }
           ],
-          "ESPL PLACE DE FETE DEOU / A": [
+          "BOUI": [
             {
-              station: "DEOU",
-              voters: 672
-            },
+              "station": "ESPL PLACE DE FETE BOUI / A",
+              "voters": 283
+            }
+          ],
+          "DEOU": [
             {
-              station: "SOMANGO",
-              voters: 336
-            },
+              "station": "ESPL PLACE DE FETE DEOU / A",
+              "voters": 672
+            }
           ],
-          "ESPL PLACE DE FETE GOUDJE / A": [
+          "SOMANGO": [
             {
-              station: "MAYO-GOUDJE",
-              voters: 132
-            },
+              "station": "ESPL PLACE DE FETE DEOU / A",
+              "voters": 336
+            }
           ],
-          "ESPL PLACE DE FETE NAKERE / A": [
+          "MAYO-GOUDJE": [
             {
-              station: "AOUDJALI",
-              voters: 154
-            },
+              "station": "ESPL PLACE DE FETE GOUDJE / A",
+              "voters": 132
+            }
+          ],
+          "AOUDJALI": [
             {
-              station: "NELBI",
-              voters: 154
-            },
+              "station": "ESPL PLACE DE FETE NAKERE / A",
+              "voters": 154
+            }
           ],
-          "ESPL PLACE DE FETE VOUNRE / A": [
+          "NELBI": [
             {
-              station: "VOUNRE",
-              voters: 257
-            },
+              "station": "ESPL PLACE DE FETE NAKERE / A",
+              "voters": 154
+            }
           ],
-          "ESPL PLACE FETE MALLOUM / A": [
+          "VOUNRE": [
             {
-              station: "FEREOUNDE",
-              voters: 213
-            },
+              "station": "ESPL PLACE DE FETE VOUNRE / A",
+              "voters": 257
+            }
+          ],
+          "FEREOUNDE": [
             {
-              station: "LONGUEREO",
-              voters: 213
-            },
+              "station": "ESPL PLACE FETE MALLOUM / A",
+              "voters": 213
+            }
+          ],
+          "LONGUEREO": [
             {
-              station: "MALLOUM",
-              voters: 213
-            },
+              "station": "ESPL PLACE FETE MALLOUM / A",
+              "voters": 213
+            }
+          ],
+          "MALLOUM": [
             {
-              station: "OURO-DOLE",
-              voters: 213
-            },
+              "station": "ESPL PLACE FETE MALLOUM / A",
+              "voters": 213
+            }
           ],
-          "ESPL PLACE FETE MAYO-GOUDJE / A": [
+          "OURO-DOLE": [
             {
-              station: "BAINAWA",
-              voters: 492
-            },
+              "station": "ESPL PLACE FETE MALLOUM / A",
+              "voters": 213
+            }
+          ],
+          "BAINAWA": [
             {
-              station: "MAYO",
-              voters: 2608
-            },
+              "station": "ESPL PLACE FETE MAYO-GOUDJE / A",
+              "voters": 492
+            }
+          ],
+          "MAYO": [
             {
-              station: "GOUDJE",
-              voters: 1476
-            },
+              "station": "ESPL PLACE FETE MAYO-GOUDJE / A",
+              "voters": 2608
+            }
+          ],
+          "GOUDJE": [
             {
-              station: "KANGOU",
-              voters: 492
-            },
+              "station": "ESPL PLACE FETE MAYO-GOUDJE / A",
+              "voters": 1476
+            }
+          ],
+          "KANGOU": [
             {
-              station: "KOULADJE",
-              voters: 492
-            },
+              "station": "ESPL PLACE FETE MAYO-GOUDJE / A",
+              "voters": 492
+            }
           ],
-          "ESPL PLACE FETE MAYO-LEBRI / A": [
+          "KOULADJE": [
             {
-              station: "MAYO-LEBRI",
-              voters: 346
-            },
+              "station": "ESPL PLACE FETE MAYO-GOUDJE / A",
+              "voters": 492
+            }
+          ],
+          "MAYO-LEBRI": [
             {
-              station: "MAYO-NELBE",
-              voters: 346
-            },
+              "station": "ESPL PLACE FETE MAYO-LEBRI / A",
+              "voters": 346
+            }
           ],
-          "ESPL PLACE FETE MBOLLOM / A": [
+          "MAYO-NELBE": [
             {
-              station: "MBOLLOM",
-              voters: 306
-            },
+              "station": "ESPL PLACE FETE MAYO-LEBRI / A",
+              "voters": 346
+            }
+          ],
+          "MBOLLOM": [
             {
-              station: "RIWAGO",
-              voters: 306
-            },
+              "station": "ESPL PLACE FETE MBOLLOM / A",
+              "voters": 306
+            }
           ],
-          "ESPL PLACE FETE OURO-DONKA / A": [
+          "RIWAGO": [
             {
-              station: "LAINDE",
-              voters: 117
-            },
+              "station": "ESPL PLACE FETE MBOLLOM / A",
+              "voters": 306
+            }
+          ],
+          "LAINDE": [
             {
-              station: "DONKA",
-              voters: 117
-            },
+              "station": "ESPL PLACE FETE OURO-DONKA / A",
+              "voters": 117
+            }
+          ],
+          "DONKA": [
             {
-              station: "OURO-DONKA",
-              voters: 117
-            },
+              "station": "ESPL PLACE FETE OURO-DONKA / A",
+              "voters": 117
+            }
+          ],
+          "OURO-DONKA": [
             {
-              station: "YAOUNGO",
-              voters: 117
-            },
+              "station": "ESPL PLACE FETE OURO-DONKA / A",
+              "voters": 117
+            }
           ],
-          "ESPL.PLACE DE FETE MASSIRI / A": [
+          "YAOUNGO": [
             {
-              station: "MASSIRI",
-              voters: 131
-            },
+              "station": "ESPL PLACE FETE OURO-DONKA / A",
+              "voters": 117
+            }
           ],
-          "ESPL.TANKANGOL / A": [
+          "MASSIRI": [
             {
-              station: "BADEO",
-              voters: 362
-            },
+              "station": "ESPL.PLACE DE FETE MASSIRI / A",
+              "voters": 131
+            }
+          ],
+          "BADEO": [
             {
-              station: "TANKANGOL",
-              voters: 157
-            },
+              "station": "ESPL.TANKANGOL / A",
+              "voters": 362
+            }
           ],
-          "LYCEE BIBEMI GUEDA / A": [
+          "TANKANGOL": [
             {
-              station: "GUEDA",
-              voters: 525
-            },
+              "station": "ESPL.TANKANGOL / A",
+              "voters": 157
+            }
+          ],
+          "GUEDA": [
             {
-              station: "LOUGGUEREO",
-              voters: 525
-            },
+              "station": "LYCEE BIBEMI GUEDA / A",
+              "voters": 525
+            }
+          ],
+          "LOUGGUEREO": [
             {
-              station: "MOUWIRE",
-              voters: 525
-            },
+              "station": "LYCEE BIBEMI GUEDA / A",
+              "voters": 525
+            }
           ],
-          "SAR/SM ADOUMRI / A": [
+          "MOUWIRE": [
             {
-              station: "KODJOLI",
-              voters: 496
-            },
+              "station": "LYCEE BIBEMI GUEDA / A",
+              "voters": 525
+            }
+          ],
+          "KODJOLI": [
             {
-              station: "GADA",
-              voters: 496
-            },
+              "station": "SAR/SM ADOUMRI / A",
+              "voters": 496
+            }
+          ],
+          "GADA": [
             {
-              station: "HAOUSSA",
-              voters: 496
-            },
+              "station": "SAR/SM ADOUMRI / A",
+              "voters": 496
+            }
           ],
+          "HAOUSSA": [
+            {
+              "station": "SAR/SM ADOUMRI / A",
+              "voters": 496
+            }
+          ]
         },
         "DEMBO": {
-          "EP BABESSA / A": [
+          "BABESSA": [
             {
-              station: "BABESSA",
-              voters: 361
-            },
-            {
-              station: "LOUGGA",
-              voters: 361
-            },
-            {
-              station: "WAMBABE",
-              voters: 361
-            },
+              "station": "EP BABESSA / A",
+              "voters": 361
+            }
           ],
-          "EP BADJEROUM / A": [
+          "LOUGGA": [
             {
-              station: "BADJEROUM",
-              voters: 151
-            },
-            {
-              station: "DALEHI",
-              voters: 151
-            },
-            {
-              station: "BADJABBO",
-              voters: 151
-            },
+              "station": "EP BABESSA / A",
+              "voters": 361
+            }
           ],
-          "EP BALDE-DANEDJI / A": [
+          "WAMBABE": [
             {
-              station: "BALDE-DANEDJI",
-              voters: 235
-            },
-            {
-              station: "BAPAROU",
-              voters: 235
-            },
-            {
-              station: "BELA",
-              voters: 485
-            },
-            {
-              station: "DARKODJI",
-              voters: 485
-            },
-            {
-              station: "MAYO-BANI",
-              voters: 235
-            },
-            {
-              station: "TINTINRE",
-              voters: 235
-            },
+              "station": "EP BABESSA / A",
+              "voters": 361
+            }
           ],
-          "EP BORI-CENTRE / A": [
+          "BADJEROUM": [
             {
-              station: "BORI-CENTRE",
-              voters: 365
-            },
-            {
-              station: "MAYEL-MAIRI",
-              voters: 365
-            },
-            {
-              station: "MAYO",
-              voters: 365
-            },
-            {
-              station: "KEOU",
-              voters: 365
-            },
-            {
-              station: "MAYO-GOUDOU",
-              voters: 365
-            },
-            {
-              station: "BARODE",
-              voters: 365
-            },
+              "station": "EP BADJEROUM / A",
+              "voters": 151
+            }
           ],
-          "EP DEMBO / A": [
+          "DALEHI": [
             {
-              station: "DEMBO",
-              voters: 1692
-            },
+              "station": "EP BADJEROUM / A",
+              "voters": 151
+            }
           ],
-          "EP DJATOUMI CARREFOUR / A": [
+          "BADJABBO": [
             {
-              station: "DJATOUMI",
-              voters: 275
-            },
-            {
-              station: "CARREFOUR",
-              voters: 275
-            },
-            {
-              station: "GUERTODE",
-              voters: 395
-            },
-            {
-              station: "TIMPIL",
-              voters: 606
-            },
+              "station": "EP BADJEROUM / A",
+              "voters": 151
+            }
           ],
-          "EP DJATOUMI VILLAGE / A": [
+          "BALDE-DANEDJI": [
             {
-              station: "DJATOUMI-VILLAGE",
-              voters: 333
-            },
-            {
-              station: "KODJELEWOL",
-              voters: 333
-            },
-            {
-              station: "POSSO",
-              voters: 333
-            },
-            {
-              station: "WINDE",
-              voters: 333
-            },
-            {
-              station: "GANDOUWO",
-              voters: 333
-            },
+              "station": "EP BALDE-DANEDJI / A",
+              "voters": 235
+            }
           ],
-          "EP DOMBOL / A": [
+          "BAPAROU": [
             {
-              station: "BORI",
-              voters: 311
-            },
-            {
-              station: "DOMBOL",
-              voters: 311
-            },
-            {
-              station: "ABDOU",
-              voters: 311
-            },
-            {
-              station: "KOSSEYEL",
-              voters: 311
-            },
-            {
-              station: "MAMMA",
-              voters: 311
-            },
-            {
-              station: "ARDO",
-              voters: 311
-            },
-            {
-              station: "MATAFALRE",
-              voters: 311
-            },
-            {
-              station: "MAYEL",
-              voters: 311
-            },
-            {
-              station: "BAHARNA",
-              voters: 311
-            },
-            {
-              station: "KESSOUM",
-              voters: 938
-            },
+              "station": "EP BALDE-DANEDJI / A",
+              "voters": 235
+            }
           ],
-          "EP DORNOMOU / A": [
+          "BELA": [
             {
-              station: "BOUL-BOULEL",
-              voters: 451
-            },
-            {
-              station: "DORNOMOU",
-              voters: 451
-            },
-            {
-              station: "MBOUL-MBOULA",
-              voters: 451
-            },
+              "station": "EP BALDE-DANEDJI / A",
+              "voters": 485
+            }
           ],
-          "EP LAINDE TCHAKOUM / A": [
+          "DARKODJI": [
             {
-              station: "TCHAKAWA",
-              voters: 196
-            },
+              "station": "EP BALDE-DANEDJI / A",
+              "voters": 485
+            }
           ],
-          "EP MBOUTOU / A": [
+          "MAYO-BANI": [
             {
-              station: "MBOUTOU",
-              voters: 904
-            },
-            {
-              station: "LAMORDE",
-              voters: 452
-            },
-            {
-              station: "OUSMANOU",
-              voters: 452
-            },
+              "station": "EP BALDE-DANEDJI / A",
+              "voters": 235
+            }
           ],
-          "EP OURO-DOUNDEHI / A": [
+          "TINTINRE": [
             {
-              station: "BARNGA",
-              voters: 168
-            },
-            {
-              station: "OURO-DOUNDEHI",
-              voters: 168
-            },
-            {
-              station: "TIMBO",
-              voters: 346
-            },
+              "station": "EP BALDE-DANEDJI / A",
+              "voters": 235
+            }
           ],
-          "EP SEBORE / A": [
+          "BORI-CENTRE": [
             {
-              station: "BAINAWARE",
-              voters: 368
-            },
-            {
-              station: "DIRI",
-              voters: 819
-            },
-            {
-              station: "KANGOU",
-              voters: 368
-            },
-            {
-              station: "DJONGOU",
-              voters: 368
-            },
-            {
-              station: "SEBORE",
-              voters: 368
-            },
-            {
-              station: "WALEWOL",
-              voters: 733
-            },
-            {
-              station: "BOCKI",
-              voters: 368
-            },
+              "station": "EP BORI-CENTRE / A",
+              "voters": 365
+            }
           ],
-          "EP SOUROU NANAYE / A": [
+          "MAYEL-MAIRI": [
             {
-              station: "DJAMBAKI",
-              voters: 354
-            },
-            {
-              station: "KOSSEL-IYAM",
-              voters: 354
-            },
-            {
-              station: "NARO",
-              voters: 354
-            },
-            {
-              station: "NDARAM",
-              voters: 354
-            },
-            {
-              station: "LIMAN",
-              voters: 354
-            },
-            {
-              station: "ABBASSI",
-              voters: 354
-            },
-            {
-              station: "NGOURORE",
-              voters: 354
-            },
-            {
-              station: "SOUROU",
-              voters: 708
-            },
-            {
-              station: "NANAYE",
-              voters: 354
-            },
-            {
-              station: "NDAYE",
-              voters: 354
-            },
-            {
-              station: "YOU",
-              voters: 600
-            },
+              "station": "EP BORI-CENTRE / A",
+              "voters": 365
+            }
           ],
-          "EP TAPARE / A": [
+          "MAYO": [
             {
-              station: "ALKALI",
-              voters: 339
-            },
-            {
-              station: "TAPARE",
-              voters: 339
-            },
-            {
-              station: "DALEDJE",
-              voters: 339
-            },
+              "station": "EP BORI-CENTRE / A",
+              "voters": 365
+            }
           ],
-          "EP TAPAWA / A": [
+          "KEOU": [
             {
-              station: "TAPAWA",
-              voters: 143
-            },
+              "station": "EP BORI-CENTRE / A",
+              "voters": 365
+            }
           ],
-          "EP YOU / A": [
+          "MAYO-GOUDOU": [
             {
-              station: "DOUM",
-              voters: 246
-            },
+              "station": "EP BORI-CENTRE / A",
+              "voters": 365
+            }
           ],
-          "ESPL DJAOURO DJINI-BAITI / A": [
+          "BARODE": [
             {
-              station: "DJINI-BAITI",
-              voters: 283
-            },
-            {
-              station: "TONGO",
-              voters: 622
-            },
-            {
-              station: "DJAMBOUTOU",
-              voters: 283
-            },
+              "station": "EP BORI-CENTRE / A",
+              "voters": 365
+            }
           ],
-          "ESPL DJAOURO LOUGGUEREO / A": [
+          "DEMBO": [
             {
-              station: "KAINIDE",
-              voters: 178
-            },
-            {
-              station: "LOUGGUEREO",
-              voters: 178
-            },
-            {
-              station: "TCHEKAL",
-              voters: 178
-            },
+              "station": "EP DEMBO / A",
+              "voters": 1692
+            }
           ],
-          "ESPL DJAOURO NDJAOULI / A": [
+          "DJATOUMI": [
             {
-              station: "DJALINGO",
-              voters: 280
-            },
-            {
-              station: "MALLOUMRE",
-              voters: 280
-            },
-            {
-              station: "DJALLOU",
-              voters: 819
-            },
-            {
-              station: "NDJAOULI",
-              voters: 560
-            },
-            {
-              station: "NTANG",
-              voters: 280
-            },
+              "station": "EP DJATOUMI CARREFOUR / A",
+              "voters": 275
+            }
           ],
-          "ESPL MARCHE DJAMBOUTOU-ISSA / A": [
+          "CARREFOUR": [
             {
-              station: "BALDA",
-              voters: 424
-            },
-            {
-              station: "DJAMBOUTOU-ISSA",
-              voters: 424
-            },
-            {
-              station: "GOULOUM",
-              voters: 424
-            },
-            {
-              station: "LAINDE",
-              voters: 620
-            },
-            {
-              station: "TCHAKOUM",
-              voters: 620
-            },
-            {
-              station: "NDONSA",
-              voters: 620
-            },
-            {
-              station: "OURO",
-              voters: 2096
-            },
-            {
-              station: "MODIBO",
-              voters: 424
-            },
+              "station": "EP DJATOUMI CARREFOUR / A",
+              "voters": 275
+            }
           ],
+          "GUERTODE": [
+            {
+              "station": "EP DJATOUMI CARREFOUR / A",
+              "voters": 395
+            }
+          ],
+          "TIMPIL": [
+            {
+              "station": "EP DJATOUMI CARREFOUR / A",
+              "voters": 606
+            }
+          ],
+          "DJATOUMI-VILLAGE": [
+            {
+              "station": "EP DJATOUMI VILLAGE / A",
+              "voters": 333
+            }
+          ],
+          "KODJELEWOL": [
+            {
+              "station": "EP DJATOUMI VILLAGE / A",
+              "voters": 333
+            }
+          ],
+          "POSSO": [
+            {
+              "station": "EP DJATOUMI VILLAGE / A",
+              "voters": 333
+            }
+          ],
+          "WINDE": [
+            {
+              "station": "EP DJATOUMI VILLAGE / A",
+              "voters": 333
+            }
+          ],
+          "GANDOUWO": [
+            {
+              "station": "EP DJATOUMI VILLAGE / A",
+              "voters": 333
+            }
+          ],
+          "BORI": [
+            {
+              "station": "EP DOMBOL / A",
+              "voters": 311
+            }
+          ],
+          "DOMBOL": [
+            {
+              "station": "EP DOMBOL / A",
+              "voters": 311
+            }
+          ],
+          "ABDOU": [
+            {
+              "station": "EP DOMBOL / A",
+              "voters": 311
+            }
+          ],
+          "KOSSEYEL": [
+            {
+              "station": "EP DOMBOL / A",
+              "voters": 311
+            }
+          ],
+          "MAMMA": [
+            {
+              "station": "EP DOMBOL / A",
+              "voters": 311
+            }
+          ],
+          "ARDO": [
+            {
+              "station": "EP DOMBOL / A",
+              "voters": 311
+            }
+          ],
+          "MATAFALRE": [
+            {
+              "station": "EP DOMBOL / A",
+              "voters": 311
+            }
+          ],
+          "MAYEL": [
+            {
+              "station": "EP DOMBOL / A",
+              "voters": 311
+            }
+          ],
+          "BAHARNA": [
+            {
+              "station": "EP DOMBOL / A",
+              "voters": 311
+            }
+          ],
+          "KESSOUM": [
+            {
+              "station": "EP DOMBOL / A",
+              "voters": 938
+            }
+          ],
+          "BOUL-BOULEL": [
+            {
+              "station": "EP DORNOMOU / A",
+              "voters": 451
+            }
+          ],
+          "DORNOMOU": [
+            {
+              "station": "EP DORNOMOU / A",
+              "voters": 451
+            }
+          ],
+          "MBOUL-MBOULA": [
+            {
+              "station": "EP DORNOMOU / A",
+              "voters": 451
+            }
+          ],
+          "TCHAKAWA": [
+            {
+              "station": "EP LAINDE TCHAKOUM / A",
+              "voters": 196
+            }
+          ],
+          "MBOUTOU": [
+            {
+              "station": "EP MBOUTOU / A",
+              "voters": 904
+            }
+          ],
+          "LAMORDE": [
+            {
+              "station": "EP MBOUTOU / A",
+              "voters": 452
+            }
+          ],
+          "OUSMANOU": [
+            {
+              "station": "EP MBOUTOU / A",
+              "voters": 452
+            }
+          ],
+          "BARNGA": [
+            {
+              "station": "EP OURO-DOUNDEHI / A",
+              "voters": 168
+            }
+          ],
+          "OURO-DOUNDEHI": [
+            {
+              "station": "EP OURO-DOUNDEHI / A",
+              "voters": 168
+            }
+          ],
+          "TIMBO": [
+            {
+              "station": "EP OURO-DOUNDEHI / A",
+              "voters": 346
+            }
+          ],
+          "BAINAWARE": [
+            {
+              "station": "EP SEBORE / A",
+              "voters": 368
+            }
+          ],
+          "DIRI": [
+            {
+              "station": "EP SEBORE / A",
+              "voters": 819
+            }
+          ],
+          "KANGOU": [
+            {
+              "station": "EP SEBORE / A",
+              "voters": 368
+            }
+          ],
+          "DJONGOU": [
+            {
+              "station": "EP SEBORE / A",
+              "voters": 368
+            }
+          ],
+          "SEBORE": [
+            {
+              "station": "EP SEBORE / A",
+              "voters": 368
+            }
+          ],
+          "WALEWOL": [
+            {
+              "station": "EP SEBORE / A",
+              "voters": 733
+            }
+          ],
+          "BOCKI": [
+            {
+              "station": "EP SEBORE / A",
+              "voters": 368
+            }
+          ],
+          "DJAMBAKI": [
+            {
+              "station": "EP SOUROU NANAYE / A",
+              "voters": 354
+            }
+          ],
+          "KOSSEL-IYAM": [
+            {
+              "station": "EP SOUROU NANAYE / A",
+              "voters": 354
+            }
+          ],
+          "NARO": [
+            {
+              "station": "EP SOUROU NANAYE / A",
+              "voters": 354
+            }
+          ],
+          "NDARAM": [
+            {
+              "station": "EP SOUROU NANAYE / A",
+              "voters": 354
+            }
+          ],
+          "LIMAN": [
+            {
+              "station": "EP SOUROU NANAYE / A",
+              "voters": 354
+            }
+          ],
+          "ABBASSI": [
+            {
+              "station": "EP SOUROU NANAYE / A",
+              "voters": 354
+            }
+          ],
+          "NGOURORE": [
+            {
+              "station": "EP SOUROU NANAYE / A",
+              "voters": 354
+            }
+          ],
+          "SOUROU": [
+            {
+              "station": "EP SOUROU NANAYE / A",
+              "voters": 708
+            }
+          ],
+          "NANAYE": [
+            {
+              "station": "EP SOUROU NANAYE / A",
+              "voters": 354
+            }
+          ],
+          "NDAYE": [
+            {
+              "station": "EP SOUROU NANAYE / A",
+              "voters": 354
+            }
+          ],
+          "YOU": [
+            {
+              "station": "EP SOUROU NANAYE / A",
+              "voters": 600
+            }
+          ],
+          "ALKALI": [
+            {
+              "station": "EP TAPARE / A",
+              "voters": 339
+            }
+          ],
+          "TAPARE": [
+            {
+              "station": "EP TAPARE / A",
+              "voters": 339
+            }
+          ],
+          "DALEDJE": [
+            {
+              "station": "EP TAPARE / A",
+              "voters": 339
+            }
+          ],
+          "TAPAWA": [
+            {
+              "station": "EP TAPAWA / A",
+              "voters": 143
+            }
+          ],
+          "DOUM": [
+            {
+              "station": "EP YOU / A",
+              "voters": 246
+            }
+          ],
+          "DJINI-BAITI": [
+            {
+              "station": "ESPL DJAOURO DJINI-BAITI / A",
+              "voters": 283
+            }
+          ],
+          "TONGO": [
+            {
+              "station": "ESPL DJAOURO DJINI-BAITI / A",
+              "voters": 622
+            }
+          ],
+          "DJAMBOUTOU": [
+            {
+              "station": "ESPL DJAOURO DJINI-BAITI / A",
+              "voters": 283
+            }
+          ],
+          "KAINIDE": [
+            {
+              "station": "ESPL DJAOURO LOUGGUEREO / A",
+              "voters": 178
+            }
+          ],
+          "LOUGGUEREO": [
+            {
+              "station": "ESPL DJAOURO LOUGGUEREO / A",
+              "voters": 178
+            }
+          ],
+          "TCHEKAL": [
+            {
+              "station": "ESPL DJAOURO LOUGGUEREO / A",
+              "voters": 178
+            }
+          ],
+          "DJALINGO": [
+            {
+              "station": "ESPL DJAOURO NDJAOULI / A",
+              "voters": 280
+            }
+          ],
+          "MALLOUMRE": [
+            {
+              "station": "ESPL DJAOURO NDJAOULI / A",
+              "voters": 280
+            }
+          ],
+          "DJALLOU": [
+            {
+              "station": "ESPL DJAOURO NDJAOULI / A",
+              "voters": 819
+            }
+          ],
+          "NDJAOULI": [
+            {
+              "station": "ESPL DJAOURO NDJAOULI / A",
+              "voters": 560
+            }
+          ],
+          "NTANG": [
+            {
+              "station": "ESPL DJAOURO NDJAOULI / A",
+              "voters": 280
+            }
+          ],
+          "BALDA": [
+            {
+              "station": "ESPL MARCHE DJAMBOUTOU-ISSA / A",
+              "voters": 424
+            }
+          ],
+          "DJAMBOUTOU-ISSA": [
+            {
+              "station": "ESPL MARCHE DJAMBOUTOU-ISSA / A",
+              "voters": 424
+            }
+          ],
+          "GOULOUM": [
+            {
+              "station": "ESPL MARCHE DJAMBOUTOU-ISSA / A",
+              "voters": 424
+            }
+          ],
+          "LAINDE": [
+            {
+              "station": "ESPL MARCHE DJAMBOUTOU-ISSA / A",
+              "voters": 620
+            }
+          ],
+          "TCHAKOUM": [
+            {
+              "station": "ESPL MARCHE DJAMBOUTOU-ISSA / A",
+              "voters": 620
+            }
+          ],
+          "NDONSA": [
+            {
+              "station": "ESPL MARCHE DJAMBOUTOU-ISSA / A",
+              "voters": 620
+            }
+          ],
+          "OURO": [
+            {
+              "station": "ESPL MARCHE DJAMBOUTOU-ISSA / A",
+              "voters": 2096
+            }
+          ],
+          "MODIBO": [
+            {
+              "station": "ESPL MARCHE DJAMBOUTOU-ISSA / A",
+              "voters": 424
+            }
+          ]
         },
         "GAROUA I": {
-          "CRESAS / A": [
+          "CRESAS": [
             {
-              station: "CRESAS",
-              voters: 653
-            },
-            {
-              station: "PLATEAU",
-              voters: 3698
-            },
+              "station": "CRESAS / A",
+              "voters": 653
+            }
           ],
-          "DISPENSAIRE SOUARI / A": [
+          "PLATEAU": [
             {
-              station: "PADAMA",
-              voters: 908
-            },
+              "station": "CRESAS / A",
+              "voters": 3698
+            }
           ],
-          "ECOLE CATHO NKOLBIVES / A": [
+          "PADAMA": [
             {
-              station: "NKOLBIVES",
-              voters: 3315
-            },
-            {
-              station: "SARARE",
-              voters: 3315
-            },
-            {
-              station: "TCHEBOARE",
-              voters: 3315
-            },
-            {
-              station: "YELWA",
-              voters: 3315
-            },
+              "station": "DISPENSAIRE SOUARI / A",
+              "voters": 908
+            }
           ],
-          "ECOLE DE FAUNE / A": [
+          "NKOLBIVES": [
             {
-              station: "BASE",
-              voters: 1073
-            },
-            {
-              station: "AERIENNE",
-              voters: 1073
-            },
+              "station": "ECOLE CATHO NKOLBIVES / A",
+              "voters": 3315
+            }
           ],
-          "ECOLE DES AIDES SOIGNANTS / A": [
+          "SARARE": [
             {
-              station: "GARAGE",
-              voters: 3573
-            },
-            {
-              station: "GADJI",
-              voters: 3573
-            },
-            {
-              station: "SOWETO",
-              voters: 3573
-            },
+              "station": "ECOLE CATHO NKOLBIVES / A",
+              "voters": 3315
+            }
           ],
-          "ECOLE PROTESTANTE / A": [
+          "TCHEBOARE": [
             {
-              station: "BAMILEKE",
-              voters: 2194
-            },
-            {
-              station: "MEHIRI",
-              voters: 2194
-            },
-            {
-              station: "PRISON",
-              voters: 2424
-            },
-            {
-              station: "CENTRALE",
-              voters: 2424
-            },
-            {
-              station: "TOUPOURIRE",
-              voters: 2194
-            },
+              "station": "ECOLE CATHO NKOLBIVES / A",
+              "voters": 3315
+            }
           ],
-          "EM ANGLOPHONE / A": [
+          "YELWA": [
             {
-              station: "HAOUSSARE",
-              voters: 2056
-            },
+              "station": "ECOLE CATHO NKOLBIVES / A",
+              "voters": 3315
+            }
           ],
-          "EM GENDARMERIE / A": [
+          "BASE": [
             {
-              station: "GENDARMERIE",
-              voters: 964
-            },
+              "station": "ECOLE DE FAUNE / A",
+              "voters": 1073
+            }
           ],
-          "EM OURO HOURSO / A": [
+          "AERIENNE": [
             {
-              station: "CAMP",
-              voters: 8584
-            },
-            {
-              station: "CHINOIS",
-              voters: 8584
-            },
-            {
-              station: "OURO",
-              voters: 34800
-            },
-            {
-              station: "HOURSO",
-              voters: 24808
-            },
-            {
-              station: "III",
-              voters: 10876
-            },
+              "station": "ECOLE DE FAUNE / A",
+              "voters": 1073
+            }
           ],
-          "EM PLATEAU / A": [
+          "GARAGE": [
             {
-              station: "ISIC",
-              voters: 936
-            },
+              "station": "ECOLE DES AIDES SOIGNANTS / A",
+              "voters": 3573
+            }
           ],
-          "EP DJAMBOUTOU / A": [
+          "GADJI": [
             {
-              station: "DJAMBOUTOU",
-              voters: 10716
-            },
+              "station": "ECOLE DES AIDES SOIGNANTS / A",
+              "voters": 3573
+            }
           ],
-          "EP DJOUMASSI / A": [
+          "SOWETO": [
             {
-              station: "CONGORE",
-              voters: 582
-            },
-            {
-              station: "DJOUMASSI",
-              voters: 582
-            },
-            {
-              station: "KONKOLRE",
-              voters: 582
-            },
+              "station": "ECOLE DES AIDES SOIGNANTS / A",
+              "voters": 3573
+            }
           ],
-          "EP GAROUA WINDE / A": [
+          "BAMILEKE": [
             {
-              station: "DJADJE",
-              voters: 661
-            },
-            {
-              station: "GAROUA",
-              voters: 892
-            },
-            {
-              station: "WINDE",
-              voters: 892
-            },
-            {
-              station: "SOUKI",
-              voters: 661
-            },
-            {
-              station: "WAFANGO",
-              voters: 1818
-            },
+              "station": "ECOLE PROTESTANTE / A",
+              "voters": 2194
+            }
           ],
-          "EP GR I / A": [
+          "MEHIRI": [
             {
-              station: "FOULBERE",
-              voters: 10722
-            },
+              "station": "ECOLE PROTESTANTE / A",
+              "voters": 2194
+            }
           ],
-          "EP HODANGO / A": [
+          "PRISON": [
             {
-              station: "GOFAME",
-              voters: 1295
-            },
-            {
-              station: "HODANGO",
-              voters: 2314
-            },
-            {
-              station: "MAIHARE",
-              voters: 1157
-            },
-            {
-              station: "SOUBANGO",
-              voters: 1157
-            },
-            {
-              station: "MAGADJI",
-              voters: 1157
-            },
-            {
-              station: "WOURO",
-              voters: 2314
-            },
-            {
-              station: "AMIRO",
-              voters: 1157
-            },
-            {
-              station: "HASSOUMI",
-              voters: 1157
-            },
+              "station": "ECOLE PROTESTANTE / A",
+              "voters": 2424
+            }
           ],
-          "EP LOMODOU / A": [
+          "CENTRALE": [
             {
-              station: "LOMODOU",
-              voters: 412
-            },
+              "station": "ECOLE PROTESTANTE / A",
+              "voters": 2424
+            }
           ],
-          "EP OURO HOURSO I / A": [
+          "TOUPOURIRE": [
             {
-              station: "CARREFOUR",
-              voters: 1698
-            },
-            {
-              station: "SODECOTON",
-              voters: 1698
-            },
+              "station": "ECOLE PROTESTANTE / A",
+              "voters": 2194
+            }
           ],
-          "EP OURO KANADI / A": [
+          "HAOUSSARE": [
             {
-              station: "BATMANE",
-              voters: 9184
-            },
-            {
-              station: "KANADI",
-              voters: 12364
-            },
-            {
-              station: "MOSQUEE",
-              voters: 3242
-            },
-            {
-              station: "WAKILI",
-              voters: 3242
-            },
+              "station": "EM ANGLOPHONE / A",
+              "voters": 2056
+            }
           ],
-          "EP OURO LABBO / A": [
+          "GENDARMERIE": [
             {
-              station: "LABBO",
-              voters: 2242
-            },
+              "station": "EM GENDARMERIE / A",
+              "voters": 964
+            }
           ],
-          "EP SABONGARI / A": [
+          "CAMP": [
             {
-              station: "LOWEL",
-              voters: 3875
-            },
-            {
-              station: "KESSOUM",
-              voters: 3875
-            },
-            {
-              station: "TALAKA",
-              voters: 3875
-            },
-            {
-              station: "SABONGARI",
-              voters: 3875
-            },
+              "station": "EM OURO HOURSO / A",
+              "voters": 8584
+            }
           ],
-          "EP SOUARI / A": [
+          "CHINOIS": [
             {
-              station: "NGAOUNDERERE",
-              voters: 3594
-            },
-            {
-              station: "SOUARI",
-              voters: 3594
-            },
+              "station": "EM OURO HOURSO / A",
+              "voters": 8584
+            }
           ],
-          "LYCEE KOLLERE / A": [
+          "OURO": [
             {
-              station: "KOLLERE",
-              voters: 2828
-            },
+              "station": "EM OURO HOURSO / A",
+              "voters": 34800
+            }
           ],
+          "HOURSO": [
+            {
+              "station": "EM OURO HOURSO / A",
+              "voters": 24808
+            }
+          ],
+          "III": [
+            {
+              "station": "EM OURO HOURSO / A",
+              "voters": 10876
+            }
+          ],
+          "ISIC": [
+            {
+              "station": "EM PLATEAU / A",
+              "voters": 936
+            }
+          ],
+          "DJAMBOUTOU": [
+            {
+              "station": "EP DJAMBOUTOU / A",
+              "voters": 10716
+            }
+          ],
+          "CONGORE": [
+            {
+              "station": "EP DJOUMASSI / A",
+              "voters": 582
+            }
+          ],
+          "DJOUMASSI": [
+            {
+              "station": "EP DJOUMASSI / A",
+              "voters": 582
+            }
+          ],
+          "KONKOLRE": [
+            {
+              "station": "EP DJOUMASSI / A",
+              "voters": 582
+            }
+          ],
+          "DJADJE": [
+            {
+              "station": "EP GAROUA WINDE / A",
+              "voters": 661
+            }
+          ],
+          "GAROUA": [
+            {
+              "station": "EP GAROUA WINDE / A",
+              "voters": 892
+            }
+          ],
+          "WINDE": [
+            {
+              "station": "EP GAROUA WINDE / A",
+              "voters": 892
+            }
+          ],
+          "SOUKI": [
+            {
+              "station": "EP GAROUA WINDE / A",
+              "voters": 661
+            }
+          ],
+          "WAFANGO": [
+            {
+              "station": "EP GAROUA WINDE / A",
+              "voters": 1818
+            }
+          ],
+          "FOULBERE": [
+            {
+              "station": "EP GR I / A",
+              "voters": 10722
+            }
+          ],
+          "GOFAME": [
+            {
+              "station": "EP HODANGO / A",
+              "voters": 1295
+            }
+          ],
+          "HODANGO": [
+            {
+              "station": "EP HODANGO / A",
+              "voters": 2314
+            }
+          ],
+          "MAIHARE": [
+            {
+              "station": "EP HODANGO / A",
+              "voters": 1157
+            }
+          ],
+          "SOUBANGO": [
+            {
+              "station": "EP HODANGO / A",
+              "voters": 1157
+            }
+          ],
+          "MAGADJI": [
+            {
+              "station": "EP HODANGO / A",
+              "voters": 1157
+            }
+          ],
+          "WOURO": [
+            {
+              "station": "EP HODANGO / A",
+              "voters": 2314
+            }
+          ],
+          "AMIRO": [
+            {
+              "station": "EP HODANGO / A",
+              "voters": 1157
+            }
+          ],
+          "HASSOUMI": [
+            {
+              "station": "EP HODANGO / A",
+              "voters": 1157
+            }
+          ],
+          "LOMODOU": [
+            {
+              "station": "EP LOMODOU / A",
+              "voters": 412
+            }
+          ],
+          "CARREFOUR": [
+            {
+              "station": "EP OURO HOURSO I / A",
+              "voters": 1698
+            }
+          ],
+          "SODECOTON": [
+            {
+              "station": "EP OURO HOURSO I / A",
+              "voters": 1698
+            }
+          ],
+          "BATMANE": [
+            {
+              "station": "EP OURO KANADI / A",
+              "voters": 9184
+            }
+          ],
+          "KANADI": [
+            {
+              "station": "EP OURO KANADI / A",
+              "voters": 12364
+            }
+          ],
+          "MOSQUEE": [
+            {
+              "station": "EP OURO KANADI / A",
+              "voters": 3242
+            }
+          ],
+          "WAKILI": [
+            {
+              "station": "EP OURO KANADI / A",
+              "voters": 3242
+            }
+          ],
+          "LABBO": [
+            {
+              "station": "EP OURO LABBO / A",
+              "voters": 2242
+            }
+          ],
+          "LOWEL": [
+            {
+              "station": "EP SABONGARI / A",
+              "voters": 3875
+            }
+          ],
+          "KESSOUM": [
+            {
+              "station": "EP SABONGARI / A",
+              "voters": 3875
+            }
+          ],
+          "TALAKA": [
+            {
+              "station": "EP SABONGARI / A",
+              "voters": 3875
+            }
+          ],
+          "SABONGARI": [
+            {
+              "station": "EP SABONGARI / A",
+              "voters": 3875
+            }
+          ],
+          "NGAOUNDERERE": [
+            {
+              "station": "EP SOUARI / A",
+              "voters": 3594
+            }
+          ],
+          "SOUARI": [
+            {
+              "station": "EP SOUARI / A",
+              "voters": 3594
+            }
+          ],
+          "KOLLERE": [
+            {
+              "station": "LYCEE KOLLERE / A",
+              "voters": 2828
+            }
+          ]
         },
         "GAROUA II": {
-          "CENTRE CULTUREL LOPERE / A": [
+          "BERE": [
             {
-              station: "BERE",
-              voters: 3365
-            },
-            {
-              station: "FOULBERE",
-              voters: 14736
-            },
-            {
-              station: "KILOMETRE",
-              voters: 3365
-            },
-            {
-              station: "CINQ",
-              voters: 3365
-            },
-            {
-              station: "LOPERE",
-              voters: 9298
-            },
+              "station": "CENTRE CULTUREL LOPERE / A",
+              "voters": 3365
+            }
           ],
-          "CES BILINGUE NGALBIDJE / A": [
+          "FOULBERE": [
             {
-              station: "MBOUM",
-              voters: 1943
-            },
-            {
-              station: "AVIATION",
-              voters: 1943
-            },
+              "station": "CENTRE CULTUREL LOPERE / A",
+              "voters": 14736
+            }
           ],
-          "CETIC NASSARAO / A": [
+          "KILOMETRE": [
             {
-              station: "OURO",
-              voters: 620
-            },
-            {
-              station: "ALHADJI",
-              voters: 620
-            },
-            {
-              station: "OURO-KESSOUM",
-              voters: 620
-            },
-            {
-              station: "WANTOUMI",
-              voters: 620
-            },
+              "station": "CENTRE CULTUREL LOPERE / A",
+              "voters": 3365
+            }
           ],
-          "DEL ENS SEC / A": [
+          "CINQ": [
             {
-              station: "CAMP-SIC",
-              voters: 8307
-            },
-            {
-              station: "ROUMDE",
-              voters: 16285
-            },
-            {
-              station: "-ADJIA",
-              voters: 8307
-            },
+              "station": "CENTRE CULTUREL LOPERE / A",
+              "voters": 3365
+            }
           ],
-          "ECOLE CATHOLIQ ST PIERRE / A": [
+          "LOPERE": [
             {
-              station: "DEMSARE",
-              voters: 2239
-            },
-            {
-              station: "NASSARAO",
-              voters: 8043
-            },
-            {
-              station: "REYRE",
-              voters: 2239
-            },
+              "station": "CENTRE CULTUREL LOPERE / A",
+              "voters": 9298
+            }
           ],
-          "ECOLE FRANCO ARABE AL-ANSAR / A": [
+          "MBOUM": [
             {
-              station: "MADAGASCAR",
-              voters: 267
-            },
+              "station": "CES BILINGUE NGALBIDJE / A",
+              "voters": 1943
+            }
           ],
-          "ECOLE ISLAMIQ GDE MOSQUEE / A": [
+          "AVIATION": [
             {
-              station: "TAKASKO",
-              voters: 5091
-            },
+              "station": "CES BILINGUE NGALBIDJE / A",
+              "voters": 1943
+            }
           ],
-          "ECOLE ISLAMIQUE SABONGARI / A": [
+          "OURO": [
             {
-              station: "SABONGARI",
-              voters: 1792
-            },
+              "station": "CETIC NASSARAO / A",
+              "voters": 620
+            }
           ],
-          "EM BASCHEORE / A": [
+          "ALHADJI": [
             {
-              station: "BASCHEORE",
-              voters: 1853
-            },
-            {
-              station: "GABDIRE",
-              voters: 7682
-            },
+              "station": "CETIC NASSARAO / A",
+              "voters": 620
+            }
           ],
-          "EP ANNEXE POUMPOUMRE / A": [
+          "OURO-KESSOUM": [
             {
-              station: "POUMPOUMRE",
-              voters: 7256
-            },
+              "station": "CETIC NASSARAO / A",
+              "voters": 620
+            }
           ],
-          "EP BENOUE / A": [
+          "WANTOUMI": [
             {
-              station: "LIDDIRE",
-              voters: 3886
-            },
+              "station": "CETIC NASSARAO / A",
+              "voters": 620
+            }
           ],
-          "EP DOUALARE / A": [
+          "CAMP-SIC": [
             {
-              station: "DOUALARE",
-              voters: 2065
-            },
+              "station": "DEL ENS SEC / A",
+              "voters": 8307
+            }
           ],
-          "EP GNAKIRA / A": [
+          "ROUMDE": [
             {
-              station: "GNAKIRA",
-              voters: 228
-            },
-            {
-              station: "MBERI",
-              voters: 228
-            },
-            {
-              station: "FOULBE",
-              voters: 228
-            },
-            {
-              station: "WAFANGO",
-              voters: 228
-            },
+              "station": "DEL ENS SEC / A",
+              "voters": 16285
+            }
           ],
-          "EP LAINDE DANEYEL / A": [
+          "-ADJIA": [
             {
-              station: "LAINDE-DANEYEL",
-              voters: 1379
-            },
+              "station": "DEL ENS SEC / A",
+              "voters": 8307
+            }
           ],
-          "EP LAINDE GR I / A": [
+          "DEMSARE": [
             {
-              station: "BAH",
-              voters: 6646
-            },
+              "station": "ECOLE CATHOLIQ ST PIERRE / A",
+              "voters": 2239
+            }
           ],
-          "EP MBILGA / A": [
+          "NASSARAO": [
             {
-              station: "MBILGA",
-              voters: 295
-            },
+              "station": "ECOLE CATHOLIQ ST PIERRE / A",
+              "voters": 8043
+            }
           ],
-          "EP NASSARAO / A": [
+          "REYRE": [
             {
-              station: "MBOCKI",
-              voters: 2902
-            },
-            {
-              station: "NGOURORE",
-              voters: 3004
-            },
+              "station": "ECOLE CATHOLIQ ST PIERRE / A",
+              "voters": 2239
+            }
           ],
-          "EP OURO LAWANE / A": [
+          "MADAGASCAR": [
             {
-              station: "OURO-LAWANE",
-              voters: 2091
-            },
+              "station": "ECOLE FRANCO ARABE AL-ANSAR / A",
+              "voters": 267
+            }
           ],
-          "EP OURO NGALBIDJE / A": [
+          "TAKASKO": [
             {
-              station: "OURO-NGALBIDJE",
-              voters: 5240
-            },
+              "station": "ECOLE ISLAMIQ GDE MOSQUEE / A",
+              "voters": 5091
+            }
           ],
-          "EP POUKOULOUKOU / A": [
+          "SABONGARI": [
             {
-              station: "DAR-EL-SALAM",
-              voters: 2363
-            },
-            {
-              station: "POUKOULOUKOU",
-              voters: 2363
-            },
+              "station": "ECOLE ISLAMIQUE SABONGARI / A",
+              "voters": 1792
+            }
           ],
-          "EP POUMPOUMRE/PETIT PARIS / A": [
+          "BASCHEORE": [
             {
-              station: "BOULAIBBIRE",
-              voters: 1237
-            },
-            {
-              station: "TCHAKA",
-              voters: 4836
-            },
-            {
-              station: "MIDARI",
-              voters: 4836
-            },
+              "station": "EM BASCHEORE / A",
+              "voters": 1853
+            }
           ],
-          "EP ROUMDE ADJIA / A": [
+          "GABDIRE": [
             {
-              station: "ADJIA",
-              voters: 7978
-            },
+              "station": "EM BASCHEORE / A",
+              "voters": 7682
+            }
           ],
-          "EP TONGO / A": [
+          "POUMPOUMRE": [
             {
-              station: "TONGO",
-              voters: 247
-            },
+              "station": "EP ANNEXE POUMPOUMRE / A",
+              "voters": 7256
+            }
           ],
-          "GARE ROUTIERE LAINDE / A": [
+          "LIDDIRE": [
             {
-              station: "GADA",
-              voters: 714
-            },
-            {
-              station: "MAYEL",
-              voters: 714
-            },
-            {
-              station: "LAINDE",
-              voters: 7929
-            },
-            {
-              station: "INTER",
-              voters: 1426
-            },
-            {
-              station: "GARE",
-              voters: 1426
-            },
+              "station": "EP BENOUE / A",
+              "voters": 3886
+            }
           ],
-          "LYCEE TECHNIQUE BIBEMIRE / A": [
+          "DOUALARE": [
             {
-              station: "BAINAWARE",
-              voters: 2138
-            },
-            {
-              station: "BIBEMIRE",
-              voters: 20122
-            },
-            {
-              station: "III",
-              voters: 3884
-            },
+              "station": "EP DOUALARE / A",
+              "voters": 2065
+            }
           ],
-          "LYCLAMOGA / A": [
+          "GNAKIRA": [
             {
-              station: "MAROUARE",
-              voters: 19009
-            },
+              "station": "EP GNAKIRA / A",
+              "voters": 228
+            }
           ],
+          "MBERI": [
+            {
+              "station": "EP GNAKIRA / A",
+              "voters": 228
+            }
+          ],
+          "FOULBE": [
+            {
+              "station": "EP GNAKIRA / A",
+              "voters": 228
+            }
+          ],
+          "WAFANGO": [
+            {
+              "station": "EP GNAKIRA / A",
+              "voters": 228
+            }
+          ],
+          "LAINDE-DANEYEL": [
+            {
+              "station": "EP LAINDE DANEYEL / A",
+              "voters": 1379
+            }
+          ],
+          "BAH": [
+            {
+              "station": "EP LAINDE GR I / A",
+              "voters": 6646
+            }
+          ],
+          "MBILGA": [
+            {
+              "station": "EP MBILGA / A",
+              "voters": 295
+            }
+          ],
+          "MBOCKI": [
+            {
+              "station": "EP NASSARAO / A",
+              "voters": 2902
+            }
+          ],
+          "NGOURORE": [
+            {
+              "station": "EP NASSARAO / A",
+              "voters": 3004
+            }
+          ],
+          "OURO-LAWANE": [
+            {
+              "station": "EP OURO LAWANE / A",
+              "voters": 2091
+            }
+          ],
+          "OURO-NGALBIDJE": [
+            {
+              "station": "EP OURO NGALBIDJE / A",
+              "voters": 5240
+            }
+          ],
+          "DAR-EL-SALAM": [
+            {
+              "station": "EP POUKOULOUKOU / A",
+              "voters": 2363
+            }
+          ],
+          "POUKOULOUKOU": [
+            {
+              "station": "EP POUKOULOUKOU / A",
+              "voters": 2363
+            }
+          ],
+          "BOULAIBBIRE": [
+            {
+              "station": "EP POUMPOUMRE/PETIT PARIS / A",
+              "voters": 1237
+            }
+          ],
+          "TCHAKA": [
+            {
+              "station": "EP POUMPOUMRE/PETIT PARIS / A",
+              "voters": 4836
+            }
+          ],
+          "MIDARI": [
+            {
+              "station": "EP POUMPOUMRE/PETIT PARIS / A",
+              "voters": 4836
+            }
+          ],
+          "ADJIA": [
+            {
+              "station": "EP ROUMDE ADJIA / A",
+              "voters": 7978
+            }
+          ],
+          "TONGO": [
+            {
+              "station": "EP TONGO / A",
+              "voters": 247
+            }
+          ],
+          "GADA": [
+            {
+              "station": "GARE ROUTIERE LAINDE / A",
+              "voters": 714
+            }
+          ],
+          "MAYEL": [
+            {
+              "station": "GARE ROUTIERE LAINDE / A",
+              "voters": 714
+            }
+          ],
+          "LAINDE": [
+            {
+              "station": "GARE ROUTIERE LAINDE / A",
+              "voters": 7929
+            }
+          ],
+          "INTER": [
+            {
+              "station": "GARE ROUTIERE LAINDE / A",
+              "voters": 1426
+            }
+          ],
+          "GARE": [
+            {
+              "station": "GARE ROUTIERE LAINDE / A",
+              "voters": 1426
+            }
+          ],
+          "BAINAWARE": [
+            {
+              "station": "LYCEE TECHNIQUE BIBEMIRE / A",
+              "voters": 2138
+            }
+          ],
+          "BIBEMIRE": [
+            {
+              "station": "LYCEE TECHNIQUE BIBEMIRE / A",
+              "voters": 20122
+            }
+          ],
+          "III": [
+            {
+              "station": "LYCEE TECHNIQUE BIBEMIRE / A",
+              "voters": 3884
+            }
+          ],
+          "MAROUARE": [
+            {
+              "station": "LYCLAMOGA / A",
+              "voters": 19009
+            }
+          ]
         },
         "GAROUA III": {
-          "EP BABLA CENTRE / A": [
+          "CENTRE": [
             {
-              station: "CENTRE",
-              voters: 872
-            },
-            {
-              station: "LAKARE",
-              voters: 872
-            },
-            {
-              station: "BIGDI",
-              voters: 1171
-            },
-            {
-              station: "WINDE",
-              voters: 1171
-            },
-            {
-              station: "DOULI",
-              voters: 1171
-            },
+              "station": "EP BABLA CENTRE / A",
+              "voters": 872
+            }
           ],
-          "EP BABLA ISRAEL / A": [
+          "LAKARE": [
             {
-              station: "ISRAEL",
-              voters: 494
-            },
+              "station": "EP BABLA CENTRE / A",
+              "voters": 872
+            }
           ],
-          "EP BADOUDI / A": [
+          "BIGDI": [
             {
-              station: "BADOUDI",
-              voters: 1024
-            },
-            {
-              station: "OURO-MAIDADI",
-              voters: 1024
-            },
-            {
-              station: "TAPARE",
-              voters: 1024
-            },
-            {
-              station: "TONDIRE",
-              voters: 1024
-            },
+              "station": "EP BABLA CENTRE / A",
+              "voters": 1171
+            }
           ],
-          "EP BIBOL / A": [
+          "WINDE": [
             {
-              station: "MAFFA",
-              voters: 506
-            },
-            {
-              station: "YIDE",
-              voters: 506
-            },
+              "station": "EP BABLA CENTRE / A",
+              "voters": 1171
+            }
           ],
-          "EP BOCKLE / A": [
+          "DOULI": [
             {
-              station: "BOCKLE",
-              voters: 2307
-            },
-            {
-              station: "BILONDE",
-              voters: 2497
-            },
+              "station": "EP BABLA CENTRE / A",
+              "voters": 1171
+            }
           ],
-          "EP DENGUI / A": [
+          "ISRAEL": [
             {
-              station: "BALANE",
-              voters: 798
-            },
-            {
-              station: "DENGUI",
-              voters: 798
-            },
-            {
-              station: "LAINGUEL",
-              voters: 798
-            },
+              "station": "EP BABLA ISRAEL / A",
+              "voters": 494
+            }
           ],
-          "EP DJALINGO / A": [
+          "BADOUDI": [
             {
-              station: "BAINAWARE",
-              voters: 3146
-            },
-            {
-              station: "DJALINGO",
-              voters: 2304
-            },
-            {
-              station: "GUIZIGARE",
-              voters: 1982
-            },
+              "station": "EP BADOUDI / A",
+              "voters": 1024
+            }
           ],
-          "EP DJAMBOUTOU / A": [
+          "OURO-MAIDADI": [
             {
-              station: "DJAMBOUTOU",
-              voters: 325
-            },
-            {
-              station: "LOUGOUMI",
-              voters: 325
-            },
+              "station": "EP BADOUDI / A",
+              "voters": 1024
+            }
           ],
-          "EP HAIGA-DJEWA / A": [
+          "TAPARE": [
             {
-              station: "HAIGA-DJEWA",
-              voters: 455
-            },
+              "station": "EP BADOUDI / A",
+              "voters": 1024
+            }
           ],
-          "EP HARANDE-LOBI / A": [
+          "TONDIRE": [
             {
-              station: "HARANDE",
-              voters: 350
-            },
-            {
-              station: "HARANDE-LOBI",
-              voters: 350
-            },
-            {
-              station: "KATCHATCHIA",
-              voters: 350
-            },
+              "station": "EP BADOUDI / A",
+              "voters": 1024
+            }
           ],
-          "EP KAWTAL / A": [
+          "MAFFA": [
             {
-              station: "BIBOL",
-              voters: 1030
-            },
-            {
-              station: "KAWTAL",
-              voters: 524
-            },
-            {
-              station: "LOPE",
-              voters: 524
-            },
+              "station": "EP BIBOL / A",
+              "voters": 506
+            }
           ],
-          "EP KISMATARI / A": [
+          "YIDE": [
             {
-              station: "KISMATARI",
-              voters: 581
-            },
-            {
-              station: "NASSARAO-HAOUTA",
-              voters: 581
-            },
+              "station": "EP BIBOL / A",
+              "voters": 506
+            }
           ],
-          "EP MAFA-KILDA / A": [
+          "BOCKLE": [
             {
-              station: "MAFA-KILDA",
-              voters: 878
-            },
-            {
-              station: "SABEWA",
-              voters: 878
-            },
+              "station": "EP BOCKLE / A",
+              "voters": 2307
+            }
           ],
-          "EP MAISSANOU / A": [
+          "BILONDE": [
             {
-              station: "MAISSANOU",
-              voters: 298
-            },
+              "station": "EP BOCKLE / A",
+              "voters": 2497
+            }
           ],
-          "EP MAYO-DADI / A": [
+          "BALANE": [
             {
-              station: "MAYO",
-              voters: 2194
-            },
-            {
-              station: "DADI",
-              voters: 1164
-            },
-            {
-              station: "LAINDE",
-              voters: 4097
-            },
-            {
-              station: "PODOKO",
-              voters: 1164
-            },
-            {
-              station: "LAMERE",
-              voters: 1164
-            },
-            {
-              station: "MAYO-DADI",
-              voters: 1164
-            },
-            {
-              station: "NGOBARA",
-              voters: 1164
-            },
-            {
-              station: "TCHIKITO",
-              voters: 1164
-            },
+              "station": "EP DENGUI / A",
+              "voters": 798
+            }
           ],
-          "EP NDIAM-BABA / A": [
+          "DENGUI": [
             {
-              station: "BABLA",
-              voters: 2437
-            },
-            {
-              station: "BANANA",
-              voters: 199
-            },
-            {
-              station: "DJALINGO-TCHOUMPA",
-              voters: 413
-            },
-            {
-              station: "KAE",
-              voters: 413
-            },
-            {
-              station: "DOUTTE",
-              voters: 413
-            },
-            {
-              station: "NDIAM-BABA",
-              voters: 199
-            },
+              "station": "EP DENGUI / A",
+              "voters": 798
+            }
           ],
-          "EP NORMANDI / A": [
+          "LAINGUEL": [
             {
-              station: "BAKASSI",
-              voters: 928
-            },
-            {
-              station: "NORMANDI",
-              voters: 422
-            },
+              "station": "EP DENGUI / A",
+              "voters": 798
+            }
           ],
-          "EP PERMA / A": [
+          "BAINAWARE": [
             {
-              station: "PERMA",
-              voters: 616
-            },
-            {
-              station: "TCHOUMPA",
-              voters: 616
-            },
+              "station": "EP DJALINGO / A",
+              "voters": 3146
+            }
           ],
-          "EP PITOAYEL / A": [
+          "DJALINGO": [
             {
-              station: "FALIRE",
-              voters: 436
-            },
-            {
-              station: "BODINGA",
-              voters: 436
-            },
-            {
-              station: "PITOAYEL",
-              voters: 436
-            },
+              "station": "EP DJALINGO / A",
+              "voters": 2304
+            }
           ],
-          "EP SANGUERE NGAOUNDERE / A": [
+          "GUIZIGARE": [
             {
-              station: "CARREFOUR",
-              voters: 322
-            },
-            {
-              station: "SANGUERE",
-              voters: 322
-            },
-            {
-              station: "NGAOUNDERE",
-              voters: 322
-            },
+              "station": "EP DJALINGO / A",
+              "voters": 1982
+            }
           ],
-          "EP SANGUERE PAUL / A": [
+          "DJAMBOUTOU": [
             {
-              station: "CAMP",
-              voters: 2672
-            },
-            {
-              station: "IRAD",
-              voters: 1175
-            },
-            {
-              station: "LANAVET",
-              voters: 1497
-            },
-            {
-              station: "SANGUERE-LANAVET",
-              voters: 1175
-            },
-            {
-              station: "SANGUERE-PAUL",
-              voters: 1175
-            },
+              "station": "EP DJAMBOUTOU / A",
+              "voters": 325
+            }
           ],
-          "EP SANGUERE-NGAL / A": [
+          "LOUGOUMI": [
             {
-              station: "MAFA",
-              voters: 1027
-            },
-            {
-              station: "ECOLE",
-              voters: 1027
-            },
-            {
-              station: "MANANG",
-              voters: 1027
-            },
-            {
-              station: "SANGUERE-MANANG",
-              voters: 1138
-            },
-            {
-              station: "SANGUERE-NDJOI",
-              voters: 1027
-            },
-            {
-              station: "SANGUERE-NGAL",
-              voters: 1027
-            },
+              "station": "EP DJAMBOUTOU / A",
+              "voters": 325
+            }
           ],
-          "EP SARKI-YAYI / A": [
+          "HAIGA-DJEWA": [
             {
-              station: "SARKI-YAYI",
-              voters: 409
-            },
+              "station": "EP HAIGA-DJEWA / A",
+              "voters": 455
+            }
           ],
-          "EP WINDE DOULI / A": [
+          "HARANDE": [
             {
-              station: "BOCKI",
-              voters: 299
-            },
-            {
-              station: "DJABE",
-              voters: 299
-            },
+              "station": "EP HARANDE-LOBI / A",
+              "voters": 350
+            }
           ],
-          "ESPL DJAOURO OURO TCHAKA / A": [
+          "HARANDE-LOBI": [
             {
-              station: "OURO",
-              voters: 846
-            },
-            {
-              station: "TCHAKA",
-              voters: 248
-            },
+              "station": "EP HARANDE-LOBI / A",
+              "voters": 350
+            }
           ],
+          "KATCHATCHIA": [
+            {
+              "station": "EP HARANDE-LOBI / A",
+              "voters": 350
+            }
+          ],
+          "BIBOL": [
+            {
+              "station": "EP KAWTAL / A",
+              "voters": 1030
+            }
+          ],
+          "KAWTAL": [
+            {
+              "station": "EP KAWTAL / A",
+              "voters": 524
+            }
+          ],
+          "LOPE": [
+            {
+              "station": "EP KAWTAL / A",
+              "voters": 524
+            }
+          ],
+          "KISMATARI": [
+            {
+              "station": "EP KISMATARI / A",
+              "voters": 581
+            }
+          ],
+          "NASSARAO-HAOUTA": [
+            {
+              "station": "EP KISMATARI / A",
+              "voters": 581
+            }
+          ],
+          "MAFA-KILDA": [
+            {
+              "station": "EP MAFA-KILDA / A",
+              "voters": 878
+            }
+          ],
+          "SABEWA": [
+            {
+              "station": "EP MAFA-KILDA / A",
+              "voters": 878
+            }
+          ],
+          "MAISSANOU": [
+            {
+              "station": "EP MAISSANOU / A",
+              "voters": 298
+            }
+          ],
+          "MAYO": [
+            {
+              "station": "EP MAYO-DADI / A",
+              "voters": 2194
+            }
+          ],
+          "DADI": [
+            {
+              "station": "EP MAYO-DADI / A",
+              "voters": 1164
+            }
+          ],
+          "LAINDE": [
+            {
+              "station": "EP MAYO-DADI / A",
+              "voters": 4097
+            }
+          ],
+          "PODOKO": [
+            {
+              "station": "EP MAYO-DADI / A",
+              "voters": 1164
+            }
+          ],
+          "LAMERE": [
+            {
+              "station": "EP MAYO-DADI / A",
+              "voters": 1164
+            }
+          ],
+          "MAYO-DADI": [
+            {
+              "station": "EP MAYO-DADI / A",
+              "voters": 1164
+            }
+          ],
+          "NGOBARA": [
+            {
+              "station": "EP MAYO-DADI / A",
+              "voters": 1164
+            }
+          ],
+          "TCHIKITO": [
+            {
+              "station": "EP MAYO-DADI / A",
+              "voters": 1164
+            }
+          ],
+          "BABLA": [
+            {
+              "station": "EP NDIAM-BABA / A",
+              "voters": 2437
+            }
+          ],
+          "BANANA": [
+            {
+              "station": "EP NDIAM-BABA / A",
+              "voters": 199
+            }
+          ],
+          "DJALINGO-TCHOUMPA": [
+            {
+              "station": "EP NDIAM-BABA / A",
+              "voters": 413
+            }
+          ],
+          "KAE": [
+            {
+              "station": "EP NDIAM-BABA / A",
+              "voters": 413
+            }
+          ],
+          "DOUTTE": [
+            {
+              "station": "EP NDIAM-BABA / A",
+              "voters": 413
+            }
+          ],
+          "NDIAM-BABA": [
+            {
+              "station": "EP NDIAM-BABA / A",
+              "voters": 199
+            }
+          ],
+          "BAKASSI": [
+            {
+              "station": "EP NORMANDI / A",
+              "voters": 928
+            }
+          ],
+          "NORMANDI": [
+            {
+              "station": "EP NORMANDI / A",
+              "voters": 422
+            }
+          ],
+          "PERMA": [
+            {
+              "station": "EP PERMA / A",
+              "voters": 616
+            }
+          ],
+          "TCHOUMPA": [
+            {
+              "station": "EP PERMA / A",
+              "voters": 616
+            }
+          ],
+          "FALIRE": [
+            {
+              "station": "EP PITOAYEL / A",
+              "voters": 436
+            }
+          ],
+          "BODINGA": [
+            {
+              "station": "EP PITOAYEL / A",
+              "voters": 436
+            }
+          ],
+          "PITOAYEL": [
+            {
+              "station": "EP PITOAYEL / A",
+              "voters": 436
+            }
+          ],
+          "CARREFOUR": [
+            {
+              "station": "EP SANGUERE NGAOUNDERE / A",
+              "voters": 322
+            }
+          ],
+          "SANGUERE": [
+            {
+              "station": "EP SANGUERE NGAOUNDERE / A",
+              "voters": 322
+            }
+          ],
+          "NGAOUNDERE": [
+            {
+              "station": "EP SANGUERE NGAOUNDERE / A",
+              "voters": 322
+            }
+          ],
+          "CAMP": [
+            {
+              "station": "EP SANGUERE PAUL / A",
+              "voters": 2672
+            }
+          ],
+          "IRAD": [
+            {
+              "station": "EP SANGUERE PAUL / A",
+              "voters": 1175
+            }
+          ],
+          "LANAVET": [
+            {
+              "station": "EP SANGUERE PAUL / A",
+              "voters": 1497
+            }
+          ],
+          "SANGUERE-LANAVET": [
+            {
+              "station": "EP SANGUERE PAUL / A",
+              "voters": 1175
+            }
+          ],
+          "SANGUERE-PAUL": [
+            {
+              "station": "EP SANGUERE PAUL / A",
+              "voters": 1175
+            }
+          ],
+          "MAFA": [
+            {
+              "station": "EP SANGUERE-NGAL / A",
+              "voters": 1027
+            }
+          ],
+          "ECOLE": [
+            {
+              "station": "EP SANGUERE-NGAL / A",
+              "voters": 1027
+            }
+          ],
+          "MANANG": [
+            {
+              "station": "EP SANGUERE-NGAL / A",
+              "voters": 1027
+            }
+          ],
+          "SANGUERE-MANANG": [
+            {
+              "station": "EP SANGUERE-NGAL / A",
+              "voters": 1138
+            }
+          ],
+          "SANGUERE-NDJOI": [
+            {
+              "station": "EP SANGUERE-NGAL / A",
+              "voters": 1027
+            }
+          ],
+          "SANGUERE-NGAL": [
+            {
+              "station": "EP SANGUERE-NGAL / A",
+              "voters": 1027
+            }
+          ],
+          "SARKI-YAYI": [
+            {
+              "station": "EP SARKI-YAYI / A",
+              "voters": 409
+            }
+          ],
+          "BOCKI": [
+            {
+              "station": "EP WINDE DOULI / A",
+              "voters": 299
+            }
+          ],
+          "DJABE": [
+            {
+              "station": "EP WINDE DOULI / A",
+              "voters": 299
+            }
+          ],
+          "OURO": [
+            {
+              "station": "ESPL DJAOURO OURO TCHAKA / A",
+              "voters": 846
+            }
+          ],
+          "TCHAKA": [
+            {
+              "station": "ESPL DJAOURO OURO TCHAKA / A",
+              "voters": 248
+            }
+          ]
         },
         "GASCHIGA": {
-          "BUREAU ELEVAGE / A": [
+          "BOGGARE": [
             {
-              station: "BOGGARE",
-              voters: 895
-            },
-            {
-              station: "BOISSIRE",
-              voters: 895
-            },
+              "station": "BUREAU ELEVAGE / A",
+              "voters": 895
+            }
           ],
-          "EM GASCHIGA / A": [
+          "BOISSIRE": [
             {
-              station: "FOULBERE",
-              voters: 1823
-            },
-            {
-              station: "HAOUSSARE",
-              voters: 820
-            },
+              "station": "BUREAU ELEVAGE / A",
+              "voters": 895
+            }
           ],
-          "EM LAKARE / A": [
+          "FOULBERE": [
             {
-              station: "LAKARE",
-              voters: 259
-            },
+              "station": "EM GASCHIGA / A",
+              "voters": 1823
+            }
           ],
-          "EP BAMANGA / A": [
+          "HAOUSSARE": [
             {
-              station: "BAMANGA",
-              voters: 1096
-            },
-            {
-              station: "DATCHIEL",
-              voters: 1096
-            },
-            {
-              station: "FESSANGO",
-              voters: 1548
-            },
-            {
-              station: "OURO",
-              voters: 8770
-            },
-            {
-              station: "BIYA",
-              voters: 1266
-            },
-            {
-              station: "SOUARE",
-              voters: 1096
-            },
+              "station": "EM GASCHIGA / A",
+              "voters": 820
+            }
           ],
-          "EP BILINGUE / A": [
+          "LAKARE": [
             {
-              station: "BADESSI",
-              voters: 178
-            },
-            {
-              station: "DABARE",
-              voters: 167
-            },
-            {
-              station: "MBOUM",
-              voters: 167
-            },
-            {
-              station: "MORA",
-              voters: 167
-            },
+              "station": "EM LAKARE / A",
+              "voters": 259
+            }
           ],
-          "EP BOGARE / A": [
+          "BAMANGA": [
             {
-              station: "SERVICES",
-              voters: 335
-            },
-            {
-              station: "PUBLICS/",
-              voters: 335
-            },
-            {
-              station: "PARA",
-              voters: 335
-            },
-            {
-              station: "PUBLICS",
-              voters: 335
-            },
+              "station": "EP BAMANGA / A",
+              "voters": 1096
+            }
           ],
-          "EP DADJAM / A": [
+          "DATCHIEL": [
             {
-              station: "DADJAM",
-              voters: 185
-            },
+              "station": "EP BAMANGA / A",
+              "voters": 1096
+            }
           ],
-          "EP DEMSA / A": [
+          "FESSANGO": [
             {
-              station: "DEMSA",
-              voters: 817
-            },
+              "station": "EP BAMANGA / A",
+              "voters": 1548
+            }
           ],
-          "EP DJIRLADJE / A": [
+          "OURO": [
             {
-              station: "DJIRLADJE",
-              voters: 300
-            },
-            {
-              station: "MAYEL",
-              voters: 469
-            },
-            {
-              station: "DJARENDI",
-              voters: 469
-            },
+              "station": "EP BAMANGA / A",
+              "voters": 8770
+            }
           ],
-          "EP GASCHIGA / A": [
+          "BIYA": [
             {
-              station: "GUIZIGARE",
-              voters: 1642
-            },
-            {
-              station: "KOLLERE",
-              voters: 3330
-            },
-            {
-              station: "MBAROUMA",
-              voters: 1003
-            },
-            {
-              station: "TCHIFFEL",
-              voters: 1369
-            },
+              "station": "EP BAMANGA / A",
+              "voters": 1266
+            }
           ],
-          "EP KOLLERE / A": [
+          "SOUARE": [
             {
-              station: "GONDJIGUI",
-              voters: 658
-            },
-            {
-              station: "LAINDE",
-              voters: 1183
-            },
-            {
-              station: "LOUGGA",
-              voters: 658
-            },
-            {
-              station: "HORI",
-              voters: 658
-            },
-            {
-              station: "BOCKI",
-              voters: 658
-            },
+              "station": "EP BAMANGA / A",
+              "voters": 1096
+            }
           ],
-          "EP KOSSOUMO / A": [
+          "BADESSI": [
             {
-              station: "NIBANGO",
-              voters: 486
-            },
-            {
-              station: "BOUBA",
-              voters: 486
-            },
-            {
-              station: "GNAKI",
-              voters: 486
-            },
+              "station": "EP BILINGUE / A",
+              "voters": 178
+            }
           ],
-          "EP MAYAMI / A": [
+          "DABARE": [
             {
-              station: "MAYAMI",
-              voters: 825
-            },
+              "station": "EP BILINGUE / A",
+              "voters": 167
+            }
           ],
-          "EP MBILLA / A": [
+          "MBOUM": [
             {
-              station: "DJAMBOUTOU",
-              voters: 373
-            },
-            {
-              station: "SADOU",
-              voters: 373
-            },
-            {
-              station: "MBILLA",
-              voters: 373
-            },
-            {
-              station: "TIRCI",
-              voters: 628
-            },
+              "station": "EP BILINGUE / A",
+              "voters": 167
+            }
           ],
-          "EP OURO HARISSOU / A": [
+          "MORA": [
             {
-              station: "BOBBO",
-              voters: 447
-            },
-            {
-              station: "ININE",
-              voters: 570
-            },
-            {
-              station: "OURO-",
-              voters: 447
-            },
-            {
-              station: "HARISSOU",
-              voters: 447
-            },
+              "station": "EP BILINGUE / A",
+              "voters": 167
+            }
           ],
-          "EP OURO MALLOUM / A": [
+          "SERVICES": [
             {
-              station: "MALLOUM",
-              voters: 654
-            },
+              "station": "EP BOGARE / A",
+              "voters": 335
+            }
           ],
-          "EP OURO TCHAKA / A": [
+          "PUBLICS/": [
             {
-              station: "TCHAKA",
-              voters: 494
-            },
+              "station": "EP BOGARE / A",
+              "voters": 335
+            }
           ],
-          "EP PAKETE / A": [
+          "PARA": [
             {
-              station: "HOSSERE",
-              voters: 759
-            },
-            {
-              station: "FARAOU",
-              voters: 759
-            },
-            {
-              station: "PAKETE",
-              voters: 520
-            },
+              "station": "EP BOGARE / A",
+              "voters": 335
+            }
           ],
-          "EP POMLA HAMAYERO / A": [
+          "PUBLICS": [
             {
-              station: "ALIM",
-              voters: 370
-            },
-            {
-              station: "POMLA-HAMAYERO",
-              voters: 370
-            },
+              "station": "EP BOGARE / A",
+              "voters": 335
+            }
           ],
-          "EP POMLA MANGA / A": [
+          "DADJAM": [
             {
-              station: "POMLA-MANGA",
-              voters: 918
-            },
+              "station": "EP DADJAM / A",
+              "voters": 185
+            }
           ],
-          "EP TAPARE / A": [
+          "DEMSA": [
             {
-              station: "KESSOURE",
-              voters: 1064
-            },
-            {
-              station: "MAYO",
-              voters: 1479
-            },
-            {
-              station: "BORORO",
-              voters: 578
-            },
-            {
-              station: "NGALABA",
-              voters: 578
-            },
-            {
-              station: "TAPARE",
-              voters: 578
-            },
+              "station": "EP DEMSA / A",
+              "voters": 817
+            }
           ],
-          "EP TCHIFFEL / A": [
+          "DJIRLADJE": [
             {
-              station: "MOUFOU",
-              voters: 366
-            },
+              "station": "EP DJIRLADJE / A",
+              "voters": 300
+            }
           ],
-          "EP TONTONGO / A": [
+          "MAYEL": [
             {
-              station: "KOUBAWOL",
-              voters: 641
-            },
-            {
-              station: "LOSSI",
-              voters: 641
-            },
-            {
-              station: "TONTONGO",
-              voters: 641
-            },
+              "station": "EP DJIRLADJE / A",
+              "voters": 469
+            }
           ],
-          "EP TORO / A": [
+          "DJARENDI": [
             {
-              station: "BOUTALI",
-              voters: 260
-            },
-            {
-              station: "TORO",
-              voters: 260
-            },
-            {
-              station: "ECOLE",
-              voters: 260
-            },
-            {
-              station: "TORO-CENTRE",
-              voters: 349
-            },
+              "station": "EP DJIRLADJE / A",
+              "voters": 469
+            }
           ],
-          "ESPL CHEF BARKEHI / A": [
+          "GUIZIGARE": [
             {
-              station: "BARKEHI",
-              voters: 161
-            },
+              "station": "EP GASCHIGA / A",
+              "voters": 1642
+            }
           ],
-          "ESPL CHEF BASCHEORE / A": [
+          "KOLLERE": [
             {
-              station: "BAOU",
-              voters: 726
-            },
-            {
-              station: "BASCHEORE",
-              voters: 567
-            },
+              "station": "EP GASCHIGA / A",
+              "voters": 3330
+            }
           ],
-          "ESPL CHEF BOLKI / A": [
+          "MBAROUMA": [
             {
-              station: "BOLKI",
-              voters: 334
-            },
+              "station": "EP GASCHIGA / A",
+              "voters": 1003
+            }
           ],
-          "ESPL CHEF LONDEROU / A": [
+          "TCHIFFEL": [
             {
-              station: "LONDEROU",
-              voters: 191
-            },
+              "station": "EP GASCHIGA / A",
+              "voters": 1369
+            }
           ],
-          "ESPL CHEF MAYO DOUMSI / A": [
+          "GONDJIGUI": [
             {
-              station: "MAYO-DOUMSI",
-              voters: 786
-            },
-            {
-              station: "DALAN",
-              voters: 786
-            },
-            {
-              station: "DJAMAN",
-              voters: 786
-            },
+              "station": "EP KOLLERE / A",
+              "voters": 658
+            }
           ],
-          "ESPL CHEF MAYO SAHEL / A": [
+          "LAINDE": [
             {
-              station: "MAYO-SAHEL",
-              voters: 452
-            },
+              "station": "EP KOLLERE / A",
+              "voters": 1183
+            }
           ],
-          "ESPL CHEF NGOUTCHOUMI / A": [
+          "LOUGGA": [
             {
-              station: "KATAKO",
-              voters: 168
-            },
-            {
-              station: "NGOUTCHOUMI",
-              voters: 168
-            },
+              "station": "EP KOLLERE / A",
+              "voters": 658
+            }
           ],
-          "ESPL CHEF OURO GADJI / A": [
+          "HORI": [
             {
-              station: "GADJI",
-              voters: 260
-            },
+              "station": "EP KOLLERE / A",
+              "voters": 658
+            }
           ],
-          "ESPL CHEF OURO IYA / A": [
+          "BOCKI": [
             {
-              station: "IYA",
-              voters: 258
-            },
+              "station": "EP KOLLERE / A",
+              "voters": 658
+            }
           ],
-          "ESPL CHEF SONDJILO / A": [
+          "NIBANGO": [
             {
-              station: "LADAN",
-              voters: 283
-            },
-            {
-              station: "SONDJILO",
-              voters: 283
-            },
+              "station": "EP KOSSOUMO / A",
+              "voters": 486
+            }
           ],
-          "ESPL CHEF YARMI / A": [
+          "BOUBA": [
             {
-              station: "ALHADJI",
-              voters: 362
-            },
-            {
-              station: "BOBBOYE",
-              voters: 362
-            },
-            {
-              station: "DJAH",
-              voters: 362
-            },
-            {
-              station: "YARMI",
-              voters: 620
-            },
+              "station": "EP KOSSOUMO / A",
+              "voters": 486
+            }
           ],
+          "GNAKI": [
+            {
+              "station": "EP KOSSOUMO / A",
+              "voters": 486
+            }
+          ],
+          "MAYAMI": [
+            {
+              "station": "EP MAYAMI / A",
+              "voters": 825
+            }
+          ],
+          "DJAMBOUTOU": [
+            {
+              "station": "EP MBILLA / A",
+              "voters": 373
+            }
+          ],
+          "SADOU": [
+            {
+              "station": "EP MBILLA / A",
+              "voters": 373
+            }
+          ],
+          "MBILLA": [
+            {
+              "station": "EP MBILLA / A",
+              "voters": 373
+            }
+          ],
+          "TIRCI": [
+            {
+              "station": "EP MBILLA / A",
+              "voters": 628
+            }
+          ],
+          "BOBBO": [
+            {
+              "station": "EP OURO HARISSOU / A",
+              "voters": 447
+            }
+          ],
+          "ININE": [
+            {
+              "station": "EP OURO HARISSOU / A",
+              "voters": 570
+            }
+          ],
+          "OURO-": [
+            {
+              "station": "EP OURO HARISSOU / A",
+              "voters": 447
+            }
+          ],
+          "HARISSOU": [
+            {
+              "station": "EP OURO HARISSOU / A",
+              "voters": 447
+            }
+          ],
+          "MALLOUM": [
+            {
+              "station": "EP OURO MALLOUM / A",
+              "voters": 654
+            }
+          ],
+          "TCHAKA": [
+            {
+              "station": "EP OURO TCHAKA / A",
+              "voters": 494
+            }
+          ],
+          "HOSSERE": [
+            {
+              "station": "EP PAKETE / A",
+              "voters": 759
+            }
+          ],
+          "FARAOU": [
+            {
+              "station": "EP PAKETE / A",
+              "voters": 759
+            }
+          ],
+          "PAKETE": [
+            {
+              "station": "EP PAKETE / A",
+              "voters": 520
+            }
+          ],
+          "ALIM": [
+            {
+              "station": "EP POMLA HAMAYERO / A",
+              "voters": 370
+            }
+          ],
+          "POMLA-HAMAYERO": [
+            {
+              "station": "EP POMLA HAMAYERO / A",
+              "voters": 370
+            }
+          ],
+          "POMLA-MANGA": [
+            {
+              "station": "EP POMLA MANGA / A",
+              "voters": 918
+            }
+          ],
+          "KESSOURE": [
+            {
+              "station": "EP TAPARE / A",
+              "voters": 1064
+            }
+          ],
+          "MAYO": [
+            {
+              "station": "EP TAPARE / A",
+              "voters": 1479
+            }
+          ],
+          "BORORO": [
+            {
+              "station": "EP TAPARE / A",
+              "voters": 578
+            }
+          ],
+          "NGALABA": [
+            {
+              "station": "EP TAPARE / A",
+              "voters": 578
+            }
+          ],
+          "TAPARE": [
+            {
+              "station": "EP TAPARE / A",
+              "voters": 578
+            }
+          ],
+          "MOUFOU": [
+            {
+              "station": "EP TCHIFFEL / A",
+              "voters": 366
+            }
+          ],
+          "KOUBAWOL": [
+            {
+              "station": "EP TONTONGO / A",
+              "voters": 641
+            }
+          ],
+          "LOSSI": [
+            {
+              "station": "EP TONTONGO / A",
+              "voters": 641
+            }
+          ],
+          "TONTONGO": [
+            {
+              "station": "EP TONTONGO / A",
+              "voters": 641
+            }
+          ],
+          "BOUTALI": [
+            {
+              "station": "EP TORO / A",
+              "voters": 260
+            }
+          ],
+          "TORO": [
+            {
+              "station": "EP TORO / A",
+              "voters": 260
+            }
+          ],
+          "ECOLE": [
+            {
+              "station": "EP TORO / A",
+              "voters": 260
+            }
+          ],
+          "TORO-CENTRE": [
+            {
+              "station": "EP TORO / A",
+              "voters": 349
+            }
+          ],
+          "BARKEHI": [
+            {
+              "station": "ESPL CHEF BARKEHI / A",
+              "voters": 161
+            }
+          ],
+          "BAOU": [
+            {
+              "station": "ESPL CHEF BASCHEORE / A",
+              "voters": 726
+            }
+          ],
+          "BASCHEORE": [
+            {
+              "station": "ESPL CHEF BASCHEORE / A",
+              "voters": 567
+            }
+          ],
+          "BOLKI": [
+            {
+              "station": "ESPL CHEF BOLKI / A",
+              "voters": 334
+            }
+          ],
+          "LONDEROU": [
+            {
+              "station": "ESPL CHEF LONDEROU / A",
+              "voters": 191
+            }
+          ],
+          "MAYO-DOUMSI": [
+            {
+              "station": "ESPL CHEF MAYO DOUMSI / A",
+              "voters": 786
+            }
+          ],
+          "DALAN": [
+            {
+              "station": "ESPL CHEF MAYO DOUMSI / A",
+              "voters": 786
+            }
+          ],
+          "DJAMAN": [
+            {
+              "station": "ESPL CHEF MAYO DOUMSI / A",
+              "voters": 786
+            }
+          ],
+          "MAYO-SAHEL": [
+            {
+              "station": "ESPL CHEF MAYO SAHEL / A",
+              "voters": 452
+            }
+          ],
+          "KATAKO": [
+            {
+              "station": "ESPL CHEF NGOUTCHOUMI / A",
+              "voters": 168
+            }
+          ],
+          "NGOUTCHOUMI": [
+            {
+              "station": "ESPL CHEF NGOUTCHOUMI / A",
+              "voters": 168
+            }
+          ],
+          "GADJI": [
+            {
+              "station": "ESPL CHEF OURO GADJI / A",
+              "voters": 260
+            }
+          ],
+          "IYA": [
+            {
+              "station": "ESPL CHEF OURO IYA / A",
+              "voters": 258
+            }
+          ],
+          "LADAN": [
+            {
+              "station": "ESPL CHEF SONDJILO / A",
+              "voters": 283
+            }
+          ],
+          "SONDJILO": [
+            {
+              "station": "ESPL CHEF SONDJILO / A",
+              "voters": 283
+            }
+          ],
+          "ALHADJI": [
+            {
+              "station": "ESPL CHEF YARMI / A",
+              "voters": 362
+            }
+          ],
+          "BOBBOYE": [
+            {
+              "station": "ESPL CHEF YARMI / A",
+              "voters": 362
+            }
+          ],
+          "DJAH": [
+            {
+              "station": "ESPL CHEF YARMI / A",
+              "voters": 362
+            }
+          ],
+          "YARMI": [
+            {
+              "station": "ESPL CHEF YARMI / A",
+              "voters": 620
+            }
+          ]
         },
         "LAGDO": {
-          "EP AMRASSA / A": [
+          "BAINAWA": [
             {
-              station: "BAINAWA",
-              voters: 779
-            },
-            {
-              station: "BAME",
-              voters: 11294
-            },
+              "station": "EP AMRASSA / A",
+              "voters": 779
+            }
+          ],
+          "BAME": [
             {
-              station: "DJOLA",
-              voters: 779
-            },
+              "station": "EP AMRASSA / A",
+              "voters": 11294
+            }
+          ],
+          "DJOLA": [
             {
-              station: "LAINDE",
-              voters: 1369
-            },
+              "station": "EP AMRASSA / A",
+              "voters": 779
+            }
+          ],
+          "LAINDE": [
             {
-              station: "KAPSIKI",
-              voters: 3148
-            },
+              "station": "EP AMRASSA / A",
+              "voters": 1369
+            }
+          ],
+          "KAPSIKI": [
             {
-              station: "SANGUERE",
-              voters: 779
-            },
+              "station": "EP AMRASSA / A",
+              "voters": 3148
+            }
           ],
-          "EP BADANKALI / A": [
+          "SANGUERE": [
             {
-              station: "BADANKALI",
-              voters: 2167
-            },
+              "station": "EP AMRASSA / A",
+              "voters": 779
+            }
+          ],
+          "BADANKALI": [
             {
-              station: "CAMP",
-              voters: 5544
-            },
+              "station": "EP BADANKALI / A",
+              "voters": 2167
+            }
+          ],
+          "CAMP": [
             {
-              station: "CHANTIER",
-              voters: 5179
-            },
+              "station": "EP BADANKALI / A",
+              "voters": 5544
+            }
+          ],
+          "CHANTIER": [
             {
-              station: "CHINOIS",
-              voters: 5179
-            },
+              "station": "EP BADANKALI / A",
+              "voters": 5179
+            }
+          ],
+          "CHINOIS": [
             {
-              station: "KOKRA",
-              voters: 2167
-            },
+              "station": "EP BADANKALI / A",
+              "voters": 5179
+            }
+          ],
+          "KOKRA": [
             {
-              station: "SOULEDE",
-              voters: 2167
-            },
+              "station": "EP BADANKALI / A",
+              "voters": 2167
+            }
           ],
-          "EP BAKONA / A": [
+          "SOULEDE": [
             {
-              station: "BAKONA",
-              voters: 889
-            },
+              "station": "EP BADANKALI / A",
+              "voters": 2167
+            }
           ],
-          "EP BALDA LORI LOKORO / A": [
+          "BAKONA": [
             {
-              station: "BALDA",
-              voters: 333
-            },
+              "station": "EP BAKONA / A",
+              "voters": 889
+            }
+          ],
+          "BALDA": [
             {
-              station: "LORI",
-              voters: 333
-            },
+              "station": "EP BALDA LORI LOKORO / A",
+              "voters": 333
+            }
+          ],
+          "LORI": [
             {
-              station: "LOKORO",
-              voters: 333
-            },
+              "station": "EP BALDA LORI LOKORO / A",
+              "voters": 333
+            }
+          ],
+          "LOKORO": [
             {
-              station: "MALOMBALI",
-              voters: 333
-            },
+              "station": "EP BALDA LORI LOKORO / A",
+              "voters": 333
+            }
+          ],
+          "MALOMBALI": [
             {
-              station: "MADA",
-              voters: 561
-            },
+              "station": "EP BALDA LORI LOKORO / A",
+              "voters": 333
+            }
+          ],
+          "MADA": [
             {
-              station: "YIDE",
-              voters: 561
-            },
+              "station": "EP BALDA LORI LOKORO / A",
+              "voters": 561
+            }
+          ],
+          "YIDE": [
             {
-              station: "SAMO",
-              voters: 1122
-            },
+              "station": "EP BALDA LORI LOKORO / A",
+              "voters": 561
+            }
+          ],
+          "SAMO": [
             {
-              station: "MAFA",
-              voters: 561
-            },
+              "station": "EP BALDA LORI LOKORO / A",
+              "voters": 1122
+            }
           ],
-          "EP BAME / A": [
+          "MAFA": [
             {
-              station: "SABONGARI",
-              voters: 3099
-            },
+              "station": "EP BALDA LORI LOKORO / A",
+              "voters": 561
+            }
+          ],
+          "SABONGARI": [
             {
-              station: "TOUBORO",
-              voters: 2252
-            },
+              "station": "EP BAME / A",
+              "voters": 3099
+            }
           ],
-          "EP BESSOUM / A": [
+          "TOUBORO": [
             {
-              station: "BESSOUM",
-              voters: 632
-            },
+              "station": "EP BAME / A",
+              "voters": 2252
+            }
+          ],
+          "BESSOUM": [
             {
-              station: "FOULAYE",
-              voters: 837
-            },
+              "station": "EP BESSOUM / A",
+              "voters": 632
+            }
           ],
-          "EP BILLINGUE LAGDO / A": [
+          "FOULAYE": [
             {
-              station: "BOKASSA",
-              voters: 2012
-            },
+              "station": "EP BESSOUM / A",
+              "voters": 837
+            }
+          ],
+          "BOKASSA": [
             {
-              station: "MAFARE",
-              voters: 2441
-            },
+              "station": "EP BILLINGUE LAGDO / A",
+              "voters": 2012
+            }
+          ],
+          "MAFARE": [
             {
-              station: "PITOARE",
-              voters: 2012
-            },
+              "station": "EP BILLINGUE LAGDO / A",
+              "voters": 2441
+            }
           ],
-          "EP BOULEL / A": [
+          "PITOARE": [
             {
-              station: "BOULEL",
-              voters: 1865
-            },
+              "station": "EP BILLINGUE LAGDO / A",
+              "voters": 2012
+            }
           ],
-          "EP BOUMEDJE / A": [
+          "BOULEL": [
             {
-              station: "BOUMEDJE",
-              voters: 2130
-            },
+              "station": "EP BOULEL / A",
+              "voters": 1865
+            }
           ],
-          "EP BOURKINA / A": [
+          "BOUMEDJE": [
             {
-              station: "BOURKINA",
-              voters: 429
-            },
+              "station": "EP BOUMEDJE / A",
+              "voters": 2130
+            }
+          ],
+          "BOURKINA": [
             {
-              station: "GUERE",
-              voters: 664
-            },
+              "station": "EP BOURKINA / A",
+              "voters": 429
+            }
           ],
-          "EP CAMP PROJET / A": [
+          "GUERE": [
             {
-              station: "PROJET",
-              voters: 365
-            },
+              "station": "EP BOURKINA / A",
+              "voters": 664
+            }
+          ],
+          "PROJET": [
             {
-              station: "WINDE-",
-              voters: 365
-            },
+              "station": "EP CAMP PROJET / A",
+              "voters": 365
+            }
+          ],
+          "WINDE-": [
             {
-              station: "GADOUROU",
-              voters: 365
-            },
+              "station": "EP CAMP PROJET / A",
+              "voters": 365
+            }
           ],
-          "EP CARREFOUR NA'ARI / A": [
+          "GADOUROU": [
             {
-              station: "NA'ARI",
-              voters: 1802
-            },
+              "station": "EP CAMP PROJET / A",
+              "voters": 365
+            }
           ],
-          "EP CARREFOUR POLI / A": [
+          "NA'ARI": [
             {
-              station: "POLI",
-              voters: 362
-            },
+              "station": "EP CARREFOUR NA'ARI / A",
+              "voters": 1802
+            }
+          ],
+          "POLI": [
             {
-              station: "MAMTIBA",
-              voters: 362
-            },
+              "station": "EP CARREFOUR POLI / A",
+              "voters": 362
+            }
           ],
-          "EP DINGALE / A": [
+          "MAMTIBA": [
             {
-              station: "DINGALE",
-              voters: 785
-            },
+              "station": "EP CARREFOUR POLI / A",
+              "voters": 362
+            }
+          ],
+          "DINGALE": [
             {
-              station: "KESME",
-              voters: 785
-            },
+              "station": "EP DINGALE / A",
+              "voters": 785
+            }
           ],
-          "EP DJALINGO KAPSIKI / A": [
+          "KESME": [
             {
-              station: "DJALINGO",
-              voters: 638
-            },
+              "station": "EP DINGALE / A",
+              "voters": 785
+            }
           ],
-          "EP DJAMBOUTOU / A": [
+          "DJALINGO": [
             {
-              station: "DJAMBOUTOU",
-              voters: 504
-            },
+              "station": "EP DJALINGO KAPSIKI / A",
+              "voters": 638
+            }
           ],
-          "EP DJANGA / A": [
+          "DJAMBOUTOU": [
             {
-              station: "BICHARI",
-              voters: 520
-            },
+              "station": "EP DJAMBOUTOU / A",
+              "voters": 504
+            }
+          ],
+          "BICHARI": [
             {
-              station: "DJANGA",
-              voters: 520
-            },
+              "station": "EP DJANGA / A",
+              "voters": 520
+            }
           ],
-          "EP DJAOURO DOURI / A": [
+          "DJANGA": [
             {
-              station: "DOURI",
-              voters: 922
-            },
+              "station": "EP DJANGA / A",
+              "voters": 520
+            }
           ],
-          "EP DJOULOL BOCKI / A": [
+          "DOURI": [
             {
-              station: "DANBI",
-              voters: 851
-            },
+              "station": "EP DJAOURO DOURI / A",
+              "voters": 922
+            }
+          ],
+          "DANBI": [
             {
-              station: "DJOULOL",
-              voters: 851
-            },
+              "station": "EP DJOULOL BOCKI / A",
+              "voters": 851
+            }
+          ],
+          "DJOULOL": [
             {
-              station: "BOKI",
-              voters: 851
-            },
+              "station": "EP DJOULOL BOCKI / A",
+              "voters": 851
+            }
+          ],
+          "BOKI": [
             {
-              station: "HARANDE",
-              voters: 851
-            },
+              "station": "EP DJOULOL BOCKI / A",
+              "voters": 851
+            }
+          ],
+          "HARANDE": [
             {
-              station: "LABBO",
-              voters: 2075
-            },
+              "station": "EP DJOULOL BOCKI / A",
+              "voters": 851
+            }
+          ],
+          "LABBO": [
             {
-              station: "OURO-YANGA",
-              voters: 851
-            },
+              "station": "EP DJOULOL BOCKI / A",
+              "voters": 2075
+            }
+          ],
+          "OURO-YANGA": [
             {
-              station: "YAMEDA",
-              voters: 851
-            },
+              "station": "EP DJOULOL BOCKI / A",
+              "voters": 851
+            }
           ],
-          "EP DO- BOULEL V / A": [
+          "YAMEDA": [
             {
-              station: "NOKKA",
-              voters: 263
-            },
+              "station": "EP DJOULOL BOCKI / A",
+              "voters": 851
+            }
           ],
-          "EP GADJA GADJA / A": [
+          "NOKKA": [
             {
-              station: "GADJA",
-              voters: 744
-            },
+              "station": "EP DO- BOULEL V / A",
+              "voters": 263
+            }
+          ],
+          "GADJA": [
             {
-              station: "NOUVRI",
-              voters: 771
-            },
+              "station": "EP GADJA GADJA / A",
+              "voters": 744
+            }
+          ],
+          "NOUVRI": [
             {
-              station: "TAMBA",
-              voters: 1890
-            },
+              "station": "EP GADJA GADJA / A",
+              "voters": 771
+            }
+          ],
+          "TAMBA": [
             {
-              station: "GOUDRON",
-              voters: 771
-            },
+              "station": "EP GADJA GADJA / A",
+              "voters": 1890
+            }
+          ],
+          "GOUDRON": [
             {
-              station: "LADDE",
-              voters: 1173
-            },
+              "station": "EP GADJA GADJA / A",
+              "voters": 771
+            }
           ],
-          "EP GOUNA / A": [
+          "LADDE": [
             {
-              station: "GADJI",
-              voters: 3230
-            },
+              "station": "EP GADJA GADJA / A",
+              "voters": 1173
+            }
+          ],
+          "GADJI": [
             {
-              station: "SALA",
-              voters: 3230
-            },
+              "station": "EP GOUNA / A",
+              "voters": 3230
+            }
+          ],
+          "SALA": [
             {
-              station: "GOUDI",
-              voters: 3230
-            },
+              "station": "EP GOUNA / A",
+              "voters": 3230
+            }
+          ],
+          "GOUDI": [
             {
-              station: "TOUPOURIRE",
-              voters: 3414
-            },
+              "station": "EP GOUNA / A",
+              "voters": 3230
+            }
           ],
-          "EP GOUNA GUIZIGA / A": [
+          "TOUPOURIRE": [
             {
-              station: "GUIZIGA",
-              voters: 479
-            },
+              "station": "EP GOUNA / A",
+              "voters": 3414
+            }
           ],
-          "EP GOUNOUGOU / A": [
+          "GUIZIGA": [
             {
-              station: "BANTARE",
-              voters: 1363
-            },
+              "station": "EP GOUNA GUIZIGA / A",
+              "voters": 479
+            }
+          ],
+          "BANTARE": [
             {
-              station: "CARREFOUR",
-              voters: 3115
-            },
+              "station": "EP GOUNOUGOU / A",
+              "voters": 1363
+            }
+          ],
+          "CARREFOUR": [
             {
-              station: "RIAO",
-              voters: 1951
-            },
+              "station": "EP GOUNOUGOU / A",
+              "voters": 3115
+            }
+          ],
+          "RIAO": [
             {
-              station: "COL",
-              voters: 1363
-            },
+              "station": "EP GOUNOUGOU / A",
+              "voters": 1951
+            }
+          ],
+          "COL": [
             {
-              station: "EST",
-              voters: 1363
-            },
+              "station": "EP GOUNOUGOU / A",
+              "voters": 1363
+            }
+          ],
+          "EST": [
             {
-              station: "DOKA",
-              voters: 1937
-            },
+              "station": "EP GOUNOUGOU / A",
+              "voters": 1363
+            }
+          ],
+          "DOKA": [
             {
-              station: "GOUNOUGOU",
-              voters: 1363
-            },
+              "station": "EP GOUNOUGOU / A",
+              "voters": 1937
+            }
+          ],
+          "GOUNOUGOU": [
             {
-              station: "LAMERE",
-              voters: 1363
-            },
+              "station": "EP GOUNOUGOU / A",
+              "voters": 1363
+            }
           ],
-          "EP HOULA II ZERA / A": [
+          "LAMERE": [
             {
-              station: "ZERA",
-              voters: 398
-            },
+              "station": "EP GOUNOUGOU / A",
+              "voters": 1363
+            }
           ],
-          "EP KAIWAN / A": [
+          "ZERA": [
             {
-              station: "KAIWAN",
-              voters: 473
-            },
+              "station": "EP HOULA II ZERA / A",
+              "voters": 398
+            }
           ],
-          "EP KATE / A": [
+          "KAIWAN": [
             {
-              station: "DJABAMA",
-              voters: 1273
-            },
+              "station": "EP KAIWAN / A",
+              "voters": 473
+            }
+          ],
+          "DJABAMA": [
             {
-              station: "DJARAKO",
-              voters: 1273
-            },
+              "station": "EP KATE / A",
+              "voters": 1273
+            }
+          ],
+          "DJARAKO": [
             {
-              station: "KATE",
-              voters: 1273
-            },
+              "station": "EP KATE / A",
+              "voters": 1273
+            }
+          ],
+          "KATE": [
             {
-              station: "NIGERIARE",
-              voters: 1273
-            },
+              "station": "EP KATE / A",
+              "voters": 1273
+            }
           ],
-          "EP LAGDO GROUPE I / A": [
+          "NIGERIARE": [
             {
-              station: "CITE",
-              voters: 5213
-            },
+              "station": "EP KATE / A",
+              "voters": 1273
+            }
+          ],
+          "CITE": [
             {
-              station: "'A'",
-              voters: 5213
-            },
+              "station": "EP LAGDO GROUPE I / A",
+              "voters": 5213
+            }
+          ],
+          "'A'": [
             {
-              station: "AES/SONEL",
-              voters: 5213
-            },
+              "station": "EP LAGDO GROUPE I / A",
+              "voters": 5213
+            }
+          ],
+          "AES/SONEL": [
             {
-              station: "DJIPPORDE",
-              voters: 7820
-            },
+              "station": "EP LAGDO GROUPE I / A",
+              "voters": 5213
+            }
+          ],
+          "DJIPPORDE": [
             {
-              station: "DOUALARE",
-              voters: 1031
-            },
+              "station": "EP LAGDO GROUPE I / A",
+              "voters": 7820
+            }
+          ],
+          "DOUALARE": [
             {
-              station: "DYNANIQUE",
-              voters: 1031
-            },
+              "station": "EP LAGDO GROUPE I / A",
+              "voters": 1031
+            }
+          ],
+          "DYNANIQUE": [
             {
-              station: "QTIER",
-              voters: 1031
-            },
+              "station": "EP LAGDO GROUPE I / A",
+              "voters": 1031
+            }
+          ],
+          "QTIER": [
             {
-              station: "ADMINISTRATIF",
-              voters: 1031
-            },
+              "station": "EP LAGDO GROUPE I / A",
+              "voters": 1031
+            }
+          ],
+          "ADMINISTRATIF": [
             {
-              station: "LAGON",
-              voters: 1031
-            },
+              "station": "EP LAGDO GROUPE I / A",
+              "voters": 1031
+            }
+          ],
+          "LAGON": [
             {
-              station: "BLEU",
-              voters: 1031
-            },
+              "station": "EP LAGDO GROUPE I / A",
+              "voters": 1031
+            }
+          ],
+          "BLEU": [
             {
-              station: "ARABE",
-              voters: 1031
-            },
+              "station": "EP LAGDO GROUPE I / A",
+              "voters": 1031
+            }
+          ],
+          "ARABE": [
             {
-              station: "LAMORDE",
-              voters: 1031
-            },
+              "station": "EP LAGDO GROUPE I / A",
+              "voters": 1031
+            }
+          ],
+          "LAMORDE": [
             {
-              station: "MAROUARE",
-              voters: 10427
-            },
+              "station": "EP LAGDO GROUPE I / A",
+              "voters": 1031
+            }
+          ],
+          "MAROUARE": [
             {
-              station: "MOUSGOUM",
-              voters: 1031
-            },
+              "station": "EP LAGDO GROUPE I / A",
+              "voters": 10427
+            }
           ],
-          "EP LAGDO GROUPE II / A": [
+          "MOUSGOUM": [
             {
-              station: "CARRIERE",
-              voters: 3012
-            },
+              "station": "EP LAGDO GROUPE I / A",
+              "voters": 1031
+            }
+          ],
+          "CARRIERE": [
             {
-              station: "MOUFOURE",
-              voters: 3012
-            },
+              "station": "EP LAGDO GROUPE II / A",
+              "voters": 3012
+            }
+          ],
+          "MOUFOURE": [
             {
-              station: "DOLE",
-              voters: 3718
-            },
+              "station": "EP LAGDO GROUPE II / A",
+              "voters": 3012
+            }
+          ],
+          "DOLE": [
             {
-              station: "VENEZ",
-              voters: 3012
-            },
+              "station": "EP LAGDO GROUPE II / A",
+              "voters": 3718
+            }
+          ],
+          "VENEZ": [
             {
-              station: "VOIR",
-              voters: 3012
-            },
+              "station": "EP LAGDO GROUPE II / A",
+              "voters": 3012
+            }
           ],
-          "EP LAINDE LAGDO / A": [
+          "VOIR": [
             {
-              station: "MADAGALIRE",
-              voters: 291
-            },
+              "station": "EP LAGDO GROUPE II / A",
+              "voters": 3012
+            }
+          ],
+          "MADAGALIRE": [
             {
-              station: "OURO-BELDOUM",
-              voters: 291
-            },
+              "station": "EP LAINDE LAGDO / A",
+              "voters": 291
+            }
           ],
-          "EP LAINDE TCHITTA / A": [
+          "OURO-BELDOUM": [
             {
-              station: "LAINDE-TCHITTA",
-              voters: 407
-            },
+              "station": "EP LAINDE LAGDO / A",
+              "voters": 291
+            }
           ],
-          "EP LOUGOL BAME / A": [
+          "LAINDE-TCHITTA": [
             {
-              station: "LOUGOL",
-              voters: 684
-            },
+              "station": "EP LAINDE TCHITTA / A",
+              "voters": 407
+            }
+          ],
+          "LOUGOL": [
             {
-              station: "YOLDEO",
-              voters: 684
-            },
+              "station": "EP LOUGOL BAME / A",
+              "voters": 684
+            }
           ],
-          "EP MADABA GOUNA / A": [
+          "YOLDEO": [
             {
-              station: "MADABA",
-              voters: 271
-            },
+              "station": "EP LOUGOL BAME / A",
+              "voters": 684
+            }
+          ],
+          "MADABA": [
             {
-              station: "PANA",
-              voters: 271
-            },
+              "station": "EP MADABA GOUNA / A",
+              "voters": 271
+            }
+          ],
+          "PANA": [
             {
-              station: "MATAL",
-              voters: 271
-            },
+              "station": "EP MADABA GOUNA / A",
+              "voters": 271
+            }
           ],
-          "EP MADAGASCAR II / A": [
+          "MATAL": [
             {
-              station: "DOUNGOUSS",
-              voters: 416
-            },
+              "station": "EP MADABA GOUNA / A",
+              "voters": 271
+            }
+          ],
+          "DOUNGOUSS": [
             {
-              station: "GARBA",
-              voters: 416
-            },
+              "station": "EP MADAGASCAR II / A",
+              "voters": 416
+            }
+          ],
+          "GARBA": [
             {
-              station: "KAOUNA",
-              voters: 483
-            },
+              "station": "EP MADAGASCAR II / A",
+              "voters": 416
+            }
+          ],
+          "KAOUNA": [
             {
-              station: "MADAGASCAR",
-              voters: 551
-            },
+              "station": "EP MADAGASCAR II / A",
+              "voters": 483
+            }
+          ],
+          "MADAGASCAR": [
             {
-              station: "OURO-KALDJIA",
-              voters: 416
-            },
+              "station": "EP MADAGASCAR II / A",
+              "voters": 551
+            }
           ],
-          "EP MADAGASCAR-GOUNA / A": [
+          "OURO-KALDJIA": [
             {
-              station: "MADAGASCAR-GOUNA",
-              voters: 22
-            },
+              "station": "EP MADAGASCAR II / A",
+              "voters": 416
+            }
           ],
-          "EP MADAGASKAR I / A": [
+          "MADAGASCAR-GOUNA": [
             {
-              station: "MADAGASKAR",
-              voters: 202
-            },
+              "station": "EP MADAGASCAR-GOUNA / A",
+              "voters": 22
+            }
           ],
-          "EP MADJADOU / A": [
+          "MADAGASKAR": [
             {
-              station: "MADJADOU",
-              voters: 817
-            },
+              "station": "EP MADAGASKAR I / A",
+              "voters": 202
+            }
           ],
-          "EP MAYO BOCKI NA'ARI / A": [
+          "MADJADOU": [
             {
-              station: "MAYO-BOCKI",
-              voters: 689
-            },
+              "station": "EP MADJADOU / A",
+              "voters": 817
+            }
           ],
-          "EP MAYO-BOUCKI / A": [
+          "MAYO-BOCKI": [
             {
-              station: "BAH-ADJI",
-              voters: 2018
-            },
+              "station": "EP MAYO BOCKI NA'ARI / A",
+              "voters": 689
+            }
+          ],
+          "BAH-ADJI": [
             {
-              station: "MAYO",
-              voters: 5167
-            },
+              "station": "EP MAYO-BOUCKI / A",
+              "voters": 2018
+            }
+          ],
+          "MAYO": [
             {
-              station: "BOUCKI",
-              voters: 4049
-            },
+              "station": "EP MAYO-BOUCKI / A",
+              "voters": 5167
+            }
+          ],
+          "BOUCKI": [
             {
-              station: "MAYO-BOUCKI",
-              voters: 2018
-            },
+              "station": "EP MAYO-BOUCKI / A",
+              "voters": 4049
+            }
+          ],
+          "MAYO-BOUCKI": [
             {
-              station: "GOUNA",
-              voters: 12214
-            },
+              "station": "EP MAYO-BOUCKI / A",
+              "voters": 2018
+            }
           ],
-          "EP MAYO-MBAY GUERE / A": [
+          "GOUNA": [
             {
-              station: "MAYO-MBAY",
-              voters: 10
-            },
+              "station": "EP MAYO-BOUCKI / A",
+              "voters": 12214
+            }
           ],
-          "EP MBELLA GOUNA / A": [
+          "MAYO-MBAY": [
             {
-              station: "MBELLA",
-              voters: 536
-            },
+              "station": "EP MAYO-MBAY GUERE / A",
+              "voters": 10
+            }
           ],
-          "EP MBENGUI / A": [
+          "MBELLA": [
             {
-              station: "FIRA",
-              voters: 548
-            },
+              "station": "EP MBELLA GOUNA / A",
+              "voters": 536
+            }
+          ],
+          "FIRA": [
             {
-              station: "BAKA",
-              voters: 861
-            },
+              "station": "EP MBENGUI / A",
+              "voters": 548
+            }
+          ],
+          "BAKA": [
             {
-              station: "MBENGUI",
-              voters: 548
-            },
+              "station": "EP MBENGUI / A",
+              "voters": 861
+            }
           ],
-          "EP NAPANLA / A": [
+          "MBENGUI": [
             {
-              station: "NAPANLA",
-              voters: 389
-            },
+              "station": "EP MBENGUI / A",
+              "voters": 548
+            }
           ],
-          "EP NELBI / A": [
+          "NAPANLA": [
             {
-              station: "NELBI",
-              voters: 294
-            },
+              "station": "EP NAPANLA / A",
+              "voters": 389
+            }
           ],
-          "EP OURO BARRIERE / A": [
+          "NELBI": [
             {
-              station: "DOMAYO",
-              voters: 583
-            },
+              "station": "EP NELBI / A",
+              "voters": 294
+            }
+          ],
+          "DOMAYO": [
             {
-              station: "BARRIERE",
-              voters: 583
-            },
+              "station": "EP OURO BARRIERE / A",
+              "voters": 583
+            }
+          ],
+          "BARRIERE": [
             {
-              station: "ZAWADA",
-              voters: 583
-            },
+              "station": "EP OURO BARRIERE / A",
+              "voters": 583
+            }
           ],
-          "EP OURO BOCKI / A": [
+          "ZAWADA": [
             {
-              station: "KATCHALA",
-              voters: 324
-            },
+              "station": "EP OURO BARRIERE / A",
+              "voters": 583
+            }
+          ],
+          "KATCHALA": [
             {
-              station: "BOUTE",
-              voters: 324
-            },
+              "station": "EP OURO BOCKI / A",
+              "voters": 324
+            }
+          ],
+          "BOUTE": [
             {
-              station: "BOCKI",
-              voters: 324
-            },
+              "station": "EP OURO BOCKI / A",
+              "voters": 324
+            }
+          ],
+          "BOCKI": [
             {
-              station: "DAGUEDJA",
-              voters: 324
-            },
+              "station": "EP OURO BOCKI / A",
+              "voters": 324
+            }
           ],
-          "EP OURO BOGNO / A": [
+          "DAGUEDJA": [
             {
-              station: "MILIAGAI",
-              voters: 527
-            },
+              "station": "EP OURO BOCKI / A",
+              "voters": 324
+            }
+          ],
+          "MILIAGAI": [
             {
-              station: "WOURO",
-              voters: 527
-            },
+              "station": "EP OURO BOGNO / A",
+              "voters": 527
+            }
+          ],
+          "WOURO": [
             {
-              station: "BOGNO",
-              voters: 527
-            },
+              "station": "EP OURO BOGNO / A",
+              "voters": 527
+            }
           ],
-          "EP OURO MALLOUM / A": [
+          "BOGNO": [
             {
-              station: "MALLOUM",
-              voters: 376
-            },
+              "station": "EP OURO BOGNO / A",
+              "voters": 527
+            }
+          ],
+          "MALLOUM": [
             {
-              station: "SOUBAGO",
-              voters: 376
-            },
+              "station": "EP OURO MALLOUM / A",
+              "voters": 376
+            }
           ],
-          "EP OURO-ANDRE / A": [
+          "SOUBAGO": [
             {
-              station: "ANDRE",
-              voters: 633
-            },
+              "station": "EP OURO MALLOUM / A",
+              "voters": 376
+            }
           ],
-          "EP OURO-BOBOA / A": [
+          "ANDRE": [
             {
-              station: "BADJIDDA",
-              voters: 847
-            },
+              "station": "EP OURO-ANDRE / A",
+              "voters": 633
+            }
+          ],
+          "BADJIDDA": [
             {
-              station: "LABAKRI",
-              voters: 1015
-            },
+              "station": "EP OURO-BOBOA / A",
+              "voters": 847
+            }
+          ],
+          "LABAKRI": [
             {
-              station: "BASSI",
-              voters: 1015
-            },
+              "station": "EP OURO-BOBOA / A",
+              "voters": 1015
+            }
+          ],
+          "BASSI": [
             {
-              station: "BOBOA",
-              voters: 847
-            },
+              "station": "EP OURO-BOBOA / A",
+              "voters": 1015
+            }
+          ],
+          "BOBOA": [
             {
-              station: "TCHOUFFI",
-              voters: 1015
-            },
+              "station": "EP OURO-BOBOA / A",
+              "voters": 847
+            }
+          ],
+          "TCHOUFFI": [
             {
-              station: "OURO-DONKA",
-              voters: 847
-            },
+              "station": "EP OURO-BOBOA / A",
+              "voters": 1015
+            }
+          ],
+          "OURO-DONKA": [
             {
-              station: "SIRLAWE",
-              voters: 2259
-            },
+              "station": "EP OURO-BOBOA / A",
+              "voters": 847
+            }
+          ],
+          "SIRLAWE": [
             {
-              station: "TCHAKARE",
-              voters: 847
-            },
+              "station": "EP OURO-BOBOA / A",
+              "voters": 2259
+            }
           ],
-          "EP OURO-DJIDDA / A": [
+          "TCHAKARE": [
             {
-              station: "OUGANDA",
-              voters: 425
-            },
+              "station": "EP OURO-BOBOA / A",
+              "voters": 847
+            }
+          ],
+          "OUGANDA": [
             {
-              station: "OURO-DJIDDA",
-              voters: 425
-            },
+              "station": "EP OURO-DJIDDA / A",
+              "voters": 425
+            }
           ],
-          "EP OURO-DOUKOUDJE / A": [
+          "OURO-DJIDDA": [
             {
-              station: "LABARE",
-              voters: 1116
-            },
+              "station": "EP OURO-DJIDDA / A",
+              "voters": 425
+            }
+          ],
+          "LABARE": [
             {
-              station: "DOUKOUDJE",
-              voters: 1116
-            },
+              "station": "EP OURO-DOUKOUDJE / A",
+              "voters": 1116
+            }
           ],
-          "EP OURO-KESSOUM LAGDO / A": [
+          "DOUKOUDJE": [
             {
-              station: "ARDO",
-              voters: 2314
-            },
+              "station": "EP OURO-DOUKOUDJE / A",
+              "voters": 1116
+            }
+          ],
+          "ARDO": [
             {
-              station: "KABIROU",
-              voters: 2314
-            },
+              "station": "EP OURO-KESSOUM LAGDO / A",
+              "voters": 2314
+            }
+          ],
+          "KABIROU": [
             {
-              station: "DJAOURO-SOUDI",
-              voters: 2314
-            },
+              "station": "EP OURO-KESSOUM LAGDO / A",
+              "voters": 2314
+            }
+          ],
+          "DJAOURO-SOUDI": [
             {
-              station: "KONTIP",
-              voters: 2475
-            },
+              "station": "EP OURO-KESSOUM LAGDO / A",
+              "voters": 2314
+            }
+          ],
+          "KONTIP": [
             {
-              station: "OURO",
-              voters: 37198
-            },
+              "station": "EP OURO-KESSOUM LAGDO / A",
+              "voters": 2475
+            }
+          ],
+          "OURO": [
             {
-              station: "KESSOUM",
-              voters: 19326
-            },
+              "station": "EP OURO-KESSOUM LAGDO / A",
+              "voters": 37198
+            }
+          ],
+          "KESSOUM": [
             {
-              station: "BOBI",
-              voters: 5536
-            },
+              "station": "EP OURO-KESSOUM LAGDO / A",
+              "voters": 19326
+            }
+          ],
+          "BOBI": [
             {
-              station: "MADALAM",
-              voters: 2314
-            },
+              "station": "EP OURO-KESSOUM LAGDO / A",
+              "voters": 5536
+            }
+          ],
+          "MADALAM": [
             {
-              station: "LAGDO",
-              voters: 4593
-            },
+              "station": "EP OURO-KESSOUM LAGDO / A",
+              "voters": 2314
+            }
           ],
-          "EP OURO-LABBO III / A": [
+          "LAGDO": [
             {
-              station: "III",
-              voters: 619
-            },
+              "station": "EP OURO-KESSOUM LAGDO / A",
+              "voters": 4593
+            }
           ],
-          "EP OURO-TCHAIDO / A": [
+          "III": [
             {
-              station: "MABO",
-              voters: 706
-            },
+              "station": "EP OURO-LABBO III / A",
+              "voters": 619
+            }
+          ],
+          "MABO": [
             {
-              station: "OURO-TCHAIDO",
-              voters: 706
-            },
+              "station": "EP OURO-TCHAIDO / A",
+              "voters": 706
+            }
+          ],
+          "OURO-TCHAIDO": [
             {
-              station: "SAMERE",
-              voters: 706
-            },
+              "station": "EP OURO-TCHAIDO / A",
+              "voters": 706
+            }
           ],
-          "EP OURO-YOTTOU / A": [
+          "SAMERE": [
             {
-              station: "OURO-YOTTOU",
-              voters: 214
-            },
+              "station": "EP OURO-TCHAIDO / A",
+              "voters": 706
+            }
           ],
-          "EP RABINGHA / A": [
+          "OURO-YOTTOU": [
             {
-              station: "BANANA",
-              voters: 1731
-            },
+              "station": "EP OURO-YOTTOU / A",
+              "voters": 214
+            }
+          ],
+          "BANANA": [
             {
-              station: "DJABA",
-              voters: 1731
-            },
+              "station": "EP RABINGHA / A",
+              "voters": 1731
+            }
+          ],
+          "DJABA": [
             {
-              station: "RABINGA",
-              voters: 1731
-            },
+              "station": "EP RABINGHA / A",
+              "voters": 1731
+            }
+          ],
+          "RABINGA": [
             {
-              station: "MANAWASSI",
-              voters: 1731
-            },
+              "station": "EP RABINGHA / A",
+              "voters": 1731
+            }
+          ],
+          "MANAWASSI": [
             {
-              station: "MAROURE",
-              voters: 1731
-            },
+              "station": "EP RABINGHA / A",
+              "voters": 1731
+            }
+          ],
+          "MAROURE": [
             {
-              station: "MOUNDANG",
-              voters: 1731
-            },
+              "station": "EP RABINGHA / A",
+              "voters": 1731
+            }
+          ],
+          "MOUNDANG": [
             {
-              station: "TOUPOURI",
-              voters: 1731
-            },
+              "station": "EP RABINGHA / A",
+              "voters": 1731
+            }
           ],
-          "EP TONGO / A": [
+          "TOUPOURI": [
             {
-              station: "TONGO",
-              voters: 2604
-            },
+              "station": "EP RABINGHA / A",
+              "voters": 1731
+            }
           ],
-          "ESPL CHEF BADJAOULE / A": [
+          "TONGO": [
             {
-              station: "BADJAOULE",
-              voters: 586
-            },
+              "station": "EP TONGO / A",
+              "voters": 2604
+            }
+          ],
+          "BADJAOULE": [
             {
-              station: "CENTRE",
-              voters: 1128
-            },
+              "station": "ESPL CHEF BADJAOULE / A",
+              "voters": 586
+            }
           ],
-          "ESPL CHEF BADJAOULE MBOUM / A": [
+          "CENTRE": [
             {
-              station: "BAJAOLE",
-              voters: 265
-            },
+              "station": "ESPL CHEF BADJAOULE / A",
+              "voters": 1128
+            }
+          ],
+          "BAJAOLE": [
             {
-              station: "MBOUM",
-              voters: 265
-            },
+              "station": "ESPL CHEF BADJAOULE MBOUM / A",
+              "voters": 265
+            }
           ],
-          "ESPL CHEF DOULOUMI SANDA / A": [
+          "MBOUM": [
             {
-              station: "DOULIMI",
-              voters: 443
-            },
+              "station": "ESPL CHEF BADJAOULE MBOUM / A",
+              "voters": 265
+            }
+          ],
+          "DOULIMI": [
             {
-              station: "SANDA",
-              voters: 443
-            },
+              "station": "ESPL CHEF DOULOUMI SANDA / A",
+              "voters": 443
+            }
           ],
-          "ESPL CHEF GARWAWO / A": [
+          "SANDA": [
             {
-              station: "GARWAWO",
-              voters: 179
-            },
+              "station": "ESPL CHEF DOULOUMI SANDA / A",
+              "voters": 443
+            }
           ],
-          "ESPL CHEF KEBI / A": [
+          "GARWAWO": [
             {
-              station: "KEBI",
-              voters: 153
-            },
+              "station": "ESPL CHEF GARWAWO / A",
+              "voters": 179
+            }
           ],
-          "ESPL CHEF KOUROUNGOU / A": [
+          "KEBI": [
             {
-              station: "KOUROUNGOU",
-              voters: 179
-            },
+              "station": "ESPL CHEF KEBI / A",
+              "voters": 153
+            }
           ],
-          "ESPL CHEF LOUGA BACHI / B": [
+          "KOUROUNGOU": [
             {
-              station: "LEGUI",
-              voters: 80
-            },
+              "station": "ESPL CHEF KOUROUNGOU / A",
+              "voters": 179
+            }
+          ],
+          "LEGUI": [
             {
-              station: "LOUGA",
-              voters: 80
-            },
+              "station": "ESPL CHEF LOUGA BACHI / B",
+              "voters": 80
+            }
+          ],
+          "LOUGA": [
             {
-              station: "BACHI",
-              voters: 80
-            },
+              "station": "ESPL CHEF LOUGA BACHI / B",
+              "voters": 80
+            }
+          ],
+          "BACHI": [
             {
-              station: "PIKBA",
-              voters: 348
-            },
+              "station": "ESPL CHEF LOUGA BACHI / B",
+              "voters": 80
+            }
+          ],
+          "PIKBA": [
             {
-              station: "HOSSERE",
-              voters: 348
-            },
+              "station": "ESPL CHEF LOUGA BACHI / B",
+              "voters": 348
+            }
           ],
-          "ESPL CHEF MADJALISSA / A": [
+          "HOSSERE": [
             {
-              station: "MADJALISSA",
-              voters: 297
-            },
+              "station": "ESPL CHEF LOUGA BACHI / B",
+              "voters": 348
+            }
           ],
-          "ESPL CHEF MAYO DJARENDI / A": [
+          "MADJALISSA": [
             {
-              station: "BAMSI",
-              voters: 343
-            },
+              "station": "ESPL CHEF MADJALISSA / A",
+              "voters": 297
+            }
+          ],
+          "BAMSI": [
             {
-              station: "DJARENDI",
-              voters: 343
-            },
+              "station": "ESPL CHEF MAYO DJARENDI / A",
+              "voters": 343
+            }
           ],
-          "ESPL CHEF MAYO SEINI / A": [
+          "DJARENDI": [
             {
-              station: "DJABE",
-              voters: 814
-            },
+              "station": "ESPL CHEF MAYO DJARENDI / A",
+              "voters": 343
+            }
+          ],
+          "DJABE": [
             {
-              station: "DJAOURO",
-              voters: 1154
-            },
+              "station": "ESPL CHEF MAYO SEINI / A",
+              "voters": 814
+            }
+          ],
+          "DJAOURO": [
             {
-              station: "ALIOUM",
-              voters: 266
-            },
+              "station": "ESPL CHEF MAYO SEINI / A",
+              "voters": 1154
+            }
+          ],
+          "ALIOUM": [
             {
-              station: "HANTA",
-              voters: 266
-            },
+              "station": "ESPL CHEF MAYO SEINI / A",
+              "voters": 266
+            }
+          ],
+          "HANTA": [
             {
-              station: "OUSMAN",
-              voters: 266
-            },
+              "station": "ESPL CHEF MAYO SEINI / A",
+              "voters": 266
+            }
+          ],
+          "OUSMAN": [
             {
-              station: "SEINI",
-              voters: 266
-            },
+              "station": "ESPL CHEF MAYO SEINI / A",
+              "voters": 266
+            }
+          ],
+          "SEINI": [
             {
-              station: "BOUGOUDOUM",
-              voters: 266
-            },
+              "station": "ESPL CHEF MAYO SEINI / A",
+              "voters": 266
+            }
+          ],
+          "BOUGOUDOUM": [
             {
-              station: "MALI",
-              voters: 266
-            },
+              "station": "ESPL CHEF MAYO SEINI / A",
+              "voters": 266
+            }
           ],
-          "ESPL CHEF MAYO-MBAY / A": [
+          "MALI": [
             {
-              station: "MBAY",
-              voters: 778
-            },
+              "station": "ESPL CHEF MAYO SEINI / A",
+              "voters": 266
+            }
+          ],
+          "MBAY": [
             {
-              station: "MBALMAYO",
-              voters: 335
-            },
+              "station": "ESPL CHEF MAYO-MBAY / A",
+              "voters": 778
+            }
           ],
-          "ESPL CHEF NASSARAO BOUMEDJE / A": [
+          "MBALMAYO": [
             {
-              station: "GNIEBE",
-              voters: 860
-            },
+              "station": "ESPL CHEF MAYO-MBAY / A",
+              "voters": 335
+            }
           ],
-          "ESPL CHEF OURO DJARMA / A": [
+          "GNIEBE": [
             {
-              station: "BAMERE",
-              voters: 197
-            },
+              "station": "ESPL CHEF NASSARAO BOUMEDJE / A",
+              "voters": 860
+            }
+          ],
+          "BAMERE": [
             {
-              station: "OURO-DJARMA",
-              voters: 1014
-            },
+              "station": "ESPL CHEF OURO DJARMA / A",
+              "voters": 197
+            }
           ],
-          "ESPL CHEF OURO MANDA / A": [
+          "OURO-DJARMA": [
             {
-              station: "DORE",
-              voters: 905
-            },
+              "station": "ESPL CHEF OURO DJARMA / A",
+              "voters": 1014
+            }
+          ],
+          "DORE": [
             {
-              station: "MANDA",
-              voters: 405
-            },
+              "station": "ESPL CHEF OURO MANDA / A",
+              "voters": 905
+            }
           ],
-          "ESPL CHEF RONGONDOM / A": [
+          "MANDA": [
             {
-              station: "RONGONDOM",
-              voters: 166
-            },
+              "station": "ESPL CHEF OURO MANDA / A",
+              "voters": 405
+            }
           ],
-          "ESPL CHEF SABOREY / A": [
+          "RONGONDOM": [
             {
-              station: "DJAORO",
-              voters: 1972
-            },
+              "station": "ESPL CHEF RONGONDOM / A",
+              "voters": 166
+            }
+          ],
+          "DJAORO": [
             {
-              station: "DASSILI",
-              voters: 218
-            },
+              "station": "ESPL CHEF SABOREY / A",
+              "voters": 1972
+            }
+          ],
+          "DASSILI": [
             {
-              station: "LIFERI",
-              voters: 316
-            },
+              "station": "ESPL CHEF SABOREY / A",
+              "voters": 218
+            }
+          ],
+          "LIFERI": [
             {
-              station: "SABOREY",
-              voters: 218
-            },
+              "station": "ESPL CHEF SABOREY / A",
+              "voters": 316
+            }
           ],
-          "ESPL CHEF SORKERE / A": [
+          "SABOREY": [
             {
-              station: "SORKERE",
-              voters: 126
-            },
+              "station": "ESPL CHEF SABOREY / A",
+              "voters": 218
+            }
           ],
-          "ESPL CHEF TOURA NOKKA / A": [
+          "SORKERE": [
             {
-              station: "DANHOU",
-              voters: 483
-            },
+              "station": "ESPL CHEF SORKERE / A",
+              "voters": 126
+            }
+          ],
+          "DANHOU": [
             {
-              station: "TOULOUM",
-              voters: 667
-            },
+              "station": "ESPL CHEF TOURA NOKKA / A",
+              "voters": 483
+            }
+          ],
+          "TOULOUM": [
             {
-              station: "TOURA",
-              voters: 562
-            },
+              "station": "ESPL CHEF TOURA NOKKA / A",
+              "voters": 667
+            }
+          ],
+          "TOURA": [
             {
-              station: "NOCKA",
-              voters: 299
-            },
+              "station": "ESPL CHEF TOURA NOKKA / A",
+              "voters": 562
+            }
           ],
-          "ESPL CHEF WOUBAO / A": [
+          "NOCKA": [
             {
-              station: "MADARE",
-              voters: 360
-            },
+              "station": "ESPL CHEF TOURA NOKKA / A",
+              "voters": 299
+            }
+          ],
+          "MADARE": [
             {
-              station: "MADOUMARE",
-              voters: 360
-            },
+              "station": "ESPL CHEF WOUBAO / A",
+              "voters": 360
+            }
+          ],
+          "MADOUMARE": [
             {
-              station: "WOUBAO",
-              voters: 360
-            },
+              "station": "ESPL CHEF WOUBAO / A",
+              "voters": 360
+            }
           ],
-          "ESPL CHEF YAGADI / A": [
+          "WOUBAO": [
             {
-              station: "AGORMA",
-              voters: 901
-            },
+              "station": "ESPL CHEF WOUBAO / A",
+              "voters": 360
+            }
+          ],
+          "AGORMA": [
             {
-              station: "GUIRDE",
-              voters: 901
-            },
+              "station": "ESPL CHEF YAGADI / A",
+              "voters": 901
+            }
+          ],
+          "GUIRDE": [
             {
-              station: "KABAWA",
-              voters: 901
-            },
+              "station": "ESPL CHEF YAGADI / A",
+              "voters": 901
+            }
+          ],
+          "KABAWA": [
             {
-              station: "YAGADI",
-              voters: 901
-            },
+              "station": "ESPL CHEF YAGADI / A",
+              "voters": 901
+            }
           ],
-          "ESPL CHEFDO-BOULEL SAMUEL / A": [
+          "YAGADI": [
             {
-              station: "DJABOU",
-              voters: 90
-            },
+              "station": "ESPL CHEF YAGADI / A",
+              "voters": 901
+            }
+          ],
+          "DJABOU": [
             {
-              station: "SAMUEL",
-              voters: 90
-            },
+              "station": "ESPL CHEFDO-BOULEL SAMUEL / A",
+              "voters": 90
+            }
+          ],
+          "SAMUEL": [
             {
-              station: "MOUFOU",
-              voters: 90
-            },
+              "station": "ESPL CHEFDO-BOULEL SAMUEL / A",
+              "voters": 90
+            }
           ],
-          "ESPLANADE CHEF. NASSARAO BAME / A": [
+          "MOUFOU": [
             {
-              station: "NASSARAO",
-              voters: 563
-            },
+              "station": "ESPL CHEFDO-BOULEL SAMUEL / A",
+              "voters": 90
+            }
           ],
-          "LYCEE RABINGHA / A": [
+          "NASSARAO": [
             {
-              station: "BALANE",
-              voters: 1354
-            },
+              "station": "ESPLANADE CHEF. NASSARAO BAME / A",
+              "voters": 563
+            }
+          ],
+          "BALANE": [
             {
-              station: "RABINGHA",
-              voters: 14071
-            },
+              "station": "LYCEE RABINGHA / A",
+              "voters": 1354
+            }
+          ],
+          "RABINGHA": [
             {
-              station: "DJOURDE",
-              voters: 1354
-            },
+              "station": "LYCEE RABINGHA / A",
+              "voters": 14071
+            }
+          ],
+          "DJOURDE": [
             {
-              station: "LOUGERE",
-              voters: 1354
-            },
+              "station": "LYCEE RABINGHA / A",
+              "voters": 1354
+            }
           ],
+          "LOUGERE": [
+            {
+              "station": "LYCEE RABINGHA / A",
+              "voters": 1354
+            }
+          ]
         },
         "MAYO-HOURNA": {
-          "CETIC DE NAKONG / A": [
+          "WINDE": [
             {
-              station: "WINDE",
-              voters: 356
-            },
-            {
-              station: "GALDIMA",
-              voters: 209
-            },
-            {
-              station: "ABBA",
-              voters: 209
-            },
+              "station": "CETIC DE NAKONG / A",
+              "voters": 356
+            }
           ],
-          "E.P. DE TCHARATCHE GADA MAYO / A": [
+          "GALDIMA": [
             {
-              station: "GADA",
-              voters: 490
-            },
+              "station": "CETIC DE NAKONG / A",
+              "voters": 209
+            }
           ],
-          "EFA KODOGOU / A": [
+          "ABBA": [
             {
-              station: "KODOGOU",
-              voters: 359
-            },
+              "station": "CETIC DE NAKONG / A",
+              "voters": 209
+            }
           ],
-          "EP BANGLI / A": [
+          "GADA": [
             {
-              station: "BANGLI",
-              voters: 579
-            },
+              "station": "E.P. DE TCHARATCHE GADA MAYO / A",
+              "voters": 490
+            }
           ],
-          "EP DJABAWA / A": [
+          "KODOGOU": [
             {
-              station: "DJABAWA",
-              voters: 287
-            },
-            {
-              station: "DJILO",
-              voters: 287
-            },
+              "station": "EFA KODOGOU / A",
+              "voters": 359
+            }
           ],
-          "EP GUERETE / A": [
+          "BANGLI": [
             {
-              station: "GUERETE",
-              voters: 661
-            },
+              "station": "EP BANGLI / A",
+              "voters": 579
+            }
           ],
-          "EP GUIBDJOL / A": [
+          "DJABAWA": [
             {
-              station: "GUIBDJOL",
-              voters: 1180
-            },
+              "station": "EP DJABAWA / A",
+              "voters": 287
+            }
           ],
-          "EP LOUGGUERE - MOUTE / A": [
+          "DJILO": [
             {
-              station: "LOUGUERE",
-              voters: 339
-            },
-            {
-              station: "MOUTE",
-              voters: 339
-            },
+              "station": "EP DJABAWA / A",
+              "voters": 287
+            }
           ],
-          "EP MALAPE / A": [
+          "GUERETE": [
             {
-              station: "MALAPE",
-              voters: 622
-            },
+              "station": "EP GUERETE / A",
+              "voters": 661
+            }
           ],
-          "EP MAYO NGABBOU / A": [
+          "GUIBDJOL": [
             {
-              station: "MAYO",
-              voters: 816
-            },
-            {
-              station: "NGABBOU",
-              voters: 326
-            },
+              "station": "EP GUIBDJOL / A",
+              "voters": 1180
+            }
           ],
-          "EP MBILASSI OURO-GARGA / A": [
+          "LOUGUERE": [
             {
-              station: "MBILLASSI",
-              voters: 174
-            },
-            {
-              station: "OURO-GARGA",
-              voters: 174
-            },
+              "station": "EP LOUGGUERE - MOUTE / A",
+              "voters": 339
+            }
           ],
-          "EP NAKONG / A": [
+          "MOUTE": [
             {
-              station: "NAKONG",
-              voters: 1440
-            },
+              "station": "EP LOUGGUERE - MOUTE / A",
+              "voters": 339
+            }
           ],
-          "EP NDAOU / A": [
+          "MALAPE": [
             {
-              station: "NDAOU",
-              voters: 611
-            },
+              "station": "EP MALAPE / A",
+              "voters": 622
+            }
           ],
-          "EP OURO SALAMAN / A": [
+          "MAYO": [
             {
-              station: "SALAMAN",
-              voters: 91
-            },
+              "station": "EP MAYO NGABBOU / A",
+              "voters": 816
+            }
           ],
-          "EP OURO-ARDO / A": [
+          "NGABBOU": [
             {
-              station: "OURO-ARDO",
-              voters: 674
-            },
+              "station": "EP MAYO NGABBOU / A",
+              "voters": 326
+            }
           ],
-          "EP SABONGARI OURO GARGA / A": [
+          "MBILLASSI": [
             {
-              station: "SABONGARI",
-              voters: 366
-            },
-            {
-              station: "GARGA",
-              voters: 366
-            },
+              "station": "EP MBILASSI OURO-GARGA / A",
+              "voters": 174
+            }
           ],
-          "EP TAIPE / A": [
+          "OURO-GARGA": [
             {
-              station: "TAIPE",
-              voters: 314
-            },
+              "station": "EP MBILASSI OURO-GARGA / A",
+              "voters": 174
+            }
           ],
-          "EP TAWOI / A": [
+          "NAKONG": [
             {
-              station: "TAWOI",
-              voters: 556
-            },
+              "station": "EP NAKONG / A",
+              "voters": 1440
+            }
           ],
-          "EP TCHARATCHE / A": [
+          "NDAOU": [
             {
-              station: "KESSOUM",
-              voters: 2061
-            },
-            {
-              station: "TCHARATCHE",
-              voters: 1970
-            },
+              "station": "EP NDAOU / A",
+              "voters": 611
+            }
           ],
-          "ESPL CHEF BOUALO / A": [
+          "SALAMAN": [
             {
-              station: "BAKASSI",
-              voters: 1071
-            },
-            {
-              station: "BOUALO",
-              voters: 251
-            },
-            {
-              station: "PATARA",
-              voters: 911
-            },
+              "station": "EP OURO SALAMAN / A",
+              "voters": 91
+            }
           ],
-          "ESPL CHEF MBERE DJALINGO / A": [
+          "OURO-ARDO": [
             {
-              station: "MBERE",
-              voters: 320
-            },
-            {
-              station: "DJALINGO",
-              voters: 320
-            },
+              "station": "EP OURO-ARDO / A",
+              "voters": 674
+            }
           ],
-          "ESPL CHEF NGAWA / A": [
+          "SABONGARI": [
             {
-              station: "NGAWA",
-              voters: 80
-            },
+              "station": "EP SABONGARI OURO GARGA / A",
+              "voters": 366
+            }
           ],
-          "ESPL CHEF OURO BOBBO / A": [
+          "GARGA": [
             {
-              station: "DJAMTARI",
-              voters: 55
-            },
-            {
-              station: "MBOULMBOULDIRE",
-              voters: 55
-            },
+              "station": "EP SABONGARI OURO GARGA / A",
+              "voters": 366
+            }
           ],
-          "ESPL CHEF OURO-MALLOUM / A": [
+          "TAIPE": [
             {
-              station: "DJOUMO",
-              voters: 103
-            },
-            {
-              station: "OURO-MALLOUM",
-              voters: 103
-            },
+              "station": "EP TAIPE / A",
+              "voters": 314
+            }
           ],
-          "ESPL CHEF PADANG / A": [
+          "TAWOI": [
             {
-              station: "PADANG",
-              voters: 83
-            },
+              "station": "EP TAWOI / A",
+              "voters": 556
+            }
           ],
-          "ESPL CHEF WAFANGO / A": [
+          "KESSOUM": [
             {
-              station: "WAFANGO",
-              voters: 141
-            },
+              "station": "EP TCHARATCHE / A",
+              "voters": 2061
+            }
           ],
-          "ESPL EP GOLOMBE / A": [
+          "TCHARATCHE": [
             {
-              station: "GOLOMBE",
-              voters: 96
-            },
+              "station": "EP TCHARATCHE / A",
+              "voters": 1970
+            }
           ],
-          "LYCEE DE BARNDAKE / A": [
+          "BAKASSI": [
             {
-              station: "BARNDAKE",
-              voters: 3492
-            },
-            {
-              station: "HODANGO",
-              voters: 1714
-            },
-            {
-              station: "OURO",
-              voters: 4249
-            },
-            {
-              station: "SIDDIKI",
-              voters: 1522
-            },
+              "station": "ESPL CHEF BOUALO / A",
+              "voters": 1071
+            }
           ],
+          "BOUALO": [
+            {
+              "station": "ESPL CHEF BOUALO / A",
+              "voters": 251
+            }
+          ],
+          "PATARA": [
+            {
+              "station": "ESPL CHEF BOUALO / A",
+              "voters": 911
+            }
+          ],
+          "MBERE": [
+            {
+              "station": "ESPL CHEF MBERE DJALINGO / A",
+              "voters": 320
+            }
+          ],
+          "DJALINGO": [
+            {
+              "station": "ESPL CHEF MBERE DJALINGO / A",
+              "voters": 320
+            }
+          ],
+          "NGAWA": [
+            {
+              "station": "ESPL CHEF NGAWA / A",
+              "voters": 80
+            }
+          ],
+          "DJAMTARI": [
+            {
+              "station": "ESPL CHEF OURO BOBBO / A",
+              "voters": 55
+            }
+          ],
+          "MBOULMBOULDIRE": [
+            {
+              "station": "ESPL CHEF OURO BOBBO / A",
+              "voters": 55
+            }
+          ],
+          "DJOUMO": [
+            {
+              "station": "ESPL CHEF OURO-MALLOUM / A",
+              "voters": 103
+            }
+          ],
+          "OURO-MALLOUM": [
+            {
+              "station": "ESPL CHEF OURO-MALLOUM / A",
+              "voters": 103
+            }
+          ],
+          "PADANG": [
+            {
+              "station": "ESPL CHEF PADANG / A",
+              "voters": 83
+            }
+          ],
+          "WAFANGO": [
+            {
+              "station": "ESPL CHEF WAFANGO / A",
+              "voters": 141
+            }
+          ],
+          "GOLOMBE": [
+            {
+              "station": "ESPL EP GOLOMBE / A",
+              "voters": 96
+            }
+          ],
+          "BARNDAKE": [
+            {
+              "station": "LYCEE DE BARNDAKE / A",
+              "voters": 3492
+            }
+          ],
+          "HODANGO": [
+            {
+              "station": "LYCEE DE BARNDAKE / A",
+              "voters": 1714
+            }
+          ],
+          "OURO": [
+            {
+              "station": "LYCEE DE BARNDAKE / A",
+              "voters": 4249
+            }
+          ],
+          "SIDDIKI": [
+            {
+              "station": "LYCEE DE BARNDAKE / A",
+              "voters": 1522
+            }
+          ]
         },
         "NGONG": {
-          "EP ADAMAOUA / A": [
+          "ADAMAOUA": [
             {
-              station: "ADAMAOUA",
-              voters: 590
-            },
+              "station": "EP ADAMAOUA / A",
+              "voters": 590
+            }
           ],
-          "EP BAROUME / A": [
+          "BAROUME": [
             {
-              station: "BAROUME",
-              voters: 652
-            },
+              "station": "EP BAROUME / A",
+              "voters": 652
+            }
           ],
-          "EP BINDJOUMI / A": [
+          "BINDJOUMI": [
             {
-              station: "BINDJOUMI",
-              voters: 1646
-            },
-            {
-              station: "LELE",
-              voters: 823
-            },
+              "station": "EP BINDJOUMI / A",
+              "voters": 1646
+            }
           ],
-          "EP DIFERGOL / A": [
+          "LELE": [
             {
-              station: "DIFERGOL",
-              voters: 392
-            },
+              "station": "EP BINDJOUMI / A",
+              "voters": 823
+            }
           ],
-          "EP DJEFATOU / A": [
+          "DIFERGOL": [
             {
-              station: "DJEFATOU",
-              voters: 1301
-            },
-            {
-              station: "OURO",
-              voters: 5952
-            },
-            {
-              station: "NDEMRI",
-              voters: 2602
-            },
-            {
-              station: "MAFA",
-              voters: 4083
-            },
-            {
-              station: "MASSA",
-              voters: 3967
-            },
+              "station": "EP DIFERGOL / A",
+              "voters": 392
+            }
           ],
-          "EP DOUKA GAINAKO / A": [
+          "DJEFATOU": [
             {
-              station: "GAINAKO",
-              voters: 289
-            },
-            {
-              station: "GOULONGO",
-              voters: 289
-            },
+              "station": "EP DJEFATOU / A",
+              "voters": 1301
+            }
           ],
-          "EP DOUKA LONGO / A": [
+          "OURO": [
             {
-              station: "DOUKA",
-              voters: 1864
-            },
-            {
-              station: "LONGO",
-              voters: 1864
-            },
-            {
-              station: "SABONGARI",
-              voters: 932
-            },
-            {
-              station: "TAMOUNDE",
-              voters: 932
-            },
+              "station": "EP DJEFATOU / A",
+              "voters": 5952
+            }
           ],
-          "EP KAREWA / A": [
+          "NDEMRI": [
             {
-              station: "KAREWA",
-              voters: 3749
-            },
-            {
-              station: "NGONG",
-              voters: 16902
-            },
-            {
-              station: "LABBO",
-              voters: 1347
-            },
+              "station": "EP DJEFATOU / A",
+              "voters": 2602
+            }
           ],
-          "EP KEINI / A": [
+          "MAFA": [
             {
-              station: "KEINI",
-              voters: 166
-            },
+              "station": "EP DJEFATOU / A",
+              "voters": 4083
+            }
           ],
-          "EP KONDONG / A": [
+          "MASSA": [
             {
-              station: "KONDONG",
-              voters: 201
-            },
+              "station": "EP DJEFATOU / A",
+              "voters": 3967
+            }
           ],
-          "EP KONE / A": [
+          "GAINAKO": [
             {
-              station: "KONE",
-              voters: 633
-            },
+              "station": "EP DOUKA GAINAKO / A",
+              "voters": 289
+            }
           ],
-          "EP KOUBADJE / A": [
+          "GOULONGO": [
             {
-              station: "KOUBADJE",
-              voters: 1208
-            },
+              "station": "EP DOUKA GAINAKO / A",
+              "voters": 289
+            }
           ],
-          "EP LAINDE KAREWA / A": [
+          "DOUKA": [
             {
-              station: "LAKA",
-              voters: 716
-            },
-            {
-              station: "MADAGASKAR",
-              voters: 716
-            },
-            {
-              station: "DJARENDI",
-              voters: 716
-            },
-            {
-              station: "MEDJEREM",
-              voters: 716
-            },
-            {
-              station: "TCHOUFI",
-              voters: 716
-            },
+              "station": "EP DOUKA LONGO / A",
+              "voters": 1864
+            }
           ],
-          "EP LAINDE MASSA / A": [
+          "LONGO": [
             {
-              station: "DJIKA",
-              voters: 1333
-            },
-            {
-              station: "LAINDE",
-              voters: 5166
-            },
-            {
-              station: "MAYO",
-              voters: 2977
-            },
-            {
-              station: "BANGAI",
-              voters: 1333
-            },
-            {
-              station: "TAPARE",
-              voters: 2349
-            },
+              "station": "EP DOUKA LONGO / A",
+              "voters": 1864
+            }
           ],
-          "EP LAINDE SOULEDE / A": [
+          "SABONGARI": [
             {
-              station: "SOULEDE",
-              voters: 167
-            },
+              "station": "EP DOUKA LONGO / A",
+              "voters": 932
+            }
           ],
-          "EP LANGUI / A": [
+          "TAMOUNDE": [
             {
-              station: "KADOUNA",
-              voters: 1227
-            },
-            {
-              station: "LANGUI",
-              voters: 1227
-            },
+              "station": "EP DOUKA LONGO / A",
+              "voters": 932
+            }
           ],
-          "EP MAFA TCHEBOA / A": [
+          "KAREWA": [
             {
-              station: "TCHEBOA",
-              voters: 4068
-            },
+              "station": "EP KAREWA / A",
+              "voters": 3749
+            }
           ],
-          "EP MALLA / A": [
+          "NGONG": [
             {
-              station: "MALLA",
-              voters: 966
-            },
+              "station": "EP KAREWA / A",
+              "voters": 16902
+            }
           ],
-          "EP MAPTO / A": [
+          "LABBO": [
             {
-              station: "MAPTO",
-              voters: 742
-            },
+              "station": "EP KAREWA / A",
+              "voters": 1347
+            }
           ],
-          "EP NDJOLA / A": [
+          "KEINI": [
             {
-              station: "NDJOLA",
-              voters: 1096
-            },
+              "station": "EP KEINI / A",
+              "voters": 166
+            }
           ],
-          "EP NGARGOU / A": [
+          "KONDONG": [
             {
-              station: "CENTRE",
-              voters: 311
-            },
-            {
-              station: "NGARGOU",
-              voters: 311
-            },
-            {
-              station: "DOUALARE",
-              voters: 311
-            },
-            {
-              station: "GNARDO",
-              voters: 311
-            },
-            {
-              station: "NGOURORE",
-              voters: 311
-            },
-            {
-              station: "NYONDITI",
-              voters: 311
-            },
-            {
-              station: "SILALI",
-              voters: 311
-            },
+              "station": "EP KONDONG / A",
+              "voters": 201
+            }
           ],
-          "EP TARBA / A": [
+          "KONE": [
             {
-              station: "TARBA",
-              voters: 414
-            },
+              "station": "EP KONE / A",
+              "voters": 633
+            }
           ],
-          "EP ZIERA / A": [
+          "KOUBADJE": [
             {
-              station: "MBANWERE",
-              voters: 987
-            },
-            {
-              station: "HAIROU",
-              voters: 987
-            },
-            {
-              station: "ZIERA",
-              voters: 987
-            },
+              "station": "EP KOUBADJE / A",
+              "voters": 1208
+            }
           ],
-          "ESPL CHEF HOURO BOCKI DOMAYO / A": [
+          "LAKA": [
             {
-              station: "DISSI",
-              voters: 928
-            },
-            {
-              station: "DOMAYO",
-              voters: 928
-            },
+              "station": "EP LAINDE KAREWA / A",
+              "voters": 716
+            }
           ],
-          "ESPL CHEF KALFAI / A": [
+          "MADAGASKAR": [
             {
-              station: "KALFAI",
-              voters: 282
-            },
+              "station": "EP LAINDE KAREWA / A",
+              "voters": 716
+            }
           ],
-          "ESPL CHEF SELIFA / A": [
+          "DJARENDI": [
             {
-              station: "SELIFA",
-              voters: 458
-            },
+              "station": "EP LAINDE KAREWA / A",
+              "voters": 716
+            }
           ],
-          "ESPL CHEF WINDE DJAMAN / A": [
+          "MEDJEREM": [
             {
-              station: "WINDE",
-              voters: 797
-            },
-            {
-              station: "DJAMAN",
-              voters: 144
-            },
+              "station": "EP LAINDE KAREWA / A",
+              "voters": 716
+            }
           ],
-          "ESPL EP BILIEL / A": [
+          "TCHOUFI": [
             {
-              station: "BILIEL",
-              voters: 910
-            },
+              "station": "EP LAINDE KAREWA / A",
+              "voters": 716
+            }
           ],
-          "ESPL EP KOKOUMI / A": [
+          "DJIKA": [
             {
-              station: "KOKOUMI",
-              voters: 828
-            },
-            {
-              station: "TOUPOURI",
-              voters: 414
-            },
+              "station": "EP LAINDE MASSA / A",
+              "voters": 1333
+            }
           ],
-          "ESPL EP NADOURA / A": [
+          "LAINDE": [
             {
-              station: "NADOURA",
-              voters: 362
-            },
+              "station": "EP LAINDE MASSA / A",
+              "voters": 5166
+            }
           ],
-          "ESPL EP OURO BOCKI / A": [
+          "MAYO": [
             {
-              station: "HOURO",
-              voters: 991
-            },
-            {
-              station: "BOCKI",
-              voters: 1919
-            },
+              "station": "EP LAINDE MASSA / A",
+              "voters": 2977
+            }
           ],
-          "ESPL EP TAMBADJAM / A": [
+          "BANGAI": [
             {
-              station: "WADJERE",
-              voters: 347
-            },
+              "station": "EP LAINDE MASSA / A",
+              "voters": 1333
+            }
           ],
-          "ESPL EP TSORKE / B": [
+          "TAPARE": [
             {
-              station: "GOMSI",
-              voters: 454
-            },
-            {
-              station: "KATARKO",
-              voters: 88
-            },
-            {
-              station: "SOUKA",
-              voters: 88
-            },
-            {
-              station: "TSORKE",
-              voters: 1104
-            },
+              "station": "EP LAINDE MASSA / A",
+              "voters": 2349
+            }
           ],
-          "GIC SODECOTON MBOLTA / A": [
+          "SOULEDE": [
             {
-              station: "MBOLTA",
-              voters: 217
-            },
+              "station": "EP LAINDE SOULEDE / A",
+              "voters": 167
+            }
           ],
+          "KADOUNA": [
+            {
+              "station": "EP LANGUI / A",
+              "voters": 1227
+            }
+          ],
+          "LANGUI": [
+            {
+              "station": "EP LANGUI / A",
+              "voters": 1227
+            }
+          ],
+          "TCHEBOA": [
+            {
+              "station": "EP MAFA TCHEBOA / A",
+              "voters": 4068
+            }
+          ],
+          "MALLA": [
+            {
+              "station": "EP MALLA / A",
+              "voters": 966
+            }
+          ],
+          "MAPTO": [
+            {
+              "station": "EP MAPTO / A",
+              "voters": 742
+            }
+          ],
+          "NDJOLA": [
+            {
+              "station": "EP NDJOLA / A",
+              "voters": 1096
+            }
+          ],
+          "CENTRE": [
+            {
+              "station": "EP NGARGOU / A",
+              "voters": 311
+            }
+          ],
+          "NGARGOU": [
+            {
+              "station": "EP NGARGOU / A",
+              "voters": 311
+            }
+          ],
+          "DOUALARE": [
+            {
+              "station": "EP NGARGOU / A",
+              "voters": 311
+            }
+          ],
+          "GNARDO": [
+            {
+              "station": "EP NGARGOU / A",
+              "voters": 311
+            }
+          ],
+          "NGOURORE": [
+            {
+              "station": "EP NGARGOU / A",
+              "voters": 311
+            }
+          ],
+          "NYONDITI": [
+            {
+              "station": "EP NGARGOU / A",
+              "voters": 311
+            }
+          ],
+          "SILALI": [
+            {
+              "station": "EP NGARGOU / A",
+              "voters": 311
+            }
+          ],
+          "TARBA": [
+            {
+              "station": "EP TARBA / A",
+              "voters": 414
+            }
+          ],
+          "MBANWERE": [
+            {
+              "station": "EP ZIERA / A",
+              "voters": 987
+            }
+          ],
+          "HAIROU": [
+            {
+              "station": "EP ZIERA / A",
+              "voters": 987
+            }
+          ],
+          "ZIERA": [
+            {
+              "station": "EP ZIERA / A",
+              "voters": 987
+            }
+          ],
+          "DISSI": [
+            {
+              "station": "ESPL CHEF HOURO BOCKI DOMAYO / A",
+              "voters": 928
+            }
+          ],
+          "DOMAYO": [
+            {
+              "station": "ESPL CHEF HOURO BOCKI DOMAYO / A",
+              "voters": 928
+            }
+          ],
+          "KALFAI": [
+            {
+              "station": "ESPL CHEF KALFAI / A",
+              "voters": 282
+            }
+          ],
+          "SELIFA": [
+            {
+              "station": "ESPL CHEF SELIFA / A",
+              "voters": 458
+            }
+          ],
+          "WINDE": [
+            {
+              "station": "ESPL CHEF WINDE DJAMAN / A",
+              "voters": 797
+            }
+          ],
+          "DJAMAN": [
+            {
+              "station": "ESPL CHEF WINDE DJAMAN / A",
+              "voters": 144
+            }
+          ],
+          "BILIEL": [
+            {
+              "station": "ESPL EP BILIEL / A",
+              "voters": 910
+            }
+          ],
+          "KOKOUMI": [
+            {
+              "station": "ESPL EP KOKOUMI / A",
+              "voters": 828
+            }
+          ],
+          "TOUPOURI": [
+            {
+              "station": "ESPL EP KOKOUMI / A",
+              "voters": 414
+            }
+          ],
+          "NADOURA": [
+            {
+              "station": "ESPL EP NADOURA / A",
+              "voters": 362
+            }
+          ],
+          "HOURO": [
+            {
+              "station": "ESPL EP OURO BOCKI / A",
+              "voters": 991
+            }
+          ],
+          "BOCKI": [
+            {
+              "station": "ESPL EP OURO BOCKI / A",
+              "voters": 1919
+            }
+          ],
+          "WADJERE": [
+            {
+              "station": "ESPL EP TAMBADJAM / A",
+              "voters": 347
+            }
+          ],
+          "GOMSI": [
+            {
+              "station": "ESPL EP TSORKE / B",
+              "voters": 454
+            }
+          ],
+          "KATARKO": [
+            {
+              "station": "ESPL EP TSORKE / B",
+              "voters": 88
+            }
+          ],
+          "SOUKA": [
+            {
+              "station": "ESPL EP TSORKE / B",
+              "voters": 88
+            }
+          ],
+          "TSORKE": [
+            {
+              "station": "ESPL EP TSORKE / B",
+              "voters": 1104
+            }
+          ],
+          "MBOLTA": [
+            {
+              "station": "GIC SODECOTON MBOLTA / A",
+              "voters": 217
+            }
+          ]
         },
         "PITOA": {
-          "CEAC PITOA / A": [
+          "OURO": [
             {
-              station: "OURO",
-              voters: 1147
-            },
-            {
-              station: "DJABBE",
-              voters: 1147
-            },
-            {
-              station: "SODECOTON",
-              voters: 1147
-            },
+              "station": "CEAC PITOA / A",
+              "voters": 1147
+            }
           ],
-          "CHATEAU D'EAU LANGUI YAWA / A": [
+          "DJABBE": [
             {
-              station: "LANGUI-YAWA",
-              voters: 255
-            },
+              "station": "CEAC PITOA / A",
+              "voters": 1147
+            }
           ],
-          "E.P. DE NIGERIARE SEKADE / A": [
+          "SODECOTON": [
             {
-              station: "BAMENDA",
-              voters: 237
-            },
+              "station": "CEAC PITOA / A",
+              "voters": 1147
+            }
           ],
-          "ECOLE PARENT DE POUSSANE / A": [
+          "LANGUI-YAWA": [
             {
-              station: "POUSSANE",
-              voters: 197
-            },
+              "station": "CHATEAU D'EAU LANGUI YAWA / A",
+              "voters": 255
+            }
           ],
-          "EP BABANGUEL / A": [
+          "BAMENDA": [
             {
-              station: "BABANGUEL",
-              voters: 753
-            },
-            {
-              station: "DJAIGA",
-              voters: 3669
-            },
-            {
-              station: "GOLLIRGA",
-              voters: 753
-            },
-            {
-              station: "GOULE",
-              voters: 1048
-            },
+              "station": "E.P. DE NIGERIARE SEKADE / A",
+              "voters": 237
+            }
           ],
-          "EP BABAYE / A": [
+          "POUSSANE": [
             {
-              station: "BABAYE-CENTRE",
-              voters: 597
-            },
-            {
-              station: "BANDOUKI",
-              voters: 597
-            },
-            {
-              station: "GOLLORA",
-              voters: 597
-            },
-            {
-              station: "BABAYE",
-              voters: 597
-            },
-            {
-              station: "LOUGGUEREO",
-              voters: 1483
-            },
-            {
-              station: "WALEWOL-BOUSKI",
-              voters: 597
-            },
+              "station": "ECOLE PARENT DE POUSSANE / A",
+              "voters": 197
+            }
           ],
-          "EP BADJENGO / A": [
+          "BABANGUEL": [
             {
-              station: "BADJENGO-FOULBE",
-              voters: 2816
-            },
-            {
-              station: "BAINAWARE-BADJENGO",
-              voters: 2621
-            },
-            {
-              station: "BAROUNA",
-              voters: 3011
-            },
-            {
-              station: "GUIZIGARE",
-              voters: 4607
-            },
-            {
-              station: "BADJENGO",
-              voters: 2621
-            },
-            {
-              station: "LAGAM",
-              voters: 4509
-            },
-            {
-              station: "BAINAWARE",
-              voters: 2621
-            },
-            {
-              station: "MAYEL",
-              voters: 2621
-            },
-            {
-              station: "-TOBARI",
-              voters: 2621
-            },
-            {
-              station: "MOUNDANG-SOKANGA",
-              voters: 2621
-            },
-            {
-              station: "NDIAM",
-              voters: 2621
-            },
-            {
-              station: "SIWO",
-              voters: 2621
-            },
-            {
-              station: "WALEWOL",
-              voters: 5242
-            },
-            {
-              station: "WOURO-IBBI",
-              voters: 2621
-            },
+              "station": "EP BABANGUEL / A",
+              "voters": 753
+            }
           ],
-          "EP BADJOUMA RADIER / A": [
+          "DJAIGA": [
             {
-              station: "BADJOUMA",
-              voters: 8733
-            },
-            {
-              station: "CARREFOUR",
-              voters: 2873
-            },
-            {
-              station: "RADIER",
-              voters: 1888
-            },
-            {
-              station: "BAHOI",
-              voters: 1888
-            },
-            {
-              station: "DIRI",
-              voters: 1888
-            },
-            {
-              station: "DJALINGO",
-              voters: 1888
-            },
-            {
-              station: "DJIPPORDE-POUTCHOU",
-              voters: 1888
-            },
-            {
-              station: "FOULBE",
-              voters: 8095
-            },
-            {
-              station: "SEBORE",
-              voters: 2442
-            },
-            {
-              station: "SOUKKOUNDE",
-              voters: 1888
-            },
+              "station": "EP BABANGUEL / A",
+              "voters": 3669
+            }
           ],
-          "EP BADJOUMA-CENTRE / A": [
+          "GOLLIRGA": [
             {
-              station: "CENTRE",
-              voters: 4433
-            },
-            {
-              station: "BOGORE",
-              voters: 1986
-            },
-            {
-              station: "FORTY",
-              voters: 1986
-            },
-            {
-              station: "MOUNDANGRE",
-              voters: 1986
-            },
-            {
-              station: "BADJOUMA-CENTRE",
-              voters: 6857
-            },
-            {
-              station: "OURO-BOCKI",
-              voters: 3133
-            },
-            {
-              station: "TADO",
-              voters: 1986
-            },
-            {
-              station: "OURO-ISSA",
-              voters: 1986
-            },
-            {
-              station: "SOROM-KAIGAMA",
-              voters: 1986
-            },
-            {
-              station: "TOUPOURIRE",
-              voters: 2803
-            },
+              "station": "EP BABANGUEL / A",
+              "voters": 753
+            }
           ],
-          "EP BANAYE / A": [
+          "GOULE": [
             {
-              station: "BANAYE",
-              voters: 399
-            },
+              "station": "EP BABANGUEL / A",
+              "voters": 1048
+            }
           ],
-          "EP BANGRANG / A": [
+          "BABAYE-CENTRE": [
             {
-              station: "BANGRANG",
-              voters: 357
-            },
-            {
-              station: "DJAOURO",
-              voters: 947
-            },
-            {
-              station: "CHEF",
-              voters: 357
-            },
-            {
-              station: "WAMBAI",
-              voters: 357
-            },
+              "station": "EP BABAYE / A",
+              "voters": 597
+            }
           ],
-          "EP BE / A": [
+          "BANDOUKI": [
             {
-              station: "BE-LAMORDE",
-              voters: 886
-            },
-            {
-              station: "DACKEL",
-              voters: 886
-            },
-            {
-              station: "HAOUSSARE-BE",
-              voters: 886
-            },
-            {
-              station: "NASSARAO-BE",
-              voters: 886
-            },
-            {
-              station: "SOUARE",
-              voters: 1631
-            },
-            {
-              station: "YAMA",
-              voters: 886
-            },
-            {
-              station: "SALLA",
-              voters: 886
-            },
+              "station": "EP BABAYE / A",
+              "voters": 597
+            }
           ],
-          "EP BODJAL / A": [
+          "GOLLORA": [
             {
-              station: "BODJAL",
-              voters: 196
-            },
+              "station": "EP BABAYE / A",
+              "voters": 597
+            }
           ],
-          "EP BOULGOU / A": [
+          "BABAYE": [
             {
-              station: "BOULGOU",
-              voters: 832
-            },
-            {
-              station: "MBERI",
-              voters: 703
-            },
+              "station": "EP BABAYE / A",
+              "voters": 597
+            }
           ],
-          "EP BOULI MAL ALIM / A": [
+          "LOUGGUEREO": [
             {
-              station: "BOULI",
-              voters: 541
-            },
-            {
-              station: "MAL",
-              voters: 244
-            },
-            {
-              station: "ALIM",
-              voters: 244
-            },
+              "station": "EP BABAYE / A",
+              "voters": 1483
+            }
           ],
-          "EP BOULI MANGO / A": [
+          "WALEWOL-BOUSKI": [
             {
-              station: "BOULI-MANGO",
-              voters: 401
-            },
+              "station": "EP BABAYE / A",
+              "voters": 597
+            }
           ],
-          "EP DJALINGO-MAIGARI / A": [
+          "BADJENGO-FOULBE": [
             {
-              station: "DJALINGO-MAIGARI",
-              voters: 360
-            },
+              "station": "EP BADJENGO / A",
+              "voters": 2816
+            }
           ],
-          "EP DJIDDE / A": [
+          "BAINAWARE-BADJENGO": [
             {
-              station: "DJIDDE",
-              voters: 317
-            },
+              "station": "EP BADJENGO / A",
+              "voters": 2621
+            }
           ],
-          "EP DOLLA / A": [
+          "BAROUNA": [
             {
-              station: "AMTE",
-              voters: 1512
-            },
-            {
-              station: "DOLLA",
-              voters: 11522
-            },
-            {
-              station: "CARREFOUR-BARKA",
-              voters: 1512
-            },
-            {
-              station: "DELEM-DOLLA",
-              voters: 1512
-            },
-            {
-              station: "DJIMETTA",
-              voters: 1512
-            },
-            {
-              station: "GUIDJAROU",
-              voters: 1512
-            },
-            {
-              station: "KORKA'",
-              voters: 1512
-            },
-            {
-              station: "MAYO",
-              voters: 3259
-            },
-            {
-              station: "BORODJI",
-              voters: 1512
-            },
-            {
-              station: "MONTAGNERE-DOLLA",
-              voters: 1512
-            },
-            {
-              station: "OURO-DJELANI",
-              voters: 1512
-            },
-            {
-              station: "OURO-KESSOUM",
-              voters: 7417
-            },
-            {
-              station: "RAM-DOLLA",
-              voters: 1512
-            },
-            {
-              station: "TONGO-DOLLA",
-              voters: 1512
-            },
-            {
-              station: "WAFANGO",
-              voters: 4397
-            },
+              "station": "EP BADJENGO / A",
+              "voters": 3011
+            }
           ],
-          "EP DOLLERE / A": [
+          "GUIZIGARE": [
             {
-              station: "DOLLERE",
-              voters: 1492
-            },
-            {
-              station: "KAREWA",
-              voters: 1492
-            },
+              "station": "EP BADJENGO / A",
+              "voters": 4607
+            }
           ],
-          "EP DOULOUMI / A": [
+          "BADJENGO": [
             {
-              station: "DOULOUMI",
-              voters: 484
-            },
+              "station": "EP BADJENGO / A",
+              "voters": 2621
+            }
           ],
-          "EP GADA MAYO / A": [
+          "LAGAM": [
             {
-              station: "GADA",
-              voters: 576
-            },
+              "station": "EP BADJENGO / A",
+              "voters": 4509
+            }
           ],
-          "EP GUEBAKE / A": [
+          "BAINAWARE": [
             {
-              station: "DOUMDE",
-              voters: 745
-            },
-            {
-              station: "GUEBAKE",
-              voters: 1490
-            },
-            {
-              station: "OURO-DJIYE",
-              voters: 745
-            },
-            {
-              station: "-DALDAL",
-              voters: 745
-            },
-            {
-              station: "SOUARE-MANGO",
-              voters: 745
-            },
-            {
-              station: "ZACC",
-              voters: 1644
-            },
-            {
-              station: "TINGLING",
-              voters: 1128
-            },
+              "station": "EP BADJENGO / A",
+              "voters": 2621
+            }
           ],
-          "EP KEFERO / A": [
+          "MAYEL": [
             {
-              station: "DELEM",
-              voters: 201
-            },
-            {
-              station: "KEFERO",
-              voters: 201
-            },
+              "station": "EP BADJENGO / A",
+              "voters": 2621
+            }
           ],
-          "EP KIRIRAMBO / A": [
+          "-TOBARI": [
             {
-              station: "GNIBANGO",
-              voters: 352
-            },
-            {
-              station: "KIRIRAMBO",
-              voters: 352
-            },
+              "station": "EP BADJENGO / A",
+              "voters": 2621
+            }
           ],
-          "EP LOUMBOU / A": [
+          "MOUNDANG-SOKANGA": [
             {
-              station: "LOUMBOU",
-              voters: 302
-            },
+              "station": "EP BADJENGO / A",
+              "voters": 2621
+            }
           ],
-          "EP MBOR PARTIGE / A": [
+          "NDIAM": [
             {
-              station: "BAPARA",
-              voters: 652
-            },
-            {
-              station: "KANGOU",
-              voters: 652
-            },
-            {
-              station: "BAPARA-FOULBE",
-              voters: 652
-            },
-            {
-              station: "MBOR",
-              voters: 431
-            },
-            {
-              station: "PARTIGE",
-              voters: 431
-            },
+              "station": "EP BADJENGO / A",
+              "voters": 2621
+            }
           ],
-          "EP NDEGA / A": [
+          "SIWO": [
             {
-              station: "NDEGA",
-              voters: 218
-            },
+              "station": "EP BADJENGO / A",
+              "voters": 2621
+            }
           ],
-          "EP NDOUDJA / A": [
+          "WALEWOL": [
             {
-              station: "NDOUDJA",
-              voters: 257
-            },
+              "station": "EP BADJENGO / A",
+              "voters": 5242
+            }
           ],
-          "EP OUMOUA / A": [
+          "WOURO-IBBI": [
             {
-              station: "WALLA",
-              voters: 293
-            },
-            {
-              station: "DOUMDERE",
-              voters: 293
-            },
-            {
-              station: "OUMOUA",
-              voters: 293
-            },
+              "station": "EP BADJENGO / A",
+              "voters": 2621
+            }
           ],
-          "EP PENE / A": [
+          "BADJOUMA": [
             {
-              station: "PENE",
-              voters: 888
-            },
-            {
-              station: "SOKANGA",
-              voters: 444
-            },
-            {
-              station: "SOUROU",
-              voters: 444
-            },
+              "station": "EP BADJOUMA RADIER / A",
+              "voters": 8733
+            }
           ],
-          "EP PILOTE PITOA / A": [
+          "CARREFOUR": [
             {
-              station: "GUIZIGARE-PITOA",
-              voters: 2450
-            },
-            {
-              station: "LOPERE-PITOA",
-              voters: 2450
-            },
-            {
-              station: "MOUNDANG",
-              voters: 2450
-            },
-            {
-              station: "SARA",
-              voters: 2450
-            },
-            {
-              station: "TOUPOURI",
-              voters: 2450
-            },
+              "station": "EP BADJOUMA RADIER / A",
+              "voters": 2873
+            }
           ],
-          "EP PITOA BOUNGUEL / A": [
+          "RADIER": [
             {
-              station: "BANTAHI",
-              voters: 2312
-            },
-            {
-              station: "BOUNGUEL",
-              voters: 2312
-            },
+              "station": "EP BADJOUMA RADIER / A",
+              "voters": 1888
+            }
           ],
-          "EP RAM / A": [
+          "BAHOI": [
             {
-              station: "RAM",
-              voters: 537
-            },
+              "station": "EP BADJOUMA RADIER / A",
+              "voters": 1888
+            }
           ],
-          "EP SABONGARI / A": [
+          "DIRI": [
             {
-              station: "NGAOUNDERERE",
-              voters: 342
-            },
-            {
-              station: "SABONGARI",
-              voters: 342
-            },
-            {
-              station: "SISSERI",
-              voters: 342
-            },
-            {
-              station: "WINDE-GAROUA",
-              voters: 342
-            },
+              "station": "EP BADJOUMA RADIER / A",
+              "voters": 1888
+            }
           ],
-          "EP SEKANDE / A": [
+          "DJALINGO": [
             {
-              station: "BAMENDA-SEKANDE",
-              voters: 1054
-            },
-            {
-              station: "DJALINGO-SAMBO",
-              voters: 817
-            },
-            {
-              station: "KOSSEYEL",
-              voters: 1291
-            },
-            {
-              station: "DANEYEL",
-              voters: 1291
-            },
-            {
-              station: "MONTAGNERE-SEKANDE",
-              voters: 817
-            },
-            {
-              station: "NIGERIARE",
-              voters: 1291
-            },
-            {
-              station: "SEKANDE",
-              voters: 2688
-            },
+              "station": "EP BADJOUMA RADIER / A",
+              "voters": 1888
+            }
           ],
-          "EP SONAYO / A": [
+          "DJIPPORDE-POUTCHOU": [
             {
-              station: "GOUNOUGOU",
-              voters: 287
-            },
-            {
-              station: "SONAYO",
-              voters: 574
-            },
+              "station": "EP BADJOUMA RADIER / A",
+              "voters": 1888
+            }
           ],
-          "EP TCHOLLARAM / A": [
+          "FOULBE": [
             {
-              station: "BASSINTA",
-              voters: 350
-            },
-            {
-              station: "MBOURA",
-              voters: 459
-            },
-            {
-              station: "OGNIA",
-              voters: 350
-            },
-            {
-              station: "TCHOLLARAM",
-              voters: 350
-            },
+              "station": "EP BADJOUMA RADIER / A",
+              "voters": 8095
+            }
           ],
-          "EP WAFANGO / A": [
+          "SEBORE": [
             {
-              station: "TOKOMBERE",
-              voters: 899
-            },
-            {
-              station: "WAFANGO-PITOA",
-              voters: 899
-            },
+              "station": "EP BADJOUMA RADIER / A",
+              "voters": 2442
+            }
           ],
-          "ESPL FETE LANGUI-CENTRE III / A": [
+          "SOUKKOUNDE": [
             {
-              station: "LANGUI",
-              voters: 461
-            },
-            {
-              station: "III",
-              voters: 461
-            },
-            {
-              station: "MBALARE",
-              voters: 490
-            },
-            {
-              station: "SOROM-TOSSI",
-              voters: 206
-            },
-            {
-              station: "WAPILWA",
-              voters: 206
-            },
+              "station": "EP BADJOUMA RADIER / A",
+              "voters": 1888
+            }
           ],
-          "LYCEE PITOA / A": [
+          "CENTRE": [
             {
-              station: "BALANE",
-              voters: 1384
-            },
-            {
-              station: "PITOA",
-              voters: 18053
-            },
-            {
-              station: "WINDE",
-              voters: 1384
-            },
-            {
-              station: "LIROMA",
-              voters: 1384
-            },
+              "station": "EP BADJOUMA-CENTRE / A",
+              "voters": 4433
+            }
           ],
-          "MARCHE TCHASKI / A": [
+          "BOGORE": [
             {
-              station: "TCHASKI",
-              voters: 594
-            },
-            {
-              station: "HAOUSSARE-TCHASKI",
-              voters: 297
-            },
-            {
-              station: "LANGUIRE",
-              voters: 297
-            },
-            {
-              station: "MBARA",
-              voters: 420
-            },
-            {
-              station: "NYABI",
-              voters: 297
-            },
-            {
-              station: "SALMANA",
-              voters: 297
-            },
+              "station": "EP BADJOUMA-CENTRE / A",
+              "voters": 1986
+            }
           ],
-          "PLACE FETE MAYO-LEBRI I / A": [
+          "FORTY": [
             {
-              station: "LEBRI",
-              voters: 1171
-            },
-            {
-              station: "MAYO-BANGAY",
-              voters: 260
-            },
+              "station": "EP BADJOUMA-CENTRE / A",
+              "voters": 1986
+            }
           ],
-          "PLACE FETE MBOULOUWOL / A": [
+          "MOUNDANGRE": [
             {
-              station: "MBOULOUWOL",
-              voters: 243
-            },
+              "station": "EP BADJOUMA-CENTRE / A",
+              "voters": 1986
+            }
           ],
-          "PLACE FETE TORROYE / A": [
+          "BADJOUMA-CENTRE": [
             {
-              station: "TORROYE",
-              voters: 225
-            },
+              "station": "EP BADJOUMA-CENTRE / A",
+              "voters": 6857
+            }
           ],
+          "OURO-BOCKI": [
+            {
+              "station": "EP BADJOUMA-CENTRE / A",
+              "voters": 3133
+            }
+          ],
+          "TADO": [
+            {
+              "station": "EP BADJOUMA-CENTRE / A",
+              "voters": 1986
+            }
+          ],
+          "OURO-ISSA": [
+            {
+              "station": "EP BADJOUMA-CENTRE / A",
+              "voters": 1986
+            }
+          ],
+          "SOROM-KAIGAMA": [
+            {
+              "station": "EP BADJOUMA-CENTRE / A",
+              "voters": 1986
+            }
+          ],
+          "TOUPOURIRE": [
+            {
+              "station": "EP BADJOUMA-CENTRE / A",
+              "voters": 2803
+            }
+          ],
+          "BANAYE": [
+            {
+              "station": "EP BANAYE / A",
+              "voters": 399
+            }
+          ],
+          "BANGRANG": [
+            {
+              "station": "EP BANGRANG / A",
+              "voters": 357
+            }
+          ],
+          "DJAOURO": [
+            {
+              "station": "EP BANGRANG / A",
+              "voters": 947
+            }
+          ],
+          "CHEF": [
+            {
+              "station": "EP BANGRANG / A",
+              "voters": 357
+            }
+          ],
+          "WAMBAI": [
+            {
+              "station": "EP BANGRANG / A",
+              "voters": 357
+            }
+          ],
+          "BE-LAMORDE": [
+            {
+              "station": "EP BE / A",
+              "voters": 886
+            }
+          ],
+          "DACKEL": [
+            {
+              "station": "EP BE / A",
+              "voters": 886
+            }
+          ],
+          "HAOUSSARE-BE": [
+            {
+              "station": "EP BE / A",
+              "voters": 886
+            }
+          ],
+          "NASSARAO-BE": [
+            {
+              "station": "EP BE / A",
+              "voters": 886
+            }
+          ],
+          "SOUARE": [
+            {
+              "station": "EP BE / A",
+              "voters": 1631
+            }
+          ],
+          "YAMA": [
+            {
+              "station": "EP BE / A",
+              "voters": 886
+            }
+          ],
+          "SALLA": [
+            {
+              "station": "EP BE / A",
+              "voters": 886
+            }
+          ],
+          "BODJAL": [
+            {
+              "station": "EP BODJAL / A",
+              "voters": 196
+            }
+          ],
+          "BOULGOU": [
+            {
+              "station": "EP BOULGOU / A",
+              "voters": 832
+            }
+          ],
+          "MBERI": [
+            {
+              "station": "EP BOULGOU / A",
+              "voters": 703
+            }
+          ],
+          "BOULI": [
+            {
+              "station": "EP BOULI MAL ALIM / A",
+              "voters": 541
+            }
+          ],
+          "MAL": [
+            {
+              "station": "EP BOULI MAL ALIM / A",
+              "voters": 244
+            }
+          ],
+          "ALIM": [
+            {
+              "station": "EP BOULI MAL ALIM / A",
+              "voters": 244
+            }
+          ],
+          "BOULI-MANGO": [
+            {
+              "station": "EP BOULI MANGO / A",
+              "voters": 401
+            }
+          ],
+          "DJALINGO-MAIGARI": [
+            {
+              "station": "EP DJALINGO-MAIGARI / A",
+              "voters": 360
+            }
+          ],
+          "DJIDDE": [
+            {
+              "station": "EP DJIDDE / A",
+              "voters": 317
+            }
+          ],
+          "AMTE": [
+            {
+              "station": "EP DOLLA / A",
+              "voters": 1512
+            }
+          ],
+          "DOLLA": [
+            {
+              "station": "EP DOLLA / A",
+              "voters": 11522
+            }
+          ],
+          "CARREFOUR-BARKA": [
+            {
+              "station": "EP DOLLA / A",
+              "voters": 1512
+            }
+          ],
+          "DELEM-DOLLA": [
+            {
+              "station": "EP DOLLA / A",
+              "voters": 1512
+            }
+          ],
+          "DJIMETTA": [
+            {
+              "station": "EP DOLLA / A",
+              "voters": 1512
+            }
+          ],
+          "GUIDJAROU": [
+            {
+              "station": "EP DOLLA / A",
+              "voters": 1512
+            }
+          ],
+          "KORKA'": [
+            {
+              "station": "EP DOLLA / A",
+              "voters": 1512
+            }
+          ],
+          "MAYO": [
+            {
+              "station": "EP DOLLA / A",
+              "voters": 3259
+            }
+          ],
+          "BORODJI": [
+            {
+              "station": "EP DOLLA / A",
+              "voters": 1512
+            }
+          ],
+          "MONTAGNERE-DOLLA": [
+            {
+              "station": "EP DOLLA / A",
+              "voters": 1512
+            }
+          ],
+          "OURO-DJELANI": [
+            {
+              "station": "EP DOLLA / A",
+              "voters": 1512
+            }
+          ],
+          "OURO-KESSOUM": [
+            {
+              "station": "EP DOLLA / A",
+              "voters": 7417
+            }
+          ],
+          "RAM-DOLLA": [
+            {
+              "station": "EP DOLLA / A",
+              "voters": 1512
+            }
+          ],
+          "TONGO-DOLLA": [
+            {
+              "station": "EP DOLLA / A",
+              "voters": 1512
+            }
+          ],
+          "WAFANGO": [
+            {
+              "station": "EP DOLLA / A",
+              "voters": 4397
+            }
+          ],
+          "DOLLERE": [
+            {
+              "station": "EP DOLLERE / A",
+              "voters": 1492
+            }
+          ],
+          "KAREWA": [
+            {
+              "station": "EP DOLLERE / A",
+              "voters": 1492
+            }
+          ],
+          "DOULOUMI": [
+            {
+              "station": "EP DOULOUMI / A",
+              "voters": 484
+            }
+          ],
+          "GADA": [
+            {
+              "station": "EP GADA MAYO / A",
+              "voters": 576
+            }
+          ],
+          "DOUMDE": [
+            {
+              "station": "EP GUEBAKE / A",
+              "voters": 745
+            }
+          ],
+          "GUEBAKE": [
+            {
+              "station": "EP GUEBAKE / A",
+              "voters": 1490
+            }
+          ],
+          "OURO-DJIYE": [
+            {
+              "station": "EP GUEBAKE / A",
+              "voters": 745
+            }
+          ],
+          "-DALDAL": [
+            {
+              "station": "EP GUEBAKE / A",
+              "voters": 745
+            }
+          ],
+          "SOUARE-MANGO": [
+            {
+              "station": "EP GUEBAKE / A",
+              "voters": 745
+            }
+          ],
+          "ZACC": [
+            {
+              "station": "EP GUEBAKE / A",
+              "voters": 1644
+            }
+          ],
+          "TINGLING": [
+            {
+              "station": "EP GUEBAKE / A",
+              "voters": 1128
+            }
+          ],
+          "DELEM": [
+            {
+              "station": "EP KEFERO / A",
+              "voters": 201
+            }
+          ],
+          "KEFERO": [
+            {
+              "station": "EP KEFERO / A",
+              "voters": 201
+            }
+          ],
+          "GNIBANGO": [
+            {
+              "station": "EP KIRIRAMBO / A",
+              "voters": 352
+            }
+          ],
+          "KIRIRAMBO": [
+            {
+              "station": "EP KIRIRAMBO / A",
+              "voters": 352
+            }
+          ],
+          "LOUMBOU": [
+            {
+              "station": "EP LOUMBOU / A",
+              "voters": 302
+            }
+          ],
+          "BAPARA": [
+            {
+              "station": "EP MBOR PARTIGE / A",
+              "voters": 652
+            }
+          ],
+          "KANGOU": [
+            {
+              "station": "EP MBOR PARTIGE / A",
+              "voters": 652
+            }
+          ],
+          "BAPARA-FOULBE": [
+            {
+              "station": "EP MBOR PARTIGE / A",
+              "voters": 652
+            }
+          ],
+          "MBOR": [
+            {
+              "station": "EP MBOR PARTIGE / A",
+              "voters": 431
+            }
+          ],
+          "PARTIGE": [
+            {
+              "station": "EP MBOR PARTIGE / A",
+              "voters": 431
+            }
+          ],
+          "NDEGA": [
+            {
+              "station": "EP NDEGA / A",
+              "voters": 218
+            }
+          ],
+          "NDOUDJA": [
+            {
+              "station": "EP NDOUDJA / A",
+              "voters": 257
+            }
+          ],
+          "WALLA": [
+            {
+              "station": "EP OUMOUA / A",
+              "voters": 293
+            }
+          ],
+          "DOUMDERE": [
+            {
+              "station": "EP OUMOUA / A",
+              "voters": 293
+            }
+          ],
+          "OUMOUA": [
+            {
+              "station": "EP OUMOUA / A",
+              "voters": 293
+            }
+          ],
+          "PENE": [
+            {
+              "station": "EP PENE / A",
+              "voters": 888
+            }
+          ],
+          "SOKANGA": [
+            {
+              "station": "EP PENE / A",
+              "voters": 444
+            }
+          ],
+          "SOUROU": [
+            {
+              "station": "EP PENE / A",
+              "voters": 444
+            }
+          ],
+          "GUIZIGARE-PITOA": [
+            {
+              "station": "EP PILOTE PITOA / A",
+              "voters": 2450
+            }
+          ],
+          "LOPERE-PITOA": [
+            {
+              "station": "EP PILOTE PITOA / A",
+              "voters": 2450
+            }
+          ],
+          "MOUNDANG": [
+            {
+              "station": "EP PILOTE PITOA / A",
+              "voters": 2450
+            }
+          ],
+          "SARA": [
+            {
+              "station": "EP PILOTE PITOA / A",
+              "voters": 2450
+            }
+          ],
+          "TOUPOURI": [
+            {
+              "station": "EP PILOTE PITOA / A",
+              "voters": 2450
+            }
+          ],
+          "BANTAHI": [
+            {
+              "station": "EP PITOA BOUNGUEL / A",
+              "voters": 2312
+            }
+          ],
+          "BOUNGUEL": [
+            {
+              "station": "EP PITOA BOUNGUEL / A",
+              "voters": 2312
+            }
+          ],
+          "RAM": [
+            {
+              "station": "EP RAM / A",
+              "voters": 537
+            }
+          ],
+          "NGAOUNDERERE": [
+            {
+              "station": "EP SABONGARI / A",
+              "voters": 342
+            }
+          ],
+          "SABONGARI": [
+            {
+              "station": "EP SABONGARI / A",
+              "voters": 342
+            }
+          ],
+          "SISSERI": [
+            {
+              "station": "EP SABONGARI / A",
+              "voters": 342
+            }
+          ],
+          "WINDE-GAROUA": [
+            {
+              "station": "EP SABONGARI / A",
+              "voters": 342
+            }
+          ],
+          "BAMENDA-SEKANDE": [
+            {
+              "station": "EP SEKANDE / A",
+              "voters": 1054
+            }
+          ],
+          "DJALINGO-SAMBO": [
+            {
+              "station": "EP SEKANDE / A",
+              "voters": 817
+            }
+          ],
+          "KOSSEYEL": [
+            {
+              "station": "EP SEKANDE / A",
+              "voters": 1291
+            }
+          ],
+          "DANEYEL": [
+            {
+              "station": "EP SEKANDE / A",
+              "voters": 1291
+            }
+          ],
+          "MONTAGNERE-SEKANDE": [
+            {
+              "station": "EP SEKANDE / A",
+              "voters": 817
+            }
+          ],
+          "NIGERIARE": [
+            {
+              "station": "EP SEKANDE / A",
+              "voters": 1291
+            }
+          ],
+          "SEKANDE": [
+            {
+              "station": "EP SEKANDE / A",
+              "voters": 2688
+            }
+          ],
+          "GOUNOUGOU": [
+            {
+              "station": "EP SONAYO / A",
+              "voters": 287
+            }
+          ],
+          "SONAYO": [
+            {
+              "station": "EP SONAYO / A",
+              "voters": 574
+            }
+          ],
+          "BASSINTA": [
+            {
+              "station": "EP TCHOLLARAM / A",
+              "voters": 350
+            }
+          ],
+          "MBOURA": [
+            {
+              "station": "EP TCHOLLARAM / A",
+              "voters": 459
+            }
+          ],
+          "OGNIA": [
+            {
+              "station": "EP TCHOLLARAM / A",
+              "voters": 350
+            }
+          ],
+          "TCHOLLARAM": [
+            {
+              "station": "EP TCHOLLARAM / A",
+              "voters": 350
+            }
+          ],
+          "TOKOMBERE": [
+            {
+              "station": "EP WAFANGO / A",
+              "voters": 899
+            }
+          ],
+          "WAFANGO-PITOA": [
+            {
+              "station": "EP WAFANGO / A",
+              "voters": 899
+            }
+          ],
+          "LANGUI": [
+            {
+              "station": "ESPL FETE LANGUI-CENTRE III / A",
+              "voters": 461
+            }
+          ],
+          "III": [
+            {
+              "station": "ESPL FETE LANGUI-CENTRE III / A",
+              "voters": 461
+            }
+          ],
+          "MBALARE": [
+            {
+              "station": "ESPL FETE LANGUI-CENTRE III / A",
+              "voters": 490
+            }
+          ],
+          "SOROM-TOSSI": [
+            {
+              "station": "ESPL FETE LANGUI-CENTRE III / A",
+              "voters": 206
+            }
+          ],
+          "WAPILWA": [
+            {
+              "station": "ESPL FETE LANGUI-CENTRE III / A",
+              "voters": 206
+            }
+          ],
+          "BALANE": [
+            {
+              "station": "LYCEE PITOA / A",
+              "voters": 1384
+            }
+          ],
+          "PITOA": [
+            {
+              "station": "LYCEE PITOA / A",
+              "voters": 18053
+            }
+          ],
+          "WINDE": [
+            {
+              "station": "LYCEE PITOA / A",
+              "voters": 1384
+            }
+          ],
+          "LIROMA": [
+            {
+              "station": "LYCEE PITOA / A",
+              "voters": 1384
+            }
+          ],
+          "TCHASKI": [
+            {
+              "station": "MARCHE TCHASKI / A",
+              "voters": 594
+            }
+          ],
+          "HAOUSSARE-TCHASKI": [
+            {
+              "station": "MARCHE TCHASKI / A",
+              "voters": 297
+            }
+          ],
+          "LANGUIRE": [
+            {
+              "station": "MARCHE TCHASKI / A",
+              "voters": 297
+            }
+          ],
+          "MBARA": [
+            {
+              "station": "MARCHE TCHASKI / A",
+              "voters": 420
+            }
+          ],
+          "NYABI": [
+            {
+              "station": "MARCHE TCHASKI / A",
+              "voters": 297
+            }
+          ],
+          "SALMANA": [
+            {
+              "station": "MARCHE TCHASKI / A",
+              "voters": 297
+            }
+          ],
+          "LEBRI": [
+            {
+              "station": "PLACE FETE MAYO-LEBRI I / A",
+              "voters": 1171
+            }
+          ],
+          "MAYO-BANGAY": [
+            {
+              "station": "PLACE FETE MAYO-LEBRI I / A",
+              "voters": 260
+            }
+          ],
+          "MBOULOUWOL": [
+            {
+              "station": "PLACE FETE MBOULOUWOL / A",
+              "voters": 243
+            }
+          ],
+          "TORROYE": [
+            {
+              "station": "PLACE FETE TORROYE / A",
+              "voters": 225
+            }
+          ]
         },
         "TOUROUA": {
-          "DELEGATION AGRICULTURE / A": [
+          "DJEKARE": [
             {
-              station: "DJEKARE",
-              voters: 1427
-            },
-            {
-              station: "DOULIRE",
-              voters: 247
-            },
-            {
-              station: "LAMORDE-TOUROUA",
-              voters: 1427
-            },
-            {
-              station: "MAGADJIRE",
-              voters: 1427
-            },
+              "station": "DELEGATION AGRICULTURE / A",
+              "voters": 1427
+            }
           ],
-          "E.P. DE OURO-BARKA / A": [
+          "DOULIRE": [
             {
-              station: "OURO-BARKA",
-              voters: 127
-            },
+              "station": "DELEGATION AGRICULTURE / A",
+              "voters": 247
+            }
           ],
-          "EP BOGUEL / A": [
+          "LAMORDE-TOUROUA": [
             {
-              station: "BOGGUEL",
-              voters: 540
-            },
-            {
-              station: "FORADJE",
-              voters: 656
-            },
-            {
-              station: "SORBERE",
-              voters: 540
-            },
-            {
-              station: "DJIRE",
-              voters: 540
-            },
+              "station": "DELEGATION AGRICULTURE / A",
+              "voters": 1427
+            }
           ],
-          "EP BORONGO / A": [
+          "MAGADJIRE": [
             {
-              station: "BORONGO",
-              voters: 1067
-            },
-            {
-              station: "GARINKOURA",
-              voters: 1160
-            },
-            {
-              station: "IBARE",
-              voters: 1160
-            },
-            {
-              station: "KAREWA",
-              voters: 1160
-            },
-            {
-              station: "TONDIRE",
-              voters: 1160
-            },
+              "station": "DELEGATION AGRICULTURE / A",
+              "voters": 1427
+            }
           ],
-          "EP BOUNDANG FOULBE / A": [
+          "OURO-BARKA": [
             {
-              station: "BOLI",
-              voters: 336
-            },
-            {
-              station: "BOUNDANG",
-              voters: 336
-            },
-            {
-              station: "FOULBE",
-              voters: 336
-            },
-            {
-              station: "GABAS",
-              voters: 336
-            },
-            {
-              station: "KOLMARI",
-              voters: 336
-            },
-            {
-              station: "KOULAWA",
-              voters: 579
-            },
-            {
-              station: "OURO-SOUDDE",
-              voters: 336
-            },
-            {
-              station: "TOLKOMARI",
-              voters: 336
-            },
+              "station": "E.P. DE OURO-BARKA / A",
+              "voters": 127
+            }
           ],
-          "EP DAGUE / A": [
+          "BOGGUEL": [
             {
-              station: "DAGUE",
-              voters: 696
-            },
-            {
-              station: "KOHI",
-              voters: 696
-            },
-            {
-              station: "MAYO-YARE",
-              voters: 903
-            },
-            {
-              station: "SIDIRI",
-              voters: 903
-            },
+              "station": "EP BOGUEL / A",
+              "voters": 540
+            }
           ],
-          "EP DJOUTA-LEDDE / A": [
+          "FORADJE": [
             {
-              station: "DJOUTA-LEDDE",
-              voters: 698
-            },
-            {
-              station: "OURO-HAIROU",
-              voters: 1064
-            },
+              "station": "EP BOGUEL / A",
+              "voters": 656
+            }
           ],
-          "EP DOUNDEHI / A": [
+          "SORBERE": [
             {
-              station: "DOUNDEHI",
-              voters: 640
-            },
-            {
-              station: "HINGA",
-              voters: 891
-            },
-            {
-              station: "HOLA",
-              voters: 891
-            },
+              "station": "EP BOGUEL / A",
+              "voters": 540
+            }
           ],
-          "EP ERGUE / A": [
+          "DJIRE": [
             {
-              station: "ERGUE",
-              voters: 337
-            },
-            {
-              station: "HOLTCHI",
-              voters: 337
-            },
+              "station": "EP BOGUEL / A",
+              "voters": 540
+            }
           ],
-          "EP GR I TOUROUA / A": [
+          "BORONGO": [
             {
-              station: "MOUNDANRE",
-              voters: 1777
-            },
-            {
-              station: "OURO-KESSOUM/TOUROUA",
-              voters: 1777
-            },
+              "station": "EP BORONGO / A",
+              "voters": 1067
+            }
           ],
-          "EP GR II TOUROUA / A": [
+          "GARINKOURA": [
             {
-              station: "SEMTI",
-              voters: 1484
-            },
+              "station": "EP BORONGO / A",
+              "voters": 1160
+            }
           ],
-          "EP KAREWA / A": [
+          "IBARE": [
             {
-              station: "OURO-KESSOUM",
-              voters: 93
-            },
-            {
-              station: "QUARTIER",
-              voters: 93
-            },
-            {
-              station: "BORORO",
-              voters: 93
-            },
+              "station": "EP BORONGO / A",
+              "voters": 1160
+            }
           ],
-          "EP LONGO / A": [
+          "KAREWA": [
             {
-              station: "DJAMTARI",
-              voters: 559
-            },
-            {
-              station: "KEDE",
-              voters: 559
-            },
-            {
-              station: "LONGO",
-              voters: 686
-            },
-            {
-              station: "MALITI",
-              voters: 1245
-            },
-            {
-              station: "OURO",
-              voters: 686
-            },
-            {
-              station: "BARKA",
-              voters: 686
-            },
+              "station": "EP BORONGO / A",
+              "voters": 1160
+            }
           ],
-          "EP LOUGOUNDE / A": [
+          "TONDIRE": [
             {
-              station: "LOUGOUNDE",
-              voters: 1080
-            },
+              "station": "EP BORONGO / A",
+              "voters": 1160
+            }
           ],
-          "EP MAYO KARLAYE / A": [
+          "BOLI": [
             {
-              station: "MAYO-KARLAYE",
-              voters: 714
-            },
+              "station": "EP BOUNDANG FOULBE / A",
+              "voters": 336
+            }
           ],
-          "EP MAYO-OULO / A": [
+          "BOUNDANG": [
             {
-              station: "BOULO",
-              voters: 610
-            },
+              "station": "EP BOUNDANG FOULBE / A",
+              "voters": 336
+            }
           ],
-          "EP OURO-FANDOU / A": [
+          "FOULBE": [
             {
-              station: "OURO-FANDOU",
-              voters: 519
-            },
+              "station": "EP BOUNDANG FOULBE / A",
+              "voters": 336
+            }
           ],
-          "EP OURO-SEKEHI / A": [
+          "GABAS": [
             {
-              station: "DJALINGO",
-              voters: 1135
-            },
-            {
-              station: "OURO-SEKEHI",
-              voters: 1374
-            },
+              "station": "EP BOUNDANG FOULBE / A",
+              "voters": 336
+            }
           ],
-          "EP TCHIRKOLTCHI / A": [
+          "KOLMARI": [
             {
-              station: "KAFOUE",
-              voters: 329
-            },
-            {
-              station: "KOSSEYEL",
-              voters: 329
-            },
-            {
-              station: "TCHIRKOLTCHI",
-              voters: 658
-            },
+              "station": "EP BOUNDANG FOULBE / A",
+              "voters": 336
+            }
           ],
-          "EPC BADANG / A": [
+          "KOULAWA": [
             {
-              station: "BADANG",
-              voters: 795
-            },
-            {
-              station: "BAMA",
-              voters: 1405
-            },
-            {
-              station: "BOGARE",
-              voters: 795
-            },
-            {
-              station: "DARA",
-              voters: 1405
-            },
-            {
-              station: "NOKKA",
-              voters: 1405
-            },
-            {
-              station: "KAYA",
-              voters: 1405
-            },
-            {
-              station: "MAYO-OULO",
-              voters: 1405
-            },
+              "station": "EP BOUNDANG FOULBE / A",
+              "voters": 579
+            }
           ],
-          "EPC KOZA II / A": [
+          "OURO-SOUDDE": [
             {
-              station: "DJABEY",
-              voters: 1249
-            },
-            {
-              station: "PATAGOLE",
-              voters: 1249
-            },
-            {
-              station: "KAREHI",
-              voters: 1249
-            },
-            {
-              station: "KOZA",
-              voters: 1249
-            },
-            {
-              station: "LAFIARI",
-              voters: 1249
-            },
-            {
-              station: "SIOUTIRKI",
-              voters: 1249
-            },
-            {
-              station: "TOUROUA",
-              voters: 5397
-            },
+              "station": "EP BOUNDANG FOULBE / A",
+              "voters": 336
+            }
           ],
-          "EPC MBAGA / A": [
+          "TOLKOMARI": [
             {
-              station: "MBAGA",
-              voters: 1658
-            },
+              "station": "EP BOUNDANG FOULBE / A",
+              "voters": 336
+            }
           ],
-          "ESPL CHEF BOUNDANG HAOUSSARI / A": [
+          "DAGUE": [
             {
-              station: "BOUNDANG-HAOUSSARI",
-              voters: 117
-            },
+              "station": "EP DAGUE / A",
+              "voters": 696
+            }
           ],
-          "ESPL CHEF LAMORDE / A": [
+          "KOHI": [
             {
-              station: "FARKOUMO",
-              voters: 211
-            },
-            {
-              station: "LAMORDE-ERGUE",
-              voters: 211
-            },
+              "station": "EP DAGUE / A",
+              "voters": 696
+            }
           ],
-          "ESPL CHEF OFFAM / A": [
+          "MAYO-YARE": [
             {
-              station: "GUERA",
-              voters: 315
-            },
-            {
-              station: "BEMTE",
-              voters: 315
-            },
-            {
-              station: "HOLLE",
-              voters: 315
-            },
-            {
-              station: "LANGUI",
-              voters: 315
-            },
-            {
-              station: "OFFAM",
-              voters: 315
-            },
+              "station": "EP DAGUE / A",
+              "voters": 903
+            }
           ],
-          "ESPL EP KINADA / A": [
+          "SIDIRI": [
             {
-              station: "KINADA",
-              voters: 177
-            },
-            {
-              station: "SABONGARI-KINADI",
-              voters: 177
-            },
+              "station": "EP DAGUE / A",
+              "voters": 903
+            }
           ],
-          "ESPL EP PINDILING / A": [
+          "DJOUTA-LEDDE": [
             {
-              station: "MANDAKA",
-              voters: 264
-            },
+              "station": "EP DJOUTA-LEDDE / A",
+              "voters": 698
+            }
           ],
-        },
+          "OURO-HAIROU": [
+            {
+              "station": "EP DJOUTA-LEDDE / A",
+              "voters": 1064
+            }
+          ],
+          "DOUNDEHI": [
+            {
+              "station": "EP DOUNDEHI / A",
+              "voters": 640
+            }
+          ],
+          "HINGA": [
+            {
+              "station": "EP DOUNDEHI / A",
+              "voters": 891
+            }
+          ],
+          "HOLA": [
+            {
+              "station": "EP DOUNDEHI / A",
+              "voters": 891
+            }
+          ],
+          "ERGUE": [
+            {
+              "station": "EP ERGUE / A",
+              "voters": 337
+            }
+          ],
+          "HOLTCHI": [
+            {
+              "station": "EP ERGUE / A",
+              "voters": 337
+            }
+          ],
+          "MOUNDANRE": [
+            {
+              "station": "EP GR I TOUROUA / A",
+              "voters": 1777
+            }
+          ],
+          "OURO-KESSOUM/TOUROUA": [
+            {
+              "station": "EP GR I TOUROUA / A",
+              "voters": 1777
+            }
+          ],
+          "SEMTI": [
+            {
+              "station": "EP GR II TOUROUA / A",
+              "voters": 1484
+            }
+          ],
+          "OURO-KESSOUM": [
+            {
+              "station": "EP KAREWA / A",
+              "voters": 93
+            }
+          ],
+          "QUARTIER": [
+            {
+              "station": "EP KAREWA / A",
+              "voters": 93
+            }
+          ],
+          "BORORO": [
+            {
+              "station": "EP KAREWA / A",
+              "voters": 93
+            }
+          ],
+          "DJAMTARI": [
+            {
+              "station": "EP LONGO / A",
+              "voters": 559
+            }
+          ],
+          "KEDE": [
+            {
+              "station": "EP LONGO / A",
+              "voters": 559
+            }
+          ],
+          "LONGO": [
+            {
+              "station": "EP LONGO / A",
+              "voters": 686
+            }
+          ],
+          "MALITI": [
+            {
+              "station": "EP LONGO / A",
+              "voters": 1245
+            }
+          ],
+          "OURO": [
+            {
+              "station": "EP LONGO / A",
+              "voters": 686
+            }
+          ],
+          "BARKA": [
+            {
+              "station": "EP LONGO / A",
+              "voters": 686
+            }
+          ],
+          "LOUGOUNDE": [
+            {
+              "station": "EP LOUGOUNDE / A",
+              "voters": 1080
+            }
+          ],
+          "MAYO-KARLAYE": [
+            {
+              "station": "EP MAYO KARLAYE / A",
+              "voters": 714
+            }
+          ],
+          "BOULO": [
+            {
+              "station": "EP MAYO-OULO / A",
+              "voters": 610
+            }
+          ],
+          "OURO-FANDOU": [
+            {
+              "station": "EP OURO-FANDOU / A",
+              "voters": 519
+            }
+          ],
+          "DJALINGO": [
+            {
+              "station": "EP OURO-SEKEHI / A",
+              "voters": 1135
+            }
+          ],
+          "OURO-SEKEHI": [
+            {
+              "station": "EP OURO-SEKEHI / A",
+              "voters": 1374
+            }
+          ],
+          "KAFOUE": [
+            {
+              "station": "EP TCHIRKOLTCHI / A",
+              "voters": 329
+            }
+          ],
+          "KOSSEYEL": [
+            {
+              "station": "EP TCHIRKOLTCHI / A",
+              "voters": 329
+            }
+          ],
+          "TCHIRKOLTCHI": [
+            {
+              "station": "EP TCHIRKOLTCHI / A",
+              "voters": 658
+            }
+          ],
+          "BADANG": [
+            {
+              "station": "EPC BADANG / A",
+              "voters": 795
+            }
+          ],
+          "BAMA": [
+            {
+              "station": "EPC BADANG / A",
+              "voters": 1405
+            }
+          ],
+          "BOGARE": [
+            {
+              "station": "EPC BADANG / A",
+              "voters": 795
+            }
+          ],
+          "DARA": [
+            {
+              "station": "EPC BADANG / A",
+              "voters": 1405
+            }
+          ],
+          "NOKKA": [
+            {
+              "station": "EPC BADANG / A",
+              "voters": 1405
+            }
+          ],
+          "KAYA": [
+            {
+              "station": "EPC BADANG / A",
+              "voters": 1405
+            }
+          ],
+          "MAYO-OULO": [
+            {
+              "station": "EPC BADANG / A",
+              "voters": 1405
+            }
+          ],
+          "DJABEY": [
+            {
+              "station": "EPC KOZA II / A",
+              "voters": 1249
+            }
+          ],
+          "PATAGOLE": [
+            {
+              "station": "EPC KOZA II / A",
+              "voters": 1249
+            }
+          ],
+          "KAREHI": [
+            {
+              "station": "EPC KOZA II / A",
+              "voters": 1249
+            }
+          ],
+          "KOZA": [
+            {
+              "station": "EPC KOZA II / A",
+              "voters": 1249
+            }
+          ],
+          "LAFIARI": [
+            {
+              "station": "EPC KOZA II / A",
+              "voters": 1249
+            }
+          ],
+          "SIOUTIRKI": [
+            {
+              "station": "EPC KOZA II / A",
+              "voters": 1249
+            }
+          ],
+          "TOUROUA": [
+            {
+              "station": "EPC KOZA II / A",
+              "voters": 5397
+            }
+          ],
+          "MBAGA": [
+            {
+              "station": "EPC MBAGA / A",
+              "voters": 1658
+            }
+          ],
+          "BOUNDANG-HAOUSSARI": [
+            {
+              "station": "ESPL CHEF BOUNDANG HAOUSSARI / A",
+              "voters": 117
+            }
+          ],
+          "FARKOUMO": [
+            {
+              "station": "ESPL CHEF LAMORDE / A",
+              "voters": 211
+            }
+          ],
+          "LAMORDE-ERGUE": [
+            {
+              "station": "ESPL CHEF LAMORDE / A",
+              "voters": 211
+            }
+          ],
+          "GUERA": [
+            {
+              "station": "ESPL CHEF OFFAM / A",
+              "voters": 315
+            }
+          ],
+          "BEMTE": [
+            {
+              "station": "ESPL CHEF OFFAM / A",
+              "voters": 315
+            }
+          ],
+          "HOLLE": [
+            {
+              "station": "ESPL CHEF OFFAM / A",
+              "voters": 315
+            }
+          ],
+          "LANGUI": [
+            {
+              "station": "ESPL CHEF OFFAM / A",
+              "voters": 315
+            }
+          ],
+          "OFFAM": [
+            {
+              "station": "ESPL CHEF OFFAM / A",
+              "voters": 315
+            }
+          ],
+          "KINADA": [
+            {
+              "station": "ESPL EP KINADA / A",
+              "voters": 177
+            }
+          ],
+          "SABONGARI-KINADI": [
+            {
+              "station": "ESPL EP KINADA / A",
+              "voters": 177
+            }
+          ],
+          "MANDAKA": [
+            {
+              "station": "ESPL EP PINDILING / A",
+              "voters": 264
+            }
+          ]
+        }
       },
       "FARO": {
         "BEKA": {
-          "E.P. DE MAYO-SILBA / A": [
+          "SILBA": [
             {
-              station: "SILBA",
-              voters: 106
-            },
+              "station": "E.P. DE MAYO-SILBA / A",
+              "voters": 106
+            }
           ],
-          "ECOLE CATHO NDINTIRE / A": [
+          "NDINTIRE": [
             {
-              station: "NDINTIRE",
-              voters: 397
-            },
-            {
-              station: "SAFAI",
-              voters: 479
-            },
+              "station": "ECOLE CATHO NDINTIRE / A",
+              "voters": 397
+            }
           ],
-          "ECOLE DES PARENTS DE BEGUE / A": [
+          "SAFAI": [
             {
-              station: "BOULE",
-              voters: 212
-            },
+              "station": "ECOLE CATHO NDINTIRE / A",
+              "voters": 479
+            }
           ],
-          "ECOLE DES PARENTS DE BIPAO / A": [
+          "BOULE": [
             {
-              station: "BIPOA",
-              voters: 43
-            },
+              "station": "ECOLE DES PARENTS DE BEGUE / A",
+              "voters": 212
+            }
           ],
-          "ECOLE DES PARENTS DE DJANGUINE / A": [
+          "BIPOA": [
             {
-              station: "DJANGUINE",
-              voters: 281
-            },
+              "station": "ECOLE DES PARENTS DE BIPAO / A",
+              "voters": 43
+            }
           ],
-          "ECOLE DES PARENTS D\OURO-DONKA / A": [
+          "DJANGUINE": [
             {
-              station: "OURO",
-              voters: 146
-            },
-            {
-              station: "DONKA",
-              voters: 146
-            },
+              "station": "ECOLE DES PARENTS DE DJANGUINE / A",
+              "voters": 281
+            }
           ],
-          "ECOLE PUBLIQUE DE DJAMPEOU / A": [
+          "OURO": [
             {
-              station: "KILAROU",
-              voters: 199
-            },
-            {
-              station: "SO\O",
-              voters: 199
-            },
-            {
-              station: "BOUANGAL",
-              voters: 199
-            },
+              "station": "ECOLE DES PARENTS DOURO-DONKA / A",
+              "voters": 146
+            }
           ],
-          "ECOLE PUBLIQUE DE GAMOU / A": [
+          "DONKA": [
             {
-              station: "DJAMARE",
-              voters: 84
-            },
+              "station": "ECOLE DES PARENTS DOURO-DONKA / A",
+              "voters": 146
+            }
           ],
-          "ECOLE PUBLIQUE DE KOKSORO / A": [
+          "KILAROU": [
             {
-              station: "ALH.IYEGA",
-              voters: 202
-            },
-            {
-              station: "SOUKKOUNDE",
-              voters: 202
-            },
+              "station": "ECOLE PUBLIQUE DE DJAMPEOU / A",
+              "voters": 199
+            }
           ],
-          "ECOLE PUBLIQUE DE LOKOSSAMA / A": [
+          "SOO": [
             {
-              station: "LOKOSSAMA",
-              voters: 86
-            },
+              "station": "ECOLE PUBLIQUE DE DJAMPEOU / A",
+              "voters": 199
+            }
           ],
-          "EM BEKA / A": [
+          "BOUANGAL": [
             {
-              station: "CENTRE",
-              voters: 976
-            },
+              "station": "ECOLE PUBLIQUE DE DJAMPEOU / A",
+              "voters": 199
+            }
           ],
-          "EP AOUDI / A": [
+          "DJAMARE": [
             {
-              station: "ABEDJO",
-              voters: 251
-            },
-            {
-              station: "AOUDI",
-              voters: 251
-            },
-            {
-              station: "ZERMOU",
-              voters: 251
-            },
+              "station": "ECOLE PUBLIQUE DE GAMOU / A",
+              "voters": 84
+            }
           ],
-          "EP BALGOU / A": [
+          "ALH.IYEGA": [
             {
-              station: "BALGOU",
-              voters: 199
-            },
-            {
-              station: "KARLAYE",
-              voters: 199
-            },
-            {
-              station: "KELLOU",
-              voters: 199
-            },
-            {
-              station: "PAGOU",
-              voters: 199
-            },
-            {
-              station: "WOULBA",
-              voters: 199
-            },
+              "station": "ECOLE PUBLIQUE DE KOKSORO / A",
+              "voters": 202
+            }
           ],
-          "EP BALKOSSA / A": [
+          "SOUKKOUNDE": [
             {
-              station: "BALKOSSA",
-              voters: 754
-            },
-            {
-              station: "KOLVANOU",
-              voters: 501
-            },
-            {
-              station: "LESDI-BODERI",
-              voters: 377
-            },
-            {
-              station: "PETIT",
-              voters: 377
-            },
-            {
-              station: "TAPARE",
-              voters: 754
-            },
-            {
-              station: "ZELA",
-              voters: 377
-            },
-            {
-              station: "WAPEO",
-              voters: 878
-            },
+              "station": "ECOLE PUBLIQUE DE KOKSORO / A",
+              "voters": 202
+            }
           ],
-          "EP BEKA / A": [
+          "LOKOSSAMA": [
             {
-              station: "ALHADJI",
-              voters: 992
-            },
-            {
-              station: "IYENGA",
-              voters: 992
-            },
-            {
-              station: "BARKERE",
-              voters: 1194
-            },
-            {
-              station: "BEKA",
-              voters: 1968
-            },
-            {
-              station: "DJALINGO",
-              voters: 992
-            },
-            {
-              station: "KOKSORO",
-              voters: 1194
-            },
-            {
-              station: "LOUGGUERE",
-              voters: 992
-            },
-            {
-              station: "NDJORO",
-              voters: 1194
-            },
-            {
-              station: "NYEBBAM-GAOURI",
-              voters: 1054
-            },
-            {
-              station: "OURO-KONA",
-              voters: 1138
-            },
-            {
-              station: "ROUMDE-NANA",
-              voters: 1054
-            },
-            {
-              station: "SOUKOUNDE",
-              voters: 992
-            },
-            {
-              station: "WAOUROU",
-              voters: 992
-            },
-            {
-              station: "KOULAHI",
-              voters: 992
-            },
+              "station": "ECOLE PUBLIQUE DE LOKOSSAMA / A",
+              "voters": 86
+            }
           ],
-          "EP BIMBA / A": [
+          "CENTRE": [
             {
-              station: "BIMBA",
-              voters: 1275
-            },
-            {
-              station: "ADJIA",
-              voters: 425
-            },
-            {
-              station: "FOULBE",
-              voters: 425
-            },
-            {
-              station: "GUEMOU",
-              voters: 425
-            },
-            {
-              station: "DJOUTA",
-              voters: 468
-            },
-            {
-              station: "BENTERE",
-              voters: 468
-            },
-            {
-              station: "GALSAMA",
-              voters: 425
-            },
-            {
-              station: "YALOU",
-              voters: 425
-            },
+              "station": "EM BEKA / A",
+              "voters": 976
+            }
           ],
-          "EP BIMLEROU / A": [
+          "ABEDJO": [
             {
-              station: "BIMLEROU",
-              voters: 202
-            },
-            {
-              station: "KASSALA",
-              voters: 779
-            },
-            {
-              station: "LIBROU-BIMLEROU",
-              voters: 202
-            },
+              "station": "EP AOUDI / A",
+              "voters": 251
+            }
           ],
-          "EP BOGDOU / A": [
+          "AOUDI": [
             {
-              station: "BOGDOU",
-              voters: 1078
-            },
-            {
-              station: "DJARENDI",
-              voters: 662
-            },
-            {
-              station: "SANA",
-              voters: 626
-            },
-            {
-              station: "MAIKIDI",
-              voters: 255
-            },
-            {
-              station: "NADERE",
-              voters: 626
-            },
-            {
-              station: "KOMA",
-              voters: 313
-            },
-            {
-              station: "PEREDOU",
-              voters: 525
-            },
-            {
-              station: "SOUARI",
-              voters: 255
-            },
-            {
-              station: "WALTEROU",
-              voters: 255
-            },
+              "station": "EP AOUDI / A",
+              "voters": 251
+            }
           ],
-          "EP DENOU-MANGA / A": [
+          "ZERMOU": [
             {
-              station: "DENOU",
-              voters: 492
-            },
-            {
-              station: "DJOUBAOU",
-              voters: 492
-            },
-            {
-              station: "DENOU-MANGA",
-              voters: 492
-            },
-            {
-              station: "DJABE",
-              voters: 1304
-            },
-            {
-              station: "MAYO-SILBA",
-              voters: 598
-            },
-            {
-              station: "SIMKOLA",
-              voters: 984
-            },
-            {
-              station: "DOW",
-              voters: 492
-            },
-            {
-              station: "LESDI",
-              voters: 492
-            },
+              "station": "EP AOUDI / A",
+              "voters": 251
+            }
           ],
-          "EP DENOU-PETEL / A": [
+          "BALGOU": [
             {
-              station: "DENOU-PETEL",
-              voters: 181
-            },
-            {
-              station: "VOGBA",
-              voters: 181
-            },
+              "station": "EP BALGOU / A",
+              "voters": 199
+            }
           ],
-          "EP DIDANGO / A": [
+          "KARLAYE": [
             {
-              station: "BOUBA",
-              voters: 184
-            },
-            {
-              station: "MAGAMI",
-              voters: 184
-            },
-            {
-              station: "DIDANGO",
-              voters: 1131
-            },
-            {
-              station: "NISSIRO",
-              voters: 184
-            },
+              "station": "EP BALGOU / A",
+              "voters": 199
+            }
           ],
-          "EP DJAGOU / A": [
+          "KELLOU": [
             {
-              station: "DJAGOU",
-              voters: 145
-            },
-            {
-              station: "DJAMPEOU",
-              voters: 344
-            },
-            {
-              station: "YELBA",
-              voters: 409
-            },
+              "station": "EP BALGOU / A",
+              "voters": 199
+            }
           ],
-          "EP DJALINGO PONT / A": [
+          "PAGOU": [
             {
-              station: "DJALINGO-PONT",
-              voters: 406
-            },
-            {
-              station: "KESSOUM",
-              voters: 406
-            },
+              "station": "EP BALGOU / A",
+              "voters": 199
+            }
           ],
-          "EP DJALINGO VERE / A": [
+          "WOULBA": [
             {
-              station: "BEGUE",
-              voters: 413
-            },
-            {
-              station: "DJALINGO-VERE",
-              voters: 201
-            },
+              "station": "EP BALGOU / A",
+              "voters": 199
+            }
           ],
-          "EP DORBA / A": [
+          "BALKOSSA": [
             {
-              station: "DJAMBOUTOU",
-              voters: 311
-            },
-            {
-              station: "DORBA",
-              voters: 182
-            },
-            {
-              station: "NATIRDE",
-              voters: 229
-            },
-            {
-              station: "TONGO",
-              voters: 182
-            },
+              "station": "EP BALKOSSA / A",
+              "voters": 754
+            }
           ],
-          "EP GBEUDWABA / A": [
+          "KOLVANOU": [
             {
-              station: "GBEUDWABA",
-              voters: 55
-            },
+              "station": "EP BALKOSSA / A",
+              "voters": 501
+            }
           ],
-          "EP GUEDE / A": [
+          "LESDI-BODERI": [
             {
-              station: "GUEDE",
-              voters: 704
-            },
-            {
-              station: "KOMBORO",
-              voters: 492
-            },
-            {
-              station: "LOUGGOUNDE",
-              voters: 492
-            },
+              "station": "EP BALKOSSA / A",
+              "voters": 377
+            }
           ],
-          "EP HALLANI / A": [
+          "PETIT": [
             {
-              station: "HALLANI",
-              voters: 168
-            },
+              "station": "EP BALKOSSA / A",
+              "voters": 377
+            }
           ],
-          "EP KARINE / A": [
+          "TAPARE": [
             {
-              station: "GAMNA",
-              voters: 443
-            },
-            {
-              station: "KARINE",
-              voters: 443
-            },
-            {
-              station: "LOUGGA",
-              voters: 570
-            },
-            {
-              station: "MBELINE",
-              voters: 443
-            },
-            {
-              station: "TATOURE",
-              voters: 443
-            },
+              "station": "EP BALKOSSA / A",
+              "voters": 754
+            }
           ],
-          "EP KASSALA VOMA / A": [
+          "ZELA": [
             {
-              station: "VOMA",
-              voters: 152
-            },
+              "station": "EP BALKOSSA / A",
+              "voters": 377
+            }
           ],
-          "EP KOLOU-MALKOGA / A": [
+          "WAPEO": [
             {
-              station: "KOLOU-MANGA",
-              voters: 275
-            },
-            {
-              station: "KOUDI",
-              voters: 275
-            },
-            {
-              station: "KWARA",
-              voters: 275
-            },
+              "station": "EP BALKOSSA / A",
+              "voters": 878
+            }
           ],
-          "EP KOUBI / A": [
+          "ALHADJI": [
             {
-              station: "BATBA",
-              voters: 402
-            },
-            {
-              station: "KOBLIMA",
-              voters: 402
-            },
-            {
-              station: "KOUBI",
-              voters: 402
-            },
+              "station": "EP BEKA / A",
+              "voters": 992
+            }
           ],
-          "EP LARO / A": [
+          "IYENGA": [
             {
-              station: "BISSORA",
-              voters: 189
-            },
-            {
-              station: "GAMOU",
-              voters: 273
-            },
-            {
-              station: "GAMO",
-              voters: 189
-            },
-            {
-              station: "LARO",
-              voters: 378
-            },
-            {
-              station: "MAYO",
-              voters: 295
-            },
+              "station": "EP BEKA / A",
+              "voters": 992
+            }
           ],
-          "EP LOWOL / A": [
+          "BARKERE": [
             {
-              station: "LOWOL",
-              voters: 540
-            },
+              "station": "EP BEKA / A",
+              "voters": 1194
+            }
           ],
-          "EP MALKOGA / A": [
+          "BEKA": [
             {
-              station: "MALKOGA",
-              voters: 413
-            },
-            {
-              station: "SAFIROU",
-              voters: 413
-            },
+              "station": "EP BEKA / A",
+              "voters": 1968
+            }
           ],
-          "EP NYMDELOU / A": [
+          "DJALINGO": [
             {
-              station: "NYMDELOU",
-              voters: 331
-            },
-            {
-              station: "VOKBA",
-              voters: 331
-            },
+              "station": "EP BEKA / A",
+              "voters": 992
+            }
           ],
-          "EP OGOLO / A": [
+          "KOKSORO": [
             {
-              station: "OGOLO",
-              voters: 192
-            },
-            {
-              station: "RABBO",
-              voters: 192
-            },
-            {
-              station: "KILA",
-              voters: 192
-            },
+              "station": "EP BEKA / A",
+              "voters": 1194
+            }
           ],
-          "EP POMLA / A": [
+          "LOUGGUERE": [
             {
-              station: "AHMADOU",
-              voters: 434
-            },
-            {
-              station: "DJOUGOUDOUM",
-              voters: 434
-            },
-            {
-              station: "DANI",
-              voters: 434
-            },
-            {
-              station: "KARI",
-              voters: 434
-            },
-            {
-              station: "LENARA",
-              voters: 546
-            },
-            {
-              station: "LIH",
-              voters: 434
-            },
-            {
-              station: "POMLA",
-              voters: 1302
-            },
-            {
-              station: "LIH-WANGAI",
-              voters: 434
-            },
-            {
-              station: "SHEHOU",
-              voters: 434
-            },
-            {
-              station: "WOURO",
-              voters: 3750
-            },
-            {
-              station: "BEI",
-              voters: 434
-            },
+              "station": "EP BEKA / A",
+              "voters": 992
+            }
           ],
-          "EP SAPTOU / A": [
+          "NDJORO": [
             {
-              station: "KOLOU",
-              voters: 345
-            },
-            {
-              station: "NAKALBA",
-              voters: 345
-            },
-            {
-              station: "SAPTOU",
-              voters: 345
-            },
+              "station": "EP BEKA / A",
+              "voters": 1194
+            }
           ],
-          "EP TCHAMBA / A": [
+          "NYEBBAM-GAOURI": [
             {
-              station: "DINSI",
-              voters: 947
-            },
-            {
-              station: "MAILOUDOU",
-              voters: 947
-            },
-            {
-              station: "RIDINA",
-              voters: 1181
-            },
-            {
-              station: "SOFOL",
-              voters: 1181
-            },
-            {
-              station: "PANTI",
-              voters: 947
-            },
+              "station": "EP BEKA / A",
+              "voters": 1054
+            }
           ],
-          "EP TOUMBINDE / A": [
+          "OURO-KONA": [
             {
-              station: "PITOA-BEKA",
-              voters: 276
-            },
-            {
-              station: "TOUMBIDE",
-              voters: 214
-            },
+              "station": "EP BEKA / A",
+              "voters": 1138
+            }
           ],
-          "EP WADINGA / A": [
+          "ROUMDE-NANA": [
             {
-              station: "DANGANA",
-              voters: 482
-            },
-            {
-              station: "MALI",
-              voters: 964
-            },
-            {
-              station: "WADINGA",
-              voters: 276
-            },
+              "station": "EP BEKA / A",
+              "voters": 1054
+            }
           ],
-          "EP WANGAI / A": [
+          "SOUKOUNDE": [
             {
-              station: "BASSOUNOU",
-              voters: 545
-            },
-            {
-              station: "DAMASSI",
-              voters: 545
-            },
-            {
-              station: "GUELBA",
-              voters: 545
-            },
-            {
-              station: "WANGAI",
-              voters: 636
-            },
+              "station": "EP BEKA / A",
+              "voters": 992
+            }
           ],
-          "EP YELLI- MANGA / A": [
+          "WAOUROU": [
             {
-              station: "YELLI",
-              voters: 330
-            },
-            {
-              station: "-PETEL",
-              voters: 330
-            },
-            {
-              station: "YELLI-MANGA",
-              voters: 330
-            },
+              "station": "EP BEKA / A",
+              "voters": 992
+            }
           ],
-          "ESPL CHEF KOLGOU / A": [
+          "KOULAHI": [
             {
-              station: "KOLGOU",
-              voters: 221
-            },
+              "station": "EP BEKA / A",
+              "voters": 992
+            }
           ],
-          "ESPL CHEF MAYO NGNIWA / A": [
+          "BIMBA": [
             {
-              station: "MAYO-NGNIWA",
-              voters: 106
-            },
+              "station": "EP BIMBA / A",
+              "voters": 1275
+            }
           ],
-          "ESPL CHEF MOUGUENI / A": [
+          "ADJIA": [
             {
-              station: "BOGUE",
-              voters: 182
-            },
-            {
-              station: "TCHAMBA",
-              voters: 2874
-            },
-            {
-              station: "FOLSI",
-              voters: 91
-            },
-            {
-              station: "MOUGUENI",
-              voters: 91
-            },
-            {
-              station: "ZAMNI",
-              voters: 91
-            },
+              "station": "EP BIMBA / A",
+              "voters": 425
+            }
           ],
-          "ESPL CHEF NDINTIRE WANGAI / A": [
+          "FOULBE": [
             {
-              station: "LIWA",
-              voters: 235
-            },
-            {
-              station: "NDINGTIRE-WANGAI",
-              voters: 235
-            },
-            {
-              station: "SASSI",
-              voters: 235
-            },
-            {
-              station: "SOULABE",
-              voters: 235
-            },
-            {
-              station: "MBAI",
-              voters: 235
-            },
+              "station": "EP BIMBA / A",
+              "voters": 425
+            }
           ],
-          "ESPL CHEF WARDI / A": [
+          "GUEMOU": [
             {
-              station: "BORI",
-              voters: 87
-            },
-            {
-              station: "GALI",
-              voters: 87
-            },
-            {
-              station: "KOMNI",
-              voters: 87
-            },
-            {
-              station: "GUERI",
-              voters: 87
-            },
-            {
-              station: "WARDI",
-              voters: 87
-            },
+              "station": "EP BIMBA / A",
+              "voters": 425
+            }
           ],
-          "ESPL CHEF YELBA / A": [
+          "DJOUTA": [
             {
-              station: "KOLONTI",
-              voters: 132
-            },
+              "station": "EP BIMBA / A",
+              "voters": 468
+            }
           ],
-          "ESPL CHEFWOURO BOUNOU / A": [
+          "BENTERE": [
             {
-              station: "BOUNOU",
-              voters: 261
-            },
-            {
-              station: "DOLE",
-              voters: 261
-            },
-            {
-              station: "SIKO",
-              voters: 261
-            },
-            {
-              station: "SIRA",
-              voters: 347
-            },
+              "station": "EP BIMBA / A",
+              "voters": 468
+            }
           ],
+          "GALSAMA": [
+            {
+              "station": "EP BIMBA / A",
+              "voters": 425
+            }
+          ],
+          "YALOU": [
+            {
+              "station": "EP BIMBA / A",
+              "voters": 425
+            }
+          ],
+          "BIMLEROU": [
+            {
+              "station": "EP BIMLEROU / A",
+              "voters": 202
+            }
+          ],
+          "KASSALA": [
+            {
+              "station": "EP BIMLEROU / A",
+              "voters": 779
+            }
+          ],
+          "LIBROU-BIMLEROU": [
+            {
+              "station": "EP BIMLEROU / A",
+              "voters": 202
+            }
+          ],
+          "BOGDOU": [
+            {
+              "station": "EP BOGDOU / A",
+              "voters": 1078
+            }
+          ],
+          "DJARENDI": [
+            {
+              "station": "EP BOGDOU / A",
+              "voters": 662
+            }
+          ],
+          "SANA": [
+            {
+              "station": "EP BOGDOU / A",
+              "voters": 626
+            }
+          ],
+          "MAIKIDI": [
+            {
+              "station": "EP BOGDOU / A",
+              "voters": 255
+            }
+          ],
+          "NADERE": [
+            {
+              "station": "EP BOGDOU / A",
+              "voters": 626
+            }
+          ],
+          "KOMA": [
+            {
+              "station": "EP BOGDOU / A",
+              "voters": 313
+            }
+          ],
+          "PEREDOU": [
+            {
+              "station": "EP BOGDOU / A",
+              "voters": 525
+            }
+          ],
+          "SOUARI": [
+            {
+              "station": "EP BOGDOU / A",
+              "voters": 255
+            }
+          ],
+          "WALTEROU": [
+            {
+              "station": "EP BOGDOU / A",
+              "voters": 255
+            }
+          ],
+          "DENOU": [
+            {
+              "station": "EP DENOU-MANGA / A",
+              "voters": 492
+            }
+          ],
+          "DJOUBAOU": [
+            {
+              "station": "EP DENOU-MANGA / A",
+              "voters": 492
+            }
+          ],
+          "DENOU-MANGA": [
+            {
+              "station": "EP DENOU-MANGA / A",
+              "voters": 492
+            }
+          ],
+          "DJABE": [
+            {
+              "station": "EP DENOU-MANGA / A",
+              "voters": 1304
+            }
+          ],
+          "MAYO-SILBA": [
+            {
+              "station": "EP DENOU-MANGA / A",
+              "voters": 598
+            }
+          ],
+          "SIMKOLA": [
+            {
+              "station": "EP DENOU-MANGA / A",
+              "voters": 984
+            }
+          ],
+          "DOW": [
+            {
+              "station": "EP DENOU-MANGA / A",
+              "voters": 492
+            }
+          ],
+          "LESDI": [
+            {
+              "station": "EP DENOU-MANGA / A",
+              "voters": 492
+            }
+          ],
+          "DENOU-PETEL": [
+            {
+              "station": "EP DENOU-PETEL / A",
+              "voters": 181
+            }
+          ],
+          "VOGBA": [
+            {
+              "station": "EP DENOU-PETEL / A",
+              "voters": 181
+            }
+          ],
+          "BOUBA": [
+            {
+              "station": "EP DIDANGO / A",
+              "voters": 184
+            }
+          ],
+          "MAGAMI": [
+            {
+              "station": "EP DIDANGO / A",
+              "voters": 184
+            }
+          ],
+          "DIDANGO": [
+            {
+              "station": "EP DIDANGO / A",
+              "voters": 1131
+            }
+          ],
+          "NISSIRO": [
+            {
+              "station": "EP DIDANGO / A",
+              "voters": 184
+            }
+          ],
+          "DJAGOU": [
+            {
+              "station": "EP DJAGOU / A",
+              "voters": 145
+            }
+          ],
+          "DJAMPEOU": [
+            {
+              "station": "EP DJAGOU / A",
+              "voters": 344
+            }
+          ],
+          "YELBA": [
+            {
+              "station": "EP DJAGOU / A",
+              "voters": 409
+            }
+          ],
+          "DJALINGO-PONT": [
+            {
+              "station": "EP DJALINGO PONT / A",
+              "voters": 406
+            }
+          ],
+          "KESSOUM": [
+            {
+              "station": "EP DJALINGO PONT / A",
+              "voters": 406
+            }
+          ],
+          "BEGUE": [
+            {
+              "station": "EP DJALINGO VERE / A",
+              "voters": 413
+            }
+          ],
+          "DJALINGO-VERE": [
+            {
+              "station": "EP DJALINGO VERE / A",
+              "voters": 201
+            }
+          ],
+          "DJAMBOUTOU": [
+            {
+              "station": "EP DORBA / A",
+              "voters": 311
+            }
+          ],
+          "DORBA": [
+            {
+              "station": "EP DORBA / A",
+              "voters": 182
+            }
+          ],
+          "NATIRDE": [
+            {
+              "station": "EP DORBA / A",
+              "voters": 229
+            }
+          ],
+          "TONGO": [
+            {
+              "station": "EP DORBA / A",
+              "voters": 182
+            }
+          ],
+          "GBEUDWABA": [
+            {
+              "station": "EP GBEUDWABA / A",
+              "voters": 55
+            }
+          ],
+          "GUEDE": [
+            {
+              "station": "EP GUEDE / A",
+              "voters": 704
+            }
+          ],
+          "KOMBORO": [
+            {
+              "station": "EP GUEDE / A",
+              "voters": 492
+            }
+          ],
+          "LOUGGOUNDE": [
+            {
+              "station": "EP GUEDE / A",
+              "voters": 492
+            }
+          ],
+          "HALLANI": [
+            {
+              "station": "EP HALLANI / A",
+              "voters": 168
+            }
+          ],
+          "GAMNA": [
+            {
+              "station": "EP KARINE / A",
+              "voters": 443
+            }
+          ],
+          "KARINE": [
+            {
+              "station": "EP KARINE / A",
+              "voters": 443
+            }
+          ],
+          "LOUGGA": [
+            {
+              "station": "EP KARINE / A",
+              "voters": 570
+            }
+          ],
+          "MBELINE": [
+            {
+              "station": "EP KARINE / A",
+              "voters": 443
+            }
+          ],
+          "TATOURE": [
+            {
+              "station": "EP KARINE / A",
+              "voters": 443
+            }
+          ],
+          "VOMA": [
+            {
+              "station": "EP KASSALA VOMA / A",
+              "voters": 152
+            }
+          ],
+          "KOLOU-MANGA": [
+            {
+              "station": "EP KOLOU-MALKOGA / A",
+              "voters": 275
+            }
+          ],
+          "KOUDI": [
+            {
+              "station": "EP KOLOU-MALKOGA / A",
+              "voters": 275
+            }
+          ],
+          "KWARA": [
+            {
+              "station": "EP KOLOU-MALKOGA / A",
+              "voters": 275
+            }
+          ],
+          "BATBA": [
+            {
+              "station": "EP KOUBI / A",
+              "voters": 402
+            }
+          ],
+          "KOBLIMA": [
+            {
+              "station": "EP KOUBI / A",
+              "voters": 402
+            }
+          ],
+          "KOUBI": [
+            {
+              "station": "EP KOUBI / A",
+              "voters": 402
+            }
+          ],
+          "BISSORA": [
+            {
+              "station": "EP LARO / A",
+              "voters": 189
+            }
+          ],
+          "GAMOU": [
+            {
+              "station": "EP LARO / A",
+              "voters": 273
+            }
+          ],
+          "GAMO": [
+            {
+              "station": "EP LARO / A",
+              "voters": 189
+            }
+          ],
+          "LARO": [
+            {
+              "station": "EP LARO / A",
+              "voters": 378
+            }
+          ],
+          "MAYO": [
+            {
+              "station": "EP LARO / A",
+              "voters": 295
+            }
+          ],
+          "LOWOL": [
+            {
+              "station": "EP LOWOL / A",
+              "voters": 540
+            }
+          ],
+          "MALKOGA": [
+            {
+              "station": "EP MALKOGA / A",
+              "voters": 413
+            }
+          ],
+          "SAFIROU": [
+            {
+              "station": "EP MALKOGA / A",
+              "voters": 413
+            }
+          ],
+          "NYMDELOU": [
+            {
+              "station": "EP NYMDELOU / A",
+              "voters": 331
+            }
+          ],
+          "VOKBA": [
+            {
+              "station": "EP NYMDELOU / A",
+              "voters": 331
+            }
+          ],
+          "OGOLO": [
+            {
+              "station": "EP OGOLO / A",
+              "voters": 192
+            }
+          ],
+          "RABBO": [
+            {
+              "station": "EP OGOLO / A",
+              "voters": 192
+            }
+          ],
+          "KILA": [
+            {
+              "station": "EP OGOLO / A",
+              "voters": 192
+            }
+          ],
+          "AHMADOU": [
+            {
+              "station": "EP POMLA / A",
+              "voters": 434
+            }
+          ],
+          "DJOUGOUDOUM": [
+            {
+              "station": "EP POMLA / A",
+              "voters": 434
+            }
+          ],
+          "DANI": [
+            {
+              "station": "EP POMLA / A",
+              "voters": 434
+            }
+          ],
+          "KARI": [
+            {
+              "station": "EP POMLA / A",
+              "voters": 434
+            }
+          ],
+          "LENARA": [
+            {
+              "station": "EP POMLA / A",
+              "voters": 546
+            }
+          ],
+          "LIH": [
+            {
+              "station": "EP POMLA / A",
+              "voters": 434
+            }
+          ],
+          "POMLA": [
+            {
+              "station": "EP POMLA / A",
+              "voters": 1302
+            }
+          ],
+          "LIH-WANGAI": [
+            {
+              "station": "EP POMLA / A",
+              "voters": 434
+            }
+          ],
+          "SHEHOU": [
+            {
+              "station": "EP POMLA / A",
+              "voters": 434
+            }
+          ],
+          "WOURO": [
+            {
+              "station": "EP POMLA / A",
+              "voters": 3750
+            }
+          ],
+          "BEI": [
+            {
+              "station": "EP POMLA / A",
+              "voters": 434
+            }
+          ],
+          "KOLOU": [
+            {
+              "station": "EP SAPTOU / A",
+              "voters": 345
+            }
+          ],
+          "NAKALBA": [
+            {
+              "station": "EP SAPTOU / A",
+              "voters": 345
+            }
+          ],
+          "SAPTOU": [
+            {
+              "station": "EP SAPTOU / A",
+              "voters": 345
+            }
+          ],
+          "DINSI": [
+            {
+              "station": "EP TCHAMBA / A",
+              "voters": 947
+            }
+          ],
+          "MAILOUDOU": [
+            {
+              "station": "EP TCHAMBA / A",
+              "voters": 947
+            }
+          ],
+          "RIDINA": [
+            {
+              "station": "EP TCHAMBA / A",
+              "voters": 1181
+            }
+          ],
+          "SOFOL": [
+            {
+              "station": "EP TCHAMBA / A",
+              "voters": 1181
+            }
+          ],
+          "PANTI": [
+            {
+              "station": "EP TCHAMBA / A",
+              "voters": 947
+            }
+          ],
+          "PITOA-BEKA": [
+            {
+              "station": "EP TOUMBINDE / A",
+              "voters": 276
+            }
+          ],
+          "TOUMBIDE": [
+            {
+              "station": "EP TOUMBINDE / A",
+              "voters": 214
+            }
+          ],
+          "DANGANA": [
+            {
+              "station": "EP WADINGA / A",
+              "voters": 482
+            }
+          ],
+          "MALI": [
+            {
+              "station": "EP WADINGA / A",
+              "voters": 964
+            }
+          ],
+          "WADINGA": [
+            {
+              "station": "EP WADINGA / A",
+              "voters": 276
+            }
+          ],
+          "BASSOUNOU": [
+            {
+              "station": "EP WANGAI / A",
+              "voters": 545
+            }
+          ],
+          "DAMASSI": [
+            {
+              "station": "EP WANGAI / A",
+              "voters": 545
+            }
+          ],
+          "GUELBA": [
+            {
+              "station": "EP WANGAI / A",
+              "voters": 545
+            }
+          ],
+          "WANGAI": [
+            {
+              "station": "EP WANGAI / A",
+              "voters": 636
+            }
+          ],
+          "YELLI": [
+            {
+              "station": "EP YELLI- MANGA / A",
+              "voters": 330
+            }
+          ],
+          "-PETEL": [
+            {
+              "station": "EP YELLI- MANGA / A",
+              "voters": 330
+            }
+          ],
+          "YELLI-MANGA": [
+            {
+              "station": "EP YELLI- MANGA / A",
+              "voters": 330
+            }
+          ],
+          "KOLGOU": [
+            {
+              "station": "ESPL CHEF KOLGOU / A",
+              "voters": 221
+            }
+          ],
+          "MAYO-NGNIWA": [
+            {
+              "station": "ESPL CHEF MAYO NGNIWA / A",
+              "voters": 106
+            }
+          ],
+          "BOGUE": [
+            {
+              "station": "ESPL CHEF MOUGUENI / A",
+              "voters": 182
+            }
+          ],
+          "TCHAMBA": [
+            {
+              "station": "ESPL CHEF MOUGUENI / A",
+              "voters": 2874
+            }
+          ],
+          "FOLSI": [
+            {
+              "station": "ESPL CHEF MOUGUENI / A",
+              "voters": 91
+            }
+          ],
+          "MOUGUENI": [
+            {
+              "station": "ESPL CHEF MOUGUENI / A",
+              "voters": 91
+            }
+          ],
+          "ZAMNI": [
+            {
+              "station": "ESPL CHEF MOUGUENI / A",
+              "voters": 91
+            }
+          ],
+          "LIWA": [
+            {
+              "station": "ESPL CHEF NDINTIRE WANGAI / A",
+              "voters": 235
+            }
+          ],
+          "NDINGTIRE-WANGAI": [
+            {
+              "station": "ESPL CHEF NDINTIRE WANGAI / A",
+              "voters": 235
+            }
+          ],
+          "SASSI": [
+            {
+              "station": "ESPL CHEF NDINTIRE WANGAI / A",
+              "voters": 235
+            }
+          ],
+          "SOULABE": [
+            {
+              "station": "ESPL CHEF NDINTIRE WANGAI / A",
+              "voters": 235
+            }
+          ],
+          "MBAI": [
+            {
+              "station": "ESPL CHEF NDINTIRE WANGAI / A",
+              "voters": 235
+            }
+          ],
+          "BORI": [
+            {
+              "station": "ESPL CHEF WARDI / A",
+              "voters": 87
+            }
+          ],
+          "GALI": [
+            {
+              "station": "ESPL CHEF WARDI / A",
+              "voters": 87
+            }
+          ],
+          "KOMNI": [
+            {
+              "station": "ESPL CHEF WARDI / A",
+              "voters": 87
+            }
+          ],
+          "GUERI": [
+            {
+              "station": "ESPL CHEF WARDI / A",
+              "voters": 87
+            }
+          ],
+          "WARDI": [
+            {
+              "station": "ESPL CHEF WARDI / A",
+              "voters": 87
+            }
+          ],
+          "KOLONTI": [
+            {
+              "station": "ESPL CHEF YELBA / A",
+              "voters": 132
+            }
+          ],
+          "BOUNOU": [
+            {
+              "station": "ESPL CHEFWOURO BOUNOU / A",
+              "voters": 261
+            }
+          ],
+          "DOLE": [
+            {
+              "station": "ESPL CHEFWOURO BOUNOU / A",
+              "voters": 261
+            }
+          ],
+          "SIKO": [
+            {
+              "station": "ESPL CHEFWOURO BOUNOU / A",
+              "voters": 261
+            }
+          ],
+          "SIRA": [
+            {
+              "station": "ESPL CHEFWOURO BOUNOU / A",
+              "voters": 347
+            }
+          ]
         },
         "POLI": {
-          "CASE COMMUNAUTAIRE DE BALANE / A": [
+          "LAKBAI": [
             {
-              station: "LAKBAI",
-              voters: 752
-            },
-            {
-              station: "BALANE",
-              voters: 836
-            },
+              "station": "CASE COMMUNAUTAIRE DE BALANE / A",
+              "voters": 752
+            }
           ],
-          "CASE DE SANTE NINGA / A": [
+          "BALANE": [
             {
-              station: "DITE",
-              voters: 159
-            },
-            {
-              station: "GORE",
-              voters: 159
-            },
-            {
-              station: "NAMBAVA",
-              voters: 159
-            },
-            {
-              station: "NINGA",
-              voters: 159
-            },
-            {
-              station: "TCHABAL",
-              voters: 233
-            },
-            {
-              station: "-NINGA",
-              voters: 159
-            },
-            {
-              station: "TOUNE",
-              voters: 159
-            },
-            {
-              station: "VAKOE",
-              voters: 159
-            },
-            {
-              station: "WADE",
-              voters: 159
-            },
-            {
-              station: "YEGO",
-              voters: 159
-            },
+              "station": "CASE COMMUNAUTAIRE DE BALANE / A",
+              "voters": 836
+            }
           ],
-          "DELEGATION AGRICULTURE / A": [
+          "DITE": [
             {
-              station: "BAKDONKO",
-              voters: 1364
-            },
-            {
-              station: "BIBEMIRE",
-              voters: 911
-            },
-            {
-              station: "SABONGARI",
-              voters: 911
-            },
+              "station": "CASE DE SANTE NINGA / A",
+              "voters": 159
+            }
           ],
-          "DELEGATION DES MINES / A": [
+          "GORE": [
             {
-              station: "BOUNDJE",
-              voters: 618
-            },
-            {
-              station: "NIBANGO",
-              voters: 1097
-            },
+              "station": "CASE DE SANTE NINGA / A",
+              "voters": 159
+            }
           ],
-          "ECOLE CATHO YOBO / A": [
+          "NAMBAVA": [
             {
-              station: "DENKTE",
-              voters: 394
-            },
-            {
-              station: "PATE-GOLE",
-              voters: 394
-            },
-            {
-              station: "TAMDJAL",
-              voters: 394
-            },
-            {
-              station: "YOBO",
-              voters: 394
-            },
-            {
-              station: "YORINI",
-              voters: 394
-            },
+              "station": "CASE DE SANTE NINGA / A",
+              "voters": 159
+            }
           ],
-          "ECOLE DES PARENTS DONKO / A": [
+          "NINGA": [
             {
-              station: "BOULE",
-              voters: 538
-            },
-            {
-              station: "DEMTE",
-              voters: 175
-            },
-            {
-              station: "DONKO-CENTRE",
-              voters: 175
-            },
+              "station": "CASE DE SANTE NINGA / A",
+              "voters": 159
+            }
           ],
-          "ECOLE PROT POLI-WANGO / A": [
+          "TCHABAL": [
             {
-              station: "BADONGO",
-              voters: 453
-            },
-            {
-              station: "BOUSWALE",
-              voters: 840
-            },
-            {
-              station: "PETEL",
-              voters: 453
-            },
-            {
-              station: "NABARO",
-              voters: 453
-            },
-            {
-              station: "TIRGA",
-              voters: 453
-            },
+              "station": "CASE DE SANTE NINGA / A",
+              "voters": 233
+            }
           ],
-          "EM BILINGUE POLI / A": [
+          "-NINGA": [
             {
-              station: "DOUPA",
-              voters: 742
-            },
-            {
-              station: "TONGO",
-              voters: 742
-            },
+              "station": "CASE DE SANTE NINGA / A",
+              "voters": 159
+            }
           ],
-          "EP BANTADJE / A": [
+          "TOUNE": [
             {
-              station: "BANTADJE",
-              voters: 491
-            },
-            {
-              station: "DJALINGO",
-              voters: 404
-            },
-            {
-              station: "PELBOU",
-              voters: 404
-            },
-            {
-              station: "POMLA",
-              voters: 404
-            },
-            {
-              station: "POUKSA",
-              voters: 404
-            },
-            {
-              station: "SIGARI",
-              voters: 404
-            },
+              "station": "CASE DE SANTE NINGA / A",
+              "voters": 159
+            }
           ],
-          "EP BEKA SEKO / A": [
+          "VAKOE": [
             {
-              station: "BEKA",
-              voters: 178
-            },
-            {
-              station: "SEKO",
-              voters: 178
-            },
-            {
-              station: "BOROYA",
-              voters: 631
-            },
-            {
-              station: "WALE",
-              voters: 631
-            },
-            {
-              station: "HEPTILELE",
-              voters: 178
-            },
+              "station": "CASE DE SANTE NINGA / A",
+              "voters": 159
+            }
           ],
-          "EP BERE / A": [
+          "WADE": [
             {
-              station: "BAKTE",
-              voters: 220
-            },
-            {
-              station: "BERE",
-              voters: 220
-            },
-            {
-              station: "DJENGO",
-              voters: 220
-            },
-            {
-              station: "DJOGO",
-              voters: 379
-            },
-            {
-              station: "HEPPA",
-              voters: 220
-            },
-            {
-              station: "PIPAH",
-              voters: 220
-            },
-            {
-              station: "RINGO",
-              voters: 220
-            },
-            {
-              station: "SEKO-BOKO",
-              voters: 220
-            },
+              "station": "CASE DE SANTE NINGA / A",
+              "voters": 159
+            }
           ],
-          "EP BOULKO / A": [
+          "YEGO": [
             {
-              station: "BOLELE",
-              voters: 387
-            },
-            {
-              station: "BOULKO",
-              voters: 387
-            },
-            {
-              station: "DETTA",
-              voters: 387
-            },
-            {
-              station: "KOUMSDONGO",
-              voters: 387
-            },
-            {
-              station: "MOUTTO",
-              voters: 387
-            },
-            {
-              station: "TOUPTE",
-              voters: 473
-            },
+              "station": "CASE DE SANTE NINGA / A",
+              "voters": 159
+            }
           ],
-          "EP BOUMBA / A": [
+          "BAKDONKO": [
             {
-              station: "BOUMBA",
-              voters: 1094
-            },
-            {
-              station: "BOUPI",
-              voters: 615
-            },
-            {
-              station: "GAGUIBA",
-              voters: 615
-            },
-            {
-              station: "GANDJIBA",
-              voters: 847
-            },
-            {
-              station: "KOGNAKBA",
-              voters: 615
-            },
-            {
-              station: "POTTI",
-              voters: 615
-            },
-            {
-              station: "SERI-BOUMBA",
-              voters: 615
-            },
-            {
-              station: "TEGUI-BOUMBA",
-              voters: 615
-            },
+              "station": "DELEGATION AGRICULTURE / A",
+              "voters": 1364
+            }
           ],
-          "EP DE WOURO MBAI / A": [
+          "BIBEMIRE": [
             {
-              station: "ROUBE",
-              voters: 343
-            },
+              "station": "DELEGATION AGRICULTURE / A",
+              "voters": 911
+            }
           ],
-          "EP DJALINGO-KONGLE / A": [
+          "SABONGARI": [
             {
-              station: "DJALINGO-KONGLE",
-              voters: 268
-            },
+              "station": "DELEGATION AGRICULTURE / A",
+              "voters": 911
+            }
           ],
-          "EP DJOUMTE / A": [
+          "BOUNDJE": [
             {
-              station: "BOLI",
-              voters: 465
-            },
-            {
-              station: "DJOREITO",
-              voters: 465
-            },
-            {
-              station: "DJOUMTE",
-              voters: 918
-            },
-            {
-              station: "SIRKOLCHI",
-              voters: 465
-            },
-            {
-              station: "SISSI",
-              voters: 704
-            },
-            {
-              station: "TEKSA",
-              voters: 465
-            },
+              "station": "DELEGATION DES MINES / A",
+              "voters": 618
+            }
           ],
-          "EP DOTRO / A": [
+          "NIBANGO": [
             {
-              station: "BETE",
-              voters: 182
-            },
-            {
-              station: "DOTRO",
-              voters: 182
-            },
-            {
-              station: "GUIDING",
-              voters: 182
-            },
-            {
-              station: "WEBAKO",
-              voters: 182
-            },
+              "station": "DELEGATION DES MINES / A",
+              "voters": 1097
+            }
           ],
-          "EP FIGNOLE / A": [
+          "DENKTE": [
             {
-              station: "DENGUERE",
-              voters: 462
-            },
-            {
-              station: "DONE",
-              voters: 462
-            },
-            {
-              station: "FIGNOLE",
-              voters: 462
-            },
-            {
-              station: "GOURKO",
-              voters: 462
-            },
-            {
-              station: "KIMLA",
-              voters: 462
-            },
-            {
-              station: "NOTCHA",
-              voters: 462
-            },
-            {
-              station: "SERVEI",
-              voters: 462
-            },
+              "station": "ECOLE CATHO YOBO / A",
+              "voters": 394
+            }
           ],
-          "EP GAHANBA / A": [
+          "PATE-GOLE": [
             {
-              station: "BGAGUI",
-              voters: 255
-            },
-            {
-              station: "DJOGUI",
-              voters: 255
-            },
-            {
-              station: "GAGUI",
-              voters: 255
-            },
-            {
-              station: "GAHANBA",
-              voters: 607
-            },
-            {
-              station: "LEGUI",
-              voters: 255
-            },
-            {
-              station: "NA'",
-              voters: 255
-            },
-            {
-              station: "ABA",
-              voters: 255
-            },
-            {
-              station: "SEBI",
-              voters: 255
-            },
+              "station": "ECOLE CATHO YOBO / A",
+              "voters": 394
+            }
           ],
-          "EP GANDABA / A": [
+          "TAMDJAL": [
             {
-              station: "LOUGUERE",
-              voters: 74
-            },
-            {
-              station: "GANDABA",
-              voters: 74
-            },
+              "station": "ECOLE CATHO YOBO / A",
+              "voters": 394
+            }
           ],
-          "EP GARE / A": [
+          "YOBO": [
             {
-              station: "BOUDE",
-              voters: 252
-            },
-            {
-              station: "BOUMSE",
-              voters: 252
-            },
-            {
-              station: "DEMBAKO",
-              voters: 252
-            },
-            {
-              station: "GAOGUI",
-              voters: 252
-            },
-            {
-              station: "GARE",
-              voters: 252
-            },
-            {
-              station: "HERKO",
-              voters: 252
-            },
-            {
-              station: "SAMO",
-              voters: 252
-            },
+              "station": "ECOLE CATHO YOBO / A",
+              "voters": 394
+            }
           ],
-          "EP GODE / A": [
+          "YORINI": [
             {
-              station: "KPENGEN",
-              voters: 677
-            },
-            {
-              station: "MALWADOU",
-              voters: 677
-            },
+              "station": "ECOLE CATHO YOBO / A",
+              "voters": 394
+            }
           ],
-          "EP GOMBO / A": [
+          "BOULE": [
             {
-              station: "DASSIDONGO",
-              voters: 214
-            },
-            {
-              station: "GOMBO",
-              voters: 214
-            },
-            {
-              station: "TAKO",
-              voters: 214
-            },
+              "station": "ECOLE DES PARENTS DONKO / A",
+              "voters": 538
+            }
           ],
-          "EP GOMPOU / A": [
+          "DEMTE": [
             {
-              station: "ALKALI",
-              voters: 248
-            },
-            {
-              station: "GODE",
-              voters: 925
-            },
-            {
-              station: "BOKARE",
-              voters: 248
-            },
-            {
-              station: "DJASSA",
-              voters: 248
-            },
-            {
-              station: "DJOUGLA",
-              voters: 248
-            },
-            {
-              station: "GOMPOU",
-              voters: 248
-            },
-            {
-              station: "KALBINGA",
-              voters: 652
-            },
-            {
-              station: "ANCIEN",
-              voters: 496
-            },
-            {
-              station: "MANGZANG",
-              voters: 248
-            },
-            {
-              station: "SINGBA",
-              voters: 652
-            },
-            {
-              station: "VAAKOUA",
-              voters: 248
-            },
-            {
-              station: "WANGBA",
-              voters: 248
-            },
+              "station": "ECOLE DES PARENTS DONKO / A",
+              "voters": 175
+            }
           ],
-          "EP GORMAYA / A": [
+          "DONKO-CENTRE": [
             {
-              station: "BASSODJE",
-              voters: 680
-            },
-            {
-              station: "DELENGUE",
-              voters: 552
-            },
-            {
-              station: "GORMAYA",
-              voters: 895
-            },
-            {
-              station: "GUITO",
-              voters: 1238
-            },
-            {
-              station: "SALAKI",
-              voters: 1238
-            },
-            {
-              station: "SOUARI",
-              voters: 552
-            },
-            {
-              station: "WOURO",
-              voters: 1790
-            },
-            {
-              station: "KILA",
-              voters: 552
-            },
-            {
-              station: "MBAI",
-              voters: 1238
-            },
+              "station": "ECOLE DES PARENTS DONKO / A",
+              "voters": 175
+            }
           ],
-          "EP GR I / A": [
+          "BADONGO": [
             {
-              station: "BOUKO",
-              voters: 442
-            },
-            {
-              station: "LOPERE",
-              voters: 442
-            },
-            {
-              station: "STADE",
-              voters: 442
-            },
+              "station": "ECOLE PROT POLI-WANGO / A",
+              "voters": 453
+            }
           ],
-          "EP HOY / A": [
+          "BOUSWALE": [
             {
-              station: "HOM",
-              voters: 352
-            },
-            {
-              station: "HOY",
-              voters: 352
-            },
-            {
-              station: "NOGUI",
-              voters: 352
-            },
-            {
-              station: "SERI",
-              voters: 352
-            },
-            {
-              station: "TEGUI",
-              voters: 352
-            },
-            {
-              station: "TORGUI",
-              voters: 352
-            },
-            {
-              station: "WANTE",
-              voters: 352
-            },
+              "station": "ECOLE PROT POLI-WANGO / A",
+              "voters": 840
+            }
           ],
-          "EP KONGLE / A": [
+          "PETEL": [
             {
-              station: "DOPITI",
-              voters: 350
-            },
-            {
-              station: "KONGLE",
-              voters: 350
-            },
-            {
-              station: "MPAH",
-              voters: 350
-            },
-            {
-              station: "NALOUKBAROU",
-              voters: 350
-            },
-            {
-              station: "SAMBARO",
-              voters: 350
-            },
-            {
-              station: "WAKIRI",
-              voters: 350
-            },
+              "station": "ECOLE PROT POLI-WANGO / A",
+              "voters": 453
+            }
           ],
-          "EP KOURTESSE / A": [
+          "NABARO": [
             {
-              station: "BEKA-ILOU",
-              voters: 393
-            },
-            {
-              station: "KOURTESSE",
-              voters: 393
-            },
-            {
-              station: "SANGUERE",
-              voters: 393
-            },
-            {
-              station: "TARTESSE",
-              voters: 393
-            },
-            {
-              station: "WOURO-KESSOUM",
-              voters: 393
-            },
+              "station": "ECOLE PROT POLI-WANGO / A",
+              "voters": 453
+            }
           ],
-          "EP LAGBAI / A": [
+          "TIRGA": [
             {
-              station: "LAGBA",
-              voters: 334
-            },
+              "station": "ECOLE PROT POLI-WANGO / A",
+              "voters": 453
+            }
           ],
-          "EP MANA / A": [
+          "DOUPA": [
             {
-              station: "BILAOU",
-              voters: 279
-            },
-            {
-              station: "DJONONTI",
-              voters: 279
-            },
-            {
-              station: "DOUGOUDOUGOU",
-              voters: 279
-            },
-            {
-              station: "DOUROU-SAKA",
-              voters: 347
-            },
-            {
-              station: "GAOUDOU",
-              voters: 279
-            },
-            {
-              station: "GARANTI",
-              voters: 279
-            },
-            {
-              station: "KAOUFAL",
-              voters: 279
-            },
-            {
-              station: "KOUNGOU-WATI",
-              voters: 279
-            },
-            {
-              station: "LAKAPOU",
-              voters: 279
-            },
-            {
-              station: "MAMBI",
-              voters: 279
-            },
-            {
-              station: "MANA",
-              voters: 279
-            },
-            {
-              station: "SABONGARI-MANA",
-              voters: 279
-            },
+              "station": "EM BILINGUE POLI / A",
+              "voters": 742
+            }
           ],
-          "EP MANGO / A": [
+          "TONGO": [
             {
-              station: "DAI",
-              voters: 583
-            },
-            {
-              station: "DEMBOULKO",
-              voters: 583
-            },
-            {
-              station: "HOULE",
-              voters: 583
-            },
-            {
-              station: "LONGTE",
-              voters: 583
-            },
-            {
-              station: "MANGATI",
-              voters: 583
-            },
-            {
-              station: "MANGO",
-              voters: 583
-            },
-            {
-              station: "NAKIRE",
-              voters: 583
-            },
-            {
-              station: "NIETCHE",
-              voters: 583
-            },
-            {
-              station: "SAGO",
-              voters: 583
-            },
-            {
-              station: "TOKTE",
-              voters: 583
-            },
+              "station": "EM BILINGUE POLI / A",
+              "voters": 742
+            }
           ],
-          "EP MARKA / A": [
+          "BANTADJE": [
             {
-              station: "HOLLE",
-              voters: 305
-            },
-            {
-              station: "MARKA",
-              voters: 305
-            },
-            {
-              station: "NGNAGUI",
-              voters: 305
-            },
-            {
-              station: "SAARI",
-              voters: 305
-            },
-            {
-              station: "SINTE",
-              voters: 305
-            },
+              "station": "EP BANTADJE / A",
+              "voters": 491
+            }
           ],
-          "EP MASSINA / A": [
+          "DJALINGO": [
             {
-              station: "MASSINA",
-              voters: 224
-            },
+              "station": "EP BANTADJE / A",
+              "voters": 404
+            }
           ],
-          "EP MAYO DJARENDI / A": [
+          "PELBOU": [
             {
-              station: "DJONGUE",
-              voters: 260
-            },
-            {
-              station: "MAYO-DJARENDI",
-              voters: 260
-            },
-            {
-              station: "META-NDIAM",
-              voters: 260
-            },
-            {
-              station: "NGOUTIRI",
-              voters: 260
-            },
-            {
-              station: "TAROUA",
-              voters: 260
-            },
+              "station": "EP BANTADJE / A",
+              "voters": 404
+            }
           ],
-          "EP MAYO LEMPTE / A": [
+          "POMLA": [
             {
-              station: "MAYO-LEMPTE",
-              voters: 284
-            },
+              "station": "EP BANTADJE / A",
+              "voters": 404
+            }
           ],
-          "EP OURO DJAMAN / C": [
+          "POUKSA": [
             {
-              station: "OURO",
-              voters: 354
-            },
-            {
-              station: "DJAMAN",
-              voters: 118
-            },
+              "station": "EP BANTADJE / A",
+              "voters": 404
+            }
           ],
-          "EP OURO KESSOUM POLI / A": [
+          "SIGARI": [
             {
-              station: "KESSOUM",
-              voters: 236
-            },
-            {
-              station: "POLI",
-              voters: 149
-            },
+              "station": "EP BANTADJE / A",
+              "voters": 404
+            }
           ],
-          "EP PAKSE / A": [
+          "BEKA": [
             {
-              station: "FARKOMO",
-              voters: 271
-            },
-            {
-              station: "PAKSE",
-              voters: 271
-            },
+              "station": "EP BEKA SEKO / A",
+              "voters": 178
+            }
           ],
-          "EP PATE MANGA / A": [
+          "SEKO": [
             {
-              station: "LENGUERBA",
-              voters: 632
-            },
-            {
-              station: "LONGOTE",
-              voters: 632
-            },
-            {
-              station: "PATE-MANGA",
-              voters: 632
-            },
-            {
-              station: "PATE-PETEL",
-              voters: 632
-            },
-            {
-              station: "WOURO-KESSOUM/PATE",
-              voters: 632
-            },
-            {
-              station: "MANGA",
-              voters: 632
-            },
+              "station": "EP BEKA SEKO / A",
+              "voters": 178
+            }
           ],
-          "EP PINTCHOUMBA / A": [
+          "BOROYA": [
             {
-              station: "GUERI",
-              voters: 742
-            },
-            {
-              station: "HAKATI",
-              voters: 742
-            },
-            {
-              station: "HATI",
-              voters: 742
-            },
-            {
-              station: "PINTCHOUMBA",
-              voters: 3452
-            },
-            {
-              station: "WINDE",
-              voters: 2051
-            },
-            {
-              station: "WINDE-PINTCHOUMBA",
-              voters: 1401
-            },
-            {
-              station: "WOTTI",
-              voters: 1546
-            },
+              "station": "EP BEKA SEKO / A",
+              "voters": 631
+            }
           ],
-          "EP RIGA / A": [
+          "WALE": [
             {
-              station: "GOPSE",
-              voters: 226
-            },
-            {
-              station: "GOSSE",
-              voters: 226
-            },
-            {
-              station: "RIGA",
-              voters: 226
-            },
-            {
-              station: "SANGUE",
-              voters: 226
-            },
-            {
-              station: "WARE",
-              voters: 483
-            },
+              "station": "EP BEKA SEKO / A",
+              "voters": 631
+            }
           ],
-          "EP SIRDJAM / A": [
+          "HEPTILELE": [
             {
-              station: "DOZE",
-              voters: 985
-            },
-            {
-              station: "SIRDJAM",
-              voters: 985
-            },
-            {
-              station: "SIRLAWE",
-              voters: 1163
-            },
+              "station": "EP BEKA SEKO / A",
+              "voters": 178
+            }
           ],
-          "EP TAPARE / A": [
+          "BAKTE": [
             {
-              station: "BOCKI",
-              voters: 220
-            },
-            {
-              station: "DAGDONGO",
-              voters: 220
-            },
-            {
-              station: "TAPARE",
-              voters: 220
-            },
-            {
-              station: "TRAVO",
-              voters: 220
-            },
+              "station": "EP BERE / A",
+              "voters": 220
+            }
           ],
-          "EP TETE / A": [
+          "BERE": [
             {
-              station: "BARIGTE",
-              voters: 434
-            },
-            {
-              station: "BATE",
-              voters: 434
-            },
-            {
-              station: "NASSARAO",
-              voters: 1576
-            },
-            {
-              station: "/TETE",
-              voters: 434
-            },
-            {
-              station: "PONDE",
-              voters: 434
-            },
-            {
-              station: "TETE",
-              voters: 434
-            },
-            {
-              station: "YERNAMBO",
-              voters: 434
-            },
+              "station": "EP BERE / A",
+              "voters": 220
+            }
           ],
-          "EP WATE / A": [
+          "DJENGO": [
             {
-              station: "BATILBAKO",
-              voters: 376
-            },
-            {
-              station: "GOUNDE",
-              voters: 376
-            },
-            {
-              station: "WATE",
-              voters: 376
-            },
+              "station": "EP BERE / A",
+              "voters": 220
+            }
           ],
-          "EP YELLE / A": [
+          "DJOGO": [
             {
-              station: "HONLE",
-              voters: 190
-            },
-            {
-              station: "TORME",
-              voters: 190
-            },
-            {
-              station: "YELLE",
-              voters: 190
-            },
+              "station": "EP BERE / A",
+              "voters": 379
+            }
           ],
-          "ESPL CHEF BANGWABA / A": [
+          "HEPPA": [
             {
-              station: "BANGWABA",
-              voters: 162
-            },
+              "station": "EP BERE / A",
+              "voters": 220
+            }
           ],
-          "ESPL CHEF DOULE / A": [
+          "PIPAH": [
             {
-              station: "BOLI/DOULE",
-              voters: 149
-            },
-            {
-              station: "DOULE",
-              voters: 149
-            },
-            {
-              station: "GUITCHA",
-              voters: 149
-            },
+              "station": "EP BERE / A",
+              "voters": 220
+            }
           ],
-          "ESPL CHEF FIGNOLE / A": [
+          "RINGO": [
             {
-              station: "BALKOA",
-              voters: 171
-            },
-            {
-              station: "BANDE",
-              voters: 171
-            },
-            {
-              station: "KEBOULI",
-              voters: 171
-            },
-            {
-              station: "NANGWALE",
-              voters: 171
-            },
-            {
-              station: "NAZARETT",
-              voters: 171
-            },
-            {
-              station: "NINTELI",
-              voters: 171
-            },
+              "station": "EP BERE / A",
+              "voters": 220
+            }
           ],
-          "ESPL CHEF SELLOU / A": [
+          "SEKO-BOKO": [
             {
-              station: "SELLOU",
-              voters: 113
-            },
+              "station": "EP BERE / A",
+              "voters": 220
+            }
           ],
-          "ESPL CHEF SIKO / A": [
+          "BOLELE": [
             {
-              station: "BERINGTE",
-              voters: 188
-            },
-            {
-              station: "GNOREGOU",
-              voters: 188
-            },
-            {
-              station: "SIKO",
-              voters: 188
-            },
-            {
-              station: "WALTESSE",
-              voters: 188
-            },
+              "station": "EP BOULKO / A",
+              "voters": 387
+            }
           ],
-          "MAIRIE / A": [
+          "BOULKO": [
             {
-              station: "DJALINGO-POLI",
-              voters: 887
-            },
-            {
-              station: "KOUSSILE",
-              voters: 1287
-            },
-            {
-              station: "LAINDE",
-              voters: 699
-            },
-            {
-              station: "LAMORDE",
-              voters: 887
-            },
+              "station": "EP BOULKO / A",
+              "voters": 387
+            }
           ],
-        },
+          "DETTA": [
+            {
+              "station": "EP BOULKO / A",
+              "voters": 387
+            }
+          ],
+          "KOUMSDONGO": [
+            {
+              "station": "EP BOULKO / A",
+              "voters": 387
+            }
+          ],
+          "MOUTTO": [
+            {
+              "station": "EP BOULKO / A",
+              "voters": 387
+            }
+          ],
+          "TOUPTE": [
+            {
+              "station": "EP BOULKO / A",
+              "voters": 473
+            }
+          ],
+          "BOUMBA": [
+            {
+              "station": "EP BOUMBA / A",
+              "voters": 1094
+            }
+          ],
+          "BOUPI": [
+            {
+              "station": "EP BOUMBA / A",
+              "voters": 615
+            }
+          ],
+          "GAGUIBA": [
+            {
+              "station": "EP BOUMBA / A",
+              "voters": 615
+            }
+          ],
+          "GANDJIBA": [
+            {
+              "station": "EP BOUMBA / A",
+              "voters": 847
+            }
+          ],
+          "KOGNAKBA": [
+            {
+              "station": "EP BOUMBA / A",
+              "voters": 615
+            }
+          ],
+          "POTTI": [
+            {
+              "station": "EP BOUMBA / A",
+              "voters": 615
+            }
+          ],
+          "SERI-BOUMBA": [
+            {
+              "station": "EP BOUMBA / A",
+              "voters": 615
+            }
+          ],
+          "TEGUI-BOUMBA": [
+            {
+              "station": "EP BOUMBA / A",
+              "voters": 615
+            }
+          ],
+          "ROUBE": [
+            {
+              "station": "EP DE WOURO MBAI / A",
+              "voters": 343
+            }
+          ],
+          "DJALINGO-KONGLE": [
+            {
+              "station": "EP DJALINGO-KONGLE / A",
+              "voters": 268
+            }
+          ],
+          "BOLI": [
+            {
+              "station": "EP DJOUMTE / A",
+              "voters": 465
+            }
+          ],
+          "DJOREITO": [
+            {
+              "station": "EP DJOUMTE / A",
+              "voters": 465
+            }
+          ],
+          "DJOUMTE": [
+            {
+              "station": "EP DJOUMTE / A",
+              "voters": 918
+            }
+          ],
+          "SIRKOLCHI": [
+            {
+              "station": "EP DJOUMTE / A",
+              "voters": 465
+            }
+          ],
+          "SISSI": [
+            {
+              "station": "EP DJOUMTE / A",
+              "voters": 704
+            }
+          ],
+          "TEKSA": [
+            {
+              "station": "EP DJOUMTE / A",
+              "voters": 465
+            }
+          ],
+          "BETE": [
+            {
+              "station": "EP DOTRO / A",
+              "voters": 182
+            }
+          ],
+          "DOTRO": [
+            {
+              "station": "EP DOTRO / A",
+              "voters": 182
+            }
+          ],
+          "GUIDING": [
+            {
+              "station": "EP DOTRO / A",
+              "voters": 182
+            }
+          ],
+          "WEBAKO": [
+            {
+              "station": "EP DOTRO / A",
+              "voters": 182
+            }
+          ],
+          "DENGUERE": [
+            {
+              "station": "EP FIGNOLE / A",
+              "voters": 462
+            }
+          ],
+          "DONE": [
+            {
+              "station": "EP FIGNOLE / A",
+              "voters": 462
+            }
+          ],
+          "FIGNOLE": [
+            {
+              "station": "EP FIGNOLE / A",
+              "voters": 462
+            }
+          ],
+          "GOURKO": [
+            {
+              "station": "EP FIGNOLE / A",
+              "voters": 462
+            }
+          ],
+          "KIMLA": [
+            {
+              "station": "EP FIGNOLE / A",
+              "voters": 462
+            }
+          ],
+          "NOTCHA": [
+            {
+              "station": "EP FIGNOLE / A",
+              "voters": 462
+            }
+          ],
+          "SERVEI": [
+            {
+              "station": "EP FIGNOLE / A",
+              "voters": 462
+            }
+          ],
+          "BGAGUI": [
+            {
+              "station": "EP GAHANBA / A",
+              "voters": 255
+            }
+          ],
+          "DJOGUI": [
+            {
+              "station": "EP GAHANBA / A",
+              "voters": 255
+            }
+          ],
+          "GAGUI": [
+            {
+              "station": "EP GAHANBA / A",
+              "voters": 255
+            }
+          ],
+          "GAHANBA": [
+            {
+              "station": "EP GAHANBA / A",
+              "voters": 607
+            }
+          ],
+          "LEGUI": [
+            {
+              "station": "EP GAHANBA / A",
+              "voters": 255
+            }
+          ],
+          "NA'": [
+            {
+              "station": "EP GAHANBA / A",
+              "voters": 255
+            }
+          ],
+          "ABA": [
+            {
+              "station": "EP GAHANBA / A",
+              "voters": 255
+            }
+          ],
+          "SEBI": [
+            {
+              "station": "EP GAHANBA / A",
+              "voters": 255
+            }
+          ],
+          "LOUGUERE": [
+            {
+              "station": "EP GANDABA / A",
+              "voters": 74
+            }
+          ],
+          "GANDABA": [
+            {
+              "station": "EP GANDABA / A",
+              "voters": 74
+            }
+          ],
+          "BOUDE": [
+            {
+              "station": "EP GARE / A",
+              "voters": 252
+            }
+          ],
+          "BOUMSE": [
+            {
+              "station": "EP GARE / A",
+              "voters": 252
+            }
+          ],
+          "DEMBAKO": [
+            {
+              "station": "EP GARE / A",
+              "voters": 252
+            }
+          ],
+          "GAOGUI": [
+            {
+              "station": "EP GARE / A",
+              "voters": 252
+            }
+          ],
+          "GARE": [
+            {
+              "station": "EP GARE / A",
+              "voters": 252
+            }
+          ],
+          "HERKO": [
+            {
+              "station": "EP GARE / A",
+              "voters": 252
+            }
+          ],
+          "SAMO": [
+            {
+              "station": "EP GARE / A",
+              "voters": 252
+            }
+          ],
+          "KPENGEN": [
+            {
+              "station": "EP GODE / A",
+              "voters": 677
+            }
+          ],
+          "MALWADOU": [
+            {
+              "station": "EP GODE / A",
+              "voters": 677
+            }
+          ],
+          "DASSIDONGO": [
+            {
+              "station": "EP GOMBO / A",
+              "voters": 214
+            }
+          ],
+          "GOMBO": [
+            {
+              "station": "EP GOMBO / A",
+              "voters": 214
+            }
+          ],
+          "TAKO": [
+            {
+              "station": "EP GOMBO / A",
+              "voters": 214
+            }
+          ],
+          "ALKALI": [
+            {
+              "station": "EP GOMPOU / A",
+              "voters": 248
+            }
+          ],
+          "GODE": [
+            {
+              "station": "EP GOMPOU / A",
+              "voters": 925
+            }
+          ],
+          "BOKARE": [
+            {
+              "station": "EP GOMPOU / A",
+              "voters": 248
+            }
+          ],
+          "DJASSA": [
+            {
+              "station": "EP GOMPOU / A",
+              "voters": 248
+            }
+          ],
+          "DJOUGLA": [
+            {
+              "station": "EP GOMPOU / A",
+              "voters": 248
+            }
+          ],
+          "GOMPOU": [
+            {
+              "station": "EP GOMPOU / A",
+              "voters": 248
+            }
+          ],
+          "KALBINGA": [
+            {
+              "station": "EP GOMPOU / A",
+              "voters": 652
+            }
+          ],
+          "ANCIEN": [
+            {
+              "station": "EP GOMPOU / A",
+              "voters": 496
+            }
+          ],
+          "MANGZANG": [
+            {
+              "station": "EP GOMPOU / A",
+              "voters": 248
+            }
+          ],
+          "SINGBA": [
+            {
+              "station": "EP GOMPOU / A",
+              "voters": 652
+            }
+          ],
+          "VAAKOUA": [
+            {
+              "station": "EP GOMPOU / A",
+              "voters": 248
+            }
+          ],
+          "WANGBA": [
+            {
+              "station": "EP GOMPOU / A",
+              "voters": 248
+            }
+          ],
+          "BASSODJE": [
+            {
+              "station": "EP GORMAYA / A",
+              "voters": 680
+            }
+          ],
+          "DELENGUE": [
+            {
+              "station": "EP GORMAYA / A",
+              "voters": 552
+            }
+          ],
+          "GORMAYA": [
+            {
+              "station": "EP GORMAYA / A",
+              "voters": 895
+            }
+          ],
+          "GUITO": [
+            {
+              "station": "EP GORMAYA / A",
+              "voters": 1238
+            }
+          ],
+          "SALAKI": [
+            {
+              "station": "EP GORMAYA / A",
+              "voters": 1238
+            }
+          ],
+          "SOUARI": [
+            {
+              "station": "EP GORMAYA / A",
+              "voters": 552
+            }
+          ],
+          "WOURO": [
+            {
+              "station": "EP GORMAYA / A",
+              "voters": 1790
+            }
+          ],
+          "KILA": [
+            {
+              "station": "EP GORMAYA / A",
+              "voters": 552
+            }
+          ],
+          "MBAI": [
+            {
+              "station": "EP GORMAYA / A",
+              "voters": 1238
+            }
+          ],
+          "BOUKO": [
+            {
+              "station": "EP GR I / A",
+              "voters": 442
+            }
+          ],
+          "LOPERE": [
+            {
+              "station": "EP GR I / A",
+              "voters": 442
+            }
+          ],
+          "STADE": [
+            {
+              "station": "EP GR I / A",
+              "voters": 442
+            }
+          ],
+          "HOM": [
+            {
+              "station": "EP HOY / A",
+              "voters": 352
+            }
+          ],
+          "HOY": [
+            {
+              "station": "EP HOY / A",
+              "voters": 352
+            }
+          ],
+          "NOGUI": [
+            {
+              "station": "EP HOY / A",
+              "voters": 352
+            }
+          ],
+          "SERI": [
+            {
+              "station": "EP HOY / A",
+              "voters": 352
+            }
+          ],
+          "TEGUI": [
+            {
+              "station": "EP HOY / A",
+              "voters": 352
+            }
+          ],
+          "TORGUI": [
+            {
+              "station": "EP HOY / A",
+              "voters": 352
+            }
+          ],
+          "WANTE": [
+            {
+              "station": "EP HOY / A",
+              "voters": 352
+            }
+          ],
+          "DOPITI": [
+            {
+              "station": "EP KONGLE / A",
+              "voters": 350
+            }
+          ],
+          "KONGLE": [
+            {
+              "station": "EP KONGLE / A",
+              "voters": 350
+            }
+          ],
+          "MPAH": [
+            {
+              "station": "EP KONGLE / A",
+              "voters": 350
+            }
+          ],
+          "NALOUKBAROU": [
+            {
+              "station": "EP KONGLE / A",
+              "voters": 350
+            }
+          ],
+          "SAMBARO": [
+            {
+              "station": "EP KONGLE / A",
+              "voters": 350
+            }
+          ],
+          "WAKIRI": [
+            {
+              "station": "EP KONGLE / A",
+              "voters": 350
+            }
+          ],
+          "BEKA-ILOU": [
+            {
+              "station": "EP KOURTESSE / A",
+              "voters": 393
+            }
+          ],
+          "KOURTESSE": [
+            {
+              "station": "EP KOURTESSE / A",
+              "voters": 393
+            }
+          ],
+          "SANGUERE": [
+            {
+              "station": "EP KOURTESSE / A",
+              "voters": 393
+            }
+          ],
+          "TARTESSE": [
+            {
+              "station": "EP KOURTESSE / A",
+              "voters": 393
+            }
+          ],
+          "WOURO-KESSOUM": [
+            {
+              "station": "EP KOURTESSE / A",
+              "voters": 393
+            }
+          ],
+          "LAGBA": [
+            {
+              "station": "EP LAGBAI / A",
+              "voters": 334
+            }
+          ],
+          "BILAOU": [
+            {
+              "station": "EP MANA / A",
+              "voters": 279
+            }
+          ],
+          "DJONONTI": [
+            {
+              "station": "EP MANA / A",
+              "voters": 279
+            }
+          ],
+          "DOUGOUDOUGOU": [
+            {
+              "station": "EP MANA / A",
+              "voters": 279
+            }
+          ],
+          "DOUROU-SAKA": [
+            {
+              "station": "EP MANA / A",
+              "voters": 347
+            }
+          ],
+          "GAOUDOU": [
+            {
+              "station": "EP MANA / A",
+              "voters": 279
+            }
+          ],
+          "GARANTI": [
+            {
+              "station": "EP MANA / A",
+              "voters": 279
+            }
+          ],
+          "KAOUFAL": [
+            {
+              "station": "EP MANA / A",
+              "voters": 279
+            }
+          ],
+          "KOUNGOU-WATI": [
+            {
+              "station": "EP MANA / A",
+              "voters": 279
+            }
+          ],
+          "LAKAPOU": [
+            {
+              "station": "EP MANA / A",
+              "voters": 279
+            }
+          ],
+          "MAMBI": [
+            {
+              "station": "EP MANA / A",
+              "voters": 279
+            }
+          ],
+          "MANA": [
+            {
+              "station": "EP MANA / A",
+              "voters": 279
+            }
+          ],
+          "SABONGARI-MANA": [
+            {
+              "station": "EP MANA / A",
+              "voters": 279
+            }
+          ],
+          "DAI": [
+            {
+              "station": "EP MANGO / A",
+              "voters": 583
+            }
+          ],
+          "DEMBOULKO": [
+            {
+              "station": "EP MANGO / A",
+              "voters": 583
+            }
+          ],
+          "HOULE": [
+            {
+              "station": "EP MANGO / A",
+              "voters": 583
+            }
+          ],
+          "LONGTE": [
+            {
+              "station": "EP MANGO / A",
+              "voters": 583
+            }
+          ],
+          "MANGATI": [
+            {
+              "station": "EP MANGO / A",
+              "voters": 583
+            }
+          ],
+          "MANGO": [
+            {
+              "station": "EP MANGO / A",
+              "voters": 583
+            }
+          ],
+          "NAKIRE": [
+            {
+              "station": "EP MANGO / A",
+              "voters": 583
+            }
+          ],
+          "NIETCHE": [
+            {
+              "station": "EP MANGO / A",
+              "voters": 583
+            }
+          ],
+          "SAGO": [
+            {
+              "station": "EP MANGO / A",
+              "voters": 583
+            }
+          ],
+          "TOKTE": [
+            {
+              "station": "EP MANGO / A",
+              "voters": 583
+            }
+          ],
+          "HOLLE": [
+            {
+              "station": "EP MARKA / A",
+              "voters": 305
+            }
+          ],
+          "MARKA": [
+            {
+              "station": "EP MARKA / A",
+              "voters": 305
+            }
+          ],
+          "NGNAGUI": [
+            {
+              "station": "EP MARKA / A",
+              "voters": 305
+            }
+          ],
+          "SAARI": [
+            {
+              "station": "EP MARKA / A",
+              "voters": 305
+            }
+          ],
+          "SINTE": [
+            {
+              "station": "EP MARKA / A",
+              "voters": 305
+            }
+          ],
+          "MASSINA": [
+            {
+              "station": "EP MASSINA / A",
+              "voters": 224
+            }
+          ],
+          "DJONGUE": [
+            {
+              "station": "EP MAYO DJARENDI / A",
+              "voters": 260
+            }
+          ],
+          "MAYO-DJARENDI": [
+            {
+              "station": "EP MAYO DJARENDI / A",
+              "voters": 260
+            }
+          ],
+          "META-NDIAM": [
+            {
+              "station": "EP MAYO DJARENDI / A",
+              "voters": 260
+            }
+          ],
+          "NGOUTIRI": [
+            {
+              "station": "EP MAYO DJARENDI / A",
+              "voters": 260
+            }
+          ],
+          "TAROUA": [
+            {
+              "station": "EP MAYO DJARENDI / A",
+              "voters": 260
+            }
+          ],
+          "MAYO-LEMPTE": [
+            {
+              "station": "EP MAYO LEMPTE / A",
+              "voters": 284
+            }
+          ],
+          "OURO": [
+            {
+              "station": "EP OURO DJAMAN / C",
+              "voters": 354
+            }
+          ],
+          "DJAMAN": [
+            {
+              "station": "EP OURO DJAMAN / C",
+              "voters": 118
+            }
+          ],
+          "KESSOUM": [
+            {
+              "station": "EP OURO KESSOUM POLI / A",
+              "voters": 236
+            }
+          ],
+          "POLI": [
+            {
+              "station": "EP OURO KESSOUM POLI / A",
+              "voters": 149
+            }
+          ],
+          "FARKOMO": [
+            {
+              "station": "EP PAKSE / A",
+              "voters": 271
+            }
+          ],
+          "PAKSE": [
+            {
+              "station": "EP PAKSE / A",
+              "voters": 271
+            }
+          ],
+          "LENGUERBA": [
+            {
+              "station": "EP PATE MANGA / A",
+              "voters": 632
+            }
+          ],
+          "LONGOTE": [
+            {
+              "station": "EP PATE MANGA / A",
+              "voters": 632
+            }
+          ],
+          "PATE-MANGA": [
+            {
+              "station": "EP PATE MANGA / A",
+              "voters": 632
+            }
+          ],
+          "PATE-PETEL": [
+            {
+              "station": "EP PATE MANGA / A",
+              "voters": 632
+            }
+          ],
+          "WOURO-KESSOUM/PATE": [
+            {
+              "station": "EP PATE MANGA / A",
+              "voters": 632
+            }
+          ],
+          "MANGA": [
+            {
+              "station": "EP PATE MANGA / A",
+              "voters": 632
+            }
+          ],
+          "GUERI": [
+            {
+              "station": "EP PINTCHOUMBA / A",
+              "voters": 742
+            }
+          ],
+          "HAKATI": [
+            {
+              "station": "EP PINTCHOUMBA / A",
+              "voters": 742
+            }
+          ],
+          "HATI": [
+            {
+              "station": "EP PINTCHOUMBA / A",
+              "voters": 742
+            }
+          ],
+          "PINTCHOUMBA": [
+            {
+              "station": "EP PINTCHOUMBA / A",
+              "voters": 3452
+            }
+          ],
+          "WINDE": [
+            {
+              "station": "EP PINTCHOUMBA / A",
+              "voters": 2051
+            }
+          ],
+          "WINDE-PINTCHOUMBA": [
+            {
+              "station": "EP PINTCHOUMBA / A",
+              "voters": 1401
+            }
+          ],
+          "WOTTI": [
+            {
+              "station": "EP PINTCHOUMBA / A",
+              "voters": 1546
+            }
+          ],
+          "GOPSE": [
+            {
+              "station": "EP RIGA / A",
+              "voters": 226
+            }
+          ],
+          "GOSSE": [
+            {
+              "station": "EP RIGA / A",
+              "voters": 226
+            }
+          ],
+          "RIGA": [
+            {
+              "station": "EP RIGA / A",
+              "voters": 226
+            }
+          ],
+          "SANGUE": [
+            {
+              "station": "EP RIGA / A",
+              "voters": 226
+            }
+          ],
+          "WARE": [
+            {
+              "station": "EP RIGA / A",
+              "voters": 483
+            }
+          ],
+          "DOZE": [
+            {
+              "station": "EP SIRDJAM / A",
+              "voters": 985
+            }
+          ],
+          "SIRDJAM": [
+            {
+              "station": "EP SIRDJAM / A",
+              "voters": 985
+            }
+          ],
+          "SIRLAWE": [
+            {
+              "station": "EP SIRDJAM / A",
+              "voters": 1163
+            }
+          ],
+          "BOCKI": [
+            {
+              "station": "EP TAPARE / A",
+              "voters": 220
+            }
+          ],
+          "DAGDONGO": [
+            {
+              "station": "EP TAPARE / A",
+              "voters": 220
+            }
+          ],
+          "TAPARE": [
+            {
+              "station": "EP TAPARE / A",
+              "voters": 220
+            }
+          ],
+          "TRAVO": [
+            {
+              "station": "EP TAPARE / A",
+              "voters": 220
+            }
+          ],
+          "BARIGTE": [
+            {
+              "station": "EP TETE / A",
+              "voters": 434
+            }
+          ],
+          "BATE": [
+            {
+              "station": "EP TETE / A",
+              "voters": 434
+            }
+          ],
+          "NASSARAO": [
+            {
+              "station": "EP TETE / A",
+              "voters": 1576
+            }
+          ],
+          "/TETE": [
+            {
+              "station": "EP TETE / A",
+              "voters": 434
+            }
+          ],
+          "PONDE": [
+            {
+              "station": "EP TETE / A",
+              "voters": 434
+            }
+          ],
+          "TETE": [
+            {
+              "station": "EP TETE / A",
+              "voters": 434
+            }
+          ],
+          "YERNAMBO": [
+            {
+              "station": "EP TETE / A",
+              "voters": 434
+            }
+          ],
+          "BATILBAKO": [
+            {
+              "station": "EP WATE / A",
+              "voters": 376
+            }
+          ],
+          "GOUNDE": [
+            {
+              "station": "EP WATE / A",
+              "voters": 376
+            }
+          ],
+          "WATE": [
+            {
+              "station": "EP WATE / A",
+              "voters": 376
+            }
+          ],
+          "HONLE": [
+            {
+              "station": "EP YELLE / A",
+              "voters": 190
+            }
+          ],
+          "TORME": [
+            {
+              "station": "EP YELLE / A",
+              "voters": 190
+            }
+          ],
+          "YELLE": [
+            {
+              "station": "EP YELLE / A",
+              "voters": 190
+            }
+          ],
+          "BANGWABA": [
+            {
+              "station": "ESPL CHEF BANGWABA / A",
+              "voters": 162
+            }
+          ],
+          "BOLI/DOULE": [
+            {
+              "station": "ESPL CHEF DOULE / A",
+              "voters": 149
+            }
+          ],
+          "DOULE": [
+            {
+              "station": "ESPL CHEF DOULE / A",
+              "voters": 149
+            }
+          ],
+          "GUITCHA": [
+            {
+              "station": "ESPL CHEF DOULE / A",
+              "voters": 149
+            }
+          ],
+          "BALKOA": [
+            {
+              "station": "ESPL CHEF FIGNOLE / A",
+              "voters": 171
+            }
+          ],
+          "BANDE": [
+            {
+              "station": "ESPL CHEF FIGNOLE / A",
+              "voters": 171
+            }
+          ],
+          "KEBOULI": [
+            {
+              "station": "ESPL CHEF FIGNOLE / A",
+              "voters": 171
+            }
+          ],
+          "NANGWALE": [
+            {
+              "station": "ESPL CHEF FIGNOLE / A",
+              "voters": 171
+            }
+          ],
+          "NAZARETT": [
+            {
+              "station": "ESPL CHEF FIGNOLE / A",
+              "voters": 171
+            }
+          ],
+          "NINTELI": [
+            {
+              "station": "ESPL CHEF FIGNOLE / A",
+              "voters": 171
+            }
+          ],
+          "SELLOU": [
+            {
+              "station": "ESPL CHEF SELLOU / A",
+              "voters": 113
+            }
+          ],
+          "BERINGTE": [
+            {
+              "station": "ESPL CHEF SIKO / A",
+              "voters": 188
+            }
+          ],
+          "GNOREGOU": [
+            {
+              "station": "ESPL CHEF SIKO / A",
+              "voters": 188
+            }
+          ],
+          "SIKO": [
+            {
+              "station": "ESPL CHEF SIKO / A",
+              "voters": 188
+            }
+          ],
+          "WALTESSE": [
+            {
+              "station": "ESPL CHEF SIKO / A",
+              "voters": 188
+            }
+          ],
+          "DJALINGO-POLI": [
+            {
+              "station": "MAIRIE / A",
+              "voters": 887
+            }
+          ],
+          "KOUSSILE": [
+            {
+              "station": "MAIRIE / A",
+              "voters": 1287
+            }
+          ],
+          "LAINDE": [
+            {
+              "station": "MAIRIE / A",
+              "voters": 699
+            }
+          ],
+          "LAMORDE": [
+            {
+              "station": "MAIRIE / A",
+              "voters": 887
+            }
+          ]
+        }
       },
       "MAYO LOUTI": {
         "FIGUIL": {
-          "CETIC BIDZAR I / A": [
+          "BAWAKA": [
             {
-              station: "BAWAKA",
-              voters: 1458
-            },
-            {
-              station: "BIDOUM",
-              voters: 516
-            },
-            {
-              station: "DOUKNOUKOU",
-              voters: 516
-            },
-            {
-              station: "GUEREME-BIDZAR",
-              voters: 1390
-            },
-            {
-              station: "MOSSORGO",
-              voters: 516
-            },
-            {
-              station: "PADAGAR",
-              voters: 1428
-            },
-            {
-              station: "BIDZAR",
-              voters: 4239
-            },
-            {
-              station: "PEFE",
-              voters: 1899
-            },
+              "station": "CETIC BIDZAR I / A",
+              "voters": 1458
+            }
           ],
-          "DELEGATION ELEVAGE / A": [
+          "BIDOUM": [
             {
-              station: "LOPERE",
-              voters: 1720
-            },
-            {
-              station: "SARKISSANOU",
-              voters: 2748
-            },
+              "station": "CETIC BIDZAR I / A",
+              "voters": 516
+            }
           ],
-          "EM FIGUIL / A": [
+          "DOUKNOUKOU": [
             {
-              station: "BARINGUEL",
-              voters: 681
-            },
+              "station": "CETIC BIDZAR I / A",
+              "voters": 516
+            }
           ],
-          "EP BADADJI / A": [
+          "GUEREME-BIDZAR": [
             {
-              station: "BADADJI",
-              voters: 740
-            },
-            {
-              station: "MARCHE",
-              voters: 740
-            },
-            {
-              station: "LAMORDE-BADADJI",
-              voters: 740
-            },
+              "station": "CETIC BIDZAR I / A",
+              "voters": 1390
+            }
           ],
-          "EP BALIA / A": [
+          "MOSSORGO": [
             {
-              station: "BALIA",
-              voters: 345
-            },
-            {
-              station: "KOUSSOUM",
-              voters: 691
-            },
+              "station": "CETIC BIDZAR I / A",
+              "voters": 516
+            }
           ],
-          "EP BATAO / A": [
+          "PADAGAR": [
             {
-              station: "BAT",
-              voters: 1244
-            },
-            {
-              station: "BATAO",
-              voters: 2488
-            },
-            {
-              station: "BETKELE",
-              voters: 1244
-            },
-            {
-              station: "GADA",
-              voters: 2650
-            },
-            {
-              station: "MAYO",
-              voters: 4215
-            },
-            {
-              station: "GANGOU",
-              voters: 1244
-            },
-            {
-              station: "HAWA",
-              voters: 1244
-            },
-            {
-              station: "MARKAYA",
-              voters: 1244
-            },
-            {
-              station: "MOUGNA",
-              voters: 1244
-            },
-            {
-              station: "SIRAI",
-              voters: 1244
-            },
-            {
-              station: "OURO-TASSA",
-              voters: 1244
-            },
+              "station": "CETIC BIDZAR I / A",
+              "voters": 1428
+            }
           ],
-          "EP BAWAKA II / A": [
+          "BIDZAR": [
             {
-              station: "MAZANGA",
-              voters: 471
-            },
-            {
-              station: "MOTOUP",
-              voters: 471
-            },
+              "station": "CETIC BIDZAR I / A",
+              "voters": 4239
+            }
           ],
-          "EP BIDZAR II / A": [
+          "PEFE": [
             {
-              station: "BERGUI",
-              voters: 912
-            },
-            {
-              station: "GUIDIM",
-              voters: 912
-            },
-            {
-              station: "KADAMA",
-              voters: 912
-            },
-            {
-              station: "OURO-BOUBI",
-              voters: 1321
-            },
-            {
-              station: "PIMTILI",
-              voters: 912
-            },
+              "station": "CETIC BIDZAR I / A",
+              "voters": 1899
+            }
           ],
-          "EP BIOU / A": [
+          "LOPERE": [
             {
-              station: "BIOU",
-              voters: 432
-            },
+              "station": "DELEGATION ELEVAGE / A",
+              "voters": 1720
+            }
           ],
-          "EP BOUDVA / A": [
+          "SARKISSANOU": [
             {
-              station: "BOUDVA",
-              voters: 572
-            },
+              "station": "DELEGATION ELEVAGE / A",
+              "voters": 2748
+            }
           ],
-          "EP DAHAL / A": [
+          "BARINGUEL": [
             {
-              station: "DAHAL",
-              voters: 346
-            },
+              "station": "EM FIGUIL / A",
+              "voters": 681
+            }
           ],
-          "EP DAWALA BIDZAR I / A": [
+          "BADADJI": [
             {
-              station: "DAWALA-BIDZAR",
-              voters: 348
-            },
-            {
-              station: "GUEGUELDE",
-              voters: 348
-            },
+              "station": "EP BADADJI / A",
+              "voters": 740
+            }
           ],
-          "EP DELELE / A": [
+          "MARCHE": [
             {
-              station: "DELELE",
-              voters: 1674
-            },
-            {
-              station: "CARREFOUR",
-              voters: 837
-            },
+              "station": "EP BADADJI / A",
+              "voters": 740
+            }
           ],
-          "EP DJABBE BIOU / A": [
+          "LAMORDE-BADADJI": [
             {
-              station: "DJABBE-BIOU",
-              voters: 648
-            },
+              "station": "EP BADADJI / A",
+              "voters": 740
+            }
           ],
-          "EP DJABILI KASKA / A": [
+          "BALIA": [
             {
-              station: "DJABILI-KASKA",
-              voters: 323
-            },
-            {
-              station: "KOIDAWA",
-              voters: 323
-            },
+              "station": "EP BALIA / A",
+              "voters": 345
+            }
           ],
-          "EP DJOUGUI GABLA / A": [
+          "KOUSSOUM": [
             {
-              station: "BADVOR",
-              voters: 807
-            },
-            {
-              station: "BOU",
-              voters: 807
-            },
-            {
-              station: "BOURDOUKOU",
-              voters: 807
-            },
-            {
-              station: "DIGAR",
-              voters: 1965
-            },
-            {
-              station: "DJOUGUI",
-              voters: 807
-            },
-            {
-              station: "GABLA",
-              voters: 807
-            },
-            {
-              station: "GOUDOUFGLA",
-              voters: 807
-            },
-            {
-              station: "MOSSOMO",
-              voters: 807
-            },
+              "station": "EP BALIA / A",
+              "voters": 691
+            }
           ],
-          "EP DOUNDEHI-BIOU / A": [
+          "BAT": [
             {
-              station: "DOUNDEHI-BIOU",
-              voters: 412
-            },
-            {
-              station: "MADAKAMNA",
-              voters: 412
-            },
+              "station": "EP BATAO / A",
+              "voters": 1244
+            }
           ],
-          "EP DOUNDEHI-FIGUIL / A": [
+          "BATAO": [
             {
-              station: "DOUNDEHI-FIGUIL",
-              voters: 347
-            },
-            {
-              station: "OURO-TCHAKA",
-              voters: 347
-            },
+              "station": "EP BATAO / A",
+              "voters": 2488
+            }
           ],
-          "EP GOLOMO / A": [
+          "BETKELE": [
             {
-              station: "DIKTINGUE",
-              voters: 1045
-            },
-            {
-              station: "GOLOMO",
-              voters: 826
-            },
-            {
-              station: "MOURKOUFO",
-              voters: 826
-            },
+              "station": "EP BATAO / A",
+              "voters": 1244
+            }
           ],
-          "EP GP II FIGUIL / A": [
+          "GADA": [
             {
-              station: "PERSONELS",
-              voters: 346
-            },
-            {
-              station: "SERVICES",
-              voters: 346
-            },
+              "station": "EP BATAO / A",
+              "voters": 2650
+            }
           ],
-          "EP GROUPE I FIGUIL / A": [
+          "MAYO": [
             {
-              station: "BINDIRE",
-              voters: 1526
-            },
+              "station": "EP BATAO / A",
+              "voters": 4215
+            }
           ],
-          "EP GUEREME BIDZAR I / A": [
+          "GANGOU": [
             {
-              station: "GUEREME-LAM",
-              voters: 437
-            },
-            {
-              station: "OURO-FANDOU",
-              voters: 437
-            },
+              "station": "EP BATAO / A",
+              "voters": 1244
+            }
           ],
-          "EP HELE / A": [
+          "HAWA": [
             {
-              station: "HELE",
-              voters: 441
-            },
+              "station": "EP BATAO / A",
+              "voters": 1244
+            }
           ],
-          "EP HINDJEODE / A": [
+          "MARKAYA": [
             {
-              station: "HINDJEODE",
-              voters: 599
-            },
-            {
-              station: "MARIARIAKEU",
-              voters: 961
-            },
+              "station": "EP BATAO / A",
+              "voters": 1244
+            }
           ],
-          "EP HOUMBAL / A": [
+          "MOUGNA": [
             {
-              station: "HOUMBAL",
-              voters: 228
-            },
+              "station": "EP BATAO / A",
+              "voters": 1244
+            }
           ],
-          "EP KARBA / A": [
+          "SIRAI": [
             {
-              station: "KARBA",
-              voters: 242
-            },
+              "station": "EP BATAO / A",
+              "voters": 1244
+            }
           ],
-          "EP KAREWA / A": [
+          "OURO-TASSA": [
             {
-              station: "KAREWA",
-              voters: 3725
-            },
-            {
-              station: "GOUDRON",
-              voters: 1223
-            },
+              "station": "EP BATAO / A",
+              "voters": 1244
+            }
           ],
-          "EP KOLERE ISSA / A": [
+          "MAZANGA": [
             {
-              station: "ISSA",
-              voters: 1565
-            },
-            {
-              station: "KOLLE",
-              voters: 2697
-            },
-            {
-              station: "LESS",
-              voters: 1565
-            },
-            {
-              station: "LOUTI",
-              voters: 1565
-            },
+              "station": "EP BAWAKA II / A",
+              "voters": 471
+            }
           ],
-          "EP KOLLE / A": [
+          "MOTOUP": [
             {
-              station: "OURO-DAMA",
-              voters: 1132
-            },
+              "station": "EP BAWAKA II / A",
+              "voters": 471
+            }
           ],
-          "EP KONG KONG / A": [
+          "BERGUI": [
             {
-              station: "BAKOUNA",
-              voters: 795
-            },
-            {
-              station: "DABA",
-              voters: 795
-            },
-            {
-              station: "DEDAGLA",
-              voters: 1716
-            },
-            {
-              station: "KONG",
-              voters: 1590
-            },
-            {
-              station: "GORONG",
-              voters: 795
-            },
-            {
-              station: "KIRBILING",
-              voters: 795
-            },
-            {
-              station: "KORSIOUM",
-              voters: 795
-            },
-            {
-              station: "MODOUVOURZOUM",
-              voters: 795
-            },
+              "station": "EP BIDZAR II / A",
+              "voters": 912
+            }
           ],
-          "EP LAM CENTRE / A": [
+          "GUIDIM": [
             {
-              station: "LAM",
-              voters: 2079
-            },
-            {
-              station: "DOHONG-DOUVA",
-              voters: 921
-            },
-            {
-              station: "DOHONG-LAM",
-              voters: 1158
-            },
-            {
-              station: "KAPTA-LAM",
-              voters: 1195
-            },
-            {
-              station: "KISOYOMO",
-              voters: 921
-            },
-            {
-              station: "KOUKOY",
-              voters: 921
-            },
+              "station": "EP BIDZAR II / A",
+              "voters": 912
+            }
           ],
-          "EP LAMORDE / A": [
+          "KADAMA": [
             {
-              station: "LAMORDE-FIGUIL",
-              voters: 867
-            },
+              "station": "EP BIDZAR II / A",
+              "voters": 912
+            }
           ],
-          "EP LAMORDE BAINAWA / A": [
+          "OURO-BOUBI": [
             {
-              station: "LAMORDE",
-              voters: 1361
-            },
-            {
-              station: "BAINAWARE",
-              voters: 1361
-            },
+              "station": "EP BIDZAR II / A",
+              "voters": 1321
+            }
           ],
-          "EP MIZUKE II / A": [
+          "PIMTILI": [
             {
-              station: "MIZUKE",
-              voters: 1084
-            },
+              "station": "EP BIDZAR II / A",
+              "voters": 912
+            }
           ],
-          "EP MORE-SINGAI / A": [
+          "BIOU": [
             {
-              station: "MORE-SINGAI",
-              voters: 537
-            },
+              "station": "EP BIOU / A",
+              "voters": 432
+            }
           ],
-          "EP MOULVOUDA / A": [
+          "BOUDVA": [
             {
-              station: "MOULVOUDA",
-              voters: 531
-            },
+              "station": "EP BOUDVA / A",
+              "voters": 572
+            }
           ],
-          "EP OURO MAREY / A": [
+          "DAHAL": [
             {
-              station: "OURO-MAREY",
-              voters: 409
-            },
+              "station": "EP DAHAL / A",
+              "voters": 346
+            }
           ],
-          "EP OURO TALAGA / A": [
+          "DAWALA-BIDZAR": [
             {
-              station: "OURO",
-              voters: 137
-            },
-            {
-              station: "TALAGA",
-              voters: 137
-            },
+              "station": "EP DAWALA BIDZAR I / A",
+              "voters": 348
+            }
           ],
-          "EP PELGUE / A": [
+          "GUEGUELDE": [
             {
-              station: "NGOROWA",
-              voters: 695
-            },
-            {
-              station: "PELGUE",
-              voters: 695
-            },
+              "station": "EP DAWALA BIDZAR I / A",
+              "voters": 348
+            }
           ],
-          "EP WAFANGO / A": [
+          "DELELE": [
             {
-              station: "ROMPO",
-              voters: 3631
-            },
-            {
-              station: "WAFANGO-FIGUIL",
-              voters: 1073
-            },
+              "station": "EP DELELE / A",
+              "voters": 1674
+            }
           ],
-          "EP WALEWOL SO'O / A": [
+          "CARREFOUR": [
             {
-              station: "MOKODONG",
-              voters: 322
-            },
-            {
-              station: "NGOULDI",
-              voters: 322
-            },
-            {
-              station: "WALEWOL",
-              voters: 322
-            },
-            {
-              station: "SO'O",
-              voters: 322
-            },
+              "station": "EP DELELE / A",
+              "voters": 837
+            }
           ],
-          "EP WAYEBA / A": [
+          "DJABBE-BIOU": [
             {
-              station: "MAYEL",
-              voters: 316
-            },
-            {
-              station: "KEWE",
-              voters: 316
-            },
-            {
-              station: "WAYEBA",
-              voters: 316
-            },
+              "station": "EP DJABBE BIOU / A",
+              "voters": 648
+            }
           ],
-          "ESPL CHEF BADIA / A": [
+          "DJABILI-KASKA": [
             {
-              station: "BADIA",
-              voters: 197
-            },
+              "station": "EP DJABILI KASKA / A",
+              "voters": 323
+            }
           ],
-          "ESPL CHEF DAWALA BIOU / A": [
+          "KOIDAWA": [
             {
-              station: "DAWALA-BIOU",
-              voters: 390
-            },
+              "station": "EP DJABILI KASKA / A",
+              "voters": 323
+            }
           ],
-          "ESPL CHEF DEBELZE / A": [
+          "BADVOR": [
             {
-              station: "DEBELZE",
-              voters: 131
-            },
+              "station": "EP DJOUGUI GABLA / A",
+              "voters": 807
+            }
           ],
-          "ESPL CHEF DJABBE FIGUIL / A": [
+          "BOU": [
             {
-              station: "DJABBE-FIGUIL",
-              voters: 563
-            },
+              "station": "EP DJOUGUI GABLA / A",
+              "voters": 807
+            }
           ],
-          "ESPL CHEF DJOUGUI BOH / A": [
+          "BOURDOUKOU": [
             {
-              station: "BOH",
-              voters: 636
-            },
-            {
-              station: "CENTRE",
-              voters: 7498
-            },
-            {
-              station: "DABOUR",
-              voters: 636
-            },
-            {
-              station: "DAWAI",
-              voters: 636
-            },
-            {
-              station: "KERING",
-              voters: 1113
-            },
-            {
-              station: "FIGUIL",
-              voters: 1607
-            },
-            {
-              station: "KORIOK",
-              voters: 636
-            },
+              "station": "EP DJOUGUI GABLA / A",
+              "voters": 807
+            }
           ],
-          "ESPL CHEF DOUVA / A": [
+          "DIGAR": [
             {
-              station: "DOUVA",
-              voters: 327
-            },
+              "station": "EP DJOUGUI GABLA / A",
+              "voters": 1965
+            }
           ],
-          "ESPL CHEF GUIDI / A": [
+          "DJOUGUI": [
             {
-              station: "GUIDI",
-              voters: 252
-            },
-            {
-              station: "MAMPAR",
-              voters: 252
-            },
+              "station": "EP DJOUGUI GABLA / A",
+              "voters": 807
+            }
           ],
-          "ESPL CHEF KOLERE MOUNDANG / A": [
+          "GABLA": [
             {
-              station: "DOH-MAYO-FIGUIL",
-              voters: 1021
-            },
-            {
-              station: "KOLERE",
-              voters: 2586
-            },
-            {
-              station: "MOUNDANG",
-              voters: 1021
-            },
+              "station": "EP DJOUGUI GABLA / A",
+              "voters": 807
+            }
           ],
-          "ESPL CHEF MOKOTE / A": [
+          "GOUDOUFGLA": [
             {
-              station: "MOKOTE",
-              voters: 177
-            },
+              "station": "EP DJOUGUI GABLA / A",
+              "voters": 807
+            }
           ],
-          "ESPL CHEF NIOUA / A": [
+          "MOSSOMO": [
             {
-              station: "NIOUA",
-              voters: 241
-            },
+              "station": "EP DJOUGUI GABLA / A",
+              "voters": 807
+            }
           ],
-          "ESPL ECOLE DES PARENTS BAFOUNI / A": [
+          "DOUNDEHI-BIOU": [
             {
-              station: "BAFOUNI",
-              voters: 363
-            },
+              "station": "EP DOUNDEHI-BIOU / A",
+              "voters": 412
+            }
           ],
-          "LYCEE FIGUIL / A": [
+          "MADAKAMNA": [
             {
-              station: "OURO-NGARA",
-              voters: 638
-            },
-            {
-              station: "TANGAWOL",
-              voters: 638
-            },
+              "station": "EP DOUNDEHI-BIOU / A",
+              "voters": 412
+            }
           ],
-          "LYCEE LAM / A": [
+          "DOUNDEHI-FIGUIL": [
             {
-              station: "KARBAZA",
-              voters: 237
-            },
+              "station": "EP DOUNDEHI-FIGUIL / A",
+              "voters": 347
+            }
           ],
+          "OURO-TCHAKA": [
+            {
+              "station": "EP DOUNDEHI-FIGUIL / A",
+              "voters": 347
+            }
+          ],
+          "DIKTINGUE": [
+            {
+              "station": "EP GOLOMO / A",
+              "voters": 1045
+            }
+          ],
+          "GOLOMO": [
+            {
+              "station": "EP GOLOMO / A",
+              "voters": 826
+            }
+          ],
+          "MOURKOUFO": [
+            {
+              "station": "EP GOLOMO / A",
+              "voters": 826
+            }
+          ],
+          "PERSONELS": [
+            {
+              "station": "EP GP II FIGUIL / A",
+              "voters": 346
+            }
+          ],
+          "SERVICES": [
+            {
+              "station": "EP GP II FIGUIL / A",
+              "voters": 346
+            }
+          ],
+          "BINDIRE": [
+            {
+              "station": "EP GROUPE I FIGUIL / A",
+              "voters": 1526
+            }
+          ],
+          "GUEREME-LAM": [
+            {
+              "station": "EP GUEREME BIDZAR I / A",
+              "voters": 437
+            }
+          ],
+          "OURO-FANDOU": [
+            {
+              "station": "EP GUEREME BIDZAR I / A",
+              "voters": 437
+            }
+          ],
+          "HELE": [
+            {
+              "station": "EP HELE / A",
+              "voters": 441
+            }
+          ],
+          "HINDJEODE": [
+            {
+              "station": "EP HINDJEODE / A",
+              "voters": 599
+            }
+          ],
+          "MARIARIAKEU": [
+            {
+              "station": "EP HINDJEODE / A",
+              "voters": 961
+            }
+          ],
+          "HOUMBAL": [
+            {
+              "station": "EP HOUMBAL / A",
+              "voters": 228
+            }
+          ],
+          "KARBA": [
+            {
+              "station": "EP KARBA / A",
+              "voters": 242
+            }
+          ],
+          "KAREWA": [
+            {
+              "station": "EP KAREWA / A",
+              "voters": 3725
+            }
+          ],
+          "GOUDRON": [
+            {
+              "station": "EP KAREWA / A",
+              "voters": 1223
+            }
+          ],
+          "ISSA": [
+            {
+              "station": "EP KOLERE ISSA / A",
+              "voters": 1565
+            }
+          ],
+          "KOLLE": [
+            {
+              "station": "EP KOLERE ISSA / A",
+              "voters": 2697
+            }
+          ],
+          "LESS": [
+            {
+              "station": "EP KOLERE ISSA / A",
+              "voters": 1565
+            }
+          ],
+          "LOUTI": [
+            {
+              "station": "EP KOLERE ISSA / A",
+              "voters": 1565
+            }
+          ],
+          "OURO-DAMA": [
+            {
+              "station": "EP KOLLE / A",
+              "voters": 1132
+            }
+          ],
+          "BAKOUNA": [
+            {
+              "station": "EP KONG KONG / A",
+              "voters": 795
+            }
+          ],
+          "DABA": [
+            {
+              "station": "EP KONG KONG / A",
+              "voters": 795
+            }
+          ],
+          "DEDAGLA": [
+            {
+              "station": "EP KONG KONG / A",
+              "voters": 1716
+            }
+          ],
+          "KONG": [
+            {
+              "station": "EP KONG KONG / A",
+              "voters": 1590
+            }
+          ],
+          "GORONG": [
+            {
+              "station": "EP KONG KONG / A",
+              "voters": 795
+            }
+          ],
+          "KIRBILING": [
+            {
+              "station": "EP KONG KONG / A",
+              "voters": 795
+            }
+          ],
+          "KORSIOUM": [
+            {
+              "station": "EP KONG KONG / A",
+              "voters": 795
+            }
+          ],
+          "MODOUVOURZOUM": [
+            {
+              "station": "EP KONG KONG / A",
+              "voters": 795
+            }
+          ],
+          "LAM": [
+            {
+              "station": "EP LAM CENTRE / A",
+              "voters": 2079
+            }
+          ],
+          "DOHONG-DOUVA": [
+            {
+              "station": "EP LAM CENTRE / A",
+              "voters": 921
+            }
+          ],
+          "DOHONG-LAM": [
+            {
+              "station": "EP LAM CENTRE / A",
+              "voters": 1158
+            }
+          ],
+          "KAPTA-LAM": [
+            {
+              "station": "EP LAM CENTRE / A",
+              "voters": 1195
+            }
+          ],
+          "KISOYOMO": [
+            {
+              "station": "EP LAM CENTRE / A",
+              "voters": 921
+            }
+          ],
+          "KOUKOY": [
+            {
+              "station": "EP LAM CENTRE / A",
+              "voters": 921
+            }
+          ],
+          "LAMORDE-FIGUIL": [
+            {
+              "station": "EP LAMORDE / A",
+              "voters": 867
+            }
+          ],
+          "LAMORDE": [
+            {
+              "station": "EP LAMORDE BAINAWA / A",
+              "voters": 1361
+            }
+          ],
+          "BAINAWARE": [
+            {
+              "station": "EP LAMORDE BAINAWA / A",
+              "voters": 1361
+            }
+          ],
+          "MIZUKE": [
+            {
+              "station": "EP MIZUKE II / A",
+              "voters": 1084
+            }
+          ],
+          "MORE-SINGAI": [
+            {
+              "station": "EP MORE-SINGAI / A",
+              "voters": 537
+            }
+          ],
+          "MOULVOUDA": [
+            {
+              "station": "EP MOULVOUDA / A",
+              "voters": 531
+            }
+          ],
+          "OURO-MAREY": [
+            {
+              "station": "EP OURO MAREY / A",
+              "voters": 409
+            }
+          ],
+          "OURO": [
+            {
+              "station": "EP OURO TALAGA / A",
+              "voters": 137
+            }
+          ],
+          "TALAGA": [
+            {
+              "station": "EP OURO TALAGA / A",
+              "voters": 137
+            }
+          ],
+          "NGOROWA": [
+            {
+              "station": "EP PELGUE / A",
+              "voters": 695
+            }
+          ],
+          "PELGUE": [
+            {
+              "station": "EP PELGUE / A",
+              "voters": 695
+            }
+          ],
+          "ROMPO": [
+            {
+              "station": "EP WAFANGO / A",
+              "voters": 3631
+            }
+          ],
+          "WAFANGO-FIGUIL": [
+            {
+              "station": "EP WAFANGO / A",
+              "voters": 1073
+            }
+          ],
+          "MOKODONG": [
+            {
+              "station": "EP WALEWOL SO'O / A",
+              "voters": 322
+            }
+          ],
+          "NGOULDI": [
+            {
+              "station": "EP WALEWOL SO'O / A",
+              "voters": 322
+            }
+          ],
+          "WALEWOL": [
+            {
+              "station": "EP WALEWOL SO'O / A",
+              "voters": 322
+            }
+          ],
+          "SO'O": [
+            {
+              "station": "EP WALEWOL SO'O / A",
+              "voters": 322
+            }
+          ],
+          "MAYEL": [
+            {
+              "station": "EP WAYEBA / A",
+              "voters": 316
+            }
+          ],
+          "KEWE": [
+            {
+              "station": "EP WAYEBA / A",
+              "voters": 316
+            }
+          ],
+          "WAYEBA": [
+            {
+              "station": "EP WAYEBA / A",
+              "voters": 316
+            }
+          ],
+          "BADIA": [
+            {
+              "station": "ESPL CHEF BADIA / A",
+              "voters": 197
+            }
+          ],
+          "DAWALA-BIOU": [
+            {
+              "station": "ESPL CHEF DAWALA BIOU / A",
+              "voters": 390
+            }
+          ],
+          "DEBELZE": [
+            {
+              "station": "ESPL CHEF DEBELZE / A",
+              "voters": 131
+            }
+          ],
+          "DJABBE-FIGUIL": [
+            {
+              "station": "ESPL CHEF DJABBE FIGUIL / A",
+              "voters": 563
+            }
+          ],
+          "BOH": [
+            {
+              "station": "ESPL CHEF DJOUGUI BOH / A",
+              "voters": 636
+            }
+          ],
+          "CENTRE": [
+            {
+              "station": "ESPL CHEF DJOUGUI BOH / A",
+              "voters": 7498
+            }
+          ],
+          "DABOUR": [
+            {
+              "station": "ESPL CHEF DJOUGUI BOH / A",
+              "voters": 636
+            }
+          ],
+          "DAWAI": [
+            {
+              "station": "ESPL CHEF DJOUGUI BOH / A",
+              "voters": 636
+            }
+          ],
+          "KERING": [
+            {
+              "station": "ESPL CHEF DJOUGUI BOH / A",
+              "voters": 1113
+            }
+          ],
+          "FIGUIL": [
+            {
+              "station": "ESPL CHEF DJOUGUI BOH / A",
+              "voters": 1607
+            }
+          ],
+          "KORIOK": [
+            {
+              "station": "ESPL CHEF DJOUGUI BOH / A",
+              "voters": 636
+            }
+          ],
+          "DOUVA": [
+            {
+              "station": "ESPL CHEF DOUVA / A",
+              "voters": 327
+            }
+          ],
+          "GUIDI": [
+            {
+              "station": "ESPL CHEF GUIDI / A",
+              "voters": 252
+            }
+          ],
+          "MAMPAR": [
+            {
+              "station": "ESPL CHEF GUIDI / A",
+              "voters": 252
+            }
+          ],
+          "DOH-MAYO-FIGUIL": [
+            {
+              "station": "ESPL CHEF KOLERE MOUNDANG / A",
+              "voters": 1021
+            }
+          ],
+          "KOLERE": [
+            {
+              "station": "ESPL CHEF KOLERE MOUNDANG / A",
+              "voters": 2586
+            }
+          ],
+          "MOUNDANG": [
+            {
+              "station": "ESPL CHEF KOLERE MOUNDANG / A",
+              "voters": 1021
+            }
+          ],
+          "MOKOTE": [
+            {
+              "station": "ESPL CHEF MOKOTE / A",
+              "voters": 177
+            }
+          ],
+          "NIOUA": [
+            {
+              "station": "ESPL CHEF NIOUA / A",
+              "voters": 241
+            }
+          ],
+          "BAFOUNI": [
+            {
+              "station": "ESPL ECOLE DES PARENTS BAFOUNI / A",
+              "voters": 363
+            }
+          ],
+          "OURO-NGARA": [
+            {
+              "station": "LYCEE FIGUIL / A",
+              "voters": 638
+            }
+          ],
+          "TANGAWOL": [
+            {
+              "station": "LYCEE FIGUIL / A",
+              "voters": 638
+            }
+          ],
+          "KARBAZA": [
+            {
+              "station": "LYCEE LAM / A",
+              "voters": 237
+            }
+          ]
         },
         "GUIDER": {
-          "DELEGATION DOMAINE GUIDER / A": [
+          "PRISON": [
             {
-              station: "PRISON",
-              voters: 94
-            },
+              "station": "DELEGATION DOMAINE GUIDER / A",
+              "voters": 94
+            }
           ],
-          "E M BEBERE GADA MAYO / A": [
+          "BEBERE": [
             {
-              station: "BEBERE",
-              voters: 6429
-            },
-            {
-              station: "OURO-SOUAIBOU",
-              voters: 1047
-            },
+              "station": "E M BEBERE GADA MAYO / A",
+              "voters": 6429
+            }
+          ],
+          "OURO-SOUAIBOU": [
             {
-              station: "GADJERE",
-              voters: 1047
-            },
+              "station": "E M BEBERE GADA MAYO / A",
+              "voters": 1047
+            }
           ],
-          "E M MAIDADI SALI / A": [
+          "GADJERE": [
             {
-              station: "MAIDADI",
-              voters: 2838
-            },
+              "station": "E M BEBERE GADA MAYO / A",
+              "voters": 1047
+            }
+          ],
+          "MAIDADI": [
             {
-              station: "SALI",
-              voters: 3221
-            },
+              "station": "E M MAIDADI SALI / A",
+              "voters": 2838
+            }
           ],
-          "E.P. DE OURO-BARA / A": [
+          "SALI": [
             {
-              station: "DJAFAROU",
-              voters: 250
-            },
+              "station": "E M MAIDADI SALI / A",
+              "voters": 3221
+            }
+          ],
+          "DJAFAROU": [
             {
-              station: "OURO-BARA",
-              voters: 250
-            },
+              "station": "E.P. DE OURO-BARA / A",
+              "voters": 250
+            }
           ],
-          "EP BABARKINE / A": [
+          "OURO-BARA": [
             {
-              station: "BABARKINE",
-              voters: 560
-            },
+              "station": "E.P. DE OURO-BARA / A",
+              "voters": 250
+            }
+          ],
+          "BABARKINE": [
             {
-              station: "BAMMO",
-              voters: 560
-            },
+              "station": "EP BABARKINE / A",
+              "voters": 560
+            }
+          ],
+          "BAMMO": [
             {
-              station: "NGAGAN",
-              voters: 560
-            },
+              "station": "EP BABARKINE / A",
+              "voters": 560
+            }
+          ],
+          "NGAGAN": [
             {
-              station: "NGANDA",
-              voters: 917
-            },
+              "station": "EP BABARKINE / A",
+              "voters": 560
+            }
+          ],
+          "NGANDA": [
             {
-              station: "GUIDER",
-              voters: 2082
-            },
+              "station": "EP BABARKINE / A",
+              "voters": 917
+            }
+          ],
+          "GUIDER": [
             {
-              station: "NGOLIRDE",
-              voters: 560
-            },
+              "station": "EP BABARKINE / A",
+              "voters": 2082
+            }
+          ],
+          "NGOLIRDE": [
             {
-              station: "OURO",
-              voters: 45718
-            },
+              "station": "EP BABARKINE / A",
+              "voters": 560
+            }
+          ],
+          "OURO": [
             {
-              station: "BAMO",
-              voters: 1038
-            },
+              "station": "EP BABARKINE / A",
+              "voters": 45718
+            }
+          ],
+          "BAMO": [
             {
-              station: "OURO-SATAI",
-              voters: 560
-            },
+              "station": "EP BABARKINE / A",
+              "voters": 1038
+            }
           ],
-          "EP BABOURI / A": [
+          "OURO-SATAI": [
             {
-              station: "BABOURI",
-              voters: 334
-            },
+              "station": "EP BABARKINE / A",
+              "voters": 560
+            }
+          ],
+          "BABOURI": [
             {
-              station: "CASIER",
-              voters: 334
-            },
+              "station": "EP BABOURI / A",
+              "voters": 334
+            }
+          ],
+          "CASIER": [
             {
-              station: "DERI",
-              voters: 334
-            },
+              "station": "EP BABOURI / A",
+              "voters": 334
+            }
+          ],
+          "DERI": [
             {
-              station: "SODJOY",
-              voters: 334
-            },
+              "station": "EP BABOURI / A",
+              "voters": 334
+            }
           ],
-          "EP BALGA / A": [
+          "SODJOY": [
             {
-              station: "BALGA",
-              voters: 599
-            },
+              "station": "EP BABOURI / A",
+              "voters": 334
+            }
           ],
-          "EP BANG / A": [
+          "BALGA": [
             {
-              station: "BANG",
-              voters: 704
-            },
+              "station": "EP BALGA / A",
+              "voters": 599
+            }
           ],
-          "EP BARIKI DJAMNE / A": [
+          "BANG": [
             {
-              station: "BARIKI",
-              voters: 399
-            },
+              "station": "EP BANG / A",
+              "voters": 704
+            }
+          ],
+          "BARIKI": [
             {
-              station: "DJAMANE",
-              voters: 399
-            },
+              "station": "EP BARIKI DJAMNE / A",
+              "voters": 399
+            }
           ],
-          "EP BEBERE SOULEY / A": [
+          "DJAMANE": [
             {
-              station: "MANA",
-              voters: 535
-            },
+              "station": "EP BARIKI DJAMNE / A",
+              "voters": 399
+            }
+          ],
+          "MANA": [
             {
-              station: "RIBAO",
-              voters: 1064
-            },
+              "station": "EP BEBERE SOULEY / A",
+              "voters": 535
+            }
           ],
-          "EP BELI / A": [
+          "RIBAO": [
             {
-              station: "BELI",
-              voters: 866
-            },
+              "station": "EP BEBERE SOULEY / A",
+              "voters": 1064
+            }
+          ],
+          "BELI": [
             {
-              station: "OURO-BADAI",
-              voters: 866
-            },
+              "station": "EP BELI / A",
+              "voters": 866
+            }
           ],
-          "EP BIMA / A": [
+          "OURO-BADAI": [
             {
-              station: "BIMA",
-              voters: 746
-            },
+              "station": "EP BELI / A",
+              "voters": 866
+            }
+          ],
+          "BIMA": [
             {
-              station: "CARREFOUR",
-              voters: 494
-            },
+              "station": "EP BIMA / A",
+              "voters": 746
+            }
+          ],
+          "CARREFOUR": [
             {
-              station: "OURO-TCHANGOU",
-              voters: 373
-            },
+              "station": "EP BIMA / A",
+              "voters": 494
+            }
           ],
-          "EP BISSOLI / A": [
+          "OURO-TCHANGOU": [
             {
-              station: "BISSOLI",
-              voters: 521
-            },
+              "station": "EP BIMA / A",
+              "voters": 373
+            }
+          ],
+          "BISSOLI": [
             {
-              station: "KAGOUMA",
-              voters: 703
-            },
+              "station": "EP BISSOLI / A",
+              "voters": 521
+            }
           ],
-          "EP BOBOLDOU / A": [
+          "KAGOUMA": [
             {
-              station: "BOBOLDOU",
-              voters: 416
-            },
+              "station": "EP BISSOLI / A",
+              "voters": 703
+            }
+          ],
+          "BOBOLDOU": [
             {
-              station: "MARI",
-              voters: 416
-            },
+              "station": "EP BOBOLDOU / A",
+              "voters": 416
+            }
+          ],
+          "MARI": [
             {
-              station: "TAR",
-              voters: 792
-            },
+              "station": "EP BOBOLDOU / A",
+              "voters": 416
+            }
+          ],
+          "TAR": [
             {
-              station: "TCHOUCKOL",
-              voters: 416
-            },
+              "station": "EP BOBOLDOU / A",
+              "voters": 792
+            }
           ],
-          "EP BOUSSA / A": [
+          "TCHOUCKOL": [
             {
-              station: "BOUSSA",
-              voters: 438
-            },
+              "station": "EP BOBOLDOU / A",
+              "voters": 416
+            }
           ],
-          "EP BROUWOY / A": [
+          "BOUSSA": [
             {
-              station: "BOURWOUY",
-              voters: 995
-            },
+              "station": "EP BOUSSA / A",
+              "voters": 438
+            }
+          ],
+          "BOURWOUY": [
             {
-              station: "HIRGUILAM",
-              voters: 995
-            },
+              "station": "EP BROUWOY / A",
+              "voters": 995
+            }
+          ],
+          "HIRGUILAM": [
             {
-              station: "MEDEBING",
-              voters: 995
-            },
+              "station": "EP BROUWOY / A",
+              "voters": 995
+            }
+          ],
+          "MEDEBING": [
             {
-              station: "SAMKA",
-              voters: 995
-            },
+              "station": "EP BROUWOY / A",
+              "voters": 995
+            }
           ],
-          "EP DABA DABA / A": [
+          "SAMKA": [
             {
-              station: "DABA-DABA",
-              voters: 282
-            },
+              "station": "EP BROUWOY / A",
+              "voters": 995
+            }
+          ],
+          "DABA-DABA": [
             {
-              station: "LARMA",
-              voters: 399
-            },
+              "station": "EP DABA DABA / A",
+              "voters": 282
+            }
+          ],
+          "LARMA": [
             {
-              station: "TEKELI",
-              voters: 282
-            },
+              "station": "EP DABA DABA / A",
+              "voters": 399
+            }
           ],
-          "EP DAFA LE HAUT / A": [
+          "TEKELI": [
             {
-              station: "DAFA",
-              voters: 2154
-            },
+              "station": "EP DABA DABA / A",
+              "voters": 282
+            }
+          ],
+          "DAFA": [
             {
-              station: "BAS",
-              voters: 588
-            },
+              "station": "EP DAFA LE HAUT / A",
+              "voters": 2154
+            }
+          ],
+          "BAS": [
             {
-              station: "HAUT",
-              voters: 588
-            },
+              "station": "EP DAFA LE HAUT / A",
+              "voters": 588
+            }
+          ],
+          "HAUT": [
             {
-              station: "POKA",
-              voters: 588
-            },
+              "station": "EP DAFA LE HAUT / A",
+              "voters": 588
+            }
           ],
-          "EP DANGAR / A": [
+          "POKA": [
             {
-              station: "DANGAR",
-              voters: 363
-            },
+              "station": "EP DAFA LE HAUT / A",
+              "voters": 588
+            }
+          ],
+          "DANGAR": [
             {
-              station: "DONFANA",
-              voters: 363
-            },
+              "station": "EP DANGAR / A",
+              "voters": 363
+            }
           ],
-          "EP DES PARENTS NDJARA / A": [
+          "DONFANA": [
             {
-              station: "KOLAR",
-              voters: 227
-            },
+              "station": "EP DANGAR / A",
+              "voters": 363
+            }
+          ],
+          "KOLAR": [
             {
-              station: "NDJARA",
-              voters: 227
-            },
+              "station": "EP DES PARENTS NDJARA / A",
+              "voters": 227
+            }
+          ],
+          "NDJARA": [
             {
-              station: "VOURMOUTCH",
-              voters: 227
-            },
+              "station": "EP DES PARENTS NDJARA / A",
+              "voters": 227
+            }
           ],
-          "EP DIRI / A": [
+          "VOURMOUTCH": [
             {
-              station: "DIRI",
-              voters: 447
-            },
+              "station": "EP DES PARENTS NDJARA / A",
+              "voters": 227
+            }
+          ],
+          "DIRI": [
             {
-              station: "LONDA",
-              voters: 447
-            },
+              "station": "EP DIRI / A",
+              "voters": 447
+            }
           ],
-          "EP DJABI / A": [
+          "LONDA": [
             {
-              station: "DJABI",
-              voters: 1014
-            },
+              "station": "EP DIRI / A",
+              "voters": 447
+            }
+          ],
+          "DJABI": [
             {
-              station: "DJOMA",
-              voters: 1754
-            },
+              "station": "EP DJABI / A",
+              "voters": 1014
+            }
+          ],
+          "DJOMA": [
             {
-              station: "ISSA",
-              voters: 1014
-            },
+              "station": "EP DJABI / A",
+              "voters": 1754
+            }
+          ],
+          "ISSA": [
             {
-              station: "TCHAMPALAM",
-              voters: 1014
-            },
+              "station": "EP DJABI / A",
+              "voters": 1014
+            }
           ],
-          "EP DJAMBOUTOU / A": [
+          "TCHAMPALAM": [
             {
-              station: "DJAMBOUTOU",
-              voters: 1193
-            },
+              "station": "EP DJABI / A",
+              "voters": 1014
+            }
           ],
-          "EP DJOMA BOKO / A": [
+          "DJAMBOUTOU": [
             {
-              station: "BOKO",
-              voters: 490
-            },
+              "station": "EP DJAMBOUTOU / A",
+              "voters": 1193
+            }
           ],
-          "EP DOUROUM / A": [
+          "BOKO": [
             {
-              station: "BANA",
-              voters: 738
-            },
+              "station": "EP DJOMA BOKO / A",
+              "voters": 490
+            }
+          ],
+          "BANA": [
             {
-              station: "DOUROUM",
-              voters: 3896
-            },
+              "station": "EP DOUROUM / A",
+              "voters": 738
+            }
+          ],
+          "DOUROUM": [
             {
-              station: "GADA",
-              voters: 3343
-            },
+              "station": "EP DOUROUM / A",
+              "voters": 3896
+            }
+          ],
+          "GADA": [
             {
-              station: "MAYO",
-              voters: 5139
-            },
+              "station": "EP DOUROUM / A",
+              "voters": 3343
+            }
+          ],
+          "MAYO": [
             {
-              station: "LAMORDE",
-              voters: 5790
-            },
+              "station": "EP DOUROUM / A",
+              "voters": 5139
+            }
+          ],
+          "LAMORDE": [
             {
-              station: "NASSARAO",
-              voters: 738
-            },
+              "station": "EP DOUROUM / A",
+              "voters": 5790
+            }
+          ],
+          "NASSARAO": [
             {
-              station: "PLATEAU",
-              voters: 738
-            },
+              "station": "EP DOUROUM / A",
+              "voters": 738
+            }
+          ],
+          "PLATEAU": [
             {
-              station: "SODECOTON",
-              voters: 738
-            },
+              "station": "EP DOUROUM / A",
+              "voters": 738
+            }
           ],
-          "EP GALAO / A": [
+          "SODECOTON": [
             {
-              station: "GALAO",
-              voters: 348
-            },
+              "station": "EP DOUROUM / A",
+              "voters": 738
+            }
+          ],
+          "GALAO": [
             {
-              station: "TASKAOU",
-              voters: 348
-            },
+              "station": "EP GALAO / A",
+              "voters": 348
+            }
           ],
-          "EP GANDA GOLOMBE / A": [
+          "TASKAOU": [
             {
-              station: "GOLOMBE",
-              voters: 4228
-            },
+              "station": "EP GALAO / A",
+              "voters": 348
+            }
+          ],
+          "GOLOMBE": [
             {
-              station: "KONA",
-              voters: 1521
-            },
+              "station": "EP GANDA GOLOMBE / A",
+              "voters": 4228
+            }
+          ],
+          "KONA": [
             {
-              station: "OURO-BASKODJE",
-              voters: 356
-            },
+              "station": "EP GANDA GOLOMBE / A",
+              "voters": 1521
+            }
           ],
-          "EP GARA GOLOMBE / A": [
+          "OURO-BASKODJE": [
             {
-              station: "HERI",
-              voters: 1087
-            },
+              "station": "EP GANDA GOLOMBE / A",
+              "voters": 356
+            }
           ],
-          "EP GARA GUIDER / A": [
+          "HERI": [
             {
-              station: "DJARA",
-              voters: 606
-            },
+              "station": "EP GARA GOLOMBE / A",
+              "voters": 1087
+            }
+          ],
+          "DJARA": [
             {
-              station: "GARA",
-              voters: 1129
-            },
+              "station": "EP GARA GUIDER / A",
+              "voters": 606
+            }
+          ],
+          "GARA": [
             {
-              station: "NDAOUDJI",
-              voters: 606
-            },
+              "station": "EP GARA GUIDER / A",
+              "voters": 1129
+            }
           ],
-          "EP GATOUGUEL / A": [
+          "NDAOUDJI": [
             {
-              station: "DANSANG",
-              voters: 1006
-            },
+              "station": "EP GARA GUIDER / A",
+              "voters": 606
+            }
+          ],
+          "DANSANG": [
             {
-              station: "GATOUGUEL",
-              voters: 1006
-            },
+              "station": "EP GATOUGUEL / A",
+              "voters": 1006
+            }
           ],
-          "EP GAVAL / A": [
+          "GATOUGUEL": [
             {
-              station: "GAVAL",
-              voters: 784
-            },
+              "station": "EP GATOUGUEL / A",
+              "voters": 1006
+            }
+          ],
+          "GAVAL": [
             {
-              station: "BAIGODJE",
-              voters: 408
-            },
+              "station": "EP GAVAL / A",
+              "voters": 784
+            }
+          ],
+          "BAIGODJE": [
             {
-              station: "SINGLIV",
-              voters: 408
-            },
+              "station": "EP GAVAL / A",
+              "voters": 408
+            }
+          ],
+          "SINGLIV": [
             {
-              station: "VONOZOUM",
-              voters: 408
-            },
+              "station": "EP GAVAL / A",
+              "voters": 408
+            }
           ],
-          "EP GOROM / A": [
+          "VONOZOUM": [
             {
-              station: "GOROM",
-              voters: 1018
-            },
+              "station": "EP GAVAL / A",
+              "voters": 408
+            }
+          ],
+          "GOROM": [
             {
-              station: "KOSSEYEL",
-              voters: 1600
-            },
+              "station": "EP GOROM / A",
+              "voters": 1018
+            }
+          ],
+          "KOSSEYEL": [
             {
-              station: "-DJOHI",
-              voters: 1068
-            },
+              "station": "EP GOROM / A",
+              "voters": 1600
+            }
           ],
-          "EP GOULONG FALI / A": [
+          "-DJOHI": [
             {
-              station: "GOULONG",
-              voters: 2600
-            },
+              "station": "EP GOROM / A",
+              "voters": 1068
+            }
+          ],
+          "GOULONG": [
             {
-              station: "FALI",
-              voters: 520
-            },
+              "station": "EP GOULONG FALI / A",
+              "voters": 2600
+            }
+          ],
+          "FALI": [
             {
-              station: "KARLAHI",
-              voters: 520
-            },
+              "station": "EP GOULONG FALI / A",
+              "voters": 520
+            }
+          ],
+          "KARLAHI": [
             {
-              station: "OURO-BOUBA",
-              voters: 520
-            },
+              "station": "EP GOULONG FALI / A",
+              "voters": 520
+            }
+          ],
+          "OURO-BOUBA": [
             {
-              station: "OURO-GODO",
-              voters: 520
-            },
+              "station": "EP GOULONG FALI / A",
+              "voters": 520
+            }
+          ],
+          "OURO-GODO": [
             {
-              station: "OURO-NGNEBE",
-              voters: 520
-            },
+              "station": "EP GOULONG FALI / A",
+              "voters": 520
+            }
           ],
-          "EP GUEZEOU / A": [
+          "OURO-NGNEBE": [
             {
-              station: "GUEZEOU",
-              voters: 417
-            },
+              "station": "EP GOULONG FALI / A",
+              "voters": 520
+            }
+          ],
+          "GUEZEOU": [
             {
-              station: "OURO-LOGOM",
-              voters: 417
-            },
+              "station": "EP GUEZEOU / A",
+              "voters": 417
+            }
           ],
-          "EP KAFINAROU / A": [
+          "OURO-LOGOM": [
             {
-              station: "KAFINAROU",
-              voters: 235
-            },
+              "station": "EP GUEZEOU / A",
+              "voters": 417
+            }
+          ],
+          "KAFINAROU": [
             {
-              station: "OURO-IYA",
-              voters: 235
-            },
+              "station": "EP KAFINAROU / A",
+              "voters": 235
+            }
           ],
-          "EP KAIGAMA / A": [
+          "OURO-IYA": [
             {
-              station: "KAIGAMA",
-              voters: 4249
-            },
+              "station": "EP KAFINAROU / A",
+              "voters": 235
+            }
+          ],
+          "KAIGAMA": [
             {
-              station: "KESSOUM",
-              voters: 4316
-            },
+              "station": "EP KAIGAMA / A",
+              "voters": 4249
+            }
           ],
-          "EP KAKALA / A": [
+          "KESSOUM": [
             {
-              station: "KAKALA",
-              voters: 555
-            },
+              "station": "EP KAIGAMA / A",
+              "voters": 4316
+            }
+          ],
+          "KAKALA": [
             {
-              station: "KARIA",
-              voters: 555
-            },
+              "station": "EP KAKALA / A",
+              "voters": 555
+            }
           ],
-          "EP KAPTA MADI / A": [
+          "KARIA": [
             {
-              station: "BEDEVE",
-              voters: 488
-            },
+              "station": "EP KAKALA / A",
+              "voters": 555
+            }
+          ],
+          "BEDEVE": [
             {
-              station: "KAPTA",
-              voters: 269
-            },
+              "station": "EP KAPTA MADI / A",
+              "voters": 488
+            }
+          ],
+          "KAPTA": [
             {
-              station: "MADI",
-              voters: 789
-            },
+              "station": "EP KAPTA MADI / A",
+              "voters": 269
+            }
+          ],
+          "MADI": [
             {
-              station: "MASGAM",
-              voters: 269
-            },
+              "station": "EP KAPTA MADI / A",
+              "voters": 789
+            }
+          ],
+          "MASGAM": [
             {
-              station: "OURO-TOUWE",
-              voters: 488
-            },
+              "station": "EP KAPTA MADI / A",
+              "voters": 269
+            }
           ],
-          "EP KASIER / A": [
+          "OURO-TOUWE": [
             {
-              station: "KASIER",
-              voters: 334
-            },
+              "station": "EP KAPTA MADI / A",
+              "voters": 488
+            }
           ],
-          "EP KERGUENG / A": [
+          "KASIER": [
             {
-              station: "KERGUENG",
-              voters: 4266
-            },
+              "station": "EP KASIER / A",
+              "voters": 334
+            }
           ],
-          "EP KOINA MESSINGUE / A": [
+          "KERGUENG": [
             {
-              station: "MESSENGUE",
-              voters: 460
-            },
+              "station": "EP KERGUENG / A",
+              "voters": 4266
+            }
           ],
-          "EP KOLA / A": [
+          "MESSENGUE": [
             {
-              station: "BAINGA",
-              voters: 977
-            },
+              "station": "EP KOINA MESSINGUE / A",
+              "voters": 460
+            }
+          ],
+          "BAINGA": [
             {
-              station: "KOLA",
-              voters: 4024
-            },
+              "station": "EP KOLA / A",
+              "voters": 977
+            }
           ],
-          "EP KOSSI / A": [
+          "KOLA": [
             {
-              station: "BEROU",
-              voters: 521
-            },
+              "station": "EP KOLA / A",
+              "voters": 4024
+            }
+          ],
+          "BEROU": [
             {
-              station: "KOSSI",
-              voters: 521
-            },
+              "station": "EP KOSSI / A",
+              "voters": 521
+            }
           ],
-          "EP LAMORDE / A": [
+          "KOSSI": [
             {
-              station: "BETCHE",
-              voters: 1870
-            },
+              "station": "EP KOSSI / A",
+              "voters": 521
+            }
+          ],
+          "BETCHE": [
             {
-              station: "SOULKATA",
-              voters: 1870
-            },
+              "station": "EP LAMORDE / A",
+              "voters": 1870
+            }
           ],
-          "EP LARBACK / A": [
+          "SOULKATA": [
             {
-              station: "LARBACK",
-              voters: 827
-            },
+              "station": "EP LAMORDE / A",
+              "voters": 1870
+            }
+          ],
+          "LARBACK": [
             {
-              station: "MANGRAYEL",
-              voters: 827
-            },
+              "station": "EP LARBACK / A",
+              "voters": 827
+            }
+          ],
+          "MANGRAYEL": [
             {
-              station: "OURO-DOUVA",
-              voters: 827
-            },
+              "station": "EP LARBACK / A",
+              "voters": 827
+            }
+          ],
+          "OURO-DOUVA": [
             {
-              station: "OURO-TCHAKORGUEL",
-              voters: 827
-            },
+              "station": "EP LARBACK / A",
+              "voters": 827
+            }
           ],
-          "EP LIBE / A": [
+          "OURO-TCHAKORGUEL": [
             {
-              station: "DEGUERI",
-              voters: 526
-            },
+              "station": "EP LARBACK / A",
+              "voters": 827
+            }
+          ],
+          "DEGUERI": [
             {
-              station: "LIBE",
-              voters: 820
-            },
+              "station": "EP LIBE / A",
+              "voters": 526
+            }
           ],
-          "EP LOMBEL / A": [
+          "LIBE": [
             {
-              station: "LOMBEL",
-              voters: 397
-            },
+              "station": "EP LIBE / A",
+              "voters": 820
+            }
           ],
-          "EP LOUGGUERE / A": [
+          "LOMBEL": [
             {
-              station: "YOUKVOUNA",
-              voters: 829
-            },
+              "station": "EP LOMBEL / A",
+              "voters": 397
+            }
           ],
-          "EP MAISSANDA / A": [
+          "YOUKVOUNA": [
             {
-              station: "MAISSANDA",
-              voters: 213
-            },
+              "station": "EP LOUGGUERE / A",
+              "voters": 829
+            }
           ],
-          "EP MALMAS / A": [
+          "MAISSANDA": [
             {
-              station: "MALMAS",
-              voters: 206
-            },
+              "station": "EP MAISSANDA / A",
+              "voters": 213
+            }
           ],
-          "EP MALWOY / A": [
+          "MALMAS": [
             {
-              station: "GOLVONG",
-              voters: 448
-            },
+              "station": "EP MALMAS / A",
+              "voters": 206
+            }
+          ],
+          "GOLVONG": [
             {
-              station: "MALWOY",
-              voters: 448
-            },
+              "station": "EP MALWOY / A",
+              "voters": 448
+            }
           ],
-          "EP MATAFAL / A": [
+          "MALWOY": [
             {
-              station: "MATAFAL",
-              voters: 461
-            },
+              "station": "EP MALWOY / A",
+              "voters": 448
+            }
           ],
-          "EP MATAFALRE / A": [
+          "MATAFAL": [
             {
-              station: "MATAFALRE",
-              voters: 462
-            },
+              "station": "EP MATAFAL / A",
+              "voters": 461
+            }
+          ],
+          "MATAFALRE": [
             {
-              station: "TCHIKAF",
-              voters: 462
-            },
+              "station": "EP MATAFALRE / A",
+              "voters": 462
+            }
           ],
-          "EP MATAIBAO / A": [
+          "TCHIKAF": [
             {
-              station: "KIRIRAMBO",
-              voters: 797
-            },
+              "station": "EP MATAFALRE / A",
+              "voters": 462
+            }
+          ],
+          "KIRIRAMBO": [
             {
-              station: "MATAIBAO",
-              voters: 641
-            },
+              "station": "EP MATAIBAO / A",
+              "voters": 797
+            }
+          ],
+          "MATAIBAO": [
             {
-              station: "NELBI",
-              voters: 641
-            },
+              "station": "EP MATAIBAO / A",
+              "voters": 641
+            }
           ],
-          "EP MAYO KEWE / A": [
+          "NELBI": [
             {
-              station: "KEWE",
-              voters: 578
-            },
+              "station": "EP MATAIBAO / A",
+              "voters": 641
+            }
+          ],
+          "KEWE": [
             {
-              station: "TALDAM",
-              voters: 578
-            },
+              "station": "EP MAYO KEWE / A",
+              "voters": 578
+            }
           ],
-          "EP MAYO KORA / A": [
+          "TALDAM": [
             {
-              station: "KORA",
-              voters: 356
-            },
+              "station": "EP MAYO KEWE / A",
+              "voters": 578
+            }
           ],
-          "EP MAYO LOUE / A": [
+          "KORA": [
             {
-              station: "MAYO-LOUE",
-              voters: 827
-            },
+              "station": "EP MAYO KORA / A",
+              "voters": 356
+            }
+          ],
+          "MAYO-LOUE": [
             {
-              station: "OURO-DJAOURO",
-              voters: 2189
-            },
+              "station": "EP MAYO LOUE / A",
+              "voters": 827
+            }
+          ],
+          "OURO-DJAOURO": [
             {
-              station: "NGOUFDA",
-              voters: 827
-            },
+              "station": "EP MAYO LOUE / A",
+              "voters": 2189
+            }
+          ],
+          "NGOUFDA": [
             {
-              station: "OURO-TOUPOURI",
-              voters: 827
-            },
+              "station": "EP MAYO LOUE / A",
+              "voters": 827
+            }
+          ],
+          "OURO-TOUPOURI": [
             {
-              station: "WALEWOL",
-              voters: 1060
-            },
+              "station": "EP MAYO LOUE / A",
+              "voters": 827
+            }
+          ],
+          "WALEWOL": [
             {
-              station: "NOME",
-              voters: 827
-            },
+              "station": "EP MAYO LOUE / A",
+              "voters": 1060
+            }
           ],
-          "EP MAYO MALAO / A": [
+          "NOME": [
             {
-              station: "DOKOYOUM",
-              voters: 235
-            },
+              "station": "EP MAYO LOUE / A",
+              "voters": 827
+            }
+          ],
+          "DOKOYOUM": [
             {
-              station: "KOUSMADOUMA",
-              voters: 235
-            },
+              "station": "EP MAYO MALAO / A",
+              "voters": 235
+            }
           ],
-          "EP MAYO SOMBRE / A": [
+          "KOUSMADOUMA": [
             {
-              station: "MAYO-SOMBRE",
-              voters: 201
-            },
+              "station": "EP MAYO MALAO / A",
+              "voters": 235
+            }
           ],
-          "EP MAZAVLA / A": [
+          "MAYO-SOMBRE": [
             {
-              station: "MAZAVLA",
-              voters: 152
-            },
+              "station": "EP MAYO SOMBRE / A",
+              "voters": 201
+            }
           ],
-          "EP MEDEZEM / A": [
+          "MAZAVLA": [
             {
-              station: "MEDEZEM",
-              voters: 331
-            },
+              "station": "EP MAZAVLA / A",
+              "voters": 152
+            }
           ],
-          "EP MELEDEM / A": [
+          "MEDEZEM": [
             {
-              station: "MBIRMIDIGUIP",
-              voters: 546
-            },
+              "station": "EP MEDEZEM / A",
+              "voters": 331
+            }
+          ],
+          "MBIRMIDIGUIP": [
             {
-              station: "MELEDEM",
-              voters: 371
-            },
+              "station": "EP MELEDEM / A",
+              "voters": 546
+            }
           ],
-          "EP MENDJEKER / A": [
+          "MELEDEM": [
             {
-              station: "DALGAN",
-              voters: 317
-            },
+              "station": "EP MELEDEM / A",
+              "voters": 371
+            }
+          ],
+          "DALGAN": [
             {
-              station: "FILOU",
-              voters: 317
-            },
+              "station": "EP MENDJEKER / A",
+              "voters": 317
+            }
+          ],
+          "FILOU": [
             {
-              station: "MENDJEKER",
-              voters: 317
-            },
+              "station": "EP MENDJEKER / A",
+              "voters": 317
+            }
+          ],
+          "MENDJEKER": [
             {
-              station: "TCHIKAFAI",
-              voters: 317
-            },
+              "station": "EP MENDJEKER / A",
+              "voters": 317
+            }
+          ],
+          "TCHIKAFAI": [
             {
-              station: "TIRLAO",
-              voters: 317
-            },
+              "station": "EP MENDJEKER / A",
+              "voters": 317
+            }
           ],
-          "EP MESSO / A": [
+          "TIRLAO": [
             {
-              station: "BOLO",
-              voters: 221
-            },
+              "station": "EP MENDJEKER / A",
+              "voters": 317
+            }
           ],
-          "EP MOKORVONG / A": [
+          "BOLO": [
             {
-              station: "GOUDACK",
-              voters: 512
-            },
+              "station": "EP MESSO / A",
+              "voters": 221
+            }
+          ],
+          "GOUDACK": [
             {
-              station: "MAYO-SANGANARE",
-              voters: 512
-            },
+              "station": "EP MOKORVONG / A",
+              "voters": 512
+            }
+          ],
+          "MAYO-SANGANARE": [
             {
-              station: "MOKORVONG",
-              voters: 977
-            },
+              "station": "EP MOKORVONG / A",
+              "voters": 512
+            }
+          ],
+          "MOKORVONG": [
             {
-              station: "-MOUSGOUY",
-              voters: 512
-            },
+              "station": "EP MOKORVONG / A",
+              "voters": 977
+            }
+          ],
+          "-MOUSGOUY": [
             {
-              station: "KATCHALLA",
-              voters: 512
-            },
+              "station": "EP MOKORVONG / A",
+              "voters": 512
+            }
+          ],
+          "KATCHALLA": [
             {
-              station: "TAWAN",
-              voters: 512
-            },
+              "station": "EP MOKORVONG / A",
+              "voters": 512
+            }
           ],
-          "EP MOUSGOY / A": [
+          "TAWAN": [
             {
-              station: "BANAM",
-              voters: 462
-            },
+              "station": "EP MOKORVONG / A",
+              "voters": 512
+            }
+          ],
+          "BANAM": [
             {
-              station: "MARMA",
-              voters: 462
-            },
+              "station": "EP MOUSGOY / A",
+              "voters": 462
+            }
+          ],
+          "MARMA": [
             {
-              station: "MOUSGOY",
-              voters: 1444
-            },
+              "station": "EP MOUSGOY / A",
+              "voters": 462
+            }
+          ],
+          "MOUSGOY": [
             {
-              station: "ZAGA",
-              voters: 739
-            },
+              "station": "EP MOUSGOY / A",
+              "voters": 1444
+            }
           ],
-          "EP NDIAM ETINA / A": [
+          "ZAGA": [
             {
-              station: "GOUFOURE",
-              voters: 600
-            },
+              "station": "EP MOUSGOY / A",
+              "voters": 739
+            }
+          ],
+          "GOUFOURE": [
             {
-              station: "NDIAM",
-              voters: 1761
-            },
+              "station": "EP NDIAM ETINA / A",
+              "voters": 600
+            }
+          ],
+          "NDIAM": [
             {
-              station: "ETINA",
-              voters: 1120
-            },
+              "station": "EP NDIAM ETINA / A",
+              "voters": 1761
+            }
+          ],
+          "ETINA": [
             {
-              station: "TOLDOU",
-              voters: 600
-            },
+              "station": "EP NDIAM ETINA / A",
+              "voters": 1120
+            }
           ],
-          "EP OURO ALHADJI / A": [
+          "TOLDOU": [
             {
-              station: "DJEDJENGUE",
-              voters: 726
-            },
+              "station": "EP NDIAM ETINA / A",
+              "voters": 600
+            }
+          ],
+          "DJEDJENGUE": [
             {
-              station: "ALHADJI",
-              voters: 1366
-            },
+              "station": "EP OURO ALHADJI / A",
+              "voters": 726
+            }
+          ],
+          "ALHADJI": [
             {
-              station: "OURO-ALHADJI",
-              voters: 726
-            },
+              "station": "EP OURO ALHADJI / A",
+              "voters": 1366
+            }
+          ],
+          "OURO-ALHADJI": [
             {
-              station: "TONKOLO",
-              voters: 726
-            },
+              "station": "EP OURO ALHADJI / A",
+              "voters": 726
+            }
           ],
-          "EP OURO HAOUSSA / A": [
+          "TONKOLO": [
             {
-              station: "BARA",
-              voters: 1272
-            },
+              "station": "EP OURO ALHADJI / A",
+              "voters": 726
+            }
           ],
-          "EP OURO TARA / A": [
+          "BARA": [
             {
-              station: "OURO-TARA",
-              voters: 611
-            },
+              "station": "EP OURO HAOUSSA / A",
+              "voters": 1272
+            }
           ],
-          "EP PAHA / A": [
+          "OURO-TARA": [
             {
-              station: "BALDA",
-              voters: 496
-            },
+              "station": "EP OURO TARA / A",
+              "voters": 611
+            }
+          ],
+          "BALDA": [
             {
-              station: "PAHA",
-              voters: 617
-            },
+              "station": "EP PAHA / A",
+              "voters": 496
+            }
           ],
-          "EP RIBAO GOLOMBE / A": [
+          "PAHA": [
             {
-              station: "TIMOTI",
-              voters: 529
-            },
+              "station": "EP PAHA / A",
+              "voters": 617
+            }
           ],
-          "EP SARWA / A": [
+          "TIMOTI": [
             {
-              station: "SARWA",
-              voters: 271
-            },
+              "station": "EP RIBAO GOLOMBE / A",
+              "voters": 529
+            }
           ],
-          "EP SIBRE MALAYE / A": [
+          "SARWA": [
             {
-              station: "SIBRE",
-              voters: 646
-            },
+              "station": "EP SARWA / A",
+              "voters": 271
+            }
+          ],
+          "SIBRE": [
             {
-              station: "MALAYE",
-              voters: 306
-            },
+              "station": "EP SIBRE MALAYE / A",
+              "voters": 646
+            }
           ],
-          "EP SIBRETORDOU / A": [
+          "MALAYE": [
             {
-              station: "TOROU",
-              voters: 340
-            },
+              "station": "EP SIBRE MALAYE / A",
+              "voters": 306
+            }
           ],
-          "EP SINGAIDI / A": [
+          "TOROU": [
             {
-              station: "SINGAIDI",
-              voters: 532
-            },
+              "station": "EP SIBRETORDOU / A",
+              "voters": 340
+            }
           ],
-          "EP SODALOU / A": [
+          "SINGAIDI": [
             {
-              station: "SODALOU",
-              voters: 534
-            },
+              "station": "EP SINGAIDI / A",
+              "voters": 532
+            }
           ],
-          "EP SORAWEL / A": [
+          "SODALOU": [
             {
-              station: "SORAWEL",
-              voters: 955
-            },
+              "station": "EP SODALOU / A",
+              "voters": 534
+            }
           ],
-          "EP SOSSILIM / A": [
+          "SORAWEL": [
             {
-              station: "BABAGUEL",
-              voters: 414
-            },
+              "station": "EP SORAWEL / A",
+              "voters": 955
+            }
+          ],
+          "BABAGUEL": [
             {
-              station: "MAYEL",
-              voters: 2287
-            },
+              "station": "EP SOSSILIM / A",
+              "voters": 414
+            }
+          ],
+          "MAYEL": [
             {
-              station: "TCHOLLI",
-              voters: 414
-            },
+              "station": "EP SOSSILIM / A",
+              "voters": 2287
+            }
+          ],
+          "TCHOLLI": [
             {
-              station: "NGONDOUROU",
-              voters: 699
-            },
+              "station": "EP SOSSILIM / A",
+              "voters": 414
+            }
+          ],
+          "NGONDOUROU": [
             {
-              station: "SOSSILIM",
-              voters: 414
-            },
+              "station": "EP SOSSILIM / A",
+              "voters": 699
+            }
+          ],
+          "SOSSILIM": [
             {
-              station: "WADJERE",
-              voters: 699
-            },
+              "station": "EP SOSSILIM / A",
+              "voters": 414
+            }
           ],
-          "EP SOUCKOUNDOU / A": [
+          "WADJERE": [
             {
-              station: "SOUCKOUDOU",
-              voters: 555
-            },
+              "station": "EP SOSSILIM / A",
+              "voters": 699
+            }
           ],
-          "EP TALAZOUAI / A": [
+          "SOUCKOUDOU": [
             {
-              station: "BAIDAY",
-              voters: 301
-            },
+              "station": "EP SOUCKOUNDOU / A",
+              "voters": 555
+            }
+          ],
+          "BAIDAY": [
             {
-              station: "TALAZOUAI",
-              voters: 301
-            },
+              "station": "EP TALAZOUAI / A",
+              "voters": 301
+            }
+          ],
+          "TALAZOUAI": [
             {
-              station: "TILBIT",
-              voters: 301
-            },
+              "station": "EP TALAZOUAI / A",
+              "voters": 301
+            }
           ],
-          "EP TCHEKAL / A": [
+          "TILBIT": [
             {
-              station: "PAZARA",
-              voters: 1055
-            },
+              "station": "EP TALAZOUAI / A",
+              "voters": 301
+            }
+          ],
+          "PAZARA": [
             {
-              station: "PONT",
-              voters: 888
-            },
+              "station": "EP TCHEKAL / A",
+              "voters": 1055
+            }
+          ],
+          "PONT": [
             {
-              station: "TCHEKAL",
-              voters: 888
-            },
+              "station": "EP TCHEKAL / A",
+              "voters": 888
+            }
           ],
-          "EP TCHONTCHI / A": [
+          "TCHEKAL": [
             {
-              station: "TCHONTCHI",
-              voters: 1804
-            },
+              "station": "EP TCHEKAL / A",
+              "voters": 888
+            }
           ],
-          "EP TIKELKE / A": [
+          "TCHONTCHI": [
             {
-              station: "TIKELKE",
-              voters: 436
-            },
+              "station": "EP TCHONTCHI / A",
+              "voters": 1804
+            }
+          ],
+          "TIKELKE": [
             {
-              station: "TOFOR",
-              voters: 436
-            },
+              "station": "EP TIKELKE / A",
+              "voters": 436
+            }
+          ],
+          "TOFOR": [
             {
-              station: "YAPERE",
-              voters: 436
-            },
+              "station": "EP TIKELKE / A",
+              "voters": 436
+            }
+          ],
+          "YAPERE": [
             {
-              station: "ALIM",
-              voters: 436
-            },
+              "station": "EP TIKELKE / A",
+              "voters": 436
+            }
           ],
-          "EP TIMBO / A": [
+          "ALIM": [
             {
-              station: "TIMBO",
-              voters: 91
-            },
+              "station": "EP TIKELKE / A",
+              "voters": 436
+            }
           ],
-          "EP TRA / A": [
+          "TIMBO": [
             {
-              station: "BOULOU",
-              voters: 376
-            },
+              "station": "EP TIMBO / A",
+              "voters": 91
+            }
+          ],
+          "BOULOU": [
             {
-              station: "DJARENDI",
-              voters: 376
-            },
+              "station": "EP TRA / A",
+              "voters": 376
+            }
+          ],
+          "DJARENDI": [
             {
-              station: "DOULA",
-              voters: 376
-            },
+              "station": "EP TRA / A",
+              "voters": 376
+            }
           ],
-          "EP WALEWOL GADE / A": [
+          "DOULA": [
             {
-              station: "DANAYEL",
-              voters: 397
-            },
+              "station": "EP TRA / A",
+              "voters": 376
+            }
+          ],
+          "DANAYEL": [
             {
-              station: "WALEWOL-GADE",
-              voters: 262
-            },
+              "station": "EP WALEWOL GADE / A",
+              "voters": 397
+            }
           ],
-          "EP WINDE LOUE / A": [
+          "WALEWOL-GADE": [
             {
-              station: "WINDE-LOUE",
-              voters: 423
-            },
+              "station": "EP WALEWOL GADE / A",
+              "voters": 262
+            }
           ],
-          "EP WINDE YOLA / A": [
+          "WINDE-LOUE": [
             {
-              station: "BABASALACK",
-              voters: 291
-            },
+              "station": "EP WINDE LOUE / A",
+              "voters": 423
+            }
+          ],
+          "BABASALACK": [
             {
-              station: "BOKO-DOUROUM",
-              voters: 291
-            },
+              "station": "EP WINDE YOLA / A",
+              "voters": 291
+            }
+          ],
+          "BOKO-DOUROUM": [
             {
-              station: "MADEKRE",
-              voters: 291
-            },
+              "station": "EP WINDE YOLA / A",
+              "voters": 291
+            }
+          ],
+          "MADEKRE": [
             {
-              station: "OURO-LESS",
-              voters: 291
-            },
+              "station": "EP WINDE YOLA / A",
+              "voters": 291
+            }
           ],
-          "EP YAPERE / A": [
+          "OURO-LESS": [
             {
-              station: "BODONG",
-              voters: 473
-            },
+              "station": "EP WINDE YOLA / A",
+              "voters": 291
+            }
+          ],
+          "BODONG": [
             {
-              station: "NDOLOM",
-              voters: 473
-            },
+              "station": "EP YAPERE / A",
+              "voters": 473
+            }
+          ],
+          "NDOLOM": [
             {
-              station: "YAPARE",
-              voters: 473
-            },
+              "station": "EP YAPERE / A",
+              "voters": 473
+            }
           ],
-          "EPA SANGUERE / A": [
+          "YAPARE": [
             {
-              station: "AHMADOU",
-              voters: 4028
-            },
+              "station": "EP YAPERE / A",
+              "voters": 473
+            }
+          ],
+          "AHMADOU": [
             {
-              station: "KOLAS",
-              voters: 12528
-            },
+              "station": "EPA SANGUERE / A",
+              "voters": 4028
+            }
+          ],
+          "KOLAS": [
             {
-              station: "YAOUNDE",
-              voters: 3940
-            },
+              "station": "EPA SANGUERE / A",
+              "voters": 12528
+            }
+          ],
+          "YAOUNDE": [
             {
-              station: "FALAMA",
-              voters: 4560
-            },
+              "station": "EPA SANGUERE / A",
+              "voters": 3940
+            }
+          ],
+          "FALAMA": [
             {
-              station: "HAMADOU",
-              voters: 3594
-            },
+              "station": "EPA SANGUERE / A",
+              "voters": 4560
+            }
+          ],
+          "HAMADOU": [
             {
-              station: "DAWA",
-              voters: 3594
-            },
+              "station": "EPA SANGUERE / A",
+              "voters": 3594
+            }
+          ],
+          "DAWA": [
             {
-              station: "MOKOLO",
-              voters: 3940
-            },
+              "station": "EPA SANGUERE / A",
+              "voters": 3594
+            }
+          ],
+          "MOKOLO": [
             {
-              station: "MOUSSA",
-              voters: 3940
-            },
+              "station": "EPA SANGUERE / A",
+              "voters": 3940
+            }
+          ],
+          "MOUSSA": [
             {
-              station: "SANGUERE",
-              voters: 3940
-            },
+              "station": "EPA SANGUERE / A",
+              "voters": 3940
+            }
           ],
-          "ESPL CHEF BASSIRA / A": [
+          "SANGUERE": [
             {
-              station: "BASSIRA",
-              voters: 264
-            },
+              "station": "EPA SANGUERE / A",
+              "voters": 3940
+            }
           ],
-          "ESPL CHEF BEBERE GADA MAYO / A": [
+          "BASSIRA": [
             {
-              station: "HASSOUMI",
-              voters: 886
-            },
+              "station": "ESPL CHEF BASSIRA / A",
+              "voters": 264
+            }
           ],
-          "ESPL CHEF BOHONG / A": [
+          "HASSOUMI": [
             {
-              station: "BOHONG",
-              voters: 803
-            },
+              "station": "ESPL CHEF BEBERE GADA MAYO / A",
+              "voters": 886
+            }
+          ],
+          "BOHONG": [
             {
-              station: "MAL",
-              voters: 4550
-            },
+              "station": "ESPL CHEF BOHONG / A",
+              "voters": 803
+            }
+          ],
+          "MAL": [
             {
-              station: "SIDDIKI",
-              voters: 956
-            },
+              "station": "ESPL CHEF BOHONG / A",
+              "voters": 4550
+            }
           ],
-          "ESPL CHEF BOUDJOULKOU / A": [
+          "SIDDIKI": [
             {
-              station: "BOUDJOULKOU",
-              voters: 220
-            },
+              "station": "ESPL CHEF BOHONG / A",
+              "voters": 956
+            }
           ],
-          "ESPL CHEF DALE / A": [
+          "BOUDJOULKOU": [
             {
-              station: "DALE",
-              voters: 390
-            },
+              "station": "ESPL CHEF BOUDJOULKOU / A",
+              "voters": 220
+            }
+          ],
+          "DALE": [
             {
-              station: "FITIM",
-              voters: 390
-            },
+              "station": "ESPL CHEF DALE / A",
+              "voters": 390
+            }
+          ],
+          "FITIM": [
             {
-              station: "PARKINE",
-              voters: 747
-            },
+              "station": "ESPL CHEF DALE / A",
+              "voters": 390
+            }
+          ],
+          "PARKINE": [
             {
-              station: "SABERE",
-              voters: 390
-            },
+              "station": "ESPL CHEF DALE / A",
+              "voters": 747
+            }
           ],
-          "ESPL CHEF DELEGUE I / A": [
+          "SABERE": [
             {
-              station: "DELEGUE",
-              voters: 3051
-            },
+              "station": "ESPL CHEF DALE / A",
+              "voters": 390
+            }
+          ],
+          "DELEGUE": [
             {
-              station: "CENTRE",
-              voters: 1513
-            },
+              "station": "ESPL CHEF DELEGUE I / A",
+              "voters": 3051
+            }
           ],
-          "ESPL CHEF DEM / A": [
+          "CENTRE": [
             {
-              station: "DEM",
-              voters: 750
-            },
+              "station": "ESPL CHEF DELEGUE I / A",
+              "voters": 1513
+            }
+          ],
+          "DEM": [
             {
-              station: "GANDA",
-              voters: 1372
-            },
+              "station": "ESPL CHEF DEM / A",
+              "voters": 750
+            }
+          ],
+          "GANDA": [
             {
-              station: "LELING",
-              voters: 541
-            },
+              "station": "ESPL CHEF DEM / A",
+              "voters": 1372
+            }
+          ],
+          "LELING": [
             {
-              station: "BANI",
-              voters: 303
-            },
+              "station": "ESPL CHEF DEM / A",
+              "voters": 541
+            }
+          ],
+          "BANI": [
             {
-              station: "GAOUDJA",
-              voters: 303
-            },
+              "station": "ESPL CHEF DEM / A",
+              "voters": 303
+            }
           ],
-          "ESPL CHEF DJABBIRE RAOU / A": [
+          "GAOUDJA": [
             {
-              station: "DJABBIRE",
-              voters: 244
-            },
+              "station": "ESPL CHEF DEM / A",
+              "voters": 303
+            }
+          ],
+          "DJABBIRE": [
             {
-              station: "RAOU",
-              voters: 244
-            },
+              "station": "ESPL CHEF DJABBIRE RAOU / A",
+              "voters": 244
+            }
           ],
-          "ESPL CHEF DJAMTARI / A": [
+          "RAOU": [
             {
-              station: "DJAMTARI",
-              voters: 650
-            },
+              "station": "ESPL CHEF DJABBIRE RAOU / A",
+              "voters": 244
+            }
+          ],
+          "DJAMTARI": [
             {
-              station: "OURO-KESSOUM",
-              voters: 4938
-            },
+              "station": "ESPL CHEF DJAMTARI / A",
+              "voters": 650
+            }
           ],
-          "ESPL CHEF DJARENGOL / A": [
+          "OURO-KESSOUM": [
             {
-              station: "DJARENGOL",
-              voters: 614
-            },
+              "station": "ESPL CHEF DJAMTARI / A",
+              "voters": 4938
+            }
+          ],
+          "DJARENGOL": [
             {
-              station: "DAFAN",
-              voters: 320
-            },
+              "station": "ESPL CHEF DJARENGOL / A",
+              "voters": 614
+            }
           ],
-          "ESPL CHEF DJOUNDE / A": [
+          "DAFAN": [
             {
-              station: "DJOUNDE",
-              voters: 254
-            },
+              "station": "ESPL CHEF DJARENGOL / A",
+              "voters": 320
+            }
           ],
-          "ESPL CHEF DOBOULWOY / A": [
+          "DJOUNDE": [
             {
-              station: "DOUBOULWOUY",
-              voters: 145
-            },
+              "station": "ESPL CHEF DJOUNDE / A",
+              "voters": 254
+            }
           ],
-          "ESPL CHEF DOUBAS / A": [
+          "DOUBOULWOUY": [
             {
-              station: "DOUBAS",
-              voters: 301
-            },
+              "station": "ESPL CHEF DOBOULWOY / A",
+              "voters": 145
+            }
           ],
-          "ESPL CHEF DOUBI / A": [
+          "DOUBAS": [
             {
-              station: "DOUBI",
-              voters: 364
-            },
+              "station": "ESPL CHEF DOUBAS / A",
+              "voters": 301
+            }
           ],
-          "ESPL CHEF GADA KORGOU / A": [
+          "DOUBI": [
             {
-              station: "KORGOU",
-              voters: 1217
-            },
+              "station": "ESPL CHEF DOUBI / A",
+              "voters": 364
+            }
           ],
-          "ESPL CHEF GANGOUR BORI / A": [
+          "KORGOU": [
             {
-              station: "DALAMI",
-              voters: 216
-            },
+              "station": "ESPL CHEF GADA KORGOU / A",
+              "voters": 1217
+            }
+          ],
+          "DALAMI": [
             {
-              station: "GANGOUR",
-              voters: 216
-            },
+              "station": "ESPL CHEF GANGOUR BORI / A",
+              "voters": 216
+            }
+          ],
+          "GANGOUR": [
             {
-              station: "BORI",
-              voters: 216
-            },
+              "station": "ESPL CHEF GANGOUR BORI / A",
+              "voters": 216
+            }
+          ],
+          "BORI": [
             {
-              station: "SESSARA",
-              voters: 216
-            },
+              "station": "ESPL CHEF GANGOUR BORI / A",
+              "voters": 216
+            }
           ],
-          "ESPL CHEF GAVAL LAWAN TODOU / A": [
+          "SESSARA": [
             {
-              station: "LAWAN",
-              voters: 376
-            },
+              "station": "ESPL CHEF GANGOUR BORI / A",
+              "voters": 216
+            }
+          ],
+          "LAWAN": [
             {
-              station: "TODOU",
-              voters: 1203
-            },
+              "station": "ESPL CHEF GAVAL LAWAN TODOU / A",
+              "voters": 376
+            }
+          ],
+          "TODOU": [
             {
-              station: "KAFKAI",
-              voters: 559
-            },
+              "station": "ESPL CHEF GAVAL LAWAN TODOU / A",
+              "voters": 1203
+            }
           ],
-          "ESPL CHEF GOLOMO / A": [
+          "KAFKAI": [
             {
-              station: "GOLOMO",
-              voters: 242
-            },
+              "station": "ESPL CHEF GAVAL LAWAN TODOU / A",
+              "voters": 559
+            }
           ],
-          "ESPL CHEF GONDOUROU / A": [
+          "GOLOMO": [
             {
-              station: "GONDOUROU",
-              voters: 285
-            },
+              "station": "ESPL CHEF GOLOMO / A",
+              "voters": 242
+            }
           ],
-          "ESPL CHEF GORTONG / A": [
+          "GONDOUROU": [
             {
-              station: "GORTONG",
-              voters: 209
-            },
+              "station": "ESPL CHEF GONDOUROU / A",
+              "voters": 285
+            }
           ],
-          "ESPL CHEF GOULDANWOL / A": [
+          "GORTONG": [
             {
-              station: "DJIMTEL",
-              voters: 142
-            },
+              "station": "ESPL CHEF GORTONG / A",
+              "voters": 209
+            }
+          ],
+          "DJIMTEL": [
             {
-              station: "GOULDANWOL",
-              voters: 142
-            },
+              "station": "ESPL CHEF GOULDANWOL / A",
+              "voters": 142
+            }
+          ],
+          "GOULDANWOL": [
             {
-              station: "OURO-HAOUSSA",
-              voters: 553
-            },
+              "station": "ESPL CHEF GOULDANWOL / A",
+              "voters": 142
+            }
           ],
-          "ESPL CHEF GUIRLAO / A": [
+          "OURO-HAOUSSA": [
             {
-              station: "GUIRLAO",
-              voters: 103
-            },
+              "station": "ESPL CHEF GOULDANWOL / A",
+              "voters": 553
+            }
+          ],
+          "GUIRLAO": [
             {
-              station: "LEREBI",
-              voters: 103
-            },
+              "station": "ESPL CHEF GUIRLAO / A",
+              "voters": 103
+            }
           ],
-          "ESPL CHEF KAIGAMA III / A": [
+          "LEREBI": [
             {
-              station: "III",
-              voters: 1627
-            },
+              "station": "ESPL CHEF GUIRLAO / A",
+              "voters": 103
+            }
           ],
-          "ESPL CHEF KARBAY / A": [
+          "III": [
             {
-              station: "KARMBAY",
-              voters: 206
-            },
+              "station": "ESPL CHEF KAIGAMA III / A",
+              "voters": 1627
+            }
           ],
-          "ESPL CHEF KEREING / A": [
+          "KARMBAY": [
             {
-              station: "KEREING",
-              voters: 387
-            },
+              "station": "ESPL CHEF KARBAY / A",
+              "voters": 206
+            }
           ],
-          "ESPL CHEF KOINA MAIGARI / A": [
+          "KEREING": [
             {
-              station: "KOINA",
-              voters: 833
-            },
+              "station": "ESPL CHEF KEREING / A",
+              "voters": 387
+            }
+          ],
+          "KOINA": [
             {
-              station: "MAIGARI",
-              voters: 373
-            },
+              "station": "ESPL CHEF KOINA MAIGARI / A",
+              "voters": 833
+            }
           ],
-          "ESPL CHEF KORAKE / A": [
+          "MAIGARI": [
             {
-              station: "KADJONKA",
-              voters: 449
-            },
+              "station": "ESPL CHEF KOINA MAIGARI / A",
+              "voters": 373
+            }
+          ],
+          "KADJONKA": [
             {
-              station: "KORAKE",
-              voters: 449
-            },
+              "station": "ESPL CHEF KORAKE / A",
+              "voters": 449
+            }
+          ],
+          "KORAKE": [
             {
-              station: "MADIA",
-              voters: 593
-            },
+              "station": "ESPL CHEF KORAKE / A",
+              "voters": 449
+            }
           ],
-          "ESPL CHEF KOSSEYEL DANEYEL / A": [
+          "MADIA": [
             {
-              station: "DANEYEL",
-              voters: 135
-            },
+              "station": "ESPL CHEF KORAKE / A",
+              "voters": 593
+            }
           ],
-          "ESPL CHEF LOUGGUERE DAWAI / A": [
+          "DANEYEL": [
             {
-              station: "DAWAI",
-              voters: 191
-            },
+              "station": "ESPL CHEF KOSSEYEL DANEYEL / A",
+              "voters": 135
+            }
           ],
-          "ESPL CHEF LOUGGUERE WALA / A": [
+          "DAWAI": [
             {
-              station: "DJABE",
-              voters: 437
-            },
+              "station": "ESPL CHEF LOUGGUERE DAWAI / A",
+              "voters": 191
+            }
+          ],
+          "DJABE": [
             {
-              station: "LOUGGUERE",
-              voters: 1176
-            },
+              "station": "ESPL CHEF LOUGGUERE WALA / A",
+              "voters": 437
+            }
+          ],
+          "LOUGGUERE": [
             {
-              station: "WALA",
-              voters: 156
-            },
+              "station": "ESPL CHEF LOUGGUERE WALA / A",
+              "voters": 1176
+            }
           ],
-          "ESPL CHEF MALIA / A": [
+          "WALA": [
             {
-              station: "MALIA",
-              voters: 229
-            },
+              "station": "ESPL CHEF LOUGGUERE WALA / A",
+              "voters": 156
+            }
           ],
-          "ESPL CHEF MAMBAZA / A": [
+          "MALIA": [
             {
-              station: "MAMBAZA",
-              voters: 368
-            },
+              "station": "ESPL CHEF MALIA / A",
+              "voters": 229
+            }
+          ],
+          "MAMBAZA": [
             {
-              station: "KOUE",
-              voters: 184
-            },
+              "station": "ESPL CHEF MAMBAZA / A",
+              "voters": 368
+            }
+          ],
+          "KOUE": [
             {
-              station: "VAGAMA",
-              voters: 677
-            },
+              "station": "ESPL CHEF MAMBAZA / A",
+              "voters": 184
+            }
           ],
-          "ESPL CHEF MANTCHOUROUF / A": [
+          "VAGAMA": [
             {
-              station: "MANTCHOUROUF",
-              voters: 130
-            },
+              "station": "ESPL CHEF MAMBAZA / A",
+              "voters": 677
+            }
+          ],
+          "MANTCHOUROUF": [
             {
-              station: "ADJIA",
-              voters: 130
-            },
+              "station": "ESPL CHEF MANTCHOUROUF / A",
+              "voters": 130
+            }
           ],
-          "ESPL CHEF MAYEL KOGUI / A": [
+          "ADJIA": [
             {
-              station: "MAYEL-KOGUI",
-              voters: 466
-            },
+              "station": "ESPL CHEF MANTCHOUROUF / A",
+              "voters": 130
+            }
           ],
-          "ESPL CHEF MAYEL POLI / A": [
+          "MAYEL-KOGUI": [
             {
-              station: "POLI",
-              voters: 603
-            },
+              "station": "ESPL CHEF MAYEL KOGUI / A",
+              "voters": 466
+            }
+          ],
+          "POLI": [
             {
-              station: "SOUPTABANI",
-              voters: 1369
-            },
+              "station": "ESPL CHEF MAYEL POLI / A",
+              "voters": 603
+            }
+          ],
+          "SOUPTABANI": [
             {
-              station: "SADOU",
-              voters: 986
-            },
+              "station": "ESPL CHEF MAYEL POLI / A",
+              "voters": 1369
+            }
+          ],
+          "SADOU": [
             {
-              station: "YOLDE",
-              voters: 603
-            },
+              "station": "ESPL CHEF MAYEL POLI / A",
+              "voters": 986
+            }
+          ],
+          "YOLDE": [
             {
-              station: "KAREHI",
-              voters: 603
-            },
+              "station": "ESPL CHEF MAYEL POLI / A",
+              "voters": 603
+            }
           ],
-          "ESPL CHEF MAYO SIWA / A": [
+          "KAREHI": [
             {
-              station: "MAYO-SIWO",
-              voters: 215
-            },
+              "station": "ESPL CHEF MAYEL POLI / A",
+              "voters": 603
+            }
           ],
-          "ESPL CHEF MBIRDIF / A": [
+          "MAYO-SIWO": [
             {
-              station: "LOUMAS",
-              voters: 427
-            },
+              "station": "ESPL CHEF MAYO SIWA / A",
+              "voters": 215
+            }
           ],
-          "ESPL CHEF MBOR / A": [
+          "LOUMAS": [
             {
-              station: "MBOR",
-              voters: 230
-            },
+              "station": "ESPL CHEF MBIRDIF / A",
+              "voters": 427
+            }
           ],
-          "ESPL CHEF MELEMLEM / A": [
+          "MBOR": [
             {
-              station: "MELEMLEM",
-              voters: 488
-            },
+              "station": "ESPL CHEF MBOR / A",
+              "voters": 230
+            }
           ],
-          "ESPL CHEF MODJONGO / A": [
+          "MELEMLEM": [
             {
-              station: "MODJONGO",
-              voters: 1396
-            },
+              "station": "ESPL CHEF MELEMLEM / A",
+              "voters": 488
+            }
+          ],
+          "MODJONGO": [
             {
-              station: "DEWA",
-              voters: 349
-            },
+              "station": "ESPL CHEF MODJONGO / A",
+              "voters": 1396
+            }
+          ],
+          "DEWA": [
             {
-              station: "GOULE",
-              voters: 349
-            },
+              "station": "ESPL CHEF MODJONGO / A",
+              "voters": 349
+            }
+          ],
+          "GOULE": [
             {
-              station: "HAMAN",
-              voters: 349
-            },
+              "station": "ESPL CHEF MODJONGO / A",
+              "voters": 349
+            }
+          ],
+          "HAMAN": [
             {
-              station: "WABI",
-              voters: 349
-            },
+              "station": "ESPL CHEF MODJONGO / A",
+              "voters": 349
+            }
+          ],
+          "WABI": [
             {
-              station: "OUSMANOU",
-              voters: 349
-            },
+              "station": "ESPL CHEF MODJONGO / A",
+              "voters": 349
+            }
           ],
-          "ESPL CHEF MOKORVONG MAYO LOUE / A": [
+          "OUSMANOU": [
             {
-              station: "LOUE",
-              voters: 465
-            },
+              "station": "ESPL CHEF MODJONGO / A",
+              "voters": 349
+            }
           ],
-          "ESPL CHEF MONGORO WAIDONGO / A": [
+          "LOUE": [
             {
-              station: "MONGORO",
-              voters: 223
-            },
+              "station": "ESPL CHEF MOKORVONG MAYO LOUE / A",
+              "voters": 465
+            }
+          ],
+          "MONGORO": [
             {
-              station: "WAIDONGO",
-              voters: 223
-            },
+              "station": "ESPL CHEF MONGORO WAIDONGO / A",
+              "voters": 223
+            }
           ],
-          "ESPL CHEF MORDOY / A": [
+          "WAIDONGO": [
             {
-              station: "OURO-MORDOY",
-              voters: 80
-            },
+              "station": "ESPL CHEF MONGORO WAIDONGO / A",
+              "voters": 223
+            }
           ],
-          "ESPL CHEF MOUKOI / A": [
+          "OURO-MORDOY": [
             {
-              station: "DJIBAOU",
-              voters: 238
-            },
+              "station": "ESPL CHEF MORDOY / A",
+              "voters": 80
+            }
+          ],
+          "DJIBAOU": [
             {
-              station: "MOUKOI",
-              voters: 238
-            },
+              "station": "ESPL CHEF MOUKOI / A",
+              "voters": 238
+            }
           ],
-          "ESPL CHEF NDOUA / A": [
+          "MOUKOI": [
             {
-              station: "BADESSI",
-              voters: 795
-            },
+              "station": "ESPL CHEF MOUKOI / A",
+              "voters": 238
+            }
+          ],
+          "BADESSI": [
             {
-              station: "BAMBALO",
-              voters: 795
-            },
+              "station": "ESPL CHEF NDOUA / A",
+              "voters": 795
+            }
+          ],
+          "BAMBALO": [
             {
-              station: "NDOUA",
-              voters: 542
-            },
+              "station": "ESPL CHEF NDOUA / A",
+              "voters": 795
+            }
+          ],
+          "NDOUA": [
             {
-              station: "NAI",
-              voters: 800
-            },
+              "station": "ESPL CHEF NDOUA / A",
+              "voters": 542
+            }
           ],
-          "ESPL CHEF NORGO / A": [
+          "NAI": [
             {
-              station: "NDONDOLO",
-              voters: 887
-            },
+              "station": "ESPL CHEF NDOUA / A",
+              "voters": 800
+            }
+          ],
+          "NDONDOLO": [
             {
-              station: "NORGO",
-              voters: 887
-            },
+              "station": "ESPL CHEF NORGO / A",
+              "voters": 887
+            }
           ],
-          "ESPL CHEF OURO ALKALI / A": [
+          "NORGO": [
             {
-              station: "ALKALI",
-              voters: 1236
-            },
+              "station": "ESPL CHEF NORGO / A",
+              "voters": 887
+            }
+          ],
+          "ALKALI": [
             {
-              station: "SAGAMA",
-              voters: 1236
-            },
+              "station": "ESPL CHEF OURO ALKALI / A",
+              "voters": 1236
+            }
           ],
-          "ESPL CHEF OURO BAMO / A": [
+          "SAGAMA": [
             {
-              station: "MATHIEU",
-              voters: 478
-            },
+              "station": "ESPL CHEF OURO ALKALI / A",
+              "voters": 1236
+            }
+          ],
+          "MATHIEU": [
             {
-              station: "KOUNA",
-              voters: 478
-            },
+              "station": "ESPL CHEF OURO BAMO / A",
+              "voters": 478
+            }
+          ],
+          "KOUNA": [
             {
-              station: "NDALFA",
-              voters: 478
-            },
+              "station": "ESPL CHEF OURO BAMO / A",
+              "voters": 478
+            }
+          ],
+          "NDALFA": [
             {
-              station: "SERME",
-              voters: 700
-            },
+              "station": "ESPL CHEF OURO BAMO / A",
+              "voters": 478
+            }
           ],
-          "ESPL CHEF OURO BOCKI / A": [
+          "SERME": [
             {
-              station: "MAGADJI",
-              voters: 469
-            },
+              "station": "ESPL CHEF OURO BAMO / A",
+              "voters": 700
+            }
+          ],
+          "MAGADJI": [
             {
-              station: "OURO-BOCKI",
-              voters: 469
-            },
+              "station": "ESPL CHEF OURO BOCKI / A",
+              "voters": 469
+            }
           ],
-          "ESPL CHEF OURO BOKO / A": [
+          "OURO-BOCKI": [
             {
-              station: "OURO-BOKO",
-              voters: 251
-            },
+              "station": "ESPL CHEF OURO BOCKI / A",
+              "voters": 469
+            }
+          ],
+          "OURO-BOKO": [
             {
-              station: "TCHOUMBOUL",
-              voters: 251
-            },
+              "station": "ESPL CHEF OURO BOKO / A",
+              "voters": 251
+            }
           ],
-          "ESPL CHEF OURO BOUBA / A": [
+          "TCHOUMBOUL": [
             {
-              station: "BARKAO",
-              voters: 77
-            },
+              "station": "ESPL CHEF OURO BOKO / A",
+              "voters": 251
+            }
+          ],
+          "BARKAO": [
             {
-              station: "LOUGGA",
-              voters: 817
-            },
+              "station": "ESPL CHEF OURO BOUBA / A",
+              "voters": 77
+            }
+          ],
+          "LOUGGA": [
             {
-              station: "BOUBA",
-              voters: 4654
-            },
+              "station": "ESPL CHEF OURO BOUBA / A",
+              "voters": 817
+            }
           ],
-          "ESPL CHEF OURO DAMA / A": [
+          "BOUBA": [
             {
-              station: "DAMA",
-              voters: 1479
-            },
+              "station": "ESPL CHEF OURO BOUBA / A",
+              "voters": 4654
+            }
           ],
-          "ESPL CHEF OURO MORDOY / A": [
+          "DAMA": [
             {
-              station: "OURLANG",
-              voters: 258
-            },
+              "station": "ESPL CHEF OURO DAMA / A",
+              "voters": 1479
+            }
+          ],
+          "OURLANG": [
             {
-              station: "MORDOY",
-              voters: 258
-            },
+              "station": "ESPL CHEF OURO MORDOY / A",
+              "voters": 258
+            }
           ],
-          "ESPL CHEF OURO NGNERE / A": [
+          "MORDOY": [
             {
-              station: "NGNERE",
-              voters: 258
-            },
+              "station": "ESPL CHEF OURO MORDOY / A",
+              "voters": 258
+            }
           ],
-          "ESPL CHEF OURO SADAY / A": [
+          "NGNERE": [
             {
-              station: "OURO-SADAY",
-              voters: 213
-            },
+              "station": "ESPL CHEF OURO NGNERE / A",
+              "voters": 258
+            }
           ],
-          "ESPL CHEF OURO WACSINE / A": [
+          "OURO-SADAY": [
             {
-              station: "VOUNDOU",
-              voters: 144
-            },
+              "station": "ESPL CHEF OURO SADAY / A",
+              "voters": 213
+            }
           ],
-          "ESPL CHEF PADJARA YAYA / A": [
+          "VOUNDOU": [
             {
-              station: "YAYA",
-              voters: 167
-            },
+              "station": "ESPL CHEF OURO WACSINE / A",
+              "voters": 144
+            }
           ],
-          "ESPL CHEF PAPRENKI / A": [
+          "YAYA": [
             {
-              station: "LOUBACK",
-              voters: 294
-            },
+              "station": "ESPL CHEF PADJARA YAYA / A",
+              "voters": 167
+            }
+          ],
+          "LOUBACK": [
             {
-              station: "MOTORDOKO",
-              voters: 294
-            },
+              "station": "ESPL CHEF PAPRENKI / A",
+              "voters": 294
+            }
+          ],
+          "MOTORDOKO": [
             {
-              station: "PAPRENKI",
-              voters: 294
-            },
+              "station": "ESPL CHEF PAPRENKI / A",
+              "voters": 294
+            }
           ],
-          "ESPL CHEF POMLA / A": [
+          "PAPRENKI": [
             {
-              station: "POMLA",
-              voters: 172
-            },
+              "station": "ESPL CHEF PAPRENKI / A",
+              "voters": 294
+            }
           ],
-          "ESPL CHEF POUGOU / A": [
+          "POMLA": [
             {
-              station: "POUGOU",
-              voters: 528
-            },
+              "station": "ESPL CHEF POMLA / A",
+              "voters": 172
+            }
           ],
-          "ESPL CHEF ROUMDE / A": [
+          "POUGOU": [
             {
-              station: "BIRI",
-              voters: 525
-            },
+              "station": "ESPL CHEF POUGOU / A",
+              "voters": 528
+            }
+          ],
+          "BIRI": [
             {
-              station: "IDEAL",
-              voters: 525
-            },
+              "station": "ESPL CHEF ROUMDE / A",
+              "voters": 525
+            }
+          ],
+          "IDEAL": [
             {
-              station: "KORAYEL",
-              voters: 525
-            },
+              "station": "ESPL CHEF ROUMDE / A",
+              "voters": 525
+            }
+          ],
+          "KORAYEL": [
             {
-              station: "ROUMDE",
-              voters: 525
-            },
+              "station": "ESPL CHEF ROUMDE / A",
+              "voters": 525
+            }
           ],
-          "ESPL CHEF SEBORE BAILA / A": [
+          "ROUMDE": [
             {
-              station: "GAOUDALI",
-              voters: 195
-            },
+              "station": "ESPL CHEF ROUMDE / A",
+              "voters": 525
+            }
+          ],
+          "GAOUDALI": [
             {
-              station: "HARDE",
-              voters: 195
-            },
+              "station": "ESPL CHEF SEBORE BAILA / A",
+              "voters": 195
+            }
+          ],
+          "HARDE": [
             {
-              station: "KAYEFI",
-              voters: 195
-            },
+              "station": "ESPL CHEF SEBORE BAILA / A",
+              "voters": 195
+            }
           ],
-          "ESPL CHEF SOULKANDOU / A": [
+          "KAYEFI": [
             {
-              station: "SOULKANDOU",
-              voters: 253
-            },
+              "station": "ESPL CHEF SEBORE BAILA / A",
+              "voters": 195
+            }
           ],
-          "ESPL CHEF TCHAKADJAM / A": [
+          "SOULKANDOU": [
             {
-              station: "NDABALA",
-              voters: 364
-            },
+              "station": "ESPL CHEF SOULKANDOU / A",
+              "voters": 253
+            }
+          ],
+          "NDABALA": [
             {
-              station: "TCHAKADJAMWO",
-              voters: 364
-            },
+              "station": "ESPL CHEF TCHAKADJAM / A",
+              "voters": 364
+            }
           ],
-          "ESPL CHEF WALDE BORORO / A": [
+          "TCHAKADJAMWO": [
             {
-              station: "WALDE",
-              voters: 562
-            },
+              "station": "ESPL CHEF TCHAKADJAM / A",
+              "voters": 364
+            }
+          ],
+          "WALDE": [
             {
-              station: "BORORO",
-              voters: 562
-            },
+              "station": "ESPL CHEF WALDE BORORO / A",
+              "voters": 562
+            }
           ],
-          "ESPL CHEF WALEWOL ROUMBO / A": [
+          "BORORO": [
             {
-              station: "ROUMBO",
-              voters: 233
-            },
+              "station": "ESPL CHEF WALDE BORORO / A",
+              "voters": 562
+            }
           ],
-          "ESPL CHEF WOULEP / A": [
+          "ROUMBO": [
             {
-              station: "TCHADA",
-              voters: 254
-            },
+              "station": "ESPL CHEF WALEWOL ROUMBO / A",
+              "voters": 233
+            }
+          ],
+          "TCHADA": [
             {
-              station: "GAOULA",
-              voters: 254
-            },
+              "station": "ESPL CHEF WOULEP / A",
+              "voters": 254
+            }
+          ],
+          "GAOULA": [
             {
-              station: "WOULEP",
-              voters: 254
-            },
+              "station": "ESPL CHEF WOULEP / A",
+              "voters": 254
+            }
           ],
-          "ESPL CHEF ZAGA DARBA / A": [
+          "WOULEP": [
             {
-              station: "DARBA",
-              voters: 277
-            },
+              "station": "ESPL CHEF WOULEP / A",
+              "voters": 254
+            }
           ],
-          "GIC MAYO DAKOUME / A": [
+          "DARBA": [
             {
-              station: "DAKOUME",
-              voters: 180
-            },
+              "station": "ESPL CHEF ZAGA DARBA / A",
+              "voters": 277
+            }
           ],
-          "HAGAR CHEFFERIE HERIYEL / A": [
+          "DAKOUME": [
             {
-              station: "HERIYEL",
-              voters: 89
-            },
+              "station": "GIC MAYO DAKOUME / A",
+              "voters": 180
+            }
           ],
-          "LYCEE CLASSIQUE GUIDER / A": [
+          "HERIYEL": [
             {
-              station: "DJAOURO",
-              voters: 28270
-            },
+              "station": "HAGAR CHEFFERIE HERIYEL / A",
+              "voters": 89
+            }
+          ],
+          "DJAOURO": [
             {
-              station: "YAMASINO",
-              voters: 1643
-            },
+              "station": "LYCEE CLASSIQUE GUIDER / A",
+              "voters": 28270
+            }
           ],
-          "MAGASIN SODECOTON / A": [
+          "YAMASINO": [
             {
-              station: "LAKARWAR",
-              voters: 293
-            },
+              "station": "LYCEE CLASSIQUE GUIDER / A",
+              "voters": 1643
+            }
           ],
-          "SAR/SM GUIDER / A": [
+          "LAKARWAR": [
             {
-              station: "CAMP",
-              voters: 1540
-            },
+              "station": "MAGASIN SODECOTON / A",
+              "voters": 293
+            }
+          ],
+          "CAMP": [
             {
-              station: "ADMINISTRATIF",
-              voters: 1446
-            },
+              "station": "SAR/SM GUIDER / A",
+              "voters": 1540
+            }
+          ],
+          "ADMINISTRATIF": [
             {
-              station: "THOMAS",
-              voters: 561
-            },
+              "station": "SAR/SM GUIDER / A",
+              "voters": 1446
+            }
           ],
+          "THOMAS": [
+            {
+              "station": "SAR/SM GUIDER / A",
+              "voters": 561
+            }
+          ]
         },
         "MAYO-OULO": {
-          "BORNE FONTAINE RA'AN / A": [
+          "RA'AN": [
             {
-              station: "RA'AN",
-              voters: 466
-            },
+              "station": "BORNE FONTAINE RA'AN / A",
+              "voters": 466
+            }
           ],
-          "BUREAU POSTE AGRICOLE / A": [
+          "FOLINIRKI": [
             {
-              station: "FOLINIRKI",
-              voters: 2620
-            },
-            {
-              station: "MATRA",
-              voters: 1950
-            },
+              "station": "BUREAU POSTE AGRICOLE / A",
+              "voters": 2620
+            }
+          ],
+          "MATRA": [
             {
-              station: "GALBIHI",
-              voters: 1152
-            },
+              "station": "BUREAU POSTE AGRICOLE / A",
+              "voters": 1950
+            }
+          ],
+          "GALBIHI": [
             {
-              station: "MAYO-NGALBIHI",
-              voters: 1152
-            },
+              "station": "BUREAU POSTE AGRICOLE / A",
+              "voters": 1152
+            }
+          ],
+          "MAYO-NGALBIHI": [
             {
-              station: "SOUARI",
-              voters: 1152
-            },
+              "station": "BUREAU POSTE AGRICOLE / A",
+              "voters": 1152
+            }
+          ],
+          "SOUARI": [
             {
-              station: "YELWATA",
-              voters: 1152
-            },
+              "station": "BUREAU POSTE AGRICOLE / A",
+              "voters": 1152
+            }
+          ],
+          "YELWATA": [
             {
-              station: "YINOUM",
-              voters: 1152
-            },
+              "station": "BUREAU POSTE AGRICOLE / A",
+              "voters": 1152
+            }
           ],
-          "C.E.S. DE POLOGOZOM / A": [
+          "YINOUM": [
             {
-              station: "LIBDJIKIKA",
-              voters: 360
-            },
+              "station": "BUREAU POSTE AGRICOLE / A",
+              "voters": 1152
+            }
           ],
-          "CES DOURBEYE / A": [
+          "LIBDJIKIKA": [
             {
-              station: "BALOUM",
-              voters: 1501
-            },
+              "station": "C.E.S. DE POLOGOZOM / A",
+              "voters": 360
+            }
+          ],
+          "BALOUM": [
             {
-              station: "NGOURORE",
-              voters: 1501
-            },
+              "station": "CES DOURBEYE / A",
+              "voters": 1501
+            }
           ],
-          "E.P. DE BOSSOUM / A": [
+          "NGOURORE": [
             {
-              station: "BOSSOUM,",
-              voters: 420
-            },
+              "station": "CES DOURBEYE / A",
+              "voters": 1501
+            }
           ],
-          "E.P. DE TCHAPKA-PASSIRI / A": [
+          "BOSSOUM,": [
             {
-              station: "TCHAPLA-SODJODJI",
-              voters: 316
-            },
+              "station": "E.P. DE BOSSOUM / A",
+              "voters": 420
+            }
+          ],
+          "TCHAPLA-SODJODJI": [
             {
-              station: "TCHENKELENG",
-              voters: 316
-            },
+              "station": "E.P. DE TCHAPKA-PASSIRI / A",
+              "voters": 316
+            }
           ],
-          "ECOLE PUBLIQUE BILINGUE DE DOUMO / A": [
+          "TCHENKELENG": [
             {
-              station: "DJOUMETCHI",
-              voters: 312
-            },
+              "station": "E.P. DE TCHAPKA-PASSIRI / A",
+              "voters": 316
+            }
+          ],
+          "DJOUMETCHI": [
             {
-              station: "BILANGE",
-              voters: 312
-            },
+              "station": "ECOLE PUBLIQUE BILINGUE DE DOUMO / A",
+              "voters": 312
+            }
           ],
-          "EP BALA / A": [
+          "BILANGE": [
             {
-              station: "BALA",
-              voters: 570
-            },
+              "station": "ECOLE PUBLIQUE BILINGUE DE DOUMO / A",
+              "voters": 312
+            }
+          ],
+          "BALA": [
             {
-              station: "BAO",
-              voters: 570
-            },
+              "station": "EP BALA / A",
+              "voters": 570
+            }
+          ],
+          "BAO": [
             {
-              station: "BOLIGUI",
-              voters: 570
-            },
+              "station": "EP BALA / A",
+              "voters": 570
+            }
           ],
-          "EP BANGAYE FALI / A": [
+          "BOLIGUI": [
             {
-              station: "BANGAYE",
-              voters: 321
-            },
+              "station": "EP BALA / A",
+              "voters": 570
+            }
+          ],
+          "BANGAYE": [
             {
-              station: "FALI",
-              voters: 321
-            },
+              "station": "EP BANGAYE FALI / A",
+              "voters": 321
+            }
+          ],
+          "FALI": [
             {
-              station: "BORAM",
-              voters: 321
-            },
+              "station": "EP BANGAYE FALI / A",
+              "voters": 321
+            }
+          ],
+          "BORAM": [
             {
-              station: "LILIMAKODOK",
-              voters: 321
-            },
+              "station": "EP BANGAYE FALI / A",
+              "voters": 321
+            }
           ],
-          "EP BERENG / A": [
+          "LILIMAKODOK": [
             {
-              station: "BERENG",
-              voters: 170
-            },
+              "station": "EP BANGAYE FALI / A",
+              "voters": 321
+            }
+          ],
+          "BERENG": [
             {
-              station: "KEOU",
-              voters: 1014
-            },
+              "station": "EP BERENG / A",
+              "voters": 170
+            }
           ],
-          "EP BILI / A": [
+          "KEOU": [
             {
-              station: "BILI",
-              voters: 425
-            },
+              "station": "EP BERENG / A",
+              "voters": 1014
+            }
           ],
-          "EP BOMA / A": [
+          "BILI": [
             {
-              station: "BOMA",
-              voters: 299
-            },
+              "station": "EP BILI / A",
+              "voters": 425
+            }
+          ],
+          "BOMA": [
             {
-              station: "PONT",
-              voters: 589
-            },
+              "station": "EP BOMA / A",
+              "voters": 299
+            }
+          ],
+          "PONT": [
             {
-              station: "BOGDJI",
-              voters: 299
-            },
+              "station": "EP BOMA / A",
+              "voters": 589
+            }
           ],
-          "EP BORI-WALA / A": [
+          "BOGDJI": [
             {
-              station: "BORI",
-              voters: 408
-            },
+              "station": "EP BOMA / A",
+              "voters": 299
+            }
+          ],
+          "BORI": [
             {
-              station: "-WALA",
-              voters: 408
-            },
+              "station": "EP BORI-WALA / A",
+              "voters": 408
+            }
+          ],
+          "-WALA": [
             {
-              station: "DEBO",
-              voters: 585
-            },
+              "station": "EP BORI-WALA / A",
+              "voters": 408
+            }
           ],
-          "EP BOUDJOUMA / A": [
+          "DEBO": [
             {
-              station: "BOUDJOUMA",
-              voters: 403
-            },
+              "station": "EP BORI-WALA / A",
+              "voters": 585
+            }
+          ],
+          "BOUDJOUMA": [
             {
-              station: "MAKIRVE",
-              voters: 403
-            },
+              "station": "EP BOUDJOUMA / A",
+              "voters": 403
+            }
+          ],
+          "MAKIRVE": [
             {
-              station: "MOUGOULGA",
-              voters: 403
-            },
+              "station": "EP BOUDJOUMA / A",
+              "voters": 403
+            }
           ],
-          "EP BOUTOUZA / A": [
+          "MOUGOULGA": [
             {
-              station: "BOUTOUZA",
-              voters: 568
-            },
+              "station": "EP BOUDJOUMA / A",
+              "voters": 403
+            }
+          ],
+          "BOUTOUZA": [
             {
-              station: "LAMORDE",
-              voters: 9535
-            },
+              "station": "EP BOUTOUZA / A",
+              "voters": 568
+            }
+          ],
+          "LAMORDE": [
             {
-              station: "MAGUIRE",
-              voters: 568
-            },
+              "station": "EP BOUTOUZA / A",
+              "voters": 9535
+            }
+          ],
+          "MAGUIRE": [
             {
-              station: "MOUHAINA",
-              voters: 568
-            },
+              "station": "EP BOUTOUZA / A",
+              "voters": 568
+            }
+          ],
+          "MOUHAINA": [
             {
-              station: "WATCHAMA",
-              voters: 568
-            },
+              "station": "EP BOUTOUZA / A",
+              "voters": 568
+            }
           ],
-          "EP BOUYOUM / A": [
+          "WATCHAMA": [
             {
-              station: "BOUYOUM",
-              voters: 635
-            },
+              "station": "EP BOUTOUZA / A",
+              "voters": 568
+            }
           ],
-          "EP BROH / A": [
+          "BOUYOUM": [
             {
-              station: "BROH",
-              voters: 342
-            },
+              "station": "EP BOUYOUM / A",
+              "voters": 635
+            }
           ],
-          "EP DAMTA / A": [
+          "BROH": [
             {
-              station: "POKA",
-              voters: 464
-            },
+              "station": "EP BROH / A",
+              "voters": 342
+            }
           ],
-          "EP DAZAL / A": [
+          "POKA": [
             {
-              station: "DAZAL",
-              voters: 1822
-            },
+              "station": "EP DAMTA / A",
+              "voters": 464
+            }
+          ],
+          "DAZAL": [
             {
-              station: "GADAMAYO",
-              voters: 911
-            },
+              "station": "EP DAZAL / A",
+              "voters": 1822
+            }
+          ],
+          "GADAMAYO": [
             {
-              station: "MBOURABA",
-              voters: 911
-            },
+              "station": "EP DAZAL / A",
+              "voters": 911
+            }
           ],
-          "EP DJAGALAM / A": [
+          "MBOURABA": [
             {
-              station: "DALIWAOU",
-              voters: 412
-            },
+              "station": "EP DAZAL / A",
+              "voters": 911
+            }
+          ],
+          "DALIWAOU": [
             {
-              station: "DAMDAI",
-              voters: 412
-            },
+              "station": "EP DJAGALAM / A",
+              "voters": 412
+            }
+          ],
+          "DAMDAI": [
             {
-              station: "PRIN",
-              voters: 412
-            },
+              "station": "EP DJAGALAM / A",
+              "voters": 412
+            }
+          ],
+          "PRIN": [
             {
-              station: "TCHITCHER",
-              voters: 412
-            },
+              "station": "EP DJAGALAM / A",
+              "voters": 412
+            }
           ],
-          "EP DJECK-DJECK / A": [
+          "TCHITCHER": [
             {
-              station: "DJAMTARI",
-              voters: 455
-            },
+              "station": "EP DJAGALAM / A",
+              "voters": 412
+            }
+          ],
+          "DJAMTARI": [
             {
-              station: "DJECKDJECK",
-              voters: 455
-            },
+              "station": "EP DJECK-DJECK / A",
+              "voters": 455
+            }
+          ],
+          "DJECKDJECK": [
             {
-              station: "LOMINGUEL",
-              voters: 455
-            },
+              "station": "EP DJECK-DJECK / A",
+              "voters": 455
+            }
           ],
-          "EP DOUBBI / A": [
+          "LOMINGUEL": [
             {
-              station: "DOUBBI",
-              voters: 289
-            },
+              "station": "EP DJECK-DJECK / A",
+              "voters": 455
+            }
+          ],
+          "DOUBBI": [
             {
-              station: "OURO-SAKI",
-              voters: 289
-            },
+              "station": "EP DOUBBI / A",
+              "voters": 289
+            }
+          ],
+          "OURO-SAKI": [
             {
-              station: "YOUKNA",
-              voters: 289
-            },
+              "station": "EP DOUBBI / A",
+              "voters": 289
+            }
           ],
-          "EP DOUMO / A": [
+          "YOUKNA": [
             {
-              station: "BILANGUE",
-              voters: 1818
-            },
+              "station": "EP DOUBBI / A",
+              "voters": 289
+            }
+          ],
+          "BILANGUE": [
             {
-              station: "DJOUMITCHI",
-              voters: 1506
-            },
+              "station": "EP DOUMO / A",
+              "voters": 1818
+            }
+          ],
+          "DJOUMITCHI": [
             {
-              station: "DOUMO",
-              voters: 5358
-            },
+              "station": "EP DOUMO / A",
+              "voters": 1506
+            }
+          ],
+          "DOUMO": [
             {
-              station: "CENTRE",
-              voters: 5104
-            },
+              "station": "EP DOUMO / A",
+              "voters": 5358
+            }
+          ],
+          "CENTRE": [
             {
-              station: "NASSARAO-DOUMO",
-              voters: 1506
-            },
+              "station": "EP DOUMO / A",
+              "voters": 5104
+            }
           ],
-          "EP DOURBEYE / A": [
+          "NASSARAO-DOUMO": [
             {
-              station: "BALERE",
-              voters: 1760
-            },
+              "station": "EP DOUMO / A",
+              "voters": 1506
+            }
+          ],
+          "BALERE": [
             {
-              station: "DAMTA",
-              voters: 2224
-            },
+              "station": "EP DOURBEYE / A",
+              "voters": 1760
+            }
+          ],
+          "DAMTA": [
             {
-              station: "CAMP",
-              voters: 1760
-            },
+              "station": "EP DOURBEYE / A",
+              "voters": 2224
+            }
+          ],
+          "CAMP": [
             {
-              station: "DJAGALAM",
-              voters: 2172
-            },
+              "station": "EP DOURBEYE / A",
+              "voters": 1760
+            }
+          ],
+          "DJAGALAM": [
             {
-              station: "DOURBEYE",
-              voters: 2927
-            },
+              "station": "EP DOURBEYE / A",
+              "voters": 2172
+            }
+          ],
+          "DOURBEYE": [
             {
-              station: "FADA",
-              voters: 2927
-            },
+              "station": "EP DOURBEYE / A",
+              "voters": 2927
+            }
+          ],
+          "FADA": [
             {
-              station: "SOI-YEM",
-              voters: 1760
-            },
+              "station": "EP DOURBEYE / A",
+              "voters": 2927
+            }
           ],
-          "EP DOUZOUGOU / A": [
+          "SOI-YEM": [
             {
-              station: "DOUZOUGOU",
-              voters: 364
-            },
+              "station": "EP DOURBEYE / A",
+              "voters": 1760
+            }
           ],
-          "EP GANE / A": [
+          "DOUZOUGOU": [
             {
-              station: "GANE",
-              voters: 421
-            },
+              "station": "EP DOUZOUGOU / A",
+              "voters": 364
+            }
           ],
-          "EP GOLA / A": [
+          "GANE": [
             {
-              station: "AIKOMTOR",
-              voters: 268
-            },
+              "station": "EP GANE / A",
+              "voters": 421
+            }
+          ],
+          "AIKOMTOR": [
             {
-              station: "GOLA",
-              voters: 268
-            },
+              "station": "EP GOLA / A",
+              "voters": 268
+            }
+          ],
+          "GOLA": [
             {
-              station: "HOSSERE",
-              voters: 1106
-            },
+              "station": "EP GOLA / A",
+              "voters": 268
+            }
+          ],
+          "HOSSERE": [
             {
-              station: "LAK",
-              voters: 268
-            },
+              "station": "EP GOLA / A",
+              "voters": 1106
+            }
+          ],
+          "LAK": [
             {
-              station: "REOUSSI",
-              voters: 793
-            },
+              "station": "EP GOLA / A",
+              "voters": 268
+            }
           ],
-          "EP GOLOZA / A": [
+          "REOUSSI": [
             {
-              station: "DADIMARI",
-              voters: 560
-            },
+              "station": "EP GOLA / A",
+              "voters": 793
+            }
+          ],
+          "DADIMARI": [
             {
-              station: "GOLOZA",
-              voters: 560
-            },
+              "station": "EP GOLOZA / A",
+              "voters": 560
+            }
+          ],
+          "GOLOZA": [
             {
-              station: "MABOURKI",
-              voters: 560
-            },
+              "station": "EP GOLOZA / A",
+              "voters": 560
+            }
+          ],
+          "MABOURKI": [
             {
-              station: "ZAOURA",
-              voters: 560
-            },
+              "station": "EP GOLOZA / A",
+              "voters": 560
+            }
           ],
-          "EP GOUDJOU-GOUDJOU / A": [
+          "ZAOURA": [
             {
-              station: "GOUDJOU-GOUDJOU",
-              voters: 279
-            },
+              "station": "EP GOLOZA / A",
+              "voters": 560
+            }
+          ],
+          "GOUDJOU-GOUDJOU": [
             {
-              station: "MBARAM",
-              voters: 412
-            },
+              "station": "EP GOUDJOU-GOUDJOU / A",
+              "voters": 279
+            }
+          ],
+          "MBARAM": [
             {
-              station: "POKLACK",
-              voters: 412
-            },
+              "station": "EP GOUDJOU-GOUDJOU / A",
+              "voters": 412
+            }
           ],
-          "EP GOUDOU / A": [
+          "POKLACK": [
             {
-              station: "GOUDOU",
-              voters: 543
-            },
+              "station": "EP GOUDJOU-GOUDJOU / A",
+              "voters": 412
+            }
+          ],
+          "GOUDOU": [
             {
-              station: "KOUBERE",
-              voters: 543
-            },
+              "station": "EP GOUDOU / A",
+              "voters": 543
+            }
+          ],
+          "KOUBERE": [
             {
-              station: "SEBORE",
-              voters: 543
-            },
+              "station": "EP GOUDOU / A",
+              "voters": 543
+            }
           ],
-          "EP GOULOUM / A": [
+          "SEBORE": [
             {
-              station: "BANGAI",
-              voters: 917
-            },
+              "station": "EP GOUDOU / A",
+              "voters": 543
+            }
+          ],
+          "BANGAI": [
             {
-              station: "DABA",
-              voters: 917
-            },
+              "station": "EP GOULOUM / A",
+              "voters": 917
+            }
+          ],
+          "DABA": [
             {
-              station: "DJARENGOL",
-              voters: 714
-            },
+              "station": "EP GOULOUM / A",
+              "voters": 917
+            }
+          ],
+          "DJARENGOL": [
             {
-              station: "GOULOUM",
-              voters: 511
-            },
+              "station": "EP GOULOUM / A",
+              "voters": 714
+            }
+          ],
+          "GOULOUM": [
             {
-              station: "VEMI",
-              voters: 511
-            },
+              "station": "EP GOULOUM / A",
+              "voters": 511
+            }
           ],
-          "EP GR I MAYO OULO / A": [
+          "VEMI": [
             {
-              station: "NASSARAO-DOUALLARE",
-              voters: 1149
-            },
+              "station": "EP GOULOUM / A",
+              "voters": 511
+            }
+          ],
+          "NASSARAO-DOUALLARE": [
             {
-              station: "OURO-BOCKI",
-              voters: 1149
-            },
+              "station": "EP GR I MAYO OULO / A",
+              "voters": 1149
+            }
+          ],
+          "OURO-BOCKI": [
             {
-              station: "PAWARE",
-              voters: 1149
-            },
+              "station": "EP GR I MAYO OULO / A",
+              "voters": 1149
+            }
           ],
-          "EP GR II MAYO OULO / A": [
+          "PAWARE": [
             {
-              station: "DJALINGO/MAYO",
-              voters: 2223
-            },
+              "station": "EP GR I MAYO OULO / A",
+              "voters": 1149
+            }
+          ],
+          "DJALINGO/MAYO": [
             {
-              station: "OULO",
-              voters: 2223
-            },
+              "station": "EP GR II MAYO OULO / A",
+              "voters": 2223
+            }
+          ],
+          "OULO": [
             {
-              station: "DJENTO",
-              voters: 2223
-            },
+              "station": "EP GR II MAYO OULO / A",
+              "voters": 2223
+            }
+          ],
+          "DJENTO": [
             {
-              station: "III",
-              voters: 2223
-            },
+              "station": "EP GR II MAYO OULO / A",
+              "voters": 2223
+            }
+          ],
+          "III": [
             {
-              station: "POUMPOUMRE",
-              voters: 2223
-            },
+              "station": "EP GR II MAYO OULO / A",
+              "voters": 2223
+            }
+          ],
+          "POUMPOUMRE": [
             {
-              station: "SABONGARI",
-              voters: 2223
-            },
+              "station": "EP GR II MAYO OULO / A",
+              "voters": 2223
+            }
+          ],
+          "SABONGARI": [
             {
-              station: "TAKADJIRGA",
-              voters: 2223
-            },
+              "station": "EP GR II MAYO OULO / A",
+              "voters": 2223
+            }
           ],
-          "EP GUELENG / A": [
+          "TAKADJIRGA": [
             {
-              station: "DOKOYOM",
-              voters: 591
-            },
+              "station": "EP GR II MAYO OULO / A",
+              "voters": 2223
+            }
+          ],
+          "DOKOYOM": [
             {
-              station: "DOUNDOUNG",
-              voters: 591
-            },
+              "station": "EP GUELENG / A",
+              "voters": 591
+            }
+          ],
+          "DOUNDOUNG": [
             {
-              station: "GUELENG",
-              voters: 591
-            },
+              "station": "EP GUELENG / A",
+              "voters": 591
+            }
           ],
-          "EP GUIRVIZA / A": [
+          "GUELENG": [
             {
-              station: "BAFFA",
-              voters: 977
-            },
+              "station": "EP GUELENG / A",
+              "voters": 591
+            }
+          ],
+          "BAFFA": [
             {
-              station: "BIRDI",
-              voters: 977
-            },
+              "station": "EP GUIRVIZA / A",
+              "voters": 977
+            }
+          ],
+          "BIRDI": [
             {
-              station: "DJALINGO",
-              voters: 3200
-            },
+              "station": "EP GUIRVIZA / A",
+              "voters": 977
+            }
+          ],
+          "DJALINGO": [
             {
-              station: "DOUKA",
-              voters: 977
-            },
+              "station": "EP GUIRVIZA / A",
+              "voters": 3200
+            }
+          ],
+          "DOUKA": [
             {
-              station: "FOULBERE",
-              voters: 1685
-            },
+              "station": "EP GUIRVIZA / A",
+              "voters": 977
+            }
+          ],
+          "FOULBERE": [
             {
-              station: "GUIRVIZA",
-              voters: 977
-            },
+              "station": "EP GUIRVIZA / A",
+              "voters": 1685
+            }
+          ],
+          "GUIRVIZA": [
             {
-              station: "KARKARA",
-              voters: 977
-            },
+              "station": "EP GUIRVIZA / A",
+              "voters": 977
+            }
+          ],
+          "KARKARA": [
             {
-              station: "LAKOUAN",
-              voters: 977
-            },
+              "station": "EP GUIRVIZA / A",
+              "voters": 977
+            }
+          ],
+          "LAKOUAN": [
             {
-              station: "LOJOUNA",
-              voters: 977
-            },
+              "station": "EP GUIRVIZA / A",
+              "voters": 977
+            }
+          ],
+          "LOJOUNA": [
             {
-              station: "MADARA",
-              voters: 977
-            },
+              "station": "EP GUIRVIZA / A",
+              "voters": 977
+            }
+          ],
+          "MADARA": [
             {
-              station: "NAIRA",
-              voters: 977
-            },
+              "station": "EP GUIRVIZA / A",
+              "voters": 977
+            }
           ],
-          "EP HOLOUM / A": [
+          "NAIRA": [
             {
-              station: "HOLOUM",
-              voters: 121
-            },
+              "station": "EP GUIRVIZA / A",
+              "voters": 977
+            }
           ],
-          "EP KERMBO BORA / A": [
+          "HOLOUM": [
             {
-              station: "KERMBO",
-              voters: 615
-            },
+              "station": "EP HOLOUM / A",
+              "voters": 121
+            }
+          ],
+          "KERMBO": [
             {
-              station: "BORA",
-              voters: 615
-            },
+              "station": "EP KERMBO BORA / A",
+              "voters": 615
+            }
+          ],
+          "BORA": [
             {
-              station: "KERMBO-DJERE",
-              voters: 299
-            },
+              "station": "EP KERMBO BORA / A",
+              "voters": 615
+            }
+          ],
+          "KERMBO-DJERE": [
             {
-              station: "TCHAPKA-PASSIRI",
-              voters: 931
-            },
+              "station": "EP KERMBO BORA / A",
+              "voters": 299
+            }
+          ],
+          "TCHAPKA-PASSIRI": [
             {
-              station: "TCHAPKA-POLA",
-              voters: 931
-            },
+              "station": "EP KERMBO BORA / A",
+              "voters": 931
+            }
+          ],
+          "TCHAPKA-POLA": [
             {
-              station: "TCHAPKA-SODJODJI",
-              voters: 615
-            },
+              "station": "EP KERMBO BORA / A",
+              "voters": 931
+            }
+          ],
+          "TCHAPKA-SODJODJI": [
             {
-              station: "TCHENKELING",
-              voters: 299
-            },
+              "station": "EP KERMBO BORA / A",
+              "voters": 615
+            }
           ],
-          "EP KOMBOM / A": [
+          "TCHENKELING": [
             {
-              station: "KOMBOM",
-              voters: 452
-            },
+              "station": "EP KERMBO BORA / A",
+              "voters": 299
+            }
           ],
-          "EP KOUBOUTOU / A": [
+          "KOMBOM": [
             {
-              station: "KOUBOUTOU",
-              voters: 385
-            },
+              "station": "EP KOMBOM / A",
+              "voters": 452
+            }
           ],
-          "EP KOUMKEOUDJI / A": [
+          "KOUBOUTOU": [
             {
-              station: "GOBRIYAM",
-              voters: 289
-            },
+              "station": "EP KOUBOUTOU / A",
+              "voters": 385
+            }
+          ],
+          "GOBRIYAM": [
             {
-              station: "KOUMKEOUDJI",
-              voters: 289
-            },
+              "station": "EP KOUMKEOUDJI / A",
+              "voters": 289
+            }
           ],
-          "EP MABONI / A": [
+          "KOUMKEOUDJI": [
             {
-              station: "GUENDOU",
-              voters: 619
-            },
+              "station": "EP KOUMKEOUDJI / A",
+              "voters": 289
+            }
+          ],
+          "GUENDOU": [
             {
-              station: "GUERIDJE",
-              voters: 1524
-            },
+              "station": "EP MABONI / A",
+              "voters": 619
+            }
+          ],
+          "GUERIDJE": [
             {
-              station: "MABONI",
-              voters: 762
-            },
+              "station": "EP MABONI / A",
+              "voters": 1524
+            }
           ],
-          "EP MAGANAK / A": [
+          "MABONI": [
             {
-              station: "DAMADOUGOUP",
-              voters: 362
-            },
+              "station": "EP MABONI / A",
+              "voters": 762
+            }
+          ],
+          "DAMADOUGOUP": [
             {
-              station: "MAGANAK",
-              voters: 362
-            },
+              "station": "EP MAGANAK / A",
+              "voters": 362
+            }
           ],
-          "EP MANDAMA / A": [
+          "MAGANAK": [
             {
-              station: "BOUMBA",
-              voters: 2609
-            },
+              "station": "EP MAGANAK / A",
+              "voters": 362
+            }
+          ],
+          "BOUMBA": [
             {
-              station: "GUENAW",
-              voters: 1081
-            },
+              "station": "EP MANDAMA / A",
+              "voters": 2609
+            }
+          ],
+          "GUENAW": [
             {
-              station: "KLECK-KLECK",
-              voters: 1081
-            },
+              "station": "EP MANDAMA / A",
+              "voters": 1081
+            }
+          ],
+          "KLECK-KLECK": [
             {
-              station: "DABA-VOUN",
-              voters: 1081
-            },
+              "station": "EP MANDAMA / A",
+              "voters": 1081
+            }
+          ],
+          "DABA-VOUN": [
             {
-              station: "GLAMBAD",
-              voters: 1081
-            },
+              "station": "EP MANDAMA / A",
+              "voters": 1081
+            }
+          ],
+          "GLAMBAD": [
             {
-              station: "KARNAH",
-              voters: 1081
-            },
+              "station": "EP MANDAMA / A",
+              "voters": 1081
+            }
+          ],
+          "KARNAH": [
             {
-              station: "KOLLERE",
-              voters: 1081
-            },
+              "station": "EP MANDAMA / A",
+              "voters": 1081
+            }
+          ],
+          "KOLLERE": [
             {
-              station: "KOUSSOUM",
-              voters: 1081
-            },
+              "station": "EP MANDAMA / A",
+              "voters": 1081
+            }
+          ],
+          "KOUSSOUM": [
             {
-              station: "VILLIS",
-              voters: 1081
-            },
+              "station": "EP MANDAMA / A",
+              "voters": 1081
+            }
+          ],
+          "VILLIS": [
             {
-              station: "MANDAMA",
-              voters: 1081
-            },
+              "station": "EP MANDAMA / A",
+              "voters": 1081
+            }
+          ],
+          "MANDAMA": [
             {
-              station: "MANDAMA-LE",
-              voters: 1081
-            },
+              "station": "EP MANDAMA / A",
+              "voters": 1081
+            }
+          ],
+          "MANDAMA-LE": [
             {
-              station: "HAUT",
-              voters: 1414
-            },
+              "station": "EP MANDAMA / A",
+              "voters": 1081
+            }
+          ],
+          "HAUT": [
             {
-              station: "MEKEDENG",
-              voters: 1081
-            },
+              "station": "EP MANDAMA / A",
+              "voters": 1414
+            }
+          ],
+          "MEKEDENG": [
             {
-              station: "TCHADA-HOULONG",
-              voters: 1081
-            },
+              "station": "EP MANDAMA / A",
+              "voters": 1081
+            }
           ],
-          "EP MATALAO / A": [
+          "TCHADA-HOULONG": [
             {
-              station: "MATALAO",
-              voters: 269
-            },
+              "station": "EP MANDAMA / A",
+              "voters": 1081
+            }
           ],
-          "EP MBOH / A": [
+          "MATALAO": [
             {
-              station: "MBOH",
-              voters: 360
-            },
+              "station": "EP MATALAO / A",
+              "voters": 269
+            }
           ],
-          "EP MBOUIRI / A": [
+          "MBOH": [
             {
-              station: "BOUHIR",
-              voters: 425
-            },
+              "station": "EP MBOH / A",
+              "voters": 360
+            }
+          ],
+          "BOUHIR": [
             {
-              station: "DIRTCHA",
-              voters: 588
-            },
+              "station": "EP MBOUIRI / A",
+              "voters": 425
+            }
+          ],
+          "DIRTCHA": [
             {
-              station: "GOUNGOURMA",
-              voters: 425
-            },
+              "station": "EP MBOUIRI / A",
+              "voters": 588
+            }
+          ],
+          "GOUNGOURMA": [
             {
-              station: "MBOGOUMA",
-              voters: 425
-            },
+              "station": "EP MBOUIRI / A",
+              "voters": 425
+            }
+          ],
+          "MBOGOUMA": [
             {
-              station: "MBOUIRI",
-              voters: 425
-            },
+              "station": "EP MBOUIRI / A",
+              "voters": 425
+            }
+          ],
+          "MBOUIRI": [
             {
-              station: "MILDA",
-              voters: 425
-            },
+              "station": "EP MBOUIRI / A",
+              "voters": 425
+            }
+          ],
+          "MILDA": [
             {
-              station: "MOUGA",
-              voters: 425
-            },
+              "station": "EP MBOUIRI / A",
+              "voters": 425
+            }
           ],
-          "EP MEDEOU / A": [
+          "MOUGA": [
             {
-              station: "MEDEOU",
-              voters: 533
-            },
+              "station": "EP MBOUIRI / A",
+              "voters": 425
+            }
+          ],
+          "MEDEOU": [
             {
-              station: "TALAVAM",
-              voters: 533
-            },
+              "station": "EP MEDEOU / A",
+              "voters": 533
+            }
           ],
-          "EP MOUNA / A": [
+          "TALAVAM": [
             {
-              station: "GUINDIGUINA",
-              voters: 454
-            },
+              "station": "EP MEDEOU / A",
+              "voters": 533
+            }
+          ],
+          "GUINDIGUINA": [
             {
-              station: "KOUDOUKOURA",
-              voters: 738
-            },
+              "station": "EP MOUNA / A",
+              "voters": 454
+            }
+          ],
+          "KOUDOUKOURA": [
             {
-              station: "KWANDANLANG",
-              voters: 738
-            },
+              "station": "EP MOUNA / A",
+              "voters": 738
+            }
+          ],
+          "KWANDANLANG": [
             {
-              station: "MOUNA",
-              voters: 454
-            },
+              "station": "EP MOUNA / A",
+              "voters": 738
+            }
           ],
-          "EP MOUROUM / A": [
+          "MOUNA": [
             {
-              station: "DERPOCK",
-              voters: 633
-            },
+              "station": "EP MOUNA / A",
+              "voters": 454
+            }
+          ],
+          "DERPOCK": [
             {
-              station: "FOKOUM",
-              voters: 1230
-            },
+              "station": "EP MOUROUM / A",
+              "voters": 633
+            }
+          ],
+          "FOKOUM": [
             {
-              station: "MAYEL",
-              voters: 582
-            },
+              "station": "EP MOUROUM / A",
+              "voters": 1230
+            }
+          ],
+          "MAYEL": [
             {
-              station: "DAMDJA",
-              voters: 1164
-            },
+              "station": "EP MOUROUM / A",
+              "voters": 582
+            }
+          ],
+          "DAMDJA": [
             {
-              station: "MAYO",
-              voters: 3396
-            },
+              "station": "EP MOUROUM / A",
+              "voters": 1164
+            }
+          ],
+          "MAYO": [
             {
-              station: "MOUROUM",
-              voters: 456
-            },
+              "station": "EP MOUROUM / A",
+              "voters": 3396
+            }
           ],
-          "EP MOURPAYE / A": [
+          "MOUROUM": [
             {
-              station: "BIHI",
-              voters: 218
-            },
+              "station": "EP MOUROUM / A",
+              "voters": 456
+            }
+          ],
+          "BIHI": [
             {
-              station: "MOURPAYE",
-              voters: 218
-            },
+              "station": "EP MOURPAYE / A",
+              "voters": 218
+            }
+          ],
+          "MOURPAYE": [
             {
-              station: "PALAFAMOUN",
-              voters: 218
-            },
+              "station": "EP MOURPAYE / A",
+              "voters": 218
+            }
           ],
-          "EP NARI / A": [
+          "PALAFAMOUN": [
             {
-              station: "NARI",
-              voters: 629
-            },
+              "station": "EP MOURPAYE / A",
+              "voters": 218
+            }
+          ],
+          "NARI": [
             {
-              station: "SOSSORI",
-              voters: 629
-            },
+              "station": "EP NARI / A",
+              "voters": 629
+            }
           ],
-          "EP NASSARAO / A": [
+          "SOSSORI": [
             {
-              station: "DIDANGO",
-              voters: 169
-            },
+              "station": "EP NARI / A",
+              "voters": 629
+            }
+          ],
+          "DIDANGO": [
             {
-              station: "DOUNDEHI",
-              voters: 169
-            },
+              "station": "EP NASSARAO / A",
+              "voters": 169
+            }
+          ],
+          "DOUNDEHI": [
             {
-              station: "NASSARAO",
-              voters: 338
-            },
+              "station": "EP NASSARAO / A",
+              "voters": 169
+            }
+          ],
+          "NASSARAO": [
             {
-              station: "PILOTE",
-              voters: 169
-            },
+              "station": "EP NASSARAO / A",
+              "voters": 338
+            }
           ],
-          "EP NDILI / A": [
+          "PILOTE": [
             {
-              station: "GUIRLAO",
-              voters: 999
-            },
+              "station": "EP NASSARAO / A",
+              "voters": 169
+            }
+          ],
+          "GUIRLAO": [
             {
-              station: "SINI",
-              voters: 999
-            },
+              "station": "EP NDILI / A",
+              "voters": 999
+            }
+          ],
+          "SINI": [
             {
-              station: "NDILI",
-              voters: 763
-            },
+              "station": "EP NDILI / A",
+              "voters": 999
+            }
+          ],
+          "NDILI": [
             {
-              station: "SOUKOUNDOU",
-              voters: 1290
-            },
+              "station": "EP NDILI / A",
+              "voters": 763
+            }
+          ],
+          "SOUKOUNDOU": [
             {
-              station: "TCHOUBANAYOU",
-              voters: 527
-            },
+              "station": "EP NDILI / A",
+              "voters": 1290
+            }
+          ],
+          "TCHOUBANAYOU": [
             {
-              station: "VOGAM",
-              voters: 999
-            },
+              "station": "EP NDILI / A",
+              "voters": 527
+            }
           ],
-          "EP NDOUZENG / A": [
+          "VOGAM": [
             {
-              station: "NDOUZENG",
-              voters: 394
-            },
+              "station": "EP NDILI / A",
+              "voters": 999
+            }
+          ],
+          "NDOUZENG": [
             {
-              station: "TALATCHOUMA",
-              voters: 394
-            },
+              "station": "EP NDOUZENG / A",
+              "voters": 394
+            }
           ],
-          "EP NIVE / A": [
+          "TALATCHOUMA": [
             {
-              station: "KIRVING",
-              voters: 659
-            },
+              "station": "EP NDOUZENG / A",
+              "voters": 394
+            }
+          ],
+          "KIRVING": [
             {
-              station: "NIVE",
-              voters: 659
-            },
+              "station": "EP NIVE / A",
+              "voters": 659
+            }
+          ],
+          "NIVE": [
             {
-              station: "SAPALA",
-              voters: 659
-            },
+              "station": "EP NIVE / A",
+              "voters": 659
+            }
           ],
-          "EP PALAMAYOUM / A": [
+          "SAPALA": [
             {
-              station: "KOUMAI",
-              voters: 447
-            },
+              "station": "EP NIVE / A",
+              "voters": 659
+            }
+          ],
+          "KOUMAI": [
             {
-              station: "DAGOURA",
-              voters: 447
-            },
+              "station": "EP PALAMAYOUM / A",
+              "voters": 447
+            }
+          ],
+          "DAGOURA": [
             {
-              station: "MASSABAI",
-              voters: 447
-            },
+              "station": "EP PALAMAYOUM / A",
+              "voters": 447
+            }
+          ],
+          "MASSABAI": [
             {
-              station: "OURVI",
-              voters: 447
-            },
+              "station": "EP PALAMAYOUM / A",
+              "voters": 447
+            }
+          ],
+          "OURVI": [
             {
-              station: "TALATCHADAK",
-              voters: 447
-            },
+              "station": "EP PALAMAYOUM / A",
+              "voters": 447
+            }
+          ],
+          "TALATCHADAK": [
             {
-              station: "VIMAR",
-              voters: 447
-            },
+              "station": "EP PALAMAYOUM / A",
+              "voters": 447
+            }
           ],
-          "EP PALPAL / A": [
+          "VIMAR": [
             {
-              station: "PALPAL",
-              voters: 333
-            },
+              "station": "EP PALAMAYOUM / A",
+              "voters": 447
+            }
+          ],
+          "PALPAL": [
             {
-              station: "TALAGORBOCK",
-              voters: 333
-            },
+              "station": "EP PALPAL / A",
+              "voters": 333
+            }
+          ],
+          "TALAGORBOCK": [
             {
-              station: "TIMA-LE",
-              voters: 333
-            },
+              "station": "EP PALPAL / A",
+              "voters": 333
+            }
           ],
-          "EP PINA / A": [
+          "TIMA-LE": [
             {
-              station: "PINA",
-              voters: 599
-            },
+              "station": "EP PALPAL / A",
+              "voters": 333
+            }
           ],
-          "EP POLOGOZOM / A": [
+          "PINA": [
             {
-              station: "BARINGOL",
-              voters: 1621
-            },
+              "station": "EP PINA / A",
+              "voters": 599
+            }
+          ],
+          "BARINGOL": [
             {
-              station: "KILPE",
-              voters: 901
-            },
+              "station": "EP POLOGOZOM / A",
+              "voters": 1621
+            }
+          ],
+          "KILPE": [
             {
-              station: "LIBDJICK",
-              voters: 901
-            },
+              "station": "EP POLOGOZOM / A",
+              "voters": 901
+            }
+          ],
+          "LIBDJICK": [
             {
-              station: "PALADOUWER",
-              voters: 901
-            },
+              "station": "EP POLOGOZOM / A",
+              "voters": 901
+            }
+          ],
+          "PALADOUWER": [
             {
-              station: "POLOGOZOM",
-              voters: 901
-            },
+              "station": "EP POLOGOZOM / A",
+              "voters": 901
+            }
           ],
-          "EP SADI / A": [
+          "POLOGOZOM": [
             {
-              station: "DJENTO-SADI",
-              voters: 410
-            },
+              "station": "EP POLOGOZOM / A",
+              "voters": 901
+            }
+          ],
+          "DJENTO-SADI": [
             {
-              station: "SADI",
-              voters: 410
-            },
+              "station": "EP SADI / A",
+              "voters": 410
+            }
           ],
-          "EP SINTA / A": [
+          "SADI": [
             {
-              station: "SINTA",
-              voters: 398
-            },
+              "station": "EP SADI / A",
+              "voters": 410
+            }
           ],
-          "EP SOLOMOU / A": [
+          "SINTA": [
             {
-              station: "SOLOMOU",
-              voters: 318
-            },
+              "station": "EP SINTA / A",
+              "voters": 398
+            }
           ],
-          "EP SONA / A": [
+          "SOLOMOU": [
             {
-              station: "SONA",
-              voters: 452
-            },
+              "station": "EP SOLOMOU / A",
+              "voters": 318
+            }
           ],
-          "EP TALAK / A": [
+          "SONA": [
             {
-              station: "TALAK",
-              voters: 228
-            },
+              "station": "EP SONA / A",
+              "voters": 452
+            }
           ],
-          "EP WAFO / A": [
+          "TALAK": [
             {
-              station: "SALLIKERE",
-              voters: 608
-            },
+              "station": "EP TALAK / A",
+              "voters": 228
+            }
+          ],
+          "SALLIKERE": [
             {
-              station: "WAFO",
-              voters: 608
-            },
+              "station": "EP WAFO / A",
+              "voters": 608
+            }
           ],
-          "EP WARGUIZA / A": [
+          "WAFO": [
             {
-              station: "FOURKOI",
-              voters: 424
-            },
+              "station": "EP WAFO / A",
+              "voters": 608
+            }
+          ],
+          "FOURKOI": [
             {
-              station: "WARGUIZA",
-              voters: 424
-            },
+              "station": "EP WARGUIZA / A",
+              "voters": 424
+            }
+          ],
+          "WARGUIZA": [
             {
-              station: "WOUROUM",
-              voters: 424
-            },
+              "station": "EP WARGUIZA / A",
+              "voters": 424
+            }
           ],
-          "EP WAWATCHI / A": [
+          "WOUROUM": [
             {
-              station: "DAGGA",
-              voters: 356
-            },
+              "station": "EP WARGUIZA / A",
+              "voters": 424
+            }
+          ],
+          "DAGGA": [
             {
-              station: "WAWATCHI",
-              voters: 219
-            },
+              "station": "EP WAWATCHI / A",
+              "voters": 356
+            }
           ],
-          "ESPLANADE CHEFFERIE BATOUM / A": [
+          "WAWATCHI": [
             {
-              station: "BATOUM",
-              voters: 342
-            },
+              "station": "EP WAWATCHI / A",
+              "voters": 219
+            }
+          ],
+          "BATOUM": [
             {
-              station: "BOTOUM",
-              voters: 1116
-            },
+              "station": "ESPLANADE CHEFFERIE BATOUM / A",
+              "voters": 342
+            }
           ],
-          "ESPLANADE CHEFFERIE MATRA DOUMO / A": [
+          "BOTOUM": [
             {
-              station: "MIDJIDA",
-              voters: 798
-            },
+              "station": "ESPLANADE CHEFFERIE BATOUM / A",
+              "voters": 1116
+            }
+          ],
+          "MIDJIDA": [
             {
-              station: "SO'O",
-              voters: 798
-            },
+              "station": "ESPLANADE CHEFFERIE MATRA DOUMO / A",
+              "voters": 798
+            }
           ],
-          "ESPLANADE CHEFFERIE PRI / A": [
+          "SO'O": [
             {
-              station: "GODOCK",
-              voters: 247
-            },
+              "station": "ESPLANADE CHEFFERIE MATRA DOUMO / A",
+              "voters": 798
+            }
+          ],
+          "GODOCK": [
             {
-              station: "PRI",
-              voters: 247
-            },
+              "station": "ESPLANADE CHEFFERIE PRI / A",
+              "voters": 247
+            }
           ],
-          "MAGASIN SODECOTON / A": [
+          "PRI": [
             {
-              station: "LAC",
-              voters: 290
-            },
+              "station": "ESPLANADE CHEFFERIE PRI / A",
+              "voters": 247
+            }
+          ],
+          "LAC": [
             {
-              station: "SILANDA",
-              voters: 290
-            },
+              "station": "MAGASIN SODECOTON / A",
+              "voters": 290
+            }
+          ],
+          "SILANDA": [
             {
-              station: "OURO-WALDE",
-              voters: 290
-            },
+              "station": "MAGASIN SODECOTON / A",
+              "voters": 290
+            }
+          ],
+          "OURO-WALDE": [
             {
-              station: "PALAIS",
-              voters: 290
-            },
+              "station": "MAGASIN SODECOTON / A",
+              "voters": 290
+            }
+          ],
+          "PALAIS": [
             {
-              station: "SEMNORD",
-              voters: 290
-            },
+              "station": "MAGASIN SODECOTON / A",
+              "voters": 290
+            }
           ],
-          "PLACE MARCHE BOSSOUM / A": [
+          "SEMNORD": [
             {
-              station: "AIKARTI",
-              voters: 979
-            },
+              "station": "MAGASIN SODECOTON / A",
+              "voters": 290
+            }
+          ],
+          "AIKARTI": [
             {
-              station: "BOSSOUM",
-              voters: 2397
-            },
+              "station": "PLACE MARCHE BOSSOUM / A",
+              "voters": 979
+            }
+          ],
+          "BOSSOUM": [
             {
-              station: "MARCHE",
-              voters: 1344
-            },
+              "station": "PLACE MARCHE BOSSOUM / A",
+              "voters": 2397
+            }
+          ],
+          "MARCHE": [
             {
-              station: "KOUMNORO",
-              voters: 1093
-            },
+              "station": "PLACE MARCHE BOSSOUM / A",
+              "voters": 1344
+            }
+          ],
+          "KOUMNORO": [
             {
-              station: "OURO",
-              voters: 1357
-            },
+              "station": "PLACE MARCHE BOSSOUM / A",
+              "voters": 1093
+            }
+          ],
+          "OURO": [
             {
-              station: "KARLAHI",
-              voters: 3931
-            },
+              "station": "PLACE MARCHE BOSSOUM / A",
+              "voters": 1357
+            }
+          ],
+          "KARLAHI": [
             {
-              station: "TOKNAYOU",
-              voters: 979
-            },
+              "station": "PLACE MARCHE BOSSOUM / A",
+              "voters": 3931
+            }
           ],
-          "PLACE MARCHE DESKIT / A": [
+          "TOKNAYOU": [
             {
-              station: "BOUMBALOU",
-              voters: 190
-            },
+              "station": "PLACE MARCHE BOSSOUM / A",
+              "voters": 979
+            }
+          ],
+          "BOUMBALOU": [
             {
-              station: "DESKIT",
-              voters: 190
-            },
+              "station": "PLACE MARCHE DESKIT / A",
+              "voters": 190
+            }
+          ],
+          "DESKIT": [
             {
-              station: "KOUBADJE",
-              voters: 190
-            },
+              "station": "PLACE MARCHE DESKIT / A",
+              "voters": 190
+            }
           ],
-          "PLACE MARCHE DONKA / A": [
+          "KOUBADJE": [
             {
-              station: "DJEGUELI",
-              voters: 500
-            },
+              "station": "PLACE MARCHE DESKIT / A",
+              "voters": 190
+            }
+          ],
+          "DJEGUELI": [
             {
-              station: "DONKA",
-              voters: 500
-            },
+              "station": "PLACE MARCHE DONKA / A",
+              "voters": 500
+            }
+          ],
+          "DONKA": [
             {
-              station: "HOULA",
-              voters: 500
-            },
+              "station": "PLACE MARCHE DONKA / A",
+              "voters": 500
+            }
+          ],
+          "HOULA": [
             {
-              station: "MADI",
-              voters: 500
-            },
+              "station": "PLACE MARCHE DONKA / A",
+              "voters": 500
+            }
           ],
-          "PLACE MARCHE DOUMO / A": [
+          "MADI": [
             {
-              station: "DIWA",
-              voters: 792
-            },
+              "station": "PLACE MARCHE DONKA / A",
+              "voters": 500
+            }
+          ],
+          "DIWA": [
             {
-              station: "FATAROU",
-              voters: 792
-            },
+              "station": "PLACE MARCHE DOUMO / A",
+              "voters": 792
+            }
+          ],
+          "FATAROU": [
             {
-              station: "FONDJI",
-              voters: 1530
-            },
+              "station": "PLACE MARCHE DOUMO / A",
+              "voters": 792
+            }
+          ],
+          "FONDJI": [
             {
-              station: "GOUDAKI",
-              voters: 792
-            },
+              "station": "PLACE MARCHE DOUMO / A",
+              "voters": 1530
+            }
+          ],
+          "GOUDAKI": [
             {
-              station: "PEPEDE",
-              voters: 792
-            },
+              "station": "PLACE MARCHE DOUMO / A",
+              "voters": 792
+            }
           ],
-          "PLACE MARCHE MAYO OULO / A": [
+          "PEPEDE": [
             {
-              station: "DOH",
-              voters: 1662
-            },
+              "station": "PLACE MARCHE DOUMO / A",
+              "voters": 792
+            }
+          ],
+          "DOH": [
             {
-              station: "DOMAYO",
-              voters: 1662
-            },
+              "station": "PLACE MARCHE MAYO OULO / A",
+              "voters": 1662
+            }
+          ],
+          "DOMAYO": [
             {
-              station: "LAMBA",
-              voters: 1662
-            },
+              "station": "PLACE MARCHE MAYO OULO / A",
+              "voters": 1662
+            }
+          ],
+          "LAMBA": [
             {
-              station: "LOUMORE",
-              voters: 1662
-            },
+              "station": "PLACE MARCHE MAYO OULO / A",
+              "voters": 1662
+            }
+          ],
+          "LOUMORE": [
             {
-              station: "TSORI",
-              voters: 1662
-            },
+              "station": "PLACE MARCHE MAYO OULO / A",
+              "voters": 1662
+            }
+          ],
+          "TSORI": [
             {
-              station: "WAFANGO",
-              voters: 1662
-            },
+              "station": "PLACE MARCHE MAYO OULO / A",
+              "voters": 1662
+            }
           ],
-          "PLACE MARCHE TIMA-LE BAS / A": [
+          "WAFANGO": [
             {
-              station: "TIMA",
-              voters: 172
-            },
+              "station": "PLACE MARCHE MAYO OULO / A",
+              "voters": 1662
+            }
+          ],
+          "TIMA": [
             {
-              station: "BAS",
-              voters: 172
-            },
+              "station": "PLACE MARCHE TIMA-LE BAS / A",
+              "voters": 172
+            }
           ],
-          "PLACE MARCHE YIBANGO / A": [
+          "BAS": [
             {
-              station: "KAPKANA",
-              voters: 205
-            },
+              "station": "PLACE MARCHE TIMA-LE BAS / A",
+              "voters": 172
+            }
+          ],
+          "KAPKANA": [
             {
-              station: "YIBANGO",
-              voters: 205
-            },
+              "station": "PLACE MARCHE YIBANGO / A",
+              "voters": 205
+            }
           ],
-          "PLACE PETIT MARCHE DOUI / A": [
+          "YIBANGO": [
             {
-              station: "DOUI",
-              voters: 467
-            },
+              "station": "PLACE MARCHE YIBANGO / A",
+              "voters": 205
+            }
+          ],
+          "DOUI": [
             {
-              station: "NYAM",
-              voters: 130
-            },
+              "station": "PLACE PETIT MARCHE DOUI / A",
+              "voters": 467
+            }
           ],
-          "PLACE PETIT MARCHE KOURGUENG / A": [
+          "NYAM": [
             {
-              station: "GONDABA",
-              voters: 342
-            },
+              "station": "PLACE PETIT MARCHE DOUI / A",
+              "voters": 130
+            }
+          ],
+          "GONDABA": [
             {
-              station: "KELALI",
-              voters: 342
-            },
+              "station": "PLACE PETIT MARCHE KOURGUENG / A",
+              "voters": 342
+            }
+          ],
+          "KELALI": [
             {
-              station: "KOURGUENG",
-              voters: 342
-            },
+              "station": "PLACE PETIT MARCHE KOURGUENG / A",
+              "voters": 342
+            }
+          ],
+          "KOURGUENG": [
             {
-              station: "POKOTCHI",
-              voters: 342
-            },
+              "station": "PLACE PETIT MARCHE KOURGUENG / A",
+              "voters": 342
+            }
           ],
-        },
+          "POKOTCHI": [
+            {
+              "station": "PLACE PETIT MARCHE KOURGUENG / A",
+              "voters": 342
+            }
+          ]
+        }
       },
       "MAYO-REY": {
         "MADINGRING": {
-          "BUREAU OPCC / A": [
+          "GASTON": [
             {
-              station: "GASTON",
-              voters: 462
-            },
-            {
-              station: "GOINGOU",
-              voters: 723
-            },
-            {
-              station: "ABADI",
-              voters: 462
-            },
-            {
-              station: "BERE",
-              voters: 462
-            },
-            {
-              station: "NINGATOLOUM",
-              voters: 462
-            },
-            {
-              station: "JEAN",
-              voters: 462
-            },
-            {
-              station: "TOULA",
-              voters: 462
-            },
-            {
-              station: "YELWA",
-              voters: 723
-            },
+              "station": "BUREAU OPCC / A",
+              "voters": 462
+            }
           ],
-          "EP BAILA / A": [
+          "GOINGOU": [
             {
-              station: "BADJANG",
-              voters: 614
-            },
-            {
-              station: "BAILA",
-              voters: 1689
-            },
-            {
-              station: "MBIEM",
-              voters: 1360
-            },
-            {
-              station: "DOLE",
-              voters: 614
-            },
-            {
-              station: "TELBE",
-              voters: 614
-            },
+              "station": "BUREAU OPCC / A",
+              "voters": 723
+            }
           ],
-          "EP BILINGUE MADINGRING / A": [
+          "ABADI": [
             {
-              station: "ARDO",
-              voters: 1060
-            },
-            {
-              station: "MATCHE",
-              voters: 1060
-            },
-            {
-              station: "FELIX",
-              voters: 1060
-            },
-            {
-              station: "OUMAROU",
-              voters: 1060
-            },
-            {
-              station: "VAIBOUR",
-              voters: 1060
-            },
-            {
-              station: "SECTEUR",
-              voters: 3049
-            },
-            {
-              station: "MANDINGRING",
-              voters: 3049
-            },
-            {
-              station: "MARCHE",
-              voters: 3049
-            },
+              "station": "BUREAU OPCC / A",
+              "voters": 462
+            }
           ],
-          "EP BONGO / A": [
+          "BERE": [
             {
-              station: "ANDOUM",
-              voters: 1122
-            },
-            {
-              station: "BONGO",
-              voters: 1122
-            },
-            {
-              station: "WAHOULA",
-              voters: 1273
-            },
+              "station": "BUREAU OPCC / A",
+              "voters": 462
+            }
           ],
-          "EP DJAMBOUTOU / A": [
+          "NINGATOLOUM": [
             {
-              station: "DJAMBOUTOU",
-              voters: 716
-            },
-            {
-              station: "DJEMREO",
-              voters: 1256
-            },
+              "station": "BUREAU OPCC / A",
+              "voters": 462
+            }
           ],
-          "EP DJEING II / A": [
+          "JEAN": [
             {
-              station: "DJEING",
-              voters: 2464
-            },
-            {
-              station: "CATHOLIQUE",
-              voters: 1652
-            },
+              "station": "BUREAU OPCC / A",
+              "voters": 462
+            }
           ],
-          "EP DJEMADJOU I / A": [
+          "TOULA": [
             {
-              station: "DJALINGO",
-              voters: 687
-            },
-            {
-              station: "PEULH",
-              voters: 687
-            },
+              "station": "BUREAU OPCC / A",
+              "voters": 462
+            }
           ],
-          "EP GA MBOU / A": [
+          "YELWA": [
             {
-              station: "DJABLANG",
-              voters: 1066
-            },
-            {
-              station: "DJIBAO",
-              voters: 1066
-            },
-            {
-              station: "GAMBOU",
-              voters: 746
-            },
-            {
-              station: "LAOU",
-              voters: 746
-            },
-            {
-              station: "WINDE",
-              voters: 746
-            },
+              "station": "BUREAU OPCC / A",
+              "voters": 723
+            }
           ],
-          "EP GOR / A": [
+          "BADJANG": [
             {
-              station: "BALA",
-              voters: 1946
-            },
-            {
-              station: "GOINDASSOU",
-              voters: 1946
-            },
-            {
-              station: "GOITAM",
-              voters: 1946
-            },
-            {
-              station: "GOR",
-              voters: 3892
-            },
-            {
-              station: "CLAIRE",
-              voters: 1946
-            },
-            {
-              station: "LAVAIZA",
-              voters: 1946
-            },
-            {
-              station: "MISSION",
-              voters: 3598
-            },
-            {
-              station: "PROTESTANTE",
-              voters: 1946
-            },
-            {
-              station: "TOKLOMWA",
-              voters: 1946
-            },
-            {
-              station: "TOLBOUKA",
-              voters: 1946
-            },
+              "station": "EP BAILA / A",
+              "voters": 614
+            }
           ],
-          "EP KAGNADJE I / A": [
+          "BAILA": [
             {
-              station: "DJETOHEUR",
-              voters: 650
-            },
-            {
-              station: "KAGNADJE",
-              voters: 2600
-            },
-            {
-              station: "MBAL",
-              voters: 650
-            },
-            {
-              station: "ODEMARE",
-              voters: 650
-            },
-            {
-              station: "NDAMM",
-              voters: 650
-            },
+              "station": "EP BAILA / A",
+              "voters": 1689
+            }
           ],
-          "EP KOULOU MBOU / A": [
+          "MBIEM": [
             {
-              station: "KOULOUMBOU",
-              voters: 481
-            },
-            {
-              station: "MANDI",
-              voters: 845
-            },
-            {
-              station: "OURO",
-              voters: 481
-            },
-            {
-              station: "KESSOUM",
-              voters: 481
-            },
+              "station": "EP BAILA / A",
+              "voters": 1360
+            }
           ],
-          "EP LAOUDJOUGOYE / A": [
+          "DOLE": [
             {
-              station: "KODJINI",
-              voters: 376
-            },
-            {
-              station: "LAOUDJOUGOYE",
-              voters: 376
-            },
-            {
-              station: "MBAKLA",
-              voters: 376
-            },
-            {
-              station: "MBISSIRI",
-              voters: 376
-            },
-            {
-              station: "KASSEO",
-              voters: 376
-            },
+              "station": "EP BAILA / A",
+              "voters": 614
+            }
           ],
-          "EP MADINGRING / A": [
+          "TELBE": [
             {
-              station: "CAMP",
-              voters: 1989
-            },
-            {
-              station: "BIR",
-              voters: 1989
-            },
-            {
-              station: "DOBAR",
-              voters: 2306
-            },
-            {
-              station: "PAUL",
-              voters: 2306
-            },
-            {
-              station: "DOMBALE",
-              voters: 2306
-            },
-            {
-              station: "LAKOKYA",
-              voters: 1989
-            },
-            {
-              station: "HOPITAL",
-              voters: 1989
-            },
-            {
-              station: "KOH",
-              voters: 1989
-            },
-            {
-              station: "LAKA",
-              voters: 1989
-            },
-            {
-              station: "WANGA",
-              voters: 1989
-            },
+              "station": "EP BAILA / A",
+              "voters": 614
+            }
           ],
-          "EP MANDI MANGA / A": [
+          "ARDO": [
             {
-              station: "MAIBIYA",
-              voters: 182
-            },
-            {
-              station: "GOULA",
-              voters: 182
-            },
-            {
-              station: "MANGA",
-              voters: 182
-            },
+              "station": "EP BILINGUE MADINGRING / A",
+              "voters": 1060
+            }
           ],
-          "EP MASSI / A": [
+          "MATCHE": [
             {
-              station: "KODJONG",
-              voters: 206
-            },
-            {
-              station: "MASSI",
-              voters: 206
-            },
+              "station": "EP BILINGUE MADINGRING / A",
+              "voters": 1060
+            }
           ],
-          "EP MAYO DJARENDI / A": [
+          "FELIX": [
             {
-              station: "MAYO",
-              voters: 307
-            },
-            {
-              station: "DJARENDI",
-              voters: 307
-            },
-            {
-              station: "MBAOULARI",
-              voters: 307
-            },
+              "station": "EP BILINGUE MADINGRING / A",
+              "voters": 1060
+            }
           ],
-          "EP MBAOUBALA / A": [
+          "OUMAROU": [
             {
-              station: "FANGWILEO",
-              voters: 596
-            },
-            {
-              station: "KONGWALA",
-              voters: 596
-            },
-            {
-              station: "LANGUI",
-              voters: 596
-            },
-            {
-              station: "MBAOUBALA",
-              voters: 596
-            },
+              "station": "EP BILINGUE MADINGRING / A",
+              "voters": 1060
+            }
           ],
-          "EP SOROMBEO / A": [
+          "VAIBOUR": [
             {
-              station: "BAGAO",
-              voters: 898
-            },
-            {
-              station: "LAOUDJARA",
-              voters: 898
-            },
-            {
-              station: "LAOUMBORE",
-              voters: 1070
-            },
-            {
-              station: "MADAGACAR",
-              voters: 898
-            },
-            {
-              station: "MBAIGNADJE",
-              voters: 898
-            },
-            {
-              station: "MBAINAI",
-              voters: 898
-            },
-            {
-              station: "MBINGUEO",
-              voters: 1070
-            },
-            {
-              station: "SOROMBEO",
-              voters: 898
-            },
+              "station": "EP BILINGUE MADINGRING / A",
+              "voters": 1060
+            }
           ],
-          "EP TOUSSIRI MBALDJOUK / A": [
+          "SECTEUR": [
             {
-              station: "KAMBANG",
-              voters: 463
-            },
-            {
-              station: "MAMBOUM",
-              voters: 463
-            },
-            {
-              station: "MAWAILA",
-              voters: 463
-            },
-            {
-              station: "TOUSSIRI",
-              voters: 463
-            },
-            {
-              station: "MBALDJOUCK",
-              voters: 463
-            },
+              "station": "EP BILINGUE MADINGRING / A",
+              "voters": 3049
+            }
           ],
-          "EP YAGOYE / A": [
+          "MANDINGRING": [
             {
-              station: "GANDAYE",
-              voters: 406
-            },
-            {
-              station: "MAIROM",
-              voters: 406
-            },
-            {
-              station: "YAGOYE",
-              voters: 406
-            },
+              "station": "EP BILINGUE MADINGRING / A",
+              "voters": 3049
+            }
           ],
-          "ESPL CHEF AHMADOU / A": [
+          "MARCHE": [
             {
-              station: "ALI",
-              voters: 734
-            },
-            {
-              station: "ARABE",
-              voters: 734
-            },
-            {
-              station: "DJAOURO",
-              voters: 4916
-            },
-            {
-              station: "BOUBA",
-              voters: 734
-            },
-            {
-              station: "MADINGRING",
-              voters: 13714
-            },
-            {
-              station: "FADA",
-              voters: 2723
-            },
-            {
-              station: "FOULBE",
-              voters: 1752
-            },
+              "station": "EP BILINGUE MADINGRING / A",
+              "voters": 3049
+            }
           ],
-          "ESPL CHEF DJEMADJOU II / A": [
+          "ANDOUM": [
             {
-              station: "DARABEI",
-              voters: 621
-            },
-            {
-              station: "PIERRE",
-              voters: 621
-            },
-            {
-              station: "DJEMADJOU",
-              voters: 2035
-            },
-            {
-              station: "MOUDOUCK",
-              voters: 621
-            },
-            {
-              station: "FRONTIERE",
-              voters: 621
-            },
-            {
-              station: "SABERE",
-              voters: 1519
-            },
+              "station": "EP BONGO / A",
+              "voters": 1122
+            }
           ],
-          "ESPL CHEF MAIKIRO / A": [
+          "BONGO": [
             {
-              station: "BOLOHEURDJE",
-              voters: 410
-            },
-            {
-              station: "DODJONG",
-              voters: 410
-            },
-            {
-              station: "MAIKIRO",
-              voters: 410
-            },
+              "station": "EP BONGO / A",
+              "voters": 1122
+            }
           ],
-          "ESPL CHEF NGANADJE CARREFOUR / A": [
+          "WAHOULA": [
             {
-              station: "KOUDJOURO",
-              voters: 1077
-            },
-            {
-              station: "MAITARAL",
-              voters: 1077
-            },
-            {
-              station: "MBAOUPALA",
-              voters: 1077
-            },
-            {
-              station: "MBIHAOU",
-              voters: 1077
-            },
-            {
-              station: "NGANADJE",
-              voters: 1077
-            },
-            {
-              station: "CARREFOUR",
-              voters: 1077
-            },
+              "station": "EP BONGO / A",
+              "voters": 1273
+            }
           ],
-          "GIC SODECOTON DJAMDJE / A": [
+          "DJAMBOUTOU": [
             {
-              station: "BISSA",
-              voters: 461
-            },
-            {
-              station: "DJAMDJE",
-              voters: 461
-            },
+              "station": "EP DJAMBOUTOU / A",
+              "voters": 716
+            }
           ],
-          "LYCEE MADINGRING / A": [
+          "DJEMREO": [
             {
-              station: "MASSA",
-              voters: 540
-            },
-            {
-              station: "LAOUPOYE",
-              voters: 722
-            },
-            {
-              station: "LYCEE",
-              voters: 540
-            },
-            {
-              station: "NANA",
-              voters: 857
-            },
-            {
-              station: "JACQUES",
-              voters: 857
-            },
+              "station": "EP DJAMBOUTOU / A",
+              "voters": 1256
+            }
           ],
+          "DJEING": [
+            {
+              "station": "EP DJEING II / A",
+              "voters": 2464
+            }
+          ],
+          "CATHOLIQUE": [
+            {
+              "station": "EP DJEING II / A",
+              "voters": 1652
+            }
+          ],
+          "DJALINGO": [
+            {
+              "station": "EP DJEMADJOU I / A",
+              "voters": 687
+            }
+          ],
+          "PEULH": [
+            {
+              "station": "EP DJEMADJOU I / A",
+              "voters": 687
+            }
+          ],
+          "DJABLANG": [
+            {
+              "station": "EP GA MBOU / A",
+              "voters": 1066
+            }
+          ],
+          "DJIBAO": [
+            {
+              "station": "EP GA MBOU / A",
+              "voters": 1066
+            }
+          ],
+          "GAMBOU": [
+            {
+              "station": "EP GA MBOU / A",
+              "voters": 746
+            }
+          ],
+          "LAOU": [
+            {
+              "station": "EP GA MBOU / A",
+              "voters": 746
+            }
+          ],
+          "WINDE": [
+            {
+              "station": "EP GA MBOU / A",
+              "voters": 746
+            }
+          ],
+          "BALA": [
+            {
+              "station": "EP GOR / A",
+              "voters": 1946
+            }
+          ],
+          "GOINDASSOU": [
+            {
+              "station": "EP GOR / A",
+              "voters": 1946
+            }
+          ],
+          "GOITAM": [
+            {
+              "station": "EP GOR / A",
+              "voters": 1946
+            }
+          ],
+          "GOR": [
+            {
+              "station": "EP GOR / A",
+              "voters": 3892
+            }
+          ],
+          "CLAIRE": [
+            {
+              "station": "EP GOR / A",
+              "voters": 1946
+            }
+          ],
+          "LAVAIZA": [
+            {
+              "station": "EP GOR / A",
+              "voters": 1946
+            }
+          ],
+          "MISSION": [
+            {
+              "station": "EP GOR / A",
+              "voters": 3598
+            }
+          ],
+          "PROTESTANTE": [
+            {
+              "station": "EP GOR / A",
+              "voters": 1946
+            }
+          ],
+          "TOKLOMWA": [
+            {
+              "station": "EP GOR / A",
+              "voters": 1946
+            }
+          ],
+          "TOLBOUKA": [
+            {
+              "station": "EP GOR / A",
+              "voters": 1946
+            }
+          ],
+          "DJETOHEUR": [
+            {
+              "station": "EP KAGNADJE I / A",
+              "voters": 650
+            }
+          ],
+          "KAGNADJE": [
+            {
+              "station": "EP KAGNADJE I / A",
+              "voters": 2600
+            }
+          ],
+          "MBAL": [
+            {
+              "station": "EP KAGNADJE I / A",
+              "voters": 650
+            }
+          ],
+          "ODEMARE": [
+            {
+              "station": "EP KAGNADJE I / A",
+              "voters": 650
+            }
+          ],
+          "NDAMM": [
+            {
+              "station": "EP KAGNADJE I / A",
+              "voters": 650
+            }
+          ],
+          "KOULOUMBOU": [
+            {
+              "station": "EP KOULOU MBOU / A",
+              "voters": 481
+            }
+          ],
+          "MANDI": [
+            {
+              "station": "EP KOULOU MBOU / A",
+              "voters": 845
+            }
+          ],
+          "OURO": [
+            {
+              "station": "EP KOULOU MBOU / A",
+              "voters": 481
+            }
+          ],
+          "KESSOUM": [
+            {
+              "station": "EP KOULOU MBOU / A",
+              "voters": 481
+            }
+          ],
+          "KODJINI": [
+            {
+              "station": "EP LAOUDJOUGOYE / A",
+              "voters": 376
+            }
+          ],
+          "LAOUDJOUGOYE": [
+            {
+              "station": "EP LAOUDJOUGOYE / A",
+              "voters": 376
+            }
+          ],
+          "MBAKLA": [
+            {
+              "station": "EP LAOUDJOUGOYE / A",
+              "voters": 376
+            }
+          ],
+          "MBISSIRI": [
+            {
+              "station": "EP LAOUDJOUGOYE / A",
+              "voters": 376
+            }
+          ],
+          "KASSEO": [
+            {
+              "station": "EP LAOUDJOUGOYE / A",
+              "voters": 376
+            }
+          ],
+          "CAMP": [
+            {
+              "station": "EP MADINGRING / A",
+              "voters": 1989
+            }
+          ],
+          "BIR": [
+            {
+              "station": "EP MADINGRING / A",
+              "voters": 1989
+            }
+          ],
+          "DOBAR": [
+            {
+              "station": "EP MADINGRING / A",
+              "voters": 2306
+            }
+          ],
+          "PAUL": [
+            {
+              "station": "EP MADINGRING / A",
+              "voters": 2306
+            }
+          ],
+          "DOMBALE": [
+            {
+              "station": "EP MADINGRING / A",
+              "voters": 2306
+            }
+          ],
+          "LAKOKYA": [
+            {
+              "station": "EP MADINGRING / A",
+              "voters": 1989
+            }
+          ],
+          "HOPITAL": [
+            {
+              "station": "EP MADINGRING / A",
+              "voters": 1989
+            }
+          ],
+          "KOH": [
+            {
+              "station": "EP MADINGRING / A",
+              "voters": 1989
+            }
+          ],
+          "LAKA": [
+            {
+              "station": "EP MADINGRING / A",
+              "voters": 1989
+            }
+          ],
+          "WANGA": [
+            {
+              "station": "EP MADINGRING / A",
+              "voters": 1989
+            }
+          ],
+          "MAIBIYA": [
+            {
+              "station": "EP MANDI MANGA / A",
+              "voters": 182
+            }
+          ],
+          "GOULA": [
+            {
+              "station": "EP MANDI MANGA / A",
+              "voters": 182
+            }
+          ],
+          "MANGA": [
+            {
+              "station": "EP MANDI MANGA / A",
+              "voters": 182
+            }
+          ],
+          "KODJONG": [
+            {
+              "station": "EP MASSI / A",
+              "voters": 206
+            }
+          ],
+          "MASSI": [
+            {
+              "station": "EP MASSI / A",
+              "voters": 206
+            }
+          ],
+          "MAYO": [
+            {
+              "station": "EP MAYO DJARENDI / A",
+              "voters": 307
+            }
+          ],
+          "DJARENDI": [
+            {
+              "station": "EP MAYO DJARENDI / A",
+              "voters": 307
+            }
+          ],
+          "MBAOULARI": [
+            {
+              "station": "EP MAYO DJARENDI / A",
+              "voters": 307
+            }
+          ],
+          "FANGWILEO": [
+            {
+              "station": "EP MBAOUBALA / A",
+              "voters": 596
+            }
+          ],
+          "KONGWALA": [
+            {
+              "station": "EP MBAOUBALA / A",
+              "voters": 596
+            }
+          ],
+          "LANGUI": [
+            {
+              "station": "EP MBAOUBALA / A",
+              "voters": 596
+            }
+          ],
+          "MBAOUBALA": [
+            {
+              "station": "EP MBAOUBALA / A",
+              "voters": 596
+            }
+          ],
+          "BAGAO": [
+            {
+              "station": "EP SOROMBEO / A",
+              "voters": 898
+            }
+          ],
+          "LAOUDJARA": [
+            {
+              "station": "EP SOROMBEO / A",
+              "voters": 898
+            }
+          ],
+          "LAOUMBORE": [
+            {
+              "station": "EP SOROMBEO / A",
+              "voters": 1070
+            }
+          ],
+          "MADAGACAR": [
+            {
+              "station": "EP SOROMBEO / A",
+              "voters": 898
+            }
+          ],
+          "MBAIGNADJE": [
+            {
+              "station": "EP SOROMBEO / A",
+              "voters": 898
+            }
+          ],
+          "MBAINAI": [
+            {
+              "station": "EP SOROMBEO / A",
+              "voters": 898
+            }
+          ],
+          "MBINGUEO": [
+            {
+              "station": "EP SOROMBEO / A",
+              "voters": 1070
+            }
+          ],
+          "SOROMBEO": [
+            {
+              "station": "EP SOROMBEO / A",
+              "voters": 898
+            }
+          ],
+          "KAMBANG": [
+            {
+              "station": "EP TOUSSIRI MBALDJOUK / A",
+              "voters": 463
+            }
+          ],
+          "MAMBOUM": [
+            {
+              "station": "EP TOUSSIRI MBALDJOUK / A",
+              "voters": 463
+            }
+          ],
+          "MAWAILA": [
+            {
+              "station": "EP TOUSSIRI MBALDJOUK / A",
+              "voters": 463
+            }
+          ],
+          "TOUSSIRI": [
+            {
+              "station": "EP TOUSSIRI MBALDJOUK / A",
+              "voters": 463
+            }
+          ],
+          "MBALDJOUCK": [
+            {
+              "station": "EP TOUSSIRI MBALDJOUK / A",
+              "voters": 463
+            }
+          ],
+          "GANDAYE": [
+            {
+              "station": "EP YAGOYE / A",
+              "voters": 406
+            }
+          ],
+          "MAIROM": [
+            {
+              "station": "EP YAGOYE / A",
+              "voters": 406
+            }
+          ],
+          "YAGOYE": [
+            {
+              "station": "EP YAGOYE / A",
+              "voters": 406
+            }
+          ],
+          "ALI": [
+            {
+              "station": "ESPL CHEF AHMADOU / A",
+              "voters": 734
+            }
+          ],
+          "ARABE": [
+            {
+              "station": "ESPL CHEF AHMADOU / A",
+              "voters": 734
+            }
+          ],
+          "DJAOURO": [
+            {
+              "station": "ESPL CHEF AHMADOU / A",
+              "voters": 4916
+            }
+          ],
+          "BOUBA": [
+            {
+              "station": "ESPL CHEF AHMADOU / A",
+              "voters": 734
+            }
+          ],
+          "MADINGRING": [
+            {
+              "station": "ESPL CHEF AHMADOU / A",
+              "voters": 13714
+            }
+          ],
+          "FADA": [
+            {
+              "station": "ESPL CHEF AHMADOU / A",
+              "voters": 2723
+            }
+          ],
+          "FOULBE": [
+            {
+              "station": "ESPL CHEF AHMADOU / A",
+              "voters": 1752
+            }
+          ],
+          "DARABEI": [
+            {
+              "station": "ESPL CHEF DJEMADJOU II / A",
+              "voters": 621
+            }
+          ],
+          "PIERRE": [
+            {
+              "station": "ESPL CHEF DJEMADJOU II / A",
+              "voters": 621
+            }
+          ],
+          "DJEMADJOU": [
+            {
+              "station": "ESPL CHEF DJEMADJOU II / A",
+              "voters": 2035
+            }
+          ],
+          "MOUDOUCK": [
+            {
+              "station": "ESPL CHEF DJEMADJOU II / A",
+              "voters": 621
+            }
+          ],
+          "FRONTIERE": [
+            {
+              "station": "ESPL CHEF DJEMADJOU II / A",
+              "voters": 621
+            }
+          ],
+          "SABERE": [
+            {
+              "station": "ESPL CHEF DJEMADJOU II / A",
+              "voters": 1519
+            }
+          ],
+          "BOLOHEURDJE": [
+            {
+              "station": "ESPL CHEF MAIKIRO / A",
+              "voters": 410
+            }
+          ],
+          "DODJONG": [
+            {
+              "station": "ESPL CHEF MAIKIRO / A",
+              "voters": 410
+            }
+          ],
+          "MAIKIRO": [
+            {
+              "station": "ESPL CHEF MAIKIRO / A",
+              "voters": 410
+            }
+          ],
+          "KOUDJOURO": [
+            {
+              "station": "ESPL CHEF NGANADJE CARREFOUR / A",
+              "voters": 1077
+            }
+          ],
+          "MAITARAL": [
+            {
+              "station": "ESPL CHEF NGANADJE CARREFOUR / A",
+              "voters": 1077
+            }
+          ],
+          "MBAOUPALA": [
+            {
+              "station": "ESPL CHEF NGANADJE CARREFOUR / A",
+              "voters": 1077
+            }
+          ],
+          "MBIHAOU": [
+            {
+              "station": "ESPL CHEF NGANADJE CARREFOUR / A",
+              "voters": 1077
+            }
+          ],
+          "NGANADJE": [
+            {
+              "station": "ESPL CHEF NGANADJE CARREFOUR / A",
+              "voters": 1077
+            }
+          ],
+          "CARREFOUR": [
+            {
+              "station": "ESPL CHEF NGANADJE CARREFOUR / A",
+              "voters": 1077
+            }
+          ],
+          "BISSA": [
+            {
+              "station": "GIC SODECOTON DJAMDJE / A",
+              "voters": 461
+            }
+          ],
+          "DJAMDJE": [
+            {
+              "station": "GIC SODECOTON DJAMDJE / A",
+              "voters": 461
+            }
+          ],
+          "MASSA": [
+            {
+              "station": "LYCEE MADINGRING / A",
+              "voters": 540
+            }
+          ],
+          "LAOUPOYE": [
+            {
+              "station": "LYCEE MADINGRING / A",
+              "voters": 722
+            }
+          ],
+          "LYCEE": [
+            {
+              "station": "LYCEE MADINGRING / A",
+              "voters": 540
+            }
+          ],
+          "NANA": [
+            {
+              "station": "LYCEE MADINGRING / A",
+              "voters": 857
+            }
+          ],
+          "JACQUES": [
+            {
+              "station": "LYCEE MADINGRING / A",
+              "voters": 857
+            }
+          ]
         },
         "REY-BOUBA": {
-          "ECOLE DES PARENTS BOUNNEROU / A": [
+          "SOUROUNGOUL": [
             {
-              station: "SOUROUNGOUL",
-              voters: 247
-            },
+              "station": "ECOLE DES PARENTS BOUNNEROU / A",
+              "voters": 247
+            }
           ],
-          "ECOLE DES PARENTS DJOUNDI / A": [
+          "DJOUNDI": [
             {
-              station: "DJOUNDI",
-              voters: 207
-            },
+              "station": "ECOLE DES PARENTS DJOUNDI / A",
+              "voters": 207
+            }
           ],
-          "ECOLE DES PARENTS LESDI MBODERI / A": [
+          "MAIDJAMBA": [
             {
-              station: "MAIDJAMBA",
-              voters: 1246
-            },
-            {
-              station: "BLAMA",
-              voters: 623
-            },
+              "station": "ECOLE DES PARENTS LESDI MBODERI / A",
+              "voters": 1246
+            }
+          ],
+          "BLAMA": [
             {
-              station: "MOUSSA",
-              voters: 623
-            },
+              "station": "ECOLE DES PARENTS LESDI MBODERI / A",
+              "voters": 623
+            }
+          ],
+          "MOUSSA": [
             {
-              station: "GAINA",
-              voters: 730
-            },
+              "station": "ECOLE DES PARENTS LESDI MBODERI / A",
+              "voters": 623
+            }
+          ],
+          "GAINA": [
             {
-              station: "LAC",
-              voters: 730
-            },
+              "station": "ECOLE DES PARENTS LESDI MBODERI / A",
+              "voters": 730
+            }
+          ],
+          "LAC": [
             {
-              station: "MABEROU",
-              voters: 730
-            },
+              "station": "ECOLE DES PARENTS LESDI MBODERI / A",
+              "voters": 730
+            }
+          ],
+          "MABEROU": [
             {
-              station: "PAKLI",
-              voters: 730
-            },
+              "station": "ECOLE DES PARENTS LESDI MBODERI / A",
+              "voters": 730
+            }
           ],
-          "ECOLE DES PARENTS SEINANGO / A": [
+          "PAKLI": [
             {
-              station: "GAOUDALI",
-              voters: 85
-            },
+              "station": "ECOLE DES PARENTS LESDI MBODERI / A",
+              "voters": 730
+            }
+          ],
+          "GAOUDALI": [
             {
-              station: "HARDE",
-              voters: 85
-            },
+              "station": "ECOLE DES PARENTS SEINANGO / A",
+              "voters": 85
+            }
+          ],
+          "HARDE": [
             {
-              station: "KAYEFI",
-              voters: 85
-            },
+              "station": "ECOLE DES PARENTS SEINANGO / A",
+              "voters": 85
+            }
           ],
-          "EM REY-BOUBA / A": [
+          "KAYEFI": [
             {
-              station: "FOUDEN",
-              voters: 259
-            },
+              "station": "ECOLE DES PARENTS SEINANGO / A",
+              "voters": 85
+            }
+          ],
+          "FOUDEN": [
             {
-              station: "HAOUSSA'EN",
-              voters: 259
-            },
+              "station": "EM REY-BOUBA / A",
+              "voters": 259
+            }
+          ],
+          "HAOUSSA'EN": [
             {
-              station: "SASSA'EN",
-              voters: 259
-            },
+              "station": "EM REY-BOUBA / A",
+              "voters": 259
+            }
+          ],
+          "SASSA'EN": [
             {
-              station: "WAMBABE",
-              voters: 259
-            },
+              "station": "EM REY-BOUBA / A",
+              "voters": 259
+            }
           ],
-          "EP ABAKOURA / A": [
+          "WAMBABE": [
             {
-              station: "ABAKOURA",
-              voters: 168
-            },
+              "station": "EM REY-BOUBA / A",
+              "voters": 259
+            }
+          ],
+          "ABAKOURA": [
             {
-              station: "DJADJOULI",
-              voters: 168
-            },
+              "station": "EP ABAKOURA / A",
+              "voters": 168
+            }
           ],
-          "EP ALFA / A": [
+          "DJADJOULI": [
             {
-              station: "ALFA",
-              voters: 546
-            },
+              "station": "EP ABAKOURA / A",
+              "voters": 168
+            }
+          ],
+          "ALFA": [
             {
-              station: "ANGARI",
-              voters: 1335
-            },
+              "station": "EP ALFA / A",
+              "voters": 546
+            }
+          ],
+          "ANGARI": [
             {
-              station: "GAINARE",
-              voters: 284
-            },
+              "station": "EP ALFA / A",
+              "voters": 1335
+            }
           ],
-          "EP BABORORO / A": [
+          "GAINARE": [
             {
-              station: "BABORORO",
-              voters: 352
-            },
+              "station": "EP ALFA / A",
+              "voters": 284
+            }
           ],
-          "EP BADJARI / A": [
+          "BABORORO": [
             {
-              station: "BADJARI-TOUMBINGUEL",
-              voters: 348
-            },
+              "station": "EP BABORORO / A",
+              "voters": 352
+            }
           ],
-          "EP BATAO / A": [
+          "BADJARI-TOUMBINGUEL": [
             {
-              station: "BATAO",
-              voters: 1336
-            },
+              "station": "EP BADJARI / A",
+              "voters": 348
+            }
+          ],
+          "BATAO": [
             {
-              station: "LIMBATMI",
-              voters: 668
-            },
+              "station": "EP BATAO / A",
+              "voters": 1336
+            }
+          ],
+          "LIMBATMI": [
             {
-              station: "NASSARAO",
-              voters: 1079
-            },
+              "station": "EP BATAO / A",
+              "voters": 668
+            }
           ],
-          "EP BERE / A": [
+          "NASSARAO": [
             {
-              station: "BOCKA",
-              voters: 587
-            },
+              "station": "EP BATAO / A",
+              "voters": 1079
+            }
           ],
-          "EP BODAL / A": [
+          "BOCKA": [
             {
-              station: "BODAL",
-              voters: 254
-            },
+              "station": "EP BERE / A",
+              "voters": 587
+            }
+          ],
+          "BODAL": [
             {
-              station: "LOUGGA",
-              voters: 254
-            },
+              "station": "EP BODAL / A",
+              "voters": 254
+            }
+          ],
+          "LOUGGA": [
             {
-              station: "TCHABAL",
-              voters: 441
-            },
+              "station": "EP BODAL / A",
+              "voters": 254
+            }
           ],
-          "EP BOUNBOU / A": [
+          "TCHABAL": [
             {
-              station: "BOUNBOU",
-              voters: 280
-            },
+              "station": "EP BODAL / A",
+              "voters": 441
+            }
+          ],
+          "BOUNBOU": [
             {
-              station: "BOUNNEROU",
-              voters: 410
-            },
+              "station": "EP BOUNBOU / A",
+              "voters": 280
+            }
           ],
-          "EP DAMDJEL / A": [
+          "BOUNNEROU": [
             {
-              station: "DAMDJEL",
-              voters: 143
-            },
+              "station": "EP BOUNBOU / A",
+              "voters": 410
+            }
           ],
-          "EP DE HETCHOUROU / A": [
+          "DAMDJEL": [
             {
-              station: "HETCHOUROU",
-              voters: 194
-            },
+              "station": "EP DAMDJEL / A",
+              "voters": 143
+            }
           ],
-          "EP DE LOUGA TCHABAL / A": [
+          "HETCHOUROU": [
             {
-              station: "LOUGA",
-              voters: 187
-            },
+              "station": "EP DE HETCHOUROU / A",
+              "voters": 194
+            }
           ],
-          "EP DE MBOUKMA / A": [
+          "LOUGA": [
             {
-              station: "MBOUKMA",
-              voters: 353
-            },
+              "station": "EP DE LOUGA TCHABAL / A",
+              "voters": 187
+            }
           ],
-          "EP DE TOKORMAYE / A": [
+          "MBOUKMA": [
             {
-              station: "TOKORMAYE",
-              voters: 270
-            },
+              "station": "EP DE MBOUKMA / A",
+              "voters": 353
+            }
+          ],
+          "TOKORMAYE": [
             {
-              station: "YADIA",
-              voters: 539
-            },
+              "station": "EP DE TOKORMAYE / A",
+              "voters": 270
+            }
           ],
-          "EP DE TOURA LARA / A": [
+          "YADIA": [
             {
-              station: "TOURA",
-              voters: 160
-            },
+              "station": "EP DE TOKORMAYE / A",
+              "voters": 539
+            }
+          ],
+          "TOURA": [
             {
-              station: "LARA",
-              voters: 160
-            },
+              "station": "EP DE TOURA LARA / A",
+              "voters": 160
+            }
           ],
-          "EP DE VAIMBA / A": [
+          "LARA": [
             {
-              station: "VAIMBA",
-              voters: 143
-            },
+              "station": "EP DE TOURA LARA / A",
+              "voters": 160
+            }
           ],
-          "EP DEO-NGAOURI / A": [
+          "VAIMBA": [
             {
-              station: "BABOULGA",
-              voters: 184
-            },
+              "station": "EP DE VAIMBA / A",
+              "voters": 143
+            }
+          ],
+          "BABOULGA": [
             {
-              station: "MADANA",
-              voters: 184
-            },
+              "station": "EP DEO-NGAOURI / A",
+              "voters": 184
+            }
+          ],
+          "MADANA": [
             {
-              station: "PAM'EN",
-              voters: 184
-            },
+              "station": "EP DEO-NGAOURI / A",
+              "voters": 184
+            }
           ],
-          "EP DJAMARE / A": [
+          "PAM'EN": [
             {
-              station: "DJAMARE",
-              voters: 837
-            },
+              "station": "EP DEO-NGAOURI / A",
+              "voters": 184
+            }
           ],
-          "EP DJOURDE / A": [
+          "DJAMARE": [
             {
-              station: "DJOURDE",
-              voters: 302
-            },
+              "station": "EP DJAMARE / A",
+              "voters": 837
+            }
           ],
-          "EP DJOUROUM / A": [
+          "DJOURDE": [
             {
-              station: "BADIDDI",
-              voters: 1788
-            },
+              "station": "EP DJOURDE / A",
+              "voters": 302
+            }
+          ],
+          "BADIDDI": [
             {
-              station: "FOULBE",
-              voters: 883
-            },
+              "station": "EP DJOUROUM / A",
+              "voters": 1788
+            }
+          ],
+          "FOULBE": [
             {
-              station: "LAME",
-              voters: 1031
-            },
+              "station": "EP DJOUROUM / A",
+              "voters": 883
+            }
+          ],
+          "LAME": [
             {
-              station: "GOTEL",
-              voters: 640
-            },
+              "station": "EP DJOUROUM / A",
+              "voters": 1031
+            }
+          ],
+          "GOTEL": [
             {
-              station: "DJOUROUM",
-              voters: 640
-            },
+              "station": "EP DJOUROUM / A",
+              "voters": 640
+            }
+          ],
+          "DJOUROUM": [
             {
-              station: "LAMMOUDAM",
-              voters: 640
-            },
+              "station": "EP DJOUROUM / A",
+              "voters": 640
+            }
+          ],
+          "LAMMOUDAM": [
             {
-              station: "SARGARI",
-              voters: 640
-            },
+              "station": "EP DJOUROUM / A",
+              "voters": 640
+            }
+          ],
+          "SARGARI": [
             {
-              station: "MAMBAIRE",
-              voters: 769
-            },
+              "station": "EP DJOUROUM / A",
+              "voters": 640
+            }
+          ],
+          "MAMBAIRE": [
             {
-              station: "WINDE",
-              voters: 2613
-            },
+              "station": "EP DJOUROUM / A",
+              "voters": 769
+            }
+          ],
+          "WINDE": [
             {
-              station: "DOUDJA",
-              voters: 640
-            },
+              "station": "EP DJOUROUM / A",
+              "voters": 2613
+            }
           ],
-          "EP DOKEROL 1 / A": [
+          "DOUDJA": [
             {
-              station: "DOKEROL",
-              voters: 543
-            },
+              "station": "EP DJOUROUM / A",
+              "voters": 640
+            }
           ],
-          "EP DOUKROUM / A": [
+          "DOKEROL": [
             {
-              station: "BAMAYE",
-              voters: 442
-            },
+              "station": "EP DOKEROL 1 / A",
+              "voters": 543
+            }
+          ],
+          "BAMAYE": [
             {
-              station: "BAMDEWO",
-              voters: 246
-            },
+              "station": "EP DOUKROUM / A",
+              "voters": 442
+            }
+          ],
+          "BAMDEWO": [
             {
-              station: "DOUKROUM",
-              voters: 246
-            },
+              "station": "EP DOUKROUM / A",
+              "voters": 246
+            }
+          ],
+          "DOUKROUM": [
             {
-              station: "MAWARE",
-              voters: 356
-            },
+              "station": "EP DOUKROUM / A",
+              "voters": 246
+            }
           ],
-          "EP HOMA MAL YAYA / A": [
+          "MAWARE": [
             {
-              station: "BAPOUNI",
-              voters: 597
-            },
+              "station": "EP DOUKROUM / A",
+              "voters": 356
+            }
+          ],
+          "BAPOUNI": [
             {
-              station: "BIRA",
-              voters: 597
-            },
+              "station": "EP HOMA MAL YAYA / A",
+              "voters": 597
+            }
+          ],
+          "BIRA": [
             {
-              station: "GUELAO",
-              voters: 597
-            },
+              "station": "EP HOMA MAL YAYA / A",
+              "voters": 597
+            }
+          ],
+          "GUELAO": [
             {
-              station: "HOMA",
-              voters: 1194
-            },
+              "station": "EP HOMA MAL YAYA / A",
+              "voters": 597
+            }
+          ],
+          "HOMA": [
             {
-              station: "HAMASSIOUTO",
-              voters: 597
-            },
+              "station": "EP HOMA MAL YAYA / A",
+              "voters": 1194
+            }
+          ],
+          "HAMASSIOUTO": [
             {
-              station: "MAL",
-              voters: 1023
-            },
+              "station": "EP HOMA MAL YAYA / A",
+              "voters": 597
+            }
+          ],
+          "MAL": [
             {
-              station: "YAYA",
-              voters: 597
-            },
+              "station": "EP HOMA MAL YAYA / A",
+              "voters": 1023
+            }
           ],
-          "EP KOINDERI / A": [
+          "YAYA": [
             {
-              station: "KOINDERI",
-              voters: 539
-            },
+              "station": "EP HOMA MAL YAYA / A",
+              "voters": 597
+            }
           ],
-          "EP KONGRONG / A": [
+          "KOINDERI": [
             {
-              station: "DJALBANG",
-              voters: 667
-            },
+              "station": "EP KOINDERI / A",
+              "voters": 539
+            }
+          ],
+          "DJALBANG": [
             {
-              station: "TIPOULI",
-              voters: 667
-            },
+              "station": "EP KONGRONG / A",
+              "voters": 667
+            }
+          ],
+          "TIPOULI": [
             {
-              station: "TOULOUM",
-              voters: 667
-            },
+              "station": "EP KONGRONG / A",
+              "voters": 667
+            }
           ],
-          "EP LAINDE DJAOULE / A": [
+          "TOULOUM": [
             {
-              station: "DJIPORDE",
-              voters: 501
-            },
+              "station": "EP KONGRONG / A",
+              "voters": 667
+            }
+          ],
+          "DJIPORDE": [
             {
-              station: "GALAYE",
-              voters: 239
-            },
+              "station": "EP LAINDE DJAOULE / A",
+              "voters": 501
+            }
+          ],
+          "GALAYE": [
             {
-              station: "LAINDE",
-              voters: 403
-            },
+              "station": "EP LAINDE DJAOULE / A",
+              "voters": 239
+            }
+          ],
+          "LAINDE": [
             {
-              station: "DJAOULE",
-              voters: 239
-            },
+              "station": "EP LAINDE DJAOULE / A",
+              "voters": 403
+            }
+          ],
+          "DJAOULE": [
             {
-              station: "MBAIZASSI",
-              voters: 239
-            },
+              "station": "EP LAINDE DJAOULE / A",
+              "voters": 239
+            }
+          ],
+          "MBAIZASSI": [
             {
-              station: "TOUKRI",
-              voters: 239
-            },
+              "station": "EP LAINDE DJAOULE / A",
+              "voters": 239
+            }
           ],
-          "EP LANDOU / A": [
+          "TOUKRI": [
             {
-              station: "LAIHIRDOHI",
-              voters: 623
-            },
+              "station": "EP LAINDE DJAOULE / A",
+              "voters": 239
+            }
+          ],
+          "LAIHIRDOHI": [
             {
-              station: "LANDOU",
-              voters: 985
-            },
+              "station": "EP LANDOU / A",
+              "voters": 623
+            }
           ],
-          "EP LAOUBOU / A": [
+          "LANDOU": [
             {
-              station: "LAOUBOU",
-              voters: 325
-            },
+              "station": "EP LANDOU / A",
+              "voters": 985
+            }
+          ],
+          "LAOUBOU": [
             {
-              station: "SANGFOU",
-              voters: 325
-            },
+              "station": "EP LAOUBOU / A",
+              "voters": 325
+            }
           ],
-          "EP LARKI / A": [
+          "SANGFOU": [
             {
-              station: "LARKI",
-              voters: 176
-            },
+              "station": "EP LAOUBOU / A",
+              "voters": 325
+            }
           ],
-          "EP LERKA / A": [
+          "LARKI": [
             {
-              station: "GONDI",
-              voters: 314
-            },
+              "station": "EP LARKI / A",
+              "voters": 176
+            }
+          ],
+          "GONDI": [
             {
-              station: "GOYANDOU",
-              voters: 314
-            },
+              "station": "EP LERKA / A",
+              "voters": 314
+            }
+          ],
+          "GOYANDOU": [
             {
-              station: "LERKA",
-              voters: 314
-            },
+              "station": "EP LERKA / A",
+              "voters": 314
+            }
           ],
-          "EP MANGA / A": [
+          "LERKA": [
             {
-              station: "BASSABAR",
-              voters: 360
-            },
+              "station": "EP LERKA / A",
+              "voters": 314
+            }
           ],
-          "EP MARADI / A": [
+          "BASSABAR": [
             {
-              station: "MARADI",
-              voters: 460
-            },
+              "station": "EP MANGA / A",
+              "voters": 360
+            }
+          ],
+          "MARADI": [
             {
-              station: "TAPARE",
-              voters: 1188
-            },
+              "station": "EP MARADI / A",
+              "voters": 460
+            }
           ],
-          "EP MAYEL POULDEBO / A": [
+          "TAPARE": [
             {
-              station: "KARA",
-              voters: 80
-            },
+              "station": "EP MARADI / A",
+              "voters": 1188
+            }
+          ],
+          "KARA": [
             {
-              station: "POULDEBO",
-              voters: 80
-            },
+              "station": "EP MAYEL POULDEBO / A",
+              "voters": 80
+            }
+          ],
+          "POULDEBO": [
             {
-              station: "TEWARE",
-              voters: 80
-            },
+              "station": "EP MAYEL POULDEBO / A",
+              "voters": 80
+            }
           ],
-          "EP MAYO BANI OUING / A": [
+          "TEWARE": [
             {
-              station: "BAIKWA",
-              voters: 2323
-            },
+              "station": "EP MAYEL POULDEBO / A",
+              "voters": 80
+            }
+          ],
+          "BAIKWA": [
             {
-              station: "WOING",
-              voters: 579
-            },
+              "station": "EP MAYO BANI OUING / A",
+              "voters": 2323
+            }
+          ],
+          "WOING": [
             {
-              station: "BAMARAFA",
-              voters: 579
-            },
+              "station": "EP MAYO BANI OUING / A",
+              "voters": 579
+            }
+          ],
+          "BAMARAFA": [
             {
-              station: "MAYO",
-              voters: 4697
-            },
+              "station": "EP MAYO BANI OUING / A",
+              "voters": 579
+            }
+          ],
+          "MAYO": [
             {
-              station: "BANI",
-              voters: 1912
-            },
+              "station": "EP MAYO BANI OUING / A",
+              "voters": 4697
+            }
+          ],
+          "BANI": [
             {
-              station: "HAMAN",
-              voters: 1340
-            },
+              "station": "EP MAYO BANI OUING / A",
+              "voters": 1912
+            }
           ],
-          "EP MAYO DJOY / A": [
+          "HAMAN": [
             {
-              station: "DJOY",
-              voters: 292
-            },
+              "station": "EP MAYO BANI OUING / A",
+              "voters": 1340
+            }
           ],
-          "EP MAYO LAYE / A": [
+          "DJOY": [
             {
-              station: "LAYE",
-              voters: 295
-            },
+              "station": "EP MAYO DJOY / A",
+              "voters": 292
+            }
           ],
-          "EP MOMBORE / A": [
+          "LAYE": [
             {
-              station: "BITANG",
-              voters: 700
-            },
+              "station": "EP MAYO LAYE / A",
+              "voters": 295
+            }
+          ],
+          "BITANG": [
             {
-              station: "DABA",
-              voters: 700
-            },
+              "station": "EP MOMBORE / A",
+              "voters": 700
+            }
+          ],
+          "DABA": [
             {
-              station: "GOURING",
-              voters: 700
-            },
+              "station": "EP MOMBORE / A",
+              "voters": 700
+            }
+          ],
+          "GOURING": [
             {
-              station: "GUEBADI",
-              voters: 700
-            },
+              "station": "EP MOMBORE / A",
+              "voters": 700
+            }
+          ],
+          "GUEBADI": [
             {
-              station: "MOMBORE",
-              voters: 700
-            },
+              "station": "EP MOMBORE / A",
+              "voters": 700
+            }
+          ],
+          "MOMBORE": [
             {
-              station: "GONI",
-              voters: 700
-            },
+              "station": "EP MOMBORE / A",
+              "voters": 700
+            }
+          ],
+          "GONI": [
             {
-              station: "SALASSA",
-              voters: 700
-            },
+              "station": "EP MOMBORE / A",
+              "voters": 700
+            }
+          ],
+          "SALASSA": [
             {
-              station: "WALEOL",
-              voters: 700
-            },
+              "station": "EP MOMBORE / A",
+              "voters": 700
+            }
+          ],
+          "WALEOL": [
             {
-              station: "SIWO",
-              voters: 700
-            },
+              "station": "EP MOMBORE / A",
+              "voters": 700
+            }
           ],
-          "EP NAOUDEL / A": [
+          "SIWO": [
             {
-              station: "NAOUDEL",
-              voters: 231
-            },
+              "station": "EP MOMBORE / A",
+              "voters": 700
+            }
           ],
-          "EP OURO GADOUDJI / A": [
+          "NAOUDEL": [
             {
-              station: "GANDAYE",
-              voters: 232
-            },
+              "station": "EP NAOUDEL / A",
+              "voters": 231
+            }
+          ],
+          "GANDAYE": [
             {
-              station: "GANGOURI",
-              voters: 232
-            },
+              "station": "EP OURO GADOUDJI / A",
+              "voters": 232
+            }
           ],
-          "EP OURO MAYO / A": [
+          "GANGOURI": [
             {
-              station: "DIWODJI",
-              voters: 426
-            },
+              "station": "EP OURO GADOUDJI / A",
+              "voters": 232
+            }
+          ],
+          "DIWODJI": [
             {
-              station: "BALI",
-              voters: 426
-            },
+              "station": "EP OURO MAYO / A",
+              "voters": 426
+            }
+          ],
+          "BALI": [
             {
-              station: "KAIGUE",
-              voters: 426
-            },
+              "station": "EP OURO MAYO / A",
+              "voters": 426
+            }
+          ],
+          "KAIGUE": [
             {
-              station: "MBOULWOL",
-              voters: 478
-            },
+              "station": "EP OURO MAYO / A",
+              "voters": 426
+            }
+          ],
+          "MBOULWOL": [
             {
-              station: "TCHIKALI",
-              voters: 426
-            },
+              "station": "EP OURO MAYO / A",
+              "voters": 478
+            }
           ],
-          "EP OURO TOUPE / A": [
+          "TCHIKALI": [
             {
-              station: "QUARTIERS",
-              voters: 239
-            },
+              "station": "EP OURO MAYO / A",
+              "voters": 426
+            }
+          ],
+          "QUARTIERS": [
             {
-              station: "ADMINISTRATIFS",
-              voters: 239
-            },
+              "station": "EP OURO TOUPE / A",
+              "voters": 239
+            }
           ],
-          "EP REY BOUBA / A": [
+          "ADMINISTRATIFS": [
             {
-              station: "LAKA'EN",
-              voters: 582
-            },
+              "station": "EP OURO TOUPE / A",
+              "voters": 239
+            }
+          ],
+          "LAKA'EN": [
             {
-              station: "LIPORO",
-              voters: 582
-            },
+              "station": "EP REY BOUBA / A",
+              "voters": 582
+            }
+          ],
+          "LIPORO": [
             {
-              station: "MONO'EN",
-              voters: 582
-            },
+              "station": "EP REY BOUBA / A",
+              "voters": 582
+            }
+          ],
+          "MONO'EN": [
             {
-              station: "TOUPE",
-              voters: 821
-            },
+              "station": "EP REY BOUBA / A",
+              "voters": 582
+            }
           ],
-          "EP SINASSI / A": [
+          "TOUPE": [
             {
-              station: "MAFIRE",
-              voters: 547
-            },
+              "station": "EP REY BOUBA / A",
+              "voters": 821
+            }
+          ],
+          "MAFIRE": [
             {
-              station: "SINASSI",
-              voters: 547
-            },
+              "station": "EP SINASSI / A",
+              "voters": 547
+            }
           ],
-          "EP SOMESSI / A": [
+          "SINASSI": [
             {
-              station: "BARY",
-              voters: 436
-            },
+              "station": "EP SINASSI / A",
+              "voters": 547
+            }
+          ],
+          "BARY": [
             {
-              station: "KOUBADJE",
-              voters: 436
-            },
+              "station": "EP SOMESSI / A",
+              "voters": 436
+            }
+          ],
+          "KOUBADJE": [
             {
-              station: "SOMESSI",
-              voters: 436
-            },
+              "station": "EP SOMESSI / A",
+              "voters": 436
+            }
           ],
-          "EP TATOU / A": [
+          "SOMESSI": [
             {
-              station: "BABBABLA",
-              voters: 744
-            },
+              "station": "EP SOMESSI / A",
+              "voters": 436
+            }
+          ],
+          "BABBABLA": [
             {
-              station: "MACANASSE",
-              voters: 744
-            },
+              "station": "EP TATOU / A",
+              "voters": 744
+            }
+          ],
+          "MACANASSE": [
             {
-              station: "SADIA",
-              voters: 823
-            },
+              "station": "EP TATOU / A",
+              "voters": 744
+            }
+          ],
+          "SADIA": [
             {
-              station: "TATOU",
-              voters: 744
-            },
+              "station": "EP TATOU / A",
+              "voters": 823
+            }
           ],
-          "EP WAFANGO / A": [
+          "TATOU": [
             {
-              station: "NDIAMBAILOUM",
-              voters: 378
-            },
+              "station": "EP TATOU / A",
+              "voters": 744
+            }
+          ],
+          "NDIAMBAILOUM": [
             {
-              station: "WAFANGO",
-              voters: 378
-            },
+              "station": "EP WAFANGO / A",
+              "voters": 378
+            }
           ],
-          "ESPL CHEF ACHAKA MANGA / A": [
+          "WAFANGO": [
             {
-              station: "ACHAKA",
-              voters: 1236
-            },
+              "station": "EP WAFANGO / A",
+              "voters": 378
+            }
+          ],
+          "ACHAKA": [
             {
-              station: "MANGA",
-              voters: 2297
-            },
+              "station": "ESPL CHEF ACHAKA MANGA / A",
+              "voters": 1236
+            }
+          ],
+          "MANGA": [
             {
-              station: "PETEL",
-              voters: 618
-            },
+              "station": "ESPL CHEF ACHAKA MANGA / A",
+              "voters": 2297
+            }
+          ],
+          "PETEL": [
             {
-              station: "FOTOKOL",
-              voters: 618
-            },
+              "station": "ESPL CHEF ACHAKA MANGA / A",
+              "voters": 618
+            }
+          ],
+          "FOTOKOL": [
             {
-              station: "MBELA",
-              voters: 618
-            },
+              "station": "ESPL CHEF ACHAKA MANGA / A",
+              "voters": 618
+            }
+          ],
+          "MBELA": [
             {
-              station: "KOSSAM",
-              voters: 618
-            },
+              "station": "ESPL CHEF ACHAKA MANGA / A",
+              "voters": 618
+            }
           ],
-          "ESPL CHEF ANGARI WASSALI / A": [
+          "KOSSAM": [
             {
-              station: "BEGUE",
-              voters: 214
-            },
+              "station": "ESPL CHEF ACHAKA MANGA / A",
+              "voters": 618
+            }
+          ],
+          "BEGUE": [
             {
-              station: "WASSALI",
-              voters: 214
-            },
+              "station": "ESPL CHEF ANGARI WASSALI / A",
+              "voters": 214
+            }
           ],
-          "ESPL CHEF AOUDJALI / A": [
+          "WASSALI": [
             {
-              station: "AOUDJALI",
-              voters: 506
-            },
+              "station": "ESPL CHEF ANGARI WASSALI / A",
+              "voters": 214
+            }
+          ],
+          "AOUDJALI": [
             {
-              station: "DAME",
-              voters: 738
-            },
+              "station": "ESPL CHEF AOUDJALI / A",
+              "voters": 506
+            }
+          ],
+          "DAME": [
             {
-              station: "GABDEL",
-              voters: 506
-            },
+              "station": "ESPL CHEF AOUDJALI / A",
+              "voters": 738
+            }
+          ],
+          "GABDEL": [
             {
-              station: "MBOUDIROU",
-              voters: 506
-            },
+              "station": "ESPL CHEF AOUDJALI / A",
+              "voters": 506
+            }
+          ],
+          "MBOUDIROU": [
             {
-              station: "DOLE",
-              voters: 506
-            },
+              "station": "ESPL CHEF AOUDJALI / A",
+              "voters": 506
+            }
           ],
-          "ESPL CHEF BAIGRAM / A": [
+          "DOLE": [
             {
-              station: "BAIGRAM",
-              voters: 122
-            },
+              "station": "ESPL CHEF AOUDJALI / A",
+              "voters": 506
+            }
+          ],
+          "BAIGRAM": [
             {
-              station: "DJOULOL",
-              voters: 122
-            },
+              "station": "ESPL CHEF BAIGRAM / A",
+              "voters": 122
+            }
+          ],
+          "DJOULOL": [
             {
-              station: "MODIBO",
-              voters: 206
-            },
+              "station": "ESPL CHEF BAIGRAM / A",
+              "voters": 122
+            }
+          ],
+          "MODIBO": [
             {
-              station: "TCHERFEKE",
-              voters: 122
-            },
+              "station": "ESPL CHEF BAIGRAM / A",
+              "voters": 206
+            }
           ],
-          "ESPL CHEF BASSARI / A": [
+          "TCHERFEKE": [
             {
-              station: "BASSARI",
-              voters: 408
-            },
+              "station": "ESPL CHEF BAIGRAM / A",
+              "voters": 122
+            }
+          ],
+          "BASSARI": [
             {
-              station: "DADNA",
-              voters: 221
-            },
+              "station": "ESPL CHEF BASSARI / A",
+              "voters": 408
+            }
+          ],
+          "DADNA": [
             {
-              station: "DAWANE",
-              voters: 221
-            },
+              "station": "ESPL CHEF BASSARI / A",
+              "voters": 221
+            }
           ],
-          "ESPL CHEF BIDEING / A": [
+          "DAWANE": [
             {
-              station: "BIDEING",
-              voters: 381
-            },
+              "station": "ESPL CHEF BASSARI / A",
+              "voters": 221
+            }
+          ],
+          "BIDEING": [
             {
-              station: "BOLIYEL",
-              voters: 543
-            },
+              "station": "ESPL CHEF BIDEING / A",
+              "voters": 381
+            }
+          ],
+          "BOLIYEL": [
             {
-              station: "DJABBIRE",
-              voters: 381
-            },
+              "station": "ESPL CHEF BIDEING / A",
+              "voters": 543
+            }
+          ],
+          "DJABBIRE": [
             {
-              station: "DJABBIROU",
-              voters: 69
-            },
+              "station": "ESPL CHEF BIDEING / A",
+              "voters": 381
+            }
+          ],
+          "DJABBIROU": [
             {
-              station: "DJANGANA",
-              voters: 462
-            },
+              "station": "ESPL CHEF BIDEING / A",
+              "voters": 69
+            }
+          ],
+          "DJANGANA": [
             {
-              station: "FOUNAGUE",
-              voters: 231
-            },
+              "station": "ESPL CHEF BIDEING / A",
+              "voters": 462
+            }
           ],
-          "ESPL CHEF BOUNNEROU / A": [
+          "FOUNAGUE": [
             {
-              station: "DJIGANG",
-              voters: 130
-            },
+              "station": "ESPL CHEF BIDEING / A",
+              "voters": 231
+            }
           ],
-          "ESPL CHEF DAMI / A": [
+          "DJIGANG": [
             {
-              station: "ABBA",
-              voters: 854
-            },
+              "station": "ESPL CHEF BOUNNEROU / A",
+              "voters": 130
+            }
+          ],
+          "ABBA": [
             {
-              station: "IDRISSA",
-              voters: 1206
-            },
+              "station": "ESPL CHEF DAMI / A",
+              "voters": 854
+            }
+          ],
+          "IDRISSA": [
             {
-              station: "DAMI",
-              voters: 1057
-            },
+              "station": "ESPL CHEF DAMI / A",
+              "voters": 1206
+            }
+          ],
+          "DAMI": [
             {
-              station: "DJAOURO",
-              voters: 3375
-            },
+              "station": "ESPL CHEF DAMI / A",
+              "voters": 1057
+            }
+          ],
+          "DJAOURO": [
             {
-              station: "AKAOU",
-              voters: 854
-            },
+              "station": "ESPL CHEF DAMI / A",
+              "voters": 3375
+            }
+          ],
+          "AKAOU": [
             {
-              station: "LADAN",
-              voters: 854
-            },
+              "station": "ESPL CHEF DAMI / A",
+              "voters": 854
+            }
+          ],
+          "LADAN": [
             {
-              station: "GAOU",
-              voters: 626
-            },
+              "station": "ESPL CHEF DAMI / A",
+              "voters": 854
+            }
+          ],
+          "GAOU": [
             {
-              station: "SALI",
-              voters: 626
-            },
+              "station": "ESPL CHEF DAMI / A",
+              "voters": 626
+            }
+          ],
+          "SALI": [
             {
-              station: "GARGOURA",
-              voters: 626
-            },
+              "station": "ESPL CHEF DAMI / A",
+              "voters": 626
+            }
+          ],
+          "GARGOURA": [
             {
-              station: "HAMIDOU",
-              voters: 626
-            },
+              "station": "ESPL CHEF DAMI / A",
+              "voters": 626
+            }
+          ],
+          "HAMIDOU": [
             {
-              station: "CHAMPION",
-              voters: 626
-            },
+              "station": "ESPL CHEF DAMI / A",
+              "voters": 626
+            }
+          ],
+          "CHAMPION": [
             {
-              station: "NASSARA",
-              voters: 626
-            },
+              "station": "ESPL CHEF DAMI / A",
+              "voters": 626
+            }
+          ],
+          "NASSARA": [
             {
-              station: "DJOUKOUM",
-              voters: 626
-            },
+              "station": "ESPL CHEF DAMI / A",
+              "voters": 626
+            }
+          ],
+          "DJOUKOUM": [
             {
-              station: "TOPAYEL",
-              voters: 626
-            },
+              "station": "ESPL CHEF DAMI / A",
+              "voters": 626
+            }
           ],
-          "ESPL CHEF DJAGOL / A": [
+          "TOPAYEL": [
             {
-              station: "DJAGOL",
-              voters: 251
-            },
+              "station": "ESPL CHEF DAMI / A",
+              "voters": 626
+            }
+          ],
+          "DJAGOL": [
             {
-              station: "DJAMPARAM",
-              voters: 251
-            },
+              "station": "ESPL CHEF DJAGOL / A",
+              "voters": 251
+            }
+          ],
+          "DJAMPARAM": [
             {
-              station: "MADAGASCAR",
-              voters: 251
-            },
+              "station": "ESPL CHEF DJAGOL / A",
+              "voters": 251
+            }
           ],
-          "ESPL CHEF DJERWING / A": [
+          "MADAGASCAR": [
             {
-              station: "DJERWING",
-              voters: 262
-            },
+              "station": "ESPL CHEF DJAGOL / A",
+              "voters": 251
+            }
+          ],
+          "DJERWING": [
             {
-              station: "KETCHEL",
-              voters: 262
-            },
+              "station": "ESPL CHEF DJERWING / A",
+              "voters": 262
+            }
           ],
-          "ESPL CHEF GUIRLING / A": [
+          "KETCHEL": [
             {
-              station: "DANBI",
-              voters: 297
-            },
+              "station": "ESPL CHEF DJERWING / A",
+              "voters": 262
+            }
+          ],
+          "DANBI": [
             {
-              station: "GUIRLING",
-              voters: 297
-            },
+              "station": "ESPL CHEF GUIRLING / A",
+              "voters": 297
+            }
           ],
-          "ESPL CHEF KONGRONG SIOUTO / A": [
+          "GUIRLING": [
             {
-              station: "BIZILI",
-              voters: 324
-            },
+              "station": "ESPL CHEF GUIRLING / A",
+              "voters": 297
+            }
+          ],
+          "BIZILI": [
             {
-              station: "DAWAREGA",
-              voters: 324
-            },
+              "station": "ESPL CHEF KONGRONG SIOUTO / A",
+              "voters": 324
+            }
+          ],
+          "DAWAREGA": [
             {
-              station: "KONGRONG",
-              voters: 991
-            },
+              "station": "ESPL CHEF KONGRONG SIOUTO / A",
+              "voters": 324
+            }
+          ],
+          "KONGRONG": [
             {
-              station: "SIOUTO",
-              voters: 324
-            },
+              "station": "ESPL CHEF KONGRONG SIOUTO / A",
+              "voters": 991
+            }
+          ],
+          "SIOUTO": [
             {
-              station: "NDOUMA",
-              voters: 324
-            },
+              "station": "ESPL CHEF KONGRONG SIOUTO / A",
+              "voters": 324
+            }
           ],
-          "ESPL CHEF LAINDE MODIBO / A": [
+          "NDOUMA": [
             {
-              station: "DABBIRE",
-              voters: 84
-            },
+              "station": "ESPL CHEF KONGRONG SIOUTO / A",
+              "voters": 324
+            }
+          ],
+          "DABBIRE": [
             {
-              station: "PEORIWO",
-              voters: 84
-            },
+              "station": "ESPL CHEF LAINDE MODIBO / A",
+              "voters": 84
+            }
           ],
-          "ESPL CHEF LAMOUGUEL FOULBE / A": [
+          "PEORIWO": [
             {
-              station: "LAMMOUGUEL",
-              voters: 634
-            },
+              "station": "ESPL CHEF LAINDE MODIBO / A",
+              "voters": 84
+            }
+          ],
+          "LAMMOUGUEL": [
             {
-              station: "WAKLA",
-              voters: 604
-            },
+              "station": "ESPL CHEF LAMOUGUEL FOULBE / A",
+              "voters": 634
+            }
+          ],
+          "WAKLA": [
             {
-              station: "HORARE",
-              voters: 243
-            },
+              "station": "ESPL CHEF LAMOUGUEL FOULBE / A",
+              "voters": 604
+            }
           ],
-          "ESPL CHEF LESDI MBODERI / A": [
+          "HORARE": [
             {
-              station: "LELE",
-              voters: 278
-            },
+              "station": "ESPL CHEF LAMOUGUEL FOULBE / A",
+              "voters": 243
+            }
+          ],
+          "LELE": [
             {
-              station: "OBOLE",
-              voters: 278
-            },
+              "station": "ESPL CHEF LESDI MBODERI / A",
+              "voters": 278
+            }
+          ],
+          "OBOLE": [
             {
-              station: "DOBINGA",
-              voters: 1405
-            },
+              "station": "ESPL CHEF LESDI MBODERI / A",
+              "voters": 278
+            }
+          ],
+          "DOBINGA": [
             {
-              station: "WANDJAM",
-              voters: 471
-            },
+              "station": "ESPL CHEF LESDI MBODERI / A",
+              "voters": 1405
+            }
+          ],
+          "WANDJAM": [
             {
-              station: "LESDI",
-              voters: 278
-            },
+              "station": "ESPL CHEF LESDI MBODERI / A",
+              "voters": 471
+            }
+          ],
+          "LESDI": [
             {
-              station: "MBODERI",
-              voters: 278
-            },
+              "station": "ESPL CHEF LESDI MBODERI / A",
+              "voters": 278
+            }
+          ],
+          "MBODERI": [
             {
-              station: "MAYEL",
-              voters: 358
-            },
+              "station": "ESPL CHEF LESDI MBODERI / A",
+              "voters": 278
+            }
+          ],
+          "MAYEL": [
             {
-              station: "NDIKANI",
-              voters: 278
-            },
+              "station": "ESPL CHEF LESDI MBODERI / A",
+              "voters": 358
+            }
+          ],
+          "NDIKANI": [
             {
-              station: "POUTTINAWAL",
-              voters: 471
-            },
+              "station": "ESPL CHEF LESDI MBODERI / A",
+              "voters": 278
+            }
+          ],
+          "POUTTINAWAL": [
             {
-              station: "BAKARY",
-              voters: 471
-            },
+              "station": "ESPL CHEF LESDI MBODERI / A",
+              "voters": 471
+            }
           ],
-          "ESPL CHEF MAYO BANI SADOU / A": [
+          "BAKARY": [
             {
-              station: "BARAKOI",
-              voters: 492
-            },
+              "station": "ESPL CHEF LESDI MBODERI / A",
+              "voters": 471
+            }
+          ],
+          "BARAKOI": [
             {
-              station: "LOUTCHE",
-              voters: 492
-            },
+              "station": "ESPL CHEF MAYO BANI SADOU / A",
+              "voters": 492
+            }
+          ],
+          "LOUTCHE": [
             {
-              station: "SADOU",
-              voters: 492
-            },
+              "station": "ESPL CHEF MAYO BANI SADOU / A",
+              "voters": 492
+            }
           ],
-          "ESPL CHEF MAYO WONDE / A": [
+          "SADOU": [
             {
-              station: "WONDE",
-              voters: 922
-            },
+              "station": "ESPL CHEF MAYO BANI SADOU / A",
+              "voters": 492
+            }
           ],
-          "ESPL CHEF NASSARAO / A": [
+          "WONDE": [
             {
-              station: "MBAILOU",
-              voters: 411
-            },
+              "station": "ESPL CHEF MAYO WONDE / A",
+              "voters": 922
+            }
+          ],
+          "MBAILOU": [
             {
-              station: "ZINABALAM",
-              voters: 411
-            },
+              "station": "ESPL CHEF NASSARAO / A",
+              "voters": 411
+            }
           ],
-          "ESPL CHEF OURO GADOU / A": [
+          "ZINABALAM": [
             {
-              station: "DAKAR",
-              voters: 390
-            },
+              "station": "ESPL CHEF NASSARAO / A",
+              "voters": 411
+            }
+          ],
+          "DAKAR": [
             {
-              station: "JOLI",
-              voters: 390
-            },
+              "station": "ESPL CHEF OURO GADOU / A",
+              "voters": 390
+            }
+          ],
+          "JOLI": [
             {
-              station: "SOIR",
-              voters: 390
-            },
+              "station": "ESPL CHEF OURO GADOU / A",
+              "voters": 390
+            }
+          ],
+          "SOIR": [
             {
-              station: "KAMALE",
-              voters: 789
-            },
+              "station": "ESPL CHEF OURO GADOU / A",
+              "voters": 390
+            }
+          ],
+          "KAMALE": [
             {
-              station: "GADOU",
-              voters: 780
-            },
+              "station": "ESPL CHEF OURO GADOU / A",
+              "voters": 789
+            }
+          ],
+          "GADOU": [
             {
-              station: "MOUKAILA",
-              voters: 390
-            },
+              "station": "ESPL CHEF OURO GADOU / A",
+              "voters": 780
+            }
+          ],
+          "MOUKAILA": [
             {
-              station: "N'DJAMENA",
-              voters: 390
-            },
+              "station": "ESPL CHEF OURO GADOU / A",
+              "voters": 390
+            }
+          ],
+          "N'DJAMENA": [
             {
-              station: "BOCKI",
-              voters: 444
-            },
+              "station": "ESPL CHEF OURO GADOU / A",
+              "voters": 390
+            }
+          ],
+          "BOCKI": [
             {
-              station: "GADOUDJI",
-              voters: 399
-            },
+              "station": "ESPL CHEF OURO GADOU / A",
+              "voters": 444
+            }
           ],
-          "ESPL CHEF REY BARIKI / A": [
+          "GADOUDJI": [
             {
-              station: "DAMOUGAL",
-              voters: 224
-            },
+              "station": "ESPL CHEF OURO GADOU / A",
+              "voters": 399
+            }
+          ],
+          "DAMOUGAL": [
             {
-              station: "DOMAYO",
-              voters: 224
-            },
+              "station": "ESPL CHEF REY BARIKI / A",
+              "voters": 224
+            }
+          ],
+          "DOMAYO": [
             {
-              station: "GARGA",
-              voters: 224
-            },
+              "station": "ESPL CHEF REY BARIKI / A",
+              "voters": 224
+            }
+          ],
+          "GARGA": [
             {
-              station: "NDOKTAO",
-              voters: 224
-            },
+              "station": "ESPL CHEF REY BARIKI / A",
+              "voters": 224
+            }
           ],
-          "ESPL CHEF REY MANGA / A": [
+          "NDOKTAO": [
             {
-              station: "AKERI",
-              voters: 619
-            },
+              "station": "ESPL CHEF REY BARIKI / A",
+              "voters": 224
+            }
+          ],
+          "AKERI": [
             {
-              station: "ALAMAI",
-              voters: 619
-            },
+              "station": "ESPL CHEF REY MANGA / A",
+              "voters": 619
+            }
+          ],
+          "ALAMAI": [
             {
-              station: "DJAMBOUTOU",
-              voters: 619
-            },
+              "station": "ESPL CHEF REY MANGA / A",
+              "voters": 619
+            }
+          ],
+          "DJAMBOUTOU": [
             {
-              station: "DJANDA",
-              voters: 619
-            },
+              "station": "ESPL CHEF REY MANGA / A",
+              "voters": 619
+            }
+          ],
+          "DJANDA": [
             {
-              station: "GALI",
-              voters: 619
-            },
+              "station": "ESPL CHEF REY MANGA / A",
+              "voters": 619
+            }
+          ],
+          "GALI": [
             {
-              station: "ABBASSI",
-              voters: 619
-            },
+              "station": "ESPL CHEF REY MANGA / A",
+              "voters": 619
+            }
+          ],
+          "ABBASSI": [
             {
-              station: "GODI",
-              voters: 1731
-            },
+              "station": "ESPL CHEF REY MANGA / A",
+              "voters": 619
+            }
+          ],
+          "GODI": [
             {
-              station: "GODJI",
-              voters: 719
-            },
+              "station": "ESPL CHEF REY MANGA / A",
+              "voters": 1731
+            }
+          ],
+          "GODJI": [
             {
-              station: "MBOUKEKE",
-              voters: 619
-            },
+              "station": "ESPL CHEF REY MANGA / A",
+              "voters": 719
+            }
+          ],
+          "MBOUKEKE": [
             {
-              station: "OURO",
-              voters: 6208
-            },
+              "station": "ESPL CHEF REY MANGA / A",
+              "voters": 619
+            }
+          ],
+          "OURO": [
             {
-              station: "BARKA",
-              voters: 450
-            },
+              "station": "ESPL CHEF REY MANGA / A",
+              "voters": 6208
+            }
+          ],
+          "BARKA": [
             {
-              station: "REY",
-              voters: 1319
-            },
+              "station": "ESPL CHEF REY MANGA / A",
+              "voters": 450
+            }
           ],
-          "ESPL CHEF REY WAOBE / A": [
+          "REY": [
             {
-              station: "BIGAOULA",
-              voters: 259
-            },
+              "station": "ESPL CHEF REY MANGA / A",
+              "voters": 1319
+            }
+          ],
+          "BIGAOULA": [
             {
-              station: "DJABBO",
-              voters: 259
-            },
+              "station": "ESPL CHEF REY WAOBE / A",
+              "voters": 259
+            }
+          ],
+          "DJABBO": [
             {
-              station: "NDORO",
-              voters: 259
-            },
+              "station": "ESPL CHEF REY WAOBE / A",
+              "voters": 259
+            }
+          ],
+          "NDORO": [
             {
-              station: "DOGARI'EN",
-              voters: 259
-            },
+              "station": "ESPL CHEF REY WAOBE / A",
+              "voters": 259
+            }
+          ],
+          "DOGARI'EN": [
             {
-              station: "SIFFAKARE",
-              voters: 259
-            },
+              "station": "ESPL CHEF REY WAOBE / A",
+              "voters": 259
+            }
+          ],
+          "SIFFAKARE": [
             {
-              station: "WAOBE",
-              voters: 259
-            },
+              "station": "ESPL CHEF REY WAOBE / A",
+              "voters": 259
+            }
           ],
-          "ESPL CHEF RYA / A": [
+          "WAOBE": [
             {
-              station: "GATOUGUEL",
-              voters: 312
-            },
+              "station": "ESPL CHEF REY WAOBE / A",
+              "voters": 259
+            }
+          ],
+          "GATOUGUEL": [
             {
-              station: "MBILLA",
-              voters: 312
-            },
+              "station": "ESPL CHEF RYA / A",
+              "voters": 312
+            }
+          ],
+          "MBILLA": [
             {
-              station: "RYA",
-              voters: 894
-            },
+              "station": "ESPL CHEF RYA / A",
+              "voters": 312
+            }
           ],
-          "ESPL CHEF SEINANGO / A": [
+          "RYA": [
             {
-              station: "ALARBA",
-              voters: 129
-            },
+              "station": "ESPL CHEF RYA / A",
+              "voters": 894
+            }
+          ],
+          "ALARBA": [
             {
-              station: "MAKEURE",
-              voters: 129
-            },
+              "station": "ESPL CHEF SEINANGO / A",
+              "voters": 129
+            }
+          ],
+          "MAKEURE": [
             {
-              station: "SEINAGO",
-              voters: 129
-            },
+              "station": "ESPL CHEF SEINANGO / A",
+              "voters": 129
+            }
+          ],
+          "SEINAGO": [
             {
-              station: "SOUKI",
-              voters: 129
-            },
+              "station": "ESPL CHEF SEINANGO / A",
+              "voters": 129
+            }
           ],
-          "ESPL CHEF TAPAREROU / A": [
+          "SOUKI": [
             {
-              station: "BALAROU",
-              voters: 274
-            },
+              "station": "ESPL CHEF SEINANGO / A",
+              "voters": 129
+            }
+          ],
+          "BALAROU": [
             {
-              station: "KOILAOKI",
-              voters: 274
-            },
+              "station": "ESPL CHEF TAPAREROU / A",
+              "voters": 274
+            }
+          ],
+          "KOILAOKI": [
             {
-              station: "TAPAREROU",
-              voters: 274
-            },
+              "station": "ESPL CHEF TAPAREROU / A",
+              "voters": 274
+            }
+          ],
+          "TAPAREROU": [
             {
-              station: "YOLDE",
-              voters: 591
-            },
+              "station": "ESPL CHEF TAPAREROU / A",
+              "voters": 274
+            }
+          ],
+          "YOLDE": [
             {
-              station: "GOUBOUDO",
-              voters: 274
-            },
+              "station": "ESPL CHEF TAPAREROU / A",
+              "voters": 591
+            }
           ],
-          "ESPL CHEF TSAPOMA / A": [
+          "GOUBOUDO": [
             {
-              station: "BIRI",
-              voters: 352
-            },
+              "station": "ESPL CHEF TAPAREROU / A",
+              "voters": 274
+            }
+          ],
+          "BIRI": [
             {
-              station: "DAGANA",
-              voters: 352
-            },
+              "station": "ESPL CHEF TSAPOMA / A",
+              "voters": 352
+            }
+          ],
+          "DAGANA": [
             {
-              station: "GANGOYE",
-              voters: 352
-            },
+              "station": "ESPL CHEF TSAPOMA / A",
+              "voters": 352
+            }
+          ],
+          "GANGOYE": [
             {
-              station: "HAMADOU",
-              voters: 352
-            },
+              "station": "ESPL CHEF TSAPOMA / A",
+              "voters": 352
+            }
+          ],
+          "HAMADOU": [
             {
-              station: "FONKO",
-              voters: 352
-            },
+              "station": "ESPL CHEF TSAPOMA / A",
+              "voters": 352
+            }
+          ],
+          "FONKO": [
             {
-              station: "LAKA",
-              voters: 352
-            },
+              "station": "ESPL CHEF TSAPOMA / A",
+              "voters": 352
+            }
+          ],
+          "LAKA": [
             {
-              station: "FRONTIERE",
-              voters: 352
-            },
+              "station": "ESPL CHEF TSAPOMA / A",
+              "voters": 352
+            }
+          ],
+          "FRONTIERE": [
             {
-              station: "MALAM",
-              voters: 352
-            },
+              "station": "ESPL CHEF TSAPOMA / A",
+              "voters": 352
+            }
+          ],
+          "MALAM": [
             {
-              station: "SEINI",
-              voters: 352
-            },
+              "station": "ESPL CHEF TSAPOMA / A",
+              "voters": 352
+            }
+          ],
+          "SEINI": [
             {
-              station: "BANANA",
-              voters: 352
-            },
+              "station": "ESPL CHEF TSAPOMA / A",
+              "voters": 352
+            }
+          ],
+          "BANANA": [
             {
-              station: "TSAPOMA",
-              voters: 352
-            },
+              "station": "ESPL CHEF TSAPOMA / A",
+              "voters": 352
+            }
           ],
-          "ESPL CHEF WAKLA PAKOUARE / A": [
+          "TSAPOMA": [
             {
-              station: "BAMBI",
-              voters: 273
-            },
+              "station": "ESPL CHEF TSAPOMA / A",
+              "voters": 352
+            }
+          ],
+          "BAMBI": [
             {
-              station: "PAKOUARE",
-              voters: 88
-            },
+              "station": "ESPL CHEF WAKLA PAKOUARE / A",
+              "voters": 273
+            }
           ],
-          "ESPL CHEF YOLA MBODEWA / A": [
+          "PAKOUARE": [
             {
-              station: "BABOUDJI",
-              voters: 306
-            },
+              "station": "ESPL CHEF WAKLA PAKOUARE / A",
+              "voters": 88
+            }
+          ],
+          "BABOUDJI": [
             {
-              station: "BADISSEM",
-              voters: 792
-            },
+              "station": "ESPL CHEF YOLA MBODEWA / A",
+              "voters": 306
+            }
+          ],
+          "BADISSEM": [
             {
-              station: "BIBILI",
-              voters: 236
-            },
+              "station": "ESPL CHEF YOLA MBODEWA / A",
+              "voters": 792
+            }
+          ],
+          "BIBILI": [
             {
-              station: "SEBODJE",
-              voters: 236
-            },
+              "station": "ESPL CHEF YOLA MBODEWA / A",
+              "voters": 236
+            }
+          ],
+          "SEBODJE": [
             {
-              station: "WARO",
-              voters: 236
-            },
+              "station": "ESPL CHEF YOLA MBODEWA / A",
+              "voters": 236
+            }
+          ],
+          "WARO": [
             {
-              station: "YOLA",
-              voters: 236
-            },
+              "station": "ESPL CHEF YOLA MBODEWA / A",
+              "voters": 236
+            }
+          ],
+          "YOLA": [
             {
-              station: "MBODEWA",
-              voters: 236
-            },
+              "station": "ESPL CHEF YOLA MBODEWA / A",
+              "voters": 236
+            }
           ],
-          "FOYER MUNICIPAL REY BOUBA / A": [
+          "MBODEWA": [
             {
-              station: "MARCHE",
-              voters: 317
-            },
+              "station": "ESPL CHEF YOLA MBODEWA / A",
+              "voters": 236
+            }
+          ],
+          "MARCHE": [
             {
-              station: "SABONGARI",
-              voters: 317
-            },
+              "station": "FOYER MUNICIPAL REY BOUBA / A",
+              "voters": 317
+            }
+          ],
+          "SABONGARI": [
             {
-              station: "BONGODJI",
-              voters: 317
-            },
+              "station": "FOYER MUNICIPAL REY BOUBA / A",
+              "voters": 317
+            }
           ],
-          "HANGAR MARCHE ATEKI / A": [
+          "BONGODJI": [
             {
-              station: "ATEKI",
-              voters: 508
-            },
+              "station": "FOYER MUNICIPAL REY BOUBA / A",
+              "voters": 317
+            }
+          ],
+          "ATEKI": [
             {
-              station: "BADDIDI",
-              voters: 1016
-            },
+              "station": "HANGAR MARCHE ATEKI / A",
+              "voters": 508
+            }
+          ],
+          "BADDIDI": [
             {
-              station: "NOUHOU",
-              voters: 508
-            },
+              "station": "HANGAR MARCHE ATEKI / A",
+              "voters": 1016
+            }
+          ],
+          "NOUHOU": [
             {
-              station: "TANIMOU",
-              voters: 508
-            },
+              "station": "HANGAR MARCHE ATEKI / A",
+              "voters": 508
+            }
+          ],
+          "TANIMOU": [
             {
-              station: "GUILGUE",
-              voters: 508
-            },
+              "station": "HANGAR MARCHE ATEKI / A",
+              "voters": 508
+            }
           ],
-          "HANGAR MARCHE BALSANGRI / A": [
+          "GUILGUE": [
             {
-              station: "BALSANGRI",
-              voters: 222
-            },
+              "station": "HANGAR MARCHE ATEKI / A",
+              "voters": 508
+            }
           ],
-          "HOPITAL FONDATION MAYO REY / A": [
+          "BALSANGRI": [
             {
-              station: "ALLABEDDI",
-              voters: 496
-            },
+              "station": "HANGAR MARCHE BALSANGRI / A",
+              "voters": 222
+            }
+          ],
+          "ALLABEDDI": [
             {
-              station: "BERE",
-              voters: 1404
-            },
+              "station": "HOPITAL FONDATION MAYO REY / A",
+              "voters": 496
+            }
+          ],
+          "BERE": [
             {
-              station: "DAMA",
-              voters: 1276
-            },
+              "station": "HOPITAL FONDATION MAYO REY / A",
+              "voters": 1404
+            }
+          ],
+          "DAMA": [
             {
-              station: "AREY",
-              voters: 496
-            },
+              "station": "HOPITAL FONDATION MAYO REY / A",
+              "voters": 1276
+            }
+          ],
+          "AREY": [
             {
-              station: "KALI'EN",
-              voters: 496
-            },
+              "station": "HOPITAL FONDATION MAYO REY / A",
+              "voters": 496
+            }
+          ],
+          "KALI'EN": [
             {
-              station: "MAIKODE",
-              voters: 496
-            },
+              "station": "HOPITAL FONDATION MAYO REY / A",
+              "voters": 496
+            }
+          ],
+          "MAIKODE": [
             {
-              station: "MBERE'EN",
-              voters: 496
-            },
+              "station": "HOPITAL FONDATION MAYO REY / A",
+              "voters": 496
+            }
+          ],
+          "MBERE'EN": [
             {
-              station: "SON'EN",
-              voters: 496
-            },
+              "station": "HOPITAL FONDATION MAYO REY / A",
+              "voters": 496
+            }
+          ],
+          "SON'EN": [
             {
-              station: "WAINABE",
-              voters: 496
-            },
+              "station": "HOPITAL FONDATION MAYO REY / A",
+              "voters": 496
+            }
           ],
-          "LYCEE BERE / A": [
+          "WAINABE": [
             {
-              station: "SERAYE",
-              voters: 309
-            },
+              "station": "HOPITAL FONDATION MAYO REY / A",
+              "voters": 496
+            }
           ],
-          "LYCEE REY BOUBA / A": [
+          "SERAYE": [
             {
-              station: "ANINA",
-              voters: 344
-            },
+              "station": "LYCEE BERE / A",
+              "voters": 309
+            }
+          ],
+          "ANINA": [
             {
-              station: "BIBBE",
-              voters: 603
-            },
+              "station": "LYCEE REY BOUBA / A",
+              "voters": 344
+            }
+          ],
+          "BIBBE": [
             {
-              station: "HORBE",
-              voters: 603
-            },
+              "station": "LYCEE REY BOUBA / A",
+              "voters": 603
+            }
+          ],
+          "HORBE": [
             {
-              station: "BOGGA",
-              voters: 344
-            },
+              "station": "LYCEE REY BOUBA / A",
+              "voters": 603
+            }
+          ],
+          "BOGGA": [
             {
-              station: "KASSALA-DJOULDE",
-              voters: 344
-            },
+              "station": "LYCEE REY BOUBA / A",
+              "voters": 344
+            }
+          ],
+          "KASSALA-DJOULDE": [
             {
-              station: "KILA'EN",
-              voters: 344
-            },
+              "station": "LYCEE REY BOUBA / A",
+              "voters": 344
+            }
           ],
-          "MAGASIN PNDP ALFA DJIPORDE / A": [
+          "KILA'EN": [
             {
-              station: "BARKAWO",
-              voters: 262
-            },
+              "station": "LYCEE REY BOUBA / A",
+              "voters": 344
+            }
+          ],
+          "BARKAWO": [
             {
-              station: "DOUBEL",
-              voters: 262
-            },
+              "station": "MAGASIN PNDP ALFA DJIPORDE / A",
+              "voters": 262
+            }
+          ],
+          "DOUBEL": [
             {
-              station: "MBOULOUMDJI",
-              voters: 262
-            },
+              "station": "MAGASIN PNDP ALFA DJIPORDE / A",
+              "voters": 262
+            }
+          ],
+          "MBOULOUMDJI": [
             {
-              station: "POLMBOMI",
-              voters: 262
-            },
+              "station": "MAGASIN PNDP ALFA DJIPORDE / A",
+              "voters": 262
+            }
+          ],
+          "POLMBOMI": [
             {
-              station: "DOUA",
-              voters: 262
-            },
+              "station": "MAGASIN PNDP ALFA DJIPORDE / A",
+              "voters": 262
+            }
           ],
-          "MAGASIN SODECOTON FIMBE / A": [
+          "DOUA": [
             {
-              station: "FIMBE",
-              voters: 212
-            },
+              "station": "MAGASIN PNDP ALFA DJIPORDE / A",
+              "voters": 262
+            }
           ],
+          "FIMBE": [
+            {
+              "station": "MAGASIN SODECOTON FIMBE / A",
+              "voters": 212
+            }
+          ]
         },
         "TCHOLLIRE": {
-          "ECOLE MATERNELLE BILINGUE / A": [
+          "DALBOU": [
             {
-              station: "DALBOU",
-              voters: 69
-            },
+              "station": "ECOLE MATERNELLE BILINGUE / A",
+              "voters": 69
+            }
           ],
-          "EM BILINGUE / A": [
+          "HOPITAL": [
             {
-              station: "HOPITAL",
-              voters: 393
-            },
-            {
-              station: "DISTRICT",
-              voters: 393
-            },
-            {
-              station: "MAN",
-              voters: 1482
-            },
-            {
-              station: "BOCARANGA",
-              voters: 698
-            },
+              "station": "EM BILINGUE / A",
+              "voters": 393
+            }
           ],
-          "EM NDOKVE / A": [
+          "DISTRICT": [
             {
-              station: "TCHOLLIRE",
-              voters: 1036
-            },
-            {
-              station: "NDOCKVE",
-              voters: 643
-            },
-            {
-              station: "PTT",
-              voters: 643
-            },
+              "station": "EM BILINGUE / A",
+              "voters": 393
+            }
           ],
-          "ENIEG / A": [
+          "MAN": [
             {
-              station: "ENIEG",
-              voters: 57
-            },
-            {
-              station: "MBARANG",
-              voters: 698
-            },
-            {
-              station: "GALKE",
-              voters: 4828
-            },
+              "station": "EM BILINGUE / A",
+              "voters": 1482
+            }
           ],
-          "EP BALANE / A": [
+          "BOCARANGA": [
             {
-              station: "BAWALDA",
-              voters: 339
-            },
-            {
-              station: "MBAN",
-              voters: 217
-            },
+              "station": "EM BILINGUE / A",
+              "voters": 698
+            }
           ],
-          "EP BANDA / A": [
+          "TCHOLLIRE": [
             {
-              station: "BANDA",
-              voters: 979
-            },
-            {
-              station: "WANI",
-              voters: 979
-            },
+              "station": "EM NDOKVE / A",
+              "voters": 1036
+            }
           ],
-          "EP BAOUTCHI / A": [
+          "NDOCKVE": [
             {
-              station: "BAOUTCHI",
-              voters: 511
-            },
-            {
-              station: "MAYO",
-              voters: 7038
-            },
-            {
-              station: "DADI",
-              voters: 511
-            },
-            {
-              station: "MBANG",
-              voters: 618
-            },
-            {
-              station: "KATMOR",
-              voters: 618
-            },
-            {
-              station: "MBEREM",
-              voters: 511
-            },
+              "station": "EM NDOKVE / A",
+              "voters": 643
+            }
           ],
-          "EP BOUK / A": [
+          "PTT": [
             {
-              station: "BOUK",
-              voters: 571
-            },
-            {
-              station: "MAMGUIENWA",
-              voters: 1731
-            },
+              "station": "EM NDOKVE / A",
+              "voters": 643
+            }
           ],
-          "EP BOURI / A": [
+          "ENIEG": [
             {
-              station: "BOURI",
-              voters: 1827
-            },
+              "station": "ENIEG / A",
+              "voters": 57
+            }
           ],
-          "EP CRC / A": [
+          "MBARANG": [
             {
-              station: "CRC",
-              voters: 447
-            },
+              "station": "ENIEG / A",
+              "voters": 698
+            }
           ],
-          "EP DEMSA / A": [
+          "GALKE": [
             {
-              station: "DEMSA",
-              voters: 514
-            },
-            {
-              station: "GAVE",
-              voters: 514
-            },
-            {
-              station: "KERWA",
-              voters: 1039
-            },
+              "station": "ENIEG / A",
+              "voters": 4828
+            }
           ],
-          "EP DJABA / A": [
+          "BAWALDA": [
             {
-              station: "DJABA",
-              voters: 1274
-            },
-            {
-              station: "DOGBA",
-              voters: 2652
-            },
+              "station": "EP BALANE / A",
+              "voters": 339
+            }
           ],
-          "EP DOGBA / A": [
+          "MBAN": [
             {
-              station: "LAGBA",
-              voters: 1595
-            },
+              "station": "EP BALANE / A",
+              "voters": 217
+            }
           ],
-          "EP DOUGON / A": [
+          "BANDA": [
             {
-              station: "LANGUI",
-              voters: 250
-            },
+              "station": "EP BANDA / A",
+              "voters": 979
+            }
           ],
-          "EP DOUKEA / A": [
+          "WANI": [
             {
-              station: "DOUGON",
-              voters: 567
-            },
-            {
-              station: "DOUKEA",
-              voters: 317
-            },
-            {
-              station: "HOME",
-              voters: 567
-            },
-            {
-              station: "GARAL",
-              voters: 567
-            },
+              "station": "EP BANDA / A",
+              "voters": 979
+            }
           ],
-          "EP GAMBA / A": [
+          "BAOUTCHI": [
             {
-              station: "BOBOK",
-              voters: 507
-            },
-            {
-              station: "GAMBA",
-              voters: 1014
-            },
-            {
-              station: "GENDARMERIE",
-              voters: 507
-            },
-            {
-              station: "KARBA",
-              voters: 1546
-            },
-            {
-              station: "BABA",
-              voters: 507
-            },
-            {
-              station: "BELLO",
-              voters: 507
-            },
-            {
-              station: "NOTTO",
-              voters: 746
-            },
+              "station": "EP BAOUTCHI / A",
+              "voters": 511
+            }
           ],
-          "EP GANANI / A": [
+          "MAYO": [
             {
-              station: "GANANI",
-              voters: 980
-            },
-            {
-              station: "DINA",
-              voters: 256
-            },
-            {
-              station: "ALIM",
-              voters: 256
-            },
-            {
-              station: "MBADJEU",
-              voters: 256
-            },
+              "station": "EP BAOUTCHI / A",
+              "voters": 7038
+            }
           ],
-          "EP GOP / A": [
+          "DADI": [
             {
-              station: "GAKRI",
-              voters: 1162
-            },
-            {
-              station: "GOP-REY",
-              voters: 1272
-            },
+              "station": "EP BAOUTCHI / A",
+              "voters": 511
+            }
           ],
-          "EP GOUGA / A": [
+          "MBANG": [
             {
-              station: "GOUGA",
-              voters: 468
-            },
-            {
-              station: "MANANGNA",
-              voters: 530
-            },
+              "station": "EP BAOUTCHI / A",
+              "voters": 618
+            }
           ],
-          "EP GROUPE I / A": [
+          "KATMOR": [
             {
-              station: "KABA",
-              voters: 359
-            },
-            {
-              station: "PANA",
-              voters: 359
-            },
+              "station": "EP BAOUTCHI / A",
+              "voters": 618
+            }
           ],
-          "EP GUIDJIBA / A": [
+          "MBEREM": [
             {
-              station: "GUIDJIBA",
-              voters: 805
-            },
+              "station": "EP BAOUTCHI / A",
+              "voters": 511
+            }
           ],
-          "EP KALI / A": [
+          "BOUK": [
             {
-              station: "GABA",
-              voters: 396
-            },
-            {
-              station: "KALI",
-              voters: 333
-            },
+              "station": "EP BOUK / A",
+              "voters": 571
+            }
           ],
-          "EP KOTTI MANGA / A": [
+          "MAMGUIENWA": [
             {
-              station: "GUERI",
-              voters: 239
-            },
-            {
-              station: "MANGA",
-              voters: 913
-            },
+              "station": "EP BOUK / A",
+              "voters": 1731
+            }
           ],
-          "EP KOUM / A": [
+          "BOURI": [
             {
-              station: "KOUM",
-              voters: 323
-            },
+              "station": "EP BOURI / A",
+              "voters": 1827
+            }
           ],
-          "EP KROUK / A": [
+          "CRC": [
             {
-              station: "KROUK",
-              voters: 367
-            },
-            {
-              station: "SOUAYE",
-              voters: 367
-            },
+              "station": "EP CRC / A",
+              "voters": 447
+            }
           ],
-          "EP LABOUN / A": [
+          "DEMSA": [
             {
-              station: "LABOUN",
-              voters: 387
-            },
+              "station": "EP DEMSA / A",
+              "voters": 514
+            }
           ],
-          "EP LASSERE / A": [
+          "GAVE": [
             {
-              station: "HORMBALI",
-              voters: 791
-            },
-            {
-              station: "LASSERE",
-              voters: 117
-            },
-            {
-              station: "NANA",
-              voters: 117
-            },
-            {
-              station: "NDONG",
-              voters: 117
-            },
+              "station": "EP DEMSA / A",
+              "voters": 514
+            }
           ],
-          "EP LEUNDA / A": [
+          "KERWA": [
             {
-              station: "LEMBE",
-              voters: 468
-            },
-            {
-              station: "LEUNDA",
-              voters: 468
-            },
-            {
-              station: "MAZADOU",
-              voters: 468
-            },
-            {
-              station: "SOTTA",
-              voters: 468
-            },
+              "station": "EP DEMSA / A",
+              "voters": 1039
+            }
           ],
-          "EP MANDII / A": [
+          "DJABA": [
             {
-              station: "BAKOI",
-              voters: 784
-            },
-            {
-              station: "DII",
-              voters: 784
-            },
-            {
-              station: "MBOULI",
-              voters: 784
-            },
+              "station": "EP DJABA / A",
+              "voters": 1274
+            }
           ],
-          "EP MAYO GALKE / A": [
+          "DOGBA": [
             {
-              station: "GANDI",
-              voters: 799
-            },
-            {
-              station: "MBOUM",
-              voters: 799
-            },
-            {
-              station: "MABOUM",
-              voters: 799
-            },
-            {
-              station: "SODECOTON",
-              voters: 799
-            },
-            {
-              station: "TOUDJARA",
-              voters: 799
-            },
+              "station": "EP DJABA / A",
+              "voters": 2652
+            }
           ],
-          "EP MBAOU / A": [
+          "LAGBA": [
             {
-              station: "MBIEN",
-              voters: 47
-            },
+              "station": "EP DOGBA / A",
+              "voters": 1595
+            }
           ],
-          "EP MBISSIRI / A": [
+          "LANGUI": [
             {
-              station: "MBISSIRI",
-              voters: 311
-            },
+              "station": "EP DOUGON / A",
+              "voters": 250
+            }
           ],
-          "EP NDOUDJA / A": [
+          "DOUGON": [
             {
-              station: "NDOUDJA",
-              voters: 73
-            },
+              "station": "EP DOUKEA / A",
+              "voters": 567
+            }
           ],
-          "EP NOUNOUDJE / A": [
+          "DOUKEA": [
             {
-              station: "BOKOM",
-              voters: 534
-            },
-            {
-              station: "LYCEE",
-              voters: 534
-            },
-            {
-              station: "BILINGUE",
-              voters: 534
-            },
-            {
-              station: "NOUNOUDJE",
-              voters: 534
-            },
+              "station": "EP DOUKEA / A",
+              "voters": 317
+            }
           ],
-          "EP REYNA / A": [
+          "HOME": [
             {
-              station: "REYNA",
-              voters: 225
-            },
-            {
-              station: "ROH",
-              voters: 225
-            },
+              "station": "EP DOUKEA / A",
+              "voters": 567
+            }
           ],
-          "EP SABONGARI MAYO GALKE / A": [
+          "GARAL": [
             {
-              station: "HAOUSSA",
-              voters: 1571
-            },
-            {
-              station: "MAYO-GALKE",
-              voters: 1070
-            },
-            {
-              station: "LOUGOUI",
-              voters: 535
-            },
+              "station": "EP DOUKEA / A",
+              "voters": 567
+            }
           ],
-          "EP SAKDJE MAFA / A": [
+          "BOBOK": [
             {
-              station: "MAFA",
-              voters: 255
-            },
+              "station": "EP GAMBA / A",
+              "voters": 507
+            }
           ],
-          "EP SASSA / A": [
+          "GAMBA": [
             {
-              station: "NDAWAN",
-              voters: 276
-            },
-            {
-              station: "SASSA",
-              voters: 276
-            },
+              "station": "EP GAMBA / A",
+              "voters": 1014
+            }
           ],
-          "EP THAM / A": [
+          "GENDARMERIE": [
             {
-              station: "DJAOULE",
-              voters: 167
-            },
-            {
-              station: "THAM",
-              voters: 167
-            },
+              "station": "EP GAMBA / A",
+              "voters": 507
+            }
           ],
-          "EP WINDE BOURI / A": [
+          "KARBA": [
             {
-              station: "WINDE",
-              voters: 111
-            },
+              "station": "EP GAMBA / A",
+              "voters": 1546
+            }
           ],
-          "EP YOUKOUT / A": [
+          "BABA": [
             {
-              station: "MBIP",
-              voters: 325
-            },
-            {
-              station: "TABOUN",
-              voters: 433
-            },
-            {
-              station: "YETT",
-              voters: 428
-            },
-            {
-              station: "YOUKOUT",
-              voters: 325
-            },
+              "station": "EP GAMBA / A",
+              "voters": 507
+            }
           ],
-          "ESPL CHEF BANDJOUKRI / A": [
+          "BELLO": [
             {
-              station: "BANDJOUKRI",
-              voters: 206
-            },
-            {
-              station: "DOUDJA",
-              voters: 206
-            },
-            {
-              station: "HARNAPING",
-              voters: 206
-            },
-            {
-              station: "MBAOU",
-              voters: 253
-            },
-            {
-              station: "MBIEM",
-              voters: 323
-            },
-            {
-              station: "NYAN",
-              voters: 253
-            },
-            {
-              station: "VAH",
-              voters: 253
-            },
+              "station": "EP GAMBA / A",
+              "voters": 507
+            }
           ],
-          "ESPL CHEF DALBOU / A": [
+          "NOTTO": [
             {
-              station: "KABANG",
-              voters: 524
-            },
-            {
-              station: "YELBO",
-              voters: 524
-            },
-            {
-              station: "(M.G)",
-              voters: 524
-            },
+              "station": "EP GAMBA / A",
+              "voters": 746
+            }
           ],
-          "ESPL CHEF GALKE / A": [
+          "GANANI": [
             {
-              station: "COMPAGNIE",
-              voters: 476
-            },
+              "station": "EP GANANI / A",
+              "voters": 980
+            }
           ],
-          "ESPL CHEF MBILLARE / A": [
+          "DINA": [
             {
-              station: "MBILARE",
-              voters: 576
-            },
-            {
-              station: "TOLORE",
-              voters: 823
-            },
-            {
-              station: "PANDJAMA",
-              voters: 576
-            },
+              "station": "EP GANANI / A",
+              "voters": 256
+            }
           ],
-          "ESPL CHEF SAKDJE / A": [
+          "ALIM": [
             {
-              station: "BAWAN",
-              voters: 2464
-            },
-            {
-              station: "MBANA",
-              voters: 2425
-            },
-            {
-              station: "OURO",
-              voters: 2302
-            },
-            {
-              station: "BOBBO",
-              voters: 2302
-            },
-            {
-              station: "SAKDJE",
-              voters: 2557
-            },
+              "station": "EP GANANI / A",
+              "voters": 256
+            }
           ],
-          "ESPL CHEF WANGAR / A": [
+          "MBADJEU": [
             {
-              station: "WAINABE",
-              voters: 269
-            },
+              "station": "EP GANANI / A",
+              "voters": 256
+            }
           ],
-          "ESPL FADA / A": [
+          "GAKRI": [
             {
-              station: "BIBE",
-              voters: 374
-            },
-            {
-              station: "HORBE",
-              voters: 374
-            },
-            {
-              station: "KAWADI",
-              voters: 374
-            },
-            {
-              station: "PORMI",
-              voters: 423
-            },
-            {
-              station: "YONDE",
-              voters: 374
-            },
+              "station": "EP GOP / A",
+              "voters": 1162
+            }
           ],
-          "ESPL MAKEDKED / A": [
+          "GOP-REY": [
             {
-              station: "MAKEDKED",
-              voters: 110
-            },
+              "station": "EP GOP / A",
+              "voters": 1272
+            }
           ],
-          "ESPL MAYO DJEMMA / A": [
+          "GOUGA": [
             {
-              station: "DJEMMA",
-              voters: 85
-            },
+              "station": "EP GOUGA / A",
+              "voters": 468
+            }
           ],
-          "ESPL MAYO HALFOU / A": [
+          "MANANGNA": [
             {
-              station: "HALFOU",
-              voters: 139
-            },
+              "station": "EP GOUGA / A",
+              "voters": 530
+            }
           ],
-          "ESPL NANGAROU / A": [
+          "KABA": [
             {
-              station: "NANGAROU",
-              voters: 40
-            },
+              "station": "EP GROUPE I / A",
+              "voters": 359
+            }
           ],
-          "LYCEE GAMBA / A": [
+          "PANA": [
             {
-              station: "BALANE",
-              voters: 691
-            },
-            {
-              station: "BOKKO",
-              voters: 474
-            },
-            {
-              station: "KOTTI",
-              voters: 713
-            },
-            {
-              station: "PETEL",
-              voters: 591
-            },
-            {
-              station: "KOUNDINI",
-              voters: 1634
-            },
-            {
-              station: "MBOUDJI",
-              voters: 2022
-            },
-            {
-              station: "YADJI",
-              voters: 1008
-            },
-            {
-              station: "NIGBA",
-              voters: 474
-            },
-            {
-              station: "VAGBA",
-              voters: 474
-            },
-            {
-              station: "WAA",
-              voters: 474
-            },
+              "station": "EP GROUPE I / A",
+              "voters": 359
+            }
           ],
-          "LYCEE TECHNIQUE / A": [
+          "GUIDJIBA": [
             {
-              station: "DOUFFIN",
-              voters: 605
-            },
-            {
-              station: "KARNA",
-              voters: 303
-            },
-            {
-              station: "NGAOUDJI",
-              voters: 303
-            },
-            {
-              station: "NGORHECK",
-              voters: 303
-            },
-            {
-              station: "SONN",
-              voters: 303
-            },
+              "station": "EP GUIDJIBA / A",
+              "voters": 805
+            }
           ],
-          "SAR SM / A": [
+          "GABA": [
             {
-              station: "BALINOBE",
-              voters: 773
-            },
-            {
-              station: "BAMILEKE",
-              voters: 468
-            },
-            {
-              station: "DJOUBAOU",
-              voters: 468
-            },
-            {
-              station: "SARA",
-              voters: 827
-            },
+              "station": "EP KALI / A",
+              "voters": 396
+            }
           ],
-          "SOUS PREFECTURE / A": [
+          "KALI": [
             {
-              station: "PREFECTURE",
-              voters: 305
-            },
-            {
-              station: "SOUS-PREFECTURE",
-              voters: 305
-            },
-            {
-              station: "WANGAR",
-              voters: 574
-            },
+              "station": "EP KALI / A",
+              "voters": 333
+            }
           ],
+          "GUERI": [
+            {
+              "station": "EP KOTTI MANGA / A",
+              "voters": 239
+            }
+          ],
+          "MANGA": [
+            {
+              "station": "EP KOTTI MANGA / A",
+              "voters": 913
+            }
+          ],
+          "KOUM": [
+            {
+              "station": "EP KOUM / A",
+              "voters": 323
+            }
+          ],
+          "KROUK": [
+            {
+              "station": "EP KROUK / A",
+              "voters": 367
+            }
+          ],
+          "SOUAYE": [
+            {
+              "station": "EP KROUK / A",
+              "voters": 367
+            }
+          ],
+          "LABOUN": [
+            {
+              "station": "EP LABOUN / A",
+              "voters": 387
+            }
+          ],
+          "HORMBALI": [
+            {
+              "station": "EP LASSERE / A",
+              "voters": 791
+            }
+          ],
+          "LASSERE": [
+            {
+              "station": "EP LASSERE / A",
+              "voters": 117
+            }
+          ],
+          "NANA": [
+            {
+              "station": "EP LASSERE / A",
+              "voters": 117
+            }
+          ],
+          "NDONG": [
+            {
+              "station": "EP LASSERE / A",
+              "voters": 117
+            }
+          ],
+          "LEMBE": [
+            {
+              "station": "EP LEUNDA / A",
+              "voters": 468
+            }
+          ],
+          "LEUNDA": [
+            {
+              "station": "EP LEUNDA / A",
+              "voters": 468
+            }
+          ],
+          "MAZADOU": [
+            {
+              "station": "EP LEUNDA / A",
+              "voters": 468
+            }
+          ],
+          "SOTTA": [
+            {
+              "station": "EP LEUNDA / A",
+              "voters": 468
+            }
+          ],
+          "BAKOI": [
+            {
+              "station": "EP MANDII / A",
+              "voters": 784
+            }
+          ],
+          "DII": [
+            {
+              "station": "EP MANDII / A",
+              "voters": 784
+            }
+          ],
+          "MBOULI": [
+            {
+              "station": "EP MANDII / A",
+              "voters": 784
+            }
+          ],
+          "GANDI": [
+            {
+              "station": "EP MAYO GALKE / A",
+              "voters": 799
+            }
+          ],
+          "MBOUM": [
+            {
+              "station": "EP MAYO GALKE / A",
+              "voters": 799
+            }
+          ],
+          "MABOUM": [
+            {
+              "station": "EP MAYO GALKE / A",
+              "voters": 799
+            }
+          ],
+          "SODECOTON": [
+            {
+              "station": "EP MAYO GALKE / A",
+              "voters": 799
+            }
+          ],
+          "TOUDJARA": [
+            {
+              "station": "EP MAYO GALKE / A",
+              "voters": 799
+            }
+          ],
+          "MBIEN": [
+            {
+              "station": "EP MBAOU / A",
+              "voters": 47
+            }
+          ],
+          "MBISSIRI": [
+            {
+              "station": "EP MBISSIRI / A",
+              "voters": 311
+            }
+          ],
+          "NDOUDJA": [
+            {
+              "station": "EP NDOUDJA / A",
+              "voters": 73
+            }
+          ],
+          "BOKOM": [
+            {
+              "station": "EP NOUNOUDJE / A",
+              "voters": 534
+            }
+          ],
+          "LYCEE": [
+            {
+              "station": "EP NOUNOUDJE / A",
+              "voters": 534
+            }
+          ],
+          "BILINGUE": [
+            {
+              "station": "EP NOUNOUDJE / A",
+              "voters": 534
+            }
+          ],
+          "NOUNOUDJE": [
+            {
+              "station": "EP NOUNOUDJE / A",
+              "voters": 534
+            }
+          ],
+          "REYNA": [
+            {
+              "station": "EP REYNA / A",
+              "voters": 225
+            }
+          ],
+          "ROH": [
+            {
+              "station": "EP REYNA / A",
+              "voters": 225
+            }
+          ],
+          "HAOUSSA": [
+            {
+              "station": "EP SABONGARI MAYO GALKE / A",
+              "voters": 1571
+            }
+          ],
+          "MAYO-GALKE": [
+            {
+              "station": "EP SABONGARI MAYO GALKE / A",
+              "voters": 1070
+            }
+          ],
+          "LOUGOUI": [
+            {
+              "station": "EP SABONGARI MAYO GALKE / A",
+              "voters": 535
+            }
+          ],
+          "MAFA": [
+            {
+              "station": "EP SAKDJE MAFA / A",
+              "voters": 255
+            }
+          ],
+          "NDAWAN": [
+            {
+              "station": "EP SASSA / A",
+              "voters": 276
+            }
+          ],
+          "SASSA": [
+            {
+              "station": "EP SASSA / A",
+              "voters": 276
+            }
+          ],
+          "DJAOULE": [
+            {
+              "station": "EP THAM / A",
+              "voters": 167
+            }
+          ],
+          "THAM": [
+            {
+              "station": "EP THAM / A",
+              "voters": 167
+            }
+          ],
+          "WINDE": [
+            {
+              "station": "EP WINDE BOURI / A",
+              "voters": 111
+            }
+          ],
+          "MBIP": [
+            {
+              "station": "EP YOUKOUT / A",
+              "voters": 325
+            }
+          ],
+          "TABOUN": [
+            {
+              "station": "EP YOUKOUT / A",
+              "voters": 433
+            }
+          ],
+          "YETT": [
+            {
+              "station": "EP YOUKOUT / A",
+              "voters": 428
+            }
+          ],
+          "YOUKOUT": [
+            {
+              "station": "EP YOUKOUT / A",
+              "voters": 325
+            }
+          ],
+          "BANDJOUKRI": [
+            {
+              "station": "ESPL CHEF BANDJOUKRI / A",
+              "voters": 206
+            }
+          ],
+          "DOUDJA": [
+            {
+              "station": "ESPL CHEF BANDJOUKRI / A",
+              "voters": 206
+            }
+          ],
+          "HARNAPING": [
+            {
+              "station": "ESPL CHEF BANDJOUKRI / A",
+              "voters": 206
+            }
+          ],
+          "MBAOU": [
+            {
+              "station": "ESPL CHEF BANDJOUKRI / A",
+              "voters": 253
+            }
+          ],
+          "MBIEM": [
+            {
+              "station": "ESPL CHEF BANDJOUKRI / A",
+              "voters": 323
+            }
+          ],
+          "NYAN": [
+            {
+              "station": "ESPL CHEF BANDJOUKRI / A",
+              "voters": 253
+            }
+          ],
+          "VAH": [
+            {
+              "station": "ESPL CHEF BANDJOUKRI / A",
+              "voters": 253
+            }
+          ],
+          "KABANG": [
+            {
+              "station": "ESPL CHEF DALBOU / A",
+              "voters": 524
+            }
+          ],
+          "YELBO": [
+            {
+              "station": "ESPL CHEF DALBOU / A",
+              "voters": 524
+            }
+          ],
+          "(M.G)": [
+            {
+              "station": "ESPL CHEF DALBOU / A",
+              "voters": 524
+            }
+          ],
+          "COMPAGNIE": [
+            {
+              "station": "ESPL CHEF GALKE / A",
+              "voters": 476
+            }
+          ],
+          "MBILARE": [
+            {
+              "station": "ESPL CHEF MBILLARE / A",
+              "voters": 576
+            }
+          ],
+          "TOLORE": [
+            {
+              "station": "ESPL CHEF MBILLARE / A",
+              "voters": 823
+            }
+          ],
+          "PANDJAMA": [
+            {
+              "station": "ESPL CHEF MBILLARE / A",
+              "voters": 576
+            }
+          ],
+          "BAWAN": [
+            {
+              "station": "ESPL CHEF SAKDJE / A",
+              "voters": 2464
+            }
+          ],
+          "MBANA": [
+            {
+              "station": "ESPL CHEF SAKDJE / A",
+              "voters": 2425
+            }
+          ],
+          "OURO": [
+            {
+              "station": "ESPL CHEF SAKDJE / A",
+              "voters": 2302
+            }
+          ],
+          "BOBBO": [
+            {
+              "station": "ESPL CHEF SAKDJE / A",
+              "voters": 2302
+            }
+          ],
+          "SAKDJE": [
+            {
+              "station": "ESPL CHEF SAKDJE / A",
+              "voters": 2557
+            }
+          ],
+          "WAINABE": [
+            {
+              "station": "ESPL CHEF WANGAR / A",
+              "voters": 269
+            }
+          ],
+          "BIBE": [
+            {
+              "station": "ESPL FADA / A",
+              "voters": 374
+            }
+          ],
+          "HORBE": [
+            {
+              "station": "ESPL FADA / A",
+              "voters": 374
+            }
+          ],
+          "KAWADI": [
+            {
+              "station": "ESPL FADA / A",
+              "voters": 374
+            }
+          ],
+          "PORMI": [
+            {
+              "station": "ESPL FADA / A",
+              "voters": 423
+            }
+          ],
+          "YONDE": [
+            {
+              "station": "ESPL FADA / A",
+              "voters": 374
+            }
+          ],
+          "MAKEDKED": [
+            {
+              "station": "ESPL MAKEDKED / A",
+              "voters": 110
+            }
+          ],
+          "DJEMMA": [
+            {
+              "station": "ESPL MAYO DJEMMA / A",
+              "voters": 85
+            }
+          ],
+          "HALFOU": [
+            {
+              "station": "ESPL MAYO HALFOU / A",
+              "voters": 139
+            }
+          ],
+          "NANGAROU": [
+            {
+              "station": "ESPL NANGAROU / A",
+              "voters": 40
+            }
+          ],
+          "BALANE": [
+            {
+              "station": "LYCEE GAMBA / A",
+              "voters": 691
+            }
+          ],
+          "BOKKO": [
+            {
+              "station": "LYCEE GAMBA / A",
+              "voters": 474
+            }
+          ],
+          "KOTTI": [
+            {
+              "station": "LYCEE GAMBA / A",
+              "voters": 713
+            }
+          ],
+          "PETEL": [
+            {
+              "station": "LYCEE GAMBA / A",
+              "voters": 591
+            }
+          ],
+          "KOUNDINI": [
+            {
+              "station": "LYCEE GAMBA / A",
+              "voters": 1634
+            }
+          ],
+          "MBOUDJI": [
+            {
+              "station": "LYCEE GAMBA / A",
+              "voters": 2022
+            }
+          ],
+          "YADJI": [
+            {
+              "station": "LYCEE GAMBA / A",
+              "voters": 1008
+            }
+          ],
+          "NIGBA": [
+            {
+              "station": "LYCEE GAMBA / A",
+              "voters": 474
+            }
+          ],
+          "VAGBA": [
+            {
+              "station": "LYCEE GAMBA / A",
+              "voters": 474
+            }
+          ],
+          "WAA": [
+            {
+              "station": "LYCEE GAMBA / A",
+              "voters": 474
+            }
+          ],
+          "DOUFFIN": [
+            {
+              "station": "LYCEE TECHNIQUE / A",
+              "voters": 605
+            }
+          ],
+          "KARNA": [
+            {
+              "station": "LYCEE TECHNIQUE / A",
+              "voters": 303
+            }
+          ],
+          "NGAOUDJI": [
+            {
+              "station": "LYCEE TECHNIQUE / A",
+              "voters": 303
+            }
+          ],
+          "NGORHECK": [
+            {
+              "station": "LYCEE TECHNIQUE / A",
+              "voters": 303
+            }
+          ],
+          "SONN": [
+            {
+              "station": "LYCEE TECHNIQUE / A",
+              "voters": 303
+            }
+          ],
+          "BALINOBE": [
+            {
+              "station": "SAR SM / A",
+              "voters": 773
+            }
+          ],
+          "BAMILEKE": [
+            {
+              "station": "SAR SM / A",
+              "voters": 468
+            }
+          ],
+          "DJOUBAOU": [
+            {
+              "station": "SAR SM / A",
+              "voters": 468
+            }
+          ],
+          "SARA": [
+            {
+              "station": "SAR SM / A",
+              "voters": 827
+            }
+          ],
+          "PREFECTURE": [
+            {
+              "station": "SOUS PREFECTURE / A",
+              "voters": 305
+            }
+          ],
+          "SOUS-PREFECTURE": [
+            {
+              "station": "SOUS PREFECTURE / A",
+              "voters": 305
+            }
+          ],
+          "WANGAR": [
+            {
+              "station": "SOUS PREFECTURE / A",
+              "voters": 574
+            }
+          ]
         },
         "TOUBORO": {
-          "CENTRE DE SANTE MBANG REY / A": [
+          "GAOU": [
             {
-              station: "GAOU",
-              voters: 108
-            },
-            {
-              station: "NDENG",
-              voters: 108
-            },
+              "station": "CENTRE DE SANTE MBANG REY / A",
+              "voters": 108
+            }
           ],
-          "CES VOGZOM TONOM / A": [
+          "NDENG": [
             {
-              station: "DOMAYO",
-              voters: 769
-            },
+              "station": "CENTRE DE SANTE MBANG REY / A",
+              "voters": 108
+            }
+          ],
+          "DOMAYO": [
             {
-              station: "VOGZOM",
-              voters: 8521
-            },
+              "station": "CES VOGZOM TONOM / A",
+              "voters": 769
+            }
+          ],
+          "VOGZOM": [
             {
-              station: "KERBAI",
-              voters: 1773
-            },
+              "station": "CES VOGZOM TONOM / A",
+              "voters": 8521
+            }
+          ],
+          "KERBAI": [
             {
-              station: "MASSOSSE",
-              voters: 769
-            },
+              "station": "CES VOGZOM TONOM / A",
+              "voters": 1773
+            }
+          ],
+          "MASSOSSE": [
             {
-              station: "MBEREM",
-              voters: 1340
-            },
+              "station": "CES VOGZOM TONOM / A",
+              "voters": 769
+            }
+          ],
+          "MBEREM": [
             {
-              station: "MOUAROM",
-              voters: 1340
-            },
+              "station": "CES VOGZOM TONOM / A",
+              "voters": 1340
+            }
+          ],
+          "MOUAROM": [
             {
-              station: "SABONGARI",
-              voters: 1432
-            },
+              "station": "CES VOGZOM TONOM / A",
+              "voters": 1340
+            }
+          ],
+          "SABONGARI": [
             {
-              station: "TCHATBALI",
-              voters: 769
-            },
+              "station": "CES VOGZOM TONOM / A",
+              "voters": 1432
+            }
+          ],
+          "TCHATBALI": [
             {
-              station: "VONG",
-              voters: 2755
-            },
+              "station": "CES VOGZOM TONOM / A",
+              "voters": 769
+            }
+          ],
+          "VONG": [
             {
-              station: "NAH",
-              voters: 2755
-            },
+              "station": "CES VOGZOM TONOM / A",
+              "voters": 2755
+            }
           ],
-          "E.P BONG RAI / A": [
+          "NAH": [
             {
-              station: "KAWASINI",
-              voters: 628
-            },
+              "station": "CES VOGZOM TONOM / A",
+              "voters": 2755
+            }
+          ],
+          "KAWASINI": [
             {
-              station: "SOMALI",
-              voters: 628
-            },
+              "station": "E.P BONG RAI / A",
+              "voters": 628
+            }
           ],
-          "E.P LOUGGERE / A": [
+          "SOMALI": [
             {
-              station: "LOUGGUERE",
-              voters: 247
-            },
+              "station": "E.P BONG RAI / A",
+              "voters": 628
+            }
           ],
-          "E.P OURO DARA / A": [
+          "LOUGGUERE": [
             {
-              station: "NARRAL",
-              voters: 1461
-            },
+              "station": "E.P LOUGGERE / A",
+              "voters": 247
+            }
           ],
-          "E.P OURO SALI / A": [
+          "NARRAL": [
             {
-              station: "SALI",
-              voters: 294
-            },
+              "station": "E.P OURO DARA / A",
+              "voters": 1461
+            }
+          ],
+          "SALI": [
             {
-              station: "RABINGA",
-              voters: 294
-            },
+              "station": "E.P OURO SALI / A",
+              "voters": 294
+            }
           ],
-          "E.P. DE DOUROUBERG / A": [
+          "RABINGA": [
             {
-              station: "DOUROU",
-              voters: 196
-            },
+              "station": "E.P OURO SALI / A",
+              "voters": 294
+            }
+          ],
+          "DOUROU": [
             {
-              station: "BERG",
-              voters: 196
-            },
+              "station": "E.P. DE DOUROUBERG / A",
+              "voters": 196
+            }
+          ],
+          "BERG": [
             {
-              station: "DOUROUBERG",
-              voters: 196
-            },
+              "station": "E.P. DE DOUROUBERG / A",
+              "voters": 196
+            }
           ],
-          "E.P. DE MIGALAK-NDJILOUGOU / A": [
+          "DOUROUBERG": [
             {
-              station: "DEOLE",
-              voters: 384
-            },
+              "station": "E.P. DE DOUROUBERG / A",
+              "voters": 196
+            }
+          ],
+          "DEOLE": [
             {
-              station: "ABDOU",
-              voters: 384
-            },
+              "station": "E.P. DE MIGALAK-NDJILOUGOU / A",
+              "voters": 384
+            }
+          ],
+          "ABDOU": [
             {
-              station: "AMINOU",
-              voters: 384
-            },
+              "station": "E.P. DE MIGALAK-NDJILOUGOU / A",
+              "voters": 384
+            }
+          ],
+          "AMINOU": [
             {
-              station: "HAMADJOULDE",
-              voters: 384
-            },
+              "station": "E.P. DE MIGALAK-NDJILOUGOU / A",
+              "voters": 384
+            }
+          ],
+          "HAMADJOULDE": [
             {
-              station: "HAKOUDEROU",
-              voters: 233
-            },
+              "station": "E.P. DE MIGALAK-NDJILOUGOU / A",
+              "voters": 384
+            }
+          ],
+          "HAKOUDEROU": [
             {
-              station: "MIGALAK-NDJILOUGOU",
-              voters: 233
-            },
+              "station": "E.P. DE MIGALAK-NDJILOUGOU / A",
+              "voters": 233
+            }
+          ],
+          "MIGALAK-NDJILOUGOU": [
             {
-              station: "NDJILOUGOU",
-              voters: 233
-            },
+              "station": "E.P. DE MIGALAK-NDJILOUGOU / A",
+              "voters": 233
+            }
+          ],
+          "NDJILOUGOU": [
             {
-              station: "DJAFAROU",
-              voters: 466
-            },
+              "station": "E.P. DE MIGALAK-NDJILOUGOU / A",
+              "voters": 233
+            }
+          ],
+          "DJAFAROU": [
             {
-              station: "BOUTALI",
-              voters: 535
-            },
+              "station": "E.P. DE MIGALAK-NDJILOUGOU / A",
+              "voters": 466
+            }
+          ],
+          "BOUTALI": [
             {
-              station: "SIDDI",
-              voters: 535
-            },
+              "station": "E.P. DE MIGALAK-NDJILOUGOU / A",
+              "voters": 535
+            }
+          ],
+          "SIDDI": [
             {
-              station: "HAKOUNDEROU",
-              voters: 302
-            },
+              "station": "E.P. DE MIGALAK-NDJILOUGOU / A",
+              "voters": 535
+            }
           ],
-          "ELEVAGE MBANG REY / A": [
+          "HAKOUNDEROU": [
             {
-              station: "DJOUCK",
-              voters: 1638
-            },
+              "station": "E.P. DE MIGALAK-NDJILOUGOU / A",
+              "voters": 302
+            }
+          ],
+          "DJOUCK": [
             {
-              station: "ELEVAGE",
-              voters: 253
-            },
+              "station": "ELEVAGE MBANG REY / A",
+              "voters": 1638
+            }
           ],
-          "EP AKANA / A": [
+          "ELEVAGE": [
             {
-              station: "MAYO",
-              voters: 10202
-            },
+              "station": "ELEVAGE MBANG REY / A",
+              "voters": 253
+            }
+          ],
+          "MAYO": [
             {
-              station: "BARKA",
-              voters: 2234
-            },
+              "station": "EP AKANA / A",
+              "voters": 10202
+            }
+          ],
+          "BARKA": [
             {
-              station: "BATSA",
-              voters: 1655
-            },
+              "station": "EP AKANA / A",
+              "voters": 2234
+            }
           ],
-          "EP AMBARANG / A": [
+          "BATSA": [
             {
-              station: "AMBARANG",
-              voters: 480
-            },
+              "station": "EP AKANA / A",
+              "voters": 1655
+            }
           ],
-          "EP BABIDAN / A": [
+          "AMBARANG": [
             {
-              station: "BABIDAN",
-              voters: 265
-            },
+              "station": "EP AMBARANG / A",
+              "voters": 480
+            }
+          ],
+          "BABIDAN": [
             {
-              station: "LARAKOUSSINI",
-              voters: 265
-            },
+              "station": "EP BABIDAN / A",
+              "voters": 265
+            }
           ],
-          "EP BAGOU / A": [
+          "LARAKOUSSINI": [
             {
-              station: "BAGOU",
-              voters: 267
-            },
+              "station": "EP BABIDAN / A",
+              "voters": 265
+            }
           ],
-          "EP BAKARI / A": [
+          "BAGOU": [
             {
-              station: "BAKARI",
-              voters: 475
-            },
+              "station": "EP BAGOU / A",
+              "voters": 267
+            }
+          ],
+          "BAKARI": [
             {
-              station: "BARKARI",
-              voters: 475
-            },
+              "station": "EP BAKARI / A",
+              "voters": 475
+            }
           ],
-          "EP BAOUDI / A": [
+          "BARKARI": [
             {
-              station: "BAOUDI",
-              voters: 341
-            },
+              "station": "EP BAKARI / A",
+              "voters": 475
+            }
           ],
-          "EP BEMBOYO / A": [
+          "BAOUDI": [
             {
-              station: "BEMBOYO",
-              voters: 697
-            },
+              "station": "EP BAOUDI / A",
+              "voters": 341
+            }
           ],
-          "EP BENOU / A": [
+          "BEMBOYO": [
             {
-              station: "BANZORO",
-              voters: 134
-            },
+              "station": "EP BEMBOYO / A",
+              "voters": 697
+            }
+          ],
+          "BANZORO": [
             {
-              station: "BENOU",
-              voters: 134
-            },
+              "station": "EP BENOU / A",
+              "voters": 134
+            }
           ],
-          "EP BILOUGUI / A": [
+          "BENOU": [
             {
-              station: "BILOUGUI",
-              voters: 604
-            },
+              "station": "EP BENOU / A",
+              "voters": 134
+            }
           ],
-          "EP BITIOU / A": [
+          "BILOUGUI": [
             {
-              station: "AVIATION",
-              voters: 1539
-            },
+              "station": "EP BILOUGUI / A",
+              "voters": 604
+            }
+          ],
+          "AVIATION": [
             {
-              station: "BILTAO",
-              voters: 1446
-            },
+              "station": "EP BITIOU / A",
+              "voters": 1539
+            }
+          ],
+          "BILTAO": [
             {
-              station: "BOGDIBO",
-              voters: 2021
-            },
+              "station": "EP BITIOU / A",
+              "voters": 1446
+            }
+          ],
+          "BOGDIBO": [
             {
-              station: "MANE",
-              voters: 1997
-            },
+              "station": "EP BITIOU / A",
+              "voters": 2021
+            }
+          ],
+          "MANE": [
             {
-              station: "QUARTIER",
-              voters: 12664
-            },
+              "station": "EP BITIOU / A",
+              "voters": 1997
+            }
+          ],
+          "QUARTIER": [
             {
-              station: "BITIOU",
-              voters: 1159
-            },
+              "station": "EP BITIOU / A",
+              "voters": 12664
+            }
           ],
-          "EP BOGDIBO / A": [
+          "BITIOU": [
             {
-              station: "KOUBAOU",
-              voters: 862
-            },
+              "station": "EP BITIOU / A",
+              "voters": 1159
+            }
           ],
-          "EP BOGDORO / A": [
+          "KOUBAOU": [
             {
-              station: "BOGDORO",
-              voters: 351
-            },
+              "station": "EP BOGDIBO / A",
+              "voters": 862
+            }
+          ],
+          "BOGDORO": [
             {
-              station: "MBALI",
-              voters: 351
-            },
+              "station": "EP BOGDORO / A",
+              "voters": 351
+            }
+          ],
+          "MBALI": [
             {
-              station: "MBIDERE",
-              voters: 351
-            },
+              "station": "EP BOGDORO / A",
+              "voters": 351
+            }
           ],
-          "EP BOKO / A": [
+          "MBIDERE": [
             {
-              station: "BOKO",
-              voters: 500
-            },
+              "station": "EP BOGDORO / A",
+              "voters": 351
+            }
+          ],
+          "BOKO": [
             {
-              station: "DOMPTA",
-              voters: 692
-            },
+              "station": "EP BOKO / A",
+              "voters": 500
+            }
+          ],
+          "DOMPTA": [
             {
-              station: "BOTANA",
-              voters: 500
-            },
+              "station": "EP BOKO / A",
+              "voters": 692
+            }
+          ],
+          "BOTANA": [
             {
-              station: "BOUGOUI",
-              voters: 500
-            },
+              "station": "EP BOKO / A",
+              "voters": 500
+            }
+          ],
+          "BOUGOUI": [
             {
-              station: "MBOKO",
-              voters: 1162
-            },
+              "station": "EP BOKO / A",
+              "voters": 500
+            }
+          ],
+          "MBOKO": [
             {
-              station: "MBAILARA",
-              voters: 2486
-            },
+              "station": "EP BOKO / A",
+              "voters": 1162
+            }
+          ],
+          "MBAILARA": [
             {
-              station: "POCKEA",
-              voters: 692
-            },
+              "station": "EP BOKO / A",
+              "voters": 2486
+            }
           ],
-          "EP BOUGOUE / A": [
+          "POCKEA": [
             {
-              station: "BOUGOUE",
-              voters: 411
-            },
+              "station": "EP BOKO / A",
+              "voters": 692
+            }
           ],
-          "EP DJACKONE / A": [
+          "BOUGOUE": [
             {
-              station: "DJACKONE",
-              voters: 437
-            },
+              "station": "EP BOUGOUE / A",
+              "voters": 411
+            }
           ],
-          "EP DJOM / A": [
+          "DJACKONE": [
             {
-              station: "DEO",
-              voters: 907
-            },
+              "station": "EP DJACKONE / A",
+              "voters": 437
+            }
+          ],
+          "DEO": [
             {
-              station: "LIBERE",
-              voters: 185
-            },
+              "station": "EP DJOM / A",
+              "voters": 907
+            }
+          ],
+          "LIBERE": [
             {
-              station: "DJOM",
-              voters: 457
-            },
+              "station": "EP DJOM / A",
+              "voters": 185
+            }
+          ],
+          "DJOM": [
             {
-              station: "NDOYE",
-              voters: 185
-            },
+              "station": "EP DJOM / A",
+              "voters": 457
+            }
+          ],
+          "NDOYE": [
             {
-              station: "PELE",
-              voters: 185
-            },
+              "station": "EP DJOM / A",
+              "voters": 185
+            }
           ],
-          "EP DOMPTA / A": [
+          "PELE": [
             {
-              station: "GAMBORO",
-              voters: 192
-            },
+              "station": "EP DJOM / A",
+              "voters": 185
+            }
           ],
-          "EP ELEPHANT / A": [
+          "GAMBORO": [
             {
-              station: "ELEPHANT",
-              voters: 463
-            },
+              "station": "EP DOMPTA / A",
+              "voters": 192
+            }
           ],
-          "EP FLAYE / A": [
+          "ELEPHANT": [
             {
-              station: "FLAYE",
-              voters: 465
-            },
+              "station": "EP ELEPHANT / A",
+              "voters": 463
+            }
+          ],
+          "FLAYE": [
             {
-              station: "SEYO",
-              voters: 465
-            },
+              "station": "EP FLAYE / A",
+              "voters": 465
+            }
           ],
-          "EP FOULBI / A": [
+          "SEYO": [
             {
-              station: "FOULBI",
-              voters: 205
-            },
+              "station": "EP FLAYE / A",
+              "voters": 465
+            }
           ],
-          "EP FOUMBANG / A": [
+          "FOULBI": [
             {
-              station: "FOUMBANG",
-              voters: 384
-            },
+              "station": "EP FOULBI / A",
+              "voters": 205
+            }
+          ],
+          "FOUMBANG": [
             {
-              station: "KAPLA",
-              voters: 384
-            },
+              "station": "EP FOUMBANG / A",
+              "voters": 384
+            }
           ],
-          "EP FRAGON / A": [
+          "KAPLA": [
             {
-              station: "FRAGON",
-              voters: 241
-            },
+              "station": "EP FOUMBANG / A",
+              "voters": 384
+            }
           ],
-          "EP GAI TOUKOULOU / A": [
+          "FRAGON": [
             {
-              station: "GAI-TOUKOULOU",
-              voters: 346
-            },
+              "station": "EP FRAGON / A",
+              "voters": 241
+            }
+          ],
+          "GAI-TOUKOULOU": [
             {
-              station: "NASSARAO",
-              voters: 346
-            },
+              "station": "EP GAI TOUKOULOU / A",
+              "voters": 346
+            }
           ],
-          "EP HABAGA / A": [
+          "NASSARAO": [
             {
-              station: "HABAGA",
-              voters: 423
-            },
+              "station": "EP GAI TOUKOULOU / A",
+              "voters": 346
+            }
           ],
-          "EP HAIDJAM / A": [
+          "HABAGA": [
             {
-              station: "HAIDJAM",
-              voters: 504
-            },
+              "station": "EP HABAGA / A",
+              "voters": 423
+            }
           ],
-          "EP HANKAO / A": [
+          "HAIDJAM": [
             {
-              station: "DJIWARI",
-              voters: 480
-            },
+              "station": "EP HAIDJAM / A",
+              "voters": 504
+            }
+          ],
+          "DJIWARI": [
             {
-              station: "GUIGUI",
-              voters: 480
-            },
+              "station": "EP HANKAO / A",
+              "voters": 480
+            }
+          ],
+          "GUIGUI": [
             {
-              station: "HANKAO",
-              voters: 480
-            },
+              "station": "EP HANKAO / A",
+              "voters": 480
+            }
+          ],
+          "HANKAO": [
             {
-              station: "NDIKA",
-              voters: 480
-            },
+              "station": "EP HANKAO / A",
+              "voters": 480
+            }
+          ],
+          "NDIKA": [
             {
-              station: "NGONGUE",
-              voters: 480
-            },
+              "station": "EP HANKAO / A",
+              "voters": 480
+            }
           ],
-          "EP HELBAO / A": [
+          "NGONGUE": [
             {
-              station: "BALDI",
-              voters: 373
-            },
+              "station": "EP HANKAO / A",
+              "voters": 480
+            }
+          ],
+          "BALDI": [
             {
-              station: "BOGLERE",
-              voters: 373
-            },
+              "station": "EP HELBAO / A",
+              "voters": 373
+            }
+          ],
+          "BOGLERE": [
             {
-              station: "HELBAO",
-              voters: 373
-            },
+              "station": "EP HELBAO / A",
+              "voters": 373
+            }
+          ],
+          "HELBAO": [
             {
-              station: "MBODO",
-              voters: 635
-            },
+              "station": "EP HELBAO / A",
+              "voters": 373
+            }
+          ],
+          "MBODO": [
             {
-              station: "VOYE",
-              voters: 1035
-            },
+              "station": "EP HELBAO / A",
+              "voters": 635
+            }
           ],
-          "EP HOME / A": [
+          "VOYE": [
             {
-              station: "HOME",
-              voters: 845
-            },
+              "station": "EP HELBAO / A",
+              "voters": 1035
+            }
           ],
-          "EP KADES / A": [
+          "HOME": [
             {
-              station: "KADES",
-              voters: 388
-            },
+              "station": "EP HOME / A",
+              "voters": 845
+            }
           ],
-          "EP KANANA / A": [
+          "KADES": [
             {
-              station: "KANANA",
-              voters: 465
-            },
+              "station": "EP KADES / A",
+              "voters": 388
+            }
           ],
-          "EP KARANG PANDJAMA / A": [
+          "KANANA": [
             {
-              station: "KARANG",
-              voters: 357
-            },
+              "station": "EP KANANA / A",
+              "voters": 465
+            }
+          ],
+          "KARANG": [
             {
-              station: "PANDJAMA",
-              voters: 2112
-            },
+              "station": "EP KARANG PANDJAMA / A",
+              "voters": 357
+            }
+          ],
+          "PANDJAMA": [
             {
-              station: "NDODI",
-              voters: 357
-            },
+              "station": "EP KARANG PANDJAMA / A",
+              "voters": 2112
+            }
           ],
-          "EP KOMBO GOUDRON / A": [
+          "NDODI": [
             {
-              station: "KOMBO",
-              voters: 1862
-            },
+              "station": "EP KARANG PANDJAMA / A",
+              "voters": 357
+            }
+          ],
+          "KOMBO": [
             {
-              station: "GOUDRON",
-              voters: 1347
-            },
+              "station": "EP KOMBO GOUDRON / A",
+              "voters": 1862
+            }
+          ],
+          "GOUDRON": [
             {
-              station: "MANBERE",
-              voters: 832
-            },
+              "station": "EP KOMBO GOUDRON / A",
+              "voters": 1347
+            }
           ],
-          "EP KOUMANE BAYA / A": [
+          "MANBERE": [
             {
-              station: "KOUMANE",
-              voters: 501
-            },
+              "station": "EP KOMBO GOUDRON / A",
+              "voters": 832
+            }
+          ],
+          "KOUMANE": [
             {
-              station: "BAYA",
-              voters: 1035
-            },
+              "station": "EP KOUMANE BAYA / A",
+              "voters": 501
+            }
+          ],
+          "BAYA": [
             {
-              station: "LANYA",
-              voters: 78
-            },
+              "station": "EP KOUMANE BAYA / A",
+              "voters": 1035
+            }
           ],
-          "EP KOUMANE MBOUM / A": [
+          "LANYA": [
             {
-              station: "BOGLARA",
-              voters: 1583
-            },
+              "station": "EP KOUMANE BAYA / A",
+              "voters": 78
+            }
           ],
-          "EP LAOUDJONGUE / A": [
+          "BOGLARA": [
             {
-              station: "LAOUDJONGUE",
-              voters: 490
-            },
+              "station": "EP KOUMANE MBOUM / A",
+              "voters": 1583
+            }
           ],
-          "EP LOUBOL / A": [
+          "LAOUDJONGUE": [
             {
-              station: "DJACPENDI",
-              voters: 310
-            },
+              "station": "EP LAOUDJONGUE / A",
+              "voters": 490
+            }
+          ],
+          "DJACPENDI": [
             {
-              station: "DJACPOING",
-              voters: 310
-            },
+              "station": "EP LOUBOL / A",
+              "voters": 310
+            }
+          ],
+          "DJACPOING": [
             {
-              station: "DJORO",
-              voters: 310
-            },
+              "station": "EP LOUBOL / A",
+              "voters": 310
+            }
+          ],
+          "DJORO": [
             {
-              station: "LOUBOL",
-              voters: 310
-            },
+              "station": "EP LOUBOL / A",
+              "voters": 310
+            }
+          ],
+          "LOUBOL": [
             {
-              station: "NGAOURING",
-              voters: 310
-            },
+              "station": "EP LOUBOL / A",
+              "voters": 310
+            }
+          ],
+          "NGAOURING": [
             {
-              station: "OURO",
-              voters: 8094
-            },
+              "station": "EP LOUBOL / A",
+              "voters": 310
+            }
+          ],
+          "OURO": [
             {
-              station: "SOULEY",
-              voters: 310
-            },
+              "station": "EP LOUBOL / A",
+              "voters": 8094
+            }
+          ],
+          "SOULEY": [
             {
-              station: "SARIBAYASSA",
-              voters: 310
-            },
+              "station": "EP LOUBOL / A",
+              "voters": 310
+            }
+          ],
+          "SARIBAYASSA": [
             {
-              station: "SOUROUDI",
-              voters: 310
-            },
+              "station": "EP LOUBOL / A",
+              "voters": 310
+            }
+          ],
+          "SOUROUDI": [
             {
-              station: "WODI",
-              voters: 310
-            },
+              "station": "EP LOUBOL / A",
+              "voters": 310
+            }
           ],
-          "EP MALAOUMBALI / A": [
+          "WODI": [
             {
-              station: "MALAOUMBALI",
-              voters: 225
-            },
+              "station": "EP LOUBOL / A",
+              "voters": 310
+            }
+          ],
+          "MALAOUMBALI": [
             {
-              station: "IWARE",
-              voters: 503
-            },
+              "station": "EP MALAOUMBALI / A",
+              "voters": 225
+            }
           ],
-          "EP MANE GARMANE / A": [
+          "IWARE": [
             {
-              station: "GARMANE",
-              voters: 229
-            },
+              "station": "EP MALAOUMBALI / A",
+              "voters": 503
+            }
+          ],
+          "GARMANE": [
             {
-              station: "MBIKOUNI",
-              voters: 2552
-            },
+              "station": "EP MANE GARMANE / A",
+              "voters": 229
+            }
           ],
-          "EP MAROUM / A": [
+          "MBIKOUNI": [
             {
-              station: "MAROUM",
-              voters: 241
-            },
+              "station": "EP MANE GARMANE / A",
+              "voters": 2552
+            }
           ],
-          "EP MATA MADA / A": [
+          "MAROUM": [
             {
-              station: "MATA",
-              voters: 429
-            },
+              "station": "EP MAROUM / A",
+              "voters": 241
+            }
+          ],
+          "MATA": [
             {
-              station: "MADA",
-              voters: 429
-            },
+              "station": "EP MATA MADA / A",
+              "voters": 429
+            }
           ],
-          "EP MAYO KOLOM / A": [
+          "MADA": [
             {
-              station: "KOLOM",
-              voters: 201
-            },
+              "station": "EP MATA MADA / A",
+              "voters": 429
+            }
           ],
-          "EP MAYO MBI / A": [
+          "KOLOM": [
             {
-              station: "MBI",
-              voters: 600
-            },
+              "station": "EP MAYO KOLOM / A",
+              "voters": 201
+            }
           ],
-          "EP MAYO NDAH / A": [
+          "MBI": [
             {
-              station: "NDAH",
-              voters: 652
-            },
+              "station": "EP MAYO MBI / A",
+              "voters": 600
+            }
           ],
-          "EP MAYO ZAKI / A": [
+          "NDAH": [
             {
-              station: "ZAKI",
-              voters: 681
-            },
+              "station": "EP MAYO NDAH / A",
+              "voters": 652
+            }
           ],
-          "EP MBAIMBEO / A": [
+          "ZAKI": [
             {
-              station: "MBAIMBEO",
-              voters: 435
-            },
+              "station": "EP MAYO ZAKI / A",
+              "voters": 681
+            }
           ],
-          "EP MBAIMBOUM SOGBE / A": [
+          "MBAIMBEO": [
             {
-              station: "LAOUKARI",
-              voters: 1288
-            },
+              "station": "EP MBAIMBEO / A",
+              "voters": 435
+            }
+          ],
+          "LAOUKARI": [
             {
-              station: "PAMPANDJAMA",
-              voters: 1288
-            },
+              "station": "EP MBAIMBOUM SOGBE / A",
+              "voters": 1288
+            }
+          ],
+          "PAMPANDJAMA": [
             {
-              station: "SOGBE",
-              voters: 1288
-            },
+              "station": "EP MBAIMBOUM SOGBE / A",
+              "voters": 1288
+            }
+          ],
+          "SOGBE": [
             {
-              station: "MBAIMBOUM",
-              voters: 1288
-            },
+              "station": "EP MBAIMBOUM SOGBE / A",
+              "voters": 1288
+            }
           ],
-          "EP MBAKA / A": [
+          "MBAIMBOUM": [
             {
-              station: "FOUBELA",
-              voters: 1239
-            },
+              "station": "EP MBAIMBOUM SOGBE / A",
+              "voters": 1288
+            }
+          ],
+          "FOUBELA": [
             {
-              station: "MAN",
-              voters: 1621
-            },
+              "station": "EP MBAKA / A",
+              "voters": 1239
+            }
+          ],
+          "MAN": [
             {
-              station: "MBAKA",
-              voters: 1239
-            },
+              "station": "EP MBAKA / A",
+              "voters": 1621
+            }
+          ],
+          "MBAKA": [
             {
-              station: "MBALL",
-              voters: 1621
-            },
+              "station": "EP MBAKA / A",
+              "voters": 1239
+            }
+          ],
+          "MBALL": [
             {
-              station: "MBILO",
-              voters: 1621
-            },
+              "station": "EP MBAKA / A",
+              "voters": 1621
+            }
+          ],
+          "MBILO": [
             {
-              station: "NGARANG",
-              voters: 1621
-            },
+              "station": "EP MBAKA / A",
+              "voters": 1621
+            }
           ],
-          "EP MBAKANA / A": [
+          "NGARANG": [
             {
-              station: "BARBARA",
-              voters: 971
-            },
+              "station": "EP MBAKA / A",
+              "voters": 1621
+            }
+          ],
+          "BARBARA": [
             {
-              station: "MBAKANA",
-              voters: 415
-            },
+              "station": "EP MBAKANA / A",
+              "voters": 971
+            }
           ],
-          "EP MBALAINDE / A": [
+          "MBAKANA": [
             {
-              station: "BINGOH",
-              voters: 477
-            },
+              "station": "EP MBAKANA / A",
+              "voters": 415
+            }
+          ],
+          "BINGOH": [
             {
-              station: "MBALAINDE",
-              voters: 477
-            },
+              "station": "EP MBALAINDE / A",
+              "voters": 477
+            }
           ],
-          "EP MBANG REY / A": [
+          "MBALAINDE": [
             {
-              station: "BANDIP",
-              voters: 665
-            },
+              "station": "EP MBALAINDE / A",
+              "voters": 477
+            }
+          ],
+          "BANDIP": [
             {
-              station: "DJOCK",
-              voters: 665
-            },
+              "station": "EP MBANG REY / A",
+              "voters": 665
+            }
+          ],
+          "DJOCK": [
             {
-              station: "FADA",
-              voters: 4099
-            },
+              "station": "EP MBANG REY / A",
+              "voters": 665
+            }
+          ],
+          "FADA": [
             {
-              station: "MBANG",
-              voters: 1583
-            },
+              "station": "EP MBANG REY / A",
+              "voters": 4099
+            }
+          ],
+          "MBANG": [
             {
-              station: "IBAL",
-              voters: 665
-            },
+              "station": "EP MBANG REY / A",
+              "voters": 1583
+            }
+          ],
+          "IBAL": [
             {
-              station: "KIM",
-              voters: 816
-            },
+              "station": "EP MBANG REY / A",
+              "voters": 665
+            }
+          ],
+          "KIM": [
             {
-              station: "MAFARE",
-              voters: 1068
-            },
+              "station": "EP MBANG REY / A",
+              "voters": 816
+            }
+          ],
+          "MAFARE": [
             {
-              station: "MARCHE",
-              voters: 665
-            },
+              "station": "EP MBANG REY / A",
+              "voters": 1068
+            }
+          ],
+          "MARCHE": [
             {
-              station: "MIGALACK",
-              voters: 898
-            },
+              "station": "EP MBANG REY / A",
+              "voters": 665
+            }
+          ],
+          "MIGALACK": [
             {
-              station: "NDIP",
-              voters: 665
-            },
+              "station": "EP MBANG REY / A",
+              "voters": 898
+            }
+          ],
+          "NDIP": [
             {
-              station: "NDJOUCK",
-              voters: 665
-            },
+              "station": "EP MBANG REY / A",
+              "voters": 665
+            }
+          ],
+          "NDJOUCK": [
             {
-              station: "WAKASSAOU",
-              voters: 665
-            },
+              "station": "EP MBANG REY / A",
+              "voters": 665
+            }
+          ],
+          "WAKASSAOU": [
             {
-              station: "SA'A",
-              voters: 665
-            },
+              "station": "EP MBANG REY / A",
+              "voters": 665
+            }
+          ],
+          "SA'A": [
             {
-              station: "GOUDOU",
-              voters: 859
-            },
+              "station": "EP MBANG REY / A",
+              "voters": 665
+            }
           ],
-          "EP MBEING / A": [
+          "GOUDOU": [
             {
-              station: "MBEING",
-              voters: 935
-            },
+              "station": "EP MBANG REY / A",
+              "voters": 859
+            }
+          ],
+          "MBEING": [
             {
-              station: "MBEM",
-              voters: 872
-            },
+              "station": "EP MBEING / A",
+              "voters": 935
+            }
           ],
-          "EP MBONG / A": [
+          "MBEM": [
             {
-              station: "SOROMBEO",
-              voters: 287
-            },
+              "station": "EP MBEING / A",
+              "voters": 872
+            }
           ],
-          "EP MBONO / A": [
+          "SOROMBEO": [
             {
-              station: "BOUKOUTOU",
-              voters: 158
-            },
+              "station": "EP MBONG / A",
+              "voters": 287
+            }
+          ],
+          "BOUKOUTOU": [
             {
-              station: "MBONO",
-              voters: 80
-            },
+              "station": "EP MBONO / A",
+              "voters": 158
+            }
+          ],
+          "MBONO": [
             {
-              station: "SANGA",
-              voters: 80
-            },
+              "station": "EP MBONO / A",
+              "voters": 80
+            }
+          ],
+          "SANGA": [
             {
-              station: "MBAI",
-              voters: 1682
-            },
+              "station": "EP MBONO / A",
+              "voters": 80
+            }
           ],
-          "EP MOYO LADDE / A": [
+          "MBAI": [
             {
-              station: "KAOUN",
-              voters: 1378
-            },
+              "station": "EP MBONO / A",
+              "voters": 1682
+            }
+          ],
+          "KAOUN": [
             {
-              station: "LADDE",
-              voters: 688
-            },
+              "station": "EP MOYO LADDE / A",
+              "voters": 1378
+            }
           ],
-          "EP NDJINDANG / A": [
+          "LADDE": [
             {
-              station: "BABOUDJI",
-              voters: 425
-            },
+              "station": "EP MOYO LADDE / A",
+              "voters": 688
+            }
+          ],
+          "BABOUDJI": [
             {
-              station: "FOUFORE",
-              voters: 425
-            },
+              "station": "EP NDJINDANG / A",
+              "voters": 425
+            }
+          ],
+          "FOUFORE": [
             {
-              station: "KOUMVOU",
-              voters: 425
-            },
+              "station": "EP NDJINDANG / A",
+              "voters": 425
+            }
+          ],
+          "KOUMVOU": [
             {
-              station: "MBILKOUNI",
-              voters: 425
-            },
+              "station": "EP NDJINDANG / A",
+              "voters": 425
+            }
+          ],
+          "MBILKOUNI": [
             {
-              station: "NDJINDANG",
-              voters: 425
-            },
+              "station": "EP NDJINDANG / A",
+              "voters": 425
+            }
+          ],
+          "NDJINDANG": [
             {
-              station: "SEING",
-              voters: 2244
-            },
+              "station": "EP NDJINDANG / A",
+              "voters": 425
+            }
+          ],
+          "SEING": [
             {
-              station: "DJAOURO",
-              voters: 2614
-            },
+              "station": "EP NDJINDANG / A",
+              "voters": 2244
+            }
+          ],
+          "DJAOURO": [
             {
-              station: "NAN",
-              voters: 425
-            },
+              "station": "EP NDJINDANG / A",
+              "voters": 2614
+            }
           ],
-          "EP NDOCK / A": [
+          "NAN": [
             {
-              station: "NDOCK",
-              voters: 855
-            },
+              "station": "EP NDJINDANG / A",
+              "voters": 425
+            }
           ],
-          "EP NGAIN / A": [
+          "NDOCK": [
             {
-              station: "NANA",
-              voters: 459
-            },
+              "station": "EP NDOCK / A",
+              "voters": 855
+            }
+          ],
+          "NANA": [
             {
-              station: "NGAIN",
-              voters: 459
-            },
+              "station": "EP NGAIN / A",
+              "voters": 459
+            }
+          ],
+          "NGAIN": [
             {
-              station: "YAYA",
-              voters: 636
-            },
+              "station": "EP NGAIN / A",
+              "voters": 459
+            }
           ],
-          "EP NGAY LARA / A": [
+          "YAYA": [
             {
-              station: "NGAI",
-              voters: 511
-            },
+              "station": "EP NGAIN / A",
+              "voters": 636
+            }
+          ],
+          "NGAI": [
             {
-              station: "LARA",
-              voters: 259
-            },
+              "station": "EP NGAY LARA / A",
+              "voters": 511
+            }
           ],
-          "EP NGAY RAH / A": [
+          "LARA": [
             {
-              station: "NGAY",
-              voters: 210
-            },
+              "station": "EP NGAY LARA / A",
+              "voters": 259
+            }
+          ],
+          "NGAY": [
             {
-              station: "RAH",
-              voters: 210
-            },
+              "station": "EP NGAY RAH / A",
+              "voters": 210
+            }
           ],
-          "EP NGOUMI / A": [
+          "RAH": [
             {
-              station: "MINDAYE",
-              voters: 1160
-            },
+              "station": "EP NGAY RAH / A",
+              "voters": 210
+            }
+          ],
+          "MINDAYE": [
             {
-              station: "ROHL",
-              voters: 1160
-            },
+              "station": "EP NGOUMI / A",
+              "voters": 1160
+            }
           ],
-          "EP OURO DJODI / A": [
+          "ROHL": [
             {
-              station: "DJODI",
-              voters: 290
-            },
+              "station": "EP NGOUMI / A",
+              "voters": 1160
+            }
           ],
-          "EP OURO HAIROU / A": [
+          "DJODI": [
             {
-              station: "HAIROU",
-              voters: 183
-            },
+              "station": "EP OURO DJODI / A",
+              "voters": 290
+            }
           ],
-          "EP OURO KESSOUM / A": [
+          "HAIROU": [
             {
-              station: "KESSOUM",
-              voters: 628
-            },
+              "station": "EP OURO HAIROU / A",
+              "voters": 183
+            }
           ],
-          "EP OURO LAKWE / A": [
+          "KESSOUM": [
             {
-              station: "LAKWE",
-              voters: 448
-            },
+              "station": "EP OURO KESSOUM / A",
+              "voters": 628
+            }
           ],
-          "EP OURO MASSARA / A": [
+          "LAKWE": [
             {
-              station: "MASSARA",
-              voters: 663
-            },
+              "station": "EP OURO LAKWE / A",
+              "voters": 448
+            }
           ],
-          "EP PHACOCHERE / A": [
+          "MASSARA": [
             {
-              station: "PHACOCHERE",
-              voters: 1230
-            },
+              "station": "EP OURO MASSARA / A",
+              "voters": 663
+            }
           ],
-          "EP RIBAO / A": [
+          "PHACOCHERE": [
             {
-              station: "RIBAO",
-              voters: 428
-            },
+              "station": "EP PHACOCHERE / A",
+              "voters": 1230
+            }
           ],
-          "EP ROL/DSCHANG / A": [
+          "RIBAO": [
             {
-              station: "CONALEMOU",
-              voters: 502
-            },
+              "station": "EP RIBAO / A",
+              "voters": 428
+            }
+          ],
+          "CONALEMOU": [
             {
-              station: "DSCHANG",
-              voters: 502
-            },
+              "station": "EP ROL/DSCHANG / A",
+              "voters": 502
+            }
+          ],
+          "DSCHANG": [
             {
-              station: "MAZORGOI",
-              voters: 502
-            },
+              "station": "EP ROL/DSCHANG / A",
+              "voters": 502
+            }
+          ],
+          "MAZORGOI": [
             {
-              station: "ROL",
-              voters: 502
-            },
+              "station": "EP ROL/DSCHANG / A",
+              "voters": 502
+            }
+          ],
+          "ROL": [
             {
-              station: "SASSA",
-              voters: 502
-            },
+              "station": "EP ROL/DSCHANG / A",
+              "voters": 502
+            }
+          ],
+          "SASSA": [
             {
-              station: "PETEL",
-              voters: 580
-            },
+              "station": "EP ROL/DSCHANG / A",
+              "voters": 502
+            }
           ],
-          "EP SELAL MBOUSSIRI / A": [
+          "PETEL": [
             {
-              station: "KALAKI",
-              voters: 272
-            },
+              "station": "EP ROL/DSCHANG / A",
+              "voters": 580
+            }
+          ],
+          "KALAKI": [
             {
-              station: "GANKALIA",
-              voters: 272
-            },
+              "station": "EP SELAL MBOUSSIRI / A",
+              "voters": 272
+            }
+          ],
+          "GANKALIA": [
             {
-              station: "LAINDE",
-              voters: 272
-            },
+              "station": "EP SELAL MBOUSSIRI / A",
+              "voters": 272
+            }
+          ],
+          "LAINDE": [
             {
-              station: "GUINADJI",
-              voters: 272
-            },
+              "station": "EP SELAL MBOUSSIRI / A",
+              "voters": 272
+            }
+          ],
+          "GUINADJI": [
             {
-              station: "SELAL",
-              voters: 272
-            },
+              "station": "EP SELAL MBOUSSIRI / A",
+              "voters": 272
+            }
+          ],
+          "SELAL": [
             {
-              station: "MBOUSSIRI",
-              voters: 272
-            },
+              "station": "EP SELAL MBOUSSIRI / A",
+              "voters": 272
+            }
+          ],
+          "MBOUSSIRI": [
             {
-              station: "TALAKI",
-              voters: 272
-            },
+              "station": "EP SELAL MBOUSSIRI / A",
+              "voters": 272
+            }
+          ],
+          "TALAKI": [
             {
-              station: "MANDAL",
-              voters: 272
-            },
+              "station": "EP SELAL MBOUSSIRI / A",
+              "voters": 272
+            }
           ],
-          "EP SIRBIA / A": [
+          "MANDAL": [
             {
-              station: "SIRBIA",
-              voters: 344
-            },
+              "station": "EP SELAL MBOUSSIRI / A",
+              "voters": 272
+            }
           ],
-          "EP SIRI / A": [
+          "SIRBIA": [
             {
-              station: "SIRI",
-              voters: 460
-            },
+              "station": "EP SIRBIA / A",
+              "voters": 344
+            }
           ],
-          "EP SOKORTA MANGA / A": [
+          "SIRI": [
             {
-              station: "BOFORO",
-              voters: 303
-            },
+              "station": "EP SIRI / A",
+              "voters": 460
+            }
+          ],
+          "BOFORO": [
             {
-              station: "SODEA",
-              voters: 326
-            },
+              "station": "EP SOKORTA MANGA / A",
+              "voters": 303
+            }
+          ],
+          "SODEA": [
             {
-              station: "MANGA",
-              voters: 510
-            },
+              "station": "EP SOKORTA MANGA / A",
+              "voters": 326
+            }
+          ],
+          "MANGA": [
             {
-              station: "SOKORTA",
-              voters: 237
-            },
+              "station": "EP SOKORTA MANGA / A",
+              "voters": 510
+            }
+          ],
+          "SOKORTA": [
             {
-              station: "TENKORI",
-              voters: 159
-            },
+              "station": "EP SOKORTA MANGA / A",
+              "voters": 237
+            }
+          ],
+          "TENKORI": [
             {
-              station: "YAHORO",
-              voters: 159
-            },
+              "station": "EP SOKORTA MANGA / A",
+              "voters": 159
+            }
           ],
-          "EP SORAMBOUM / A": [
+          "YAHORO": [
             {
-              station: "MBARKA",
-              voters: 389
-            },
+              "station": "EP SOKORTA MANGA / A",
+              "voters": 159
+            }
+          ],
+          "MBARKA": [
             {
-              station: "SORAMBOUM",
-              voters: 389
-            },
+              "station": "EP SORAMBOUM / A",
+              "voters": 389
+            }
           ],
-          "EP TAPI / A": [
+          "SORAMBOUM": [
             {
-              station: "TAPI",
-              voters: 590
-            },
+              "station": "EP SORAMBOUM / A",
+              "voters": 389
+            }
           ],
-          "EP TOUBORO GPE 1 / A": [
+          "TAPI": [
             {
-              station: "LOUMO-DOLE",
-              voters: 1579
-            },
+              "station": "EP TAPI / A",
+              "voters": 590
+            }
+          ],
+          "LOUMO-DOLE": [
             {
-              station: "CARREFOUR",
-              voters: 3394
-            },
+              "station": "EP TOUBORO GPE 1 / A",
+              "voters": 1579
+            }
+          ],
+          "CARREFOUR": [
             {
-              station: "ALH",
-              voters: 2429
-            },
+              "station": "EP TOUBORO GPE 1 / A",
+              "voters": 3394
+            }
+          ],
+          "ALH": [
             {
-              station: "IBRAHIM",
-              voters: 1579
-            },
+              "station": "EP TOUBORO GPE 1 / A",
+              "voters": 2429
+            }
           ],
-          "EP TOUBORO GPE 2 / A": [
+          "IBRAHIM": [
             {
-              station: "BOKONDAYA",
-              voters: 462
-            },
+              "station": "EP TOUBORO GPE 1 / A",
+              "voters": 1579
+            }
+          ],
+          "BOKONDAYA": [
             {
-              station: "MISSION",
-              voters: 462
-            },
+              "station": "EP TOUBORO GPE 2 / A",
+              "voters": 462
+            }
+          ],
+          "MISSION": [
             {
-              station: "CATHOLIQUE",
-              voters: 462
-            },
+              "station": "EP TOUBORO GPE 2 / A",
+              "voters": 462
+            }
           ],
-          "EP TOULDORO BELAKA / A": [
+          "CATHOLIQUE": [
             {
-              station: "BENANA",
-              voters: 554
-            },
+              "station": "EP TOUBORO GPE 2 / A",
+              "voters": 462
+            }
+          ],
+          "BENANA": [
             {
-              station: "TOULDORO",
-              voters: 1364
-            },
+              "station": "EP TOULDORO BELAKA / A",
+              "voters": 554
+            }
+          ],
+          "TOULDORO": [
             {
-              station: "HAKAO",
-              voters: 965
-            },
+              "station": "EP TOULDORO BELAKA / A",
+              "voters": 1364
+            }
+          ],
+          "HAKAO": [
             {
-              station: "HOLKAN",
-              voters: 954
-            },
+              "station": "EP TOULDORO BELAKA / A",
+              "voters": 965
+            }
+          ],
+          "HOLKAN": [
             {
-              station: "SAKA",
-              voters: 682
-            },
+              "station": "EP TOULDORO BELAKA / A",
+              "voters": 954
+            }
           ],
-          "EP VOGZOM NAKE / A": [
+          "SAKA": [
             {
-              station: "NAKE",
-              voters: 434
-            },
+              "station": "EP TOULDORO BELAKA / A",
+              "voters": 682
+            }
           ],
-          "EP VONG NAH / A": [
+          "NAKE": [
             {
-              station: "BINI",
-              voters: 1645
-            },
+              "station": "EP VOGZOM NAKE / A",
+              "voters": 434
+            }
+          ],
+          "BINI": [
             {
-              station: "NAGGA",
-              voters: 1866
-            },
+              "station": "EP VONG NAH / A",
+              "voters": 1645
+            }
+          ],
+          "NAGGA": [
             {
-              station: "DARA",
-              voters: 1866
-            },
+              "station": "EP VONG NAH / A",
+              "voters": 1866
+            }
           ],
-          "EP WALDE / A": [
+          "DARA": [
             {
-              station: "WALDE",
-              voters: 1368
-            },
+              "station": "EP VONG NAH / A",
+              "voters": 1866
+            }
           ],
-          "EP WANTOUNOU / A": [
+          "WALDE": [
             {
-              station: "BOKOBO",
-              voters: 109
-            },
+              "station": "EP WALDE / A",
+              "voters": 1368
+            }
+          ],
+          "BOKOBO": [
             {
-              station: "WAKASSAO",
-              voters: 362
-            },
+              "station": "EP WANTOUNOU / A",
+              "voters": 109
+            }
+          ],
+          "WAKASSAO": [
             {
-              station: "WANTOUNOU",
-              voters: 109
-            },
+              "station": "EP WANTOUNOU / A",
+              "voters": 362
+            }
           ],
-          "EP YANDEA / A": [
+          "WANTOUNOU": [
             {
-              station: "TENYAWOE",
-              voters: 167
-            },
+              "station": "EP WANTOUNOU / A",
+              "voters": 109
+            }
+          ],
+          "TENYAWOE": [
             {
-              station: "YANDEA",
-              voters: 167
-            },
+              "station": "EP YANDEA / A",
+              "voters": 167
+            }
           ],
-          "EP YANLI GUIZIGA / A": [
+          "YANDEA": [
             {
-              station: "YANLI",
-              voters: 596
-            },
+              "station": "EP YANDEA / A",
+              "voters": 167
+            }
+          ],
+          "YANLI": [
             {
-              station: "GUIZIGA",
-              voters: 232
-            },
+              "station": "EP YANLI GUIZIGA / A",
+              "voters": 596
+            }
           ],
-          "EP YOKO / A": [
+          "GUIZIGA": [
             {
-              station: "BAL",
-              voters: 1382
-            },
+              "station": "EP YANLI GUIZIGA / A",
+              "voters": 232
+            }
+          ],
+          "BAL": [
             {
-              station: "BONG",
-              voters: 2010
-            },
+              "station": "EP YOKO / A",
+              "voters": 1382
+            }
+          ],
+          "BONG": [
             {
-              station: "REY",
-              voters: 3982
-            },
+              "station": "EP YOKO / A",
+              "voters": 2010
+            }
+          ],
+          "REY": [
             {
-              station: "KOUBAGDJE",
-              voters: 1382
-            },
+              "station": "EP YOKO / A",
+              "voters": 3982
+            }
+          ],
+          "KOUBAGDJE": [
             {
-              station: "MBONG",
-              voters: 1836
-            },
+              "station": "EP YOKO / A",
+              "voters": 1382
+            }
+          ],
+          "MBONG": [
             {
-              station: "TILLI",
-              voters: 1382
-            },
+              "station": "EP YOKO / A",
+              "voters": 1836
+            }
+          ],
+          "TILLI": [
             {
-              station: "YOKO",
-              voters: 1382
-            },
+              "station": "EP YOKO / A",
+              "voters": 1382
+            }
+          ],
+          "YOKO": [
             {
-              station: "YORO",
-              voters: 1685
-            },
+              "station": "EP YOKO / A",
+              "voters": 1382
+            }
           ],
-          "ESPL CHEF AKANA / A": [
+          "YORO": [
             {
-              station: "AKANA",
-              voters: 1448
-            },
+              "station": "EP YOKO / A",
+              "voters": 1685
+            }
           ],
-          "ESPL CHEF CARREFOU MAROUARE / A": [
+          "AKANA": [
             {
-              station: "KABA",
-              voters: 1818
-            },
+              "station": "ESPL CHEF AKANA / A",
+              "voters": 1448
+            }
+          ],
+          "KABA": [
             {
-              station: "MAROUARE",
-              voters: 1818
-            },
+              "station": "ESPL CHEF CARREFOU MAROUARE / A",
+              "voters": 1818
+            }
+          ],
+          "MAROUARE": [
             {
-              station: "NIGER",
-              voters: 1818
-            },
+              "station": "ESPL CHEF CARREFOU MAROUARE / A",
+              "voters": 1818
+            }
+          ],
+          "NIGER": [
             {
-              station: "TAKAROU",
-              voters: 1818
-            },
+              "station": "ESPL CHEF CARREFOU MAROUARE / A",
+              "voters": 1818
+            }
           ],
-          "ESPL CHEF CARREFOUR MAYO LAWA / A": [
+          "TAKAROU": [
             {
-              station: "LAWA",
-              voters: 639
-            },
+              "station": "ESPL CHEF CARREFOU MAROUARE / A",
+              "voters": 1818
+            }
           ],
-          "ESPL CHEF DJAMBOUTOU / A": [
+          "LAWA": [
             {
-              station: "DJAMBOUTOU",
-              voters: 546
-            },
+              "station": "ESPL CHEF CARREFOUR MAYO LAWA / A",
+              "voters": 639
+            }
           ],
-          "ESPL CHEF KOMBO VILLAGE / A": [
+          "DJAMBOUTOU": [
             {
-              station: "VILLAGE",
-              voters: 1337
-            },
+              "station": "ESPL CHEF DJAMBOUTOU / A",
+              "voters": 546
+            }
+          ],
+          "VILLAGE": [
             {
-              station: "KON",
-              voters: 515
-            },
+              "station": "ESPL CHEF KOMBO VILLAGE / A",
+              "voters": 1337
+            }
+          ],
+          "KON": [
             {
-              station: "MVOR",
-              voters: 515
-            },
+              "station": "ESPL CHEF KOMBO VILLAGE / A",
+              "voters": 515
+            }
+          ],
+          "MVOR": [
             {
-              station: "ZANDA",
-              voters: 515
-            },
+              "station": "ESPL CHEF KOMBO VILLAGE / A",
+              "voters": 515
+            }
           ],
-          "ESPL CHEF LAGGAYE / A": [
+          "ZANDA": [
             {
-              station: "DJIPORDE",
-              voters: 327
-            },
+              "station": "ESPL CHEF KOMBO VILLAGE / A",
+              "voters": 515
+            }
+          ],
+          "DJIPORDE": [
             {
-              station: "LAGGAYE",
-              voters: 580
-            },
+              "station": "ESPL CHEF LAGGAYE / A",
+              "voters": 327
+            }
+          ],
+          "LAGGAYE": [
             {
-              station: "LAOUDARI",
-              voters: 327
-            },
+              "station": "ESPL CHEF LAGGAYE / A",
+              "voters": 580
+            }
+          ],
+          "LAOUDARI": [
             {
-              station: "MBIDOUMA",
-              voters: 327
-            },
+              "station": "ESPL CHEF LAGGAYE / A",
+              "voters": 327
+            }
           ],
-          "ESPL CHEF LAGGOYE / A": [
+          "MBIDOUMA": [
             {
-              station: "AGALA",
-              voters: 351
-            },
+              "station": "ESPL CHEF LAGGAYE / A",
+              "voters": 327
+            }
+          ],
+          "AGALA": [
             {
-              station: "CARRIERE",
-              voters: 761
-            },
+              "station": "ESPL CHEF LAGGOYE / A",
+              "voters": 351
+            }
+          ],
+          "CARRIERE": [
             {
-              station: "LAGGOYE",
-              voters: 922
-            },
+              "station": "ESPL CHEF LAGGOYE / A",
+              "voters": 761
+            }
+          ],
+          "LAGGOYE": [
             {
-              station: "MBILAOU",
-              voters: 571
-            },
+              "station": "ESPL CHEF LAGGOYE / A",
+              "voters": 922
+            }
           ],
-          "ESPL CHEF LAOUNINGA / A": [
+          "MBILAOU": [
             {
-              station: "LAOUNINGA",
-              voters: 373
-            },
+              "station": "ESPL CHEF LAGGOYE / A",
+              "voters": 571
+            }
+          ],
+          "LAOUNINGA": [
             {
-              station: "NDANGA",
-              voters: 373
-            },
+              "station": "ESPL CHEF LAOUNINGA / A",
+              "voters": 373
+            }
           ],
-          "ESPL CHEF MAYO GUEMZECK / A": [
+          "NDANGA": [
             {
-              station: "MAYO-GUEMZEK",
-              voters: 523
-            },
+              "station": "ESPL CHEF LAOUNINGA / A",
+              "voters": 373
+            }
           ],
-          "ESPL CHEF MAYO ZARIA / A": [
+          "MAYO-GUEMZEK": [
             {
-              station: "ZARIA",
-              voters: 818
-            },
+              "station": "ESPL CHEF MAYO GUEMZECK / A",
+              "voters": 523
+            }
           ],
-          "ESPL CHEF MBAI MBOUM LAKHORO / A": [
+          "ZARIA": [
             {
-              station: "LAKHORO",
-              voters: 1805
-            },
+              "station": "ESPL CHEF MAYO ZARIA / A",
+              "voters": 818
+            }
           ],
-          "ESPL CHEF MBAI MBOUM MARCHE / A": [
+          "LAKHORO": [
             {
-              station: "MBOUM",
-              voters: 2025
-            },
+              "station": "ESPL CHEF MBAI MBOUM LAKHORO / A",
+              "voters": 1805
+            }
+          ],
+          "MBOUM": [
             {
-              station: "KOUDJEOU",
-              voters: 1602
-            },
+              "station": "ESPL CHEF MBAI MBOUM MARCHE / A",
+              "voters": 2025
+            }
+          ],
+          "KOUDJEOU": [
             {
-              station: "RIAD",
-              voters: 1602
-            },
+              "station": "ESPL CHEF MBAI MBOUM MARCHE / A",
+              "voters": 1602
+            }
           ],
-          "ESPL CHEF MBANG REY NDOCK TIBA / A": [
+          "RIAD": [
             {
-              station: "TIBA",
-              voters: 91
-            },
+              "station": "ESPL CHEF MBAI MBOUM MARCHE / A",
+              "voters": 1602
+            }
           ],
-          "ESPL CHEF MBIKOUNI FOULBE / A": [
+          "TIBA": [
             {
-              station: "FOULBE",
-              voters: 1366
-            },
+              "station": "ESPL CHEF MBANG REY NDOCK TIBA / A",
+              "voters": 91
+            }
+          ],
+          "FOULBE": [
             {
-              station: "RONGODONG",
-              voters: 1366
-            },
+              "station": "ESPL CHEF MBIKOUNI FOULBE / A",
+              "voters": 1366
+            }
+          ],
+          "RONGODONG": [
             {
-              station: "SODECOTON",
-              voters: 1997
-            },
+              "station": "ESPL CHEF MBIKOUNI FOULBE / A",
+              "voters": 1366
+            }
           ],
-          "ESPL CHEF MBITOM / A": [
+          "SODECOTON": [
             {
-              station: "MBITOM",
-              voters: 862
-            },
+              "station": "ESPL CHEF MBIKOUNI FOULBE / A",
+              "voters": 1997
+            }
           ],
-          "ESPL CHEF NDJORO / A": [
+          "MBITOM": [
             {
-              station: "NDJORO",
-              voters: 339
-            },
+              "station": "ESPL CHEF MBITOM / A",
+              "voters": 862
+            }
           ],
-          "ESPL CHEF NGAI NDICKI / A": [
+          "NDJORO": [
             {
-              station: "NDICKI",
-              voters: 252
-            },
+              "station": "ESPL CHEF NDJORO / A",
+              "voters": 339
+            }
           ],
-          "ESPL CHEF NGARA NGOH / A": [
+          "NDICKI": [
             {
-              station: "NGARA",
-              voters: 135
-            },
+              "station": "ESPL CHEF NGAI NDICKI / A",
+              "voters": 252
+            }
+          ],
+          "NGARA": [
             {
-              station: "NGOH",
-              voters: 135
-            },
+              "station": "ESPL CHEF NGARA NGOH / A",
+              "voters": 135
+            }
           ],
-          "ESPL CHEF NGUEOUTAOU / A": [
+          "NGOH": [
             {
-              station: "MBIDAM",
-              voters: 367
-            },
+              "station": "ESPL CHEF NGARA NGOH / A",
+              "voters": 135
+            }
+          ],
+          "MBIDAM": [
             {
-              station: "NDOUROU",
-              voters: 367
-            },
+              "station": "ESPL CHEF NGUEOUTAOU / A",
+              "voters": 367
+            }
+          ],
+          "NDOUROU": [
             {
-              station: "NGUEOUTAOU",
-              voters: 367
-            },
+              "station": "ESPL CHEF NGUEOUTAOU / A",
+              "voters": 367
+            }
           ],
-          "ESPL CHEF NGUIWIRI / A": [
+          "NGUEOUTAOU": [
             {
-              station: "KOUROUMDJI",
-              voters: 295
-            },
+              "station": "ESPL CHEF NGUEOUTAOU / A",
+              "voters": 367
+            }
+          ],
+          "KOUROUMDJI": [
             {
-              station: "MAKOUNI",
-              voters: 472
-            },
+              "station": "ESPL CHEF NGUIWIRI / A",
+              "voters": 295
+            }
+          ],
+          "MAKOUNI": [
             {
-              station: "NDJELE",
-              voters: 295
-            },
+              "station": "ESPL CHEF NGUIWIRI / A",
+              "voters": 472
+            }
+          ],
+          "NDJELE": [
             {
-              station: "NGAOUROM",
-              voters: 295
-            },
+              "station": "ESPL CHEF NGUIWIRI / A",
+              "voters": 295
+            }
+          ],
+          "NGAOUROM": [
             {
-              station: "NGUIRWIRI",
-              voters: 295
-            },
+              "station": "ESPL CHEF NGUIWIRI / A",
+              "voters": 295
+            }
           ],
-          "ESPL CHEF OURO DALA / A": [
+          "NGUIRWIRI": [
             {
-              station: "DALA",
-              voters: 177
-            },
+              "station": "ESPL CHEF NGUIWIRI / A",
+              "voters": 295
+            }
           ],
-          "ESPL CHEF TCHABAL SILE DJAORO BOUBA /  A": [
+          "DALA": [
             {
-              station: "TCHABAL",
-              voters: 866
-            },
+              "station": "ESPL CHEF OURO DALA / A",
+              "voters": 177
+            }
+          ],
+          "TCHABAL": [
             {
-              station: "SILE",
-              voters: 331
-            },
+              "station": "ESPL CHEF TCHABAL SILE DJAORO BOUBA /  A",
+              "voters": 866
+            }
+          ],
+          "SILE": [
             {
-              station: "DJAORO",
-              voters: 331
-            },
+              "station": "ESPL CHEF TCHABAL SILE DJAORO BOUBA /  A",
+              "voters": 331
+            }
+          ],
+          "DJAORO": [
             {
-              station: "BOUBA",
-              voters: 154
-            },
+              "station": "ESPL CHEF TCHABAL SILE DJAORO BOUBA /  A",
+              "voters": 331
+            }
           ],
-          "ESPL CHEF TOUBORO MBOUM / A": [
+          "BOUBA": [
             {
-              station: "BIRIBA",
-              voters: 1231
-            },
+              "station": "ESPL CHEF TCHABAL SILE DJAORO BOUBA /  A",
+              "voters": 154
+            }
+          ],
+          "BIRIBA": [
             {
-              station: "MBITOYE",
-              voters: 1435
-            },
+              "station": "ESPL CHEF TOUBORO MBOUM / A",
+              "voters": 1231
+            }
+          ],
+          "MBITOYE": [
             {
-              station: "TOUBORO",
-              voters: 4935
-            },
+              "station": "ESPL CHEF TOUBORO MBOUM / A",
+              "voters": 1435
+            }
           ],
-          "ESPLANADE CHEFFERI GOLOMBALI / A": [
+          "TOUBORO": [
             {
-              station: "GOLOMBALI",
-              voters: 470
-            },
+              "station": "ESPL CHEF TOUBORO MBOUM / A",
+              "voters": 4935
+            }
+          ],
+          "GOLOMBALI": [
             {
-              station: "NGOUMI",
-              voters: 8003
-            },
+              "station": "ESPLANADE CHEFFERI GOLOMBALI / A",
+              "voters": 470
+            }
           ],
-          "GIC SODECOTON LARAH NDAH / A": [
+          "NGOUMI": [
             {
-              station: "LARA-NDAH",
-              voters: 261
-            },
+              "station": "ESPLANADE CHEFFERI GOLOMBALI / A",
+              "voters": 8003
+            }
           ],
-          "LYCEE YANLI MOUNDANG / A": [
+          "LARA-NDAH": [
             {
-              station: "MOUNDANG",
-              voters: 364
-            },
+              "station": "GIC SODECOTON LARAH NDAH / A",
+              "voters": 261
+            }
           ],
-          "MAIRIE TOUBORO / A": [
+          "MOUNDANG": [
             {
-              station: "CAMP",
-              voters: 400
-            },
+              "station": "LYCEE YANLI MOUNDANG / A",
+              "voters": 364
+            }
+          ],
+          "CAMP": [
             {
-              station: "BIR",
-              voters: 200
-            },
+              "station": "MAIRIE TOUBORO / A",
+              "voters": 400
+            }
+          ],
+          "BIR": [
             {
-              station: "GENDARMERIE",
-              voters: 200
-            },
+              "station": "MAIRIE TOUBORO / A",
+              "voters": 200
+            }
+          ],
+          "GENDARMERIE": [
             {
-              station: "MAIRIE",
-              voters: 200
-            },
+              "station": "MAIRIE TOUBORO / A",
+              "voters": 200
+            }
           ],
-          "SOUS PREFECTURE TOUBORO / A": [
+          "MAIRIE": [
             {
-              station: "FONCTIONNAIRES",
-              voters: 353
-            },
+              "station": "MAIRIE TOUBORO / A",
+              "voters": 200
+            }
+          ],
+          "FONCTIONNAIRES": [
             {
-              station: "SOUS",
-              voters: 353
-            },
+              "station": "SOUS PREFECTURE TOUBORO / A",
+              "voters": 353
+            }
+          ],
+          "SOUS": [
             {
-              station: "PREFECTURE",
-              voters: 353
-            },
+              "station": "SOUS PREFECTURE TOUBORO / A",
+              "voters": 353
+            }
           ],
-        },
-      },
-    },
-  },
+          "PREFECTURE": [
+            {
+              "station": "SOUS PREFECTURE TOUBORO / A",
+              "voters": 353
+            }
+          ]
+        }
+      }
+    }
+  }
 };
