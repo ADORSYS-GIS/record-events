@@ -29,3738 +29,3909 @@ export type CameroonData = {
   [key: string]: RegionData;
 };
 
-export const cameroonData: CameroonData = {
+export const cameroonData = {
   "NORD-OUEST": {
-    name: { en: "NORTH-WEST", fr: "NORD-OUEST" },
-    divisions: {
+    "name": {
+      "en": "NORTH-WEST",
+      "fr": "NORD-OUEST"
+    },
+    "divisions": {
       "DONGA-MANTUNG": {
         "AKO": {
-          "ABUENSHE UP VILLAGE HALL / A": [
+          "101": [
             {
-              station: "Abuenshie",
-              voters: 776
-            },
+              "station": "G.S. JEYU / A",
+              "voters": 101
+            }
           ],
-          "G.H.S. AKO / A": [
+          "107": [
             {
-              station: "261",
-              voters: 261
-            },
+              "station": "ZOCHE VILLAGE HALL / A",
+              "voters": 107
+            }
           ],
-          "G.S. ABAFUM / A": [
+          "114": [
             {
-              station: "G.S",
-              voters: 7177
-            },
-            {
-              station: "Buku",
-              voters: 1275
-            },
+              "station": "GWMT. SCHOOL AKWESSE / A",
+              "voters": 114
+            }
           ],
-          "G.S. ABAKA / A": [
+          "123": [
             {
-              station: "Ako",
-              voters: 5126
-            },
+              "station": "MBOI VILLAGE HALL / A",
+              "voters": 123
+            }
           ],
-          "G.S. AKO 2 / A": [
+          "133": [
             {
-              station: "360",
-              voters: 360
-            },
+              "station": "G.S. JAFFOR NDOOH / A",
+              "voters": 133
+            }
           ],
-          "G.S. JAFFOR NDOOH / A": [
+          "140": [
             {
-              station: "133",
-              voters: 133
-            },
+              "station": "G.S. JEVI / A",
+              "voters": 140
+            }
           ],
-          "G.S. JEVI / A": [
+          "144": [
             {
-              station: "140",
-              voters: 140
-            },
+              "station": "MPENCHERE COUNCIL HALL / A",
+              "voters": 144
+            }
           ],
-          "G.S. JEYU / A": [
+          "145": [
             {
-              station: "101",
-              voters: 101
-            },
+              "station": "JAFFOR FRA VILLAGE HALL / A",
+              "voters": 145
+            }
           ],
-          "G.S. NDAKA / A": [
+          "172": [
             {
-              station: "187",
-              voters: 187
-            },
+              "station": "G.S. SABONGIDA / A",
+              "voters": 172
+            }
           ],
-          "G.S. NZIBIE / A": [
+          "178": [
             {
-              station: "356",
-              voters: 356
-            },
+              "station": "MBIRIBUA VILLAGE HALL / A",
+              "voters": 178
+            }
           ],
-          "G.S. SABONGIDA / A": [
+          "182": [
             {
-              station: "172",
-              voters: 172
-            },
+              "station": "NGATHO ANDE 2 SQUARE / A",
+              "voters": 182
+            }
           ],
-          "G.S. ZEMBEABURU / A": [
+          "187": [
             {
-              station: "239",
-              voters: 239
-            },
+              "station": "G.S. NDAKA / A",
+              "voters": 187
+            }
           ],
-          "GWMT. SCHOOL AKWESSE / A": [
+          "217": [
             {
-              station: "114",
-              voters: 114
-            },
+              "station": "JEVI COUNCIL HALL / A",
+              "voters": 217
+            }
           ],
-          "JAFFOR FRA VILLAGE HALL / A": [
+          "239": [
             {
-              station: "145",
-              voters: 145
-            },
+              "station": "G.S. ZEMBEABURU / A",
+              "voters": 239
+            }
           ],
-          "JEVI COUNCIL HALL / A": [
+          "261": [
             {
-              station: "217",
-              voters: 217
-            },
+              "station": "G.H.S. AKO / A",
+              "voters": 261
+            }
           ],
-          "MBANDE VILLAGE HALL / A": [
+          "288": [
             {
-              station: "294",
-              voters: 294
-            },
+              "station": "MBANDE VILLAGE HALL / B",
+              "voters": 288
+            }
           ],
-          "MBANDE VILLAGE HALL / B": [
+          "294": [
             {
-              station: "288",
-              voters: 288
-            },
+              "station": "MBANDE VILLAGE HALL / A",
+              "voters": 294
+            }
           ],
-          "MBIRIBUA VILLAGE HALL / A": [
+          "356": [
             {
-              station: "178",
-              voters: 178
-            },
+              "station": "G.S. NZIBIE / A",
+              "voters": 356
+            }
           ],
-          "MBOI VILLAGE HALL / A": [
+          "360": [
             {
-              station: "123",
-              voters: 123
-            },
+              "station": "G.S. AKO 2 / A",
+              "voters": 360
+            }
           ],
-          "MPENCHERE COUNCIL HALL / A": [
+          "Abuenshie": [
             {
-              station: "144",
-              voters: 144
-            },
+              "station": "ABUENSHE UP VILLAGE HALL / A",
+              "voters": 776
+            }
           ],
-          "NGATHO ANDE 2 SQUARE / A": [
+          "G.S": [
             {
-              station: "182",
-              voters: 182
-            },
+              "station": "G.S. ABAFUM / A",
+              "voters": 7177
+            }
           ],
-          "ZOCHE VILLAGE HALL / A": [
+          "Buku": [
             {
-              station: "107",
-              voters: 107
-            },
+              "station": "G.S. ABAFUM / A",
+              "voters": 1275
+            }
           ],
+          "Ako": [
+            {
+              "station": "G.S. ABAKA / A",
+              "voters": 5126
+            }
+          ]
         },
         "MISAJE": {
-          "C.B.C NJIPTOP / A": [
+          "127": [
             {
-              station: "322",
-              voters: 322
-            },
+              "station": "G.S. TENGTENG / A",
+              "voters": 127
+            }
           ],
-          "COM. HALL NJIYUNG / A": [
+          "136": [
             {
-              station: "139",
-              voters: 139
-            },
+              "station": "G.S. NSAM / A",
+              "voters": 136
+            }
           ],
-          "G.S MBAWRONG / A": [
+          "139": [
             {
-              station: "Ntumbaw",
-              voters: 1837
-            },
+              "station": "COM. HALL NJIYUNG / A",
+              "voters": 139
+            }
           ],
-          "G.S. MBENG-TAKU / A": [
+          "140": [
             {
-              station: "276",
-              voters: 276
-            },
+              "station": "G.S. NJIPLVU / A",
+              "voters": 280
+            }
           ],
-          "G.S. NJIFOR / A": [
+          "161": [
             {
-              station: "314",
-              voters: 314
-            },
+              "station": "G.S. NJINGARUM / A",
+              "voters": 161
+            }
           ],
-          "G.S. NJIFOR / B": [
+          "185": [
             {
-              station: "221",
-              voters: 221
-            },
+              "station": "P.S. KAKAR / A",
+              "voters": 185
+            }
           ],
-          "G.S. NJINGARUM / A": [
+          "221": [
             {
-              station: "161",
-              voters: 161
-            },
+              "station": "G.S. NJIFOR / B",
+              "voters": 221
+            }
           ],
-          "G.S. NJIPLVU / A": [
+          "230": [
             {
-              station: "140",
-              voters: 280
-            },
+              "station": "MBONGONG MKT SQUARE / B",
+              "voters": 230
+            }
           ],
-          "G.S. NSAM / A": [
+          "250": [
             {
-              station: "136",
-              voters: 136
-            },
+              "station": "G.S. NTISAW / B",
+              "voters": 250
+            }
           ],
-          "G.S. NTISAW / A": [
+          "269": [
             {
-              station: "277",
-              voters: 277
-            },
+              "station": "MBONGONG MKT SQUARE / A",
+              "voters": 269
+            }
           ],
-          "G.S. NTISAW / B": [
+          "276": [
             {
-              station: "250",
-              voters: 250
-            },
+              "station": "G.S. MBENG-TAKU / A",
+              "voters": 276
+            }
           ],
-          "G.S. TENGTENG / A": [
+          "277": [
             {
-              station: "127",
-              voters: 127
-            },
+              "station": "G.S. NTISAW / A",
+              "voters": 277
+            }
           ],
-          "JIRT COOPERATIVE / A": [
+          "282": [
             {
-              station: "Ndu",
-              voters: 5630
-            },
-            {
-              station: "Grandstand",
-              voters: 5630
-            },
+              "station": "NTUNGE COOPERATIVE / A",
+              "voters": 282
+            }
           ],
-          "MBIYEH CUSTOMARY COURT / A": [
+          "300": [
             {
-              station: "G.S",
-              voters: 5083
-            },
-            {
-              station: "Talla",
-              voters: 3246
-            },
+              "station": "NSHI-O-DOH C.B.C. SCH / B",
+              "voters": 300
+            }
           ],
-          "MBONGONG MKT SQUARE / A": [
+          "314": [
             {
-              station: "269",
-              voters: 269
-            },
+              "station": "G.S. NJIFOR / A",
+              "voters": 314
+            }
           ],
-          "MBONGONG MKT SQUARE / B": [
+          "322": [
             {
-              station: "230",
-              voters: 230
-            },
+              "station": "C.B.C NJIPTOP / A",
+              "voters": 322
+            }
           ],
-          "NSHI-O-DOH C.B.C. SCH / A": [
+          "349": [
             {
-              station: "349",
-              voters: 349
-            },
+              "station": "NSHI-O-DOH C.B.C. SCH / A",
+              "voters": 349
+            }
           ],
-          "NSHI-O-DOH C.B.C. SCH / B": [
+          "390": [
             {
-              station: "300",
-              voters: 300
-            },
+              "station": "NTAMNRUH MARKET SQ. / A",
+              "voters": 390
+            }
           ],
-          "NTAMNRUH MARKET SQ. / A": [
+          "Ntumbaw": [
             {
-              station: "390",
-              voters: 390
-            },
+              "station": "G.S MBAWRONG / A",
+              "voters": 1837
+            }
           ],
-          "NTUNGE COOPERATIVE / A": [
+          "Ndu": [
             {
-              station: "282",
-              voters: 282
-            },
+              "station": "JIRT COOPERATIVE / A",
+              "voters": 5630
+            }
           ],
-          "P.S. KAKAR / A": [
+          "Grandstand": [
             {
-              station: "185",
-              voters: 185
-            },
+              "station": "JIRT COOPERATIVE / A",
+              "voters": 5630
+            }
           ],
+          "G.S": [
+            {
+              "station": "MBIYEH CUSTOMARY COURT / A",
+              "voters": 5083
+            }
+          ],
+          "Talla": [
+            {
+              "station": "MBIYEH CUSTOMARY COURT / A",
+              "voters": 3246
+            }
+          ]
         },
         "NKAMBE": {
-          "ARMY CAMP / A": [
+          "109": [
             {
-              station: "High",
-              voters: 1523
-            },
-            {
-              station: "Ways",
-              voters: 1523
-            },
-            {
-              station: "Nkambe",
-              voters: 4311
-            },
+              "station": "CNPS NKAMBE / C",
+              "voters": 109
+            }
           ],
-          "BINKA COOPERATIVE STORE / A": [
+          "119": [
             {
-              station: "G.S",
-              voters: 1969
-            },
-            {
-              station: "Binka",
-              voters: 1969
-            },
+              "station": "G.S MBIBU / A",
+              "voters": 119
+            }
           ],
-          "BINSHUA WOMEN'S HALL / A": [
+          "120": [
             {
-              station: "G.B.S",
-              voters: 1308
-            },
+              "station": "FUNCHI MARKET SQUARE / A",
+              "voters": 120
+            }
           ],
-          "BINTALA SQUARE / A": [
+          "131": [
             {
-              station: "231",
-              voters: 231
-            },
+              "station": "C.S MBAA / A",
+              "voters": 131
+            }
           ],
-          "BONYAP CULTURAL HALL / A": [
+          "137": [
             {
-              station: "362",
-              voters: 362
-            },
+              "station": "G.T.T.C NKAMBE / A",
+              "voters": 137
+            }
           ],
-          "C.B.C WAT / A": [
+          "138": [
             {
-              station: "139",
-              voters: 139
-            },
+              "station": "MBANGUI YOUTH CENTER / A",
+              "voters": 138
+            }
           ],
-          "C.S MBAA / A": [
+          "139": [
             {
-              station: "131",
-              voters: 131
-            },
+              "station": "C.B.C WAT / A",
+              "voters": 139
+            }
           ],
-          "C.S MBIRBOH / A": [
+          "143": [
             {
-              station: "288",
-              voters: 288
-            },
+              "station": "NKATECCUL / B",
+              "voters": 143
+            }
           ],
-          "C.S. KIEKU / A": [
+          "145": [
             {
-              station: "321",
-              voters: 321
-            },
+              "station": "P.S NJILAH / A",
+              "voters": 145
+            }
           ],
-          "C.S. KIEKU / B": [
+          "147": [
             {
-              station: "196",
-              voters: 392
-            },
+              "station": "COMM. HALL KINDFU / A",
+              "voters": 147
+            }
           ],
-          "CATHOLIC MISSION MBANTU / A": [
+          "151": [
             {
-              station: "151",
-              voters: 151
-            },
+              "station": "CATHOLIC MISSION MBANTU / A",
+              "voters": 151
+            }
           ],
-          "CENTRAL BAR / A": [
+          "166": [
             {
-              station: "329",
-              voters: 658
-            },
+              "station": "HEALTH CENTER BINKA / A",
+              "voters": 166
+            }
           ],
-          "CNPS NKAMBE / A": [
+          "167": [
             {
-              station: "350",
-              voters: 350
-            },
+              "station": "GVMT. SCHOOL GWEMENG / A",
+              "voters": 167
+            }
           ],
-          "CNPS NKAMBE / B": [
+          "184": [
             {
-              station: "300",
-              voters: 300
-            },
+              "station": "HEALTH CENTER BINSHUA / A",
+              "voters": 184
+            }
           ],
-          "CNPS NKAMBE / C": [
+          "187": [
             {
-              station: "109",
-              voters: 109
-            },
+              "station": "SUB PREFECTURE / A",
+              "voters": 187
+            }
           ],
-          "COMM. HALL KINDFU / A": [
+          "188": [
             {
-              station: "147",
-              voters: 147
-            },
+              "station": "YAMBA YOUTH HALL / A",
+              "voters": 188
+            }
           ],
-          "COMM. HALL MBANKA / A": [
+          "196": [
             {
-              station: "229",
-              voters: 229
-            },
+              "station": "C.S. KIEKU / B",
+              "voters": 392
+            }
           ],
-          "COMMERCE / A": [
+          "198": [
             {
-              station: "361",
-              voters: 361
-            },
+              "station": "G.S MBAKA / A",
+              "voters": 198
+            }
           ],
-          "COUNCIL CHAMBERS / A": [
+          "208": [
             {
-              station: "302",
-              voters: 302
-            },
+              "station": "G.S TUKU / A",
+              "voters": 208
+            }
           ],
-          "FUNCHI MARKET SQUARE / A": [
+          "212": [
             {
-              station: "120",
-              voters: 120
-            },
+              "station": "NKATECCUL / A",
+              "voters": 424
+            }
           ],
-          "G.S BINKA / A": [
+          "213": [
             {
-              station: "292",
-              voters: 584
-            },
+              "station": "G.S. WAT / A",
+              "voters": 213
+            }
           ],
-          "G.S MBAKA / A": [
+          "217": [
             {
-              station: "198",
-              voters: 198
-            },
+              "station": "G.S. NGOTONG / A",
+              "voters": 217
+            }
           ],
-          "G.S MBIBU / A": [
+          "228": [
             {
-              station: "119",
-              voters: 119
-            },
+              "station": "GBS NKAMBE / A",
+              "voters": 228
+            }
           ],
-          "G.S MBIRBOH / A": [
+          "229": [
             {
-              station: "289",
-              voters: 289
-            },
+              "station": "COMM. HALL MBANKA / A",
+              "voters": 229
+            }
           ],
-          "G.S MOH / A": [
+          "230": [
             {
-              station: "433",
-              voters: 433
-            },
+              "station": "NGIE MARKET SQUARE / B",
+              "voters": 230
+            }
           ],
-          "G.S NJEMAH / A": [
+          "231": [
             {
-              station: "304",
-              voters: 608
-            },
+              "station": "BINTALA SQUARE / A",
+              "voters": 231
+            }
           ],
-          "G.S TUKU / A": [
+          "247": [
             {
-              station: "208",
-              voters: 208
-            },
+              "station": "NTERMBANG G.S. / A",
+              "voters": 247
+            }
           ],
-          "G.S. BINJENG / A": [
+          "257": [
             {
-              station: "G.S.S",
-              voters: 837
-            },
-            {
-              station: "Bih",
-              voters: 837
-            },
+              "station": "PHYTOSANITORY / B",
+              "voters": 257
+            }
           ],
-          "G.S. BONDU / A": [
+          "267": [
             {
-              station: "G.H.S",
-              voters: 2416
-            },
-            {
-              station: "Tabenken",
-              voters: 2416
-            },
+              "station": "PHYTOSANITORY / A",
+              "voters": 534
+            }
           ],
-          "G.S. KONCHEP / A": [
+          "269": [
             {
-              station: "G.P.S",
-              voters: 1480
-            },
+              "station": "G.S. MBABI / A",
+              "voters": 269
+            }
           ],
-          "G.S. MBABI / A": [
+          "271": [
             {
-              station: "269",
-              voters: 269
-            },
+              "station": "TORCH BEARERS / A",
+              "voters": 542
+            }
           ],
-          "G.S. NGOTONG / A": [
+          "276": [
             {
-              station: "217",
-              voters: 217
-            },
+              "station": "GRAND STAND / C",
+              "voters": 276
+            }
           ],
-          "G.S. WAT / A": [
+          "288": [
             {
-              station: "213",
-              voters: 213
-            },
+              "station": "C.S MBIRBOH / A",
+              "voters": 288
+            }
           ],
-          "G.T.T.C NKAMBE / A": [
+          "289": [
             {
-              station: "137",
-              voters: 137
-            },
+              "station": "G.S MBIRBOH / A",
+              "voters": 289
+            }
           ],
-          "GBS NKAMBE / A": [
+          "292": [
             {
-              station: "228",
-              voters: 228
-            },
+              "station": "G.S BINKA / A",
+              "voters": 584
+            }
           ],
-          "GRAND STAND / A": [
+          "300": [
             {
-              station: "363",
-              voters: 363
-            },
+              "station": "CNPS NKAMBE / B",
+              "voters": 300
+            }
           ],
-          "GRAND STAND / B": [
+          "302": [
             {
-              station: "309",
-              voters: 309
-            },
+              "station": "COUNCIL CHAMBERS / A",
+              "voters": 302
+            }
           ],
-          "GRAND STAND / C": [
+          "304": [
             {
-              station: "276",
-              voters: 276
-            },
+              "station": "G.S NJEMAH / A",
+              "voters": 608
+            }
           ],
-          "GRAND STAND / D": [
+          "309": [
             {
-              station: "338",
-              voters: 338
-            },
+              "station": "GRAND STAND / B",
+              "voters": 309
+            }
           ],
-          "GVMT. SCHOOL GWEMENG / A": [
+          "321": [
             {
-              station: "167",
-              voters: 167
-            },
+              "station": "C.S. KIEKU / A",
+              "voters": 321
+            }
           ],
-          "HEALTH CENTER BINKA / A": [
+          "324": [
             {
-              station: "166",
-              voters: 166
-            },
+              "station": "WAT MARKET SQUARE / A",
+              "voters": 324
+            }
           ],
-          "HEALTH CENTER BINSHUA / A": [
+          "329": [
             {
-              station: "184",
-              voters: 184
-            },
+              "station": "CENTRAL BAR / A",
+              "voters": 658
+            }
           ],
-          "MBANGUI YOUTH CENTER / A": [
+          "336": [
             {
-              station: "138",
-              voters: 138
-            },
+              "station": "NWANGRI COOPERATIVE HALL / A",
+              "voters": 336
+            }
           ],
-          "MBAYA HALL, TFUM / A": [
+          "338": [
             {
-              station: "470",
-              voters: 470
-            },
+              "station": "GRAND STAND / D",
+              "voters": 338
+            }
           ],
-          "MBIKOP MARKET SQUARE / A": [
+          "339": [
             {
-              station: "367",
-              voters: 367
-            },
+              "station": "SASH HALL NKAMBE / C",
+              "voters": 1017
+            }
           ],
-          "NGIE MARKET SQUARE / B": [
+          "350": [
             {
-              station: "230",
-              voters: 230
-            },
+              "station": "CNPS NKAMBE / A",
+              "voters": 350
+            }
           ],
-          "NKATECCUL / A": [
+          "361": [
             {
-              station: "212",
-              voters: 424
-            },
+              "station": "COMMERCE / A",
+              "voters": 361
+            }
           ],
-          "NKATECCUL / B": [
+          "362": [
             {
-              station: "143",
-              voters: 143
-            },
+              "station": "BONYAP CULTURAL HALL / A",
+              "voters": 362
+            }
           ],
-          "NTERMBANG G.S. / A": [
+          "363": [
             {
-              station: "247",
-              voters: 247
-            },
+              "station": "GRAND STAND / A",
+              "voters": 363
+            }
           ],
-          "NWANGRI COOPERATIVE HALL / A": [
+          "367": [
             {
-              station: "336",
-              voters: 336
-            },
+              "station": "MBIKOP MARKET SQUARE / A",
+              "voters": 367
+            }
           ],
-          "P.S NJILAH / A": [
+          "389": [
             {
-              station: "145",
-              voters: 145
-            },
+              "station": "SAAH MARKET SQUARE / A",
+              "voters": 389
+            }
           ],
-          "PHYTOSANITORY / A": [
+          "403": [
             {
-              station: "267",
-              voters: 534
-            },
+              "station": "ST LOUIS / A",
+              "voters": 403
+            }
           ],
-          "PHYTOSANITORY / B": [
+          "433": [
             {
-              station: "257",
-              voters: 257
-            },
+              "station": "G.S MOH / A",
+              "voters": 433
+            }
           ],
-          "SAAH MARKET SQUARE / A": [
+          "470": [
             {
-              station: "389",
-              voters: 389
-            },
+              "station": "MBAYA HALL, TFUM / A",
+              "voters": 470
+            }
           ],
-          "SASH HALL NKAMBE / C": [
+          "High": [
             {
-              station: "339",
-              voters: 1017
-            },
+              "station": "ARMY CAMP / A",
+              "voters": 1523
+            }
           ],
-          "ST LOUIS / A": [
+          "Ways": [
             {
-              station: "403",
-              voters: 403
-            },
+              "station": "ARMY CAMP / A",
+              "voters": 1523
+            }
           ],
-          "SUB PREFECTURE / A": [
+          "Nkambe": [
             {
-              station: "187",
-              voters: 187
-            },
+              "station": "ARMY CAMP / A",
+              "voters": 4311
+            }
           ],
-          "TORCH BEARERS / A": [
+          "G.S": [
             {
-              station: "271",
-              voters: 542
-            },
+              "station": "BINKA COOPERATIVE STORE / A",
+              "voters": 1969
+            }
           ],
-          "WAT MARKET SQUARE / A": [
+          "Binka": [
             {
-              station: "324",
-              voters: 324
-            },
+              "station": "BINKA COOPERATIVE STORE / A",
+              "voters": 1969
+            }
           ],
-          "YAMBA YOUTH HALL / A": [
+          "G.B.S": [
             {
-              station: "188",
-              voters: 188
-            },
+              "station": "BINSHUA WOMEN'S HALL / A",
+              "voters": 1308
+            }
           ],
+          "G.S.S": [
+            {
+              "station": "G.S. BINJENG / A",
+              "voters": 837
+            }
+          ],
+          "Bih": [
+            {
+              "station": "G.S. BINJENG / A",
+              "voters": 837
+            }
+          ],
+          "G.H.S": [
+            {
+              "station": "G.S. BONDU / A",
+              "voters": 2416
+            }
+          ],
+          "Tabenken": [
+            {
+              "station": "G.S. BONDU / A",
+              "voters": 2416
+            }
+          ],
+          "G.P.S": [
+            {
+              "station": "G.S. KONCHEP / A",
+              "voters": 1480
+            }
+          ]
         },
         "NWA": {
-          "G.S ADERE / A": [
+          "Nwa": [
             {
-              station: "Nwa",
-              voters: 7590
-            },
-            {
-              station: "Community",
-              voters: 7590
-            },
-            {
-              station: "Hall",
-              voters: 7590
-            },
+              "station": "G.S ADERE / A",
+              "voters": 7590
+            }
           ],
-        },
+          "Community": [
+            {
+              "station": "G.S ADERE / A",
+              "voters": 7590
+            }
+          ],
+          "Hall": [
+            {
+              "station": "G.S ADERE / A",
+              "voters": 7590
+            }
+          ]
+        }
       },
       "MOMO": {
         "ANDEK": {
-          "ACHA-TUGI HOSPITAL / A": [
+          "102": [
             {
-              station: "SAR/SM",
-              voters: 737
-            },
+              "station": "C.S NJINDOM / B",
+              "voters": 102
+            }
           ],
-          "C.S NJINDOM / A": [
+          "106": [
             {
-              station: "373",
-              voters: 373
-            },
+              "station": "G.S. NJERWO / A",
+              "voters": 106
+            }
           ],
-          "C.S NJINDOM / B": [
+          "130": [
             {
-              station: "102",
-              voters: 102
-            },
+              "station": "P.C. MBENGWI / B",
+              "voters": 130
+            }
           ],
-          "EJEE MARKET SQUARE / A": [
+          "160": [
             {
-              station: "160",
-              voters: 160
-            },
+              "station": "EJEE MARKET SQUARE / A",
+              "voters": 160
+            }
           ],
-          "G.S ANGLO ARABIC / A": [
+          "161": [
             {
-              station: "G.B.S",
-              voters: 2784
-            },
-            {
-              station: "MBENGWI",
-              voters: 8289
-            },
+              "station": "SANG MARKET SQUARE / A",
+              "voters": 161
+            }
           ],
-          "G.S MUNAM / A": [
+          "176": [
             {
-              station: "290",
-              voters: 290
-            },
+              "station": "NJIMETU MARKET SQUARE / A",
+              "voters": 176
+            }
           ],
-          "G.S NJINIBI / A": [
+          "186": [
             {
-              station: "296",
-              voters: 296
-            },
+              "station": "G.S. TUANYANG / A",
+              "voters": 186
+            }
           ],
-          "G.S. BESSI-FOMUKONG / A": [
+          "189": [
             {
-              station: "COUNCIL",
-              voters: 3703
-            },
-            {
-              station: "HALL",
-              voters: 3703
-            },
+              "station": "G.S. NOWOKWONG / A",
+              "voters": 189
+            }
           ],
-          "G.S. CHIGWIRI / A": [
+          "198": [
             {
-              station: "GBHS",
-              voters: 1802
-            },
+              "station": "G.S. WUMSOM / A",
+              "voters": 198
+            }
           ],
-          "G.S. NJAH-ETU / A": [
+          "219": [
             {
-              station: "304",
-              voters: 304
-            },
+              "station": "G.S. TUDIG / A",
+              "voters": 219
+            }
           ],
-          "G.S. NJERWO / A": [
+          "222": [
             {
-              station: "106",
-              voters: 106
-            },
+              "station": "P.C. ZEM / A",
+              "voters": 222
+            }
           ],
-          "G.S. NOWOKWONG / A": [
+          "267": [
             {
-              station: "189",
-              voters: 189
-            },
+              "station": "G.S. WUMNEBURG / A",
+              "voters": 267
+            }
           ],
-          "G.S. TUANYANG / A": [
+          "279": [
             {
-              station: "186",
-              voters: 186
-            },
+              "station": "G.S. TUGI / A",
+              "voters": 279
+            }
           ],
-          "G.S. TUDIG / A": [
+          "290": [
             {
-              station: "219",
-              voters: 219
-            },
+              "station": "G.S MUNAM / A",
+              "voters": 290
+            }
           ],
-          "G.S. TUGI / A": [
+          "296": [
             {
-              station: "279",
-              voters: 279
-            },
+              "station": "G.S NJINIBI / A",
+              "voters": 296
+            }
           ],
-          "G.S. WUMNEBURG / A": [
+          "304": [
             {
-              station: "267",
-              voters: 267
-            },
+              "station": "G.S. NJAH-ETU / A",
+              "voters": 304
+            }
           ],
-          "G.S. WUMSOM / A": [
+          "325": [
             {
-              station: "198",
-              voters: 198
-            },
+              "station": "NGYEN-MBO COMMUNITY HALL / B",
+              "voters": 325
+            }
           ],
-          "G.S. ZANG-TABI / A": [
+          "346": [
             {
-              station: "358",
-              voters: 358
-            },
+              "station": "NGYEN-MBO COMMUNITY HALL / A",
+              "voters": 346
+            }
           ],
-          "NGYEN-MBO COMMUNITY HALL / A": [
+          "358": [
             {
-              station: "346",
-              voters: 346
-            },
+              "station": "G.S. ZANG-TABI / A",
+              "voters": 358
+            }
           ],
-          "NGYEN-MBO COMMUNITY HALL / B": [
+          "368": [
             {
-              station: "325",
-              voters: 325
-            },
+              "station": "NYEN COOPERTIVE HALL / A",
+              "voters": 368
+            }
           ],
-          "NJIMETU MARKET SQUARE / A": [
+          "373": [
             {
-              station: "176",
-              voters: 176
-            },
+              "station": "C.S NJINDOM / A",
+              "voters": 373
+            }
           ],
-          "NYEN COOPERTIVE HALL / A": [
+          "SAR/SM": [
             {
-              station: "368",
-              voters: 368
-            },
+              "station": "ACHA-TUGI HOSPITAL / A",
+              "voters": 737
+            }
           ],
-          "P.C. MBENGWI / B": [
+          "G.B.S": [
             {
-              station: "130",
-              voters: 130
-            },
+              "station": "G.S ANGLO ARABIC / A",
+              "voters": 2784
+            }
           ],
-          "P.C. ZEM / A": [
+          "MBENGWI": [
             {
-              station: "222",
-              voters: 222
-            },
+              "station": "G.S ANGLO ARABIC / A",
+              "voters": 8289
+            }
           ],
-          "SANG MARKET SQUARE / A": [
+          "COUNCIL": [
             {
-              station: "161",
-              voters: 161
-            },
+              "station": "G.S. BESSI-FOMUKONG / A",
+              "voters": 3703
+            }
           ],
+          "HALL": [
+            {
+              "station": "G.S. BESSI-FOMUKONG / A",
+              "voters": 3703
+            }
+          ],
+          "GBHS": [
+            {
+              "station": "G.S. CHIGWIRI / A",
+              "voters": 1802
+            }
+          ]
         },
         "NJIKWA": {
-          "BAKO MARKET SQUARE / A": [
+          "101": [
             {
-              station: "INSPECTORATE",
-              voters: 2221
-            },
-            {
-              station: "BASIC",
-              voters: 2221
-            },
-            {
-              station: "EDUCATION",
-              voters: 2221
-            },
-            {
-              station: "NJIKWA",
-              voters: 2221
-            },
+              "station": "TOGOBEI -KU HALL / A",
+              "voters": 101
+            }
           ],
-          "BEMBAN HALL / A": [
+          "106": [
             {
-              station: "106",
-              voters: 106
-            },
+              "station": "BEMBAN HALL / A",
+              "voters": 106
+            }
           ],
-          "BEREJE HALL / A": [
+          "123": [
             {
-              station: "243",
-              voters: 243
-            },
+              "station": "NYIKOP HALL / A",
+              "voters": 123
+            }
           ],
-          "COOPERATIVE HALL OSHIE / A": [
+          "127": [
             {
-              station: "304",
-              voters: 304
-            },
+              "station": "NJWO HALL / A",
+              "voters": 127
+            }
           ],
-          "G.S. SOH / A": [
+          "163": [
             {
-              station: "203",
-              voters: 203
-            },
+              "station": "SABRI HALL / A",
+              "voters": 163
+            }
           ],
-          "NGEBENGE HALL / A": [
+          "179": [
             {
-              station: "179",
-              voters: 179
-            },
+              "station": "NGEBENGE HALL / A",
+              "voters": 179
+            }
           ],
-          "NJIKWA COUNCIL HALL / A": [
+          "193": [
             {
-              station: "324",
-              voters: 324
-            },
+              "station": "NYEBAI HALL / A",
+              "voters": 193
+            }
           ],
-          "NJWO HALL / A": [
+          "203": [
             {
-              station: "127",
-              voters: 127
-            },
+              "station": "G.S. SOH / A",
+              "voters": 203
+            }
           ],
-          "NKUN COOPERATIVE HALL / A": [
+          "243": [
             {
-              station: "342",
-              voters: 342
-            },
+              "station": "BEREJE HALL / A",
+              "voters": 243
+            }
           ],
-          "NYEBAI HALL / A": [
+          "304": [
             {
-              station: "193",
-              voters: 193
-            },
+              "station": "COOPERATIVE HALL OSHIE / A",
+              "voters": 304
+            }
           ],
-          "NYIKOP HALL / A": [
+          "324": [
             {
-              station: "123",
-              voters: 123
-            },
+              "station": "NJIKWA COUNCIL HALL / A",
+              "voters": 324
+            }
           ],
-          "SABRI HALL / A": [
+          "342": [
             {
-              station: "163",
-              voters: 163
-            },
+              "station": "NKUN COOPERATIVE HALL / A",
+              "voters": 342
+            }
           ],
-          "TOGOBEI -KU HALL / A": [
+          "INSPECTORATE": [
             {
-              station: "101",
-              voters: 101
-            },
+              "station": "BAKO MARKET SQUARE / A",
+              "voters": 2221
+            }
           ],
+          "BASIC": [
+            {
+              "station": "BAKO MARKET SQUARE / A",
+              "voters": 2221
+            }
+          ],
+          "EDUCATION": [
+            {
+              "station": "BAKO MARKET SQUARE / A",
+              "voters": 2221
+            }
+          ],
+          "NJIKWA": [
+            {
+              "station": "BAKO MARKET SQUARE / A",
+              "voters": 2221
+            }
+          ]
         },
         "WIDIKUM": {
-          "C.S. ACHANA / A": [
+          "100": [
             {
-              station: "122",
-              voters: 122
-            },
+              "station": "G.S. ISHIA / A",
+              "voters": 100
+            }
           ],
-          "C.S. AMBOMBO / A": [
+          "107": [
             {
-              station: "BIFANG",
-              voters: 2589
-            },
+              "station": "G.S LARRINJI / A",
+              "voters": 107
+            }
           ],
-          "CATHOLIC MISSION OCHIE / A": [
+          "117": [
             {
-              station: "151",
-              voters: 151
-            },
+              "station": "COMMUNITY HALL MANTOH / A",
+              "voters": 117
+            }
           ],
-          "COMMUNITY HALL MANTOH / A": [
+          "119": [
             {
-              station: "117",
-              voters: 117
-            },
+              "station": "G.S. KANIMBOM / A",
+              "voters": 119
+            }
           ],
-          "CUSTOMARY COURT HALL MENKA / A": [
+          "120": [
             {
-              station: "184",
-              voters: 184
-            },
+              "station": "G.S. ACHANA / A",
+              "voters": 120
+            }
           ],
-          "G.S LARRINJI / A": [
+          "122": [
             {
-              station: "107",
-              voters: 107
-            },
+              "station": "C.S. ACHANA / A",
+              "voters": 122
+            }
           ],
-          "G.S TANKA / A": [
+          "128": [
             {
-              station: "171",
-              voters: 171
-            },
+              "station": "KWAFONG CATHOLIC CHURCH / A",
+              "voters": 128
+            }
           ],
-          "G.S. ABEDU / A": [
+          "138": [
             {
-              station: "G.S",
-              voters: 7378
-            },
-            {
-              station: "WIDIKUM",
-              voters: 4206
-            },
+              "station": "N.A.C. MBAKOK HALL / A",
+              "voters": 138
+            }
           ],
-          "G.S. ACHANA / A": [
+          "151": [
             {
-              station: "120",
-              voters: 120
-            },
+              "station": "CATHOLIC MISSION OCHIE / A",
+              "voters": 151
+            }
           ],
-          "G.S. BAMBEN / A": [
+          "171": [
             {
-              station: "TIKOM",
-              voters: 583
-            },
+              "station": "G.S TANKA / A",
+              "voters": 171
+            }
           ],
-          "G.S. ISHIA / A": [
+          "184": [
             {
-              station: "100",
-              voters: 100
-            },
+              "station": "CUSTOMARY COURT HALL MENKA / A",
+              "voters": 184
+            }
           ],
-          "G.S. KANIMBOM / A": [
+          "303": [
             {
-              station: "119",
-              voters: 119
-            },
+              "station": "G.S. TIKOM / A",
+              "voters": 303
+            }
           ],
-          "G.S. NGALLA / A": [
+          "320": [
             {
-              station: "365",
-              voters: 365
-            },
+              "station": "G.S. NYEN / A",
+              "voters": 320
+            }
           ],
-          "G.S. NYEN / A": [
+          "352": [
             {
-              station: "320",
-              voters: 320
-            },
+              "station": "G.S. OLORUNTI / A",
+              "voters": 352
+            }
           ],
-          "G.S. OLORUNTI / A": [
+          "365": [
             {
-              station: "352",
-              voters: 352
-            },
+              "station": "G.S. NGALLA / A",
+              "voters": 365
+            }
           ],
-          "G.S. TIKOM / A": [
+          "BIFANG": [
             {
-              station: "303",
-              voters: 303
-            },
+              "station": "C.S. AMBOMBO / A",
+              "voters": 2589
+            }
           ],
-          "KWAFONG CATHOLIC CHURCH / A": [
+          "G.S": [
             {
-              station: "128",
-              voters: 128
-            },
+              "station": "G.S. ABEDU / A",
+              "voters": 7378
+            }
           ],
-          "N.A.C. MBAKOK HALL / A": [
+          "WIDIKUM": [
             {
-              station: "138",
-              voters: 138
-            },
+              "station": "G.S. ABEDU / A",
+              "voters": 4206
+            }
           ],
-        },
+          "TIKOM": [
+            {
+              "station": "G.S. BAMBEN / A",
+              "voters": 583
+            }
+          ]
+        }
       },
       "NGOKE TUNJIA": {
         "BABESSI": {
-          "AKUMUM GOVERNMENT SCHOOL / A": [
+          "108": [
             {
-              station: "235",
-              voters: 235
-            },
+              "station": "NDUMMET BADO HALL / A",
+              "voters": 108
+            }
           ],
-          "BALOM HEALTH CENTRE / A": [
+          "122": [
             {
-              station: "201",
-              voters: 201
-            },
+              "station": "NJINDEM MEETING HOUSE / A",
+              "voters": 122
+            }
           ],
-          "BAMUNKUMBIT G.S.S./ A": [
+          "130": [
             {
-              station: "169",
-              voters: 169
-            },
+              "station": "PILIMBO COMMUNITY HALL / A",
+              "voters": 130
+            }
           ],
-          "EKWO GOVERNMENT SCHOOL / A": [
+          "154": [
             {
-              station: "BADO",
-              voters: 6222
-            },
-            {
-              station: "HALL",
-              voters: 6222
-            },
+              "station": "MBANTAP FULL GOSPEL CHURCH / A",
+              "voters": 154
+            }
           ],
-          "MANJOM G.S. ALUMLI / A": [
+          "169": [
             {
-              station: "188",
-              voters: 188
-            },
+              "station": "BAMUNKUMBIT G.S.S./ A",
+              "voters": 169
+            }
           ],
-          "MANJOM G.S./ A": [
+          "188": [
             {
-              station: "236",
-              voters: 236
-            },
+              "station": "MANJOM G.S. ALUMLI / A",
+              "voters": 188
+            }
           ],
-          "MBANKA C.S./ A": [
+          "190": [
             {
-              station: "371",
-              voters: 371
-            },
+              "station": "NGONGO CATHOLIC SCHOOL / A",
+              "voters": 190
+            }
           ],
-          "MBANTAP FULL GOSPEL CHURCH / A": [
+          "191": [
             {
-              station: "154",
-              voters: 154
-            },
+              "station": "WAPU GOV'T SCHOOL / A",
+              "voters": 191
+            }
           ],
-          "MBANTI AGRIC POST / A": [
+          "201": [
             {
-              station: "290",
-              voters: 290
-            },
+              "station": "BALOM HEALTH CENTRE / A",
+              "voters": 201
+            }
           ],
-          "MULAFI G.S./ A": [
+          "207": [
             {
-              station: "364",
-              voters: 364
-            },
+              "station": "MUNANJI PRESBYTERIAN CHURCH / A",
+              "voters": 207
+            }
           ],
-          "MUNANJI PRESBYTERIAN CHURCH / A": [
+          "222": [
             {
-              station: "207",
-              voters: 207
-            },
+              "station": "NYUGU C.B.C CHURCH / A",
+              "voters": 222
+            }
           ],
-          "NDUMMET BADO HALL / A": [
+          "235": [
             {
-              station: "108",
-              voters: 108
-            },
+              "station": "AKUMUM GOVERNMENT SCHOOL / A",
+              "voters": 235
+            }
           ],
-          "NGOLANEPKAT C.S./ A": [
+          "236": [
             {
-              station: "334",
-              voters: 334
-            },
+              "station": "MANJOM G.S./ A",
+              "voters": 236
+            }
           ],
-          "NGONGO CATHOLIC SCHOOL / A": [
+          "290": [
             {
-              station: "190",
-              voters: 190
-            },
+              "station": "MBANTI AGRIC POST / A",
+              "voters": 290
+            }
           ],
-          "NJINDEM MEETING HOUSE / A": [
+          "319": [
             {
-              station: "122",
-              voters: 122
-            },
+              "station": "NYONGSONGHA BADO HALL / A",
+              "voters": 319
+            }
           ],
-          "NYAMBU KODUNA G.S./ A": [
+          "334": [
             {
-              station: "341",
-              voters: 341
-            },
+              "station": "NGOLANEPKAT C.S./ A",
+              "voters": 334
+            }
           ],
-          "NYONGSONGHA BADO HALL / A": [
+          "341": [
             {
-              station: "319",
-              voters: 319
-            },
+              "station": "NYAMBU KODUNA G.S./ A",
+              "voters": 341
+            }
           ],
-          "NYUGU C.B.C CHURCH / A": [
+          "359": [
             {
-              station: "222",
-              voters: 222
-            },
+              "station": "SMALL MARKET PRESBY. SCHOOL / A",
+              "voters": 359
+            }
           ],
-          "PILIMBO COMMUNITY HALL / A": [
+          "364": [
             {
-              station: "130",
-              voters: 130
-            },
+              "station": "MULAFI G.S./ A",
+              "voters": 364
+            }
           ],
-          "SMALL MARKET PRESBY. SCHOOL / A": [
+          "371": [
             {
-              station: "359",
-              voters: 359
-            },
+              "station": "MBANKA C.S./ A",
+              "voters": 371
+            }
           ],
-          "WAPU GOV'T SCHOOL / A": [
+          "BADO": [
             {
-              station: "191",
-              voters: 191
-            },
+              "station": "EKWO GOVERNMENT SCHOOL / A",
+              "voters": 6222
+            }
           ],
-        },
+          "HALL": [
+            {
+              "station": "EKWO GOVERNMENT SCHOOL / A",
+              "voters": 6222
+            }
+          ]
+        }
       },
       "MEZAM": {
         "BAFUT": {
-          "ADIEMUKONG MARKET SQUARE / A": [
+          "102": [
             {
-              station: "Council",
-              voters: 2502
-            },
-            {
-              station: "building,",
-              voters: 2502
-            },
-            {
-              station: "nsoh",
-              voters: 2502
-            },
+              "station": "G.S. NIKO / B",
+              "voters": 102
+            }
           ],
-          "C.S MBERIWI / A": [
+          "103": [
             {
-              station: "103",
-              voters: 103
-            },
+              "station": "C.S MBERIWI / A",
+              "voters": 103
+            }
           ],
-          "C.S NSOH / A": [
+          "110": [
             {
-              station: "411",
-              voters: 411
-            },
+              "station": "P.C NJIBUJANG / B",
+              "voters": 110
+            }
           ],
-          "C.S NSOH / B": [
+          "114": [
             {
-              station: "367",
-              voters: 367
-            },
+              "station": "G.S. NEBEBA / A",
+              "voters": 114
+            }
           ],
-          "C.S NSOH / C": [
+          "122": [
             {
-              station: "455",
-              voters: 455
-            },
+              "station": "P.S. NCHUM / B",
+              "voters": 122
+            }
           ],
-          "COMMUNITY HALL NTABUWE / A": [
+          "134": [
             {
-              station: "339",
-              voters: 339
-            },
+              "station": "CUSTOMARY COURT NJINTEH / C",
+              "voters": 134
+            }
           ],
-          "CUSTOMARY COURT NJINTEH / A": [
+          "156": [
             {
-              station: "388",
-              voters: 388
-            },
+              "station": "G.S. MFONTA / A",
+              "voters": 156
+            }
           ],
-          "CUSTOMARY COURT NJINTEH / B": [
+          "157": [
             {
-              station: "387",
-              voters: 387
-            },
+              "station": "G.S. OKWALA / A",
+              "voters": 157
+            }
           ],
-          "CUSTOMARY COURT NJINTEH / C": [
+          "158": [
             {
-              station: "134",
-              voters: 134
-            },
+              "station": "MUNDUM HEALTH CENTER / A",
+              "voters": 158
+            }
           ],
-          "G.S MBEBILI / A": [
+          "170": [
             {
-              station: "294",
-              voters: 294
-            },
+              "station": "P.C NIBE / A",
+              "voters": 170
+            }
           ],
-          "G.S NDUNG / A": [
+          "181": [
             {
-              station: "404",
-              voters: 404
-            },
+              "station": "G.S. NSOH / B",
+              "voters": 181
+            }
           ],
-          "G.S. ACHENI / A": [
+          "198": [
             {
-              station: "G.N.S",
-              voters: 4939
-            },
-            {
-              station: "AGYATI",
-              voters: 4939
-            },
+              "station": "G.S. NJIBUJANG / A",
+              "voters": 198
+            }
           ],
-          "G.S. MANKWI / A": [
+          "212": [
             {
-              station: "324",
-              voters: 324
-            },
+              "station": "G.S. NJIMBEE / A",
+              "voters": 212
+            }
           ],
-          "G.S. MANKWI / B": [
+          "252": [
             {
-              station: "311",
-              voters: 311
-            },
+              "station": "G.S. MUGHIE / A",
+              "voters": 252
+            }
           ],
-          "G.S. MBAKONG / A": [
+          "254": [
             {
-              station: "418",
-              voters: 418
-            },
+              "station": "MFORYA MKT SQUARE / B",
+              "voters": 508
+            }
           ],
-          "G.S. MFONTA / A": [
+          "271": [
             {
-              station: "156",
-              voters: 156
-            },
+              "station": "P.C. ALANTAH / B",
+              "voters": 271
+            }
           ],
-          "G.S. MUGHIE / A": [
+          "276": [
             {
-              station: "252",
-              voters: 252
-            },
+              "station": "MFORYA MKT SQUARE / A",
+              "voters": 276
+            }
           ],
-          "G.S. NEBEBA / A": [
+          "286": [
             {
-              station: "114",
-              voters: 114
-            },
+              "station": "G.S. TINGOH / B",
+              "voters": 286
+            }
           ],
-          "G.S. NIKO / A": [
+          "294": [
             {
-              station: "429",
-              voters: 429
-            },
+              "station": "G.S MBEBILI / A",
+              "voters": 294
+            }
           ],
-          "G.S. NIKO / B": [
+          "311": [
             {
-              station: "102",
-              voters: 102
-            },
+              "station": "G.S. MANKWI / B",
+              "voters": 311
+            }
           ],
-          "G.S. NJIBUJANG / A": [
+          "316": [
             {
-              station: "198",
-              voters: 198
-            },
+              "station": "G.S. TINGOH / A",
+              "voters": 316
+            }
           ],
-          "G.S. NJIMBEE / A": [
+          "324": [
             {
-              station: "212",
-              voters: 212
-            },
+              "station": "G.S. MANKWI / A",
+              "voters": 324
+            }
           ],
-          "G.S. NSOH / A": [
+          "337": [
             {
-              station: "393",
-              voters: 393
-            },
+              "station": "P.C. MBEBALI / B",
+              "voters": 337
+            }
           ],
-          "G.S. NSOH / B": [
+          "339": [
             {
-              station: "181",
-              voters: 181
-            },
+              "station": "COMMUNITY HALL NTABUWE / A",
+              "voters": 339
+            }
           ],
-          "G.S. OBANG / A": [
+          "357": [
             {
-              station: "389",
-              voters: 389
-            },
+              "station": "P.C. MBEBALI / A",
+              "voters": 357
+            }
           ],
-          "G.S. OKWALA / A": [
+          "363": [
             {
-              station: "157",
-              voters: 157
-            },
+              "station": "P.C NJIBUJANG / A",
+              "voters": 363
+            }
           ],
-          "G.S. TINGOH / A": [
+          "367": [
             {
-              station: "316",
-              voters: 316
-            },
+              "station": "C.S NSOH / B",
+              "voters": 367
+            }
           ],
-          "G.S. TINGOH / B": [
+          "387": [
             {
-              station: "286",
-              voters: 286
-            },
+              "station": "CUSTOMARY COURT NJINTEH / B",
+              "voters": 387
+            }
           ],
-          "MFORYA MKT SQUARE / A": [
+          "388": [
             {
-              station: "276",
-              voters: 276
-            },
+              "station": "CUSTOMARY COURT NJINTEH / A",
+              "voters": 388
+            }
           ],
-          "MFORYA MKT SQUARE / B": [
+          "389": [
             {
-              station: "254",
-              voters: 508
-            },
+              "station": "G.S. OBANG / A",
+              "voters": 389
+            }
           ],
-          "MUNDUM HEALTH CENTER / A": [
+          "393": [
             {
-              station: "158",
-              voters: 158
-            },
+              "station": "G.S. NSOH / A",
+              "voters": 393
+            }
           ],
-          "P.C NIBE / A": [
+          "404": [
             {
-              station: "170",
-              voters: 170
-            },
+              "station": "G.S NDUNG / A",
+              "voters": 404
+            }
           ],
-          "P.C NJIBUJANG / A": [
+          "405": [
             {
-              station: "363",
-              voters: 363
-            },
+              "station": "P.S. NSEM / A",
+              "voters": 405
+            }
           ],
-          "P.C NJIBUJANG / B": [
+          "411": [
             {
-              station: "110",
-              voters: 110
-            },
+              "station": "C.S NSOH / A",
+              "voters": 411
+            }
           ],
-          "P.C. ALANTAH / B": [
+          "417": [
             {
-              station: "271",
-              voters: 271
-            },
+              "station": "P.S. NCHUM / A",
+              "voters": 417
+            }
           ],
-          "P.C. MBEBALI / A": [
+          "418": [
             {
-              station: "357",
-              voters: 357
-            },
+              "station": "G.S. MBAKONG / A",
+              "voters": 418
+            }
           ],
-          "P.C. MBEBALI / B": [
+          "429": [
             {
-              station: "337",
-              voters: 337
-            },
+              "station": "G.S. NIKO / A",
+              "voters": 429
+            }
           ],
-          "P.S. NCHUM / A": [
+          "455": [
             {
-              station: "417",
-              voters: 417
-            },
+              "station": "C.S NSOH / C",
+              "voters": 455
+            }
           ],
-          "P.S. NCHUM / B": [
+          "Council": [
             {
-              station: "122",
-              voters: 122
-            },
+              "station": "ADIEMUKONG MARKET SQUARE / A",
+              "voters": 2502
+            }
           ],
-          "P.S. NSEM / A": [
+          "building,": [
             {
-              station: "405",
-              voters: 405
-            },
+              "station": "ADIEMUKONG MARKET SQUARE / A",
+              "voters": 2502
+            }
           ],
+          "nsoh": [
+            {
+              "station": "ADIEMUKONG MARKET SQUARE / A",
+              "voters": 2502
+            }
+          ],
+          "G.N.S": [
+            {
+              "station": "G.S. ACHENI / A",
+              "voters": 4939
+            }
+          ],
+          "AGYATI": [
+            {
+              "station": "G.S. ACHENI / A",
+              "voters": 4939
+            }
+          ]
         },
         "BALI": {
-          "ALPHA NURSERY AND PRIMARY / A": [
+          "114": [
             {
-              station: "318",
-              voters: 318
-            },
+              "station": "GTHS SANG / B",
+              "voters": 114
+            }
           ],
-          "BALI COMMUNITY HALL / A": [
+          "115": [
             {
-              station: "369",
-              voters: 369
-            },
+              "station": "NGWATKAN COMMUNITY HALL / A",
+              "voters": 115
+            }
           ],
-          "BALI COMMUNITY HALL / B": [
+          "143": [
             {
-              station: "329",
-              voters: 329
-            },
+              "station": "NETAB P.C. HALL / A",
+              "voters": 143
+            }
           ],
-          "C.P.C. BALI / A": [
+          "148": [
             {
-              station: "200",
-              voters: 400
-            },
+              "station": "HAUSSA COOPERATIVE HALL / B",
+              "voters": 148
+            }
           ],
-          "C.S. BALI / A": [
+          "154": [
             {
-              station: "278",
-              voters: 278
-            },
+              "station": "P.S. NJENKA / C",
+              "voters": 154
+            }
           ],
-          "G.N.S. / A": [
+          "200": [
             {
-              station: "374",
-              voters: 374
-            },
+              "station": "C.P.C. BALI / A",
+              "voters": 400
+            }
           ],
-          "G.N.S. / B": [
+          "204": [
             {
-              station: "327",
-              voters: 327
-            },
+              "station": "NSAMWOCK COOPERATIVE HALL / A",
+              "voters": 204
+            }
           ],
-          "G.N.S. / C": [
+          "278": [
             {
-              station: "294",
-              voters: 294
-            },
+              "station": "C.S. BALI / A",
+              "voters": 278
+            }
           ],
-          "G.S BAWOCK / A": [
+          "294": [
             {
-              station: "416",
-              voters: 416
-            },
+              "station": "G.N.S. / C",
+              "voters": 294
+            }
           ],
-          "G.S WOSING / A": [
+          "318": [
             {
-              station: "400",
-              voters: 400
-            },
+              "station": "ALPHA NURSERY AND PRIMARY / A",
+              "voters": 318
+            }
           ],
-          "GTHS SANG / A": [
+          "327": [
             {
-              station: "383",
-              voters: 383
-            },
+              "station": "G.N.S. / B",
+              "voters": 327
+            }
           ],
-          "GTHS SANG / B": [
+          "329": [
             {
-              station: "114",
-              voters: 114
-            },
+              "station": "BALI COMMUNITY HALL / B",
+              "voters": 329
+            }
           ],
-          "HAUSSA COOPERATIVE HALL / A": [
+          "359": [
             {
-              station: "359",
-              voters: 359
-            },
+              "station": "HAUSSA COOPERATIVE HALL / A",
+              "voters": 359
+            }
           ],
-          "HAUSSA COOPERATIVE HALL / B": [
+          "369": [
             {
-              station: "148",
-              voters: 148
-            },
+              "station": "BALI COMMUNITY HALL / A",
+              "voters": 369
+            }
           ],
-          "INTEGRATED HEALTH CENTRE / A": [
+          "374": [
             {
-              station: "407",
-              voters: 407
-            },
+              "station": "G.N.S. / A",
+              "voters": 374
+            }
           ],
-          "NETAB P.C. HALL / A": [
+          "383": [
             {
-              station: "143",
-              voters: 143
-            },
+              "station": "GTHS SANG / A",
+              "voters": 383
+            }
           ],
-          "NGWATKAN COMMUNITY HALL / A": [
+          "389": [
             {
-              station: "115",
-              voters: 115
-            },
+              "station": "P.S. NJENKA / A",
+              "voters": 389
+            }
           ],
-          "NSAMWOCK COOPERATIVE HALL / A": [
+          "400": [
             {
-              station: "204",
-              voters: 204
-            },
+              "station": "G.S WOSING / A",
+              "voters": 400
+            }
           ],
-          "P.S. NJENKA / A": [
+          "401": [
             {
-              station: "389",
-              voters: 389
-            },
+              "station": "P.S. NJENKA / B",
+              "voters": 401
+            }
           ],
-          "P.S. NJENKA / B": [
+          "407": [
             {
-              station: "401",
-              voters: 401
-            },
+              "station": "INTEGRATED HEALTH CENTRE / A",
+              "voters": 407
+            }
           ],
-          "P.S. NJENKA / C": [
+          "416": [
             {
-              station: "154",
-              voters: 154
-            },
+              "station": "G.S BAWOCK / A",
+              "voters": 416
+            }
           ],
-          "TITA MUFUT CULTURAL HALL / A": [
+          "LEGAL": [
             {
-              station: "LEGAL",
-              voters: 3339
-            },
-            {
-              station: "D￉PARTEMENT",
-              voters: 3339
-            },
-            {
-              station: "BUILDING.",
-              voters: 3339
-            },
+              "station": "TITA MUFUT CULTURAL HALL / A",
+              "voters": 3339
+            }
           ],
+          "D￉PARTEMENT": [
+            {
+              "station": "TITA MUFUT CULTURAL HALL / A",
+              "voters": 3339
+            }
+          ],
+          "BUILDING.": [
+            {
+              "station": "TITA MUFUT CULTURAL HALL / A",
+              "voters": 3339
+            }
+          ]
         },
         "BAMENDA II": {
-          "C.S MBATU / A": [
+          "164": [
             {
-              station: "211",
-              voters: 211
-            },
+              "station": "PRESBY CH-HALL NSONGWA / A",
+              "voters": 164
+            }
           ],
-          "C.S NJIMAFOR / A": [
+          "174": [
             {
-              station: "314",
-              voters: 314
-            },
+              "station": "G.B.H.S MBATU / A",
+              "voters": 174
+            }
           ],
-          "C.S. BIG MANKOM / A": [
+          "211": [
             {
-              station: "G.S",
-              voters: 1309
-            },
+              "station": "C.S MBATU / A",
+              "voters": 211
+            }
           ],
-          "CATHOLIC CHURCH NJIMAFOR / A": [
+          "286": [
             {
-              station: "380",
-              voters: 380
-            },
+              "station": "VETERINARY CLINIC / F",
+              "voters": 286
+            }
           ],
-          "G.B.H.S MBATU / A": [
+          "287": [
             {
-              station: "174",
-              voters: 174
-            },
+              "station": "VETERINARY CLINIC / D",
+              "voters": 287
+            }
           ],
-          "G.S NSONGWA MILE 90 / A": [
+          "291": [
             {
-              station: "376",
-              voters: 376
-            },
+              "station": "VETERINARY CLINIC / E",
+              "voters": 291
+            }
           ],
-          "G.S NSONGWA MILE 90 / B": [
+          "314": [
             {
-              station: "346",
-              voters: 346
-            },
+              "station": "C.S NJIMAFOR / A",
+              "voters": 314
+            }
           ],
-          "G.S NSONGWA MILE 90 / C": [
+          "317": [
             {
-              station: "361",
-              voters: 361
-            },
+              "station": "VETERINARY CLINIC / G",
+              "voters": 317
+            }
           ],
-          "G.S. CHOMBA / A": [
+          "346": [
             {
-              station: "COUNCIL",
-              voters: 2932
-            },
-            {
-              station: "LIBRARY",
-              voters: 2932
-            },
+              "station": "G.S NSONGWA MILE 90 / B",
+              "voters": 346
+            }
           ],
-          "HEALTH CEN. ALABUKAM / A": [
+          "361": [
             {
-              station: "G.B.S-GMI",
-              voters: 5506
-            },
+              "station": "G.S NSONGWA MILE 90 / C",
+              "voters": 361
+            }
           ],
-          "MINCOM/ADMINISTRATIVE GARAGE / A": [
+          "376": [
             {
-              station: "G.B.S",
-              voters: 345
-            },
-            {
-              station: "OLD",
-              voters: 1654
-            },
-            {
-              station: "TOWN",
-              voters: 1654
-            },
+              "station": "G.S NSONGWA MILE 90 / A",
+              "voters": 376
+            }
           ],
-          "MROMASSA HALL / A": [
+          "380": [
             {
-              station: "397",
-              voters: 397
-            },
+              "station": "CATHOLIC CHURCH NJIMAFOR / A",
+              "voters": 380
+            }
           ],
-          "PRESBY CH-HALL NSONGWA / A": [
+          "397": [
             {
-              station: "164",
-              voters: 164
-            },
+              "station": "MROMASSA HALL / A",
+              "voters": 397
+            }
           ],
-          "VETERINARY CLINIC / D": [
+          "G.S": [
             {
-              station: "287",
-              voters: 287
-            },
+              "station": "C.S. BIG MANKOM / A",
+              "voters": 1309
+            }
           ],
-          "VETERINARY CLINIC / E": [
+          "COUNCIL": [
             {
-              station: "291",
-              voters: 291
-            },
+              "station": "G.S. CHOMBA / A",
+              "voters": 2932
+            }
           ],
-          "VETERINARY CLINIC / F": [
+          "LIBRARY": [
             {
-              station: "286",
-              voters: 286
-            },
+              "station": "G.S. CHOMBA / A",
+              "voters": 2932
+            }
           ],
-          "VETERINARY CLINIC / G": [
+          "G.B.S-GMI": [
             {
-              station: "317",
-              voters: 317
-            },
+              "station": "HEALTH CEN. ALABUKAM / A",
+              "voters": 5506
+            }
           ],
+          "G.B.S": [
+            {
+              "station": "MINCOM/ADMINISTRATIVE GARAGE / A",
+              "voters": 345
+            }
+          ],
+          "OLD": [
+            {
+              "station": "MINCOM/ADMINISTRATIVE GARAGE / A",
+              "voters": 1654
+            }
+          ],
+          "TOWN": [
+            {
+              "station": "MINCOM/ADMINISTRATIVE GARAGE / A",
+              "voters": 1654
+            }
+          ]
         },
         "BAMENDA III": {
-          "C.B.C. MILE 3 / A": [
+          "CBC": [
             {
-              station: "CBC",
-              voters: 4876
-            },
-            {
-              station: "MILE",
-              voters: 4444
-            },
+              "station": "C.B.C. MILE 3 / A",
+              "voters": 4876
+            }
           ],
-          "FORMER P & T DELEGATION / B": [
+          "MILE": [
             {
-              station: "NKWEN",
-              voters: 712
-            },
+              "station": "C.B.C. MILE 3 / A",
+              "voters": 4444
+            }
           ],
-          "INDEPENDENCE HALL ALAHLIE / A": [
+          "NKWEN": [
             {
-              station: "FUTRU",
-              voters: 5775
-            },
+              "station": "FORMER P & T DELEGATION / B",
+              "voters": 712
+            }
           ],
-          "INDEPENDENCE HALL MBELEWA / A": [
+          "FUTRU": [
             {
-              station: "NIBUNG",
-              voters: 352
-            },
+              "station": "INDEPENDENCE HALL ALAHLIE / A",
+              "voters": 5775
+            }
           ],
-          "PMI NKWEN / A": [
+          "NIBUNG": [
             {
-              station: "BAYELLE",
-              voters: 5337
-            },
+              "station": "INDEPENDENCE HALL MBELEWA / A",
+              "voters": 352
+            }
           ],
-          "ST JOHN CATHOLIC SCHOOL / A": [
+          "BAYELLE": [
             {
-              station: "GTHS",
-              voters: 280
-            },
+              "station": "PMI NKWEN / A",
+              "voters": 5337
+            }
           ],
-          "TEKEN HALL / A": [
+          "GTHS": [
             {
-              station: "TEKEN",
-              voters: 744
-            },
-            {
-              station: "HALL",
-              voters: 744
-            },
+              "station": "ST JOHN CATHOLIC SCHOOL / A",
+              "voters": 280
+            }
           ],
-          "WIMBUM WOMEN'S HALL / A": [
+          "TEKEN": [
             {
-              station: "NTAMBESSI",
-              voters: 3085
-            },
+              "station": "TEKEN HALL / A",
+              "voters": 744
+            }
           ],
+          "HALL": [
+            {
+              "station": "TEKEN HALL / A",
+              "voters": 744
+            }
+          ],
+          "NTAMBESSI": [
+            {
+              "station": "WIMBUM WOMEN'S HALL / A",
+              "voters": 3085
+            }
+          ]
         },
         "BAMENDA I": {
-          "BAMENDA PRISON CANTEEN / A": [
+          "169": [
             {
-              station: "G.S.",
-              voters: 2901
-            },
-            {
-              station: "STATION",
-              voters: 2901
-            },
+              "station": "C.S. NTENEFOR / D",
+              "voters": 169
+            }
           ],
-          "BANGSHIE MARKET SQUARE / A": [
+          "221": [
             {
-              station: "335",
-              voters: 335
-            },
+              "station": "G.S. NTOH / C",
+              "voters": 221
+            }
           ],
-          "C.S. NTENEFOR / A": [
+          "250": [
             {
-              station: "350",
-              voters: 350
-            },
+              "station": "E.P.F. ARMY CAMP / C",
+              "voters": 250
+            }
           ],
-          "C.S. NTENEFOR / C": [
+          "251": [
             {
-              station: "316",
-              voters: 316
-            },
+              "station": "G.S. NTANCHE / C",
+              "voters": 251
+            }
           ],
-          "C.S. NTENEFOR / D": [
+          "265": [
             {
-              station: "169",
-              voters: 169
-            },
+              "station": "HEALTH CENTER / B",
+              "voters": 265
+            }
           ],
-          "C.S. NTENEFOR / E": [
+          "268": [
             {
-              station: "297",
-              voters: 297
-            },
+              "station": "P.S. BUJONG / B",
+              "voters": 268
+            }
           ],
-          "E.P.F. ARMY CAMP / A": [
+          "273": [
             {
-              station: "329",
-              voters: 658
-            },
+              "station": "E.P.F. ARMY CAMP / B",
+              "voters": 273
+            }
           ],
-          "E.P.F. ARMY CAMP / B": [
+          "282": [
             {
-              station: "273",
-              voters: 273
-            },
+              "station": "E.P.F. ARMY CAMP / E",
+              "voters": 282
+            }
           ],
-          "E.P.F. ARMY CAMP / C": [
+          "297": [
             {
-              station: "250",
-              voters: 250
-            },
+              "station": "C.S. NTENEFOR / E",
+              "voters": 297
+            }
           ],
-          "E.P.F. ARMY CAMP / D": [
+          "316": [
             {
-              station: "360",
-              voters: 360
-            },
+              "station": "C.S. NTENEFOR / C",
+              "voters": 316
+            }
           ],
-          "E.P.F. ARMY CAMP / E": [
+          "326": [
             {
-              station: "282",
-              voters: 282
-            },
+              "station": "G.S. NTANCHE / B",
+              "voters": 326
+            }
           ],
-          "E.P.F. ARMY CAMP / F": [
+          "328": [
             {
-              station: "479",
-              voters: 479
-            },
+              "station": "SIXTH MILITARY SECTOR / A",
+              "voters": 656
+            }
           ],
-          "G.B.H.S. BAMANDAN-KWE / A": [
+          "329": [
             {
-              station: "372",
-              voters: 372
-            },
+              "station": "E.P.F. ARMY CAMP / A",
+              "voters": 658
+            }
           ],
-          "G.B.H.S. BAMANDAN-KWE / B": [
+          "335": [
             {
-              station: "354",
-              voters: 354
-            },
+              "station": "BANGSHIE MARKET SQUARE / A",
+              "voters": 335
+            }
           ],
-          "G.B.H.S. BAMANDAN-KWE / D": [
+          "350": [
             {
-              station: "369",
-              voters: 369
-            },
+              "station": "C.S. NTENEFOR / A",
+              "voters": 350
+            }
           ],
-          "G.S. ABANGOH / A": [
+          "354": [
             {
-              station: "ABANGOH",
-              voters: 1817
-            },
+              "station": "G.B.H.S. BAMANDAN-KWE / B",
+              "voters": 354
+            }
           ],
-          "G.S. NTANCHE / A": [
+          "360": [
             {
-              station: "365",
-              voters: 365
-            },
+              "station": "E.P.F. ARMY CAMP / D",
+              "voters": 360
+            }
           ],
-          "G.S. NTANCHE / B": [
+          "365": [
             {
-              station: "326",
-              voters: 326
-            },
+              "station": "G.S. NTANCHE / A",
+              "voters": 365
+            }
           ],
-          "G.S. NTANCHE / C": [
+          "369": [
             {
-              station: "251",
-              voters: 251
-            },
+              "station": "G.B.H.S. BAMANDAN-KWE / D",
+              "voters": 369
+            }
           ],
-          "G.S. NTOH / A": [
+          "372": [
             {
-              station: "380",
-              voters: 380
-            },
+              "station": "G.B.H.S. BAMANDAN-KWE / A",
+              "voters": 372
+            }
           ],
-          "G.S. NTOH / B": [
+          "376": [
             {
-              station: "409",
-              voters: 409
-            },
+              "station": "P.S. BUJONG / A",
+              "voters": 376
+            }
           ],
-          "G.S. NTOH / C": [
+          "380": [
             {
-              station: "221",
-              voters: 221
-            },
+              "station": "G.S. NTOH / A",
+              "voters": 380
+            }
           ],
-          "HEALTH CENTER / A": [
+          "384": [
             {
-              station: "384",
-              voters: 384
-            },
+              "station": "HEALTH CENTER / A",
+              "voters": 384
+            }
           ],
-          "HEALTH CENTER / B": [
+          "409": [
             {
-              station: "265",
-              voters: 265
-            },
+              "station": "G.S. NTOH / B",
+              "voters": 409
+            }
           ],
-          "P.S. BUJONG / A": [
+          "479": [
             {
-              station: "376",
-              voters: 376
-            },
+              "station": "E.P.F. ARMY CAMP / F",
+              "voters": 479
+            }
           ],
-          "P.S. BUJONG / B": [
+          "G.S.": [
             {
-              station: "268",
-              voters: 268
-            },
+              "station": "BAMENDA PRISON CANTEEN / A",
+              "voters": 2901
+            }
           ],
-          "REG. DEL. NATIONAL SECURITY / A": [
+          "STATION": [
             {
-              station: "FORMAL",
-              voters: 535
-            },
-            {
-              station: "PWD",
-              voters: 535
-            },
-            {
-              station: "BUILDING",
-              voters: 535
-            },
+              "station": "BAMENDA PRISON CANTEEN / A",
+              "voters": 2901
+            }
           ],
-          "SIXTH MILITARY SECTOR / A": [
+          "ABANGOH": [
             {
-              station: "328",
-              voters: 656
-            },
+              "station": "G.S. ABANGOH / A",
+              "voters": 1817
+            }
           ],
+          "FORMAL": [
+            {
+              "station": "REG. DEL. NATIONAL SECURITY / A",
+              "voters": 535
+            }
+          ],
+          "PWD": [
+            {
+              "station": "REG. DEL. NATIONAL SECURITY / A",
+              "voters": 535
+            }
+          ],
+          "BUILDING": [
+            {
+              "station": "REG. DEL. NATIONAL SECURITY / A",
+              "voters": 535
+            }
+          ]
         },
         "SANTA": {
-          "C.S. ACHIALUM / A": [
+          "121": [
             {
-              station: "CIVIL",
-              voters: 4537
-            },
-            {
-              station: "STATUS",
-              voters: 4537
-            },
-            {
-              station: "CENTER",
-              voters: 4537
-            },
-            {
-              station: "AWING",
-              voters: 4537
-            },
+              "station": "CO - OPT. UNION SANTA / C",
+              "voters": 121
+            }
           ],
-          "C.S. MBEI / A": [
+          "127": [
             {
-              station: "430",
-              voters: 430
-            },
+              "station": "G.S. SANTA / B",
+              "voters": 127
+            }
           ],
-          "C.S. MBEI / B": [
+          "151": [
             {
-              station: "414",
-              voters: 414
-            },
+              "station": "COMM. HALL NJONG / B",
+              "voters": 151
+            }
           ],
-          "C.S. MBEI / C": [
+          "163": [
             {
-              station: "202",
-              voters: 202
-            },
+              "station": "G.S. BANJONG / A",
+              "voters": 326
+            }
           ],
-          "CDSTS / A": [
+          "169": [
             {
-              station: "380",
-              voters: 380
-            },
+              "station": "SAR/SM BALIGHAM / A",
+              "voters": 169
+            }
           ],
-          "CDSTS / B": [
+          "176": [
             {
-              station: "197",
-              voters: 197
-            },
+              "station": "G.S. ACHOU / A",
+              "voters": 176
+            }
           ],
-          "CO - OPT. UNION SANTA / A": [
+          "197": [
             {
-              station: "352",
-              voters: 352
-            },
+              "station": "CDSTS / B",
+              "voters": 197
+            }
           ],
-          "CO - OPT. UNION SANTA / B": [
+          "202": [
             {
-              station: "350",
-              voters: 350
-            },
+              "station": "C.S. MBEI / C",
+              "voters": 202
+            }
           ],
-          "CO - OPT. UNION SANTA / C": [
+          "217": [
             {
-              station: "121",
-              voters: 121
-            },
+              "station": "G.S. NTOH MBEI / A",
+              "voters": 217
+            }
           ],
-          "CO-OPT. STORE ASOH / A": [
+          "235": [
             {
-              station: "452",
-              voters: 452
-            },
+              "station": "MKT. SQ. MATAJEM / A",
+              "voters": 235
+            }
           ],
-          "COMM. HALL NJONG / A": [
+          "239": [
             {
-              station: "393",
-              voters: 393
-            },
+              "station": "MAGARET T. SCHOOL / B",
+              "voters": 239
+            }
           ],
-          "COMM. HALL NJONG / B": [
+          "261": [
             {
-              station: "151",
-              voters: 151
-            },
+              "station": "MAGARET T. SCHOOL / A",
+              "voters": 261
+            }
           ],
-          "COUNCIL HALL SANTA / A": [
+          "267": [
             {
-              station: "418",
-              voters: 418
-            },
+              "station": "P.S. SANTA / B",
+              "voters": 267
+            }
           ],
-          "COUNCIL HALL SANTA / B": [
+          "279": [
             {
-              station: "424",
-              voters: 424
-            },
+              "station": "G.S.BALIGHAM / B",
+              "voters": 279
+            }
           ],
-          "CUSTOMARY COURT / A": [
+          "281": [
             {
-              station: "387",
-              voters: 387
-            },
+              "station": "G.S. BAMOCK / A",
+              "voters": 281
+            }
           ],
-          "G.B.H.S. SANTA / A": [
+          "282": [
             {
-              station: "348",
-              voters: 348
-            },
+              "station": "SANTA URBAN HEALTH CENTER / A",
+              "voters": 282
+            }
           ],
-          "G.B.H.S. SANTA / B": [
+          "294": [
             {
-              station: "314",
-              voters: 314
-            },
+              "station": "G.S.BUCHI / A",
+              "voters": 294
+            }
           ],
-          "G.S. ACHOU / A": [
+          "299": [
             {
-              station: "176",
-              voters: 176
-            },
+              "station": "G.S. NJONG / B",
+              "voters": 299
+            }
           ],
-          "G.S. BAMOCK / A": [
+          "314": [
             {
-              station: "281",
-              voters: 281
-            },
+              "station": "G.B.H.S. SANTA / B",
+              "voters": 314
+            }
           ],
-          "G.S. BANJONG / A": [
+          "341": [
             {
-              station: "163",
-              voters: 326
-            },
+              "station": "INSPECTORATE BASIC EDUC. / A",
+              "voters": 341
+            }
           ],
-          "G.S. NJONG / A": [
+          "345": [
             {
-              station: "370",
-              voters: 370
-            },
+              "station": "G.S. NTARRAH / A",
+              "voters": 345
+            }
           ],
-          "G.S. NJONG / B": [
+          "348": [
             {
-              station: "299",
-              voters: 299
-            },
+              "station": "G.B.H.S. SANTA / A",
+              "voters": 348
+            }
           ],
-          "G.S. NTARRAH / A": [
+          "350": [
             {
-              station: "345",
-              voters: 345
-            },
+              "station": "CO - OPT. UNION SANTA / B",
+              "voters": 350
+            }
           ],
-          "G.S. NTOH MBEI / A": [
+          "351": [
             {
-              station: "217",
-              voters: 217
-            },
+              "station": "P.S.BALIGHAM / A",
+              "voters": 351
+            }
           ],
-          "G.S. SANTA / A": [
+          "352": [
             {
-              station: "407",
-              voters: 407
-            },
+              "station": "CO - OPT. UNION SANTA / A",
+              "voters": 352
+            }
           ],
-          "G.S. SANTA / B": [
+          "360": [
             {
-              station: "127",
-              voters: 127
-            },
+              "station": "P.S. SANTA / A",
+              "voters": 360
+            }
           ],
-          "G.S. SANTA COFFEE ESTATE / A": [
+          "370": [
             {
-              station: "BALIGHAM",
-              voters: 1223
-            },
+              "station": "G.S. NJONG / A",
+              "voters": 370
+            }
           ],
-          "G.S.ASANE AKUM / A": [
+          "380": [
             {
-              station: "G.S",
-              voters: 4845
-            },
-            {
-              station: "AKUM",
-              voters: 3622
-            },
+              "station": "CDSTS / A",
+              "voters": 380
+            }
           ],
-          "G.S.BALIGHAM / A": [
+          "387": [
             {
-              station: "398",
-              voters: 398
-            },
+              "station": "CUSTOMARY COURT / A",
+              "voters": 387
+            }
           ],
-          "G.S.BALIGHAM / B": [
+          "393": [
             {
-              station: "279",
-              voters: 279
-            },
+              "station": "COMM. HALL NJONG / A",
+              "voters": 393
+            }
           ],
-          "G.S.BUCHI / A": [
+          "398": [
             {
-              station: "294",
-              voters: 294
-            },
+              "station": "G.S.BALIGHAM / A",
+              "voters": 398
+            }
           ],
-          "INSPECTORATE BASIC EDUC. / A": [
+          "407": [
             {
-              station: "341",
-              voters: 341
-            },
+              "station": "G.S. SANTA / A",
+              "voters": 407
+            }
           ],
-          "MAGARET T. SCHOOL / A": [
+          "414": [
             {
-              station: "261",
-              voters: 261
-            },
+              "station": "C.S. MBEI / B",
+              "voters": 414
+            }
           ],
-          "MAGARET T. SCHOOL / B": [
+          "418": [
             {
-              station: "239",
-              voters: 239
-            },
+              "station": "COUNCIL HALL SANTA / A",
+              "voters": 418
+            }
           ],
-          "MKT. SQ. MATAJEM / A": [
+          "424": [
             {
-              station: "235",
-              voters: 235
-            },
+              "station": "COUNCIL HALL SANTA / B",
+              "voters": 424
+            }
           ],
-          "P.S. SANTA / A": [
+          "430": [
             {
-              station: "360",
-              voters: 360
-            },
+              "station": "C.S. MBEI / A",
+              "voters": 430
+            }
           ],
-          "P.S. SANTA / B": [
+          "452": [
             {
-              station: "267",
-              voters: 267
-            },
+              "station": "CO-OPT. STORE ASOH / A",
+              "voters": 452
+            }
           ],
-          "P.S.BALIGHAM / A": [
+          "CIVIL": [
             {
-              station: "351",
-              voters: 351
-            },
+              "station": "C.S. ACHIALUM / A",
+              "voters": 4537
+            }
           ],
-          "SANTA URBAN HEALTH CENTER / A": [
+          "STATUS": [
             {
-              station: "282",
-              voters: 282
-            },
+              "station": "C.S. ACHIALUM / A",
+              "voters": 4537
+            }
           ],
-          "SAR/SM BALIGHAM / A": [
+          "CENTER": [
             {
-              station: "169",
-              voters: 169
-            },
+              "station": "C.S. ACHIALUM / A",
+              "voters": 4537
+            }
           ],
+          "AWING": [
+            {
+              "station": "C.S. ACHIALUM / A",
+              "voters": 4537
+            }
+          ],
+          "BALIGHAM": [
+            {
+              "station": "G.S. SANTA COFFEE ESTATE / A",
+              "voters": 1223
+            }
+          ],
+          "G.S": [
+            {
+              "station": "G.S.ASANE AKUM / A",
+              "voters": 4845
+            }
+          ],
+          "AKUM": [
+            {
+              "station": "G.S.ASANE AKUM / A",
+              "voters": 3622
+            }
+          ]
         },
         "TUBAH": {
-          "AGAM CHECK POINT BAR / A": [
+          "103": [
             {
-              station: "CCAST",
-              voters: 2005
-            },
-            {
-              station: "HALL",
-              voters: 11075
-            },
+              "station": "G.S MALLAM / A",
+              "voters": 103
+            }
+          ],
+          "117": [
             {
-              station: "BAMBILI",
-              voters: 11075
-            },
+              "station": "C.B.C. KWIGHE / C",
+              "voters": 117
+            }
           ],
-          "C.B.C. CHUKU / A": [
+          "121": [
             {
-              station: "384",
-              voters: 384
-            },
+              "station": "Q.H.C. FONTA / A",
+              "voters": 121
+            }
           ],
-          "C.B.C. CHUKU / B": [
+          "123": [
             {
-              station: "402",
-              voters: 402
-            },
+              "station": "G.S. ATUNIBA / B",
+              "voters": 123
+            }
           ],
-          "C.B.C. KWIGHE / B": [
+          "143": [
             {
-              station: "300",
-              voters: 300
-            },
+              "station": "C.S. MANDZEBANG / A",
+              "voters": 143
+            }
           ],
-          "C.B.C. KWIGHE / C": [
+          "155": [
             {
-              station: "117",
-              voters: 117
-            },
+              "station": "G.T.C. KEDJOM KETINGUH / A",
+              "voters": 155
+            }
           ],
-          "C.H.S. BAMBUI / A": [
+          "156": [
             {
-              station: "333",
-              voters: 666
-            },
+              "station": "HEALTH CENTER NTEMBANG / A",
+              "voters": 156
+            }
           ],
-          "C.H.S. BAMBUI / B": [
+          "159": [
             {
-              station: "323",
-              voters: 323
-            },
+              "station": "G.P.S. NTEMBANG / A",
+              "voters": 159
+            }
           ],
-          "C.H.S. BAMBUI / C": [
+          "160": [
             {
-              station: "288",
-              voters: 288
-            },
+              "station": "MALLAM HALL / A",
+              "voters": 320
+            }
           ],
-          "C.S. MANDZEBANG / A": [
+          "164": [
             {
-              station: "143",
-              voters: 143
-            },
+              "station": "COMM. HALL NTEHNLOH / A",
+              "voters": 164
+            }
           ],
-          "C.S. ST. BERNARD / A": [
+          "166": [
             {
-              station: "214",
-              voters: 214
-            },
+              "station": "MUTOH LIGHI SQUARE / A",
+              "voters": 166
+            }
           ],
-          "COMM. HALL NTEHNLOH / A": [
+          "174": [
             {
-              station: "164",
-              voters: 164
-            },
+              "station": "G.S AKOH / A",
+              "voters": 174
+            }
           ],
-          "COMM. HALL NTEHNTUH / A": [
+          "176": [
             {
-              station: "383",
-              voters: 383
-            },
+              "station": "P.S. TUBAH / J",
+              "voters": 176
+            }
           ],
-          "COMMUNITY HALL BARFORKUM / A": [
+          "199": [
             {
-              station: "283",
-              voters: 283
-            },
+              "station": "G.S. MACHA / B",
+              "voters": 199
+            }
           ],
-          "COMMUNITY HALL BUELAMFOR / A": [
+          "201": [
             {
-              station: "390",
-              voters: 780
-            },
+              "station": "G.S. BABANKI TUNGO / A",
+              "voters": 201
+            }
           ],
-          "CREDIT UNION H. ACHI / A": [
+          "213": [
             {
-              station: "356",
-              voters: 356
-            },
+              "station": "G.S. NCHOKEN / A",
+              "voters": 213
+            }
           ],
-          "ENSAB HALL / A": [
+          "214": [
             {
-              station: "ENSAB",
-              voters: 9070
-            },
+              "station": "C.S. ST. BERNARD / A",
+              "voters": 214
+            }
           ],
-          "FARM DEMONSTRATION CEN. / A": [
+          "222": [
             {
-              station: "291",
-              voters: 291
-            },
+              "station": "G.S. KETIEH / A",
+              "voters": 222
+            }
           ],
-          "FARM DEMONSTRATION CEN. / B": [
+          "233": [
             {
-              station: "243",
-              voters: 243
-            },
+              "station": "G.P.S. JOROBURO / A",
+              "voters": 233
+            }
           ],
-          "G.B.P.S. BAMBILI / A": [
+          "243": [
             {
-              station: "GBPS",
-              voters: 301
-            },
+              "station": "FARM DEMONSTRATION CEN. / B",
+              "voters": 243
+            }
+          ],
+          "245": [
             {
-              station: "TUBAH",
-              voters: 301
-            },
+              "station": "HEALTH CEN. BAMBUI / C",
+              "voters": 245
+            }
+          ],
+          "247": [
             {
-              station: "BAMBUI",
-              voters: 301
-            },
+              "station": "R.C.A. HALL / A",
+              "voters": 247
+            }
           ],
-          "G.B.P.S. TUBAH / A": [
+          "273": [
             {
-              station: "387",
-              voters: 387
-            },
+              "station": "G.S. ABOBONG / B",
+              "voters": 273
+            }
           ],
-          "G.P.S. JOROBURO / A": [
+          "276": [
             {
-              station: "233",
-              voters: 233
-            },
+              "station": "OLD MARKET BUH FENGAM / A",
+              "voters": 276
+            }
           ],
-          "G.P.S. NTEMBANG / A": [
+          "278": [
             {
-              station: "159",
-              voters: 159
-            },
+              "station": "G.S. ABOBONG / A",
+              "voters": 556
+            }
           ],
-          "G.P.S. TONGUH / A": [
+          "283": [
             {
-              station: "319",
-              voters: 319
-            },
+              "station": "COMMUNITY HALL BARFORKUM / A",
+              "voters": 283
+            }
           ],
-          "G.S AKOH / A": [
+          "288": [
             {
-              station: "174",
-              voters: 174
-            },
+              "station": "C.H.S. BAMBUI / C",
+              "voters": 288
+            }
           ],
-          "G.S MALLAM / A": [
+          "291": [
             {
-              station: "103",
-              voters: 103
-            },
+              "station": "FARM DEMONSTRATION CEN. / A",
+              "voters": 291
+            }
           ],
-          "G.S. ABOBONG / A": [
+          "294": [
             {
-              station: "278",
-              voters: 556
-            },
+              "station": "G.S. LIH / B",
+              "voters": 294
+            }
           ],
-          "G.S. ABOBONG / B": [
+          "298": [
             {
-              station: "273",
-              voters: 273
-            },
+              "station": "G.S. ATUNIBA / A",
+              "voters": 298
+            }
           ],
-          "G.S. ATUNIBA / A": [
+          "300": [
             {
-              station: "298",
-              voters: 298
-            },
+              "station": "C.B.C. KWIGHE / B",
+              "voters": 300
+            }
           ],
-          "G.S. ATUNIBA / B": [
+          "312": [
             {
-              station: "123",
-              voters: 123
-            },
+              "station": "HEALTH CEN. BAMBUI / A",
+              "voters": 624
+            }
           ],
-          "G.S. BABANKI TUNGO / A": [
+          "316": [
             {
-              station: "201",
-              voters: 201
-            },
+              "station": "G.S. NTIGI / A",
+              "voters": 316
+            }
           ],
-          "G.S. BIG BABANKI / A": [
+          "319": [
             {
-              station: "385",
-              voters: 770
-            },
+              "station": "G.P.S. TONGUH / A",
+              "voters": 319
+            }
           ],
-          "G.S. FINGE / A": [
+          "323": [
             {
-              station: "376",
-              voters: 376
-            },
+              "station": "C.H.S. BAMBUI / B",
+              "voters": 323
+            }
           ],
-          "G.S. KETIEH / A": [
+          "324": [
             {
-              station: "222",
-              voters: 222
-            },
+              "station": "HEALTH CEN. K. KETINGUH / A",
+              "voters": 324
+            }
           ],
-          "G.S. LIH / B": [
+          "332": [
             {
-              station: "294",
-              voters: 294
-            },
+              "station": "P.S. TUBAH / E",
+              "voters": 664
+            }
           ],
-          "G.S. MACHA / A": [
+          "333": [
             {
-              station: "398",
-              voters: 398
-            },
+              "station": "C.H.S. BAMBUI / A",
+              "voters": 666
+            }
           ],
-          "G.S. MACHA / B": [
+          "337": [
             {
-              station: "199",
-              voters: 199
-            },
+              "station": "P.S. TUBAH / G",
+              "voters": 337
+            }
           ],
-          "G.S. NCHOKEN / A": [
+          "342": [
             {
-              station: "213",
-              voters: 213
-            },
+              "station": "P.S. TUBAH / H",
+              "voters": 342
+            }
           ],
-          "G.S. NTIGI / A": [
+          "356": [
             {
-              station: "316",
-              voters: 316
-            },
+              "station": "CREDIT UNION H. ACHI / A",
+              "voters": 356
+            }
           ],
-          "G.T.C. KEDJOM KETINGUH / A": [
+          "358": [
             {
-              station: "155",
-              voters: 155
-            },
+              "station": "NIBIE COOP. HALL / A",
+              "voters": 716
+            }
           ],
-          "G.Y.C. BAMBUI / A": [
+          "359": [
             {
-              station: "367",
-              voters: 734
-            },
+              "station": "HEALTH CEN. BAMBUI / B",
+              "voters": 359
+            }
           ],
-          "G.Y.C. BAMBUI / B": [
+          "360": [
             {
-              station: "360",
-              voters: 360
-            },
+              "station": "G.Y.C. BAMBUI / B",
+              "voters": 360
+            }
           ],
-          "G.Y.C. BAMBUI / D": [
+          "362": [
             {
-              station: "373",
-              voters: 373
-            },
+              "station": "P.S. TUBAH / F",
+              "voters": 362
+            }
           ],
-          "HEALTH CEN. BAMBUI / A": [
+          "364": [
             {
-              station: "312",
-              voters: 624
-            },
+              "station": "P.S. TUBAH / D",
+              "voters": 364
+            }
           ],
-          "HEALTH CEN. BAMBUI / B": [
+          "367": [
             {
-              station: "359",
-              voters: 359
-            },
+              "station": "G.Y.C. BAMBUI / A",
+              "voters": 734
+            }
           ],
-          "HEALTH CEN. BAMBUI / C": [
+          "372": [
             {
-              station: "245",
-              voters: 245
-            },
+              "station": "P.S. TUBAH / C",
+              "voters": 372
+            }
           ],
-          "HEALTH CEN. K. KETINGUH / A": [
+          "373": [
             {
-              station: "324",
-              voters: 324
-            },
+              "station": "G.Y.C. BAMBUI / D",
+              "voters": 373
+            }
           ],
-          "HEALTH CENTER NTEMBANG / A": [
+          "376": [
             {
-              station: "156",
-              voters: 156
-            },
+              "station": "G.S. FINGE / A",
+              "voters": 376
+            }
           ],
-          "MALLAM HALL / A": [
+          "381": [
             {
-              station: "160",
-              voters: 320
-            },
+              "station": "VETERINARY POST SABGA / A",
+              "voters": 381
+            }
           ],
-          "MUTOH LIGHI SQUARE / A": [
+          "382": [
             {
-              station: "166",
-              voters: 166
-            },
+              "station": "P.S. TUBAH / A",
+              "voters": 382
+            }
           ],
-          "NIBIE COOP. HALL / A": [
+          "383": [
             {
-              station: "358",
-              voters: 716
-            },
+              "station": "COMM. HALL NTEHNTUH / A",
+              "voters": 383
+            }
           ],
-          "NIBIE COOP. HALL / C": [
+          "384": [
             {
-              station: "394",
-              voters: 394
-            },
+              "station": "C.B.C. CHUKU / A",
+              "voters": 384
+            }
           ],
-          "OLD MARKET BUH FENGAM / A": [
+          "385": [
             {
-              station: "276",
-              voters: 276
-            },
+              "station": "G.S. BIG BABANKI / A",
+              "voters": 770
+            }
           ],
-          "P.S. TUBAH / A": [
+          "387": [
             {
-              station: "382",
-              voters: 382
-            },
+              "station": "G.B.P.S. TUBAH / A",
+              "voters": 387
+            }
           ],
-          "P.S. TUBAH / C": [
+          "390": [
             {
-              station: "372",
-              voters: 372
-            },
+              "station": "COMMUNITY HALL BUELAMFOR / A",
+              "voters": 780
+            }
           ],
-          "P.S. TUBAH / D": [
+          "394": [
             {
-              station: "364",
-              voters: 364
-            },
+              "station": "NIBIE COOP. HALL / C",
+              "voters": 394
+            }
           ],
-          "P.S. TUBAH / E": [
+          "398": [
             {
-              station: "332",
-              voters: 664
-            },
+              "station": "G.S. MACHA / A",
+              "voters": 398
+            }
           ],
-          "P.S. TUBAH / F": [
+          "402": [
             {
-              station: "362",
-              voters: 362
-            },
+              "station": "C.B.C. CHUKU / B",
+              "voters": 402
+            }
           ],
-          "P.S. TUBAH / G": [
+          "426": [
             {
-              station: "337",
-              voters: 337
-            },
+              "station": "PRES. CHURCH FUPHENSE / A",
+              "voters": 426
+            }
           ],
-          "P.S. TUBAH / H": [
+          "CCAST": [
             {
-              station: "342",
-              voters: 342
-            },
+              "station": "AGAM CHECK POINT BAR / A",
+              "voters": 2005
+            }
           ],
-          "P.S. TUBAH / J": [
+          "HALL": [
             {
-              station: "176",
-              voters: 176
-            },
+              "station": "AGAM CHECK POINT BAR / A",
+              "voters": 11075
+            }
           ],
-          "PRES. CHURCH FUPHENSE / A": [
+          "BAMBILI": [
             {
-              station: "426",
-              voters: 426
-            },
+              "station": "AGAM CHECK POINT BAR / A",
+              "voters": 11075
+            }
           ],
-          "Q.H.C. FONTA / A": [
+          "ENSAB": [
             {
-              station: "121",
-              voters: 121
-            },
+              "station": "ENSAB HALL / A",
+              "voters": 9070
+            }
           ],
-          "R.C.A. HALL / A": [
+          "GBPS": [
             {
-              station: "247",
-              voters: 247
-            },
+              "station": "G.B.P.S. BAMBILI / A",
+              "voters": 301
+            }
           ],
-          "VETERINARY POST SABGA / A": [
+          "TUBAH": [
             {
-              station: "381",
-              voters: 381
-            },
+              "station": "G.B.P.S. BAMBILI / A",
+              "voters": 301
+            }
           ],
-        },
+          "BAMBUI": [
+            {
+              "station": "G.B.P.S. BAMBILI / A",
+              "voters": 301
+            }
+          ]
+        }
       },
       "BOYO": {
         "BELO": {
-          "B.C.H.S. NJINIKEJEM / A": [
+          "128": [
             {
-              station: "272",
-              voters: 272
-            },
+              "station": "C.S. NTUM / A",
+              "voters": 128
+            }
           ],
-          "B.C.H.S. NJINIKEJEM / B": [
+          "138": [
             {
-              station: "249",
-              voters: 249
-            },
+              "station": "GOYT HEALTH CENTER TUMUKU / C",
+              "voters": 138
+            }
           ],
-          "C.B.C. ANYAJUA / A": [
+          "158": [
             {
-              station: "Market",
-              voters: 1605
-            },
-            {
-              station: "Stores",
-              voters: 1605
-            },
+              "station": "MBINGO MARKET SQUARE / B",
+              "voters": 158
+            }
           ],
-          "C.B.C. JUABUM / A": [
+          "176": [
             {
-              station: "354",
-              voters: 354
-            },
+              "station": "C.S. SHO / B",
+              "voters": 176
+            }
           ],
-          "C.B.C. MBINGO II / A": [
+          "180": [
             {
-              station: "379",
-              voters: 379
-            },
+              "station": "G.S. NGEMSIBO / A",
+              "voters": 180
+            }
           ],
-          "C.B.C. MBINGO II / B": [
+          "193": [
             {
-              station: "350",
-              voters: 350
-            },
+              "station": "HEALTH CENTER MEJANG / A",
+              "voters": 193
+            }
           ],
-          "C.B.C. MUGHOM / A": [
+          "204": [
             {
-              station: "204",
-              voters: 204
-            },
+              "station": "C.B.C. MUGHOM / A",
+              "voters": 204
+            }
           ],
-          "C.S. AFUA / A": [
+          "210": [
             {
-              station: "Ndawara",
-              voters: 404
-            },
-            {
-              station: "Islamic",
-              voters: 404
-            },
-            {
-              station: "Primary",
-              voters: 404
-            },
-            {
-              station: "School",
-              voters: 404
-            },
+              "station": "G.S. MEJUNG / A",
+              "voters": 210
+            }
           ],
-          "C.S. ASUH / A": [
+          "228": [
             {
-              station: "Community",
-              voters: 1928
-            },
-            {
-              station: "radio",
-              voters: 1928
-            },
-            {
-              station: "Building",
-              voters: 1928
-            },
+              "station": "G.S. KITCHU / B",
+              "voters": 228
+            }
           ],
-          "C.S. MBESA / A": [
+          "242": [
             {
-              station: "248",
-              voters: 248
-            },
+              "station": "G.S. KITCHU / A",
+              "voters": 242
+            }
           ],
-          "C.S. MBESA / B": [
+          "247": [
             {
-              station: "247",
-              voters: 494
-            },
+              "station": "C.S. MBESA / B",
+              "voters": 494
+            }
           ],
-          "C.S. NJINIKEJEM / A": [
+          "248": [
             {
-              station: "319",
-              voters: 319
-            },
+              "station": "C.S. MBESA / A",
+              "voters": 248
+            }
           ],
-          "C.S. NJINIKEJEM / B": [
+          "249": [
             {
-              station: "312",
-              voters: 312
-            },
+              "station": "B.C.H.S. NJINIKEJEM / B",
+              "voters": 249
+            }
           ],
-          "C.S. NTUM / A": [
+          "261": [
             {
-              station: "128",
-              voters: 128
-            },
+              "station": "G.H.S. MBESA / B",
+              "voters": 261
+            }
           ],
-          "C.S. SHO / A": [
+          "266": [
             {
-              station: "349",
-              voters: 349
-            },
+              "station": "G.S. SHO / A",
+              "voters": 266
+            }
           ],
-          "C.S. SHO / B": [
+          "272": [
             {
-              station: "176",
-              voters: 176
-            },
+              "station": "B.C.H.S. NJINIKEJEM / A",
+              "voters": 272
+            }
           ],
-          "CO-OPERATIVE STORE NJINIKEJEM / A": [
+          "276": [
             {
-              station: "346",
-              voters: 346
-            },
+              "station": "G.H.S. MBESA / A",
+              "voters": 276
+            }
           ],
-          "CO-OPERATIVE STORE NJINIKEJEM / B": [
+          "279": [
             {
-              station: "305",
-              voters: 305
-            },
+              "station": "ISLAMIC PRIMARY SCHOOL  NDAWARA / A",
+              "voters": 279
+            }
           ],
-          "CO-OPERATIVE. STORE MBESA / A": [
+          "281": [
             {
-              station: "334",
-              voters: 334
-            },
+              "station": "COMMUNITY HALL TWALATWAL / A",
+              "voters": 281
+            }
           ],
-          "CO-OPERATIVE. STORE MBESA / B": [
+          "305": [
             {
-              station: "323",
-              voters: 323
-            },
+              "station": "CO-OPERATIVE STORE NJINIKEJEM / B",
+              "voters": 305
+            }
           ],
-          "COMM. HALL ANJANG / A": [
+          "312": [
             {
-              station: "Potatoes",
-              voters: 3229
-            },
-            {
-              station: "Cooperative",
-              voters: 3229
-            },
+              "station": "C.S. NJINIKEJEM / B",
+              "voters": 312
+            }
           ],
-          "COMMUNITY HALL TWALATWAL / A": [
+          "319": [
             {
-              station: "281",
-              voters: 281
-            },
+              "station": "C.S. NJINIKEJEM / A",
+              "voters": 319
+            }
           ],
-          "G.H.S. MBESA / A": [
+          "321": [
             {
-              station: "276",
-              voters: 276
-            },
+              "station": "GOVT HEALTH CENTER TUMUKU / B",
+              "voters": 321
+            }
           ],
-          "G.H.S. MBESA / B": [
+          "323": [
             {
-              station: "261",
-              voters: 261
-            },
+              "station": "CO-OPERATIVE. STORE MBESA / B",
+              "voters": 323
+            }
           ],
-          "G.S. ABOH / A": [
+          "334": [
             {
-              station: "Belo",
-              voters: 3354
-            },
-            {
-              station: "Council",
-              voters: 3031
-            },
-            {
-              station: "Hall",
-              voters: 7338
-            },
+              "station": "CO-OPERATIVE. STORE MBESA / A",
+              "voters": 334
+            }
           ],
-          "G.S. ACHA / A": [
+          "336": [
             {
-              station: "BADU",
-              voters: 2683
-            },
+              "station": "GOVT HEALTH CENTER TUMUKU / A",
+              "voters": 336
+            }
           ],
-          "G.S. KITCHU / A": [
+          "346": [
             {
-              station: "242",
-              voters: 242
-            },
+              "station": "CO-OPERATIVE STORE NJINIKEJEM / A",
+              "voters": 346
+            }
           ],
-          "G.S. KITCHU / B": [
+          "349": [
             {
-              station: "228",
-              voters: 228
-            },
+              "station": "C.S. SHO / A",
+              "voters": 349
+            }
           ],
-          "G.S. MEJUNG / A": [
+          "350": [
             {
-              station: "210",
-              voters: 210
-            },
+              "station": "C.B.C. MBINGO II / B",
+              "voters": 350
+            }
           ],
-          "G.S. NGEMSIBO / A": [
+          "354": [
             {
-              station: "180",
-              voters: 180
-            },
+              "station": "C.B.C. JUABUM / A",
+              "voters": 354
+            }
           ],
-          "G.S. SHO / A": [
+          "363": [
             {
-              station: "266",
-              voters: 266
-            },
+              "station": "MBINGO MARKET SQUARE / A",
+              "voters": 363
+            }
           ],
-          "G.S. SOWI / A": [
+          "366": [
             {
-              station: "366",
-              voters: 366
-            },
+              "station": "G.S. SOWI / A",
+              "voters": 366
+            }
           ],
-          "GOVT HEALTH CENTER TUMUKU / A": [
+          "379": [
             {
-              station: "336",
-              voters: 336
-            },
+              "station": "C.B.C. MBINGO II / A",
+              "voters": 379
+            }
           ],
-          "GOVT HEALTH CENTER TUMUKU / B": [
+          "428": [
             {
-              station: "321",
-              voters: 321
-            },
+              "station": "HEALTH CENTER NDAWARA / A",
+              "voters": 428
+            }
           ],
-          "GOYT HEALTH CENTER TUMUKU / C": [
+          "Market": [
             {
-              station: "138",
-              voters: 138
-            },
+              "station": "C.B.C. ANYAJUA / A",
+              "voters": 1605
+            }
           ],
-          "HEALTH CENTER MEJANG / A": [
+          "Stores": [
             {
-              station: "193",
-              voters: 193
-            },
+              "station": "C.B.C. ANYAJUA / A",
+              "voters": 1605
+            }
           ],
-          "HEALTH CENTER NDAWARA / A": [
+          "Ndawara": [
             {
-              station: "428",
-              voters: 428
-            },
+              "station": "C.S. AFUA / A",
+              "voters": 404
+            }
           ],
-          "ISLAMIC PRIMARY SCHOOL  NDAWARA / A": [
+          "Islamic": [
             {
-              station: "279",
-              voters: 279
-            },
+              "station": "C.S. AFUA / A",
+              "voters": 404
+            }
           ],
-          "MBINGO MARKET SQUARE / A": [
+          "Primary": [
             {
-              station: "363",
-              voters: 363
-            },
+              "station": "C.S. AFUA / A",
+              "voters": 404
+            }
           ],
-          "MBINGO MARKET SQUARE / B": [
+          "School": [
             {
-              station: "158",
-              voters: 158
-            },
+              "station": "C.S. AFUA / A",
+              "voters": 404
+            }
           ],
+          "Community": [
+            {
+              "station": "C.S. ASUH / A",
+              "voters": 1928
+            }
+          ],
+          "radio": [
+            {
+              "station": "C.S. ASUH / A",
+              "voters": 1928
+            }
+          ],
+          "Building": [
+            {
+              "station": "C.S. ASUH / A",
+              "voters": 1928
+            }
+          ],
+          "Potatoes": [
+            {
+              "station": "COMM. HALL ANJANG / A",
+              "voters": 3229
+            }
+          ],
+          "Cooperative": [
+            {
+              "station": "COMM. HALL ANJANG / A",
+              "voters": 3229
+            }
+          ],
+          "Belo": [
+            {
+              "station": "G.S. ABOH / A",
+              "voters": 3354
+            }
+          ],
+          "Council": [
+            {
+              "station": "G.S. ABOH / A",
+              "voters": 3031
+            }
+          ],
+          "Hall": [
+            {
+              "station": "G.S. ABOH / A",
+              "voters": 7338
+            }
+          ],
+          "BADU": [
+            {
+              "station": "G.S. ACHA / A",
+              "voters": 2683
+            }
+          ]
         },
         "FONKUKA": {
-          "G.S. BUABUA / A": [
+          "PNE": [
             {
-              station: "PNE",
-              voters: 1682
-            },
-            {
-              station: "Fonfunka",
-              voters: 1682
-            },
+              "station": "G.S. BUABUA / A",
+              "voters": 1682
+            }
           ],
-          "G.S. FONFUKA / A": [
+          "Fonfunka": [
             {
-              station: "Council",
-              voters: 3382
-            },
-            {
-              station: "Market",
-              voters: 3382
-            },
-            {
-              station: "Building",
-              voters: 3382
-            },
+              "station": "G.S. BUABUA / A",
+              "voters": 1682
+            }
           ],
-          "G.S. FUSEJOU / A": [
+          "Council": [
             {
-              station: "Agric.",
-              voters: 1967
-            },
-            {
-              station: "Post",
-              voters: 1967
-            },
-            {
-              station: "Fonfuka",
-              voters: 1967
-            },
+              "station": "G.S. FONFUKA / A",
+              "voters": 3382
+            }
           ],
-          "G.S. MUNGONG / A": [
+          "Market": [
             {
-              station: "Mungong",
-              voters: 466
-            },
+              "station": "G.S. FONFUKA / A",
+              "voters": 3382
+            }
           ],
+          "Building": [
+            {
+              "station": "G.S. FONFUKA / A",
+              "voters": 3382
+            }
+          ],
+          "Agric.": [
+            {
+              "station": "G.S. FUSEJOU / A",
+              "voters": 1967
+            }
+          ],
+          "Post": [
+            {
+              "station": "G.S. FUSEJOU / A",
+              "voters": 1967
+            }
+          ],
+          "Fonfuka": [
+            {
+              "station": "G.S. FUSEJOU / A",
+              "voters": 1967
+            }
+          ],
+          "Mungong": [
+            {
+              "station": "G.S. MUNGONG / A",
+              "voters": 466
+            }
+          ]
         },
         "FUNDONG": {
-          "C.B.C. FUJUA / A": [
+          "112": [
             {
-              station: "278",
-              voters: 278
-            },
+              "station": "G.S. MUAL / A",
+              "voters": 112
+            }
           ],
-          "C.S. BOYUI / A": [
+          "135": [
             {
-              station: "141",
-              voters: 141
-            },
+              "station": "G.S. MBENGKAS / A",
+              "voters": 135
+            }
           ],
-          "C.S. MUTEFF / A": [
+          "141": [
             {
-              station: "406",
-              voters: 406
-            },
+              "station": "C.S. BOYUI / A",
+              "voters": 141
+            }
           ],
-          "CO-OPERATIVE STORE ALIM / A": [
+          "145": [
             {
-              station: "GTHS",
-              voters: 1296
-            },
-            {
-              station: "Fundong",
-              voters: 3858
-            },
+              "station": "G.S. ISAIBI / A",
+              "voters": 145
+            }
           ],
-          "COM. HALL ABAIAKANG / A": [
+          "148": [
             {
-              station: "151",
-              voters: 151
-            },
+              "station": "P.S. IKUJUJA / A",
+              "voters": 148
+            }
           ],
-          "COMM. HALL FUNDONG VILLAGE / A": [
+          "151": [
             {
-              station: "396",
-              voters: 396
-            },
+              "station": "COM. HALL ABAIAKANG / A",
+              "voters": 151
+            }
           ],
-          "COMMUNITY HALL ABUH-IKU / A": [
+          "160": [
             {
-              station: "GNS",
-              voters: 2588
-            },
-            {
-              station: "Lainilain",
-              voters: 6362
-            },
+              "station": "G.S. LAIKOM / A",
+              "voters": 160
+            }
           ],
-          "COMMUNITY HALL ACHANGNE / A": [
+          "166": [
             {
-              station: "Community",
-              voters: 3774
-            },
-            {
-              station: "Hall",
-              voters: 3774
-            },
+              "station": "G.S. MBONOKISSU / A",
+              "voters": 166
+            }
           ],
-          "COMMUNITY HALL MUTEFF / A": [
+          "198": [
             {
-              station: "373",
-              voters: 373
-            },
+              "station": "COMMUNITY HALL YUWI / A",
+              "voters": 198
+            }
           ],
-          "COMMUNITY HALL NTEHGUM / A": [
+          "243": [
             {
-              station: "386",
-              voters: 386
-            },
+              "station": "GSS FUJUA / A",
+              "voters": 243
+            }
           ],
-          "COMMUNITY HALL YUWI / A": [
+          "278": [
             {
-              station: "198",
-              voters: 198
-            },
+              "station": "C.B.C. FUJUA / A",
+              "voters": 278
+            }
           ],
-          "G.B.N.S FUNDONG / A": [
+          "293": [
             {
-              station: "GBNS",
-              voters: 811
-            },
+              "station": "G.S. ILUNG / A",
+              "voters": 293
+            }
           ],
-          "G.P.S. MBISSI / A": [
+          "311": [
             {
-              station: "365",
-              voters: 365
-            },
+              "station": "G.S. MBOH / A",
+              "voters": 311
+            }
           ],
-          "G.P.S. NOWAINKUMA / A": [
+          "321": [
             {
-              station: "395",
-              voters: 395
-            },
+              "station": "G.S. MBAM / B",
+              "voters": 321
+            }
           ],
-          "G.S. ILUNG / A": [
+          "335": [
             {
-              station: "293",
-              voters: 293
-            },
+              "station": "G.S.S. MELI / A",
+              "voters": 670
+            }
           ],
-          "G.S. ISAIBI / A": [
+          "340": [
             {
-              station: "145",
-              voters: 145
-            },
+              "station": "G.S. NOWAH ALOIN / A",
+              "voters": 340
+            }
           ],
-          "G.S. LAIKOM / A": [
+          "350": [
             {
-              station: "160",
-              voters: 160
-            },
+              "station": "G.S. MELI / A",
+              "voters": 350
+            }
           ],
-          "G.S. MBAM / A": [
+          "361": [
             {
-              station: "361",
-              voters: 361
-            },
+              "station": "G.S. MBAM / A",
+              "voters": 361
+            }
           ],
-          "G.S. MBAM / B": [
+          "365": [
             {
-              station: "321",
-              voters: 321
-            },
+              "station": "G.P.S. MBISSI / A",
+              "voters": 365
+            }
           ],
-          "G.S. MBENGKAS / A": [
+          "373": [
             {
-              station: "135",
-              voters: 135
-            },
+              "station": "COMMUNITY HALL MUTEFF / A",
+              "voters": 373
+            }
           ],
-          "G.S. MBOH / A": [
+          "386": [
             {
-              station: "311",
-              voters: 311
-            },
+              "station": "COMMUNITY HALL NTEHGUM / A",
+              "voters": 386
+            }
           ],
-          "G.S. MBONOKISSU / A": [
+          "387": [
             {
-              station: "166",
-              voters: 166
-            },
+              "station": "P.S. FUNDONG / B",
+              "voters": 387
+            }
           ],
-          "G.S. MELI / A": [
+          "394": [
             {
-              station: "350",
-              voters: 350
-            },
+              "station": "P.S. FUNDONG / A",
+              "voters": 394
+            }
           ],
-          "G.S. MENTANG / A": [
+          "395": [
             {
-              station: "422",
-              voters: 422
-            },
+              "station": "G.P.S. NOWAINKUMA / A",
+              "voters": 395
+            }
           ],
-          "G.S. MUAL / A": [
+          "396": [
             {
-              station: "112",
-              voters: 112
-            },
+              "station": "COMM. HALL FUNDONG VILLAGE / A",
+              "voters": 396
+            }
           ],
-          "G.S. NOWAH ALOIN / A": [
+          "406": [
             {
-              station: "340",
-              voters: 340
-            },
+              "station": "C.S. MUTEFF / A",
+              "voters": 406
+            }
           ],
-          "G.S.KUMTEM / A": [
+          "410": [
             {
-              station: "410",
-              voters: 410
-            },
+              "station": "G.S.KUMTEM / A",
+              "voters": 410
+            }
           ],
-          "G.S.S. MELI / A": [
+          "422": [
             {
-              station: "335",
-              voters: 670
-            },
+              "station": "G.S. MENTANG / A",
+              "voters": 422
+            }
           ],
-          "GSS FUJUA / A": [
+          "GTHS": [
             {
-              station: "243",
-              voters: 243
-            },
+              "station": "CO-OPERATIVE STORE ALIM / A",
+              "voters": 1296
+            }
           ],
-          "P.S. FUNDONG / A": [
+          "Fundong": [
             {
-              station: "394",
-              voters: 394
-            },
+              "station": "CO-OPERATIVE STORE ALIM / A",
+              "voters": 3858
+            }
           ],
-          "P.S. FUNDONG / B": [
+          "GNS": [
             {
-              station: "387",
-              voters: 387
-            },
+              "station": "COMMUNITY HALL ABUH-IKU / A",
+              "voters": 2588
+            }
           ],
-          "P.S. IKUJUJA / A": [
+          "Lainilain": [
             {
-              station: "148",
-              voters: 148
-            },
+              "station": "COMMUNITY HALL ABUH-IKU / A",
+              "voters": 6362
+            }
           ],
-        },
+          "Community": [
+            {
+              "station": "COMMUNITY HALL ACHANGNE / A",
+              "voters": 3774
+            }
+          ],
+          "Hall": [
+            {
+              "station": "COMMUNITY HALL ACHANGNE / A",
+              "voters": 3774
+            }
+          ],
+          "GBNS": [
+            {
+              "station": "G.B.N.S FUNDONG / A",
+              "voters": 811
+            }
+          ]
+        }
       },
       "BUI": {
         "ELAK": {
-          "CHAK COMMUNITY HALL / A": [
+          "ELAK": [
             {
-              station: "ELAK",
-              voters: 421
-            },
-            {
-              station: "COMMUNITY",
-              voters: 421
-            },
-            {
-              station: "HALL",
-              voters: 421
-            },
+              "station": "CHAK COMMUNITY HALL / A",
+              "voters": 421
+            }
           ],
+          "COMMUNITY": [
+            {
+              "station": "CHAK COMMUNITY HALL / A",
+              "voters": 421
+            }
+          ],
+          "HALL": [
+            {
+              "station": "CHAK COMMUNITY HALL / A",
+              "voters": 421
+            }
+          ]
         },
         "JAKIRI": {
-          "C.B.C. KAM. / A": [
+          "112": [
             {
-              station: "272",
-              voters: 272
-            },
+              "station": "TAAVIRER SAMBA HOUSE / A",
+              "voters": 112
+            }
           ],
-          "C.S. NKARKUI / A": [
+          "119": [
             {
-              station: "119",
-              voters: 119
-            },
+              "station": "C.S. NKARKUI / A",
+              "voters": 119
+            }
           ],
-          "C.S. RAN. / A": [
+          "125": [
             {
-              station: "286",
-              voters: 286
-            },
+              "station": "ROONDOP SQUARE / A",
+              "voters": 125
+            }
           ],
-          "C.S. ROONTONG / A": [
+          "127": [
             {
-              station: "196",
-              voters: 196
-            },
+              "station": "G.S. KIMAR / A",
+              "voters": 127
+            }
           ],
-          "C.S. SOP / A": [
+          "129": [
             {
-              station: "214",
-              voters: 214
-            },
+              "station": "G.S. NTSEIMBANG / A",
+              "voters": 258
+            }
           ],
-          "G.S. KIMAR / A": [
+          "134": [
             {
-              station: "127",
-              voters: 127
-            },
+              "station": "SAR / SM SOP / A",
+              "voters": 134
+            }
           ],
-          "G.S. MBITEEI / A": [
+          "143": [
             {
-              station: "204",
-              voters: 204
-            },
+              "station": "NKAR CREDIT UNION / A",
+              "voters": 143
+            }
           ],
-          "G.S. NDZEREM - NYAM / A": [
+          "160": [
             {
-              station: "165",
-              voters: 165
-            },
+              "station": "G.S. NKARTSEN / A",
+              "voters": 160
+            }
           ],
-          "G.S. NKAR / A": [
+          "165": [
             {
-              station: "269",
-              voters: 269
-            },
+              "station": "G.S. NDZEREM - NYAM / A",
+              "voters": 165
+            }
           ],
-          "G.S. NKARTSEN / A": [
+          "174": [
             {
-              station: "160",
-              voters: 160
-            },
+              "station": "G.S. TARON. / A",
+              "voters": 174
+            }
           ],
-          "G.S. NTSEIMBANG / A": [
+          "180": [
             {
-              station: "129",
-              voters: 258
-            },
+              "station": "NTOTTI MARKET SQUARE / A",
+              "voters": 180
+            }
           ],
-          "G.S. TAN / A": [
+          "187": [
             {
-              station: "365",
-              voters: 365
-            },
+              "station": "I.P.S. NTUR / A",
+              "voters": 187
+            }
           ],
-          "G.S. TARON. / A": [
+          "196": [
             {
-              station: "174",
-              voters: 174
-            },
+              "station": "C.S. ROONTONG / A",
+              "voters": 196
+            }
           ],
-          "G.S. WAINAMAH / A": [
+          "201": [
             {
-              station: "367",
-              voters: 367
-            },
+              "station": "I.P.S. VEKOVI. / A",
+              "voters": 201
+            }
           ],
-          "G.S. WAINAMAH / B": [
+          "204": [
             {
-              station: "354",
-              voters: 354
-            },
+              "station": "G.S. MBITEEI / A",
+              "voters": 204
+            }
           ],
-          "G.S. YER / A": [
+          "214": [
             {
-              station: "427",
-              voters: 427
-            },
+              "station": "C.S. SOP / A",
+              "voters": 214
+            }
           ],
-          "I.P.S. NTUNIR / A": [
+          "217": [
             {
-              station: "290",
-              voters: 290
-            },
+              "station": "NOI COOPERATIVE / A",
+              "voters": 217
+            }
           ],
-          "I.P.S. NTUR / A": [
+          "222": [
             {
-              station: "187",
-              voters: 187
-            },
+              "station": "NOI COOPERATIVE / B",
+              "voters": 222
+            }
           ],
-          "I.P.S. VEKOVI. / A": [
+          "235": [
             {
-              station: "201",
-              voters: 201
-            },
+              "station": "SANGHERI VEKOVI / A",
+              "voters": 235
+            }
           ],
-          "KIBANG MARKET SQUARE / A": [
+          "243": [
             {
-              station: "G.B.P.S",
-              voters: 66
-            },
-            {
-              station: "SABONGARI",
-              voters: 66
-            },
+              "station": "VEKOVI HEALTH CENTRE / A",
+              "voters": 243
+            }
           ],
-          "NKAR CREDIT UNION / A": [
+          "249": [
             {
-              station: "143",
-              voters: 143
-            },
+              "station": "SOP HEALTH CENTRE / A",
+              "voters": 249
+            }
           ],
-          "NKAR MARKET / A": [
+          "269": [
             {
-              station: "341",
-              voters: 341
-            },
+              "station": "G.S. NKAR / A",
+              "voters": 269
+            }
           ],
-          "NOI COOPERATIVE / A": [
+          "272": [
             {
-              station: "217",
-              voters: 217
-            },
+              "station": "C.B.C. KAM. / A",
+              "voters": 272
+            }
           ],
-          "NOI COOPERATIVE / B": [
+          "285": [
             {
-              station: "222",
-              voters: 222
-            },
+              "station": "NYAN MARKET SQUARE / A",
+              "voters": 285
+            }
           ],
-          "NTOTTI MARKET SQUARE / A": [
+          "286": [
             {
-              station: "180",
-              voters: 180
-            },
+              "station": "C.S. RAN. / A",
+              "voters": 286
+            }
           ],
-          "NYAN MARKET SQUARE / A": [
+          "290": [
             {
-              station: "285",
-              voters: 285
-            },
+              "station": "I.P.S. NTUNIR / A",
+              "voters": 290
+            }
           ],
-          "ROONDOP SQUARE / A": [
+          "341": [
             {
-              station: "125",
-              voters: 125
-            },
+              "station": "NKAR MARKET / A",
+              "voters": 341
+            }
           ],
-          "SANGHERI VEKOVI / A": [
+          "349": [
             {
-              station: "235",
-              voters: 235
-            },
+              "station": "SHIY COOPERATIVE / A",
+              "voters": 349
+            }
           ],
-          "SAR / SM JAKIRI. / A": [
+          "353": [
             {
-              station: "373",
-              voters: 373
-            },
+              "station": "VEKOVI COOPERATIVE / A",
+              "voters": 353
+            }
           ],
-          "SAR / SM SOP / A": [
+          "354": [
             {
-              station: "134",
-              voters: 134
-            },
+              "station": "G.S. WAINAMAH / B",
+              "voters": 354
+            }
           ],
-          "SHIY COOPERATIVE / A": [
+          "356": [
             {
-              station: "349",
-              voters: 349
-            },
+              "station": "WASI COOPERATIVE / A",
+              "voters": 356
+            }
           ],
-          "SOP HEALTH CENTRE / A": [
+          "365": [
             {
-              station: "249",
-              voters: 249
-            },
+              "station": "G.S. TAN / A",
+              "voters": 365
+            }
           ],
-          "TAAVIRER SAMBA HOUSE / A": [
+          "367": [
             {
-              station: "112",
-              voters: 112
-            },
+              "station": "G.S. WAINAMAH / A",
+              "voters": 367
+            }
           ],
-          "VEKOVI COOPERATIVE / A": [
+          "373": [
             {
-              station: "353",
-              voters: 353
-            },
+              "station": "SAR / SM JAKIRI. / A",
+              "voters": 373
+            }
           ],
-          "VEKOVI HEALTH CENTRE / A": [
+          "377": [
             {
-              station: "243",
-              voters: 243
-            },
+              "station": "WVEM COOPERATIVE / A",
+              "voters": 377
+            }
           ],
-          "WAINKAR COOPERATIVE / A": [
+          "386": [
             {
-              station: "386",
-              voters: 386
-            },
+              "station": "WAINKAR COOPERATIVE / A",
+              "voters": 386
+            }
           ],
-          "WASI COOPERATIVE / A": [
+          "427": [
             {
-              station: "356",
-              voters: 356
-            },
+              "station": "G.S. YER / A",
+              "voters": 427
+            }
           ],
-          "WVEM COOPERATIVE / A": [
+          "G.B.P.S": [
             {
-              station: "377",
-              voters: 377
-            },
+              "station": "KIBANG MARKET SQUARE / A",
+              "voters": 66
+            }
           ],
+          "SABONGARI": [
+            {
+              "station": "KIBANG MARKET SQUARE / A",
+              "voters": 66
+            }
+          ]
         },
         "KUMBO": {
-          "C.B.C BAMDZENG / A": [
+          "G.B.H.S.": [
             {
-              station: "G.B.H.S.",
-              voters: 4023
-            },
-            {
-              station: "KUMBO",
-              voters: 4023
-            },
+              "station": "C.B.C BAMDZENG / A",
+              "voters": 4023
+            }
           ],
-          "G.S. BAMNGAM / A": [
+          "KUMBO": [
             {
-              station: "GPS",
-              voters: 253
-            },
-            {
-              station: "TOBIN",
-              voters: 253
-            },
+              "station": "C.B.C BAMDZENG / A",
+              "voters": 4023
+            }
           ],
-          "G.S. KAI / A": [
+          "GPS": [
             {
-              station: "DELEGATION",
-              voters: 3100
-            },
-            {
-              station: "SOCIAL",
-              voters: 521
-            },
-            {
-              station: "AFFAIRS",
-              voters: 3100
-            },
+              "station": "G.S. BAMNGAM / A",
+              "voters": 253
+            }
           ],
-          "SALAMA HOUSE TAKUM / A": [
+          "TOBIN": [
             {
-              station: "YOUTH",
-              voters: 2579
-            },
+              "station": "G.S. BAMNGAM / A",
+              "voters": 253
+            }
           ],
+          "DELEGATION": [
+            {
+              "station": "G.S. KAI / A",
+              "voters": 3100
+            }
+          ],
+          "SOCIAL": [
+            {
+              "station": "G.S. KAI / A",
+              "voters": 521
+            }
+          ],
+          "AFFAIRS": [
+            {
+              "station": "G.S. KAI / A",
+              "voters": 3100
+            }
+          ],
+          "YOUTH": [
+            {
+              "station": "SALAMA HOUSE TAKUM / A",
+              "voters": 2579
+            }
+          ]
         },
         "MBIAME": {
-          "AGRIC POST MBONSO / A": [
+          "217": [
             {
-              station: "MBIAME",
-              voters: 7294
-            },
-            {
-              station: "COUNCIL",
-              voters: 4289
-            },
-            {
-              station: "HALL",
-              voters: 7294
-            },
+              "station": "G.S TANYAR / A",
+              "voters": 217
+            }
           ],
-          "G.S NJANAWA / A": [
+          "293": [
             {
-              station: "COOPERATIVE",
-              voters: 3005
-            },
+              "station": "I.P.S NJANAWA / A",
+              "voters": 293
+            }
           ],
-          "G.S TANYAR / A": [
+          "MBIAME": [
             {
-              station: "217",
-              voters: 217
-            },
+              "station": "AGRIC POST MBONSO / A",
+              "voters": 7294
+            }
           ],
-          "I.P.S NJANAWA / A": [
+          "COUNCIL": [
             {
-              station: "293",
-              voters: 293
-            },
+              "station": "AGRIC POST MBONSO / A",
+              "voters": 4289
+            }
           ],
+          "HALL": [
+            {
+              "station": "AGRIC POST MBONSO / A",
+              "voters": 7294
+            }
+          ],
+          "COOPERATIVE": [
+            {
+              "station": "G.S NJANAWA / A",
+              "voters": 3005
+            }
+          ]
         },
         "NKOR": {
-          "G.S. BAMTI / A": [
+          "GOVERNMENT": [
             {
-              station: "GOVERNMENT",
-              voters: 6446
-            },
-            {
-              station: "SCHOOL",
-              voters: 6446
-            },
-            {
-              station: "NYALIN",
-              voters: 6446
-            },
+              "station": "G.S. BAMTI / A",
+              "voters": 6446
+            }
           ],
-          "G.S. DOM / A": [
+          "SCHOOL": [
             {
-              station: "NKOR",
-              voters: 2383
-            },
-            {
-              station: "COMMUNITY",
-              voters: 2383
-            },
-            {
-              station: "HALL",
-              voters: 2383
-            },
+              "station": "G.S. BAMTI / A",
+              "voters": 6446
+            }
           ],
+          "NYALIN": [
+            {
+              "station": "G.S. BAMTI / A",
+              "voters": 6446
+            }
+          ],
+          "NKOR": [
+            {
+              "station": "G.S. DOM / A",
+              "voters": 2383
+            }
+          ],
+          "COMMUNITY": [
+            {
+              "station": "G.S. DOM / A",
+              "voters": 2383
+            }
+          ],
+          "HALL": [
+            {
+              "station": "G.S. DOM / A",
+              "voters": 2383
+            }
+          ]
         },
         "NKUM": {
-          "G.S. BANTEN / A": [
+          "G.S": [
             {
-              station: "G.S",
-              voters: 10168
-            },
-            {
-              station: "TATUM",
-              voters: 10168
-            },
+              "station": "G.S. BANTEN / A",
+              "voters": 10168
+            }
           ],
+          "TATUM": [
+            {
+              "station": "G.S. BANTEN / A",
+              "voters": 10168
+            }
+          ]
         },
         "WUM": {
-          "AKU COMMUNITY HALL / A": [
+          "159": [
             {
-              station: "KESU",
-              voters: 2582
-            },
-            {
-              station: "COURT",
-              voters: 2582
-            },
-            {
-              station: "HALL",
-              voters: 2582
-            },
+              "station": "ZONGETIA HALL / A",
+              "voters": 159
+            }
           ],
-          "ATUE COMMUNITY HALL / A": [
+          "160": [
             {
-              station: "GBHS",
-              voters: 1666
-            },
-            {
-              station: "WUM",
-              voters: 5651
-            },
+              "station": "GTHS JUNCTION / B",
+              "voters": 160
+            }
           ],
-          "CATHOLIC PRIMARY SCHOOL HOLY  TRINITY WUM / A": [
+          "169": [
             {
-              station: "280",
-              voters: 280
-            },
+              "station": "G. S. WANANGWEN / A",
+              "voters": 169
+            }
           ],
-          "CHEREGHA HALL / A": [
+          "173": [
             {
-              station: "GRANDSTAND",
-              voters: 1536
-            },
+              "station": "GOYT NURSERY SCHOOL / B",
+              "voters": 173
+            }
           ],
-          "DEL. BASIC EDUCATION / A": [
+          "180": [
             {
-              station: "310",
-              voters: 310
-            },
+              "station": "G. S. NGOH WANANGWEN / A",
+              "voters": 180
+            }
           ],
-          "FORMER DOM. SCIENCE CENTRE / A": [
+          "208": [
             {
-              station: "338",
-              voters: 338
-            },
+              "station": "HAUSA COMM. HALL / B",
+              "voters": 208
+            }
           ],
-          "G. S AGULLI / A": [
+          "225": [
             {
-              station: "G.S",
-              voters: 1597
-            },
-            {
-              station: "BANGWE",
-              voters: 600
-            },
+              "station": "WATUO VILLAGE HALL / A",
+              "voters": 225
+            }
           ],
-          "G. S ZONGEFUH / A": [
+          "234": [
             {
-              station: "297",
-              voters: 594
-            },
+              "station": "ZONGEKWO HALL / B",
+              "voters": 234
+            }
           ],
-          "G. S. MBINJAM / A": [
+          "250": [
             {
-              station: "GNPS",
-              voters: 2449
-            },
+              "station": "MEMBERS CLUB 64 / A",
+              "voters": 250
+            }
           ],
-          "G. S. NGOH WANANGWEN / A": [
+          "280": [
             {
-              station: "180",
-              voters: 180
-            },
+              "station": "CATHOLIC PRIMARY SCHOOL HOLY  TRINITY WUM / A",
+              "voters": 280
+            }
           ],
-          "G. S. WANANGWEN / A": [
+          "294": [
             {
-              station: "169",
-              voters: 169
-            },
+              "station": "ZONGEKWO HALL / A",
+              "voters": 294
+            }
           ],
-          "GOYT NURSERY SCHOOL / A": [
+          "297": [
             {
-              station: "327",
-              voters: 327
-            },
+              "station": "G. S ZONGEFUH / A",
+              "voters": 594
+            }
           ],
-          "GOYT NURSERY SCHOOL / B": [
+          "308": [
             {
-              station: "173",
-              voters: 173
-            },
+              "station": "HAUSA COMM. HALL / A",
+              "voters": 308
+            }
           ],
-          "GTHS JUNCTION / A": [
+          "310": [
             {
-              station: "362",
-              voters: 362
-            },
+              "station": "DEL. BASIC EDUCATION / A",
+              "voters": 310
+            }
           ],
-          "GTHS JUNCTION / B": [
+          "327": [
             {
-              station: "160",
-              voters: 160
-            },
+              "station": "GOYT NURSERY SCHOOL / A",
+              "voters": 327
+            }
           ],
-          "HAUSA COMM. HALL / A": [
+          "338": [
             {
-              station: "308",
-              voters: 308
-            },
+              "station": "FORMER DOM. SCIENCE CENTRE / A",
+              "voters": 338
+            }
           ],
-          "HAUSA COMM. HALL / B": [
+          "353": [
             {
-              station: "208",
-              voters: 208
-            },
+              "station": "WAAJUNG HALL / A",
+              "voters": 353
+            }
           ],
-          "MEMBERS CLUB 64 / A": [
+          "362": [
             {
-              station: "250",
-              voters: 250
-            },
+              "station": "GTHS JUNCTION / A",
+              "voters": 362
+            }
           ],
-          "WAAJUNG HALL / A": [
+          "KESU": [
             {
-              station: "353",
-              voters: 353
-            },
+              "station": "AKU COMMUNITY HALL / A",
+              "voters": 2582
+            }
           ],
-          "WATUO VILLAGE HALL / A": [
+          "COURT": [
             {
-              station: "225",
-              voters: 225
-            },
+              "station": "AKU COMMUNITY HALL / A",
+              "voters": 2582
+            }
           ],
-          "ZONGEKWO HALL / A": [
+          "HALL": [
             {
-              station: "294",
-              voters: 294
-            },
+              "station": "AKU COMMUNITY HALL / A",
+              "voters": 2582
+            }
           ],
-          "ZONGEKWO HALL / B": [
+          "GBHS": [
             {
-              station: "234",
-              voters: 234
-            },
+              "station": "ATUE COMMUNITY HALL / A",
+              "voters": 1666
+            }
           ],
-          "ZONGETIA HALL / A": [
+          "WUM": [
             {
-              station: "159",
-              voters: 159
-            },
+              "station": "ATUE COMMUNITY HALL / A",
+              "voters": 5651
+            }
           ],
-        },
+          "GRANDSTAND": [
+            {
+              "station": "CHEREGHA HALL / A",
+              "voters": 1536
+            }
+          ],
+          "G.S": [
+            {
+              "station": "G. S AGULLI / A",
+              "voters": 1597
+            }
+          ],
+          "BANGWE": [
+            {
+              "station": "G. S AGULLI / A",
+              "voters": 600
+            }
+          ],
+          "GNPS": [
+            {
+              "station": "G. S. MBINJAM / A",
+              "voters": 2449
+            }
+          ]
+        }
       },
       "MENCHUM": {
         "FURU AWA": {
-          "G. S. LUBU / A": [
+          "LUBU": [
             {
-              station: "LUBU",
-              voters: 493
-            },
+              "station": "G. S. LUBU / A",
+              "voters": 493
+            }
           ],
-          "G.S. AKUM / A": [
+          "G.S": [
             {
-              station: "G.S",
-              voters: 3931
-            },
-            {
-              station: "FURU-AWA",
-              voters: 3438
-            },
+              "station": "G.S. AKUM / A",
+              "voters": 3931
+            }
           ],
-          "P.C. BADJI / A": [
+          "FURU-AWA": [
             {
-              station: "CATHOLIC",
-              voters: 985
-            },
-            {
-              station: "CHURCH",
-              voters: 985
-            },
-            {
-              station: "NSER",
-              voters: 985
-            },
+              "station": "G.S. AKUM / A",
+              "voters": 3438
+            }
           ],
+          "CATHOLIC": [
+            {
+              "station": "P.C. BADJI / A",
+              "voters": 985
+            }
+          ],
+          "CHURCH": [
+            {
+              "station": "P.C. BADJI / A",
+              "voters": 985
+            }
+          ],
+          "NSER": [
+            {
+              "station": "P.C. BADJI / A",
+              "voters": 985
+            }
+          ]
         },
         "ZHOA": {
-          "ABAR HEALTH CENTRE / A": [
+          "ZHOA": [
             {
-              station: "ZHOA",
-              voters: 318
-            },
-            {
-              station: "COMMUNITY",
-              voters: 318
-            },
-            {
-              station: "HALL",
-              voters: 318
-            },
+              "station": "ABAR HEALTH CENTRE / A",
+              "voters": 318
+            }
           ],
-          "ALLOH MARKET SQUARE / A": [
+          "COMMUNITY": [
             {
-              station: "MMEN",
-              voters: 4760
-            },
-            {
-              station: "MARKET",
-              voters: 4760
-            },
-            {
-              station: "SQAURE",
-              voters: 4760
-            },
-            {
-              station: "(MCDA",
-              voters: 4760
-            },
-            {
-              station: "multipurpose",
-              voters: 4760
-            },
-            {
-              station: "hall",
-              voters: 4760
-            },
-            {
-              station: "Bafmeng)",
-              voters: 4760
-            },
+              "station": "ABAR HEALTH CENTRE / A",
+              "voters": 318
+            }
           ],
-        },
-      },
-    },
-  },
+          "HALL": [
+            {
+              "station": "ABAR HEALTH CENTRE / A",
+              "voters": 318
+            }
+          ],
+          "MMEN": [
+            {
+              "station": "ALLOH MARKET SQUARE / A",
+              "voters": 4760
+            }
+          ],
+          "MARKET": [
+            {
+              "station": "ALLOH MARKET SQUARE / A",
+              "voters": 4760
+            }
+          ],
+          "SQAURE": [
+            {
+              "station": "ALLOH MARKET SQUARE / A",
+              "voters": 4760
+            }
+          ],
+          "(MCDA": [
+            {
+              "station": "ALLOH MARKET SQUARE / A",
+              "voters": 4760
+            }
+          ],
+          "multipurpose": [
+            {
+              "station": "ALLOH MARKET SQUARE / A",
+              "voters": 4760
+            }
+          ],
+          "hall": [
+            {
+              "station": "ALLOH MARKET SQUARE / A",
+              "voters": 4760
+            }
+          ],
+          "Bafmeng)": [
+            {
+              "station": "ALLOH MARKET SQUARE / A",
+              "voters": 4760
+            }
+          ]
+        }
+      }
+    }
+  }
 };
