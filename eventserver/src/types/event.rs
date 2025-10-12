@@ -29,6 +29,8 @@ pub struct EventMedia {
     pub name: String,
     pub size: u64,
     pub last_modified: u64, // Unix timestamp
+    pub media_type: Option<String>,
+    pub content: Option<String>, // Base64 encoded content
 }
 
 /// Event metadata - matches TypeScript structure
@@ -86,6 +88,12 @@ pub struct MediaSubmissionResponse {
     pub uploaded_at: DateTime<Utc>,
     pub media_type: String,
     pub size: u64,
+}
+/// Response for listing events
+#[derive(Debug, Serialize, Deserialize, ToSchema)]
+#[serde(rename_all = "camelCase")]
+pub struct EventListResponse {
+    pub events: Vec<String>,
 }
 
 /// Validation result for event packages

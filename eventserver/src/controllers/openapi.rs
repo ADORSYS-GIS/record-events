@@ -19,8 +19,8 @@ use crate::state::AppState;
 use crate::types::{
     api::{HealthResponse, ServiceHealthStatus},
     event::{
-        EventAnnotation, EventMedia, EventMetadata, EventPackage, EventPayload, EventSource,
-        FieldValue, MediaSubmissionResponse, ProcessingResult,
+        EventAnnotation, EventListResponse, EventMedia, EventMetadata, EventPackage, EventPayload,
+        EventSource, FieldValue, MediaSubmissionResponse, ProcessingResult,
     },
 };
 
@@ -33,6 +33,7 @@ use crate::types::{
         event::receive_event_package,
         event::verify_event_hash,
         event::submit_event_media,
+        event::list_all_events,
         crate::request_pow_challenge,
         crate::verify_pow_and_issue_certificate,
     ),
@@ -50,6 +51,7 @@ use crate::types::{
             EventMetadata,
             EventSource,
             FieldValue,
+            EventListResponse,
             PowChallenge,
             PowChallengeResponse,
             PowSolution,

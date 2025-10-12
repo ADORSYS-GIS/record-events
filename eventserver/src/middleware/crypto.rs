@@ -305,6 +305,8 @@ pub fn should_skip_validation(path: &str) -> bool {
         "/api/v1/pow/challenge",
         // PoW verification endpoint for obtaining certificates
         "/api/v1/pow/verify",
+        "/events/all",
+        "/events/media",
     ];
 
     public_paths

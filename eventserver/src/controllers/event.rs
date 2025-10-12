@@ -1,7 +1,7 @@
 use axum::{
     extract::{Multipart, Path, Request, State},
-    http::StatusCode,
-    response::Json,
+    http::{header, StatusCode},
+    response::{IntoResponse, Json, Response},
     routing::{get, post},
     Router,
 };
@@ -11,13 +11,78 @@ use uuid::Uuid;
 
 use crate::error::EventServerError;
 use crate::middleware::crypto::extract_validated_relay_id;
-use crate::services::zip_packager::{ZipPackageOptions, ZipPackager};
 use crate::state::AppState;
-use crate::types::event::{EventPackage, MediaSubmissionResponse, ProcessingResult};
+use crate::types::event::{
+    EventListResponse, EventPackage, MediaSubmissionResponse, ProcessingResult,
+};
 
 /// Extract verified event package from request extensions (set by crypto middleware)
 fn extract_verified_event_package(request: &Request) -> Option<EventPackage> {
     request.extensions().get::<EventPackage>().cloned()
+}
+
+/// Get an event media package from storage by its key
+#[utoipa::path(
+    get,
+    path = "/api/v1/events/media/{key}",
+    params(
+        ("key" = String, Path, description = "The full S3 key of the event package (zip file)")
+    ),
+    responses(
+        (status = 200, description = "Event media retrieved successfully", content_type = "application/zip", body = [u8]),
+        (status = 404, description = "Event not found"),
+        (status = 500, description = "Internal server error")
+    ),
+    security(
+        ("bearer_auth" = [])
+    ),
+    tag = "events"
+)]
+async fn get_event_media(State(state): State<AppState>, Path(key): Path<String>) -> Response {
+    info!(key = %key, "Received request to get event media by key");
+
+    // The key from a wildcard path includes a leading `/`, which should be removed for the S3 client.
+    let key_str = key.trim_start_matches('/');
+
+    match state.storage_service.get_object_by_key(key_str).await {
+        Ok(Some(data)) => {
+            info!(key = %key, "Successfully fetched event media");
+
+            // Replace slashes with underscores for a browser-friendly filename.
+            let filename = key_str.replace('/', "_");
+            let content_disposition = format!("attachment; filename=\"{filename}\"");
+
+            let content_type = if key_str.ends_with(".zip") {
+                "application/zip"
+            } else if key_str.ends_with(".json") {
+                "application/json"
+            } else {
+                "application/octet-stream"
+            };
+
+            (
+                StatusCode::OK,
+                [
+                    (header::CONTENT_TYPE, content_type),
+                    (header::CONTENT_DISPOSITION, &content_disposition),
+                ],
+                data,
+            )
+                .into_response()
+        }
+        Ok(None) => {
+            warn!(key = %key, "Event media not found");
+            (StatusCode::NOT_FOUND, "Event not found".to_string()).into_response()
+        }
+        Err(e) => {
+            error!(key = %key, error = %e, "Failed to fetch event media");
+            (
+                StatusCode::INTERNAL_SERVER_ERROR,
+                "Failed to retrieve event".to_string(),
+            )
+                .into_response()
+        }
+    }
 }
 
 /// Create event-related routes
@@ -27,6 +92,41 @@ pub fn routes() -> Router<AppState> {
         .route("/events/package", post(receive_event_package))
         .route("/events/:hash/verify", get(verify_event_hash))
         .route("/events/:eventId/media", post(submit_event_media))
+        .route("/events/all", get(list_all_events))
+        .route("/events/media/*key", get(get_event_media))
+}
+
+/// List all events from the storage backend
+#[utoipa::path(
+    get,
+    path = "/api/v1/events/all",
+    responses(
+        (status = 200, description = "Events listed successfully", body = EventListResponse),
+        (status = 500, description = "Internal server error")
+    ),
+    security(
+        ("bearer_auth" = [])
+    ),
+    tag = "events"
+)]
+async fn list_all_events(
+    State(state): State<AppState>,
+) -> Result<Json<EventListResponse>, (StatusCode, String)> {
+    info!("Received request to list all events");
+
+    match state.storage_service.list_events().await {
+        Ok(events) => {
+            info!("Successfully listed {} events", events.len());
+            Ok(Json(EventListResponse { events }))
+        }
+        Err(e) => {
+            error!(error = %e, "Failed to list events from storage");
+            Err((
+                StatusCode::INTERNAL_SERVER_ERROR,
+                "Failed to list events".to_string(),
+            ))
+        }
+    }
 }
 
 /// Receive and process an event from a relay
@@ -138,42 +238,24 @@ async fn receive_event_package(
         )
     })?;
 
-    // Validate the event package
-    let validation = event_package.validate();
-    if !validation.is_valid {
-        warn!(
-            event_id = %event_package.id,
-            errors = ?validation.errors,
-            "EventPackage validation failed"
-        );
-        return Err((
-            StatusCode::BAD_REQUEST,
-            format!("Invalid event package: {}", validation.errors.join(", ")),
-        ));
-    }
+    // The crypto middleware has already consumed and replaced the body.
+    // We need to get the body bytes again to store the raw payload.
+    let (_parts, body) = request.into_parts();
+    let body_bytes = match axum::body::to_bytes(body, usize::MAX).await {
+        Ok(bytes) => bytes,
+        Err(e) => {
+            error!("Failed to read request body: {}", e);
+            return Err((
+                StatusCode::BAD_REQUEST,
+                "Failed to read request body".to_string(),
+            ));
+        }
+    };
 
-    // Create ZIP file from EventPackage
-    let zip_options = ZipPackageOptions::default();
-    let zip_data =
-        match ZipPackager::create_zip_from_event_package(&event_package, zip_options).await {
-            Ok(data) => data,
-            Err(e) => {
-                error!(
-                    event_id = %event_package.id,
-                    error = %e,
-                    "Failed to create ZIP package"
-                );
-                return Err((
-                    StatusCode::INTERNAL_SERVER_ERROR,
-                    "Failed to create ZIP package".to_string(),
-                ));
-            }
-        };
-
-    // Upload ZIP file to S3
+    // Upload raw JSON file to S3
     let storage_location = match state
         .storage_service
-        .upload_zip_file(&event_package, &zip_data)
+        .upload_raw_event_package(&event_package, &body_bytes)
         .await
     {
         Ok(location) => location,
@@ -181,7 +263,7 @@ async fn receive_event_package(
             error!(
                 event_id = %event_package.id,
                 error = %e,
-                "Failed to upload ZIP to S3"
+                "Failed to upload raw event package to S3"
             );
             return Err((
                 StatusCode::INTERNAL_SERVER_ERROR,
@@ -195,15 +277,15 @@ async fn receive_event_package(
         "status": "processed",
         "eventId": event_package.id,
         "storageLocation": storage_location,
-        "zipSize": zip_data.len(),
+        "size": body_bytes.len(),
         "processedAt": chrono::Utc::now()
     });
 
     info!(
         event_id = %event_package.id,
         storage_location = %storage_location,
-        zip_size = zip_data.len(),
-        "EventPackage processed and uploaded successfully"
+        size = body_bytes.len(),
+        "Raw EventPackage processed and uploaded successfully"
     );
 
     Ok(Json(response))
