@@ -12,7 +12,9 @@ use uuid::Uuid;
 use crate::error::EventServerError;
 use crate::middleware::crypto::extract_validated_relay_id;
 use crate::state::AppState;
-use crate::types::event::{EventListResponse, EventPackage, MediaSubmissionResponse, ProcessingResult};
+use crate::types::event::{
+    EventListResponse, EventPackage, MediaSubmissionResponse, ProcessingResult,
+};
 
 /// Extract verified event package from request extensions (set by crypto middleware)
 fn extract_verified_event_package(request: &Request) -> Option<EventPackage> {
@@ -36,10 +38,7 @@ fn extract_verified_event_package(request: &Request) -> Option<EventPackage> {
     ),
     tag = "events"
 )]
-async fn get_event_media(
-    State(state): State<AppState>,
-    Path(key): Path<String>,
-) -> Response {
+async fn get_event_media(State(state): State<AppState>, Path(key): Path<String>) -> Response {
     info!(key = %key, "Received request to get event media by key");
 
     // The key from a wildcard path includes a leading `/`, which should be removed for the S3 client.
@@ -51,7 +50,7 @@ async fn get_event_media(
 
             // Replace slashes with underscores for a browser-friendly filename.
             let filename = key_str.replace('/', "_");
-            let content_disposition = format!("attachment; filename=\"{}\"", filename);
+            let content_disposition = format!("attachment; filename=\"{filename}\"");
 
             let content_type = if key_str.ends_with(".zip") {
                 "application/zip"

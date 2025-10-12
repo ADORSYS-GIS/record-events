@@ -230,10 +230,7 @@ impl StorageService {
     }
 
     /// Get an object from storage by its full key
-    pub async fn get_object_by_key(
-        &self,
-        key: &str,
-    ) -> Result<Option<Vec<u8>>, EventServerError> {
+    pub async fn get_object_by_key(&self, key: &str) -> Result<Option<Vec<u8>>, EventServerError> {
         info!(key = %key, "Attempting to fetch object by key");
 
         // Fetch the object from S3
@@ -258,8 +255,7 @@ impl StorageService {
                 // For other errors, propagate them
                 error!(key = %key, "Failed to get object from S3: {}", e.to_string());
                 return Err(EventServerError::Storage(format!(
-                    "Failed to get object from S3: {}",
-                    e
+                    "Failed to get object from S3: {e}"
                 )));
             }
         };
@@ -270,7 +266,7 @@ impl StorageService {
             .collect()
             .await
             .map_err(|e| {
-                EventServerError::Storage(format!("Failed to read object body for key {}: {}", key, e))
+                EventServerError::Storage(format!("Failed to read object body for key {key}: {e}"))
             })?
             .into_bytes();
 
@@ -288,26 +284,26 @@ impl StorageService {
         format!("events/by-hash/{event_hash}.json")
     }
 
-    /// Upload a ZIP file to S3/MinIO and return the storage location
-    pub async fn upload_zip_file(
-        &self,
-        event_package: &EventPackage,
-        zip_data: &[u8],
-    ) -> Result<String, EventServerError> {
-        // Generate storage key for ZIP file
-        let event_hash = format!(
-            "{:x}",
-            sha2::Sha256::digest(serde_json::to_string(event_package).map_err(|e| {
-                EventServerError::Storage(format!("Failed to serialize for hash: {e}"))
-            })?)
-        );
+    // /// Upload a ZIP file to S3/MinIO and return the storage location
+    // pub async fn upload_zip_file(
+    //     &self,
+    //     event_package: &EventPackage,
+    //     zip_data: &[u8],
+    // ) -> Result<String, EventServerError> {
+    //     // Generate storage key for ZIP file
+    //     let event_hash = format!(
+    //         "{:x}",
+    //         sha2::Sha256::digest(serde_json::to_string(event_package).map_err(|e| {
+    //             EventServerError::Storage(format!("Failed to serialize for hash: {e}"))
+    //         })?)
+    //     );
 
-        let storage_key = self.config.generate_event_key(&event_hash, "zip");
+    //     let storage_key = self.config.generate_event_key(&event_hash, "zip");
 
-        // Upload ZIP file to S3/MinIO
-        self.upload_to_s3(&storage_key, zip_data, "application/zip")
-            .await
-    }
+    //     // Upload ZIP file to S3/MinIO
+    //     self.upload_to_s3(&storage_key, zip_data, "application/zip")
+    //         .await
+    // }
 
     /// Upload a raw event package (JSON) to S3/MinIO and return the storage location
     pub async fn upload_raw_event_package(

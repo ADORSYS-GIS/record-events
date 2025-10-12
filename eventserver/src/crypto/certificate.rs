@@ -214,7 +214,6 @@ impl CertificateService {
     //     let expected_signature = self.sign_certificate_data(data)?;
     //     Ok(expected_signature == signature)
     // }
-
     /// Generate a JWT token for the certificate
     fn generate_certificate_token(
         &self,
@@ -236,12 +235,14 @@ impl CertificateService {
     }
 
     /// Extract certificate ID from JWT token
-//     fn extract_certificate_id_from_token(&self, token: &str) -> Result<String, EventServerError> {
-// let device_claim = self.extract_certificate_from_token(token)?;
-
-//         Ok(device_claim.certificate_id)
-//     }
-    fn extract_certificate_from_token(&self, token: &str) -> Result<DeviceClaims, EventServerError> {
+    //     fn extract_certificate_id_from_token(&self, token: &str) -> Result<String, EventServerError> {
+    // let device_claim = self.extract_certificate_from_token(token)?;
+    //         Ok(device_claim.certificate_id)
+    //     }
+    fn extract_certificate_from_token(
+        &self,
+        token: &str,
+    ) -> Result<DeviceClaims, EventServerError> {
         let decoding_key = DecodingKey::from_secret(self.jwt_secret.as_bytes());
         let validation = Validation::new(Algorithm::HS256);
 
