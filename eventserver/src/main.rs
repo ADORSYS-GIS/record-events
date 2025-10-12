@@ -53,6 +53,7 @@ async fn main() -> anyhow::Result<()> {
     // Build application router with separate public and protected routes
     let app = Router::new()
         // Public routes (no authentication required)
+        .route("/health", get(controllers::health::health_check))
         .route("/api/health", get(controllers::health::health_check))
         .merge(controllers::openapi::routes())
         // PoW routes (public endpoints for authentication)
