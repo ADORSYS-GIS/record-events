@@ -111,11 +111,27 @@ impl ZipPackager {
         file_options: FileOptions<'_, ()>,
         include_metadata: bool,
     ) -> Result<(), EventServerError> {
-        // Since we no longer have media data or type, we only create metadata
+        // Add media file if content is present
+        if let Some(content) = &media.content {
+            // Decode the base64 content
+            let media_data = base64::decode(content).map_err(|e| {
+                EventServerError::Storage(format!("Failed to decode base64 media content: {e}"))
+            })?;
+
+            // Add the media file to the zip
+            zip.start_file(&media.name, file_options).map_err(|e| {
+                EventServerError::Storage(format!("Failed to create media file in zip: {e}"))
+            })?;
+            zip.write_all(&media_data).map_err(|e| {
+                EventServerError::Storage(format!("Failed to write media data to zip: {e}"))
+            })?;
+        }
+
         if include_metadata {
             let media_metadata = serde_json::json!({
                 "originalName": media.name,
                 "size": media.size,
+                "mediaType": media.media_type,
                 "lastModified": chrono::DateTime::from_timestamp_millis(media.last_modified as i64)
                     .unwrap_or_else(Utc::now)
                     .to_rfc3339()
