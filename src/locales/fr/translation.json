@@ -1,5 +1,5 @@
 {
-  "appTitle": "EventApp",
+  "appTitle": "Système de Vote Camerounais",
   "appSubtitle": "L'avenir du système de rapport d'événements décentralisé.",
   "applicationStatus": "État de l'application",
   "keysInitialized": "Clés initialisées.",
@@ -31,6 +31,8 @@
   "uploadImage": "Télécharger l'image",
   "cancel": "Annuler",
   "removeImage": "Supprimer l'image",
+  "edit": "Modifier",
+  "goBack": "Retour",
   "selectedFile": "Fichier sélectionné",
   "required": "obligatoire",
   "selectAnOption": "Sélectionner une option",
@@ -45,10 +47,10 @@
   "pleaseCorrectErrors": "Veuillez corriger les erreurs dans le formulaire.",
   "labelRequired": "{{labelName}} est obligatoire.",
   "labelMaxLengthExceeded": "{{labelName}} dépasse la longueur maximale de {{maxLength}}.",
-  "welcomeTitle": "Bienvenue sur EventApp !",
-  "welcomeDescription": "Votre plateforme décentralisée pour signaler les événements de manière sécurisée et efficace.",
+  "welcomeTitle": "Élection Présidentielle 2025",
+  "welcomeDescription": "Documentez les résultats électoraux de manière sécurisée et efficace.",
   "getStartedButton": "Commencer",
-  "welcomeMoreInfo": "Cliquez sur 'Commencer' pour commencer à signaler des événements.",
+  "welcomeMoreInfo": "Cliquez sur 'Commencer' pour saisir les résultats.",
   "selectCategoryTitle": "Choisissez une catégorie d'événement",
   "selectCategoryDescription": "Sélectionnez la catégorie qui décrit le mieux l'événement que vous souhaitez signaler.",
   "describeEventPlaceholder": "Décrivez votre événement ici...",
@@ -57,22 +59,20 @@
   "eventSaved": "Événement enregistré avec succès.",
   "onboarding": {
     "welcome": {
-      "title": "Bienvenue sur EventApp",
-      "description": "Votre plateforme sécurisée pour signaler les événements avec vérification blockchain"
+      "title": "Rapport de Vote du Cameroun"
     },
     "features": {
       "secure": {
-        "title": "Sécurisé et privé",
-        "description": "Vos données sont chiffrées et vérifiées sur la blockchain pour une sécurité maximale"
+        "title": "Rapport Sécurisé"
       },
       "security": "Sécurisé et privé",
-      "securityDesc": "Vos données sont chiffrées et vérifiées sur la blockchain",
+      "securityDesc": "Vos données sont chiffrées. Tous les rapports sont anonymes et ne peuvent pas être retracés jusqu'à vous.",
       "camera": "Capture photo facile",
       "cameraDesc": "Capturez et annotez les événements avec l'appareil photo de votre appareil"
     },
     "permissions": {
-      "title": "Accès à l'appareil photo",
-      "description": "Autoriser l'accès à l'appareil photo pour capturer des photos d'événements"
+      "title": "Accès Caméra",
+      "description": "Activer l'accès à la caméra pour capturer et signaler des événements avec des preuves photographiques"
     },
     "security": {
       "title": "Configuration de sécurité",
@@ -81,42 +81,50 @@
     },
     "ready": {
       "title": "Vous êtes prêt !",
-      "description": "Commencez à signaler les événements en toute sécurité"
+      "description": "Commencez à signaler les événements de manière sécurisée et efficace."
     },
     "generating": "Génération de vos clés sécurisées...",
     "generatingDesc": "Cela peut prendre quelques instants",
-    "getStarted": "Commencer",
+    "getStarted": "Terminer",
     "settingUp": "Configuration...",
-    "continue": "Continuer",
-    "skip": "Passer pour l'instant"
+    "continue": "Suivant",
+    "skip": "Passer pour l'instant",
+    "buttons": {
+      "next": "Suivant",
+      "finish": "Donner accès"
+    }
   },
   "dashboard": {
-    "subtitle": "Signalement d'événements sécurisé",
+    "subtitle": "Rapporter les résultats électoraux",
     "welcome": "Bon retour !",
-    "welcomeDesc": "Prêt à signaler un événement ?",
+    "welcomeDesc": "Prêt à rapporter les résultats des élections ?",
     "status": {
       "connected": "Connecté",
       "submitted": "Soumis",
-      "pending": "En attente"
+      "pending": "En attente",
+      "draft": "Brouillon",
+      "failed": "Échec"
     },
     "quickActions": {
       "title": "Actions rapides",
-      "traffic": "Incident de circulation",
+      "traffic": "Incident de la circulation",
       "infrastructure": "Infrastructure",
       "safety": "Problème de sécurité",
       "report": "Signaler maintenant"
     },
-    "createEvent": {
-      "title": "Créer un nouveau rapport d'événement",
-      "description": "Capturez des photos, ajoutez des détails et soumettez en toute sécurité",
-      "button": "Commencer un nouveau rapport"
+    "actions": {
+      "create": "Saisir les données d'un bureau de vote",
+      "createDescription": "",
+      "continue": "Continuer les saisies d'un bureau de vote",
+      "continueDescription": "",
+      "noDrafts": "Aucun brouillon enregistré disponible"
     },
     "recentEvents": {
-      "title": "Événements récents",
+      "title": "Rapports récents",
       "viewAll": "Voir tout",
       "empty": {
-        "title": "Aucun événement pour l'instant",
-        "description": "Créez votre premier rapport d'événement pour commencer",
+        "title": "Aucun rapport soumis pour l'instant",
+        "description": "Vos rapports soumis apparaîtront ici",
         "button": "Créer le premier événement"
       }
     },
@@ -127,23 +135,108 @@
     }
   },
   "eventForm": {
-    "title": "Nouveau rapport d'événement",
-    "subtitle": "Capturez et soumettez votre événement",
+    "title": "Nouveau Rapport",
+    "subtitle": "Saisissez et soumettez votre événement en toute sécurité",
     "fields": {
-      "title": "Détails de l'événement"
+      "title": "Détails de l'événement",
+      "description": "Fournissez des informations complètes sur l'événement"
+    },
+    "electionResults": {
+      "title": "Résultats des élections",
+      "description": "Saisissez le nombre de voix pour chaque candidat"
     },
     "media": {
-      "title": "Ajouter des médias à votre rapport",
-      "description": "Capturez une photo ou téléchargez une image pour fournir un contexte visuel"
+      "title": "Média",
+      "description": "Ajouter une photo ou une vidéo",
+      "browseFiles": "Parcourir les fichiers",
+      "takePhoto": "Prendre une photo",
+      "authTokenNotFound": "Jeton d'authentification introuvable. Veuillez d'abord terminer l'initialisation.",
+      "keyPairNotAvailable": "La paire de clés n'est pas disponible pour signer l'événement.",
+      "submissionTimeout": "Délai de soumission dépassé",
+      "offlineSubmissionMessage": "Vous êtes hors ligne. Votre événement a été enregistré comme brouillon et sera soumis lorsque vous serez de nouveau en ligne.",
+      "eventSubmitted": "Événement soumis avec succès !",
+      "eventResubmitted": "Événement soumis à nouveau avec succès !",
+      "eventSubmissionFailed": "Échec de la soumission de l'événement.",
+      "eventResubmissionFailed": "Échec de la nouvelle soumission de l'événement.",
+      "authTokenNotFoundTitle": "Authentification requise",
+      "authTokenNotFoundDescription": "Vos clés de sécurité ne sont pas disponibles. Veuillez retourner au tableau de bord et réessayer."
     }
   },
   "welcome": {
     "selectLanguage": "Sélectionnez votre langue",
     "features": {
       "secure": "Sécurisé et privé",
-      "secureDesc": "Vos données sont chiffrées et vérifiées sur la blockchain",
+      "secureDesc": "Vos données sont chiffrées",
       "easy": "Facile à utiliser",
-      "easyDesc": "Interface simple pour un signalement rapide d'événements"
+      "easyDesc": "Interface simple pour documentation rapide"
     }
-  }
+  },
+  "saveDraft": "Enregistrer le brouillon",
+  "submitting": "Soumission...",
+  "submitReport": "Soumettre les résultats",
+  "draftSaved": "Brouillon enregistré avec succès.",
+  "saveError": "Erreur lors de l'enregistrement du brouillon.",
+  "draftSelection": {
+    "title": "Choisissez un brouillon",
+    "description": "Sélectionnez un brouillon pour continuer là où vous vous êtes arrêté.",
+    "untitled": "Brouillon numéro {{count}}",
+    "lastModified": "Dernière modification",
+    "noDrafts": "Aucun brouillon trouvé",
+    "noDraftsDescription": "Vous pouvez créer un nouveau rapport depuis le tableau de bord.",
+    "goBack": "Retour au tableau de bord"
+  },
+  "updatePrompt": {
+    "offlineReady": "L'application est prête à fonctionner hors ligne.",
+    "newVersion": "Une nouvelle version est disponible.",
+    "reload": "Recharger",
+    "close": "Fermer"
+  },
+  "connectionStatus": {
+    "offline": "Hors ligne",
+    "poorConnection": "Connexion faible",
+    "4g": "4G Connecté",
+    "3g": "3G Connecté",
+    "2g": "2G Connecté",
+    "slow": "Connexion lente",
+    "connected": "Connecté",
+    "details": "Détails de la connexion",
+    "type": "Type",
+    "unknown": "Inconnu",
+    "speed": "Vitesse"
+  },
+  "themeSwitcher": {
+    "light": "Clair",
+    "dark": "Sombre",
+    "system": "Système",
+    "toggle": "Basculer le thème"
+  },
+  "loading": {
+    "securingDevice": "Veuillez patienter pendant que nous sécurisons votre appareil...",
+    "verifyingDevice": "Veuillez patienter pendant que nous vérifions votre appareil..."
+  },
+  "language": {
+    "english": "English",
+    "french": "Français"
+  },
+  "installPrompt": {
+    "title": "Installer l'app",
+    "installButton": "Installer",
+    "closeButton": "Fermer"
+  },
+  "Région - Region": "Région",
+  "La région - The region": "La région",
+  "Département - Division": "Département",
+  "Le département - The division": "Le département",
+  "Arrondissement - Subdivision": "Arrondissement",
+  "L'arrondissement - The subdivision": "L'arrondissement",
+  "Village/Quartier - Locality": "Village/Quartier",
+  "Le village ou quartier - The locality": "Le village ou quartier",
+  "Bureau de Vote - Polling Station": "Bureau de Vote",
+  "Bureau de Vote - Polling Office": "Bureau de Vote",
+  "Le bureau de vote - The polling station": "Le bureau de vote",
+  "Le bureau de vote - The polling office": "Le bureau de vote",
+  "Autre Village/Quartier - Other Locality": "Autre Village/Quartier",
+  "Autre village/quartier - Other locality": "Autre village/quartier",
+  "Votants Inscrits - Registered Voters": "Votants Inscrits",
+  "Bulletins Nuls - Void Ballots": "Bulletins Nuls"
 }

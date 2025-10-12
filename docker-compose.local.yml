@@ -1,0 +1,167 @@
+services:
+  # Backend service (Rust EventServer)
+  backend:
+    build:
+      context: ./eventserver
+      dockerfile: Dockerfile
+    container_name: eventserver-backend-local
+    ports:
+      - "8080:8080"
+    depends_on:
+      minio:
+        condition: service_healthy
+    environment:
+      # Server configuration
+      - RUST_LOG=info
+      - SERVER_HOST=0.0.0.0
+      - SERVER_PORT=8080
+      - SERVER_ADDRESS=${SERVER_ADDRESS:-http://localhost:3001}
+
+      # Storage configuration (MinIO S3-compatible storage, envconfig style)
+      - S3_ENDPOINT=http://minio:9000
+      - S3_ACCESS_KEY_ID=minioadmin
+      - S3_SECRET_ACCESS_KEY=minioadmin
+      - S3_REGION=us-east-1
+      - S3_BUCKET=eventserver-storage
+      - S3_USE_PATH_STYLE=true
+      - S3_ENABLE_SSL=false
+      - S3_UPLOAD_TIMEOUT=300
+      - S3_MAX_FILE_SIZE=104857600
+      - S3_ALLOWED_MIME_TYPES=image/jpeg,image/png,image/gif,video/mp4
+
+      # Security configuration
+      - JWT_SECRET=dummy_jwt_secret_for_development_only
+
+      # AWS credentials (MinIO compatibility, for legacy tools)
+      - AWS_ACCESS_KEY_ID=minioadmin
+      - AWS_SECRET_ACCESS_KEY=minioadmin
+    volumes:
+      # Mount source code for development (optional, comment out for production)
+      - ./eventserver/src:/app/src:ro
+      - ./eventserver/Cargo.toml:/app/Cargo.toml:ro
+      - ./eventserver/Cargo.lock:/app/Cargo.lock:ro
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped
+
+  # OpenAPI fetcher service
+  openapi-fetcher:
+    image: node:18
+    container_name: openapi-fetcher-local
+    working_dir: /app
+    command: ["node", "scripts/fetch_openapi.js"]
+    environment:
+      - EVENTSERVER_OPENAPI_URL=http://backend:8080/openapi-json
+    volumes:
+      - openapi-volume:/app
+      - ./scripts:/app/scripts:ro
+      - ./package.json:/app/package.json
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks:
+      - app-network
+
+  # MinIO service (S3-compatible storage)
+  minio:
+    image: minio/minio:latest
+    container_name: eventserver-minio-local
+    ports:
+      - "9000:9000" # MinIO API
+      - "9001:9001" # MinIO Console
+    environment:
+      - MINIO_ROOT_USER=minioadmin
+      - MINIO_ROOT_PASSWORD=minioadmin
+      - MINIO_DEFAULT_BUCKETS=eventserver-storage
+    command: server /data --console-address ":9001"
+    volumes:
+      - minio-data:/data
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped
+
+  # MinIO client for bucket initialization
+  minio-init:
+    image: minio/mc:latest
+    container_name: eventserver-minio-init-local
+    depends_on:
+      minio:
+        condition: service_healthy
+    environment:
+      - MINIO_ROOT_USER=minioadmin
+      - MINIO_ROOT_PASSWORD=minioadmin
+      - MINIO_BUCKET=eventserver-storage
+    entrypoint: >
+      /bin/sh -c "
+      mc alias set minio http://minio:9000 $$MINIO_ROOT_USER $$MINIO_ROOT_PASSWORD;
+      mc mb minio/$$MINIO_BUCKET --ignore-existing;
+      mc anonymous set public minio/$$MINIO_BUCKET;
+      echo 'MinIO bucket $$MINIO_BUCKET initialized successfully';
+      "
+    networks:
+      - app-network
+    profiles:
+      - init
+
+  # Frontend service (React + Nginx) - HTTP only
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.local
+      args:
+        OPENAPI_URL: http://host.docker.internal:8080/openapi-json
+      extra_hosts:
+        - "host.docker.internal:host-gateway"
+    container_name: eventserver-frontend-local
+    ports:
+      - "3000:80" # Map to port 3000 for local development
+    depends_on:
+      openapi-fetcher:
+        condition: service_started
+    environment:
+      # API endpoint configuration
+      - VITE_API_BASE_URL=http://localhost:3000
+      - VITE_APP_TITLE=EventServer (Local)
+      - EVENTSERVER_OPENAPI_URL=http://backend:8080/openapi-json
+    networks:
+      - app-network
+    volumes:
+      - openapi-volume:/usr/share/nginx/html
+    entrypoint: >
+      /bin/sh -c "
+        while [ ! -f /usr/share/nginx/html/openapi.json ]; do
+          echo 'Waiting for openapi.json...';
+          sleep 2;
+        done;
+        nginx -g 'daemon off;'
+      "
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  # Named volumes for persistent data
+  minio-data:
+    name: eventserver-minio-data-local
+  openapi-volume:
+    name: eventserver-openapi-volume-local

@@ -89,7 +89,7 @@ impl Default for SecurityConfig {
             jwt_secret: "dummy_jwt_secret_for_development_only".to_string(),
             certificate_validity_hours: 24,
             rate_limit_per_minute: 100,
-            pow_difficulty: 4,
+            pow_difficulty: 5,
             allowed_origins: "*".to_string(),
         }
     }

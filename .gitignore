@@ -78,3 +78,6 @@ Thumbs.db
 # Backup files
 *.bak
 *.backup
+*.stats.html
+
+stats.html

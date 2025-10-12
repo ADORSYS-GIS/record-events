@@ -1,80 +1,69 @@
 import React, { useCallback, useState, useEffect } from "react";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { BrowserRouter as Router, useNavigate } from "react-router-dom";
-
+import InstallPrompt from "./components/InstallPrompt";
+import UpdatePrompt from "./components/UpdatePrompt";
 import useAuthenticationFlow from "./hooks/useAuthenticationFlow";
+import { useInitializeApp } from "./hooks/useApp";
 import { useLabelManagement } from "./hooks/useLabelManagement";
+import { useEventHistory, LocalEvent } from "./hooks/useEventHistory";
 import { AppRoutes } from "./routes";
+import { EventPackage } from "./openapi-rq/requests/types.gen";
+import { ThemeProvider } from "./context/ThemeContext.tsx";
 
-// Create a client
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      staleTime: 1000 * 60 * 5, // 5 minutes
-    },
-  },
-});
+import { queryClient } from "./lib/queryClient";
 
 function App() {
+  useInitializeApp();
   const navigate = useNavigate();
 
-  // Use the comprehensive authentication flow
   const authStatus = useAuthenticationFlow();
-
   const { labels } = useLabelManagement();
+  const {
+    events,
+    addEvent,
+    saveDraft,
+    updateDraft,
+    removeEvent,
+    updateEventStatus,
+  } = useEventHistory();
 
-  // App state management
-  const [showWelcome, setShowWelcome] = useState(true);
-  const [showOnboarding, setShowOnboarding] = useState(false);
-  const [showDashboard, setShowDashboard] = useState(false);
-  const [showEventForm, setShowEventForm] = useState(false);
-  const [hasInitialized, setHasInitialized] = useState(false);
+  const [editingEvent, setEditingEvent] = useState<LocalEvent | undefined>(
+    undefined,
+  );
 
-  // Check if onboarding has been completed (only once on mount)
-  useEffect(() => {
-    if (!hasInitialized && !showEventForm) {
-      const onboardingCompleted = localStorage.getItem(
-        "eventApp_onboarding_completed",
-      );
-      if (onboardingCompleted === "true") {
-        setShowWelcome(false);
-        setShowOnboarding(false);
-        setShowDashboard(true);
-        setShowEventForm(false);
-        navigate("/dashboard");
-      }
-      setHasInitialized(true);
-    }
-  }, [navigate, hasInitialized, showEventForm]);
-
-  // Event handlers
   const handleGetStarted = useCallback(() => {
-    setShowWelcome(false);
-    setShowOnboarding(true);
-    setShowDashboard(false);
-    setShowEventForm(false);
     navigate("/onboarding");
   }, [navigate]);
 
   const handleOnboardingComplete = useCallback(() => {
-    setShowOnboarding(false);
-    setShowDashboard(true);
-    setShowEventForm(false);
+    localStorage.setItem("eventApp_onboarding_completed", "true");
     navigate("/dashboard");
   }, [navigate]);
 
   const handleCreateEvent = useCallback(() => {
-    setShowWelcome(false);
-    setShowOnboarding(false);
-    setShowDashboard(false);
-    setShowEventForm(true);
+    setEditingEvent(undefined);
     navigate("/event/new");
   }, [navigate]);
 
-  const handleViewHistory = useCallback(() => {
-    // TODO: Implement history view
-  }, []);
+  const handleViewEvent = (event: LocalEvent) => {
+    setEditingEvent(event);
+    navigate(`/event/edit/${event.id}`);
+  };
+
+  const handleContinueEvent = () => {
+    const drafts = events.filter((event) => event.status === "draft");
+    if (drafts.length === 1) {
+      setEditingEvent(drafts[0]);
+      navigate(`/event/edit/${drafts[0].id}`);
+    } else if (drafts.length > 1) {
+      navigate("/dashboard");
+    }
+  };
+
+  const handleSelectDraft = (draft: LocalEvent) => {
+    setEditingEvent(draft);
+    navigate(`/event/edit/${draft.id}`);
+  };
 
   const handleOpenSettings = useCallback(() => {
     // TODO: Implement settings
@@ -85,52 +74,63 @@ function App() {
   }, []);
 
   const handleGoBackToDashboard = useCallback(() => {
-    setShowWelcome(false);
-    setShowOnboarding(false);
-    setShowDashboard(true);
-    setShowEventForm(false);
     navigate("/dashboard");
   }, [navigate]);
 
-  // Loading and error states - show loading until full authentication is complete
+  const handleSaveDraft = (eventPackage: EventPackage, image?: Blob) => {
+    saveDraft(eventPackage, image);
+    navigate("/dashboard");
+  };
+
+  const handleUpdateDraft = (eventPackage: EventPackage, image?: Blob) => {
+    updateDraft(eventPackage, image);
+    navigate("/dashboard");
+  };
+
   const isLoading = authStatus.isLoading;
   const hasError = !!authStatus.error;
   const errorMessage = authStatus.error || undefined;
 
   return (
     <AppRoutes
-      showWelcome={showWelcome}
-      showOnboarding={showOnboarding}
-      showDashboard={showDashboard}
-      showEventForm={showEventForm}
       isLoading={isLoading}
       hasError={hasError}
       errorMessage={errorMessage}
       labels={labels}
       keyPair={authStatus.keyPair || undefined}
       keyStatus={authStatus.keyStatus}
-      webAuthnStatus={authStatus.webAuthnStatus}
       powStatus={authStatus.powStatus}
       authStatus={authStatus}
+      events={events}
       onGetStarted={handleGetStarted}
       onOnboardingComplete={handleOnboardingComplete}
       onCreateEvent={handleCreateEvent}
-      onViewHistory={handleViewHistory}
+      onContinueEvent={handleContinueEvent}
+      onViewEvent={handleViewEvent}
       onOpenSettings={handleOpenSettings}
+      onSelectDraft={handleSelectDraft}
       onRetry={handleRetry}
       onGoBackToDashboard={handleGoBackToDashboard}
+      addEvent={addEvent}
+      saveDraft={handleSaveDraft}
+      updateDraft={updateDraft}
+      removeEvent={removeEvent}
+      updateEventStatus={updateEventStatus}
+      editingEvent={editingEvent}
+      setEditingEvent={setEditingEvent} // Pass setEditingEvent
     />
   );
 }
 
 function AppWithRouter() {
   return (
-    <QueryClientProvider client={queryClient}>
+    <ThemeProvider>
       <Router>
         <App />
+        <UpdatePrompt />
+        <InstallPrompt />
       </Router>
-      <ReactQueryDevtools initialIsOpen={false} />
-    </QueryClientProvider>
+    </ThemeProvider>
   );
 }
 

@@ -1,5 +1,5 @@
 {
-  "appTitle": "EventApp",
+  "appTitle": "Cameroon Vote Reporting",
   "appSubtitle": "The future of decentralized event reporting.",
   "applicationStatus": "Application Status",
   "keysInitialized": "Keys Initialized.",
@@ -31,6 +31,8 @@
   "uploadImage": "Upload Image",
   "cancel": "Cancel",
   "removeImage": "Remove Image",
+  "edit": "Edit",
+  "goBack": "Go Back",
   "selectedFile": "Selected file",
   "required": "required",
   "selectAnOption": "Select an option",
@@ -46,10 +48,10 @@
   "validationError": "Please correct the errors in the form.",
   "labelRequired": "{{labelName}} is required.",
   "labelMaxLengthExceeded": "{{labelName}} exceeds maximum length of {{maxLength}}.",
-  "welcomeTitle": "Welcome to EventApp!",
-  "welcomeDescription": "Your decentralized platform for reporting events securely and efficiently.",
+  "welcomeTitle": "Presidential Election 2025",
+  "welcomeDescription": "Document electoral results securely and efficiently.",
   "getStartedButton": "Get Started",
-  "welcomeMoreInfo": "Click 'Get Started' to begin reporting events.",
+  "welcomeMoreInfo": "Click 'Get Started' to enter the results.",
   "selectCategoryDescription": "Select the category that best describes the event you wish to report.",
   "describeEventPlaceholder": "Describe your event here...",
   "describeEventHelpText": "Please provide a detailed description of the event.",
@@ -57,22 +59,20 @@
   "eventSaved": "Event saved successfully.",
   "onboarding": {
     "welcome": {
-      "title": "Welcome to EventApp",
-      "description": "Your secure platform for reporting events with blockchain verification"
+      "title": "Cameroon Vote Reporting"
     },
     "features": {
       "secure": {
-        "title": "Secure & Private",
-        "description": "Your data is encrypted and verified on the blockchain for maximum security"
+        "title": "Secure Reporting"
       },
       "security": "Secure & Private",
-      "securityDesc": "Your data is encrypted and verified on the blockchain",
+      "securityDesc": "Your data is encrypted and verified on the blockchain. All reports are anonymous and cannot be traced back to you.",
       "camera": "Easy Photo Capture",
       "cameraDesc": "Capture and annotate events with your device camera"
     },
     "permissions": {
       "title": "Camera Access",
-      "description": "Allow camera access to capture event photos"
+      "description": "Enable camera access to capture and report events with photographic evidence"
     },
     "security": {
       "title": "Security Setup",
@@ -80,24 +80,30 @@
       "completed": "Security setup completed!"
     },
     "ready": {
-      "title": "You're Ready!",
-      "description": "Start reporting events securely"
+      "title": "You're All Set!",
+      "description": "Start reporting events securely and efficiently."
     },
     "generating": "Generating your secure keys...",
     "generatingDesc": "This may take a few moments",
-    "getStarted": "Get Started",
+    "getStarted": "Finish",
     "settingUp": "Setting up...",
-    "continue": "Continue",
-    "skip": "Skip for now"
+    "continue": "Next",
+    "skip": "Skip for now",
+    "buttons": {
+      "next": "Next",
+      "finish": "Give Access"
+    }
   },
   "dashboard": {
-    "subtitle": "Secure event reporting",
+    "subtitle": "Report election results",
     "welcome": "Welcome back!",
-    "welcomeDesc": "Ready to report an event?",
+    "welcomeDesc": "Ready to report election results?",
     "status": {
       "connected": "Connected",
       "submitted": "Submitted",
-      "pending": "Pending"
+      "pending": "Pending",
+      "draft": "Draft",
+      "failed": "Failed"
     },
     "quickActions": {
       "title": "Quick Actions",
@@ -106,17 +112,19 @@
       "safety": "Safety Issue",
       "report": "Report now"
     },
-    "createEvent": {
-      "title": "Create New Event Report",
-      "description": "Capture photos, add details, and submit securely",
-      "button": "Start New Report"
+    "actions": {
+      "create": "Enter Polling Station Data",
+      "createDescription": "",
+      "continue": "Continue Data Entry",
+      "continueDescription": "",
+      "noDrafts": "No saved drafts available"
     },
     "recentEvents": {
-      "title": "Recent Events",
+      "title": "Recent Reports",
       "viewAll": "View all",
       "empty": {
-        "title": "No events yet",
-        "description": "Create your first event report to get started",
+        "title": "No report submitted yet",
+        "description": "Your submitted reports will appear here",
         "button": "Create First Event"
       }
     },
@@ -127,23 +135,108 @@
     }
   },
   "eventForm": {
-    "title": "New Event Report",
-    "subtitle": "Capture and submit your event",
+    "title": "New Report",
+    "subtitle": "Capture and submit your event securely",
     "fields": {
-      "title": "Event Details"
+      "title": "Event Details",
+      "description": "Provide comprehensive information about the event"
+    },
+    "electionResults": {
+      "title": "Election Results",
+      "description": "Enter the vote count for each candidate"
     },
     "media": {
-      "title": "Add Media to Your Report (Optional)",
-      "description": "Capture a photo or upload an image to provide visual context (optional)"
+      "title": "Media",
+      "description": "Add a photo or video",
+      "browseFiles": "Browse Files",
+      "takePhoto": "Take Photo",
+      "authTokenNotFound": "Authentication token not found. Please complete initialization first.",
+      "keyPairNotAvailable": "Key pair is not available for signing the event.",
+      "submissionTimeout": "Submission timeout",
+      "offlineSubmissionMessage": "You are offline. Your event has been saved as a draft and will be submitted when you are back online.",
+      "eventSubmitted": "Event submitted successfully!",
+      "eventResubmitted": "Event resubmitted successfully!",
+      "eventSubmissionFailed": "Event submission failed.",
+      "eventResubmissionFailed": "Event resubmission failed.",
+      "authTokenNotFoundTitle": "Authentication Required",
+      "authTokenNotFoundDescription": "Your security keys are not available. Please return to the dashboard and try again."
     }
   },
   "welcome": {
     "selectLanguage": "Select your language",
     "features": {
       "secure": "Secure & Private",
-      "secureDesc": "Your data is encrypted and blockchain verified",
+      "secureDesc": "Your data is encrypted",
       "easy": "Easy to Use",
       "easyDesc": "Simple interface for quick event reporting"
     }
-  }
+  },
+  "saveDraft": "Save Draft",
+  "submitting": "Submitting...",
+  "submitReport": "Submit Results",
+  "draftSaved": "Draft saved successfully.",
+  "saveError": "Error saving draft.",
+  "draftSelection": {
+    "title": "Choose a Draft",
+    "description": "Select a draft to continue where you left off.",
+    "untitled": "Draft {{count}}",
+    "lastModified": "Last modified",
+    "noDrafts": "No Drafts Found",
+    "noDraftsDescription": "You can create a new report from the dashboard.",
+    "goBack": "Go Back to Dashboard"
+  },
+  "updatePrompt": {
+    "offlineReady": "App is ready to work offline.",
+    "newVersion": "A new version is available.",
+    "reload": "Reload",
+    "close": "Close"
+  },
+  "connectionStatus": {
+    "offline": "Offline",
+    "poorConnection": "Poor Connection",
+    "4g": "4G Connected",
+    "3g": "3G Connected",
+    "2g": "2G Connected",
+    "slow": "Slow Connection",
+    "connected": "Connected",
+    "details": "Connection Details",
+    "type": "Type",
+    "unknown": "Unknown",
+    "speed": "Speed"
+  },
+  "themeSwitcher": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System",
+    "toggle": "Toggle theme"
+  },
+  "loading": {
+    "securingDevice": "Please wait while we secure your device...",
+    "verifyingDevice": "Please wait while we verify your device..."
+  },
+  "language": {
+    "english": "English",
+    "french": "Français"
+  },
+  "installPrompt": {
+    "title": "Install App",
+    "installButton": "Install",
+    "closeButton": "Close"
+  },
+  "Région - Region": "Region",
+  "La région - The region": "The region",
+  "Département - Division": "Division",
+  "Le département - The division": "The division",
+  "Arrondissement - Subdivision": "Subdivision",
+  "L'arrondissement - The subdivision": "The subdivision",
+  "Village/Quartier - Locality": "Locality",
+  "Le village ou quartier - The locality": "The locality",
+  "Bureau de Vote - Polling Station": "Polling Station",
+  "Bureau de Vote - Polling Office": "Polling Office",
+  "Le bureau de vote - The polling station": "The polling station",
+  "Le bureau de vote - The polling office": "The polling office",
+  "Autre Village/Quartier - Other Locality": "Other Locality",
+  "Autre village/quartier - Other locality": "Other locality",
+  "Votants Inscrits - Registered Voters": "Registered Voters",
+  "Bulletins Nuls - Void Ballots": "Void Ballots"
 }

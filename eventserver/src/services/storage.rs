@@ -8,6 +8,7 @@ use aws_sdk_s3::Client as S3Client;
 use chrono::Utc;
 use sha2::Digest;
 use std::sync::Arc;
+use tokio_stream::StreamExt;
 use tracing::{error, info};
 use uuid::Uuid;
 
@@ -18,7 +19,7 @@ use crate::types::event::EventPackage;
 /// StorageService: handles event storage in S3-compatible backends using MinIO
 #[derive(Clone)]
 pub struct StorageService {
-    config: StorageConfig,
+    pub config: StorageConfig,
     s3_client: Arc<S3Client>,
 }
 
@@ -228,6 +229,50 @@ impl StorageService {
         }
     }
 
+    /// Get an object from storage by its full key
+    pub async fn get_object_by_key(&self, key: &str) -> Result<Option<Vec<u8>>, EventServerError> {
+        info!(key = %key, "Attempting to fetch object by key");
+
+        // Fetch the object from S3
+        let res = self
+            .s3_client
+            .get_object()
+            .bucket(&self.config.bucket)
+            .key(key)
+            .send()
+            .await;
+
+        let object_output = match res {
+            Ok(output) => output,
+            Err(e) => {
+                // Check if the error is NotFound (or NoSuchKey for GetObject)
+                if let SdkError::ServiceError(service_err) = &e {
+                    if service_err.err().is_no_such_key() {
+                        info!(key = %key, "Object not found in S3");
+                        return Ok(None);
+                    }
+                }
+                // For other errors, propagate them
+                error!(key = %key, "Failed to get object from S3: {}", e.to_string());
+                return Err(EventServerError::Storage(format!(
+                    "Failed to get object from S3: {e}"
+                )));
+            }
+        };
+
+        // Read the body
+        let data = object_output
+            .body
+            .collect()
+            .await
+            .map_err(|e| {
+                EventServerError::Storage(format!("Failed to read object body for key {key}: {e}"))
+            })?
+            .into_bytes();
+
+        Ok(Some(data.to_vec()))
+    }
+
     /// Generate a storage key for an event
     fn generate_storage_key(&self, event_hash: &str, event_id: &Uuid) -> String {
         let date = Utc::now().format("%Y/%m/%d");
@@ -239,13 +284,34 @@ impl StorageService {
         format!("events/by-hash/{event_hash}.json")
     }
 
-    /// Upload a ZIP file to S3/MinIO and return the storage location
-    pub async fn upload_zip_file(
+    // /// Upload a ZIP file to S3/MinIO and return the storage location
+    // pub async fn upload_zip_file(
+    //     &self,
+    //     event_package: &EventPackage,
+    //     zip_data: &[u8],
+    // ) -> Result<String, EventServerError> {
+    //     // Generate storage key for ZIP file
+    //     let event_hash = format!(
+    //         "{:x}",
+    //         sha2::Sha256::digest(serde_json::to_string(event_package).map_err(|e| {
+    //             EventServerError::Storage(format!("Failed to serialize for hash: {e}"))
+    //         })?)
+    //     );
+
+    //     let storage_key = self.config.generate_event_key(&event_hash, "zip");
+
+    //     // Upload ZIP file to S3/MinIO
+    //     self.upload_to_s3(&storage_key, zip_data, "application/zip")
+    //         .await
+    // }
+
+    /// Upload a raw event package (JSON) to S3/MinIO and return the storage location
+    pub async fn upload_raw_event_package(
         &self,
         event_package: &EventPackage,
-        zip_data: &[u8],
+        raw_data: &[u8],
     ) -> Result<String, EventServerError> {
-        // Generate storage key for ZIP file
+        // Generate storage key for JSON file
         let event_hash = format!(
             "{:x}",
             sha2::Sha256::digest(serde_json::to_string(event_package).map_err(|e| {
@@ -253,10 +319,96 @@ impl StorageService {
             })?)
         );
 
-        let storage_key = self.config.generate_event_key(&event_hash, "zip");
+        let storage_key = self.config.generate_event_key(&event_hash, "json");
 
-        // Upload ZIP file to S3/MinIO
-        self.upload_to_s3(&storage_key, zip_data, "application/zip")
+        // Upload raw JSON file to S3/MinIO
+        self.upload_to_s3(&storage_key, raw_data, "application/json")
             .await
+    }
+
+    /// Upload media file to S3/MinIO and return the storage location
+    pub async fn upload_media_file(
+        &self,
+        event_id: &uuid::Uuid,
+        media_data: &[u8],
+        media_type: &str,
+        file_name: &str,
+    ) -> Result<String, EventServerError> {
+        // Generate storage key for media file
+        let storage_key = self.generate_media_key(event_id, file_name);
+
+        info!(
+            event_id = %event_id,
+            media_type = %media_type,
+            file_name = %file_name,
+            size = media_data.len(),
+            "Uploading media file to S3/MinIO"
+        );
+
+        // Upload media file to S3/MinIO
+        let location = self
+            .upload_to_s3(&storage_key, media_data, media_type)
+            .await?;
+
+        info!(
+            event_id = %event_id,
+            storage_location = %location,
+            "Media file uploaded successfully"
+        );
+
+        Ok(location)
+    }
+
+    /// Generate a storage key for media files
+    fn generate_media_key(&self, event_id: &uuid::Uuid, file_name: &str) -> String {
+        let now = chrono::Utc::now();
+        let file_extension = file_name.split('.').next_back().unwrap_or("bin");
+        format!(
+            "media/{}/{}/{}_{}.{}",
+            now.format("%Y"),
+            now.format("%m"),
+            event_id,
+            now.timestamp(),
+            file_extension
+        )
+    }
+    /// List all event objects in the S3 bucket
+    pub async fn list_events(&self) -> Result<Vec<String>, EventServerError> {
+        info!(
+            "Listing events from S3 bucket: bucket={}",
+            self.config.bucket
+        );
+
+        let mut event_keys = Vec::new();
+
+        let mut response = self
+            .s3_client
+            .list_objects_v2()
+            .bucket(&self.config.bucket)
+            .into_paginator()
+            .send();
+
+        while let Some(result) = response.next().await {
+            match result {
+                Ok(output) => {
+                    if let Some(objects) = output.contents() {
+                        for object in objects {
+                            if let Some(key) = object.key() {
+                                event_keys.push(key.to_string());
+                            }
+                        }
+                    }
+                }
+                Err(e) => {
+                    error!("Failed to list objects from S3/MinIO: {:?}", e);
+                    return Err(EventServerError::Storage(format!(
+                        "Failed to list objects from S3/MinIO: {e}"
+                    )));
+                }
+            }
+        }
+
+        info!("Found {} events in S3 bucket", event_keys.len());
+        Ok(event_keys)
     }
 }

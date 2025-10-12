@@ -26,10 +26,6 @@ export interface AuthenticationStatus {
   keyStatus: string;
   isKeyGenerating: boolean;
 
-  // WebAuthn status
-  webAuthnStatus: string;
-  isWebAuthnRegistering: boolean;
-
   // POW status
   powStatus: string;
   isPowComputing: boolean;
@@ -46,12 +42,11 @@ const useAuthenticationFlow = () => {
     keyPair: null,
     keyStatus: "Initializing authentication...",
     isKeyGenerating: true,
-    webAuthnStatus: "Waiting for key generation...",
-    isWebAuthnRegistering: false,
-    powStatus: "Waiting for WebAuthn registration...",
+    powStatus: "Waiting for key generation...",
     isPowComputing: false,
     devCert: null,
   });
+  const [authTrigger, setAuthTrigger] = useState(0);
 
   const hasStartedRef = useRef(false);
   const isInitializedRef = useRef(false);
@@ -106,6 +101,7 @@ const useAuthenticationFlow = () => {
   const cleanupStoredData = useCallback(() => {
     localStorage.removeItem("eventApp_keyPair");
     localStorage.removeItem("authToken");
+    setAuthTrigger((prev) => prev + 1);
   }, []);
 
   // Restore keyPair from localStorage
@@ -118,61 +114,14 @@ const useAuthenticationFlow = () => {
 
         // Validate the restored keyPair
         if (keyPair && keyPair.publicKey && keyPair.privateKey) {
-          setStatus((prev) => ({
-            ...prev,
-            keyPair,
-            keyStatus: "Keys restored from storage",
-            isKeyGenerating: false,
-          }));
           return keyPair;
-        } else {
-          localStorage.removeItem("eventApp_keyPair");
         }
+        localStorage.removeItem("eventApp_keyPair");
       }
     } catch (error) {
       localStorage.removeItem("eventApp_keyPair");
     }
     return null;
-  }, []);
-
-  // Step 2: WebAuthn Registration
-  const registerWebAuthn = useCallback(async () => {
-    try {
-      setStatus((prev) => ({
-        ...prev,
-        webAuthnStatus: "Setting up device security...",
-        isWebAuthnRegistering: true,
-      }));
-
-      // Initialize DOM elements for WebAuthn
-      await PasswordManager.initializeDOMElements();
-
-      // Get password (this triggers WebAuthn registration)
-      const password = await PasswordManager.getPassword();
-
-      if (!password) {
-        throw new Error("WebAuthn registration failed");
-      }
-
-      setStatus((prev) => ({
-        ...prev,
-        webAuthnStatus: "Device security configured successfully",
-        isWebAuthnRegistering: false,
-      }));
-
-      return password;
-    } catch (error) {
-      const errorMessage =
-        error instanceof Error ? error.message : "WebAuthn registration failed";
-      setStatus((prev) => ({
-        ...prev,
-        error: errorMessage,
-        webAuthnStatus: "Device security setup failed",
-        isWebAuthnRegistering: false,
-        isLoading: false,
-      }));
-      throw error;
-    }
   }, []);
 
   // Step 3: Proof of Work
@@ -260,13 +209,62 @@ const useAuthenticationFlow = () => {
     [challengeMutation, verifyMutation],
   );
 
-  // Check if authentication is already complete
+  const performAuthentication = useCallback(async () => {
+    // Prevent multiple concurrent runs
+    if (hasStartedRef.current) return;
+    hasStartedRef.current = true;
+
+    try {
+      // Reset status at the beginning of the flow
+      setStatus({
+        isComplete: false,
+        isLoading: true,
+        error: null,
+        keyPair: null,
+        keyStatus: "Initializing authentication...",
+        isKeyGenerating: true,
+        powStatus: "Waiting for key generation...",
+        isPowComputing: false,
+        devCert: null,
+      });
+
+      // Step 1: Generate keys
+      const keyPair = await generateKeys();
+
+      // Step 2: Perform Proof of Work
+      await performPow(keyPair.publicKey);
+
+      // All steps completed successfully
+      setStatus((prev) => ({
+        ...prev,
+        isComplete: true,
+        isLoading: false,
+      }));
+      isInitializedRef.current = true;
+    } catch (error) {
+      // Error is already set in the individual steps, just ensure loading is false
+      setStatus((prev) => ({ ...prev, isLoading: false }));
+    } finally {
+      hasStartedRef.current = false; // Allow re-running if needed
+    }
+  }, [generateKeys, performPow]);
+
+  // Simplified logout function
+  const logoutAndReauthenticate = useCallback(() => {
+    localStorage.removeItem("eventApp_keyPair");
+    localStorage.removeItem("authToken");
+    isInitializedRef.current = false;
+    performAuthentication();
+  }, [performAuthentication]);
+
+  // Check if authentication is already complete on initial mount
   useEffect(() => {
+    if (isInitializedRef.current) {
+      return;
+    }
     const authToken = localStorage.getItem("authToken");
     if (authToken) {
-      // Restore keyPair from storage
       const restoredKeyPair = restoreKeyPair();
-
       if (restoredKeyPair) {
         setStatus((prev) => ({
           ...prev,
@@ -277,60 +275,17 @@ const useAuthenticationFlow = () => {
         }));
         isInitializedRef.current = true;
         return;
-      } else {
-        // If keyPair restoration failed, clean up and restart auth flow
-        cleanupStoredData();
       }
     }
 
-    // Start authentication flow on mount (only once)
-    if (!hasStartedRef.current && !isInitializedRef.current) {
-      hasStartedRef.current = true;
-
-      const performAuthentication = async () => {
-        try {
-          setStatus((prev) => ({
-            ...prev,
-            isLoading: true,
-            error: null,
-          }));
-
-          // Step 1: Generate keys
-          const keyPair = await generateKeys();
-
-          // Step 2: Register WebAuthn
-          await registerWebAuthn();
-
-          // Step 3: Perform Proof of Work
-          await performPow(keyPair.publicKey);
-
-          // All steps completed successfully
-          setStatus((prev) => ({
-            ...prev,
-            isComplete: true,
-            isLoading: false,
-          }));
-          isInitializedRef.current = true;
-        } catch (error) {
-          // Clean up stored data on error
-          cleanupStoredData();
-          // Error is already set in the individual steps
-        }
-      };
-
-      performAuthentication();
-    }
-  }, [
-    restoreKeyPair,
-    cleanupStoredData,
-    generateKeys,
-    performPow,
-    registerWebAuthn,
-  ]); // Add all dependencies
+    // If no valid session, start the authentication flow
+    performAuthentication();
+  }, [performAuthentication, restoreKeyPair]);
 
   return {
     ...status,
-    logout: cleanupStoredData,
+    reauthenticate: performAuthentication,
+    logout: logoutAndReauthenticate,
   };
 };
 

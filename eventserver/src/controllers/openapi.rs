@@ -19,8 +19,8 @@ use crate::state::AppState;
 use crate::types::{
     api::{HealthResponse, ServiceHealthStatus},
     event::{
-        EventAnnotation, EventMedia, EventMetadata, EventPackage, EventPayload, EventSource,
-        FieldValue, MediaType, ProcessingResult,
+        EventAnnotation, EventListResponse, EventMedia, EventMetadata, EventPackage, EventPayload,
+        EventSource, FieldValue, MediaSubmissionResponse, ProcessingResult,
     },
 };
 
@@ -32,6 +32,8 @@ use crate::types::{
         event::receive_event,
         event::receive_event_package,
         event::verify_event_hash,
+        event::submit_event_media,
+        event::list_all_events,
         crate::request_pow_challenge,
         crate::verify_pow_and_issue_certificate,
     ),
@@ -40,6 +42,7 @@ use crate::types::{
             HealthResponse,
             ServiceHealthStatus,
             event::HashVerificationResponse,
+            MediaSubmissionResponse,
             EventPackage,
             EventPayload,
             ProcessingResult,
@@ -48,7 +51,7 @@ use crate::types::{
             EventMetadata,
             EventSource,
             FieldValue,
-            MediaType,
+            EventListResponse,
             PowChallenge,
             PowChallengeResponse,
             PowSolution,
@@ -121,7 +124,7 @@ async fn openapi_json() -> Response {
     use utoipa::openapi::server::ServerBuilder;
     spec.servers = Some(vec![ServerBuilder::new()
         .url(server_address)
-        .description(Some("Dynamic server address from environment"))
+        .description(Some("Dynamic server address from environment1"))
         .build()]);
 
     match serde_json::to_string_pretty(&spec) {

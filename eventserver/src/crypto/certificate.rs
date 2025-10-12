@@ -1,5 +1,5 @@
 use base64::Engine;
-use chrono::{DateTime, Duration, Utc};
+use chrono::{DateTime, Duration, TimeZone, Utc};
 use jsonwebtoken::{decode, encode, Algorithm, DecodingKey, EncodingKey, Header, Validation};
 use rand::Rng;
 use serde::{Deserialize, Serialize};
@@ -141,49 +141,51 @@ impl CertificateService {
         // Clean up expired certificates first
         self.cleanup_expired_certificates();
 
-        // Parse the token to extract certificate ID
-        let certificate_id = self.extract_certificate_id_from_token(token)?;
+        // // Parse the token to extract certificate ID
+        // let certificate_id = self.extract_certificate_id_from_token(token)?;
 
-        // Get the certificate from storage
-        let certificate = {
-            let certificates = self.certificates.lock().unwrap();
-            certificates
-                .get(&certificate_id)
-                .cloned()
-                .ok_or_else(|| EventServerError::Validation("Certificate not found".to_string()))?
-        };
+        // // Get the certificate from storage
+        // let certificate = {
+        //     let certificates = self.certificates.lock().unwrap();
+        //     certificates
+        //         .get(&certificate_id)
+        //         .cloned()
+        //         .ok_or_else(|| EventServerError::Validation("Certificate not found".to_string()))?
+        // };
 
-        // Check if certificate is expired
-        if Utc::now() > certificate.expires_at {
-            // Remove expired certificate
-            {
-                let mut certificates = self.certificates.lock().unwrap();
-                certificates.remove(&certificate_id);
-            }
-            return Err(EventServerError::Validation(
-                "Certificate has expired".to_string(),
-            ));
-        }
-
+        // // Check if certificate is expired
+        // if Utc::now() > certificate.expires_at {
+        //     // Remove expired certificate
+        //     {
+        //         let mut certificates = self.certificates.lock().unwrap();
+        //         certificates.remove(&certificate_id);
+        //     }
+        //     return Err(EventServerError::Validation(
+        //         "Certificate has expired".to_string(),
+        //     ));
+        // }
+        let certificate = self.extract_certificate_from_token(token)?;
         // Verify certificate signature
-        let cert_data = format!(
+        let _cert_data = format!(
             "{}:{}:{}:{}",
             certificate.certificate_id,
             certificate.relay_id,
             certificate.public_key,
-            certificate.expires_at.timestamp()
+            certificate.exp,
         );
 
-        if !self.verify_certificate_signature(&cert_data, &certificate.signature)? {
-            return Err(EventServerError::Validation(
-                "Invalid certificate signature".to_string(),
-            ));
-        }
+        // if !self.verify_certificate_signature(&cert_data, &certificate.signature)? {
+        //     return Err(EventServerError::Validation(
+        //         "Invalid certificate signature".to_string(),
+        //     ));
+        // }
 
         Ok(CertificateValidation {
             relay_id: certificate.relay_id,
             public_key: certificate.public_key,
-            expires_at: certificate.expires_at,
+            expires_at: Utc.timestamp_opt(certificate.exp, 0).single().ok_or(
+                EventServerError::Validation("Invalid expiration timestamp".to_string()),
+            )?,
         })
     }
 
@@ -204,15 +206,14 @@ impl CertificateService {
     }
 
     /// Verify certificate signature
-    fn verify_certificate_signature(
-        &self,
-        data: &str,
-        signature: &str,
-    ) -> Result<bool, EventServerError> {
-        let expected_signature = self.sign_certificate_data(data)?;
-        Ok(expected_signature == signature)
-    }
-
+    // fn verify_certificate_signature(
+    //     &self,
+    //     data: &str,
+    //     signature: &str,
+    // ) -> Result<bool, EventServerError> {
+    //     let expected_signature = self.sign_certificate_data(data)?;
+    //     Ok(expected_signature == signature)
+    // }
     /// Generate a JWT token for the certificate
     fn generate_certificate_token(
         &self,
@@ -234,16 +235,22 @@ impl CertificateService {
     }
 
     /// Extract certificate ID from JWT token
-    fn extract_certificate_id_from_token(&self, token: &str) -> Result<String, EventServerError> {
+    //     fn extract_certificate_id_from_token(&self, token: &str) -> Result<String, EventServerError> {
+    // let device_claim = self.extract_certificate_from_token(token)?;
+    //         Ok(device_claim.certificate_id)
+    //     }
+    fn extract_certificate_from_token(
+        &self,
+        token: &str,
+    ) -> Result<DeviceClaims, EventServerError> {
         let decoding_key = DecodingKey::from_secret(self.jwt_secret.as_bytes());
         let validation = Validation::new(Algorithm::HS256);
 
         let token_data = decode::<DeviceClaims>(token, &decoding_key, &validation)
             .map_err(|e| EventServerError::Validation(format!("Invalid JWT token: {e}")))?;
 
-        Ok(token_data.claims.certificate_id)
+        Ok(token_data.claims)
     }
-
     /// Clean up expired certificates from memory
     fn cleanup_expired_certificates(&self) {
         let now = Utc::now();
